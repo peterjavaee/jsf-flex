@@ -1,0 +1,10 @@
+<mx:Label
+
+	&label;
+>
+	
+<!-- Child Component -->
+
+</mx:Label>
+
+<!-- Sibling Component -->

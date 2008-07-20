@@ -1,0 +1,29 @@
+<mx:DateValidator
+	
+	${allowedFormatChars}
+    ${dayListener}
+    ${dayProperty}
+    ${daySource}
+    ${formatError}
+    ${inputFormat}
+    ${invalidCharError}
+    ${monthListener}
+    ${monthProperty}
+    ${monthSource}
+    ${validateAsString}
+    ${wrongDayError}
+    ${wrongLengthError}
+    ${wrongMonthError}
+    ${wrongYearError}
+    ${yearListener}
+    ${yearProperty}
+    ${yearSource}
+	
+	&validator;
+>
+
+<!-- Child Component -->
+
+</mx:DateValidator>
+
+<!-- Sibling Component -->

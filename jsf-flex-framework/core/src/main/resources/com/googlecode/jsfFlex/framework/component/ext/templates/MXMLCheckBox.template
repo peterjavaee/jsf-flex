@@ -1,0 +1,10 @@
+<mx:CheckBox
+	
+    &button;
+>
+
+<!-- Child Component -->
+
+</mx:CheckBox>
+
+<!-- Sibling Component -->

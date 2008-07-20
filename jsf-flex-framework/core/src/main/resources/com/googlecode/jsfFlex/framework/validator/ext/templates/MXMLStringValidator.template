@@ -1,0 +1,15 @@
+<mx:StringValidator
+	
+	${maxLength}
+    ${minLength}
+    ${tooLongError}
+    ${tooShortError}
+	
+	&validator;
+>
+
+<!-- Child Component -->
+
+</mx:StringValidator>
+
+<!-- Sibling Component -->

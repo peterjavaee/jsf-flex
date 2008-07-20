@@ -1,0 +1,10 @@
+<mx:ToggleButtonBar
+	
+	&toggleButtonBar;
+>
+
+<!-- Child Component -->
+
+</mx:ToggleButtonBar>
+
+<!-- Sibling Component -->

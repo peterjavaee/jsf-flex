@@ -1,0 +1,304 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+ 
+/**
+ * @author Ji Hoon Kim
+ */
+package com.googlecode.jsfFlex.communication
+{
+	import flash.external.ExternalInterface;
+	import flash.events.Event;
+	import flash.net.URLVariables;
+	import flash.net.URLLoader;
+	import flash.net.URLRequest;
+	import flash.utils.getQualifiedClassName;
+	
+	import mx.collections.ArrayCollection;
+	import mx.core.UIComponent;
+	
+	public class ComponentValueMapper extends JavaScriptLogger{
+		
+		private static var _instance:ComponentValueMapper;
+		private static var _compValueMapper:XML;
+		private static var _refApp:UIComponent;
+		
+		private static const LINE_FEED:String = "\n";
+		private static const LINE_FEED_ESCAPER:RegExp = /LINE_FEED/g;
+		
+		private static const COMP_VALUE_MAPPER:String = "swf/componentValueMapper.xml";
+		
+		public static function getInstance(refApp:UIComponent):ComponentValueMapper{
+			if(_instance == null){
+				_instance = new ComponentValueMapper();
+				_refApp = refApp;
+			}
+			return _instance;
+		}
+		
+		public function initialize():void {
+			var _loader:URLLoader = new URLLoader();
+			_loader.addEventListener(Event.COMPLETE, loadedHandler);
+			try{
+				_loader.load(new URLRequest(COMP_VALUE_MAPPER));
+			}catch(loadingError:Error){
+				trace("Failure in loading of the componentValueMapper.xml file");
+			}
+			
+			try{
+				ExternalInterface.addCallback("getCompValue", this.getCompValue);
+			}catch(callBackError:Error){
+				trace("Failure in setting up of getCompValue callBack");
+			}
+			
+		}
+		
+		private static function loadedHandler(event:Event):void {
+			var _loader:URLLoader = URLLoader(event.target);
+			_loader.removeEventListener(Event.COMPLETE, loadedHandler);
+			_compValueMapper = new XML(_loader.data);
+		}
+		
+		public function populateInitValues(appInfo:Object):void {
+			var objectCollection:ArrayCollection = new ArrayCollection(appInfo.arrayOfIds);
+			var attributeCollection:ArrayCollection;
+			
+			var currId:String;
+			var currAttr:String;
+			var currValue:Object;
+			var currValueString:String;
+			var objectRef:Object;
+			
+			for each (var currObject:Object in objectCollection){
+				
+				if(currObject.id == null || currObject.initValues == null){
+					continue;
+				}
+				
+				currId = currObject.id as String;
+				attributeCollection = new ArrayCollection(currObject.initValues);
+				for each (var currAttrObject:Object in attributeCollection){
+					
+					if(currAttrObject.attribute != null && (currValue = currAttrObject.value) != null && currAttrObject.attribute is String){
+						
+						currAttr = currAttrObject.attribute as String;
+						
+						if(currValue is String){
+							
+							currValueString = currValue as String;
+							if(currValueString != "null"){
+								objectRef = _refApp[currId];
+								currValueString = unEscapeCharacters(currValueString);
+								objectRef[currAttr] = currValueString;
+							}
+							
+						}else{
+							
+							objectRef = _refApp[currId];
+							objectRef[currAttr] = currValue;
+							
+						}
+					}
+				}
+			}
+			
+		}
+		
+		private function unEscapeCharacters(toUnEscape:String):String {
+			//TODO : implement this better later
+			var toReturn:String = toUnEscape.replace(LINE_FEED_ESCAPER, LINE_FEED);
+			var toEscape:URLVariables = new URLVariables();
+			var toDecode:String = "value=" + toReturn;
+			toEscape.decode(toDecode);
+			return toEscape.value;
+		}
+		
+		public function getCompValue(id:String):Array {
+			if(id == null){
+				return null;
+			}
+			
+			var objectRef:Object = _refApp[id];
+			var className:String = getQualifiedClassName(objectRef);
+			if(className == null){
+				return null;
+			}
+			
+			var classInfo:XMLList = getClassInfo(className);
+			if(classInfo == null){
+				return null;
+			}
+			
+			var classInfoNodes:XMLList = classInfo.node_list.node;
+			if(classInfoNodes == null){
+				return null;
+			}
+			
+			var attributeValueObject:Object;
+			var valueToReturn:Array = new Array();
+			var classInfoNodeAttributes:XMLList;
+			
+			for each (var classInfoNode:XML in classInfoNodes){
+				classInfoNodeAttributes = classInfoNode.attribute_list.attribute;
+				
+				for each (var attribute:XML in classInfoNodeAttributes){
+					if(attribute.name.toString() == "VALUE"){
+						
+						attributeValueObject = getAttributeValue(attribute, objectRef);
+						
+						if(attributeValueObject.value == null){
+							continue;
+						}
+						
+						valueToReturn.push(attributeValueObject);
+					}
+				}
+			}
+			
+			return valueToReturn;
+		}
+		
+		private function getAttributeValue(attribute:XML, objectRef:Object):Object{
+			
+			var attributeValue:String;
+			var attributeId:String;
+			
+			var toAppend:String;
+			var isDynamic:Boolean;
+			var isNested:Boolean;
+			
+			var attributeCheck:XMLList;
+			var nestedObjects:XMLList;
+			
+			attributeCheck = attribute.value.(hasOwnProperty("@append"));
+			toAppend = (attributeCheck != null && attributeCheck.length() > 0) ? attribute.value.@append.toString() : new String();
+			
+			attributeCheck = attribute.value.(hasOwnProperty("@nested"));
+			isNested = (attributeCheck != null && attributeCheck.length() > 0 && attribute.value.@nested.toString() == "true");
+			attributeCheck = attribute.value.(hasOwnProperty("@dynamic"));
+			isDynamic = (attributeCheck != null && attributeCheck.length() > 0 && attribute.value.@dynamic.toString() == "true");
+			
+			if(isNested){
+				/*
+				 * TODO : consider implementing it better later [you knew this was going to be typed, didn't you???] 
+				 * For certain cases [i.e. for RadioButton], one needs to access a reference to an object/property
+				 * to get relevant information. The nested XML element symbolizes the object/property and the
+				 * last element will represent the relevant value that one desires for.
+				 */
+				nestedObjects = attribute.value.nested;
+				for(var k:uint=0; k < nestedObjects.length(); k++){
+					if( k == (nestedObjects.length() - 1) ){
+						//now set the attribute
+						attributeId = nestedObjects[k].toString();
+						attributeValue = objectRef[attributeId];
+						if(toAppend != null && toAppend.length > 0){
+							attributeValue += toAppend;
+						}
+						break;
+					}
+					objectRef = objectRef[nestedObjects[k].toString()];
+					if(objectRef == null){
+						attributeId = null;
+						attributeValue = null;
+						trace("Failure in getting access to reference " + nestedObjects[k].toString());
+						break;
+					}
+				}
+			}else{
+				attributeId = attribute.value.toString();
+				attributeValue = isDynamic ? objectRef[attributeId] : attributeId;
+				if(toAppend != null && toAppend.length > 0){
+					attributeValue += toAppend;
+				}
+			}
+			
+			return {id: attributeId, value: attributeValue};
+		}
+		
+		public function getJSON(appInfo:Object):Array {
+			var retVal:Array = new Array();
+			var objectCollection:ArrayCollection = new ArrayCollection(appInfo.arrayOfIds);
+			var inspectedObject:Object;
+			
+			for each (var currObject:Object in objectCollection){
+				inspectedObject = objectInfo(appInfo.appId, currObject.id as String);
+				if(inspectedObject != null){
+					retVal.push(inspectedObject);
+				}
+			}
+			return retVal;
+		}
+		
+		private function objectInfo(_appId:String, objectToGet:String):Object {
+			if(_appId == null || objectToGet == null){
+				return null;
+			}
+			
+			var objectRef:Object = _refApp[objectToGet];
+			var className:String = getQualifiedClassName(objectRef);
+			if(className == null){
+				return null;
+			}
+			
+			var classInfo:XMLList = getClassInfo(className);
+			if(classInfo == null){
+				return null;
+			}
+			
+			var classInfoNodes:XMLList = classInfo.node_list.node;
+			if(classInfoNodes == null){
+				return null;
+			}
+			
+			var nodes:Array = new Array();
+			var attributes:Array;
+			var classInfoNodeAttributes:XMLList;
+			var attributeValueObject:Object;
+			
+			for each (var classInfoNode:XML in classInfoNodes){
+				classInfoNodeAttributes = classInfoNode.attribute_list.attribute;
+				if(classInfoNodeAttributes == null){
+					continue;
+				}
+				
+				attributes = new Array();
+				
+				for each (var classInfoNodeAttribute:XML in classInfoNodeAttributes){
+					
+					attributeValueObject = getAttributeValue(classInfoNodeAttribute, objectRef);
+					
+					if(attributeValueObject.value == null){
+						continue;
+					}
+					
+					attributes.push({attribute: classInfoNodeAttribute.name.toString(), value: attributeValueObject.value});
+					
+				}
+				nodes.push({htmlType: classInfoNode.html_type.toString(), attributeArray: attributes});
+			}
+			
+			return nodes;
+		}
+		
+		private function getClassInfo(className:String):XMLList {
+			return _compValueMapper.class_info.(class_name.indexOf(className) == 0);
+		}
+		
+	}
+	
+}

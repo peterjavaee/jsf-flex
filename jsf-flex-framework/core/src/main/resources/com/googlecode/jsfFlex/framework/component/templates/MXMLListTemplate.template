@@ -1,0 +1,22 @@
+	${editable}
+    ${editedItemPosition}
+    ${editorDataField}
+    ${editorHeightOffset}
+    ${editorUsesEnterKey}
+    ${editorWidthOffset}
+    ${editorXOffset}
+    ${editorYOffset}
+    ${imeMode}
+    ${itemEditor}
+    ${itemEditorInstance}
+    ${rendererIsEditor}
+    
+    ${backgroundDisabledColor}
+    
+    ${itemEditBegin}
+    ${itemEditEnd}
+    ${itemEditBeginning}
+    ${itemFocusIn}
+    ${itemFocusOut}
+    
+    &listBase;

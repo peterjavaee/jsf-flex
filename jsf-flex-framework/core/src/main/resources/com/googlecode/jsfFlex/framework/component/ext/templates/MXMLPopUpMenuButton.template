@@ -1,0 +1,16 @@
+<mx:PopUpMenuButton
+	
+	${dataDescriptor}
+    ${dataProvider}
+    ${labelField}
+    ${labelFunction}
+    ${showRoot}
+	
+	&popUpbutton;
+>
+
+<!-- Child Component -->
+
+</mx:PopUpMenuButton>
+
+<!-- Sibling Component -->

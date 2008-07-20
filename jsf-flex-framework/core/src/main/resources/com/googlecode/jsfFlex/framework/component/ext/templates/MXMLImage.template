@@ -1,0 +1,12 @@
+<mx:Image
+	
+	${dataChange}
+	
+    &swfLoader;
+>
+
+<!-- Child Component -->
+
+</mx:Image>
+
+<!-- Sibling Component -->

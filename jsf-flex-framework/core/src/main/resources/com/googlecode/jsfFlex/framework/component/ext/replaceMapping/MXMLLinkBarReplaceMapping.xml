@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<replace-mapping>
+	<replace>
+		<replace-token>rollOverColor</replace-token>
+		<replace-token>selectionColor</replace-token>
+		<replace-token byAttribute="true">separatorColor</replace-token>
+		<replace-token byAttribute="true">separatorSkin</replace-token>
+		<replace-token byAttribute="true">separatorWidth</replace-token>
+		<replace-token>textRollOverColor</replace-token>
+		<replace-token>textSelectedColor</replace-token>
+	</replace>
+</replace-mapping>

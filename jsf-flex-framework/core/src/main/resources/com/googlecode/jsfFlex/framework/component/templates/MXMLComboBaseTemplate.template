@@ -1,0 +1,17 @@
+	${dataProvider}
+    ${editable}
+    ${imeMode}
+    ${restrict}
+    ${selectedIndex}
+    ${selectedItem}
+    
+    ${disabledSkin}
+    ${downSkin}
+    ${editableDisabledSkin}
+    ${editableDownSkin}
+    ${editableOverSkin}
+    ${editableUpSkin}
+    ${overSkin}
+    ${upSkin}
+    
+	&base;

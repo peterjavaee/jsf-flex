@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<replace-mapping>
+	<replace>
+		<replace-token byAttribute="true">conversion</replace-token>
+		<replace-token>direction</replace-token>
+		<replace-token byAttribute="true">indeterminate</replace-token>
+		<replace-token>label</replace-token>
+		<replace-token>labelPlacement</replace-token>
+		<replace-token>maximum</replace-token>
+		<replace-token>minimum</replace-token>
+		<replace-token byAttribute="true">mode</replace-token>
+		<replace-token>source</replace-token>
+		<replace-token>barColor</replace-token>
+		<replace-token byAttribute="true">barSkin</replace-token>
+		<replace-token>borderColor</replace-token>
+		<replace-token>color</replace-token>
+		<replace-token>disabledColor</replace-token>
+		<replace-token>fontAntiAliasType</replace-token>
+		<replace-token>fontFamily</replace-token>
+		<replace-token>fontGridFitType</replace-token>
+		<replace-token>fontSharpness</replace-token>
+		<replace-token>fontSize</replace-token>
+		<replace-token>fontThickness</replace-token>
+		<replace-token>fontStyle</replace-token>
+		<replace-token>fontWeight</replace-token>
+		<replace-token>horizontalGap</replace-token>
+		<replace-token byAttribute="true">indeterminateSkin</replace-token>
+		<replace-token byAttribute="true">labelWidth</replace-token>
+		<replace-token>leading</replace-token>
+		<replace-token>paddingLeft</replace-token>
+		<replace-token>paddingRight</replace-token>
+		<replace-token>textAlign</replace-token>
+		<replace-token>textDecoration</replace-token>
+		<replace-token>textIndent</replace-token>
+		<replace-token>themeColor</replace-token>
+		<replace-token>trackColors</replace-token>
+		<replace-token byAttribute="true">trackHeight</replace-token>
+		<replace-token>trackSkin</replace-token>
+		<replace-token>verticalGap</replace-token>
+		<replace-token>complete</replace-token>
+		<replace-token>hide</replace-token>
+		<replace-token>progress</replace-token>
+		<replace-token>show</replace-token>
+		<replace-token>completeEffect</replace-token>
+	</replace>
+</replace-mapping>

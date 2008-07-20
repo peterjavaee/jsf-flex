@@ -1,0 +1,34 @@
+<mx:TextArea
+    ${condenseWhite}
+    ${data}
+    ${displayAsPassword}
+    ${editable}
+    ${horizontalScrollPolicy}
+    ${horizontalScrollPosition}
+    ${imeMode}
+    ${listData}
+    ${maxChars}
+    ${restrict}
+    ${selectionBeginIndex}
+    ${selectionEndIndex}
+    ${styleSheet}
+    ${verticalScrollPolicy}
+    ${verticalScrollPosition}
+    ${wordWrap}
+    
+    ${disabledColor}
+    ${focusAlpha}
+    ${focusRoundedCorners}
+    ${paddingLeft}
+    ${paddingRight}
+    
+    ${change}
+	
+	&scrollControlBase;
+>
+	
+<!-- Child Component -->
+
+</mx:TextArea>
+
+<!-- Sibling Component -->

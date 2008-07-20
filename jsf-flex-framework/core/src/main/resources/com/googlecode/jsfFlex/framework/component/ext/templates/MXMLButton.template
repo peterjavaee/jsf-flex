@@ -1,0 +1,10 @@
+<mx:Button
+	
+    &button;
+>
+
+<!-- Child Component -->
+
+</mx:Button>
+
+<!-- Sibling Component -->

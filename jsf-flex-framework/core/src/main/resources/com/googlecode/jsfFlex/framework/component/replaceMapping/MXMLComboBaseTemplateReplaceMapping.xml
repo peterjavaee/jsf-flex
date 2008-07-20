@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<replace-mapping>
+	<replace>
+		<replace-token>dataProvider</replace-token>
+		<replace-token>editable</replace-token>
+		<replace-token>imeMode</replace-token>
+		<replace-token>restrict</replace-token>
+		<replace-token>selectedIndex</replace-token>
+		<replace-token>selectedItem</replace-token>
+		<replace-token>disabledSkin</replace-token>
+		<replace-token>downSkin</replace-token>
+		<replace-token>editableDisabledSkin</replace-token>
+		<replace-token>editableDownSkin</replace-token>
+		<replace-token>editableOverSkin</replace-token>
+		<replace-token>editableUpSkin</replace-token>
+		<replace-token>overSkin</replace-token>
+		<replace-token>upSkin</replace-token>
+	</replace>
+</replace-mapping>

@@ -1,0 +1,24 @@
+<mx:CreditCardValidator
+	
+	${allowedFormatChars}
+    ${cardNumberListener}
+    ${cardNumberProperty}
+    ${cardNumberSource}
+    ${cardTypeListener}
+    ${cardTypeProperty}
+    ${cardTypeSource}
+    ${invalidCharError}
+    ${invalidNumberError}
+    ${noNumError}
+    ${noTypeError}
+    ${wrongLengthError}
+    ${wrongTypeError}
+	
+	&validator;
+>
+
+<!-- Child Component -->
+
+</mx:CreditCardValidator>
+
+<!-- Sibling Component -->

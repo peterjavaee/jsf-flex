@@ -1,0 +1,104 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package com.googlecode.jsfFlex.framework.context;
+
+import java.util.Map;
+
+import com.googlecode.jsfFlex.framework.tasks._CommonTaskRunner;
+import com.googlecode.jsfFlex.framework.tasks._FlexTaskRunner;
+import com.googlecode.jsfFlex.framework.util._FileManipulator;
+
+/**
+ * @author Ji Hoon Kim
+ */
+public abstract class MxmlContext {
+	
+	public abstract boolean isProductionEnv();
+	
+	public abstract void setProductionEnv(boolean productionEnv);
+	
+	public abstract boolean isSimplySWF();
+	
+	public abstract void setSimplySWF(boolean simplySWF);
+	
+	public abstract Map getApplicationIdValueMap();
+	
+	public abstract void setApplicationIdValueMap(Map applicationIdValueMap);
+	
+	public abstract String getCurrMxml();
+	
+	public abstract void setCurrMxml(String currMxml);
+	
+	public abstract String getFlexSDKPath();
+	
+	public abstract void setFlexSDKPath(String flexSDKPath);
+	
+	public abstract String getMxmlPath();
+	
+	public abstract void setMxmlPath(String mxmlPath);
+	
+	public abstract String getPreMxmlPath();
+	
+	public abstract void setPreMxmlPath(String preMxmlPath);
+	
+	public abstract Map getPreMxmlCompMap();
+	
+	public abstract void setPreMxmlCompMap(Map preMxmlCompMap);
+	
+	public abstract String getSwfBasePath();
+	
+	public abstract void setSwfBasePath(String swfBasePath);
+	
+	public abstract String getSwfPath();
+	
+	public abstract void setSwfPath(String swfPath);
+	
+	public abstract String getSwfWebPath();
+	
+	public abstract void setSwfWebPath(String swfWebPath);
+	
+	public abstract void initRunners();
+	
+	public abstract void initRunners(ClassLoader loader);
+	
+	public abstract _CommonTaskRunner getCommonRunner();
+	
+	public abstract _FileManipulator getFileManipulator();
+	
+	public abstract _FlexTaskRunner getFlexRunner();
+	
+	private static ThreadLocal _currentInstance = new ThreadLocal()
+    {
+        protected Object initialValue()
+        {
+            return null;
+        }
+    };
+
+    public static MxmlContext getCurrentInstance()
+    {
+        return (MxmlContext)_currentInstance.get();
+    }
+
+    protected static void setCurrentInstance(MxmlContext context)
+    {
+    	_currentInstance.set(context);
+    }
+
+}

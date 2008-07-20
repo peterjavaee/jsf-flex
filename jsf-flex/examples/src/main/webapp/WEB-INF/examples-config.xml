@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE faces-config PUBLIC
+  "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.0//EN"
+  "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+<faces-config>
+  
+  <!-- managed bean for mxml -->
+  <managed-bean>
+    <managed-bean-name>mxmlBean</managed-bean-name>
+    <managed-bean-class>com.googlecode.jsfFlex.mxml.MXMLBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  
+  <!-- navigational rules for mxmlcomponent -->
+  <navigation-rule>
+    <from-view-id>/mxmlSimple.jsf</from-view-id>
+    <navigation-case>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/mxmlSimple.jsf</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <!-- navigational rules for mxmlcomponent end -->
+  
+  <!-- navigational rules for mxmlcomponent -->
+  <navigation-rule>
+    <from-view-id>/mxmlExample.jsf</from-view-id>
+    <navigation-case>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/mxmlExample.jsf</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <!-- navigational rules for mxmlcomponent end -->
+
+</faces-config>

@@ -1,0 +1,10 @@
+	${direction}
+    ${tileHeight}
+    ${tileWidth}
+
+    ${horizontalAlign}
+    ${horizontalGap}
+    ${verticalAlign}
+    ${verticalGap}
+    
+    &container;

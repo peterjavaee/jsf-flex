@@ -1,0 +1,14 @@
+<mx:HRule
+	
+    ${strokeColor}
+    ${shadowColor}
+    ${strokeWidth}
+	
+	&base;
+>
+
+<!-- Child Component -->
+
+</mx:HRule>
+
+<!-- Sibling Component -->

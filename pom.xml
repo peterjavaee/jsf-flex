@@ -1,0 +1,28 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.googlecode.jsf-flex</groupId>
+  <artifactId>jsf-flex-build-project</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>JSF-Flex Build Project</name>
+  <url>http://code.google.com/p/jsf-flex/</url>
+  
+  <scm>
+    <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk</connection>
+    <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk</developerConnection>
+  </scm>
+  
+  <modules>
+    <module>jsf-flex</module>
+    <module>jsf-flex-shared</module>
+    <module>jsf-flex-framework</module>
+    <module>jsf-flex-build-plugIn</module>
+  </modules>
+  
+  <build>
+    <defaultGoal>install</defaultGoal>
+  </build>
+  
+</project>
+

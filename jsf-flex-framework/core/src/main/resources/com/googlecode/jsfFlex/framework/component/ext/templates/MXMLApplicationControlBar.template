@@ -1,0 +1,14 @@
+<mx:ApplicationControlBar
+    ${dock}
+    
+    ${fillAlphas}
+    ${fillColors}
+	
+	&box;
+>
+
+<!-- Child Component -->
+
+</mx:ApplicationControlBar>
+
+<!-- Sibling Component -->

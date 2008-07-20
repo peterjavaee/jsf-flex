@@ -1,0 +1,10 @@
+<mx:ButtonBar
+	
+	&buttonBar;
+>
+
+<!-- Child Component -->
+
+</mx:ButtonBar>
+
+<!-- Sibling Component -->

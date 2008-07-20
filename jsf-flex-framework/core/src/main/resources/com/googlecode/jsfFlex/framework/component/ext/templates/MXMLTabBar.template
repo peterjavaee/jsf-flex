@@ -1,0 +1,16 @@
+<mx:TabBar
+	${firstTabStyleName}
+    ${lastTabStyleName}
+    ${selectedTabTextStyleName}
+    ${tabHeight}
+    ${tabStyleName}
+    ${tabWidth}
+    
+    &toggleButtonBar;
+>
+
+<!-- Child Component -->
+
+</mx:TabBar>
+
+<!-- Sibling Component -->

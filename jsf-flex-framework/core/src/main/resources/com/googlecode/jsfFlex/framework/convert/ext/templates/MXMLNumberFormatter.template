@@ -1,0 +1,19 @@
+<mx:NumberFormatter
+    
+    ${decimalSeparatorFrom}
+    ${decimalSeparatorTo}
+    ${precision}
+    ${rounding}
+    ${thousandsSeparatorFrom}
+    ${thousandsSeparatorTo}
+    ${useNegativeSign}
+    ${useThousandsSeparator}
+    
+	&formatter;
+>
+
+<!-- Child Component -->
+
+</mx:NumberFormatter>
+
+<!-- Sibling Component -->

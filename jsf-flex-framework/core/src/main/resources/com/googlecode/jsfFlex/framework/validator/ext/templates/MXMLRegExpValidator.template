@@ -1,0 +1,15 @@
+<mx:RegExpValidator
+	
+	${expression}
+    ${flags}
+    ${noExpressionError}
+    ${noMatchError}
+	
+	&validator;
+>
+
+<!-- Child Component -->
+
+</mx:RegExpValidator>
+
+<!-- Sibling Component -->

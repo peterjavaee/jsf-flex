@@ -1,0 +1,29 @@
+	${direction}
+    ${lineScrollSize}
+    ${maxScrollPosition}
+    ${minScrollPosition}
+    ${pageScrollSize}
+    ${pageSize}
+    ${scrollPosition}
+
+    ${borderColor}
+    ${cornerRadius}
+    ${downArrowDisabledSkin}
+    ${downArrowDownSkin}
+    ${downArrowOverSkin}
+    ${downArrowUpSkin}
+    ${fillAlphas}
+    ${fillColors}
+    ${highlightAlphas}
+    ${thumbDownSkin}
+    ${thumbIcon}
+    ${thumbOverSkin}
+    ${thumbUpSkin}
+    ${trackColors}
+    ${trackSkin}
+    ${upArrowDisabledSkin}
+    ${upArrowDownSkin}
+    ${upArrowOverSkin}
+    ${upArrowUpSkin}
+
+	&base;

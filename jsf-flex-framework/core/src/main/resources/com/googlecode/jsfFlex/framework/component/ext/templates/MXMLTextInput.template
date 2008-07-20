@@ -1,0 +1,58 @@
+<mx:TextInput 
+    ${condenseWhite}
+    ${data}
+    ${displayAsPassword}
+    ${editable}
+    ${horizontalScrollPosition}
+    ${imeMode}
+    ${listData}
+    ${maxChars}
+    ${restrict}
+    ${selectionBeginIndex}
+    ${selectionEndIndex}
+    
+    ${backgroundAlpha}
+    ${backgroundColor}
+    ${backgroundImage}
+    ${backgroundSize}
+    ${borderColor}
+    ${borderSides}
+    ${borderSkin}
+    ${borderStyle}
+    ${borderThickness}
+    ${color}
+    ${cornerRadius}
+    ${disabledColor}
+    ${dropShadowColor}
+    ${dropShadowEnabled}
+    ${focusAlpha}
+    ${focusRoundedCorners}
+    ${fontAntiAliasType}
+    ${fontFamily}
+    ${fontGridFitType}
+    ${fontSharpness}
+    ${fontSize}
+    ${fontStyle}
+    ${fontThickness}
+    ${fontWeight}
+    ${paddingLeft}
+    ${paddingRight}
+    ${shadowDirection}
+    ${shadowDistance}
+    ${textAlign}
+    ${textDecoration}
+    ${textIndent}
+
+    ${change}
+    ${dataChange}
+    ${enter}
+    ${textInput}
+
+	&base;
+>
+
+<!-- Child Component -->
+
+</mx:TextInput>
+
+<!-- Sibling Component -->

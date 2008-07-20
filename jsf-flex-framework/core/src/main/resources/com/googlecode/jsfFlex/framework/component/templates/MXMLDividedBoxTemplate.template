@@ -1,0 +1,16 @@
+	${liveDragging}
+    ${resizeToContent}
+    
+    ${dividerAffordance}
+    ${dividerAlpha}
+    ${dividerColor}
+    ${dividerSkin}
+    ${dividerThickness}
+    ${horizontalDividerCursor}
+    ${verticalDividerCursor}
+    
+    ${dividerPress}
+    ${dividerDrag}
+    ${dividerRelease}
+    
+    &box;

@@ -1,0 +1,10 @@
+<mx:Tile
+	
+	&tile;
+>
+
+<!-- Child Component -->
+
+</mx:Tile>
+
+<!-- Sibling Component -->

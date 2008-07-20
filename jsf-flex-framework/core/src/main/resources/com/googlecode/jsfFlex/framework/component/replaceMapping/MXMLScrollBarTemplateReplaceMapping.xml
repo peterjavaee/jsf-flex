@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<replace-mapping>
+	<replace>
+		<replace-token>direction</replace-token>
+		<replace-token>lineScrollSize</replace-token>
+		<replace-token>maxScrollPosition</replace-token>
+		<replace-token>minScrollPosition</replace-token>
+		<replace-token>pageScrollSize</replace-token>
+		<replace-token>pageSize</replace-token>
+		<replace-token>scrollPosition</replace-token>
+		<replace-token>borderColor</replace-token>
+		<replace-token>cornerRadius</replace-token>
+		<replace-token>downArrowDisabledSkin</replace-token>
+		<replace-token>downArrowDownSkin</replace-token>
+		<replace-token>downArrowOverSkin</replace-token>
+		<replace-token>downArrowUpSkin</replace-token>
+		<replace-token>fillAlphas</replace-token>
+		<replace-token>fillColors</replace-token>
+		<replace-token>highlightAlphas</replace-token>
+		<replace-token>thumbDownSkin</replace-token>
+		<replace-token>thumbIcon</replace-token>
+		<replace-token>thumbOverSkin</replace-token>
+		<replace-token>thumbUpSkin</replace-token>
+		<replace-token>trackColors</replace-token>
+		<replace-token>trackSkin</replace-token>
+		<replace-token>upArrowDisabledSkin</replace-token>
+		<replace-token>upArrowDownSkin</replace-token>
+		<replace-token>upArrowOverSkin</replace-token>
+		<replace-token>upArrowUpSkin</replace-token>
+	</replace>
+</replace-mapping>

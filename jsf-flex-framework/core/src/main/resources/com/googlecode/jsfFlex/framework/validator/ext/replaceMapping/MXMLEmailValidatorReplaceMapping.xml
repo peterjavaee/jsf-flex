@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<replace-mapping>
+	<replace>
+		<replace-token>invalidCharError</replace-token>
+		<replace-token>invalidDomainError</replace-token>
+		<replace-token byAttribute="true">invalidIPDomainError</replace-token>
+		<replace-token byAttribute="true">invalidPeriodsInDomainError</replace-token>
+		<replace-token byAttribute="true">missingAtSignError</replace-token>
+		<replace-token byAttribute="true">missingPeriodInDomainError</replace-token>
+		<replace-token byAttribute="true">missingUsernameError</replace-token>
+		<replace-token byAttribute="true">tooManyAtSignsError</replace-token>
+	</replace>
+</replace-mapping>

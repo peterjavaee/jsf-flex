@@ -1,0 +1,11 @@
+<mx:PopUpButton
+
+	&popUpbutton;
+
+>
+
+<!-- Child Component -->
+
+</mx:PopUpButton>
+
+<!-- Sibling Component -->

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<replace-mapping>
+	<replace>
+		<replace-token byAttribute="true">areaCode</replace-token>
+		<replace-token byAttribute="true">areaCodeFormat</replace-token>
+		<replace-token>formatString</replace-token>
+		<replace-token byAttribute="true">validPatternChars</replace-token>
+	</replace>
+</replace-mapping>
