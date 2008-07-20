@@ -5,7 +5,7 @@ This page will contain a brief overview of building the JSF-Flex code and import
 = Details =
 
 ==Checking out/Extracting the resources from repository==
- # Check out/extract the resources from https://jsf-flex.googlecode.com/svn/trunk/ or http://jsf-flex.googlecode.com/svn/trunk/ to a folder within the local system {i.e. C:\alchemy}
+ # Check out/extract the resources from https://jsf-flex.googlecode.com/svn/trunk/ or http://jsf-flex.googlecode.com/svn/trunk/ to a folder within the local system {i.e. C:\jsfFlexProject}
 
 ==Importing the project into Eclipse IDE==
  # Then in the folder where the resources were checked out from, simply run the following command to enable importing of the projects into an Eclipse IDE
@@ -15,7 +15,7 @@ This should be enough to import the projects into Eclipse IDE.
 
  # Create a new workspace :
    * File => Import => Existing Projects into Workspace
-   * Select the folder where the resources were checked out to {i.e. C:\alchemy}
+   * Select the folder where the resources were checked out to {i.e. C:\jsfFlexProject}
    * Finally add the "M2_REPO" Classpath variable within the workspace by entering the following :
      * Window => Preferences => Java => Build Path => Classpath Variables
      * M2_REPO as variable and value as the maven2 repository {for me it was "C:/Documents and Settings/Administrator/.m2/repository"}
@@ -24,8 +24,8 @@ This should be enough to import the projects into Eclipse IDE.
 Simply import the generated War file to the workspace.
 
 ==Building after code modification==
-Whenever modification of the code is done and one wishes to create the Jar + War of the projects, simply run mvn clean install within the directory where the resources are checked out at {i.e. C:\alchemy}
+Whenever modification of the code is done and one wishes to create the Jar + War of the projects, simply run mvn clean install within the directory where the resources are checked out at {i.e. C:\jsfFlexProject}
 
 ==Directories of important artifacts==
- # Jar file of respective projects {C:\alchemy\<project>\core\target}
- # War file of an example {C:\alchemy\jsfFlex\examples\target}
+ # Jar file of respective projects {C:\jsfFlexProject\<project>\core\target}
+ # War file of an example {C:\jsfFlexProject\jsfFlex\examples\target}
