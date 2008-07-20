@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<replace-mapping>
+	<replace>
+		<replace-token byAttribute="true">colorField</replace-token>
+		<replace-token>labelField</replace-token>
+		<replace-token byAttribute="true">showTextField</replace-token>
+		<replace-token>backgroundColor</replace-token>
+		<replace-token>borderColor</replace-token>
+		<replace-token>closeDuration</replace-token>
+		<replace-token>closeEasingFunction</replace-token>
+		<replace-token>color</replace-token>
+		<replace-token>columnCount</replace-token>
+		<replace-token>fillAlphas</replace-token>
+		<replace-token>fillColors</replace-token>
+		<replace-token>focusAlpha</replace-token>
+		<replace-token>focusRoundedCorners</replace-token>
+		<replace-token>fontAntiAliasType</replace-token>
+		<replace-token>fontFamily</replace-token>
+		<replace-token>fontGridFitType</replace-token>
+		<replace-token>fontSharpness</replace-token>
+		<replace-token>fontSize</replace-token>
+		<replace-token>fontStyle</replace-token>
+		<replace-token>fontThickness</replace-token>
+		<replace-token>fontWeight</replace-token>
+		<replace-token>highlightAlphas</replace-token>
+		<replace-token>horizontalGap</replace-token>
+		<replace-token>leading</replace-token>
+		<replace-token>openDuration</replace-token>
+		<replace-token>openEasingFunction</replace-token>
+		<replace-token>paddingBottom</replace-token>
+		<replace-token>paddingLeft</replace-token>
+		<replace-token>paddingRight</replace-token>
+		<replace-token>paddingTop</replace-token>
+		<replace-token byAttribute="true">previewHeight</replace-token>
+		<replace-token byAttribute="true">previewWidth</replace-token>
+		<replace-token byAttribute="true">swatchBorderColor</replace-token>
+		<replace-token byAttribute="true">swatchBorderSize</replace-token>
+		<replace-token byAttribute="true">swatchGridBackgroundColor</replace-token>
+		<replace-token byAttribute="true">swatchGridBorderSize</replace-token>
+		<replace-token byAttribute="true">swatchHeight</replace-token>
+		<replace-token byAttribute="true">swatchHighlightColor</replace-token>
+		<replace-token byAttribute="true">swatchHighlightSize</replace-token>
+		<replace-token byAttribute="true">swatchPanelStyleName</replace-token>
+		<replace-token byAttribute="true">swatchWidth</replace-token>
+		<replace-token>textAlign</replace-token>
+		<replace-token>textDecoration</replace-token>
+		<replace-token byAttribute="true">textFieldWidth</replace-token>
+		<replace-token>textIndent</replace-token>
+		<replace-token>verticalGap</replace-token>
+		<replace-token>change</replace-token>
+		<replace-token>close</replace-token>
+		<replace-token>enter</replace-token>
+		<replace-token>itemRollOut</replace-token>
+		<replace-token>itemRollOver</replace-token>
+		<replace-token>open</replace-token>
+	</replace>
+</replace-mapping>

@@ -1,0 +1,50 @@
+<mx:VideoDisplay
+	
+    ${autoBandWidthDetection}
+    ${autoPlay}
+    ${autoRewind}
+    ${bufferTime}
+    ${cuePointManagerClass}
+    ${cuePoints}
+    ${idleTimeout}
+    ${live}
+    ${maintainAspectRatio}
+    ${playheadTime}
+    ${playheadUpdateInterval}
+    ${progressInterval}
+    ${source}
+    ${totalTime}
+    ${volume}
+    
+    ${backgroundAlpha}
+    ${backgroundColor}
+    ${backgroundImage}
+    ${backgroundSize}
+    ${borderColor}
+    ${borderSides}
+    ${borderSkin}
+    ${borderStyle}
+    ${borderThickness}
+    ${cornerRadius}
+    ${dropShadowColor}
+    ${dropShadowEnabled}
+    ${shadowDirection}
+    ${shadowDistance}
+    
+    ${close}
+    ${complete}
+    ${cuePoint}
+    ${playheadUpdate}
+    ${progress}
+    ${ready}
+    ${rewind}
+    ${stateChange}
+	
+	&base;
+>
+
+<!-- Child Component -->
+
+</mx:VideoDisplay>
+
+<!-- Sibling Component -->

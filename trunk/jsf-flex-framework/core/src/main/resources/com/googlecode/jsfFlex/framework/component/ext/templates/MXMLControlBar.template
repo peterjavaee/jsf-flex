@@ -1,0 +1,10 @@
+<mx:ControlBar
+	
+    &box;
+>
+
+<!-- Child Component -->
+
+</mx:ControlBar>
+
+<!-- Sibling Component -->

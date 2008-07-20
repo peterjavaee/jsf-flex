@@ -1,0 +1,19 @@
+<mx:EmailValidator
+	
+	${invalidCharError}
+    ${invalidDomainError}
+    ${invalidIPDomainError}
+    ${invalidPeriodsInDomainError}
+    ${missingAtSignError}
+    ${missingPeriodInDomainError}
+    ${missingUsernameError}
+    ${tooManyAtSignsError}
+	
+	&validator;
+>
+
+<!-- Child Component -->
+
+</mx:EmailValidator>
+
+<!-- Sibling Component -->

@@ -1,0 +1,10 @@
+<mx:SWFLoader
+	
+    &swfLoader;
+>
+
+<!-- Child Component -->
+
+</mx:SWFLoader>
+
+<!-- Sibling Component -->

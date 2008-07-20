@@ -1,0 +1,12 @@
+<mx:TitleWindow
+	
+	${showCloseButton}
+	
+	&panel;
+>
+
+<!-- Child Component -->
+
+</mx:TitleWindow>
+
+<!-- Sibling Component -->

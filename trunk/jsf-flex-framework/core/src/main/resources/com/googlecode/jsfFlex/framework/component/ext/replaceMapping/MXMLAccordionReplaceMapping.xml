@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<replace-mapping>
+	<replace>
+		<replace-token byAttribute="true">headerRenderer</replace-token>
+		<replace-token>historyManagementEnabled</replace-token>
+		<replace-token>resizeToContent</replace-token>
+		<replace-token>fillAlphas</replace-token>
+		<replace-token>fillColors</replace-token>
+		<replace-token>focusAlpha</replace-token>
+		<replace-token>focusRoundedCorners</replace-token>
+		<replace-token>headerHeight</replace-token>
+		<replace-token>headerStyleName</replace-token>
+		<replace-token>horizontalGap</replace-token>
+		<replace-token>openDuration</replace-token>
+		<replace-token>openEasingFunction</replace-token>
+		<replace-token byAttribute="true">selectedFillColors</replace-token>
+		<replace-token>textRollOverColor</replace-token>
+		<replace-token>textSelectedColor</replace-token>
+		<replace-token>verticalGap</replace-token>
+		<replace-token>change</replace-token>
+	</replace>
+</replace-mapping>

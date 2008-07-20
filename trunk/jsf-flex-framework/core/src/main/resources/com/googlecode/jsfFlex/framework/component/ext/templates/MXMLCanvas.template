@@ -1,0 +1,10 @@
+<mx:Canvas
+	
+	&container;
+>
+
+<!-- Child Component -->
+
+</mx:Canvas>
+
+<!-- Sibling Component -->

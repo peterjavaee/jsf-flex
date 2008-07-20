@@ -1,0 +1,61 @@
+<mx:NumericStepper
+    ${imeMode}
+    ${maxChars}
+    ${maximum}
+    ${minimum}
+    ${stepSize}
+    
+    ${backgroundAlpha}
+    ${backgroundColor}
+    ${backgroundImage}
+    ${backgroundSize}
+    ${borderCapColor}
+    ${borderColor}
+    ${borderSides}
+    ${borderSkin}
+    ${borderStyle}
+    ${borderThickness}
+    ${color}
+    ${cornerRadius}
+    ${disabledColor}
+    ${downArrowDisabledSkin}
+    ${downArrowDownSkin}
+    ${downArrowOverSkin}
+    ${downArrowUpSkin}
+    ${dropShadowEnabled}
+    ${dropShadowColor}
+    ${focusAlpha}
+    ${focusRoundedCorners}
+    ${fontAntiAliasType}
+    ${fontFamily}
+    ${fontGridFitType}
+    ${fontSharpness}
+    ${fontSize}
+    ${fontStyle}
+    ${fontThickness}
+    ${fontWeight}
+    ${highlightAlphas}
+    ${leading}
+    ${paddingLeft}
+    ${paddingRight}
+    ${shadowDirection}
+    ${shadowDistance}
+    ${textAlign}
+    ${textDecoration}
+    ${textIndent}
+    ${upArrowDisabledSkin}
+    ${upArrowDownSkin}
+    ${upArrowOverSkin}
+    ${upArrowUpSkin}
+    
+    ${change}
+    ${dataChange}
+	
+	&base;
+>
+
+<!-- Child Component -->
+
+</mx:NumericStepper>
+
+<!-- Sibling Component -->

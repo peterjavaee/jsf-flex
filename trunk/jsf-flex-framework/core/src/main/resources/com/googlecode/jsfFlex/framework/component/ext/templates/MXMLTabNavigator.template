@@ -1,0 +1,21 @@
+<mx:TabNavigator
+    ${fillAlphas}
+    ${fillColors}
+    ${firstTabStyleName}
+    ${focusAlpha}
+    ${focusRoundedCorners}
+    ${horizontalAlign}
+    ${lastTabStyleName}
+    ${selectedTabTextStyleName}
+    ${tabHeight}
+    ${tabStyleName}
+    ${tabWidth}
+	
+	&viewStack;
+>
+
+<!-- Child Component -->
+
+</mx:TabNavigator>
+
+<!-- Sibling Component -->

@@ -1,0 +1,10 @@
+<mx:Box
+	
+    &box;
+>
+
+<!-- Child Component -->
+
+</mx:Box>
+
+<!-- Sibling Component -->

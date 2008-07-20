@@ -1,0 +1,470 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class_lists>
+	<class_info>
+		<class_name>mx.containers::Accordion</class_name>
+		<node_list>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">selectedIndex</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_selectedIndex">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+		</node_list>
+	</class_info>
+	<class_info>
+		<class_name>mx.controls::CheckBox</class_name>
+		<node_list>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">selected</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_selected">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+		</node_list>
+	</class_info>
+	<class_info>
+		<class_name>mx.controls::ColorPicker</class_name>
+		<node_list>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">selectedColor</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_selectedColor">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+		</node_list>
+	</class_info>
+	<class_info>
+		<class_name>mx.controls::ComboBox</class_name>
+		<node_list>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">text</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_text">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+		</node_list>
+	</class_info>
+	<class_info>
+		<class_name>mx.controls::DateField</class_name>
+		<node_list>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">text</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_text">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+		</node_list>
+	</class_info>
+	<class_info>
+		<class_name>mx.controls::HorizontalList</class_name>
+		<node_list>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">selectedIndex</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_selectedIndex">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+		</node_list>
+	</class_info>
+	<class_info>
+		<class_name>mx.controls::HSlider</class_name>
+		<node_list>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">value</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_value">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+		</node_list>
+	</class_info>
+	<class_info>
+		<class_name>mx.controls::List</class_name>
+		<node_list>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">selectedIndex</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_selectedIndex">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+		</node_list>
+	</class_info>
+	<class_info>
+		<class_name>mx.controls::NumericStepper</class_name>
+		<node_list>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">value</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_value">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+		</node_list>
+	</class_info>
+	<class_info>
+		<class_name>mx.controls::RadioButton</class_name>
+		<node_list>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true" nested="true">
+							<nested>group</nested>
+							<nested>selectedValue</nested>
+						</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_selectedValue">groupName</value>
+					</attribute>
+				</attribute_list>
+			</node>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">selected</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_selected">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+		</node_list>
+	</class_info>
+	<class_info>
+		<class_name>mx.controls::RichTextEditor</class_name>
+		<node_list>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">text</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_text">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">htmlText</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_htmlText">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+		</node_list>
+	</class_info>
+	<class_info>
+		<class_name>mx.containers::TabNavigator</class_name>
+		<node_list>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">selectedIndex</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_selectedIndex">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+		</node_list>
+	</class_info>
+	<class_info>
+		<class_name>mx.controls::TextArea</class_name>
+		<node_list>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">text</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_text">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">htmlText</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_htmlText">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+		</node_list>
+	</class_info>
+	<class_info>
+		<class_name>mx.controls::TextInput</class_name>
+		<node_list>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">text</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_text">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">htmlText</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_htmlText">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+		</node_list>
+	</class_info>
+	<class_info>
+		<class_name>mx.controls::TileList</class_name>
+		<node_list>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">selectedIndex</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_selectedIndex">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+		</node_list>
+	</class_info>
+	<class_info>
+		<class_name>mx.controls::Tree</class_name>
+		<node_list>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">selectedIndex</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_selectedIndex">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+		</node_list>
+	</class_info>
+	<class_info>
+		<class_name>mx.containers::ViewStack</class_name>
+		<node_list>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">selectedIndex</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_selectedIndex">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+		</node_list>
+	</class_info>
+	<class_info>
+		<class_name>mx.controls::VSlider</class_name>
+		<node_list>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">value</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_value">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
+		</node_list>
+	</class_info>
+</class_lists>

@@ -1,0 +1,18 @@
+<mx:ZipCodeValidator
+	
+	${allowedFormatChars}
+    ${domain}
+    ${invalidCharError}
+    ${invalidDomainError}
+    ${wrongCAFormatError}
+    ${wrongLengthError}
+    ${wrongUSFormatError}
+	
+	&validator;
+>
+
+<!-- Child Component -->
+
+</mx:ZipCodeValidator>
+
+<!-- Sibling Component -->

@@ -1,0 +1,303 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <groupId>com.googlecode.jsf-flex</groupId>
+    <artifactId>jsf-flex-project</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
+  <artifactId>jsf-flex</artifactId>
+  <packaging>jar</packaging>
+  <name>JSF-Flex Core</name>
+
+  <scm>
+    <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/jsf-flex/core</connection>
+    <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/jsf-flex/core</developerConnection>
+  </scm>
+
+  <dependencies>
+    
+    <!-- compile -->
+    <dependency>
+      <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
+      <artifactId>jsf-flex-framework</artifactId>
+      <version>${jsf.flex.framework.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.googlecode.jsf-flex.jsf-flex-shared-project</groupId>
+      <artifactId>jsf-flex-shared</artifactId>
+      <version>${jsf.flex.shared.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.apache.myfaces.shared</groupId>
+      <artifactId>myfaces-shared-impl</artifactId>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.myfaces.tomahawk</groupId>
+      <artifactId>tomahawk</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.apache.myfaces.tomahawk</groupId>
+      <artifactId>tomahawk-sandbox</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.apache.myfaces.core</groupId>
+      <artifactId>myfaces-api</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>jsp-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    
+    <!-- test dependencies -->
+    
+    <dependency>
+      <groupId>maven-taglib</groupId>
+      <artifactId>maven-taglib-plugin</artifactId>
+      <version>1.4.2</version>
+      <scope>test</scope>
+    </dependency>        
+        
+    <dependency>
+      <groupId>org.apache.shale</groupId>
+      <artifactId>shale-test</artifactId>
+      <version>1.0.3</version>
+      <scope>test</scope>
+    </dependency>
+    
+  </dependencies>
+
+  
+  <build>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <excludes>
+           <exclude>**/*.vm</exclude>
+        </excludes>
+      </resource>
+    </resources>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.myfaces.buildtools</groupId>
+        <artifactId>myfaces-builder-plugin</artifactId>
+        <version>1.0.1-SNAPSHOT</version>
+        <executions>
+	    <execution>
+            <goals>
+              <goal>build-metadata</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>makefacesconfig</id>
+            <configuration>
+                <xmlFile>META-INF/faces-config.xml</xmlFile>
+            </configuration>
+            <goals>
+                <goal>make-config</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>makecomp</id>
+            <goals>
+              <goal>make-components</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>makeval</id>
+            <goals>
+              <goal>make-validators</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>make_tags_jsfFlex</id>
+            <goals>
+                <goal>make-tags</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>make_validator_tags_jsfFlex</id>
+            <goals>
+                <goal>make-validator-tags</goal>
+                <goal>make-converter-tags</goal>
+            </goals>
+          </execution>          
+          <execution>
+            <id>makejsfFlextld</id>
+            <configuration>
+                <xmlFile>META-INF/jsf-flex.tld</xmlFile>
+                <xmlBaseFile>src/main/conf/META-INF/jsf-flex.tld</xmlBaseFile>
+                <templateFile>jsf-flex.vm</templateFile>
+                <params>
+                   <shortname>jf</shortname>
+                   <uri>http://jsf-flex.googlecode.com</uri>
+                   <displayname>JSF-Flex tag library.</displayname>
+                   <description>
+                     JSF-Flex goal is to provide users capability in creating Flex components as JSF components. So users would 
+                     create the components as normal JSF components and the contribution will create the necessary SWF files and 
+                     etcetera and link the values of the components back to the managed beans using JSON+Javascript and Actionscript.
+                     So all users would need is a Jar of the component library and they would be able to create Flex applications by 
+                     using them as normal JSF components. By doing so, developers who are unfamiliar with Adobe Flex can be completely 
+                     abstracted from its technology and focus in linking the application's data to legacy information.
+                   </description>
+                </params>
+                <modelIds>
+                    <modelId>jsf-flex</modelId>
+                </modelIds>
+            </configuration>
+            <goals>
+                <goal>make-config</goal>
+            </goals>
+          </execution>        
+          <execution>
+            <id>makejsfFlextaglib</id>
+            <configuration>
+                <xmlFile>META-INF/jsf-flex.taglib.xml</xmlFile>
+                <xmlBaseFile>src/main/conf/META-INF/facelets-taglib-base.xml</xmlBaseFile>
+                <templateFile>facelets-taglib.vm</templateFile>
+                <params>
+                   <shortname>jf</shortname>
+                   <uri>http://jsf-flex.googlecode.com</uri>
+                </params>
+                <modelIds>
+                    <modelId>jsf-flex</modelId>
+                </modelIds>
+            </configuration>
+            <goals>
+                <goal>make-config</goal>
+            </goals>
+          </execution>        
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+    </plugins>
+      
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>changelog-maven-plugin</artifactId>
+        <version>2.0-beta-1</version>
+        <reportSets>
+          <reportSet>
+            <id>dual-report</id>
+            <configuration>
+              <type>range</type>
+              <range>30</range>
+            </configuration>
+            <reports>
+              <report>changelog</report>
+              <report>file-activity</report>
+              <report>dev-activity</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>2.4</version>
+      </plugin>
+      
+      <plugin>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <version>2.1</version>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>taglist-maven-plugin</artifactId>
+        <version>2.0</version>
+      </plugin>
+      
+      <plugin>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <version>2.4</version>
+      </plugin>
+    </plugins>
+  </reporting>
+  
+  <profiles>
+    <profile>
+      <id>jsf_flex_framework-1.0</id>
+      <activation>
+        <property>
+          <name>!jsf_flex_framework</name>
+        </property>
+      </activation>
+      <properties>
+        <jsf.flex.framework.version>1.0.0-SNAPSHOT</jsf.flex.framework.version>
+      </properties>
+    </profile>
+    <profile>
+      <id>jsf_flex_shared-1.0</id>
+      <activation>
+        <property>
+          <name>!jsf_flex_shared</name>
+        </property>
+      </activation>
+      <properties>
+        <jsf.flex.shared.version>1.0.0-SNAPSHOT</jsf.flex.shared.version>
+      </properties>
+    </profile>
+    <profile>
+      <id>generate-site</id>
+      <reporting>
+        <plugins>
+          <plugin>
+            <groupId>net.sourceforge.maven-taglib</groupId>
+            <artifactId>maven-taglib-plugin</artifactId>
+            <configuration>
+              <taglib.src.dir>${basedir}/target/classes/META-INF</taglib.src.dir>
+              <tldDocDir>${basedir}/target/site/tlddoc</tldDocDir>
+            </configuration>
+          </plugin>
+        </plugins>
+      </reporting>
+    </profile>
+  </profiles>
+
+</project>

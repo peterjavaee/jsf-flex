@@ -1,0 +1,12 @@
+<mx:VSlider
+	
+	${dataTipPlacement}
+	
+	&slider;
+>
+
+<!-- Child Component -->
+
+</mx:VSlider>
+
+<!-- Sibling Component -->

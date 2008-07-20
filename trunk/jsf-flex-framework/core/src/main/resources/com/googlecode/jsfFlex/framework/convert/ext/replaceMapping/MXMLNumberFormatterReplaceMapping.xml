@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<replace-mapping>
+	<replace>
+		<replace-token>decimalSeparatorFrom</replace-token>
+		<replace-token>decimalSeparatorTo</replace-token>
+		<replace-token>precision</replace-token>
+		<replace-token>rounding</replace-token>
+		<replace-token>thousandsSeparatorFrom</replace-token>
+		<replace-token>thousandsSeparatorTo</replace-token>
+		<replace-token>useNegativeSign</replace-token>
+		<replace-token>useThousandsSeparator</replace-token>
+	</replace>
+</replace-mapping>

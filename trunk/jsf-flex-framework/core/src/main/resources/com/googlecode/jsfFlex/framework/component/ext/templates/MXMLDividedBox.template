@@ -1,0 +1,10 @@
+<mx:DividedBox
+	
+	&dividedBox;
+>
+
+<!-- Child Component -->
+
+</mx:DividedBox>
+
+<!-- Sibling Component -->

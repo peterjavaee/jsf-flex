@@ -1,0 +1,18 @@
+<mx:LinkBar
+    
+    ${rollOverColor}
+    ${selectionColor}
+    ${separatorColor}
+    ${separatorSkin}
+    ${separatorWidth}
+    ${textRollOverColor}
+    ${textSelectedColor}
+	
+	&nav;
+>
+
+<!-- Child Component -->
+
+</mx:LinkBar>
+
+<!-- Sibling Component -->

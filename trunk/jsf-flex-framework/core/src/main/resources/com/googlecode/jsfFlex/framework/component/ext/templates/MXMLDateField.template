@@ -1,0 +1,68 @@
+<mx:DateField
+    ${dayNames}
+    ${disabledDays}
+    ${disabledRanges}
+    ${displayedMonth}
+    ${displayedYear}
+    ${firstDayOfWeek}
+    ${formatString}
+    ${labelFunction}
+    ${maxYear}
+    ${minYear}
+    ${monthNames}
+    ${monthSymbol}
+    ${parseFunction}
+    ${selectableRange}
+    ${selectedDate}
+    ${showToday}
+    ${yearNavigationEnabled}
+    ${yearSymbol}
+    
+    ${borderColor}
+    ${borderThickness}
+    ${color}
+    ${cornerRadius}
+    ${dateChooserStyleName}
+    ${disabledColor}
+    ${fillAlphas}
+    ${fillColors}
+    ${focusAlpha}
+    ${focusRoundedCorners}
+    ${fontAntiAliasType}
+    ${fontFamily}
+    ${fontGridFitType}
+    ${fontSharpness}
+    ${fontSize}
+    ${fontStyle}
+    ${fontThickness}
+    ${fontWeight}
+    ${headerColors}
+    ${headerStyleName}
+    ${highlightAlphas}
+    ${leading}
+    ${paddingLeft}
+    ${paddingRight}
+    ${rollOverColor}
+    ${selectionColor}
+    ${textAlign}
+    ${textDecoration}
+    ${textIndent}
+    ${todayColor}
+    ${todayStyleName}
+    ${weekDayStyleName}
+
+    ${change}
+    ${close}
+    ${dataChange}
+    ${open}
+    ${scroll}
+    
+    &comboBase;
+
+>
+
+<!-- Child Component -->
+
+</mx:DateField>
+
+<!-- Sibling Component -->

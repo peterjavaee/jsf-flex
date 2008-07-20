@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<replace-mapping>
+	<replace>
+		<replace-token>condenseWhite</replace-token>
+		<replace-token>data</replace-token>
+		<replace-token>displayAsPassword</replace-token>
+		<replace-token>editable</replace-token>
+		<replace-token>horizontalScrollPosition</replace-token>
+		<replace-token>imeMode</replace-token>
+		<replace-token>listData</replace-token>
+		<replace-token>maxChars</replace-token>
+		<replace-token>restrict</replace-token>
+		<replace-token>selectionBeginIndex</replace-token>
+		<replace-token>selectionEndIndex</replace-token>
+		<replace-token>backgroundAlpha</replace-token>
+		<replace-token>backgroundColor</replace-token>
+		<replace-token>backgroundImage</replace-token>
+		<replace-token>backgroundSize</replace-token>
+		<replace-token>borderColor</replace-token>
+		<replace-token>borderSides</replace-token>
+		<replace-token>borderSkin</replace-token>
+		<replace-token>borderStyle</replace-token>
+		<replace-token>borderThickness</replace-token>
+		<replace-token>color</replace-token>
+		<replace-token>cornerRadius</replace-token>
+		<replace-token>disabledColor</replace-token>
+		<replace-token>dropShadowColor</replace-token>
+		<replace-token>dropShadowEnabled</replace-token>
+		<replace-token>focusAlpha</replace-token>
+		<replace-token>focusRoundedCorners</replace-token>
+		<replace-token>fontAntiAliasType</replace-token>
+		<replace-token>fontFamily</replace-token>
+		<replace-token>fontGridFitType</replace-token>
+		<replace-token>fontSharpness</replace-token>
+		<replace-token>fontSize</replace-token>
+		<replace-token>fontStyle</replace-token>
+		<replace-token>fontThickness</replace-token>
+		<replace-token>fontWeight</replace-token>
+		<replace-token>paddingLeft</replace-token>
+		<replace-token>paddingRight</replace-token>
+		<replace-token>shadowDirection</replace-token>
+		<replace-token>shadowDistance</replace-token>
+		<replace-token>textAlign</replace-token>
+		<replace-token>textDecoration</replace-token>
+		<replace-token>textIndent</replace-token>
+		<replace-token>change</replace-token>
+		<replace-token>dataChange</replace-token>
+		<replace-token>enter</replace-token>
+		<replace-token byAttribute="true">textInput</replace-token>
+	</replace>
+</replace-mapping>

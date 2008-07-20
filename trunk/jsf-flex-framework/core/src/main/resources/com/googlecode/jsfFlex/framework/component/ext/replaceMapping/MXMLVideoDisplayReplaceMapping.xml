@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<replace-mapping>
+	<replace>
+		<replace-token byAttribute="true">autoBandWidthDetection</replace-token>
+		<replace-token byAttribute="true">autoPlay</replace-token>
+		<replace-token byAttribute="true">autoRewind</replace-token>
+		<replace-token byAttribute="true">bufferTime</replace-token>
+		<replace-token byAttribute="true">cuePointManagerClass</replace-token>
+		<replace-token byAttribute="true">cuePoints</replace-token>
+		<replace-token byAttribute="true">idleTimeout</replace-token>
+		<replace-token byAttribute="true">live</replace-token>
+		<replace-token byAttribute="true">maintainAspectRatio</replace-token>
+		<replace-token byAttribute="true">playheadTime</replace-token>
+		<replace-token byAttribute="true">playheadUpdateInterval</replace-token>
+		<replace-token byAttribute="true">progressInterval</replace-token>
+		<replace-token byAttribute="true">source</replace-token>
+		<replace-token byAttribute="true">totalTime</replace-token>
+		<replace-token byAttribute="true">volume</replace-token>
+		<replace-token byAttribute="true">backgroundAlpha</replace-token>
+		<replace-token byAttribute="true">backgroundColor</replace-token>
+		<replace-token byAttribute="true">backgroundImage</replace-token>
+		<replace-token byAttribute="true">backgroundSize</replace-token>
+		<replace-token byAttribute="true">borderColor</replace-token>
+		<replace-token byAttribute="true">borderSides</replace-token>
+		<replace-token byAttribute="true">borderSkin</replace-token>
+		<replace-token byAttribute="true">borderStyle</replace-token>
+		<replace-token byAttribute="true">borderThickness</replace-token>
+		<replace-token byAttribute="true">cornerRadius</replace-token>
+		<replace-token byAttribute="true">dropShadowColor</replace-token>
+		<replace-token byAttribute="true">dropShadowEnabled</replace-token>
+		<replace-token byAttribute="true">shadowDirection</replace-token>
+		<replace-token byAttribute="true">shadowDistance</replace-token>
+		<replace-token byAttribute="true">close</replace-token>
+		<replace-token byAttribute="true">complete</replace-token>
+		<replace-token byAttribute="true">cuePoint</replace-token>
+		<replace-token byAttribute="true">playheadUpdate</replace-token>
+		<replace-token byAttribute="true">progress</replace-token>
+		<replace-token byAttribute="true">ready</replace-token>
+		<replace-token byAttribute="true">rewind</replace-token>
+		<replace-token byAttribute="true">stateChange</replace-token>
+	</replace>
+</replace-mapping>

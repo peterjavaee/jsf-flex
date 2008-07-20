@@ -1,0 +1,12 @@
+<mx:DateFormatter
+	
+    ${formatString}
+	
+	&formatter;
+>
+
+<!-- Child Component -->
+
+</mx:DateFormatter>
+
+<!-- Sibling Component -->

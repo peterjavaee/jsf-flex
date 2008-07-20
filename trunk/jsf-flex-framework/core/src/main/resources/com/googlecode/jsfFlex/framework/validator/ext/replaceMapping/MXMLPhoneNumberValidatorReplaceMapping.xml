@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<replace-mapping>
+	<replace>
+		<replace-token>allowedFormatChars</replace-token>
+		<replace-token>invalidCharError</replace-token>
+		<replace-token>wrongLengthError</replace-token>
+	</replace>
+</replace-mapping>

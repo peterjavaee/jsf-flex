@@ -1,0 +1,15 @@
+<mx:PhoneFormatter
+	
+    ${areaCode}
+    ${areaCodeFormat}
+    ${formatString}
+    ${validPatternChars}
+	
+	&formatter;
+>
+
+<!-- Child Component -->
+
+</mx:PhoneFormatter>
+
+<!-- Sibling Component -->

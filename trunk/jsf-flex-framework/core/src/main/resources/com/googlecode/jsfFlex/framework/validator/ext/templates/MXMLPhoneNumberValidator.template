@@ -1,0 +1,14 @@
+<mx:PhoneNumberValidator
+	
+	${allowedFormatChars}
+    ${invalidCharError}
+    ${wrongLengthError}
+	
+	&validator;
+>
+
+<!-- Child Component -->
+
+</mx:PhoneNumberValidator>
+
+<!-- Sibling Component -->

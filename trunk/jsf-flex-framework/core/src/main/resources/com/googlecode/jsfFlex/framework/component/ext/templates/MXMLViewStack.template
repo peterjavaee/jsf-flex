@@ -1,0 +1,10 @@
+<mx:ViewStack
+    
+	&viewStack;
+>
+
+<!-- Child Component -->
+
+</mx:ViewStack>
+
+<!-- Sibling Component -->

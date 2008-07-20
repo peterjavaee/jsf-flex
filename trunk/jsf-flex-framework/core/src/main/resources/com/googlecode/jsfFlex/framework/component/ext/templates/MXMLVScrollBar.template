@@ -1,0 +1,15 @@
+<mx:VScrollBar
+
+    ${repeatDelay}
+    ${repeatInterval}
+
+    ${scroll}
+	
+	&scrollBar;
+>
+
+<!-- Child Component -->
+
+</mx:VScrollBar>
+
+<!-- Sibling Component -->

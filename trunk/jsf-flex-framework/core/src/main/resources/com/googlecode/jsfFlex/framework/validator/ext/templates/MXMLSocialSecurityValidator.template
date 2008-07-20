@@ -1,0 +1,15 @@
+<mx:SocialSecurityValidator
+	
+	${allowedFormatChars}
+    ${invalidCharError}
+    ${wrongFormatError}
+    ${zeroStartError}
+	
+	&validator;
+>
+
+<!-- Child Component -->
+
+</mx:SocialSecurityValidator>
+
+<!-- Sibling Component -->

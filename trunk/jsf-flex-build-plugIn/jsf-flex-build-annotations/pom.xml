@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"> 
+  
+  <parent>
+    <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
+    <artifactId>jsf-flex-build-plugIn-main</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+  </parent>
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
+  <artifactId>jsf-flex-build-plugIn-annotations</artifactId> 
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>JSF-Flex BuildPlugin Annotations</name>
+
+  <scm>
+    <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/jsf-flex-build-plugIn/jsf-flex-build-annotations</connection>
+    <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/jsf-flex-build-plugIn/jsf-flex-build-annotations</developerConnection>
+  </scm>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.0.2</version>
+        <inherited>true</inherited>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

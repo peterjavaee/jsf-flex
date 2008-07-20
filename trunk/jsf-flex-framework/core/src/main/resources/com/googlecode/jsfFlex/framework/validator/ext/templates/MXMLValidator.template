@@ -1,0 +1,10 @@
+<mx:Validator
+	
+	&validator;
+>
+
+<!-- Child Component -->
+
+</mx:Validator>
+
+<!-- Sibling Component -->

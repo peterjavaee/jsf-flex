@@ -1,0 +1,27 @@
+	${condenseWhite}
+    ${data}
+    ${htmlText}
+    ${listData}
+    ${selectable}
+    ${text}
+    ${truncateToFit}
+    
+    ${color}
+    ${disabledColor}
+    ${fontAntiAliasType}
+    ${fontFamily}
+    ${fontGridFitType}
+    ${fontSharpness}
+    ${fontSize}
+    ${fontStyle}
+    ${fontThickness}
+    ${fontWeight}
+    ${paddingLeft}
+    ${paddingRight}
+    ${textAlign}
+    ${textDecoration}
+    ${textIndent}
+    
+    ${dataChange}
+    
+	&base;

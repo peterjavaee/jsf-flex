@@ -1,0 +1,12 @@
+<mx:RadioButton
+	${groupName}
+    ${value}
+    
+    &button;
+>
+
+<!-- Child Component -->
+
+</mx:RadioButton>
+
+<!-- Sibling Component -->

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<replace-mapping>
+	<replace>
+		<replace-token>allowThumbOverlap</replace-token>
+		<replace-token>allowTrackClick</replace-token>
+		<replace-token>dataTipFormatFunction</replace-token>
+		<replace-token>direction</replace-token>
+		<replace-token>labels</replace-token>
+		<replace-token>liveDragging</replace-token>
+		<replace-token>maximum</replace-token>
+		<replace-token>minimum</replace-token>
+		<replace-token>showDataTip</replace-token>
+		<replace-token>sliderDataTipClass</replace-token>
+		<replace-token>sliderThumbClass</replace-token>
+		<replace-token>snapInterval</replace-token>
+		<replace-token>thumbCount</replace-token>
+		<replace-token>tickInterval</replace-token>
+		<replace-token>borderColor</replace-token>
+		<replace-token>dataTipOffset</replace-token>
+		<replace-token>dataTipPrecision</replace-token>
+		<replace-token>dataTipStyleName</replace-token>
+		<replace-token>fillAlphas</replace-token>
+		<replace-token>fillColors</replace-token>
+		<replace-token>labelOffset</replace-token>
+		<replace-token>labelStyleName</replace-token>
+		<replace-token>showTrackHighlight</replace-token>
+		<replace-token>slideDuration</replace-token>
+		<replace-token>slideEasingFunction</replace-token>
+		<replace-token>thumbDisabledSkin</replace-token>
+		<replace-token>thumbDownSkin</replace-token>
+		<replace-token>thumbOffset</replace-token>
+		<replace-token>thumbOverSkin</replace-token>
+		<replace-token>thumbUpSkin</replace-token>
+		<replace-token>tickColor</replace-token>
+		<replace-token>tickLength</replace-token>
+		<replace-token>tickOffset</replace-token>
+		<replace-token>tickThickness</replace-token>
+		<replace-token>trackColors</replace-token>
+		<replace-token>trackHighlightSkin</replace-token>
+		<replace-token>trackMargin</replace-token>
+		<replace-token>trackSkin</replace-token>
+		<replace-token>change</replace-token>
+		<replace-token>thumbDrag</replace-token>
+		<replace-token>thumbPress</replace-token>
+		<replace-token>thumbRelease</replace-token>
+	</replace>
+</replace-mapping>

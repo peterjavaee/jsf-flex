@@ -1,0 +1,10 @@
+<mx:Panel
+	
+	&panel;
+>
+
+<!-- Child Component -->
+
+</mx:Panel>
+
+<!-- Sibling Component -->

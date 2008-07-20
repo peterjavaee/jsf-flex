@@ -1,0 +1,28 @@
+<mx:CurrencyValidator
+	
+	${alignSymbol}
+    ${allowNegative}
+    ${currencySymbol}
+    ${currencySymbolError}
+    ${decimalPointCountError}
+    ${decimalSeparator}
+    ${exceedsMaxError}
+    ${invalidCharError}
+    ${invalidFormatCharsError}
+    ${lowerThanMinError}
+    ${maxValue}
+    ${minValue}
+    ${negativeError}
+    ${precision}
+    ${precisionError}
+    ${separationError}
+    ${thousandsSeparator}
+    
+	&validator;
+>
+
+<!-- Child Component -->
+
+</mx:CurrencyValidator>
+
+<!-- Sibling Component -->

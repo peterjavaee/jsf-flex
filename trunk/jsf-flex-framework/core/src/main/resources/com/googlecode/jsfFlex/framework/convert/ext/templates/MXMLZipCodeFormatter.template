@@ -1,0 +1,12 @@
+<mx:ZipCodeFormatter
+	
+    ${formatString}
+	
+	&formatter;
+>
+
+<!-- Child Component -->
+
+</mx:ZipCodeFormatter>
+
+<!-- Sibling Component -->

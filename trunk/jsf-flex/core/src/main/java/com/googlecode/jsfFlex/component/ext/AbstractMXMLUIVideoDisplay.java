@@ -1,0 +1,170 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package com.googlecode.jsfFlex.component.ext;
+
+import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundColorAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderAttributes;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderColorAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderThicknessAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUICloseAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUICornerRadiusAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUILoadAttributes;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIMaintainAspectRatioAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIShadowAttributes;
+import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
+
+/**
+ * @JSFComponent
+ *   name     = "jf:mxmlVideoDisplay"
+ *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIVideoDisplay"
+ *   type     = "com.googlecode.jsfFlex.MXMLUIVideoDisplay"
+ *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIVideoDisplayTag"
+ *   family   = "javax.faces.MXMLSimpleBase"
+ *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ *   
+ * @JSFJspProperties
+ * 		properties	=		
+ *   						@JSFJspProperty
+ * 							 name		= "autoBandWidthDetection"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Specifies whether the VideoDisplay control should use the built-in automatic bandwidth detection feature."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "autoPlay"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Specifies whether the video should start playing immediately when the source property is set."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "autoRewind"
+ *   						 returnType	= "java.lang.String" 
+ *   						 longDesc	= "Specifies whether the FLV file should be rewound to the first frame when play stops, either by calling the stop() method or by reaching the end of the stream."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "bufferTime"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Number of seconds of video to buffer in memory before starting to play the video file."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "cuePointManagerClass"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Cue point manager to use."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "cuePoints"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The Array of cue points associated with the control."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "idleTimeout"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Specifies the amount of time, in milliseconds, that the connection is idle (playing is paused or stopped) before the connection to the Flash Media Server is stopped."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "live"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Specifies whether the control is streaming a live feed."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "playheadTime"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Playhead position, measured in seconds, since the video starting playing."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "playheadUpdateInterval"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Specifies the amount of time, in milliseconds, between each playheadUpdate event."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "progressInterval"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Specifies the amount of time, in milliseconds, between each progress event."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "totalTime"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Total length of the media, in seconds."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "volume"
+ *   						 returnType	= "java.lang.String" 
+ *   						 longDesc	= "The volume level, specified as an value between 0 and 1."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "cuePoint"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched when the value of a cue point's time property is equal to the current playhead location."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "playheadUpdate"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched every 0.25 seconds while the video is playing."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "ready"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched when the FLV file is loaded and ready to play."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "rewind"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched when the control autorewinds."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "stateChange"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched when the state of the control changes."
+ *   						
+ * @author Ji Hoon Kim
+ */
+public abstract class AbstractMXMLUIVideoDisplay 
+						extends MXMLUISimpleBase 
+						implements _MXMLUIBaseAttributes, _MXMLUIBackgroundAlphaAttribute, 
+						_MXMLUIBackgroundAttributes, _MXMLUIBackgroundColorAttribute, _MXMLUIBorderAttributes, 
+						_MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, _MXMLUICloseAttribute, 
+						_MXMLUICornerRadiusAttribute, _MXMLUILoadAttributes, _MXMLUIMaintainAspectRatioAttribute, 
+						_MXMLUIShadowAttributes {
+
+	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLVideoDisplay";
+	
+	public String getMXMLComponentRenderer() {
+		return MXML_COMPONENT_RENDERER;
+	}
+	
+}

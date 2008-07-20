@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<replace-mapping>
+	<replace>
+		<replace-token>allowedFormatChars</replace-token>
+		<replace-token>domain</replace-token>
+		<replace-token>invalidCharError</replace-token>
+		<replace-token>invalidDomainError</replace-token>
+		<replace-token byAttribute="true">wrongCAFormatError</replace-token>
+		<replace-token>wrongLengthError</replace-token>
+		<replace-token byAttribute="true">wrongUSFormatError</replace-token>
+	</replace>
+</replace-mapping>

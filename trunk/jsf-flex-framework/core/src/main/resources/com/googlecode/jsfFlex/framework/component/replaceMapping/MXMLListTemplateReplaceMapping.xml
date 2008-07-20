@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<replace-mapping>
+	<replace>
+		<replace-token>editable</replace-token>
+		<replace-token>editedItemPosition</replace-token>
+		<replace-token>editorDataField</replace-token>
+		<replace-token>editorHeightOffset</replace-token>
+		<replace-token>editorUsesEnterKey</replace-token>
+		<replace-token>editorWidthOffset</replace-token>
+		<replace-token>editorXOffset</replace-token>
+		<replace-token>editorYOffset</replace-token>
+		<replace-token>imeMode</replace-token>
+		<replace-token>itemEditor</replace-token>
+		<replace-token>itemEditorInstance</replace-token>
+		<replace-token>rendererIsEditor</replace-token>
+		<replace-token>backgroundDisabledColor</replace-token>
+		<replace-token>itemEditBegin</replace-token>
+		<replace-token>itemEditEnd</replace-token>
+		<replace-token>itemEditBeginning</replace-token>
+		<replace-token>itemFocusIn</replace-token>
+		<replace-token>itemFocusOut</replace-token>
+	</replace>
+</replace-mapping>

@@ -1,0 +1,10 @@
+<mx:Script>
+	<![CDATA[
+	
+		${tagBodyContent}
+	
+	]]>
+	
+</mx:Script>
+
+<!-- Sibling Component -->

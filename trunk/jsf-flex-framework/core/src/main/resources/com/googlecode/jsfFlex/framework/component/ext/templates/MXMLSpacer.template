@@ -1,0 +1,10 @@
+<mx:Spacer
+	
+	&base;
+>
+
+<!-- Child Component -->
+
+</mx:Spacer>
+
+<!-- Sibling Component -->

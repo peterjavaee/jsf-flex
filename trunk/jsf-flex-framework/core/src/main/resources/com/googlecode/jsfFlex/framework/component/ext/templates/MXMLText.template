@@ -1,0 +1,10 @@
+<mx:Text
+
+	&label;
+>
+	
+<!-- Child Component -->
+
+</mx:Text>
+
+<!-- Sibling Component -->

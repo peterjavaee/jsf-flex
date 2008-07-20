@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mx:Application 
+    ${xmlns:mx}
+    ${controlBar}
+    ${frameRate}
+    ${layout}
+    ${pageTitle}
+    ${preloader}
+    ${resetHistory}
+    ${scriptRecursionLimit}
+    ${scriptTimeLimit}
+    ${usePreloader}
+    ${viewSourceURL}
+    
+    ${backgroundGradientAlphas}
+    ${backgroundGradientColors}
+    ${horizontalAlign}
+    ${horizontalGap}
+    ${modalTransparency}
+    ${modalTransparencyBlur}
+    ${modalTransparencyColor}
+    ${modalTransparencyDuration}
+    ${verticalAlign}
+    ${verticalGap}
+  
+    ${applicationComplete}
+    ${error}
+    
+    &container;
+>
+	
+	<mx:Script>
+		<![CDATA[
+		
+		import com.googlecode.jsfFlex.communication.ComponentValueMapper;
+		
+		static public var compValMapper:ComponentValueMapper;
+
+		private function initializeApp(event:Event):void {
+			compValMapper = ComponentValueMapper.getInstance(this);
+			compValMapper.initialize();
+			
+			ExternalInterface.addCallback("pageUnloading", pageUnloading);
+			
+			var idObject:Object = ExternalInterface.call("com.googlecode.jsfFlex.communication.amReady", this.id);
+			if(idObject != null){
+			    compValMapper.populateInitValues(idObject);
+			}
+		}
+		
+		public function pageUnloading(idObject:Object):void {
+			var jsonObject:Array = compValMapper.getJSON(idObject);
+			ExternalInterface.call("com.googlecode.jsfFlex.communication.updateValues", jsonObject);
+		
+		}
+		
+		]]>
+	</mx:Script>
+	
+<!-- Child Component -->
+
+</mx:Application>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<replace-mapping>
+	<replace>
+		<replace-token byAttribute="true">controlBar</replace-token>
+		<replace-token byAttribute="true">frameRate</replace-token>
+		<replace-token>layout</replace-token>
+		<replace-token byAttribute="true">pageTitle</replace-token>
+		<replace-token byAttribute="true">preloader</replace-token>
+		<replace-token byAttribute="true">resetHistory</replace-token>
+		<replace-token byAttribute="true">scriptRecursionLimit</replace-token>
+		<replace-token byAttribute="true">scriptTimeLimit</replace-token>
+		<replace-token byAttribute="true">usePreloader</replace-token>
+		<replace-token byAttribute="true">viewSourceURL</replace-token>
+		<replace-token byAttribute="true">xmlns:mx</replace-token>
+		<replace-token byAttribute="true">backgroundGradientAlphas</replace-token>
+		<replace-token byAttribute="true">backgroundGradientColors</replace-token>
+		<replace-token>horizontalAlign</replace-token>
+		<replace-token>horizontalGap</replace-token>
+		<replace-token>modalTransparency</replace-token>
+		<replace-token>modalTransparencyBlur</replace-token>
+		<replace-token>modalTransparencyColor</replace-token>
+		<replace-token>modalTransparencyDuration</replace-token>
+		<replace-token>verticalAlign</replace-token>
+		<replace-token>verticalGap</replace-token>
+		<replace-token byAttribute="true">applicationComplete</replace-token>
+		<replace-token byAttribute="true">error</replace-token>
+	</replace>
+</replace-mapping>

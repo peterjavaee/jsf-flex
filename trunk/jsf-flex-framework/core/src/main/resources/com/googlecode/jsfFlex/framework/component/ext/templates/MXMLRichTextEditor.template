@@ -1,0 +1,15 @@
+<mx:RichTextEditor
+    ${defaultLinkProtocol}
+    ${showControlBar}
+    ${showToolTips}
+       
+    ${change}
+    
+    &panel;
+>
+	
+<!-- Child Component -->
+
+</mx:RichTextEditor>
+
+<!-- Sibling Component -->

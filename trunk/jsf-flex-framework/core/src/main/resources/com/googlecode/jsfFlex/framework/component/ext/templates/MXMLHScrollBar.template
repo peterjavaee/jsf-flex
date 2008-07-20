@@ -1,0 +1,15 @@
+<mx:HScrollBar
+
+    ${repeatDelay}
+    ${repeatInterval}
+
+    ${scroll}
+	
+	&scrollBar;
+>
+
+<!-- Child Component -->
+
+</mx:HScrollBar>
+
+<!-- Sibling Component -->

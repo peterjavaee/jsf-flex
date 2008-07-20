@@ -1,0 +1,12 @@
+<mx:LinkButton
+	${rollOverColor}
+    ${selectionColor}
+    
+    &button;
+>
+
+<!-- Child Component -->
+
+</mx:LinkButton>
+
+<!-- Sibling Component -->
