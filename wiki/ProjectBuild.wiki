@@ -20,6 +20,11 @@ This should be enough to import the projects into Eclipse IDE.
      * Window => Preferences => Java => Build Path => Classpath Variables
      * M2_REPO as variable and value as the maven2 repository {for me it was "C:/Documents and Settings/Administrator/.m2/repository"}
 
+http://jsf-flex.googlecode.com/svn/wiki/importProjects.jpg
+
+http://jsf-flex.googlecode.com/svn/wiki/M2_Repo_ClasspathVariable.jpg
+
+
 ==Testing the example pages==
 Simply import the generated War file to the workspace.
 
