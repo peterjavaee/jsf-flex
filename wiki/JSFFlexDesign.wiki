@@ -5,7 +5,7 @@ Navigation page for JSF-Flex design
 = Details =
 
 ==Navigational pages==
- * [JSFComponentInfo] page contains info regarding JSF components for JSF-Flex project.
+ * [JSFFlexComponentInfo] page contains info regarding JSF-Flex components for JSF-Flex project.
  * [JSFFlexFrameworkComponentInfo] page contains info regarding JSF-Flex Framework's components for JSF-Flex project.
  * [JSFFlexFrameworkLifeCycle] page contains info regarding the lifecycle of JSF-Flex project.
 
