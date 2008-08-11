@@ -1,31 +1,13 @@
 = Introduction =
 
-Brief overview of JSF-Flex design
+Navigation page for JSF-Flex design
 
 = Details =
- # The component library will piggy back on JSF's lifecycle through MXMLRendererBase that will utilize MXMLComponentBuilder which will instantiate the correct mapping MXMLComponent for the JSFComponent {i.e. MXMLUIApplication maps to MXMLApplication}. One main difference is MXMLComponentBuilder contains an interlude method buildComponentInterlude between buildComponentBegin and buildComponentChildren.
- # All Flex components must be nested within <s:mxmlApplication /> tag as it is the top component and this tag must be outside the <h:form /> component {due to IE's use of objects}.
- # During runtime, fields from UIComponent will be fetched from the attribute map or by method call depending on the documentation/annotation for the component files. For component14 fields will be read by parsing replaceMapping XML files, generated during the build time by inspecting the java files' documentation, and for component15 fields will be read by inspecting the standard annotation of the files during run time.
- # Template files {a.k.a. preMxml files} will be created by implementation of {{{_FileManipulatorTaskRunner}}} java file with default being {{{VelocityFileManipulatorTaskRunnerImpl}}}. These templates known as preMxml file will be created per component. The fields to be added will be passed from the previous step of inspecting the UIComponent with each component project {component14 and component15} having an implementation of an interface {{{_AnnotationDocletParser}}}. For example for component14 the implementation class is {{{AnnotationDocletParser14Impl}}} and for component15 the implementation class is {{{AnnotationDocletParser15Impl}}}.
- # Necessary source files will be created to their respective directory {i.e. SWC file containing the system's code, SWF library from generated SWC file, and XML file{s} that is/are needed by the SWC. These are defined within mxmlConstants.xml}
- # After all the component's preMxml within <s:mxmlApplication /> have been created, MXML file and SWF file will be created by implementation of interface {{{_FlexTaskRunner}}}, default is {{{AntFlexTaskRunnerImpl}}}. <s:mxmlScript /> will give capability in writing Actionscript contents as the body content of the Tag by extending UIComponentBodyTagBase; however it should be used sparingly and should be used mainly for components that extend MXMLUISimpleBase component. One additional thing to note is that mxmlPackageName attribute for <s:mxmlApplication /> tag will be used to name the mxml file and the swf file.
- # Also <s:mxmlApplication /> will create JSON objects which will be rendered onto the page for initial values of the Flex components. The reason for this is because <s:mxmlApplication /> has various modes :
-     * debugMode : meaning preMxml, Mxml, and SWF files would be created in each run as well as JSON objects.
-     * simplySWF : meaning Mxml which has been modified by the user exists, so create only SWF files and JSON objects {users can use this to modify the mxml file and create a swf file}
-     * productionEnv : meaning SWF file already exists, so nothing to do here but create JSON objects {this is the default value to ensure that users do not run the components in either of the two other modes in an environment that is higher than dev}. One thing to note is that all directories of {{{Webcontent/swf/*}}} should be copied to their corresponding directory within the Workspace during the move to higher env {since the system uses servContext.getRealPath(new String()) as the root directory of preMxml, Mxml, and swf directory and Tomcat for example flushes it out to their cache directory under metadata}. For large components such as Datagrid, am planning to write it as a service in retrieving and setting the values. 
- # Uses dojo during the onLoad time to connect all the Form's onsubmit event with pageUnload function. Also each Flex/Flash app will communicate back to the page when it has finished setting up on its side {such as setting callBack methods and etcetera}, JSON will be passed to the apps to set the initial values. So the values will be decoded {for example htmlText allows XML tags and etcetera, so on the Java side there will be encoding and decoding on the Flex/Flash side} and set to the component's values.
- # During the form's onsubmit action, pageUnload will return false and make a call to Flex/Flash app to return the component's values to the page. When returned, nodes will be appended to the form that was in the process of submission and will submit the page. On the Flex/Flash side, there will be an Actionscript which will use E4X {love it} to look up within an XML file the property/attributes that the component must return as JSON objects to the page, so that the page can create the elements with their attributes as child nodes of the form element. 
 
-One note regarding preMxml files. In order to keep everything simple and debugging easy, a simple method was chosen to create the preMxml files for each component. Namely the file with {{{<mxmlPackageName>_<Major Num>_<Minor Num>.pre_mxml}}} will be created per component within directory named Webcontent/preMxml/<mxmlPackageName>/. So for instance, MXMLApplication will have Major Num and Minor Num set to 0 and the first child of MXMLApplication will have {1,0} set with it's sibling set to {1,1} and etcetera. Due to how it's written, there maybe an issue such that when depth equals a certain value and the components within that depth has 3 digits.
-
-For example,
-
-    001121 can mean
-
- # major level 1 with minor level 121 {meaning there exists at least 121 component within the level 1}
- # major level 2 with minor level 1 {meaning this is a child of {1,1} and the second sibling with depth two} 
-
-Since issues with this kind of scenario will occur when (1) doesn't exist {meaning sibling 120 exists and 121 is placeholder} and (2) exists {meaning {2,1} exists}, this will be very rare. Also if someone has over 100+ components within a single swf file, I think it should be reconsidered and rewritten.
+==Navigational pages==
+ * [JSFComponentInfo] page contains info regarding JSF components for JSF-Flex project.
+ * [JSFFlexFrameworkComponentInfo] page contains info regarding JSF-Flex Framework's components for JSF-Flex project.
+ * [JSFFlexFrameworkLifeCycle] page contains info regarding the lifecycle of JSF-Flex project.
 
 The project itself has been componentized tremendously in order to provide :
  * flexibility in choosing the implementation preferred {i.e. if the institution using this component library only allows ANT implementation}
