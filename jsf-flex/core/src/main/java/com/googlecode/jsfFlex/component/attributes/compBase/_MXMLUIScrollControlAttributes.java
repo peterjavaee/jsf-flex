@@ -19,43 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes.compBase;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "border"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The border object."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "liveScrolling"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "A flag that indicates whether scrolling is live as the scrollbar thumb is moved or the view is not updated until the thumb is released."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "maxHorizontalScrollPosition"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The maximum value for the horizontalScrollPosition property."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "maxVerticalScrollPosition"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The maximum value for the verticalScrollPosition property."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "scrollTipFunction"
- *   						 returnType	= "java.lang.String" 
- *   						 longDesc	= "A function that computes the string to be displayed as the ScrollTip."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "showScrollTips"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "A flag that indicates whether a tooltip should appear near the scroll thumb when it is being dragged."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIScrollControlAttributes {

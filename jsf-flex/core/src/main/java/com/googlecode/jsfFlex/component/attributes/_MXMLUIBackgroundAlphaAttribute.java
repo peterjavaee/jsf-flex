@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *	 name = "backgroundAlpha"
- *   returnType = "java.lang.String"
- *   longDesc = "Alpha level of the color defined by the backgroundColor property."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIBackgroundAlphaAttribute {

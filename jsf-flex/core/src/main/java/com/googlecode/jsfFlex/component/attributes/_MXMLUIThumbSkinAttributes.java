@@ -19,25 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "thumbDownSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the thumb of the scroll bar when you click the thumb."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "thumbOverSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the thumb of the scroll bar when the mouse pointer is over the thumb."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "thumbUpSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the thumb of the scroll bar."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIThumbSkinAttributes {

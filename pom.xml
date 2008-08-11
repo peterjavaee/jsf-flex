@@ -5,7 +5,7 @@
   <artifactId>jsf-flex-build-project</artifactId>
   <packaging>pom</packaging>
   <version>1.0.0-SNAPSHOT</version>
-  <name>JSF-Flex Build Project</name>
+  <name>JSF-Flex Main Build Project</name>
   <url>http://code.google.com/p/jsf-flex/</url>
   
   <scm>
@@ -14,10 +14,10 @@
   </scm>
   
   <modules>
+    <module>jsf-flex-build-plugIn</module>
     <module>jsf-flex</module>
     <module>jsf-flex-shared</module>
     <module>jsf-flex-framework</module>
-    <module>jsf-flex-build-plugIn</module>
   </modules>
   
   <build>

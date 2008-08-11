@@ -19,31 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "upSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the background and border when the mouse is not over the control."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "disabledSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the background and border when the control is disabled."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "downSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the background and border when the user holds down the mouse button."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "overSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the background and border when the mouse is over the control."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIControlSkinAttributes {

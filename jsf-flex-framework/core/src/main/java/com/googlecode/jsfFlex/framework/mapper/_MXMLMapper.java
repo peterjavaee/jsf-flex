@@ -18,8 +18,6 @@
  */
 package com.googlecode.jsfFlex.framework.mapper;
 
-import java.util.Map;
-
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 
 /**
@@ -27,6 +25,6 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  */
 public interface _MXMLMapper {
 	
-	void mapField(String jsf_attribute, String tokenName, Object componentObj, Map replaceTextLists) throws ComponentBuildException;
+	TokenValue mapField(String tokenName, Object componentObj) throws ComponentBuildException;
 	
 }

@@ -19,7 +19,6 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIRuleAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
@@ -31,12 +30,31 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   family   = "javax.faces.MXMLSimpleBase"
  *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ * 
+ * @JSFJspProperties
+ * 		properties	=		
+ * 							@JSFJspProperty
+ * 							 name		= "shadowColor"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The shadow color of the line."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "strokeWidth"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The thickness of the rule in pixels."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "strokeColor"
+ *   						 returnType = "java.lang.String"
+ *   						 longDesc	= "The color of the line."
  *   
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIVRule 
 						extends MXMLUISimpleBase 
-						implements _MXMLUIBaseAttributes, _MXMLUIRuleAttributes {
+						implements _MXMLUIBaseAttributes {
 
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLVRule";
 	

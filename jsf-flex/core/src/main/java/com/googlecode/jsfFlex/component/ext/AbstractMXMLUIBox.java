@@ -30,13 +30,10 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderThicknessAttribu
 import com.googlecode.jsfFlex.component.attributes._MXMLUIColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUICornerRadiusAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataChangeAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDirectionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDisabledColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontSpecificAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIGapAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalAlignAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIIconAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUILabelAttribute;
@@ -49,7 +46,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIShadowAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextStyleAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIThumbSkinAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIVerticalAlignAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttributes;
 
@@ -62,7 +58,38 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   family   = "javax.faces.MXMLSimpleBase"
  *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
- *   
+ * 
+ * @JSFJspProperties
+ * 		properties	=		
+ *   						@JSFJspProperty
+ * 							 name		= "direction"
+ *   						 returnType = "java.lang.String"
+ *   						 longDesc	= "Direction in which the fill of the ProgressBar expands toward completion."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "horizontalAlign"
+ *   						 returnType = "java.lang.String"
+ *   						 longDesc	= "Horizontal alignment of children in the container."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "horizontalGap"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Horizontal gap."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "verticalGap"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Vertical gap."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "verticalAlign"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "The vertical alignment of a renderer in a row."
+ * 
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIBox 
@@ -71,13 +98,12 @@ public abstract class AbstractMXMLUIBox
 						_MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundAttributes, _MXMLUIBackgroundColorAttribute, 
 						_MXMLUIBackgroundDisabledColorAttribute, _MXMLUIBarColorAttribute, _MXMLUIBorderAttributes, 
 						_MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, _MXMLUIColorAttribute, 
-						_MXMLUICornerRadiusAttribute, _MXMLUIDataChangeAttribute, _MXMLUIDirectionAttribute, 
+						_MXMLUICornerRadiusAttribute, _MXMLUIDataChangeAttribute, _MXMLUITextStyleAttributes,  
 						_MXMLUIDisabledColorAttribute, _MXMLUIFontFamilyAttribute, _MXMLUIFontGeneralAttributes, 
-						_MXMLUIFontSpecificAttributes, _MXMLUIGapAttributes, _MXMLUIHorizontalAlignAttribute, 
+						_MXMLUIFontSpecificAttributes, _MXMLUIThumbSkinAttributes, _MXMLUITrackAttributes,
 						_MXMLUIHorizontalScrollPositionAttribute, _MXMLUILabelAttribute, _MXMLUIPaddingHorizontalAttributes,  
 						_MXMLUIPaddingVerticalAttributes, _MXMLUIScrollAttribute, _MXMLUIScrollAttributes, 
-						_MXMLUIScrollBarAttributes, _MXMLUIShadowAttributes, _MXMLUITextStyleAttributes, 
-						_MXMLUIThumbSkinAttributes, _MXMLUITrackAttributes, _MXMLUIVerticalAlignAttribute {
+						_MXMLUIScrollBarAttributes, _MXMLUIShadowAttributes {
 	
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLBox";
 	

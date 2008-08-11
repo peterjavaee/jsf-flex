@@ -19,19 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "minimum"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Minimum value of the NumericStepper."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "maximum"
- *   						 returnType	= "java.lang.String" 
- *   						 longDesc	= "Maximum value of the NumericStepper."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIMinMaxAttributes {

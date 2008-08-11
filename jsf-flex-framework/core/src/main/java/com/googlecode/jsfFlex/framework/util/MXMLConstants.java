@@ -41,14 +41,20 @@ public class MXMLConstants {
 	
 	public static final String STRING_QUOTE = "\"";
 	
-	public static final String FLEX_SDK_ZIP = "flexSDK.zip";
-	public static final String JSF_FLEX_COMMUNICATOR_JS = "jsfFlexCommunicator.js";
-	
 	public static final String PRE_MXML_FILE_EXT = ".pre_mxml";
 	public static final String MXML_FILE_EXT = ".mxml";
 	public static final String SWF_FILE_EXT = ".swf";
 	public static final String XML_FILE_EXT = ".xml";
+	public static final String SWC_FILE_EXT = ".swc";
 	public static final String MXMLCONSTANTS_XML = "mxmlConstants.xml";
+	
+	public static final String FLEX_SDK_ZIP = "flexSDK.zip";
+	public static final String JSF_FLEX_COMMUNICATOR_JS = "jsfFlexCommunicator.js";
+	public static final String DEFAULT_SWC_LIBRARY_SWF_NAME = "library.swf";
+	public static final String JSF_FLEX_MAIN_SWC_CONFIGURATIONFILE = "jsfFlexMainSwcConfigurationFile.xml";
+	public static final String JSF_FLEX_MAIN_SWC_DIRECTORY_NAME = "jsfFlexMainSwcFileSystem";
+	public static final String JSF_FLEX_MAIN_SWC_ARCHIVE_NAME = "jsfFlexMainSwc";
+	public static final String JSF_FLEX_MAIN_SWC_WEB_PATH = "swf/" + JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + SWF_FILE_EXT;
 	
 	public static final String CHILD_REPLACE_TOKEN = "<!-- Child Component -->";
 	public static final String SIBLING_REPLACE_TOKEN = "<!-- Sibling Component -->";
@@ -65,6 +71,7 @@ public class MXMLConstants {
 	public static final String SWF_DIRECTORY_NAME = "swf";
 	public static final String PREMXML_DIRECTORY_NAME = "preMxml";
 	public static final String FLEX_SDK_DIRECTORY_NAME = "flexSDK";
+	public static final String SWC_DIRECTORY_NAME = "swc";
 	
 	public static final boolean WINDOWS_SYSTEM;
 	
@@ -72,7 +79,9 @@ public class MXMLConstants {
 	public static final String CODE_BASE;
 	public static final String PLUGINS_PAGE;
 	
-	private static final List _mxmlcSourceFiles;
+	public static final String JSF_FLEX_MAIN_SWC_CONFIG_FILE;
+	
+	private static final List _swcSourceFiles;
 	private static final List _swfSourceFiles;
 	
 	private static Map _tempParseMap;
@@ -86,7 +95,7 @@ public class MXMLConstants {
 		WINDOWS_SYSTEM = (System.getProperty("line.separator").equals("\r\n"));
 		_tempParseMap = new HashMap();
 		
-		_mxmlcSourceFiles = new LinkedList();
+		_swcSourceFiles = new LinkedList();
 		_swfSourceFiles = new LinkedList();
 		
 		try{
@@ -98,6 +107,7 @@ public class MXMLConstants {
 		CLASS_ID = (String) _tempParseMap.get("CLASS_ID");
 		CODE_BASE = (String) _tempParseMap.get("CODE_BASE");
 		PLUGINS_PAGE = (String) _tempParseMap.get("PLUGINS_PAGE");
+		JSF_FLEX_MAIN_SWC_CONFIG_FILE = (String) _tempParseMap.get("JSF_FLEX_MAIN_SWC_CONFIG_FILE");
 		
 		_tempParseMap = null;
 	}
@@ -116,9 +126,10 @@ public class MXMLConstants {
 			private boolean class_id = false;
 			private boolean code_base = false;
 			private boolean plugins_page = false;
-			private boolean mxml_source_files = false;
+			private boolean swc_source_files = false;
 			private boolean swf_source_files = false;
 			private boolean source_file = false;
+			private boolean jsf_flex_main_swc_config_file = false;
 			
 			private StringBuffer nodeValue;
 			
@@ -146,17 +157,18 @@ public class MXMLConstants {
 					code_base = true;
 				}else if(qName.equals("plugins-page")){
 					plugins_page = true;
-				}else if(qName.equals("mxml-source-files")){
-					mxml_source_files = true;
+				}else if(qName.equals("swc-source-files")){
+					swc_source_files = true;
 				}else if(qName.equals("swf-source-files")){
 					swf_source_files = true;
 				}else if(qName.equals("source-file")){
 					source_file = true;
+				}else if(qName.equals("jsf-flex-main-swc-config-file")){
+					jsf_flex_main_swc_config_file = true;
 				}
 				
 				nodeValue = new StringBuffer();
 			}
-			
 			
 			public void endElement(String uri, String localName, String qName) throws SAXException {
 				super.endElement(uri, localName, qName);
@@ -175,17 +187,20 @@ public class MXMLConstants {
 				}else if(plugins_page){
 					_tempParseMap.put("PLUGINS_PAGE", currValue);
 					plugins_page = false;
+				}else if(jsf_flex_main_swc_config_file){
+					_tempParseMap.put("JSF_FLEX_MAIN_SWC_CONFIG_FILE", currValue);
+					jsf_flex_main_swc_config_file = false;
 				}else if(swf_html_attribute){
 					swf_html_attribute = false;
 				}else if(source_file){
-					if(mxml_source_files){
-						_mxmlcSourceFiles.add(currValue);
+					if(swc_source_files){
+						_swcSourceFiles.add(currValue);
 					}else if(swf_source_files){
 						_swfSourceFiles.add(currValue);
 					}
 					source_file = false;
-				}else if(mxml_source_files){
-					mxml_source_files = false;
+				}else if(swc_source_files){
+					swc_source_files = false;
 				}else if(swf_source_files){
 					swf_source_files = false;
 				}else if(system_independent){
@@ -205,16 +220,16 @@ public class MXMLConstants {
 		
 	}
 	
-	public static String[] getMxmlcSourceFiles(){
+	public static String[] getSwcSourceFiles(){
 		/*
-		 * To disallow removing elements within mxmlcSourceFiles 
+		 * To disallow removing elements within swcSourceFiles 
 		 */
-		return (String []) _mxmlcSourceFiles.toArray(new String[0]);
+		return (String []) _swcSourceFiles.toArray(new String[0]);
 	}
 	
-	public static void addMxmlcSourceFiles(String sourceToAdd){
+	public static void addSwcSourceFiles(String sourceToAdd){
 		if(sourceToAdd != null){
-			_mxmlcSourceFiles.add(sourceToAdd);
+			_swcSourceFiles.add(sourceToAdd);
 		}
 	}
 	

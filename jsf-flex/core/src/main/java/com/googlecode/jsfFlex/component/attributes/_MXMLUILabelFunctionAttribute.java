@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "labelFunction"
- *   returnType = "java.lang.String"
- *   longDesc	= "User-supplied function to run on each item to determine its label."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUILabelFunctionAttribute {

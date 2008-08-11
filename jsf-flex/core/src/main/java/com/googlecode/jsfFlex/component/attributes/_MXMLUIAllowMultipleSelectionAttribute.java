@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "allowMultipleSelection"
- *   returnType = "java.lang.String"
- *   longDesc	= "A flag that indicates whether you can allow more than one item to be selected at the same time."
- *  
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIAllowMultipleSelectionAttribute {

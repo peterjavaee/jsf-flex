@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "focusRoundedCorners"
- *   returnType = "java.lang.String"
- *   longDesc	= "Specifies which corners of the focus rectangle should be rounded."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIFocusRoundedCornersAttribute {

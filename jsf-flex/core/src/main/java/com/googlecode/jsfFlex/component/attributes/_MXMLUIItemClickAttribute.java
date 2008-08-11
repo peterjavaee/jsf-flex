@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "itemClick"
- *   returnType = "java.lang.String"
- *   longDesc	= "Dispatched when the user clicks on an item in the control."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIItemClickAttribute {

@@ -1,8 +1,0 @@
-	${direction}
-	
-    ${horizontalAlign}
-    ${horizontalGap}
-    ${verticalAlign}
-    ${verticalGap}
-    
-    &container;

@@ -27,7 +27,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIBarColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderThicknessAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIChangeAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUICornerRadiusAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataChangeAttribute;
@@ -35,15 +34,12 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIDisabledColorAttribute
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontSpecificAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIGapAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIHistoryManagementAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIIconAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUILabelAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingHorizontalAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingVerticalAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIResizeToContentAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollBarAttributes;
@@ -65,6 +61,37 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   family   = "javax.faces.MXMLInput"
  *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLInput"
+ * 
+ * @JSFJspProperties
+ * 		properties	=		
+ *   						@JSFJspProperty
+ * 							 name		= "historyManagementEnabled"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "If true, enables history management within this ViewStack container."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "resizeToContent"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "If true, the ViewStack container automatically resizes to the size of its current child."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "horizontalGap"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Horizontal gap."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "verticalGap"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Vertical gap."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "change"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Dispatched when the selectedIndex or selectedItem property changes as a result of user interaction."
  *   
  * Since ViewStack is written to maintain it's state, it will extend directly from MXMLUIInputBase
  * 
@@ -72,19 +99,18 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  */
 public abstract class AbstractMXMLUIViewStack 
 						extends MXMLUIViewStackBase
-						implements _MXMLUIResizeToContentAttribute, _MXMLUIContainerAttributes, _MXMLUIBaseAttributes, 
+						implements _MXMLUIContainerAttributes, _MXMLUIBaseAttributes, _MXMLUIThumbSkinAttributes, 
 						_MXMLUITextAttribute, _MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundAttributes, 
 						_MXMLUIBackgroundColorAttribute, _MXMLUIBackgroundDisabledColorAttribute, 
 						_MXMLUIBarColorAttribute, _MXMLUIBorderAttributes, _MXMLUIBorderColorAttribute, 
-						_MXMLUIBorderThicknessAttribute, _MXMLUIChangeAttribute, _MXMLUIColorAttribute, 
+						_MXMLUIBorderThicknessAttribute, _MXMLUIColorAttribute, _MXMLUISelectedIndexAttribute, 
 						_MXMLUITrackAttributes, _MXMLUICornerRadiusAttribute, _MXMLUIDataChangeAttribute, 
 						_MXMLUIDisabledColorAttribute, _MXMLUIFontFamilyAttribute, _MXMLUIFontGeneralAttributes, 
-						_MXMLUIFontSpecificAttributes, _MXMLUIGapAttributes, _MXMLUIHorizontalScrollPositionAttribute,  
+						_MXMLUIFontSpecificAttributes, _MXMLUIHorizontalScrollPositionAttribute,  
 						_MXMLUIImmediateAttribute, _MXMLUILabelAttribute, _MXMLUIPaddingHorizontalAttributes, 
 						_MXMLUIPaddingVerticalAttributes, _MXMLUIScrollAttribute, _MXMLUIScrollAttributes, 
 						_MXMLUIScrollBarAttributes, _MXMLUIShadowAttributes, _MXMLUIIconAttribute, 
-						_MXMLUITextStyleAttributes, _MXMLUIThumbSkinAttributes, _MXMLUIHistoryManagementAttribute, 
-						_MXMLUISelectedIndexAttribute {
+						_MXMLUITextStyleAttributes {
 
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLViewStack";
 	

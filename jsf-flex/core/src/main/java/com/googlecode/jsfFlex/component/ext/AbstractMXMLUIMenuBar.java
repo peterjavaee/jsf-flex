@@ -19,30 +19,7 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUICornerRadiusAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataViewAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDropDownEventColorAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFillAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFontSpecificAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIHighlightAlphaAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIIconFieldAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIItemClickAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIItemEventAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUILabelFieldAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUILabelFunctionAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUILeadingAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedIndexAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextStyleAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
@@ -103,20 +80,216 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  * 							 name		= "menuShow"
  *   						 returnType	= "java.lang.String"
  *   						 longDesc	= "Dispatched when a menu or submenu opens, or the mouse pointer rolls over an item with no drop-down menu."
+ *   						,
  *   						
+ *   						@JSFJspProperty
+ * 							 name = "showRoot"
+ *   						 returnType = "java.lang.String"
+ *   						 longDesc = "A Boolean flag that specifies whether to display the data provider's root node."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name = "dataDescriptor"
+ *   						 returnType = "java.lang.String"
+ *   						 longDesc = "The object that accesses and manipulates data in the data provider."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "dataProvider"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "The set of items this component displays."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "iconField"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "The name of the field in the data provider object that determines what to display as the icon."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "labelField"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "The name of the field in the data provider items to display as the label."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "labelFunction"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "User-supplied function to run on each item to determine its label."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name = "backgroundAlpha"
+ *   						 returnType = "java.lang.String"
+ *   						 longDesc = "Alpha level of the color defined by the backgroundColor property."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "backgroundColor"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Background color of a component."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "borderColor"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Color of the border."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "color"
+ *   						 returnType = "java.lang.String"
+ *  						 longDesc	= "Color of text in the component."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "cornerRadius"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Radius of component corners."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "disabledColor"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Color of text in the component if it is disabled."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "fillAlphas"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Alphas used for the background fill of controls."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "fillColors"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Colors used to tint the background of the control."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "focusAlpha"
+ *   						 returnType = "java.lang.String"
+ *  						 longDesc	= "Specifies the alpha transparency value of the focus skin."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "focusRoundedCorners"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Specifies which corners of the focus rectangle should be rounded."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "fontGridFitType"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Sets the gridFitType property of internal TextFields that represent text in Flex controls."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "fontSharpness"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Sets the sharpness property of internal TextFields that represent text in Flex controls."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "fontAntiAliasType"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Sets the antiAliasType property of internal TextFields."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "fontThickness"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Sets the thickness property of internal TextFields that represent text in Flex controls."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "fontFamily"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Name of the font to use."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "fontStyle"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Determines whether the text is italic font."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "fontWeight"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Determines whether the text is boldface."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "fontSize"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Height of the text, in pixels."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "highlightAlphas"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Alphas used for the highlight fill of controls."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "leading"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Additional vertical space between lines of text."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "rollOverColor"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The rollOverColor of the drop-down list."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "selectionColor"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The selectionColor of the drop-down list."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "textIndent"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Offset of first line of text from the left side of the container, in pixels."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "textDecoration"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Determines whether the text is underlined."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "textAlign"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Alignment of text within a container."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "itemClick"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Dispatched when the user clicks on an item in the control."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "itemRollOver"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched when the user rolls the mouse over a drop-down list item."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "itemRollOut"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched when the user rolls the mouse over a drop-down list item."
+ *   						   						
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIMenuBar 
 						extends MXMLUISimpleBase 
-						implements _MXMLUIBaseAttributes, _MXMLUIBackgroundAlphaAttribute, 
-						_MXMLUIBackgroundColorAttribute, _MXMLUIBorderColorAttribute, _MXMLUIColorAttribute, 
-						_MXMLUICornerRadiusAttribute, _MXMLUIDataProviderAttribute, _MXMLUIDataViewAttributes, 
-						_MXMLUIDisabledColorAttribute, _MXMLUIDropDownEventColorAttributes, _MXMLUIFillAttributes, 
-						_MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, _MXMLUIFontFamilyAttribute, 
-						_MXMLUIFontGeneralAttributes, _MXMLUIFontSpecificAttributes, _MXMLUIHighlightAlphaAttribute, 
-						_MXMLUIIconFieldAttribute, _MXMLUIItemClickAttribute, _MXMLUIItemEventAttributes, 
-						_MXMLUILabelFieldAttribute, _MXMLUILabelFunctionAttribute, _MXMLUILeadingAttribute, 
-						_MXMLUISelectedIndexAttribute, _MXMLUITextStyleAttributes {
+						implements _MXMLUIBaseAttributes, _MXMLUISelectedIndexAttribute {
 
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLMenuBar";
 	

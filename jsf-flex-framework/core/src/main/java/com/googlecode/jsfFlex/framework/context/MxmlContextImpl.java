@@ -22,13 +22,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
-import com.googlecode.jsfFlex.framework.component.MXMLComponentBase;
-import com.googlecode.jsfFlex.framework.tasks.AntFlexTaskRunnerImpl;
-import com.googlecode.jsfFlex.framework.tasks.CommonTaskRunnerImpl;
 import com.googlecode.jsfFlex.framework.tasks._CommonTaskRunner;
+import com.googlecode.jsfFlex.framework.tasks._FileManipulatorTaskRunner;
 import com.googlecode.jsfFlex.framework.tasks._FlexTaskRunner;
-import com.googlecode.jsfFlex.framework.util.FileManipulatorImpl;
-import com.googlecode.jsfFlex.framework.util._FileManipulator;
+import com.googlecode.jsfFlex.framework.tasks.factory._RunnerFactory;
 
 /**
  * @author Ji Hoon Kim
@@ -44,20 +41,26 @@ public class MxmlContextImpl extends MxmlContext {
 	
 	private String _mxmlPath;
 	private String _preMxmlPath;
+	private String _swcPath;
 	private String _swfPath;
 	private String _swfWebPath;
 	private String _swfBasePath;
 	private String _flexSDKPath;
 	
+	private _RunnerFactory _runnerFactoryInstance;
+	private _FileManipulatorTaskRunner _fileManipulatorRunner;
 	private _FlexTaskRunner _flexRunner;
 	private _CommonTaskRunner _commonRunner;
-	private _FileManipulator _fileManipulator;
 	
 	public MxmlContextImpl(String currMxml){
 		super();
 		_currMxml = currMxml;
 		_preMxmlCompMap = new TreeMap();
 		_applicationIdValueMap = new HashMap();
+		_runnerFactoryInstance = _RunnerFactory.getInstance();
+		_flexRunner = _runnerFactoryInstance.getFlexTaskRunnerImpl();
+		_commonRunner = _runnerFactoryInstance.getCommonTaskRunnerImpl();
+		_fileManipulatorRunner = _runnerFactoryInstance.getFileManipulatorTaskRunnerImpl();
 		MxmlContext.setCurrentInstance(this);
 	}
 	
@@ -115,6 +118,12 @@ public class MxmlContextImpl extends MxmlContext {
 	public void setSwfBasePath(String swfBasePath) {
 		_swfBasePath = swfBasePath;
 	}
+	public String getSwcPath() {
+		return _swcPath;
+	}
+	public void setSwcPath(String swcPath) {
+		_swcPath = swcPath;
+	}
 	public String getSwfPath() {
 		return _swfPath;
 	}
@@ -130,23 +139,14 @@ public class MxmlContextImpl extends MxmlContext {
 	public _CommonTaskRunner getCommonRunner() {
 		return _commonRunner;
 	}
-	public _FileManipulator getFileManipulator() {
-		return _fileManipulator;
-	}
 	public _FlexTaskRunner getFlexRunner() {
 		return _flexRunner;
 	}
-	
-	public void initRunners(){
-		_flexRunner = AntFlexTaskRunnerImpl.getInstance(true, _currMxml);
-		_fileManipulator = FileManipulatorImpl.getInstance(_currMxml, MXMLComponentBase.class.getClassLoader());
-		_commonRunner = new CommonTaskRunnerImpl(true);
+	public _FileManipulatorTaskRunner getFileManipulatorRunner() {
+		return _fileManipulatorRunner;
 	}
-	
-	public void initRunners(ClassLoader loader){
-		_flexRunner = AntFlexTaskRunnerImpl.getInstance(true, _currMxml);
-		_fileManipulator = FileManipulatorImpl.getInstance(_currMxml, loader);
-		_commonRunner = new CommonTaskRunnerImpl(true);
+	public _RunnerFactory getRunnerFactoryInstance() {
+		return _runnerFactoryInstance;
 	}
 	
 }

@@ -19,25 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "textIndent"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Offset of first line of text from the left side of the container, in pixels."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "textDecoration"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Determines whether the text is underlined."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "textAlign"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Alignment of text within a container."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUITextStyleAttributes {

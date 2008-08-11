@@ -25,8 +25,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUICornerRadiusAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDirectionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFillAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHighlightAlphaAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIRepeatAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIThumbSkinAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
@@ -41,15 +39,34 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollBarAttr
  *   family   = "javax.faces.MXMLSimpleBase"
  *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
- *   
+ * 
+ @JSFJspProperties
+ * 		properties	=		
+ *   						@JSFJspProperty
+ * 							 name		= "repeatDelay"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Number of milliseconds to wait."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "repeatInterval"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Number of milliseconds in the actions."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "scroll"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Dispatched when the user manually scrolls the container."
+ *   						
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIHScrollBar 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIScrollBarAttributes, _MXMLUIBaseAttributes, _MXMLUIArrowAttributes, 
 						_MXMLUIBorderColorAttribute, _MXMLUICornerRadiusAttribute, _MXMLUIDirectionAttribute, 
-						_MXMLUIFillAttributes, _MXMLUIHighlightAlphaAttribute, _MXMLUIRepeatAttributes, 
-						_MXMLUIScrollAttribute, _MXMLUIThumbSkinAttributes, _MXMLUITrackAttributes {
+						_MXMLUIFillAttributes, _MXMLUIHighlightAlphaAttribute, _MXMLUITrackAttributes, 
+						_MXMLUIThumbSkinAttributes {
 
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLHScrollBar";
 	

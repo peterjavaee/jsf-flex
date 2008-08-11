@@ -19,25 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "data"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Lets you pass a value to the component when you use it in an item renderer or item editor."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "listData"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "When a component is used as a drop-in item renderer or drop-in item editor, Flex initializes the listData property of the component with the appropriate data from the list control."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "condenseWhite"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Specifies whether extra white space (spaces, line breaks, and so on) should be removed in a control with HTML text."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIDataAttributes {

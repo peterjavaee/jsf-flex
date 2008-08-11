@@ -30,7 +30,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   family   = "javax.faces.MXMLSimpleBase"
  *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
- *   
+ * 
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUISpacer 

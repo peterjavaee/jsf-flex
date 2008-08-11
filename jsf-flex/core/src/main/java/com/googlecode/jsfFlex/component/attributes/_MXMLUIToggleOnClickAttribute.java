@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "toggleOnClick"
- *   returnType = "java.lang.String"
- *   longDesc	= "Specifies whether the currently selected button can be deselected by the user."
- *  
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIToggleOnClickAttribute {

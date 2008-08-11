@@ -25,36 +25,25 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundColorAttribu
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderThicknessAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIChangeAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUICornerRadiusAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFocusRoundedCornersAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHtmlTextAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImeModeAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUILeadingAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIMaxCharsAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingHorizontalAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIRepeatAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIRestrictAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollBarAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIShadowAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextBindingAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextStyleAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIThumbSkinAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIWordWrapAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControlAttributes;
 
@@ -67,12 +56,110 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControl
  *   family   = "javax.faces.MXMLInput"
  *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLInput"
- *   
- * @JSFJspProperty
- *   name		= "styleSheet"
- *   returnType = "java.lang.String"
- *   longDesc	= "A flash.text.StyleSheet object that can perform rendering on the TextArea control's text."
  * 
+ * @JSFJspProperties
+ * 		properties	=		
+ * 						   @JSFJspProperty
+ *   						name		= "styleSheet"
+ *  						returnType = "java.lang.String"
+ *   						longDesc	= "A flash.text.StyleSheet object that can perform rendering on the TextArea control's text."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "data"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Lets you pass a value to the component when you use it in an item renderer or item editor."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "listData"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "When a component is used as a drop-in item renderer or drop-in item editor, Flex initializes the listData property of the component with the appropriate data from the list control."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "condenseWhite"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Specifies whether extra white space (spaces, line breaks, and so on) should be removed in a control with HTML text."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "displayAsPassword"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Indicates whether this control is used for entering passwords."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "selectionEndIndex"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The zero-based index of the position after the last character in the current selection (equivalent to the one-based index of the last character)."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "selectionBeginIndex"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The zero-based character index value of the first character in the current selection."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "editable"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "A flag that indicates whether the control is editable."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "imeMode"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Specifies the IME (input method editor) mode."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "maxChars"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Maximum number of characters that users can enter in the text field."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "restrict"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Set of characters that a user can or cannot enter into the text field."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "wordWrap"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "A flag that indicates whether text in the row should be word wrapped."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "focusAlpha"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Specifies the alpha transparency value of the focus skin."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "focusRoundedCorners"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Specifies which corners of the focus rectangle should be rounded."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "paddingLeft"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Number of pixels between the container's left border and the left edge of its content area."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "paddingRight"
+ *   						 returnType	= "java.lang.String" 
+ *   						 longDesc	= "Number of pixels between the container's right border and the right edge of its content area."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "change"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Dispatched when the selectedIndex or selectedItem property changes as a result of user interaction."
+ *   						
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUITextArea 
@@ -80,15 +167,12 @@ public abstract class AbstractMXMLUITextArea
 						implements _MXMLUIScrollControlAttributes, _MXMLUIBaseAttributes, _MXMLUITextAttribute, 
 						_MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundAttributes, _MXMLUIBackgroundColorAttribute, 
 						_MXMLUIBorderAttributes, _MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, 
-						_MXMLUIChangeAttribute, _MXMLUIColorAttribute, _MXMLUIWordWrapAttribute, _MXMLUITrackAttributes,
-						_MXMLUICornerRadiusAttribute, _MXMLUIDataAttributes, _MXMLUIDisabledColorAttribute, 
-						_MXMLUIEditableAttribute, _MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, 
-						_MXMLUIFontFamilyAttribute, _MXMLUIFontGeneralAttributes, _MXMLUIHorizontalScrollPositionAttribute,  
-						_MXMLUIImeModeAttribute, _MXMLUIImmediateAttribute, _MXMLUILeadingAttribute,  
-						_MXMLUIMaxCharsAttribute, _MXMLUIPaddingHorizontalAttributes, _MXMLUIRepeatAttributes, 
-						_MXMLUIRestrictAttribute, _MXMLUIScrollAttribute, _MXMLUIScrollAttributes, _MXMLUIScrollBarAttributes,  
-						_MXMLUIShadowAttributes, _MXMLUITextAttributes, _MXMLUIThumbSkinAttributes, 
-						_MXMLUITextStyleAttributes,_MXMLUIHtmlTextAttribute, _MXMLUITextBindingAttribute {
+						_MXMLUIColorAttribute, _MXMLUITrackAttributes, _MXMLUICornerRadiusAttribute, 
+						_MXMLUIFontFamilyAttribute, _MXMLUIFontGeneralAttributes, _MXMLUIRepeatAttributes,  
+						_MXMLUIImmediateAttribute, _MXMLUILeadingAttribute, _MXMLUIThumbSkinAttributes, 
+						_MXMLUIScrollAttribute, _MXMLUIScrollBarAttributes, _MXMLUIShadowAttributes,  
+						_MXMLUITextStyleAttributes,_MXMLUIHtmlTextAttribute, _MXMLUITextBindingAttribute, 
+						_MXMLUIScrollAttributes, _MXMLUIHorizontalScrollPositionAttribute, _MXMLUIDisabledColorAttribute {
 	
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLTextArea";
 	

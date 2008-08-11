@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<replace-mapping>
-	<replace>
-		<replace-token byAttribute="true">maxLength</replace-token>
-		<replace-token byAttribute="true">minLength</replace-token>
-		<replace-token byAttribute="true">tooLongError</replace-token>
-		<replace-token byAttribute="true">tooShortError</replace-token>
-	</replace>
-</replace-mapping>

@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "backgroundColor"
- *   returnType = "java.lang.String"
- *   longDesc	= "Background color of a component."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIBackgroundColorAttribute {

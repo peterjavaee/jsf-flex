@@ -19,15 +19,7 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUICompleteEffectAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataChangeAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalAlignAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUILoadAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIMaintainAspectRatioAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIOpenAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIVerticalAlignAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUISwfLoaderAttributes;
 
 /**
  * @JSFComponent
@@ -38,14 +30,139 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUISwfLoaderAttr
  *   family   = "javax.faces.MXMLSimpleBase"
  *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
- *   
+ * 
+ * @JSFJspProperties
+ * 		properties	=		
+ *   						@JSFJspProperty
+ * 							 name		= "autoLoad"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "If true, the content loads automatically."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "loaderContext"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "A LoaderContext object to use to load the content."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "scaleContent"
+ *   						 returnType	= "java.lang.String" 
+ *   						 longDesc	= "If true, the content scales to fit the SWFLoader control."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "showBusyCursor"
+ *   						 returnType	= "java.lang.String" 
+ *   						 longDesc	= "If true, shows a busy cursor while the content loads."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "trustContent"
+ *   						 returnType	= "java.lang.String" 
+ *   						 longDesc	= "If true, the content is loaded into your security domain."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "brokenImageBorderSkin"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Name of class to use as the SWFLoader border skin if the control can not load the content."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "brokenImageSkin"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Name of the class to use as the SWFLoader skin if the control can not load the content."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "httpStatus"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched when a network request is made over HTTP and Flash Player can detect theHTTP status code."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "init"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched when the properties and methods of a loaded SWF file are accessible."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "ioError"
+ *   						 returnType	= "java.lang.String" 
+ *   						 longDesc	= "Dispatched when an input/output error occurs."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "securityError"
+ *   						 returnType	= "java.lang.String" 
+ *   						 longDesc	= "Dispatched when a security error occurs while content is loading."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "unload"
+ *   						 returnType	= "java.lang.String" 
+ *   						 longDesc	= "Dispatched when a loaded object is removed, or when a second load is performed by the same SWFLoader control and the original content is removed prior to the new load beginning."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "maintainAspectRatio"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "If true, specifies to display the image with the same ratio of height to width as the original image."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "source"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Specifies the content to load."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "progress"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched when content is loading."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "complete"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched when content loading is complete."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "horizontalAlign"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Horizontal alignment of children in the container."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "verticalAlign"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "The vertical alignment of a renderer in a row."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "completeEffect"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Effect called when Flex dispatches the complete event, which occurs when the load completes."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "open"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Dispatched when the user clicks the drop-down button to display the drop-down list."
+ *  						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "dataChange"
+ *   						 returnType = "java.lang.String"
+ *  						 longDesc	= "Dispatched when the data property changes."
+ * 
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIImage 
 						extends MXMLUISimpleBase
-						implements _MXMLUISwfLoaderAttributes, _MXMLUIBaseAttributes, _MXMLUICompleteEffectAttribute, 
-						_MXMLUIDataChangeAttribute, _MXMLUIHorizontalAlignAttribute, _MXMLUILoadAttributes, 
-						_MXMLUIMaintainAspectRatioAttribute, _MXMLUIOpenAttribute, _MXMLUIVerticalAlignAttribute {
+						implements _MXMLUIBaseAttributes {
 	
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLImage";
 	

@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "toolTipField"
- *   returnType = "java.lang.String"
- *   longDesc	= "Name of the the field in the dataProvider object to display as the tooltip label."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIToolTipFieldAttribute {

@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "maxChars"
- *   returnType = "java.lang.String"
- *   longDesc	= "Maximum number of characters that users can enter in the text field."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIMaxCharsAttribute {

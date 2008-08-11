@@ -19,19 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "textSelectedColor"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Text color of the label as the user presses it."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "textRollOverColor"
- *   						 returnType	= "java.lang.String" 
- *   						 longDesc	= "Text color of the label as the user moves the mouse pointer over the button."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUITextEventColorAttributes {

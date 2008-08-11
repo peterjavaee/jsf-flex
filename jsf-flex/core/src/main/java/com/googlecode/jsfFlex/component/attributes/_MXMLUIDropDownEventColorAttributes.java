@@ -19,19 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "rollOverColor"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The rollOverColor of the drop-down list."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "selectionColor"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The selectionColor of the drop-down list."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIDropDownEventColorAttributes {

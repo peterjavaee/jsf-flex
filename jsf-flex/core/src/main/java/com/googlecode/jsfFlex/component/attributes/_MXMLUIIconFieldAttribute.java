@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "iconField"
- *   returnType = "java.lang.String"
- *   longDesc	= "The name of the field in the data provider object that determines what to display as the icon."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIIconFieldAttribute {

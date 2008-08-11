@@ -19,19 +19,6 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataChangeAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFontSpecificAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIHtmlTextAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingHorizontalAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUISelectableAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextStyleAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITruncateToFitAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
@@ -43,16 +30,157 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   family   = "javax.faces.MXMLSimpleBase"
  *   tagSuperclass 		= "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ * 
+ * @JSFJspProperties
+ * 		properties	=		
+ *   						@JSFJspProperty
+ * 							 name		= "data"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Lets you pass a value to the component when you use it in an item renderer or item editor."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "listData"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "When a component is used as a drop-in item renderer or drop-in item editor, Flex initializes the listData property of the component with the appropriate data from the list control."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "condenseWhite"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Specifies whether extra white space (spaces, line breaks, and so on) should be removed in a control with HTML text."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "preloader"
+ *   						 returnType	= "java.lang.String" 
+ *   						 longDesc	= "Specifies the path of a SWC component class or ActionScript component class that defines a custom progress bar."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "htmlText"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Specifies the text displayed by the control."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "selectable"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Specifies whether the text can be selected."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "text"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Plain text that appears in the control."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "truncateToFit"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "If this propery is true, and the Label control size is smaller than its text, the text of the Label control is truncated using a localizable string, such as ...."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "color"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Color of text in the component."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "disabledColor"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Color of text in the component if it is disabled."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "fontGridFitType"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Sets the gridFitType property of internal TextFields that represent text in Flex controls."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "fontSharpness"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Sets the sharpness property of internal TextFields that represent text in Flex controls."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "fontAntiAliasType"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Sets the antiAliasType property of internal TextFields."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "fontThickness"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Sets the thickness property of internal TextFields that represent text in Flex controls."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "fontFamily"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Name of the font to use."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "fontStyle"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Determines whether the text is italic font."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "fontWeight"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Determines whether the text is boldface."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "fontSize"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Height of the text, in pixels."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "paddingLeft"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Number of pixels between the container's left border and the left edge of its content area."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "paddingRight"
+ *   						 returnType	= "java.lang.String" 
+ *   						 longDesc	= "Number of pixels between the container's right border and the right edge of its content area."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "textIndent"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Offset of first line of text from the left side of the container, in pixels."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "textDecoration"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Determines whether the text is underlined."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "textAlign"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Alignment of text within a container."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "dataChange"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Dispatched when the data property changes."
  *   
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUILabel 
 						extends MXMLUISimpleBase 
-						implements _MXMLUITruncateToFitAttribute, _MXMLUIBaseAttributes, _MXMLUIColorAttribute, 
-						_MXMLUIDataAttributes, _MXMLUIDataChangeAttribute, _MXMLUIDisabledColorAttribute, 
-						_MXMLUIFontFamilyAttribute, _MXMLUIFontGeneralAttributes, _MXMLUIFontSpecificAttributes, 
-						_MXMLUIHtmlTextAttribute, _MXMLUIPaddingHorizontalAttributes, _MXMLUISelectableAttribute, 
-						_MXMLUITextAttribute, _MXMLUITextStyleAttributes {
+						implements _MXMLUIBaseAttributes {
 	
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLLabel";
 	

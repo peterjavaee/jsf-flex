@@ -10,7 +10,7 @@
   <!-- managed bean for mxml -->
   <managed-bean>
     <managed-bean-name>mxmlBean</managed-bean-name>
-    <managed-bean-class>com.googlecode.jsfFlex.mxml.MXMLBean</managed-bean-class>
+    <managed-bean-class>com.googlecode.jsfFlex.examples.mxml.MXMLBean</managed-bean-class>
     <managed-bean-scope>session</managed-bean-scope>
   </managed-bean>
   

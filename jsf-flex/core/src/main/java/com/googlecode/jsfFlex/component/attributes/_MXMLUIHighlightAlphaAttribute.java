@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "highlightAlphas"
- *   returnType = "java.lang.String"
- *   longDesc	= "Alphas used for the highlight fill of controls."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIHighlightAlphaAttribute {

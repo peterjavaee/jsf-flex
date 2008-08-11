@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "borderThickness"
- *   returnType = "java.lang.String"
- *   longDesc	= "Bounding box thickness."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIBorderThicknessAttribute {

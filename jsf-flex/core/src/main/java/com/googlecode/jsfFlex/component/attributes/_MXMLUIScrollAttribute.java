@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "scroll"
- *   returnType = "java.lang.String"
- *   longDesc	= "Dispatched when the user manually scrolls the container."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIScrollAttribute {

@@ -33,8 +33,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIDataChangeAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDirectionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFocusRoundedCornersAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontSpecificAttributes;
@@ -59,7 +57,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIToolTipFieldAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIVerticalAlignAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIButtonBarAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttributes;
 
 /**
@@ -72,25 +69,66 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
  *   
+ * @JSFJspProperties
+ * 		properties	=		
+ *   						@JSFJspProperty
+ * 							 name		= "buttonHeight"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Height of each button, in pixels."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "buttonStyleName"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Name of CSS style declaration that specifies styles for the buttons."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "buttonWidth"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Width of each button, in pixels."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "firstButtonStyleName"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Name of CSS style declaration that specifies styles for the first button."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "lastButtonStyleName"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Name of CSS style declaration that specifies styles for the last button."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "focusAlpha"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Specifies the alpha transparency value of the focus skin."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "focusRoundedCorners"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Specifies which corners of the focus rectangle should be rounded."
+ *   
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIButtonBar 
 							extends MXMLUISimpleBase 
-							implements _MXMLUIButtonBarAttributes, _MXMLUIToolTipFieldAttribute, _MXMLUIIconAttribute, 
+							implements _MXMLUIToolTipFieldAttribute, _MXMLUIIconAttribute, _MXMLUIFontGeneralAttributes,
 							_MXMLUIContainerAttributes, _MXMLUIBaseAttributes, _MXMLUIBackgroundAlphaAttribute, 
-							_MXMLUIBackgroundAttributes, _MXMLUIBackgroundColorAttribute, 
+							_MXMLUIBackgroundAttributes, _MXMLUIBackgroundColorAttribute, _MXMLUIVerticalAlignAttribute, 
 							_MXMLUIBackgroundDisabledColorAttribute, _MXMLUIBarColorAttribute, _MXMLUIBorderAttributes, 
 							_MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, _MXMLUIColorAttribute, 
 							_MXMLUICornerRadiusAttribute, _MXMLUIDataChangeAttribute, _MXMLUIDataProviderAttribute, 
-							_MXMLUIDirectionAttribute, _MXMLUIDisabledColorAttribute, _MXMLUIFocusAlphaAttribute, 
-							_MXMLUIFocusRoundedCornersAttribute, _MXMLUIFontFamilyAttribute, _MXMLUIFontGeneralAttributes,  
+							_MXMLUIDirectionAttribute, _MXMLUIDisabledColorAttribute, _MXMLUIFontFamilyAttribute,   
 							_MXMLUIFontSpecificAttributes, _MXMLUIGapAttributes, _MXMLUIHorizontalAlignAttribute, 
 							_MXMLUIHorizontalScrollPositionAttribute, _MXMLUIIconFieldAttribute, _MXMLUIItemClickAttribute,  
 							_MXMLUILabelAttribute, _MXMLUILabelFieldAttribute, _MXMLUIPaddingHorizontalAttributes, 
 							_MXMLUIPaddingVerticalAttributes, _MXMLUIScrollAttribute, _MXMLUIScrollAttributes, 
 							_MXMLUIScrollBarAttributes, _MXMLUISelectedIndexAttribute, _MXMLUIShadowAttributes, 
-							_MXMLUITextStyleAttributes, _MXMLUIThumbSkinAttributes, _MXMLUITrackAttributes, 
-							_MXMLUIVerticalAlignAttribute {
+							_MXMLUITextStyleAttributes, _MXMLUIThumbSkinAttributes, _MXMLUITrackAttributes {
 
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLButtonBar";
 	

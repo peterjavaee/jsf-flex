@@ -19,19 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "fillAlphas"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Alphas used for the background fill of controls."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "fillColors"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Colors used to tint the background of the control."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIFillAttributes {

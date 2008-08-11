@@ -19,31 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes.compBase;
 
 /**
- * @JSFJspProperties
- * 		properties	=	
- * 							@JSFJspProperty
- * 							 name		= "editableDisabledSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the background and border when the control is disabled, and the editable property is true."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "editableDownSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the background and border when the user holds down the mouse button, and the editable property is true."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "editableOverSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the background and border when the mouse is over the control, and the editable property is true."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "editableUpSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the background and border when the mouse is not over the control, and the editable property is true."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIComboBaseAttributes {

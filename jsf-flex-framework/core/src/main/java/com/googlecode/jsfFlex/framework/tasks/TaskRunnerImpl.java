@@ -18,6 +18,7 @@
  */
 package com.googlecode.jsfFlex.framework.tasks;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
@@ -30,19 +31,11 @@ import com.googlecode.jsfFlex.framework.tasks.task._Task;
  */
 public class TaskRunnerImpl implements _TaskRunner {
 	
-	private boolean _executePerTask;
-	
 	protected List _tasks;
 	
 	public TaskRunnerImpl(){
 		super();
 		_tasks = new LinkedList();
-	}
-	
-	public TaskRunnerImpl(boolean executePerTask){
-		super();
-		_tasks = new LinkedList();
-		_executePerTask = executePerTask;
 	}
 	
 	public TaskRunnerImpl(LinkedList tasks){
@@ -51,9 +44,11 @@ public class TaskRunnerImpl implements _TaskRunner {
 
 	public synchronized void addTask(_Task toAdd){
 		_tasks.add(toAdd);
-		if(isExecutePerTask()){
-			execute();
-		}
+		execute();
+	}
+	
+	public synchronized void addTasks(Collection _tasksToAdd){
+		_tasks.addAll(_tasksToAdd);
 	}
 	
 	public synchronized void removeTask(_Task deleteTask){
@@ -64,14 +59,6 @@ public class TaskRunnerImpl implements _TaskRunner {
 		_tasks.clear();
 	}
 	
-	public boolean isExecutePerTask() {
-		return _executePerTask;
-	}
-
-	public void setExecutePerTask(boolean executePerTask) {
-		_executePerTask = executePerTask;
-	}
-
 	public synchronized void execute() throws ComponentBuildException{
 		Iterator iterate = _tasks.iterator();
 		_Task current;

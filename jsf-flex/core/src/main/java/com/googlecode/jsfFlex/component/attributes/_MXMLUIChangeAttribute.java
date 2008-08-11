@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "change"
- *   returnType = "java.lang.String"
- *   longDesc	= "Dispatched when the selectedIndex or selectedItem property changes as a result of user interaction."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIChangeAttribute {

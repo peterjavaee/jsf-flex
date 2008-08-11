@@ -32,28 +32,22 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIColumnCountAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUICornerRadiusAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataChangeAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataViewAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDisabledColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDragAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDropDownEventColorAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFocusAlphaAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFocusRoundedCornersAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIIconFieldAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImeModeAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIItemAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIItemClickAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIItemEventAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIItemInfoAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUILabelFieldAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUILabelFunctionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUILeadingAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIOpenDurationAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIOpenEasingFunctionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingHorizontalAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingVerticalAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIRepeatAttributes;
@@ -73,7 +67,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIVerticalAlignAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIWordWrapAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIListAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIListBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControlAttributes;
 
@@ -165,30 +158,160 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControl
  * 							 name		= "itemOpening"
  *   						 returnType	= "java.lang.String" 
  *   						 longDesc	= "Dispatched when a branch open or close is initiated."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name = "showRoot"
+ *   						 returnType = "java.lang.String"
+ *   						 longDesc = "A Boolean flag that specifies whether to display the data provider's root node."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name = "dataDescriptor"
+ *   						 returnType = "java.lang.String"
+ *   						 longDesc = "The object that accesses and manipulates data in the data provider."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "openDuration"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Length of an open or close transition, in milliseconds."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "openEasingFunction"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Easing function to control component tweening."
+ *  						,
+ *  						
+ *  						@JSFJspProperty
+ * 							 name		= "editable"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "A flag that indicates whether the control is editable."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "editedItemPosition"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The column and row index of the item renderer for the data provider item being edited, if any."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "itemEditorInstance"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "A reference to the currently active instance of the item editor, if it exists."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "itemFocusIn"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched when an item renderer gets focus, which can occur if the user clicks on an item in the List control or navigates to the item using a keyboard."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "itemEditBegin"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched when the editedItemPosition property is set and the item can be edited."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "itemEditEnd"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched when an item editing session is ending for any reason."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "itemFocusOut"
+ *   						 returnType	= "java.lang.String" 
+ *   						 longDesc	= "Dispatched when an item renderer loses the focus, which can occur if the user clicks another item in the List control or outside the list, or uses the keyboard to navigate to another item in the List control or outside the List control."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "editorDataField"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The name of the property of the item editor that contains the new data for the list item."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "editorHeightOffset"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The height of the item editor, in pixels, relative to the size of the item renderer."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "editorUsesEnterKey"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "A flag that indicates whether the item editor uses Enter key."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "editorWidthOffset"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The width of the item editor, in pixels, relative to the size of the item renderer."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "editorXOffset"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The x location of the upper-left corner of the item editor, in pixels, relative to the upper-left corner of the item."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "editorYOffset"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The y location of the upper-left corner of the item editor, in pixels, relative to the upper-left corner of the item."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "itemEditor"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The class factory for the item editor to use for the control, if the editable property is set to true."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "rendererIsEditor"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Specifies whether the item renderer is also an item editor."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "itemEditBeginning"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched when the user releases the mouse button while over an item, tabs to the List or within the List, or in any other way attempts to edit an item."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "imeMode"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Specifies the IME (input method editor) mode."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "backgroundDisabledColor"
+ *   						 returnType = "java.lang.String"
+ *  						 longDesc	= "Background color of the component when it is disabled."
  *   						
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUITree 
 						extends MXMLUISelectedIndexBase
-						implements _MXMLUIListAttributes, _MXMLUIListBaseAttributes, _MXMLUIScrollControlAttributes, 
+						implements _MXMLUIListBaseAttributes, _MXMLUIScrollControlAttributes, _MXMLUITrackAttributes,  
 						_MXMLUIBaseAttributes, _MXMLUITextAttribute, _MXMLUIAllowMultipleSelectionAttribute, 
 						_MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundAttributes, _MXMLUIBackgroundColorAttribute, 
 						_MXMLUIBorderAttributes, _MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, 
 						_MXMLUIChangeAttribute, _MXMLUIColorAttribute, _MXMLUIWordWrapAttribute, 
 						_MXMLUICornerRadiusAttribute, _MXMLUIDataChangeAttribute, _MXMLUIDataProviderAttribute, 
-						_MXMLUIDataViewAttributes, _MXMLUIDisabledColorAttribute, _MXMLUIDragAttributes, 
-						_MXMLUIDropDownEventColorAttributes, _MXMLUIEditableAttribute, _MXMLUIFocusAlphaAttribute, 
+						_MXMLUIDisabledColorAttribute, _MXMLUIDragAttributes, _MXMLUILabelFunctionAttribute,  
+						_MXMLUIDropDownEventColorAttributes, _MXMLUIFocusAlphaAttribute, _MXMLUIVerticalAlignAttribute,  
 						_MXMLUIFocusRoundedCornersAttribute, _MXMLUIFontFamilyAttribute, _MXMLUIFontGeneralAttributes,  
-						_MXMLUIHorizontalScrollPositionAttribute, _MXMLUIIconFieldAttribute, _MXMLUIImeModeAttribute, 
-						_MXMLUIImmediateAttribute, _MXMLUIItemAttributes, _MXMLUIItemClickAttribute, 
+						_MXMLUIHorizontalScrollPositionAttribute, _MXMLUIIconFieldAttribute, _MXMLUIThumbSkinAttributes, 
+						_MXMLUIImmediateAttribute, _MXMLUIItemClickAttribute, _MXMLUISelectedIndexAttribute, 
 						_MXMLUIItemEventAttributes, _MXMLUIItemInfoAttributes, _MXMLUILabelFieldAttribute, 
-						_MXMLUILabelFunctionAttribute, _MXMLUILeadingAttribute, _MXMLUIOpenDurationAttribute, 
-						_MXMLUIOpenEasingFunctionAttribute, _MXMLUIPaddingHorizontalAttributes, _MXMLUIPaddingVerticalAttributes,  
+						_MXMLUILeadingAttribute, _MXMLUIPaddingHorizontalAttributes, _MXMLUIPaddingVerticalAttributes,  
 						_MXMLUIRepeatAttributes, _MXMLUIScrollAttribute, _MXMLUIScrollAttributes, _MXMLUIScrollBarAttributes,  
 						_MXMLUISelectableAttribute, _MXMLUISelectedItemAttribute, _MXMLUIColumnCountAttribute,
 						_MXMLUISelectionAttributes, _MXMLUIShadowAttributes, _MXMLUITextEventColorAttributes, 
-						_MXMLUITextStyleAttributes, _MXMLUIThumbSkinAttributes, _MXMLUITrackAttributes, 
-						_MXMLUIVerticalAlignAttribute, _MXMLUISelectedIndexAttribute {
+						_MXMLUITextStyleAttributes {
 	
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLTree";
 	

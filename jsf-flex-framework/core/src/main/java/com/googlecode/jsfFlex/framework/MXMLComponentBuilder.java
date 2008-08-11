@@ -26,7 +26,7 @@ import com.googlecode.jsfFlex.framework.util.MXMLRendererKit;
 /**
  * @author Ji Hoon Kim
  */
-public class MXMLComponentBuilder {
+public final class MXMLComponentBuilder {
 	
 	private UIComponent _jsfComponent;
 	private String _compFamily;
@@ -69,41 +69,36 @@ public class MXMLComponentBuilder {
 	}
 	
 	public void buildComponentChildren() throws ComponentBuildException{
+		
 		_component.buildComponentChildren(_jsfComponent);
 	}
 	
 	public void buildComponentEnd() throws ComponentBuildException{
+		
 		_component.buildComponentEnd(_jsfComponent);
 	}
 	
 	public String getCompFamily() {
 		return _compFamily;
 	}
-
 	public void setCompFamily(String compFamily) {
 		_compFamily = compFamily;
 	}
-
 	public UIComponent getJsfComponent() {
 		return _jsfComponent;
 	}
-
 	public void setJsfComponent(UIComponent jsfComponent) {
 		_jsfComponent = jsfComponent;
 	}
-
 	public String getRendererClass() {
 		return _rendererClass;
 	}
-
 	public void setRendererClass(String rendererClass) {
 		_rendererClass = rendererClass;
 	}
-
 	public _Component getComponent() {
 		return _component;
 	}
-
 	public void setComponent(_Component component) {
 		_component = component;
 	}

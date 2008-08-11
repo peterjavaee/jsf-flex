@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "focusAlpha"
- *   returnType = "java.lang.String"
- *   longDesc	= "Specifies the alpha transparency value of the focus skin."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIFocusAlphaAttribute {

@@ -19,25 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "dropShadowEnabled"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Boolean property that specifies whether the component has a visible drop shadow."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "shadowDirection"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Direction of the drop shadow."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "shadowDistance"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Distance of the drop shadow."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIShadowAttributes {

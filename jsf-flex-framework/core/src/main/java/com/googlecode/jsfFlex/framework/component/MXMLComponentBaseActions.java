@@ -18,32 +18,19 @@
  */
 package com.googlecode.jsfFlex.framework.component;
 
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
+import java.io.File;
+import java.io.InputStream;
 import java.util.Set;
-
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.xml.sax.Attributes;
-import org.xml.sax.SAXException;
-import org.xml.sax.helpers.DefaultHandler;
 
 import com.googlecode.jsfFlex.framework._Component;
 import com.googlecode.jsfFlex.framework.context.MxmlContext;
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.framework.mapper.MXMLAttributeMapper;
-import com.googlecode.jsfFlex.framework.mapper.MXMLMethodMapper;
-import com.googlecode.jsfFlex.framework.mapper._MXMLMapper;
+import com.googlecode.jsfFlex.framework.tasks._AnnotationDocletParser;
 import com.googlecode.jsfFlex.framework.tasks._CommonTaskRunner;
+import com.googlecode.jsfFlex.framework.tasks._FileManipulatorTaskRunner;
 import com.googlecode.jsfFlex.framework.tasks._FlexTaskRunner;
+import com.googlecode.jsfFlex.framework.tasks.factory._RunnerFactory;
 import com.googlecode.jsfFlex.framework.util.MXMLConstants;
-import com.googlecode.jsfFlex.framework.util._FileManipulator;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
@@ -52,35 +39,104 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 public abstract class MXMLComponentBaseActions implements _Component {
 	
-	private final static Log _log = LogFactory.getLog(MXMLComponentBaseActions.class);
-	
-	private static final String BY_ATTRIBUTE = "byAttribute";
-	private static final String BY_METHOD = "byMethod";
-	
-	private MXMLReplaceMappingHandler _mxmlReplaceMappingHandler;
-	private _MXMLMapper _mapper;
-	private Map _replaceTextLists;
-	private Set _filterOutAttributes;
+	private _AnnotationDocletParser _annotationDocletParserInstance;
 	
 	protected MXMLComponentBaseActions(){
 		super();
-		_replaceTextLists = new HashMap();
-		_filterOutAttributes = new HashSet();
-		_mapper = MXMLAttributeMapper.getInstance();
-		_mxmlReplaceMappingHandler = new MXMLReplaceMappingHandler();
+		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		_RunnerFactory _runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
+		_annotationDocletParserInstance = _runnerFactoryInstance.getAnnotationDocletParserImpl();
+	}
+	
+	protected Set getTokenValueSet(){
+		return _annotationDocletParserInstance.getTokenValueSet();
+	}
+	
+	public void buildComponentBegin(Object componentObj) throws ComponentBuildException{
+		
+	}
+	
+	public void buildComponentInterlude(Object componentObj) throws ComponentBuildException{
+		
+	}
+	
+	public void buildComponentChildren(Object componentObj) throws ComponentBuildException {
+		
+	}
+	
+	public void buildComponentEnd(Object componentObj) throws ComponentBuildException{
+		
+		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		if(mxmlContext.isSimplySWF() || mxmlContext.isProductionEnv()){
+			return;
+		}
+		
+		_MXMLContract componentMXML = (_MXMLContract) componentObj;
+		getFlexTaskRunner().writeBodyContentTask(componentMXML);
+		
 	}
 	
 	protected void execute() throws ComponentBuildException {
-		getCurrCommonTaskRunner().execute();
+		getCommonTaskRunner().execute();
 		getFlexTaskRunner().execute();
 	}
 	
-	protected void addCreatePreMxmlTask(_MXMLContract comp, String mxmlInputTemplatePath) throws ComponentBuildException {
-		getFlexTaskRunner().addCreatePreMxmlTask(comp, mxmlInputTemplatePath, getComponentTemplate(mxmlInputTemplatePath));
+	protected void processCreateSwf(_MXMLApplicationContract componentMXML, String mxmlFile) throws ComponentBuildException {
+		
+		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		String copyTo = mxmlContext.getMxmlPath() + mxmlContext.getCurrMxml() + MXMLConstants.MXML_FILE_EXT;
+		//now create the MXML file
+		createMXML(componentMXML, copyTo);
+		
+		if(!new File(mxmlContext.getFlexSDKPath()).exists()){
+			addMakeDirectoryTask(mxmlContext.getFlexSDKPath());
+			unZipArchiveRelative(MXMLConstants.FLEX_SDK_ZIP, mxmlContext.getFlexSDKPath());
+			
+			//copy the necessary ActionScript files over for SWF generation 
+			createSwcSourceFiles(mxmlContext.getSwcPath(), MXMLConstants.getSwcSourceFiles(), 
+										MXMLConstants.JSF_FLEX_MAIN_SWC_CONFIG_FILE);
+			
+			//create the SWC file
+			String _loadConfigAbsolutePath = mxmlContext.getSwcPath() + MXMLConstants.JSF_FLEX_MAIN_SWC_CONFIGURATIONFILE;
+			String _swcFileLocationPath = mxmlContext.getSwcPath() + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWC_FILE_EXT;
+			createSystemSWCFile(mxmlContext.getSwcPath(), _swcFileLocationPath, mxmlContext.getFlexSDKPath(), _loadConfigAbsolutePath);
+			
+			/*
+			 * 	copy the necessary swf source files to swfBasePath
+			 * 	these are files such as xml[s] which are used by the system's/above ActionScripts
+			 */
+			createSwfSourceFiles(mxmlContext.getSwfBasePath(), MXMLConstants.getSwfSourceFiles());
+			
+			/*
+			 * unzip the swc's library.swf file and copy it to the swf file for linking with the swf file
+			 */
+			unZipArchiveAbsolute(new File(_swcFileLocationPath), mxmlContext.getSwcPath());
+			
+			//copy the library.swf file to swc directory
+			copyFileSet(mxmlContext.getSwcPath(), "**/*.swf", null, mxmlContext.getSwfBasePath());
+			
+			//rename the file from library.swf to jsfFlexMainSwc.swf file
+			String sourceFile = mxmlContext.getSwcPath() + MXMLConstants.DEFAULT_SWC_LIBRARY_SWF_NAME;
+			String destFile = mxmlContext.getSwfBasePath() + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWF_FILE_EXT;
+			
+			renameFile(sourceFile, destFile, true);
+			
+			deleteResources(sourceFile, false);
+		}
+		
+		//finally the SWF file
+		createSWF(componentMXML, mxmlFile, mxmlContext.getSwfPath(), mxmlContext.getFlexSDKPath());
+		
 	}
 	
-	protected void addInsertComponentTemplateTask(_MXMLContract comp, String contentToken, String contentTemplate) throws ComponentBuildException {
-		getFlexTaskRunner().addInsertComponentTemplateTask(comp, contentToken, contentTemplate);
+	protected void addCreatePreMxmlTask(_MXMLContract comp, String mxmlComponentName, String bodyContent) throws ComponentBuildException {
+		
+		String fileDirectory = comp.getAbsolutePathToPreMxmlFile().substring(0, comp.getAbsolutePathToPreMxmlFile().lastIndexOf(File.separatorChar));
+		getFlexTaskRunner().addMakeDirectoryTask(fileDirectory);
+		
+		getFileManipulatorTaskRunner().createPreMxmlFileTask(comp.getAbsolutePathToPreMxmlFile(), null, _annotationDocletParserInstance.getTokenValueSet(), mxmlComponentName, 
+																bodyContent, childPreMxmlComponentIdentifier(comp), siblingPreMxmlComponentIdentifier(comp));
+		
 	}
 	
 	protected void addMakeDirectoryTask(String directoryToCreate) throws ComponentBuildException {
@@ -95,8 +151,13 @@ public abstract class MXMLComponentBaseActions implements _Component {
 		getFlexTaskRunner().createMXML(applicationInstance, copyTo);
 	}
 	
-	protected void createMxmlcSourceFiles(String _mxmlPath, String[] _systemSourceFiles) throws ComponentBuildException {
-		getFlexTaskRunner().createMxmlcSourceFiles(_mxmlPath, _systemSourceFiles);
+	protected void createSwcSourceFiles(String _swcPath, String[] _systemSourceFiles, String jsfFlexMainSwcConfigFile) throws ComponentBuildException {
+		getFlexTaskRunner().createSwcSourceFiles(_swcPath, _systemSourceFiles, jsfFlexMainSwcConfigFile);
+	}
+	
+	protected void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath) 
+											throws ComponentBuildException {
+		getFlexTaskRunner().createSystemSWCFile(sourcePath, outPut, flexSDKRootPath, loadConfigFilePath);
 	}
 	
 	protected void createSWF(_MXMLApplicationContract componentMXML, String mxmlFile, 
@@ -112,42 +173,83 @@ public abstract class MXMLComponentBaseActions implements _Component {
 		getFlexTaskRunner().deleteResources(deleteResource, isDirectory);
 	}
 	
-	protected void unZipFlexSDK(String _unZipFile, String _unZipDest) throws ComponentBuildException {
-		getCurrCommonTaskRunner().unZipFile(_unZipFile, _unZipDest);
+	protected void copyFile(String fileToCopy, String fileToCopyTo) throws ComponentBuildException {
+		getFlexTaskRunner().copyFile(fileToCopy, fileToCopyTo);
 	}
 	
-	protected void addReplaceTokenTask(_MXMLContract comp) throws ComponentBuildException {
-		getFlexTaskRunner().addReplaceTokenTask(comp, getReplaceTextLists());
+	protected void copyFileSet(String copyDir, String copyInclude, String copyExclude, String copyTo) throws ComponentBuildException {
+		getFlexTaskRunner().copyFileSet(copyDir, copyInclude, copyExclude, copyTo);
 	}
 	
-	protected void mapFields(Object componentObj, String mappingFile) throws ComponentBuildException {
-		try{
-			
-			SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
-			_mxmlReplaceMappingHandler.setComponentObj(componentObj);
-			parser.parse(MXMLComponentBase.class.getClassLoader().getResourceAsStream(mappingFile), _mxmlReplaceMappingHandler);
-		}catch(SAXException saxExcept){
-			Exception except = saxExcept.getException();
-			if(except != null && except instanceof ComponentBuildException){
-				throw (ComponentBuildException) except;
-			}else{
-				throw new ComponentBuildException(getErrorMessage("mapFields", mappingFile), saxExcept);
-			}
-		}catch(ParserConfigurationException parserConfigExcept){
-			throw new ComponentBuildException(getErrorMessage("mapFields", mappingFile), parserConfigExcept);
-		}catch(IOException ioExcept){
-			throw new ComponentBuildException(getErrorMessage("mapFields", mappingFile), ioExcept);
-		}
+	protected void renameFile(String sourceFile, String destFile, boolean overWrite) throws ComponentBuildException {
+		getFlexTaskRunner().renameFile(sourceFile, destFile, overWrite);
+	}
+	
+	/**
+	 * This method should be used for files that are relative to the UnzipTask
+	 * 
+	 * @param _unZipFile
+	 * @param _unZipDest
+	 * @throws ComponentBuildException
+	 */
+	protected void unZipArchiveRelative(String _unZipFile, String _unZipDest) throws ComponentBuildException {
+		getCommonTaskRunner().unZipArchiveRelative(_unZipFile, _unZipDest);
+	}
+	
+	/**
+	 * This method should be used for files that are absolute
+	 * @param _unZipFile
+	 * @param _unZipDest
+	 * @throws ComponentBuildException
+	 */
+	protected void unZipArchiveAbsolute(File _unZipFile, String _unZipDest) throws ComponentBuildException {
+		
+		getCommonTaskRunner().unZipArchiveAbsolute(_unZipFile, _unZipDest);
+	}
+	
+	/**
+	 * This method should be used for files that are absolute
+	 * @param _unZipFile
+	 * @param _unZipDest
+	 * @throws ComponentBuildException
+	 */
+	protected void unZipArchiveAbsolute(InputStream _unZipFile, String _unZipDest) throws ComponentBuildException {
+		
+		getCommonTaskRunner().unZipArchiveAbsolute(_unZipFile, _unZipDest);
+	}
+	
+	protected void mapFields(Class mapClass, Object componentObj, String mappingFile) throws ComponentBuildException {
+		_annotationDocletParserInstance.mapComponentFields(mapClass, getClass().getClassLoader(), componentObj, mappingFile);
 	}
 	
 	public String getComponentTemplate(String template) throws ComponentBuildException {
 		
-		return getCurrFileManipulator().getComponentTemplate(template);
+		return _FileManipulatorTaskRunner.getComponentTemplate(getClass().getClassLoader(), template);
 	}
 	
 	protected String readFileContent(String fileName) throws ComponentBuildException {
 		
-		return getCurrFileManipulator().readFileContent(fileName);
+		return _FileManipulatorTaskRunner.readFileContent(fileName);
+	}
+	
+	protected String childPreMxmlComponentIdentifier(_MXMLContract currInstance){
+		StringBuffer toReturn = new StringBuffer();
+		
+		toReturn.append(currInstance.getPreMxmlIdentifier());
+		toReturn.append(currInstance.getMajorLevel()+1);
+		toReturn.append(0);
+		
+		return toReturn.toString();
+	}
+	
+	protected String siblingPreMxmlComponentIdentifier(_MXMLContract currInstance){
+		StringBuffer toReturn = new StringBuffer();
+		
+		toReturn.append(currInstance.getParentPreMxmlIdentifier());
+		toReturn.append(currInstance.getMajorLevel());
+		toReturn.append(currInstance.getMinorLevel()+1);
+		
+		return toReturn.toString();
 	}
 	
 	protected String childReplaceTokenWithPreMxmlIdentifier(_MXMLContract currInstance){
@@ -170,24 +272,14 @@ public abstract class MXMLComponentBaseActions implements _Component {
 		return toReturn.toString();
 	}
 	
-	private static String getErrorMessage(String caller, String parameter){
-		StringBuffer errorMessage = new StringBuffer();
-		errorMessage.append("Exception when ");
-		errorMessage.append(caller);
-		errorMessage.append(" with parameter(s) [ ");
-		errorMessage.append(parameter);
-		errorMessage.append(" ] ");
-		return errorMessage.toString();
-	}
-	
-	private _CommonTaskRunner getCurrCommonTaskRunner(){
+	private _CommonTaskRunner getCommonTaskRunner(){
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 		return mxmlContext.getCommonRunner();
 	}
 		
-	private _FileManipulator getCurrFileManipulator(){
+	private _FileManipulatorTaskRunner getFileManipulatorTaskRunner(){
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-		return mxmlContext.getFileManipulator();
+		return mxmlContext.getFileManipulatorRunner();
 	}
 	
 	protected _FlexTaskRunner getFlexTaskRunner(){
@@ -195,99 +287,8 @@ public abstract class MXMLComponentBaseActions implements _Component {
 		return mxmlContext.getFlexRunner();
 	}
 	
-	protected Map getReplaceTextLists() {
-		return _replaceTextLists;
-	}
-	
 	protected void addMapperFilterString(String toBlankOut){
-		_filterOutAttributes.add(toBlankOut);
-	}
-	
-	protected void setMapper(_MXMLMapper mapperToSet){
-		_mapper = mapperToSet;
-	}
-	
-	private class MXMLReplaceMappingHandler extends DefaultHandler{
-		
-		private Object componentObj;
-		
-		private StringBuffer nodeValue;
-		private String replace_token;
-		private String jsf_attribute;
-		
-		private boolean replace_tokenCheck;
-		private boolean byMethod;
-		
-		private String _tokenToBlankOut;
-		
-		private MXMLReplaceMappingHandler(){
-			super();
-		}
-		
-		private void setComponentObj(Object componentObj){
-			this.componentObj = componentObj;
-		}
-		
-		public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-			super.startElement(uri, localName, qName, attributes);
-			
-			if(qName.equals("replace-token")){
-				replace_tokenCheck = true;
-				byMethod = (attributes.getLength() == 0 || (jsf_attribute = attributes.getValue(BY_ATTRIBUTE)) == null);
-				//byMethod = (attributes.getLength() != 0 && (jsf_attribute = attributes.getValue(BY_METHOD)) != null);
-			}
-			
-			nodeValue = new StringBuffer();
-		}
-		
-		public void endElement(String uri, String localName, String qName) throws SAXException {
-			super.endElement(uri, localName, qName);
-			String currentValue = null;
-			
-			if(nodeValue != null){
-				currentValue = nodeValue.toString().trim();
-			}
-			
-			if(replace_tokenCheck){
-				replace_token = currentValue;
-				try{
-					/*
-					 * Later change this to byMethod check [meaning default of byAttribute]
-					 * Hopefully this would be doable with the change of plugIn
-					 */
-					if(byMethod){
-						setMapper(MXMLMethodMapper.getInstance());
-					}else{
-						setMapper(MXMLAttributeMapper.getInstance());
-					}
-					if(_filterOutAttributes.contains(replace_token)){
-						//since filtering out this attribute, replace with a blank
-						_tokenToBlankOut = "${" + replace_token + "}";
-						_replaceTextLists.put(_tokenToBlankOut, "");
-						return;
-					}
-					
-					_mapper.mapField(jsf_attribute, replace_token, componentObj, _replaceTextLists);
-				}catch(ComponentBuildException componentBuildExcept){
-					//HACK, change later when attribute Map for the plugin works
-					_log.debug("For " + componentObj.getClass().getName() + " lacking " + replace_token);
-					setMapper(MXMLAttributeMapper.getInstance());
-					_mapper.mapField(jsf_attribute, replace_token, componentObj, _replaceTextLists);
-					//throw new SAXException(componentBuildExcept);
-				}
-				replace_tokenCheck = false;
-			}
-			
-		}
-		
-		public void characters(char[] ch, int start, int length) throws SAXException {
-			super.characters(ch, start, length);
-			if(!replace_tokenCheck){
-				return;
-			}
-			nodeValue.append(new String(ch, start, length));
-		}
-		
+		_annotationDocletParserInstance.getFilterOutAttributes().add(toBlankOut);
 	}
 	
 }

@@ -1,8 +1,0 @@
-	${enabled}
-    ${listener}
-    ${property}
-    ${required}
-    ${requiredFieldError}
-    ${source}
-    ${trigger}
-    ${triggerEvent}

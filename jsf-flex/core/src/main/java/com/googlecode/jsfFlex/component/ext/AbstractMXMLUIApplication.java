@@ -46,14 +46,10 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIDisabledColorAttribute
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontSpecificAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIGapAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHideAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalAlignAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIIconAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUILabelAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUILayoutAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIModalAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingHorizontalAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingVerticalAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttribute;
@@ -64,7 +60,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUITextStyleAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIThumbSkinAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITitleAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIVerticalAlignAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttributes;
 import com.googlecode.jsfFlex.framework.context.MxmlContext;
@@ -169,6 +164,60 @@ import com.googlecode.jsfFlex.util.MXMLJsfUtil;
  * 							 name		= "error"
  *   						 returnType	= "java.lang.String"
  *   						 longDesc	= "Dispatched when an error occurs anywhere in the application, such as an HTTPService,WebService, or RemoteObject fails."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "layout"
+ *   						 returnType = "java.lang.String"
+ *   						 longDesc	= "Specifies the layout mechanism used for this application."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "horizontalAlign"
+ *   						 returnType = "java.lang.String"
+ *   						 longDesc	= "Horizontal alignment of children in the container."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "horizontalGap"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Horizontal gap."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "verticalGap"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Vertical gap."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "modalTransparencyDuration"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Duration, in milliseconds, of the modal transparency effect that plays when a modal window opens or closes. The default value is 100."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "modalTransparency"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Modality of components launched by the PopUp Manager is simulated by creating a large translucent overlay underneath the component. Because of the way translucent objects are rendered, you may notice a slight dimming of the objects under the overlay. The effective transparency can be set by changing the modalTransparency value from 0.0 (fully transparent) to 1.0 (fully opaque). You can also set the color of the overlay by changing the modalTransparencyColor style. The default value is 0.5."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "modalTransparencyColor"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Color of the modal overlay layer. This style is used in conjunction with the modalTransparency style to determine the colorization applied to the application when a modal window is open. The default value is #DDDDDD."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "modalTransparencyBlur"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The blur applied to the application while a modal window is open. A Blur effects oftens the details of an image. The default value is 3."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "verticalAlign"
+ *   						 returnType = "java.lang.String"
+ *   						 longDesc	= "The vertical alignment of a renderer in a row."
  *   						
  * @author Ji Hoon Kim
  */
@@ -180,12 +229,11 @@ public abstract class AbstractMXMLUIApplication
 						_MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, _MXMLUIColorAttribute, 
 						_MXMLUICornerRadiusAttribute, _MXMLUIDataChangeAttribute, _MXMLUIDisabledColorAttribute, 
 						_MXMLUIFontFamilyAttribute, _MXMLUIFontGeneralAttributes, _MXMLUIFontSpecificAttributes, 
-						_MXMLUIGapAttributes, _MXMLUIHorizontalAlignAttribute, _MXMLUIHorizontalScrollPositionAttribute,  
-						_MXMLUILabelAttribute, _MXMLUILayoutAttribute, _MXMLUIModalAttributes, _MXMLUIPaddingHorizontalAttributes,  
+						_MXMLUIHorizontalScrollPositionAttribute, _MXMLUILabelAttribute, _MXMLUIPaddingHorizontalAttributes,  
 						_MXMLUIPaddingVerticalAttributes, _MXMLUIScrollAttribute, _MXMLUIScrollAttributes, 
 						_MXMLUIScrollBarAttributes, _MXMLUIShadowAttributes, _MXMLUITextStyleAttributes, 
-						_MXMLUIThumbSkinAttributes, _MXMLUITrackAttributes, _MXMLUIVerticalAlignAttribute, 
-						_MXMLUITitleAttribute, _MXMLUIIconAttribute, _MXMLUIHideAttribute {
+						_MXMLUIThumbSkinAttributes, _MXMLUITrackAttributes, _MXMLUIHideAttribute,
+						_MXMLUITitleAttribute, _MXMLUIIconAttribute {
 	
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLApplication";
 	
@@ -195,7 +243,10 @@ public abstract class AbstractMXMLUIApplication
     private static final String INITIALIZE_CALL = "initializeApp(event);";
 	
 	private String _applicationPath;
-    
+	private String _externalLibraryPath;
+	private String _runtimeSharedLibraries;
+	private boolean _accessible;
+	
 	public String getMXMLComponentRenderer() {
 		return MXML_COMPONENT_RENDERER;
 	}
@@ -217,7 +268,6 @@ public abstract class AbstractMXMLUIApplication
 		
 		MxmlContext mxmlContext = new MxmlContextImpl(getMxmlPackageName());
 		
-		mxmlContext.initRunners();
 		mxmlContext.setProductionEnv(isProductionMode());
 		mxmlContext.setSimplySWF(isSimplySWFMode());
 		
@@ -246,10 +296,21 @@ public abstract class AbstractMXMLUIApplication
 			 */
 			String flexSDKPath = _applicationPath + File.separatorChar + MXMLConstants.FLEX_SDK_DIRECTORY_NAME + File.separatorChar;
 			
+			String swcPath = _applicationPath + File.separatorChar + MXMLConstants.SWC_DIRECTORY_NAME + File.separatorChar +
+									MXMLConstants.JSF_FLEX_MAIN_SWC_DIRECTORY_NAME + File.separatorChar;
+			
+			//externalLibraryPath will contain .swc file
+			String swcFileAbsolutePath = swcPath + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWC_FILE_EXT;
+			setExternalLibraryPath(swcFileAbsolutePath);
+			
+			//runtimeSharedLibrary has to be relative to the Web root path file
+			setRuntimeSharedLibraries(MXMLConstants.JSF_FLEX_MAIN_SWC_WEB_PATH);
+			
 			mxmlContext.setFlexSDKPath(flexSDKPath);
 			mxmlContext.setMxmlPath(mxmlPath);
 			mxmlContext.setSwfPath(swfPath);
 			mxmlContext.setSwfBasePath(swfBasePath);
+			mxmlContext.setSwcPath(swcPath);
 			
 			if(isSimplySWFMode()){
 				//do not need to create preMXML files
@@ -260,6 +321,9 @@ public abstract class AbstractMXMLUIApplication
 				mxmlContext.setPreMxmlPath(preMxmlPath);
 				
 			}
+			
+			//Does this even need to be present within the JSF-component or should it passed as default within the task?
+			setAccessible(true);
 			
 		}
 		
@@ -295,6 +359,25 @@ public abstract class AbstractMXMLUIApplication
 		_applicationPath = applicationPath;
 	}
 	
+	public String getRuntimeSharedLibraries() {
+		return _runtimeSharedLibraries;
+	}
+	public void setRuntimeSharedLibraries(String runtimeSharedLibraries) {
+		_runtimeSharedLibraries = runtimeSharedLibraries;
+	}
+	public String getExternalLibraryPath(){
+		return _externalLibraryPath;
+	}
+	public void setExternalLibraryPath(String externalLibraryPath){
+		_externalLibraryPath = externalLibraryPath;
+	}
+	public boolean isAccessible() {
+		return _accessible;
+	}
+	public void setAccessible(boolean accessible) {
+		_accessible = accessible;
+	}
+
 	/**
 	 * The mxmlPackageName for the application.
 	 * 

@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "restrict"
- *   returnType = "java.lang.String"
- *   longDesc	= "Set of characters that a user can or cannot enter into the text field."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIRestrictAttribute {

@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "imeMode"
- *   returnType = "java.lang.String"
- *   longDesc	= "Specifies the IME (input method editor) mode."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIImeModeAttribute {

@@ -19,8 +19,6 @@
 package com.googlecode.jsfFlex.validator.ext;
 
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-import com.googlecode.jsfFlex.validator.attributes._MXMLUIAllowedFormatCharsAttribute;
-import com.googlecode.jsfFlex.validator.attributes._MXMLUIInvalidCharErrorAttribute;
 import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttributes;
 
 /**
@@ -45,13 +43,24 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  * 							 name		= "zeroStartError"
  *   						 returnType	= "java.lang.String"
  *   						 longDesc	= "Error message when the value contains an invalid Social Security number."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "allowedFormatChars"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "The set of formatting characters allowed."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "invalidCharError"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Error message when the value contains invalid characters."
  *   						
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUISocialSecurityValidator 
 						extends MXMLUISimpleBase 
-						implements _MXMLUIValidatorAttributes, _MXMLUIAllowedFormatCharsAttribute, 
-						_MXMLUIInvalidCharErrorAttribute {
+						implements _MXMLUIValidatorAttributes {
 	
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLSocialSecurityValidator";
 	

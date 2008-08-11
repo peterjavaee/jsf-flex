@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "labelField"
- *   returnType = "java.lang.String"
- *   longDesc	= "The name of the field in the data provider items to display as the label."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUILabelFieldAttribute {

@@ -19,25 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "backgroundImage"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Background image of a component."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "backgroundSize"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Scales the image specified by backgroundImage to different percentage sizes."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "dropShadowColor"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Color of the drop shadow."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIBackgroundAttributes {

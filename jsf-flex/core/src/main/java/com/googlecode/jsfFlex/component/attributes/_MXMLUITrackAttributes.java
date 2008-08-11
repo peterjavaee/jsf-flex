@@ -19,19 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "trackColors"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The colors of the track, as an array of two colors."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "trackSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Skin style for the progress indicator track."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUITrackAttributes {

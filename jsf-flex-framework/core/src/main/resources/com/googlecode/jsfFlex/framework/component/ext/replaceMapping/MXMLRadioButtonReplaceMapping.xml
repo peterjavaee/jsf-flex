@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<replace-mapping>
-	<replace>
-		<replace-token>groupName</replace-token>
-		<replace-token>value</replace-token>
-	</replace>
-</replace-mapping>

@@ -1,0 +1,27 @@
+<mx:Script>
+		<![CDATA[
+		
+		import com.googlecode.jsfFlex.communication.ComponentValueMapper;
+		
+		static public var compValMapper:ComponentValueMapper;
+
+		private function initializeApp(event:Event):void {
+			compValMapper = ComponentValueMapper.getInstance(this);
+			compValMapper.initialize();
+			
+			ExternalInterface.addCallback("pageUnloading", pageUnloading);
+			
+			var idObject:Object = ExternalInterface.call("com.googlecode.jsfFlex.communication.amReady", this.id);
+			if(idObject != null){
+			    compValMapper.populateInitValues(idObject);
+			}
+		}
+		
+		public function pageUnloading(idObject:Object):void {
+			var jsonObject:Array = compValMapper.getJSON(idObject);
+			ExternalInterface.call("com.googlecode.jsfFlex.communication.updateValues", jsonObject);
+		
+		}
+		
+		]]>
+	</mx:Script>

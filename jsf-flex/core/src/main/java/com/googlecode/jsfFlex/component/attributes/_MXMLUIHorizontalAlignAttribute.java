@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "horizontalAlign"
- *   returnType = "java.lang.String"
- *   longDesc	= "Horizontal alignment of children in the container."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIHorizontalAlignAttribute {

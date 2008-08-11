@@ -1,9 +1,0 @@
-	${buttonHeight}
-    ${buttonStyleName}
-    ${buttonWidth}
-    ${firstButtonStyleName}
-    ${focusAlpha}
-    ${focusRoundedCorners}
-    ${lastButtonStyleName}
-	
-	&nav;

@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "horizontalScrollPosition"
- *   returnType = "java.lang.String"
- *   longDesc	= "The current position of the horizontal scroll bar."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIHorizontalScrollPositionAttribute {

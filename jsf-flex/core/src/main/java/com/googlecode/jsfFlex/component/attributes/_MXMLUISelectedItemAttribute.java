@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "selectedItem"
- *   returnType = "java.lang.String"
- *   longDesc	= "The item in the data provider at the selectedIndex."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUISelectedItemAttribute {

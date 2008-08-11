@@ -19,19 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "horizontalScrollBarStyleName"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The name of the horizontal scrollbar style."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "verticalScrollBarStyleName"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The name of the vertical scrollbar style."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIScrollBarAttributes {

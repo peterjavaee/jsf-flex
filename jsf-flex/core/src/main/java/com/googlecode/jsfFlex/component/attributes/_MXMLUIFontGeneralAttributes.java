@@ -19,25 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "fontStyle"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Determines whether the text is italic font."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "fontWeight"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Determines whether the text is boldface."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "fontSize"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Height of the text, in pixels."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIFontGeneralAttributes {
