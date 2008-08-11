@@ -1,9 +1,0 @@
-	${historyManagementEnabled}
-    ${resizeToContent}
-    
-    ${horizontalGap}
-    ${verticalGap}
-    
-    ${change}
-    
-    &container;

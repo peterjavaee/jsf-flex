@@ -28,6 +28,10 @@ public interface _MXMLApplicationContract extends _MXMLContract {
 	
 	String getSourcePath();
 	
+	String getExternalLibraryPath();
+	
+	String getRuntimeSharedLibraries();
+	
 	String getDefaultBgColor();
 	
 	Integer getMaxLvRecursion();
@@ -49,5 +53,7 @@ public interface _MXMLApplicationContract extends _MXMLContract {
 	String getLanguage();
 	
 	String getDate();
+	
+	boolean isAccessible();
 	
 }

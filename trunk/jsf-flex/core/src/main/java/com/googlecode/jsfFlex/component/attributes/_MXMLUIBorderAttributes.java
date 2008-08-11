@@ -19,25 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "borderSides"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Bounding box sides. A space-delimited String that specifies the sides of the border to show."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "borderStyle"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Bounding box style."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "borderSkin"
- *   						 returnType	= "java.lang.String" 
- *   						 longDesc	= "The border skin of the component."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIBorderAttributes {

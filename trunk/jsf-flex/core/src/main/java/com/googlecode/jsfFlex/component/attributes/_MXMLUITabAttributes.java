@@ -19,43 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "firstTabStyleName"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of CSS style declaration that specifies styles for the first tab."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "lastTabStyleName"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of CSS style declaration that specifies styles for the last tab."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "selectedTabTextStyleName"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of CSS style declaration that specifies styles for the text of the selected tab."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "tabHeight"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Height of each tab, in pixels."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "tabStyleName"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of CSS style declaration that specifies styles for the tabs."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "tabWidth"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Width of each tab, in pixels."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUITabAttributes {

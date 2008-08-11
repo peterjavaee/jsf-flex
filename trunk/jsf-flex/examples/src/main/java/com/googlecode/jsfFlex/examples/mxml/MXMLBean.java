@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.mxml;
+package com.googlecode.jsfFlex.examples.mxml;
 
 import java.io.Serializable;
 import java.util.LinkedList;

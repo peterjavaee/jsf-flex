@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.convert.attributes.compBase;
 
 /**
- * @JSFJspProperty
- *   name		= "error"
- *   returnType = "java.lang.String"
- *   longDesc	= "Description saved by the formatter when an error occurs."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIFormatter {

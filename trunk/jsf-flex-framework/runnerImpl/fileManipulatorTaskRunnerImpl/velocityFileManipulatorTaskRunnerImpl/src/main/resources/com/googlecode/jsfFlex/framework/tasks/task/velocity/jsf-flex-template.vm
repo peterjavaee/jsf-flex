@@ -1,0 +1,16 @@
+<mx:${mxmlComponent}
+
+#foreach( $tokenElement in $tokenList )
+    ${tokenElement.getToken()}="${tokenElement.getValue()}"
+#end
+
+>
+
+
+${bodyContent}
+
+<!-- Child Component ${childIdentifier} -->
+
+</mx:${mxmlComponent}>
+
+<!-- Sibling Component ${siblingIdentifier} -->

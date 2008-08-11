@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "historyManagementEnabled"
- *   returnType = "java.lang.String"
- *   longDesc	= "If true, enables history management within this ViewStack container."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIHistoryManagementAttribute {

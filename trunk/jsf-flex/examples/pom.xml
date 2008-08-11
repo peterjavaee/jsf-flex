@@ -76,6 +76,32 @@
       </properties>
     </profile>
     
+    <profile>
+      <id>default_runner_factory_impl</id>
+      <activation>
+        <property>
+          <name>!runner_factory_impl</name>
+        </property>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project.runner-impl-common-task-runner</groupId>
+          <artifactId>jsf-flex-framework-sdk-standard-common-task-runner-impl</artifactId>
+          <version>${jsf.flex.framework.task.runner.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project.runner-impl-file-manipulator-task-runner</groupId>
+          <artifactId>jsf-flex-framework-velocity-file-manipulator-task-runner-impl</artifactId>
+          <version>${jsf.flex.framework.task.runner.version}</version>
+        </dependency>
+        <dependency>
+          <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project.runner-impl-flex-task-runner</groupId>
+          <artifactId>jsf-flex-framework-ant-flex-task-runner-impl</artifactId>
+          <version>${jsf.flex.framework.task.runner.version}</version>
+        </dependency>
+      </dependencies>
+    </profile>
+    
     <!-- Profile to run jetty, so the tomcat jars are included in the bundle. They are not included by default -->
     <profile>
       <id>jettyConfig</id>
@@ -133,5 +159,9 @@
       </plugin>
     </plugins>
   </build>
+  
+  <properties>
+    <jsf.flex.framework.task.runner.version>1.0.0-SNAPSHOT</jsf.flex.framework.task.runner.version>
+  </properties>
   
 </project>

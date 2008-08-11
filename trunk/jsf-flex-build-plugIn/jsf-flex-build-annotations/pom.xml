@@ -11,7 +11,6 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
   <artifactId>jsf-flex-build-plugIn-annotations</artifactId> 
-  <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>JSF-Flex BuildPlugin Annotations</name>
 

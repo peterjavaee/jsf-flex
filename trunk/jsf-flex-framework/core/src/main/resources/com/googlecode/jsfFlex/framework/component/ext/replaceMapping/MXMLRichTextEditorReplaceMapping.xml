@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<replace-mapping>
-	<replace>
-		<replace-token byAttribute="true">defaultLinkProtocol</replace-token>
-		<replace-token byAttribute="true">showControlBar</replace-token>
-		<replace-token byAttribute="true">showToolTips</replace-token>
-		<replace-token>change</replace-token>
-	</replace>
-</replace-mapping>

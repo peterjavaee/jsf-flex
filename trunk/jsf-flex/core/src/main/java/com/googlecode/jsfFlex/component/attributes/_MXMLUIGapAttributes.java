@@ -19,19 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "horizontalGap"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Horizontal gap."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "verticalGap"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Vertical gap."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIGapAttributes {

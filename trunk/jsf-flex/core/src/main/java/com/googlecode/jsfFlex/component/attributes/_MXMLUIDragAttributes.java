@@ -19,19 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "selectionDisabledColor"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Specifies the disabled color of a list item."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "dragMoveEnabled"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Indicates that items can be moved instead of just copied from the Tree control as part of a drag-and-drop operation."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIDragAttributes {

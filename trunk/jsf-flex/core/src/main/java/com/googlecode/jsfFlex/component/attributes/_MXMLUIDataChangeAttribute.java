@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "dataChange"
- *   returnType = "java.lang.String"
- *   longDesc	= "Dispatched when the data property changes."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIDataChangeAttribute {

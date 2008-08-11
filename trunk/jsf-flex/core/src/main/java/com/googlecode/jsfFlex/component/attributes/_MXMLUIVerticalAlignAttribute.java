@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "verticalAlign"
- *   returnType = "java.lang.String"
- *   longDesc	= "The vertical alignment of a renderer in a row."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIVerticalAlignAttribute {

@@ -19,17 +19,6 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderThicknessAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUICloseAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUICornerRadiusAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUILoadAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIMaintainAspectRatioAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIShadowAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
@@ -151,15 +140,128 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   						 returnType	= "java.lang.String"
  *   						 longDesc	= "Dispatched when the state of the control changes."
  *   						
+ *   						
+ *   						
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "maintainAspectRatio"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "If true, specifies to display the image with the same ratio of height to width as the original image."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "source"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Specifies the content to load."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "progress"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched when content is loading."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "complete"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched when content loading is complete."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name = "backgroundAlpha"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc = "Alpha level of the color defined by the backgroundColor property."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "backgroundColor"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Background color of a component."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "backgroundImage"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Background image of a component."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "backgroundSize"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Scales the image specified by backgroundImage to different percentage sizes."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "dropShadowColor"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Color of the drop shadow."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "borderColor"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Color of the border."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "borderSides"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Bounding box sides. A space-delimited String that specifies the sides of the border to show."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "borderStyle"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Bounding box style."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "borderSkin"
+ *   						 returnType	= "java.lang.String" 
+ *   						 longDesc	= "The border skin of the component."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "borderThickness"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Bounding box thickness."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "cornerRadius"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Radius of component corners."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "dropShadowEnabled"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Boolean property that specifies whether the component has a visible drop shadow."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "shadowDirection"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Direction of the drop shadow."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "shadowDistance"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Distance of the drop shadow."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "close"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Dispatched when the drop-down list is dismissed for any reason."
+ *   						
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIVideoDisplay 
 						extends MXMLUISimpleBase 
-						implements _MXMLUIBaseAttributes, _MXMLUIBackgroundAlphaAttribute, 
-						_MXMLUIBackgroundAttributes, _MXMLUIBackgroundColorAttribute, _MXMLUIBorderAttributes, 
-						_MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, _MXMLUICloseAttribute, 
-						_MXMLUICornerRadiusAttribute, _MXMLUILoadAttributes, _MXMLUIMaintainAspectRatioAttribute, 
-						_MXMLUIShadowAttributes {
+						implements _MXMLUIBaseAttributes {
 
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLVideoDisplay";
 	

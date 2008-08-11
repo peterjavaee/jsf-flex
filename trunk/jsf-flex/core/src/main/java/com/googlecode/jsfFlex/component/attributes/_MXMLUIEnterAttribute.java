@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "enter"
- *   returnType = "java.lang.String"
- *   longDesc	= "Dispatched if the editable property is set to true and the user presses the Enter key while typing in the editable text field."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIEnterAttribute {

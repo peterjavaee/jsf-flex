@@ -19,55 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "downArrowDisabledSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the Up arrow when the arrow is disabled."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "downArrowDownSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the up arrow when the arrow is enabled and a user presses the mouse button over the arrow."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "downArrowUpSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the Up arrow when the arrow is enabled and the mouse pointer is not on the arrow."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "upArrowOverSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the Up arrow when the arrow is enabled and the mouse pointer is over the arrow."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "upArrowDownSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the Up arrow when the arrow is enabled and a user presses the mouse button over the arrow."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "upArrowDisabledSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the Up arrow when the arrow is disabled."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "downArrowOverSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the Up arrow when the arrow is enabled and the mouse pointer is over the arrow."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "upArrowUpSkin"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the class to use as the skin for the Up arrow when the arrow is enabled and the mouse pointer is not on the arrow."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIArrowAttributes {

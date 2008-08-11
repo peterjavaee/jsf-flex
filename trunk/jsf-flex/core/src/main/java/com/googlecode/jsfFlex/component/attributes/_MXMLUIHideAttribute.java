@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "hide"
- *   returnType = "java.lang.String"
- *   longDesc	= "Dispatched when an object's state changes from visible to invisible."
- *  
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIHideAttribute {

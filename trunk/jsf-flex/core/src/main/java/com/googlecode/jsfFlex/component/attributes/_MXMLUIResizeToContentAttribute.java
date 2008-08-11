@@ -19,12 +19,7 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "resizeToContent"
- *   returnType = "java.lang.String"
- *   longDesc	= "If true, the ViewStack container automatically resizes to the size of its current child."
- *   
-  * @author Ji Hoon Kim
+ * @author Ji Hoon Kim
  */
 public interface _MXMLUIResizeToContentAttribute {
 	

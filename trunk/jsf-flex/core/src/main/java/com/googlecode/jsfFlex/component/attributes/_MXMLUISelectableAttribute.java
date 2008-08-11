@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "selectable"
- *   returnType = "java.lang.String"
- *   longDesc	= "Specifies whether the text can be selected."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUISelectableAttribute {

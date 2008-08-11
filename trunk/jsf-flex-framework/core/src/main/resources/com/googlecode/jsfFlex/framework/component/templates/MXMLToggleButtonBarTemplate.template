@@ -1,4 +1,0 @@
-	${toggleOnClick}
-	${selectedButtonTextStyleName}
-	
-	&buttonBar;

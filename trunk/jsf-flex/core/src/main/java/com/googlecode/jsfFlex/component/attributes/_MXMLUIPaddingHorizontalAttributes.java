@@ -19,19 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "paddingLeft"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Number of pixels between the container's left border and the left edge of its content area."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "paddingRight"
- *   						 returnType	= "java.lang.String" 
- *   						 longDesc	= "Number of pixels between the container's right border and the right edge of its content area."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIPaddingHorizontalAttributes {

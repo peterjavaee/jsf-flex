@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "truncateToFit"
- *   returnType = "java.lang.String"
- *   longDesc	= "If this propery is true, and the Label control size is smaller than its text, the text of the Label control is truncated using a localizable string, such as ...."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUITruncateToFitAttribute {

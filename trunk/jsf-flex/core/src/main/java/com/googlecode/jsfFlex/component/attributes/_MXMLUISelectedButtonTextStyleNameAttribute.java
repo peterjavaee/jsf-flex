@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "selectedButtonTextStyleName"
- *   returnType = "java.lang.String"
- *   longDesc	= "Name of CSS style declaration that specifies styles for the text of the selected button."
- *  
  * @author Ji Hoon Kim
  */
 public interface _MXMLUISelectedButtonTextStyleNameAttribute {

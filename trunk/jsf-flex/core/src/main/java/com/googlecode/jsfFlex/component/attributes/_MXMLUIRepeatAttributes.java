@@ -19,19 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "repeatDelay"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Number of milliseconds to wait."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "repeatInterval"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Number of milliseconds in the actions."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIRepeatAttributes {

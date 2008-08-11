@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "color"
- *   returnType = "java.lang.String"
- *   longDesc	= "Color of text in the component."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIColorAttribute {

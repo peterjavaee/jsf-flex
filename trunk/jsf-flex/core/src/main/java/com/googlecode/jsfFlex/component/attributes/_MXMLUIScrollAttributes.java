@@ -19,25 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "verticalScrollPolicy"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Specifies whether the vertical scroll bar is always present, always absent, or automatically added when needed."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "verticalScrollPosition"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The current position of the vertical scroll bar."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "horizontalScrollPolicy"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Specifies whether the horizontal scroll bar is always present, always absent, or automatically added when needed."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIScrollAttributes {

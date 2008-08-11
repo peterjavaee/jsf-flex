@@ -19,19 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "paddingBottom"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Number of pixels between the container's bottom border and the bottom of its content area."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "paddingTop"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Number of pixels between the container's top border and the top of its content area."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIPaddingVerticalAttributes {

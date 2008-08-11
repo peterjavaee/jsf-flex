@@ -19,8 +19,6 @@
 package com.googlecode.jsfFlex.validator.ext;
 
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-import com.googlecode.jsfFlex.validator.attributes._MXMLUIInvalidCharErrorAttribute;
-import com.googlecode.jsfFlex.validator.attributes._MXMLUIInvalidDomainErrorAttribute;
 import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttributes;
 
 /**
@@ -69,13 +67,24 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  * 							 name		= "tooManyAtSignsError"
  *   						 returnType	= "java.lang.String"
  *   						 longDesc	= "Error message when there is more than one at sign in the e-mail address."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "invalidCharError"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Error message when the value contains invalid characters."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "domain"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Type to be validated."
  *   						
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIEmailValidator 
 						extends MXMLUISimpleBase 
-						implements _MXMLUIValidatorAttributes, _MXMLUIInvalidCharErrorAttribute, 
-						_MXMLUIInvalidDomainErrorAttribute {
+						implements _MXMLUIValidatorAttributes {
 	
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLEmailValidator";
 	

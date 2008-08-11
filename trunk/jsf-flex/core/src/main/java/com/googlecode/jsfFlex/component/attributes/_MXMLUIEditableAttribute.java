@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "editable"
- *   returnType = "java.lang.String"
- *   longDesc	= "A flag that indicates whether the control is editable."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIEditableAttribute {

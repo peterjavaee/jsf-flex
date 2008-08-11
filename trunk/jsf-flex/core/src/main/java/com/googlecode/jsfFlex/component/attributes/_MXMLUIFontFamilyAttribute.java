@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "fontFamily"
- *   returnType = "java.lang.String"
- *   longDesc	= "Name of the font to use."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIFontFamilyAttribute {

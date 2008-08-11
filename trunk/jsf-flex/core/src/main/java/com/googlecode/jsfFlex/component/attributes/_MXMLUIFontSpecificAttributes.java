@@ -19,31 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "fontGridFitType"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Sets the gridFitType property of internal TextFields that represent text in Flex controls."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "fontSharpness"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Sets the sharpness property of internal TextFields that represent text in Flex controls."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "fontAntiAliasType"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Sets the antiAliasType property of internal TextFields."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "fontThickness"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Sets the thickness property of internal TextFields that represent text in Flex controls."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIFontSpecificAttributes {

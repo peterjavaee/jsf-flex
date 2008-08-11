@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "direction"
- *   returnType = "java.lang.String"
- *   longDesc	= "Direction in which the fill of the ProgressBar expands toward completion."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIDirectionAttribute {

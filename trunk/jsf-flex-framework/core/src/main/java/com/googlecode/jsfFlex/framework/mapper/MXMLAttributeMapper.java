@@ -40,20 +40,17 @@ public class MXMLAttributeMapper implements _MXMLMapper {
 		return _instance;
 	}
 	
-	public void mapField(String jsf_attribute, String tokenName, Object componentObj, Map replaceTextLists){
+	public TokenValue mapField(String tokenName, Object componentObj) {
 		//this class must have Object passed in as a MXMLContract
 		_MXMLContract comp = (_MXMLContract) componentObj;
 		Map attributeMap = comp.getAttributes();
 		Object obj;
-		String toSet;
 		
-		if(attributeMap != null && ((obj = attributeMap.get(tokenName)) != null) && obj instanceof String){
-			toSet = tokenName + "=\"" + (String) obj + "\"";
-		}else{
-			toSet = "";
+		if(attributeMap != null && (obj = attributeMap.get(tokenName)) != null){
+			return new TokenValue(tokenName, obj.toString());
 		}
-		String token = "${" + tokenName + "}";
-		replaceTextLists.put(token, toSet);
+		
+		return null;
 	}
 	
 }

@@ -19,7 +19,6 @@
 package com.googlecode.jsfFlex.convert.ext;
 
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-import com.googlecode.jsfFlex.convert.attributes._MXMLUIFormatStringAttribute;
 import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
 
 /**
@@ -50,12 +49,18 @@ import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
  *   						 name		= "validPatternChars"
  *   						 returnType	= "java.lang.String"
  *   						 longDesc	= "List of valid characters that can be used in the formatString property."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "formatString"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "The mask pattern."
  *   						
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIPhoneFormatter 
 						extends MXMLUISimpleBase 
-						implements _MXMLUIFormatter, _MXMLUIFormatStringAttribute {
+						implements _MXMLUIFormatter {
 
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLPhoneFormatter";
 	

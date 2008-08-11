@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "icon"
- *   returnType = "java.lang.String"
- *   longDesc	= "Name of the class to use as the default icon."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIIconAttribute {

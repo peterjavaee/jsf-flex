@@ -21,8 +21,9 @@ package com.googlecode.jsfFlex.framework.context;
 import java.util.Map;
 
 import com.googlecode.jsfFlex.framework.tasks._CommonTaskRunner;
+import com.googlecode.jsfFlex.framework.tasks._FileManipulatorTaskRunner;
 import com.googlecode.jsfFlex.framework.tasks._FlexTaskRunner;
-import com.googlecode.jsfFlex.framework.util._FileManipulator;
+import com.googlecode.jsfFlex.framework.tasks.factory._RunnerFactory;
 
 /**
  * @author Ji Hoon Kim
@@ -65,6 +66,10 @@ public abstract class MxmlContext {
 	
 	public abstract void setSwfBasePath(String swfBasePath);
 	
+	public abstract String getSwcPath();
+	
+	public abstract void setSwcPath(String swcPath);
+	
 	public abstract String getSwfPath();
 	
 	public abstract void setSwfPath(String swfPath);
@@ -73,15 +78,13 @@ public abstract class MxmlContext {
 	
 	public abstract void setSwfWebPath(String swfWebPath);
 	
-	public abstract void initRunners();
-	
-	public abstract void initRunners(ClassLoader loader);
-	
 	public abstract _CommonTaskRunner getCommonRunner();
 	
-	public abstract _FileManipulator getFileManipulator();
-	
 	public abstract _FlexTaskRunner getFlexRunner();
+	
+	public abstract _FileManipulatorTaskRunner getFileManipulatorRunner();
+	
+	public abstract _RunnerFactory getRunnerFactoryInstance();
 	
 	private static ThreadLocal _currentInstance = new ThreadLocal()
     {

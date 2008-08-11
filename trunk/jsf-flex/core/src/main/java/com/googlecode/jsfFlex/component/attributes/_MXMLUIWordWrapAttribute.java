@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "wordWrap"
- *   returnType = "java.lang.String"
- *   longDesc	= "A flag that indicates whether text in the row should be word wrapped."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIWordWrapAttribute {

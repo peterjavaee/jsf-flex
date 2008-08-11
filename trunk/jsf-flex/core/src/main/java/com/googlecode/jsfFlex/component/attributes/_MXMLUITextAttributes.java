@@ -19,25 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "displayAsPassword"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Indicates whether this control is used for entering passwords."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "selectionEndIndex"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The zero-based index of the position after the last character in the current selection (equivalent to the one-based index of the last character)."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "selectionBeginIndex"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The zero-based character index value of the first character in the current selection."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUITextAttributes {

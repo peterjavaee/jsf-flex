@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "cornerRadius"
- *   returnType = "java.lang.String"
- *   longDesc	= "Radius of component corners."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUICornerRadiusAttribute {

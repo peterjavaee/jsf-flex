@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "barColor"
- *   returnType = "java.lang.String"
- *   longDesc	= "Determines the color of a ProgressBar."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIBarColorAttribute {

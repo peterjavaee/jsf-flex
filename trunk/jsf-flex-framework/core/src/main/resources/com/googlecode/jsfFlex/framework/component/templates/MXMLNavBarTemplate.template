@@ -1,9 +1,0 @@
-	${dataProvider}
-    ${iconField}
-    ${labelField}
-    ${selectedIndex}
-    ${toolTipField}
-	
-    ${itemClick}
-    
-    &box;

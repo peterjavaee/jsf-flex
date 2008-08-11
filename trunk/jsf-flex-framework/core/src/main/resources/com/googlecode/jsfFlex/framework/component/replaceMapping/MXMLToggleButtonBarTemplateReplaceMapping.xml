@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<replace-mapping>
-	<replace>
-		<replace-token>toggleOnClick</replace-token>
-		<replace-token>selectedButtonTextStyleName</replace-token>
-	</replace>
-</replace-mapping>

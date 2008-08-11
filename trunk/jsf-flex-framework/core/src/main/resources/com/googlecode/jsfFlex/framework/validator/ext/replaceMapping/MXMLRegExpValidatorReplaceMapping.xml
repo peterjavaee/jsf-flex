@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<replace-mapping>
-	<replace>
-		<replace-token byAttribute="true">expression</replace-token>
-		<replace-token byAttribute="true">flags</replace-token>
-		<replace-token byAttribute="true">noExpressionError</replace-token>
-		<replace-token byAttribute="true">noMatchError</replace-token>
-	</replace>
-</replace-mapping>

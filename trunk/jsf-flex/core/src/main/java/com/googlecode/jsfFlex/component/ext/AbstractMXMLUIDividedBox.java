@@ -40,10 +40,8 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalAlignAttribu
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIIconAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUILabelAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUILiveDraggingAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingHorizontalAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingVerticalAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIResizeToContentAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollBarAttributes;
@@ -54,7 +52,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIVerticalAlignAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttributes;
-import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIDividedBoxAttributes;
 
 /**
  * @JSFComponent
@@ -66,11 +63,84 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIDividedBoxAtt
  *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
  *   
+ * @JSFJspProperties
+ * 		properties	=		
+ *   						@JSFJspProperty
+ * 							 name		= "liveDragging"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "If true, the children adjacent to a divider are continuously resized while the user drags it."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "resizeToContent"
+ *   						 returnType = "java.lang.String"
+ *  						 longDesc	= "If true, the ViewStack container automatically resizes to the size of its current child."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "dividerAffordance"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Thickness in pixels of the area where the user can click to drag a divider."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "dividerAlpha"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The alpha value that determines the transparency of the dividers."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "dividerColor"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Color of the dividers when the user presses or drags the dividers if the liveDragging property is set to false."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "dividerSkin"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The divider skin."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "dividerThickness"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Thickness in pixels of the dividers when the user presses or drags the dividers, if the liveDragging property is set to false."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "horizontalDividerCursor"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The cursor skin for a horizontal DividedBox."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "verticalDividerCursor"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "The cursor skin for a vertical DividedBox."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "dividerPress"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched when the user presses any divider in this container."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "dividerDrag"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched multiple times as the user drags any divider."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "dividerRelease"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Dispatched when the user releases a divider."
+ *   						
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIDividedBox 
 						extends MXMLUISimpleBase
-						implements _MXMLUIDividedBoxAttributes, _MXMLUIIconAttribute, _MXMLUIContainerAttributes, 
+						implements _MXMLUIVerticalAlignAttribute, _MXMLUIIconAttribute, _MXMLUIContainerAttributes, 
 						_MXMLUIBaseAttributes, _MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundAttributes, 
 						_MXMLUIBackgroundColorAttribute, _MXMLUIBackgroundDisabledColorAttribute, 
 						_MXMLUIBarColorAttribute, _MXMLUIBorderAttributes, _MXMLUIBorderColorAttribute, 
@@ -81,8 +151,7 @@ public abstract class AbstractMXMLUIDividedBox
 						_MXMLUILabelAttribute, _MXMLUIPaddingHorizontalAttributes, _MXMLUIPaddingVerticalAttributes, 
 						_MXMLUIScrollAttribute, _MXMLUIScrollAttributes, _MXMLUIScrollBarAttributes, 
 						_MXMLUIShadowAttributes, _MXMLUITextStyleAttributes, _MXMLUIThumbSkinAttributes, 
-						_MXMLUITrackAttributes, _MXMLUIVerticalAlignAttribute, _MXMLUILiveDraggingAttribute, 
-						_MXMLUIResizeToContentAttribute {
+						_MXMLUITrackAttributes {
 	
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLDividedBox";
 	

@@ -82,6 +82,18 @@
         <version>${javax.servlet.api}</version>
       </dependency>
       
+      <dependency>
+        <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
+        <artifactId>jsf-flex-framework-core</artifactId>
+        <version>${jsf.flex.framework.core.version}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>com.googlecode.jsf-flex.jsf-flex-shared-project</groupId>
+        <artifactId>jsf-flex-shared</artifactId>
+        <version>${jsf.flex.shared.version}</version>
+      </dependency>
+      
     </dependencies>
   </dependencyManagement>
   
@@ -178,6 +190,41 @@
         <myfaces-tomahawk-sandbox.version>1.1.7-SNAPSHOT</myfaces-tomahawk-sandbox.version>
       </properties>
     </profile>
+    
+    <profile>
+      <id>jsf_flex_framework_component-1.0</id>
+      <activation>
+        <property>
+          <name>!jsf_flex_framework_component</name>
+        </property>
+      </activation>
+      <properties>
+        <jsf.flex.framework.component.version>1.0.0-SNAPSHOT</jsf.flex.framework.component.version>
+      </properties>
+    </profile>
+    <profile>
+      <id>jsf_flex_framework.core-1.0</id>
+      <activation>
+        <property>
+          <name>!jsf_flex_framework.core</name>
+        </property>
+      </activation>
+      <properties>
+        <jsf.flex.framework.core.version>1.0.0-SNAPSHOT</jsf.flex.framework.core.version>
+      </properties>
+    </profile>
+    <profile>
+      <id>jsf_flex_shared-1.0</id>
+      <activation>
+        <property>
+          <name>!jsf_flex_shared</name>
+        </property>
+      </activation>
+      <properties>
+        <jsf.flex.shared.version>1.0.0-SNAPSHOT</jsf.flex.shared.version>
+      </properties>
+    </profile>
+    
   </profiles>
   
   <properties>

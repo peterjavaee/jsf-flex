@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<replace-mapping>
-	<replace>
-		<replace-token>strokeColor</replace-token>
-		<replace-token>shadowColor</replace-token>
-		<replace-token>strokeWidth</replace-token>
-	</replace>
-</replace-mapping>

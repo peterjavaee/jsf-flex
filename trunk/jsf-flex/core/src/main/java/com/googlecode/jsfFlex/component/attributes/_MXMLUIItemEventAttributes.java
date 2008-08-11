@@ -19,19 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "itemRollOver"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Dispatched when the user rolls the mouse over a drop-down list item."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "itemRollOut"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Dispatched when the user rolls the mouse over a drop-down list item."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIItemEventAttributes {

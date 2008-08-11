@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "borderColor"
- *   returnType = "java.lang.String"
- *   longDesc	= "Color of the border."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIBorderColorAttribute {

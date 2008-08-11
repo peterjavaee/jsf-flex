@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "backgroundDisabledColor"
- *   returnType = "java.lang.String"
- *   longDesc	= "Background color of the component when it is disabled."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIBackgroundDisabledColorAttribute {

@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "dataProvider"
- *   returnType = "java.lang.String"
- *   longDesc	= "The set of items this component displays."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIDataProviderAttribute {

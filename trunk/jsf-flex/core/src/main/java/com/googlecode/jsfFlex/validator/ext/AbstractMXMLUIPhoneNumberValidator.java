@@ -19,9 +19,6 @@
 package com.googlecode.jsfFlex.validator.ext;
 
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-import com.googlecode.jsfFlex.validator.attributes._MXMLUIAllowedFormatCharsAttribute;
-import com.googlecode.jsfFlex.validator.attributes._MXMLUIInvalidCharErrorAttribute;
-import com.googlecode.jsfFlex.validator.attributes._MXMLUIWrongLengthErrorAttribute;
 import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttributes;
 
 /**
@@ -33,13 +30,31 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  *   family   = "javax.faces.MXMLSimpleBase"
  *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
- *   
+ * 
+ * @JSFJspProperties
+ * 		properties	=		
+ *   						@JSFJspProperty
+ * 							 name		= "allowedFormatChars"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "The set of formatting characters allowed."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "invalidCharError"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Error message when the value contains invalid characters."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "wrongLengthError"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Error message when the field contains the wrong number of digits for the specified type."
+ * 
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIPhoneNumberValidator 
 						extends MXMLUISimpleBase 
-						implements _MXMLUIValidatorAttributes, _MXMLUIAllowedFormatCharsAttribute, _MXMLUIInvalidCharErrorAttribute,  
-						_MXMLUIWrongLengthErrorAttribute {
+						implements _MXMLUIValidatorAttributes {
 	
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLPhoneNumberValidator";
 	

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<replace-mapping>
-	<replace>
-		<replace-token>repeatDelay</replace-token>
-		<replace-token>repeatInterval</replace-token>
-		<replace-token>scroll</replace-token>
-	</replace>
-</replace-mapping>

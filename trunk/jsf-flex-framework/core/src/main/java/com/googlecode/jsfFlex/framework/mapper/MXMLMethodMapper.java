@@ -20,7 +20,6 @@ package com.googlecode.jsfFlex.framework.mapper;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Map;
 
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 
@@ -41,41 +40,36 @@ public class MXMLMethodMapper implements _MXMLMapper{
 		}
 		return _instance;
 	}
-
-	public void mapField(String jsf_attribute, String tokenName, Object componentObj, Map replaceTextLists)
-															throws ComponentBuildException{
+	
+	
+	public TokenValue mapField(String tokenName, Object componentObj) throws ComponentBuildException{
 		
 		try{
 			String searchMethodName = "get" + String.valueOf(tokenName.charAt(0)).toUpperCase() + tokenName.substring(1);
 			Method method = componentObj.getClass().getMethod(searchMethodName, null);
 			Object obj = method.invoke(componentObj, null);
-			String toSet;
-	
-			if(obj != null && obj instanceof String){
-				toSet = tokenName + "=\"" + (String) obj + "\"";
-			}else{
-				toSet = "";
+			
+			if(obj != null){
+				return new TokenValue(tokenName, obj);
 			}
-			String token = "${" + tokenName + "}";
-			replaceTextLists.put(token, toSet);
+			
+			return null;
 		}catch(NoSuchMethodException noSuchMethodExcept){
 			
-			throw new ComponentBuildException(getErrorMessage(jsf_attribute, tokenName, componentObj), noSuchMethodExcept);
+			throw new ComponentBuildException(getErrorMessage(tokenName, componentObj), noSuchMethodExcept);
 		}catch(InvocationTargetException invocationTargetExcept){
 			
-			throw new ComponentBuildException(getErrorMessage(jsf_attribute, tokenName, componentObj), invocationTargetExcept);
+			throw new ComponentBuildException(getErrorMessage(tokenName, componentObj), invocationTargetExcept);
 		}catch(IllegalAccessException illegalAccessExcept){
 			
-			throw new ComponentBuildException(getErrorMessage(jsf_attribute, tokenName, componentObj), illegalAccessExcept);
+			throw new ComponentBuildException(getErrorMessage(tokenName, componentObj), illegalAccessExcept);
 		}
 
 	}
 	
-	private String getErrorMessage(String jsf_methodName, String tokenName, Object componentObj){
+	private String getErrorMessage(String tokenName, Object componentObj){
 		StringBuffer errorMessage = new StringBuffer();
-		errorMessage.append("Exception when mapping field for jsf_methodName [ ");
-		errorMessage.append(jsf_methodName);
-		errorMessage.append(" ] and tokenName [ ");
+		errorMessage.append("Exception when mapping field for tokenName [ ");
 		errorMessage.append(tokenName);
 		errorMessage.append(" ] for ");
 		errorMessage.append(componentObj.getClass().getName());

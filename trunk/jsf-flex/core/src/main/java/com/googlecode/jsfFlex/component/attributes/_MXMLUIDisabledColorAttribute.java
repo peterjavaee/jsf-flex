@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "disabledColor"
- *   returnType = "java.lang.String"
- *   longDesc	= "Color of text in the component if it is disabled."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIDisabledColorAttribute {

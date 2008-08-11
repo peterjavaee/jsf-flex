@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "leading"
- *   returnType = "java.lang.String"
- *   longDesc	= "Additional vertical space between lines of text."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUILeadingAttribute {

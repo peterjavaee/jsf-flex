@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "dataTipPlacement"
- *   returnType = "java.lang.String"
- *   longDesc	= "The location of the data tip relative to the thumb."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIDataTipPlacementAttribute {

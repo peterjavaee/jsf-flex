@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.validator.ext;
 
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-import com.googlecode.jsfFlex.validator.attributes._MXMLUIAllowedFormatCharsAttribute;
-import com.googlecode.jsfFlex.validator.attributes._MXMLUIDomainAttribute;
-import com.googlecode.jsfFlex.validator.attributes._MXMLUIInvalidCharErrorAttribute;
-import com.googlecode.jsfFlex.validator.attributes._MXMLUIInvalidDomainErrorAttribute;
-import com.googlecode.jsfFlex.validator.attributes._MXMLUIWrongLengthErrorAttribute;
 import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttributes;
 
 /**
@@ -48,14 +43,42 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  * 							 name		= "wrongUSFormatError"
  *   						 returnType	= "java.lang.String"
  *   						 longDesc	= "Error message for an incorrectly formatted ZIP code."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "allowedFormatChars"
+ *  						 returnType = "java.lang.String"
+ *   						 longDesc	= "The set of formatting characters allowed."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "domain"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Type to be validated."
+ *   						,
+ *   
+ *							@JSFJspProperty
+ *   						 name		= "invalidCharError"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Error message when the value contains invalid characters."
+ *   						,
+ *   						
+ *							@JSFJspProperty
+ *   						 name		= "invalidDomainError"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Error message when the domain property contains an invalid value."
+ *   						,
+ *   
+ *							@JSFJspProperty
+ *   						 name		= "wrongLengthError"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Error message when the field contains the wrong number of digits for the specified type."
  *   						
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIZipCodeValidator 
 						extends MXMLUISimpleBase 
-						implements _MXMLUIValidatorAttributes, _MXMLUIAllowedFormatCharsAttribute, _MXMLUIDomainAttribute,  
-						_MXMLUIInvalidCharErrorAttribute, _MXMLUIInvalidDomainErrorAttribute, 
-						_MXMLUIWrongLengthErrorAttribute {
+						implements _MXMLUIValidatorAttributes {
 	
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLZipCodeValidator";
 	

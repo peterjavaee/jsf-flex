@@ -21,15 +21,13 @@
     <!-- compile -->
     <dependency>
       <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
-      <artifactId>jsf-flex-framework</artifactId>
-      <version>${jsf.flex.framework.version}</version>
+      <artifactId>jsf-flex-framework-core</artifactId>
       <scope>compile</scope>
     </dependency>
     
     <dependency>
       <groupId>com.googlecode.jsf-flex.jsf-flex-shared-project</groupId>
       <artifactId>jsf-flex-shared</artifactId>
-      <version>${jsf.flex.shared.version}</version>
       <scope>compile</scope>
     </dependency>
     
@@ -99,7 +97,6 @@
     
   </dependencies>
 
-  
   <build>
 
     <resources>
@@ -125,10 +122,10 @@
           <execution>
             <id>makefacesconfig</id>
             <configuration>
-                <xmlFile>META-INF/faces-config.xml</xmlFile>
+              <xmlFile>META-INF/faces-config.xml</xmlFile>
             </configuration>
             <goals>
-                <goal>make-config</goal>
+              <goal>make-config</goal>
             </goals>
           </execution>
           <execution>
@@ -146,59 +143,59 @@
           <execution>
             <id>make_tags_jsfFlex</id>
             <goals>
-                <goal>make-tags</goal>
+              <goal>make-tags</goal>
             </goals>
           </execution>
           <execution>
             <id>make_validator_tags_jsfFlex</id>
             <goals>
-                <goal>make-validator-tags</goal>
-                <goal>make-converter-tags</goal>
+              <goal>make-validator-tags</goal>
+              <goal>make-converter-tags</goal>
             </goals>
           </execution>          
           <execution>
             <id>makejsfFlextld</id>
             <configuration>
-                <xmlFile>META-INF/jsf-flex.tld</xmlFile>
-                <xmlBaseFile>src/main/conf/META-INF/jsf-flex.tld</xmlBaseFile>
-                <templateFile>jsf-flex.vm</templateFile>
-                <params>
-                   <shortname>jf</shortname>
-                   <uri>http://jsf-flex.googlecode.com</uri>
-                   <displayname>JSF-Flex tag library.</displayname>
-                   <description>
-                     JSF-Flex goal is to provide users capability in creating Flex components as JSF components. So users would 
-                     create the components as normal JSF components and the contribution will create the necessary SWF files and 
-                     etcetera and link the values of the components back to the managed beans using JSON+Javascript and Actionscript.
-                     So all users would need is a Jar of the component library and they would be able to create Flex applications by 
-                     using them as normal JSF components. By doing so, developers who are unfamiliar with Adobe Flex can be completely 
-                     abstracted from its technology and focus in linking the application's data to legacy information.
-                   </description>
-                </params>
-                <modelIds>
-                    <modelId>jsf-flex</modelId>
-                </modelIds>
+              <xmlFile>META-INF/jsf-flex.tld</xmlFile>
+              <xmlBaseFile>src/main/conf/META-INF/jsf-flex.tld</xmlBaseFile>
+              <templateFile>jsf-flex.vm</templateFile>
+              <params>
+                 <shortname>jf</shortname>
+                 <uri>http://jsf-flex.googlecode.com</uri>
+                 <displayname>JSF-Flex tag library.</displayname>
+                 <description>
+                   JSF-Flex goal is to provide users capability in creating Flex components as JSF components. So users would 
+                   create the components as normal JSF components and the contribution will create the necessary SWF files and 
+                   etcetera and link the values of the components back to the managed beans using JSON+Javascript and Actionscript.
+                   So all users would need is a Jar of the component library and they would be able to create Flex applications by 
+                   using them as normal JSF components. By doing so, developers who are unfamiliar with Adobe Flex can be completely 
+                   abstracted from its technology and focus in linking the application's data to legacy information.
+                 </description>
+              </params>
+              <modelIds>
+                <modelId>jsf-flex</modelId>
+              </modelIds>
             </configuration>
             <goals>
-                <goal>make-config</goal>
+              <goal>make-config</goal>
             </goals>
           </execution>        
           <execution>
             <id>makejsfFlextaglib</id>
             <configuration>
-                <xmlFile>META-INF/jsf-flex.taglib.xml</xmlFile>
-                <xmlBaseFile>src/main/conf/META-INF/facelets-taglib-base.xml</xmlBaseFile>
-                <templateFile>facelets-taglib.vm</templateFile>
-                <params>
-                   <shortname>jf</shortname>
-                   <uri>http://jsf-flex.googlecode.com</uri>
-                </params>
-                <modelIds>
-                    <modelId>jsf-flex</modelId>
-                </modelIds>
+              <xmlFile>META-INF/jsf-flex.taglib.xml</xmlFile>
+              <xmlBaseFile>src/main/conf/META-INF/facelets-taglib-base.xml</xmlBaseFile>
+              <templateFile>facelets-taglib.vm</templateFile>
+              <params>
+                <shortname>jf</shortname>
+                <uri>http://jsf-flex.googlecode.com</uri>
+              </params>
+              <modelIds>
+                <modelId>jsf-flex</modelId>
+              </modelIds>
             </configuration>
             <goals>
-                <goal>make-config</goal>
+              <goal>make-config</goal>
             </goals>
           </execution>        
         </executions>
@@ -209,6 +206,8 @@
         <configuration>
           <source>1.5</source>
           <target>1.5</target>
+          <maxmem>1024</maxmem>
+          <meminitial>256</meminitial>
         </configuration>
       </plugin>
     </plugins>
@@ -262,27 +261,39 @@
   
   <profiles>
     <profile>
-      <id>jsf_flex_framework-1.0</id>
+      <id>jsf_flex_framework_runtime-1.4</id>
       <activation>
         <property>
-          <name>!jsf_flex_framework</name>
+          <name>!jsf_flex_framework_runtime</name>
         </property>
       </activation>
-      <properties>
-        <jsf.flex.framework.version>1.0.0-SNAPSHOT</jsf.flex.framework.version>
-      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
+          <artifactId>jsf-flex-framework-component14</artifactId>
+          <scope>compile</scope>
+          <version>${jsf.flex.framework.component.version}</version>
+        </dependency>
+      </dependencies>
     </profile>
     <profile>
-      <id>jsf_flex_shared-1.0</id>
+      <id>jsf_flex_framework_runtime-1.5</id>
       <activation>
         <property>
-          <name>!jsf_flex_shared</name>
+          <name>jsf_flex_framework_runtime</name>
+          <value>1.5</value>
         </property>
       </activation>
-      <properties>
-        <jsf.flex.shared.version>1.0.0-SNAPSHOT</jsf.flex.shared.version>
-      </properties>
+      <dependencies>
+        <dependency>
+          <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
+          <artifactId>jsf-flex-framework-component15</artifactId>
+          <scope>compile</scope>
+          <version>${jsf.flex.framework.component.version}</version>
+        </dependency>
+      </dependencies>
     </profile>
+    
     <profile>
       <id>generate-site</id>
       <reporting>

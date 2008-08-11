@@ -8,7 +8,8 @@
   
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
-  <artifactId>jsf-flex-framework</artifactId>
+  <artifactId>jsf-flex-framework-core</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>JSF-FlexFramework Core</name>
   
@@ -16,24 +17,10 @@
     <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/jsf-flex-framework/core</connection>
     <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/jsf-flex-framework/core</developerConnection>
   </scm>
-
+  
   <dependencies>
     
     <!-- compile -->
-    
-    <dependency>
-      <groupId>ant</groupId>
-      <artifactId>ant</artifactId>
-      <version>1.5.3-1</version>
-      <scope>compile</scope>
-    </dependency>
-    
-    <dependency>
-      <groupId>ant</groupId>
-      <artifactId>ant-optional</artifactId>
-      <version>1.5.3-1</version>
-      <scope>compile</scope>
-    </dependency>
     
     <dependency>
       <groupId>commons-logging</groupId>
@@ -51,6 +38,12 @@
       <groupId>org.apache.myfaces.core</groupId>
       <artifactId>myfaces-api</artifactId>
       <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>velocity</groupId>
+      <artifactId>velocity</artifactId>
+      <version>1.5</version>
     </dependency>
     
     <!-- test dependencies -->
@@ -118,6 +111,40 @@
   
   <profiles>
     <profile>
+      <id>default_runner_factory_impl</id>
+      <activation>
+        <property>
+          <name>!runner_factory_impl</name>
+        </property>
+      </activation>
+      <properties>
+        <runner_factory_impl>com.googlecode.jsfFlex.framework.tasks.factory.DefaultRunnerFactoryImpl</runner_factory_impl>
+      </properties>
+    </profile>
+    <profile>
+      <id>jsf_flex_framework_runtime-1.4</id>
+      <activation>
+        <property>
+          <name>!jsf_flex_framework_runtime</name>
+        </property>
+      </activation>
+      <properties>
+        <annotation_doclet_parser_impl_package>com.googlecode.jsfFlex.framework.annotationDocletParser.AnnotationDocletParser14Impl</annotation_doclet_parser_impl_package>
+      </properties>
+    </profile>
+    <profile>
+      <id>jsf_flex_framework_runtime-1.5</id>
+      <activation>
+        <property>
+          <name>jsf_flex_framework_runtime</name>
+          <value>1.5</value>
+        </property>
+      </activation>
+      <properties>
+        <annotation_doclet_parser_impl_package>com.googlecode.jsfFlex.framework.annotationDocletParser.AnnotationDocletParser15Impl</annotation_doclet_parser_impl_package>
+      </properties>
+    </profile>
+    <profile>
       <id>generate-site</id>
       <reporting>
         <plugins>
@@ -135,43 +162,17 @@
   </profiles>
   
   <build>
-    
+
     <resources>
       <resource>
         <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <excludes>
+           <exclude>**/*.zip</exclude>
+        </excludes>
       </resource>
     </resources>
     
-    <plugins>
-      <plugin>
-        <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
-        <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-        <executions>
-          <execution>
-            <id>createMXMLComponentReplaceMappingXML</id>
-            <configuration>
-              <!-- Make configuration here for createMXMLComponentReplaceMappingXMLMojo -->
-            </configuration>
-            <goals>
-              <goal>createMXMLComponentReplaceMappingXML</goal>
-            </goals>
-          </execution>
-          
-          <execution>
-            <id>createMXMLComponentTemplate</id>
-            <configuration>
-              <!-- Make configuration here for createMXMLComponentTemplateMojo -->
-            </configuration>
-            <goals>
-              <goal>createMXMLComponentTemplate</goal>
-            </goals>
-          </execution>
-        </executions>
-        
-      </plugin>
-    </plugins>
-    
   </build>
-
+  
 </project>

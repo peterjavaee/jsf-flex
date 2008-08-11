@@ -19,25 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "rowCount"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Maximum number of rows visible in the control."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "itemRenderer"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "IFactory that generates the instances that displays the data for the drop-down list of the control."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "selectionDuration"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The selectionDuration of the drop-down list."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIItemInfoAttributes {

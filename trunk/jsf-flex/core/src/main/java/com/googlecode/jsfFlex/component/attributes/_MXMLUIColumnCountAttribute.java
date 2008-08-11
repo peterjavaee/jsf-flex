@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "columnCount"
- *   returnType = "java.lang.String"
- *   longDesc	= "Number of columns in the swatch grid."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUIColumnCountAttribute {

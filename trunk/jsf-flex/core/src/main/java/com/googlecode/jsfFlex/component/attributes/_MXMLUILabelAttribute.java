@@ -19,11 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperty
- *   name		= "label"
- *   returnType = "java.lang.String"
- *   longDesc	= "Text to appear on the control."
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLUILabelAttribute {

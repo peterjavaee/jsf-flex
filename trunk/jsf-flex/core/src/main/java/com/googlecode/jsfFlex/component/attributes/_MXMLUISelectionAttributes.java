@@ -19,19 +19,6 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- * 							@JSFJspProperty
- * 							 name		= "alternatingItemColors"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The set of BackgroundColors for drop-down list rows in an alternating pattern."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "selectionEasingFunction"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The selectionEasingFunction of the drop-down list."
- *   						
  * @author Ji Hoon Kim
  */
 public interface _MXMLUISelectionAttributes {

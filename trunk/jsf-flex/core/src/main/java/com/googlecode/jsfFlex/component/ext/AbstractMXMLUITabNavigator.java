@@ -32,15 +32,11 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUICornerRadiusAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataChangeAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFillAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFocusRoundedCornersAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontSpecificAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIGapAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHistoryManagementAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalAlignAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIIconAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
@@ -70,6 +66,73 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   family   = "javax.faces.MXMLInput"
  *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLInput"
+ * 
+ * @JSFJspProperties
+ * 		properties	=		
+ *   						@JSFJspProperty
+ * 							 name		= "firstTabStyleName"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Name of CSS style declaration that specifies styles for the first tab."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "lastTabStyleName"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Name of CSS style declaration that specifies styles for the last tab."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "selectedTabTextStyleName"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Name of CSS style declaration that specifies styles for the text of the selected tab."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "tabHeight"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Height of each tab, in pixels."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "tabStyleName"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Name of CSS style declaration that specifies styles for the tabs."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "tabWidth"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Width of each tab, in pixels."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "fillAlphas"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Alphas used for the background fill of controls."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "fillColors"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "Colors used to tint the background of the control."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "focusAlpha"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Specifies the alpha transparency value of the focus skin."
+ *   						, 
+ *   						
+ *   						@JSFJspProperty
+ *   						 name		= "focusRoundedCorners"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Specifies which corners of the focus rectangle should be rounded."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "horizontalAlign"
+ *  						 returnType = "java.lang.String"
+ *  						 longDesc	= "Horizontal alignment of children in the container."
  *   
  * @author Ji Hoon Kim
  */
@@ -81,14 +144,13 @@ public abstract class AbstractMXMLUITabNavigator
 						_MXMLUIBarColorAttribute, _MXMLUIBorderAttributes, _MXMLUIBorderColorAttribute, 
 						_MXMLUIBorderThicknessAttribute, _MXMLUIChangeAttribute, _MXMLUIColorAttribute, 
 						_MXMLUITrackAttributes, _MXMLUICornerRadiusAttribute, _MXMLUIDataChangeAttribute, 
-						_MXMLUIDisabledColorAttribute, _MXMLUIFillAttributes, _MXMLUIFocusAlphaAttribute, 
-						_MXMLUIFocusRoundedCornersAttribute, _MXMLUIFontFamilyAttribute, _MXMLUIFontGeneralAttributes,  
-						_MXMLUIFontSpecificAttributes, _MXMLUIGapAttributes, _MXMLUIHorizontalAlignAttribute, 
+						_MXMLUIFontFamilyAttribute, _MXMLUIFontGeneralAttributes, _MXMLUIDisabledColorAttribute,  
+						_MXMLUIFontSpecificAttributes, _MXMLUIGapAttributes, _MXMLUISelectedIndexAttribute,
 						_MXMLUIHorizontalScrollPositionAttribute, _MXMLUIImmediateAttribute, _MXMLUILabelAttribute, 
 						_MXMLUIPaddingHorizontalAttributes, _MXMLUIPaddingVerticalAttributes, _MXMLUIScrollAttribute, 
-						_MXMLUIScrollAttributes, _MXMLUIScrollBarAttributes, _MXMLUITabAttributes, 
+						_MXMLUIScrollAttributes, _MXMLUIScrollBarAttributes, _MXMLUIIconAttribute, 
 						_MXMLUIShadowAttributes, _MXMLUITextStyleAttributes, _MXMLUIThumbSkinAttributes, 
-						_MXMLUIHistoryManagementAttribute, _MXMLUIIconAttribute, _MXMLUISelectedIndexAttribute {
+						_MXMLUIHistoryManagementAttribute {
 	
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLTabNavigator";
 	

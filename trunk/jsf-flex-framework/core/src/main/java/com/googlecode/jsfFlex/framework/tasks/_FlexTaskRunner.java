@@ -18,8 +18,6 @@
  */
 package com.googlecode.jsfFlex.framework.tasks;
 
-import java.util.Map;
-
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
@@ -29,13 +27,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 public interface _FlexTaskRunner extends _TaskRunner {
 	
-	void addCreatePreMxmlTask(_MXMLContract comp, String mxmlInputTemplatePath, String templateContent);
-	
-	void addInsertComponentTemplateTask(_MXMLContract comp, String contentToken, String contentTemplate);
-	
 	void addMakeDirectoryTask(String directoryToCreate);
-	
-	void addReplaceTokenTask(_MXMLContract comp, Map replaceTextList);
 	
 	void deleteResources(String resourceToDelete, boolean isDirectory);
 	
@@ -43,16 +35,20 @@ public interface _FlexTaskRunner extends _TaskRunner {
 	
 	void addReplaceTokenWithValueTask(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) throws ComponentBuildException;
 	
+	void copyFile(String fileToCopy, String fileToCopyTo) throws ComponentBuildException;
+	
+	void copyFileSet(String copyDir, String copyInclude, String copyExclude, String copyTo) throws ComponentBuildException;
+	
 	void createMXML(_MXMLContract applicationInstance, String copyTo) throws ComponentBuildException;
 	
-	void createMxmlcSourceFiles(String _mxmlPath, String[] _systemSourceFiles) throws ComponentBuildException;
+	void createSwcSourceFiles(String _swcPath, String[] _systemSourceFiles, String jsfFlexMainSwcConfigFile) throws ComponentBuildException;
+	
+	void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath) throws ComponentBuildException;
 	
 	void createSWF(_MXMLApplicationContract componentMXML, String mxmlFile, String swfPath, String flexSDKRootPath) throws ComponentBuildException;
 	
 	void createSwfSourceFiles(String _swfBasePath, String[] _systemSwfSourceFiles) throws ComponentBuildException;
 	
-	void createSystemSWCFile(String _mxmlPath) throws ComponentBuildException;
-	
-	void replaceChildSiblingWithPreMxmlIdentifier(_MXMLContract currInstance) throws ComponentBuildException;
+	void renameFile(String sourceFile, String destFile, boolean overWrite) throws ComponentBuildException;
 	
 }
