@@ -6,7 +6,7 @@ Brief overview of JSF-Flex Framework Components
 = Details =
 
 ==Overview==
-There are two projects for components within JSF Flex component, namely component14 and component15, mainly to provide backward capability for JRE < 5 and JRE > 5 {will let reader figure out which one is what =)}. The choice of which component one will choose will depend on the profile provided when building the artifacts through maven {default will be component14}. Other decisions and choices of implementation will be decided when building the artifacts through maven, but more on that later.
+There are two projects for components within JSF Flex component, namely component14 and component15, mainly to provide backward capability for JRE < 5 and JRE => 5 {will let reader figure out which one is what =)}. The choice of which component one will choose will depend on the profile provided when building the artifacts through maven {default will be component14}. Other decisions and choices of implementation will be decided when building the artifacts through maven, but more on that later.
 
 ==UIComponent field inspection==
 
@@ -14,7 +14,7 @@ There are two projects for components within JSF Flex component, namely componen
 For component14, during the build time documentation for java files will be inspected by the JSF Flex plugIn and will generate replaceMapping XML files that will be parsed to check which fields to inspect and how to fetch these fields from the JSF component that extends UIComponent {by attribute map or by method invocation}.
 
 ===component15===
-Since these components are suppose to be used for JRE > 5, the attributes will be fetched during runtime through standard annotation and will not require JSF Flex plugIn during build time.
+Since these components are suppose to be used for JRE => 5, the attributes will be fetched during runtime through java annotation and will not require JSF Flex plugIn during build time.
 
 ===Etcetera===
 In order to have single point of entry for retrieving these info for jsf-flex-framework-core project, each will implement {{{_AnnotationDocletParser}}} interface provided from the jsf-flex-framework-core project {i.e. component14 will be 
