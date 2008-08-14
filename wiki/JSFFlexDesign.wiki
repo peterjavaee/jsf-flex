@@ -1,6 +1,6 @@
 = Introduction =
 
-Navigation page for JSF-Flex design
+Navigational pages for JSF-Flex design
 
 = Details =
 
@@ -8,6 +8,7 @@ Navigation page for JSF-Flex design
  * [JSFFlexComponentInfo] page contains info regarding JSF-Flex components for JSF-Flex project.
  * [JSFFlexFrameworkComponentInfo] page contains info regarding JSF-Flex Framework's components for JSF-Flex project.
  * [JSFFlexFrameworkLifeCycle] page contains info regarding the lifecycle of JSF-Flex project.
+ * [JSFFlexMavenProjects] page contains info regarding the maven projects of JSF-Flex project.
 
 The project itself has been componentized tremendously in order to provide :
  * flexibility in choosing the implementation preferred {i.e. if the institution using this component library only allows ANT implementation}
