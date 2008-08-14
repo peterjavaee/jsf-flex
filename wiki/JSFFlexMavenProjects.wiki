@@ -1,0 +1,11 @@
+= Introduction =
+
+This page will contain brief info regarding the maven projects of JSF-Flex.
+
+
+= Details =
+
+Add your content here.  Format your content with:
+  * Text in *bold* or _italic_
+  * Headings, paragraphs, and lists
+  * Automatic links to other wiki pages
