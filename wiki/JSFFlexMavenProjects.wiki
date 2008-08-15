@@ -5,32 +5,42 @@ This page will contain brief info regarding the maven projects of JSF-Flex.
 
 = Details =
 
+
 ==jsf-flex-build-plugIn==
 A plug-in project that utilizes qdox open source project to inspect the java file’s documentations in order to generate replaceMapping XML for jsf-flex-framework/component14 project.
+
 
 ==jsf-flex/core==
 Contains code pertinent to JSF components. Since the project uses myfaces plug-in, tld, faces_config.xml, tagClass, and etcetera are created during build time.
 
+
 ==jsf-flex/examples==
 A WAR project containing sample jsf pages for the project.
+
 
 ==jsf-flex-shared==
 A project containing shared resource for jsf-flex and jsf-flex-framework sub-projects. Its main reason of existence is to avoid cyclic dependency between the two projects by providing shared interfaces.
 
+
 ==jsf-flex-framework/core==
 Contains the core code that is used by jsf-flex-framework/component14 and jsf-flex-framework/component15 projects.
+
 
 ==jsf-flex-framework/runnerImpl/commonTaskRunnerImpl==
 Contains projects that implement the {{{_CommonTaskRunner}}} interface used by jsf-flex-framework/core {i.e. sdkStandardCommonTaskRunnerImpl project}
 
+
 ==jsf-flex-framework/runnerImpl/fileManipulatorTaskRunnerImpl==
 Contains projects that extends the {{{_FileManipulatorTaskRunner}}} abstract class used by jsf-flex-framework/core {i.e. velocityFileManipulatorTaskRunnerImpl project}
+
 
 ==jsf-flex-framework/runnerImpl/flexTaskRunnerImpl==
 Contains projects that implement the {{{_FlexTaskRunner}}} interface used by jsf-flex-framework/core {i.e. antFlexTaskRunnerImpl project}
 
-==jsf-flex-framework/component14 {JRE < 5}==
+
+==jsf-flex-framework/component14 JRE < 5==
 For component14, during the build time documentation for java files will be inspected by the JSF Flex plug-in and will generate replaceMapping XML files that will be parsed to check which fields to inspect and how to fetch these fields from the JSF component {by attribute map or by method invocation]. Contains an implementation of {{{_AnnotationDocletParser}}} interface used by jsf-flex-framework/core for fetching the fields from the JSF component, {{{AnnotationDocletParser14Impl}}} }
 
-==jsf-flex-framework/component15 {JRE >= 5}==
+
+==jsf-flex-framework/component15 JRE >= 5==
 Since these components are suppose to be used for JRE >= 5, the attributes will be fetched during runtime through Java annotation and will not require JSF Flex plug-in during build time. Contains an implementation of {{{_AnnotationDocletParser}}} interface used by jsf-flex-framework/core for fetching the fields from the JSF component, {{{AnnotationDocletParser15Impl}}}.
