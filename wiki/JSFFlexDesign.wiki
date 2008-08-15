@@ -14,4 +14,4 @@ The project itself has been componentized tremendously in order to provide :
  * flexibility in choosing the implementation preferred {i.e. if the institution using this component library only allows ANT implementation}
  * in order to follow the IOC design pattern.
 
-The choice of implementation is driven through profiles when executing the mvn build. In future a Wiki page will be created to explain the build system of this project.
+The choice of implementation is driven through profiles when executing the mvn build.
