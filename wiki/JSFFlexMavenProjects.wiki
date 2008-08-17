@@ -15,7 +15,7 @@ Contains code pertinent to JSF components. Since the project uses myfaces plug-i
 
 
 ==jsf-flex/examples==
-A WAR project containing sample jsf pages for the project. One thing to note is that this WAR file contains many dependencies due to the project's dependency on MyFaces tomahawk and its sandbox project. So for example poi Jar file is not needed for the JSF Flex project and one of the consideration in the future is to break the dependency upon tomahawk project or at least provide a need to have jar files for using JSF Flex components.
+A WAR project containing sample jsf pages for the project. One thing to note is that this WAR file contains many dependencies due to the project's dependency on {{{MyFaces}}} tomahawk and its sandbox project. So for example poi Jar file is not needed for the JSF Flex project and one of the consideration in the future is to break the dependency upon tomahawk project or at least provide a need to have jar files for using JSF Flex components.
 
 
 ==jsf-flex-shared==
