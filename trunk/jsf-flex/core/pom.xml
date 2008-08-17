@@ -281,7 +281,7 @@
       <activation>
         <property>
           <name>jsf_flex_framework_runtime</name>
-          <value>1.5</value>
+          <value>15</value>
         </property>
       </activation>
       <dependencies>
