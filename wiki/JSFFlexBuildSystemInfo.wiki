@@ -65,7 +65,7 @@ JSF Flex project currently has dependencies from following list of open source p
  * qdox for creating the replaceMapping XML for jsf-flex-build-plugIn\jsf-flex-plugIn if using jsf-flex-framework\component14 project. Note that this dependency is required only during build time and not runtime.
 
 ==Methods of triggering different artifacts/dependencies for the project==
- * *mvn install* will provide default artifacts with component14 {JRE < 5} Jar file and {{{DefaultRunnerFactoryImpl}}} being instantiated during runtime for {{{_RunnerFactory}}} abstract class. Which will subsequently instantiate concrete classes for the following interfaces from the following list of projects respectively :
+ * *mvn install* will provide default artifacts with component14 {JRE < 5} Jar file and {{{DefaultRunnerFactoryImpl}}} being instantiated during runtime for {{{_RunnerFactory}}} abstract class. Which will subsequently instantiate concrete classes for the following interfaces/abstract class from the following list of projects respectively :
    * {{{_CommonTaskRunner}}}		sdkStandardCommonTaskRunnerImpl
    * {{{_FileManipulatorTaskRunner}}}	velocityFileManipulatorTaskRunnerImpl
    * {{{_FlexTaskRunner}}}		antFlexTaskRunnerImpl
