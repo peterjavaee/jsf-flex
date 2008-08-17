@@ -4,3 +4,33 @@ This page provides a quick overview regarding the project's build system.
 
 
 = Details =
+
+==Dependencies between JSF Flex projects' projects==
+ 
+===jsf-flex/core===
+ * jsf-flex-framework-core
+ * jsf-flex-shared
+ * jsf-flex-framework-component14 or jsf-flex-framework-component15
+
+===jsf-flex/examples===
+ 
+   
+
+==Dependencies between JSF Flex project and other open source projects==
+JSF Flex project currently has dependencies from following list of open source projects :
+ * myfaces-api
+ * myfaces-impl
+ * myfaces-shared-impl
+ * myfaces-builder-plugin
+ * tomahawk
+ * tomahawk-sandbox
+ * commons-logging
+
+==Methods of triggering different artifacts/dependencies for the project==
+ * *mvn install* will provide default artifacts with component14 {JRE < 5} Jar file and {{{DefaultRunnerFactoryImpl}}} being instantiated during runtime for {{{_RunnerFactory}}} abstract class. Which will subsequently instantiate concrete classes for the following interfaces from the following list of projects respectively :
+   * {{{_CommonTaskRunner}}}		sdkStandardCommonTaskRunnerImpl
+   * {{{_FileManipulatorTaskRunner}}}	velocityFileManipulatorTaskRunnerImpl
+   * {{{_FlexTaskRunner}}}		antFlexTaskRunnerImpl
+ * *mvn install -Djsf_flex_framework_runtime=15* will provide the same artifacts as *mvn install* with the exception that component15 {JRE >=5} Jar file will be linked as the frameworks components.
+ * In future, providing an argument of following syntax *mvn install -Drunner_factory_impl=<implementation_class>* will allow a different implementation of {{{_RunnerFactory}}} to be linked during build time.
+ * *mvn install -Djsf=12* will allow usage of myfaces1.2 dependency to be linked.
