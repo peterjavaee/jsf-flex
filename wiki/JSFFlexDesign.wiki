@@ -12,7 +12,7 @@ Navigational pages for JSF-Flex design
  * [JSFFlexBuildSystemInfo] page contains info regarding the project's build system.
 
 The project itself has been componentized tremendously in order to provide :
- * flexibility in choosing the implementation preferred {i.e. if the institution using this component library only allows ANT implementation}
+ * flexibility in choosing the implementation preferred {i.e. if the institution using this component library only allows ANT implementation, one should choose {{{antFlexTaskRunnerImpl}}} as the project for implementing {{{_FlexTaskRunner}}} interface}
  * in order to follow the IOC design pattern.
 
 The choice of implementation is driven through profiles when executing the mvn build.
