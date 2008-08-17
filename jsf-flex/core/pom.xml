@@ -261,40 +261,6 @@
   
   <profiles>
     <profile>
-      <id>jsf_flex_framework_runtime-1.4</id>
-      <activation>
-        <property>
-          <name>!jsf_flex_framework_runtime</name>
-        </property>
-      </activation>
-      <dependencies>
-        <dependency>
-          <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
-          <artifactId>jsf-flex-framework-component14</artifactId>
-          <scope>compile</scope>
-          <version>${jsf.flex.framework.component.version}</version>
-        </dependency>
-      </dependencies>
-    </profile>
-    <profile>
-      <id>jsf_flex_framework_runtime-1.5</id>
-      <activation>
-        <property>
-          <name>jsf_flex_framework_runtime</name>
-          <value>15</value>
-        </property>
-      </activation>
-      <dependencies>
-        <dependency>
-          <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
-          <artifactId>jsf-flex-framework-component15</artifactId>
-          <scope>compile</scope>
-          <version>${jsf.flex.framework.component.version}</version>
-        </dependency>
-      </dependencies>
-    </profile>
-    
-    <profile>
       <id>generate-site</id>
       <reporting>
         <plugins>
