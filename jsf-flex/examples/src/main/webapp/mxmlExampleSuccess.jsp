@@ -32,10 +32,10 @@
 <f:view>
 	
     Tab Navigator Selected Index <h:outputText value="#{mxmlBean.tabNavigatorSelectedIndex}"></h:outputText>
-    TextInput Text <h:outputText value="#{mxmlBean.textInputText}"></h:inputText>
-    RichTextEditorHtmlText <h:outputText value="#{mxmlBean.richTextEditorHtmlText}"></h:inputTextarea>
-    TextArea Text <h:outputText value="#{mxmlBean.textAreaText}"></h:inputTextarea>
-    DateField Text <h:outputText value="#{mxmlBean.dateFieldText}"></h:inputText>
+    TextInput Text <h:outputText value="#{mxmlBean.textInputText}"></h:outputText>
+    RichTextEditorHtmlText <h:outputText value="#{mxmlBean.richTextEditorHtmlText}"></h:outputText>
+    TextArea Text <h:outputText value="#{mxmlBean.textAreaText}"></h:outputText>
+    DateField Text <h:outputText value="#{mxmlBean.dateFieldText}"></h:outputText>
     CheckBox Selected <h:outputText value="#{mxmlBean.checkBoxSelected}"></h:outputText>
     ComboBox Text <h:outputText value="#{mxmlBean.comboBoxText}"></h:outputText>
     RadioButtonSelected Value <h:outputText value="#{mxmlBean.radioButtonSelectedValue}"></h:outputText>
