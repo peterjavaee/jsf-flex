@@ -53,7 +53,10 @@ package com.googlecode.jsfFlex.communication
 		
 		public function initialize():void {
 			var _loader:URLLoader = new URLLoader();
-			_loader.addEventListener(Event.COMPLETE, loadedHandler);
+			_loader.addEventListener(Event.COMPLETE, function (event:Event):void {
+										var _loader:URLLoader = URLLoader(event.target);
+										_compValueMapper = new XML(_loader.data);
+									});
 			try{
 				_loader.load(new URLRequest(COMP_VALUE_MAPPER));
 			}catch(loadingError:Error){
@@ -66,12 +69,6 @@ package com.googlecode.jsfFlex.communication
 				trace("Failure in setting up of getCompValue callBack");
 			}
 			
-		}
-		
-		private static function loadedHandler(event:Event):void {
-			var _loader:URLLoader = URLLoader(event.target);
-			_loader.removeEventListener(Event.COMPLETE, loadedHandler);
-			_compValueMapper = new XML(_loader.data);
 		}
 		
 		public function populateInitValues(appInfo:Object):void {
