@@ -26,25 +26,158 @@
  * under the License.
  */
 //-->
+<head>
+<style type="text/css">
+.fieldValue{
+	color:#ff6666;
+	font-family:verdana;
+	font-size:13px;
+	font-weight:700;
+	text-align:center;
+	width:60%;
+}
 
+.fieldDescription{
+	color:#708090;
+	font-family:verdana;
+	font-size:13px;
+	font-weight:700;
+	text-align:center;
+	width:40%;
+}
+
+#tableViewer{
+	border-color:blue;
+	border-width:3;
+	height:100%;
+	width:100%;
+}
+</style>
+</head>
 <body>
 
 <f:view>
-	
-    Tab Navigator Selected Index <h:outputText value="#{mxmlBean.tabNavigatorSelectedIndex}"></h:outputText>
-    TextInput Text <h:outputText value="#{mxmlBean.textInputText}"></h:outputText>
-    RichTextEditorHtmlText <h:outputText value="#{mxmlBean.richTextEditorHtmlText}"></h:outputText>
-    TextArea Text <h:outputText value="#{mxmlBean.textAreaText}"></h:outputText>
-    DateField Text <h:outputText value="#{mxmlBean.dateFieldText}"></h:outputText>
-    CheckBox Selected <h:outputText value="#{mxmlBean.checkBoxSelected}"></h:outputText>
-    ComboBox Text <h:outputText value="#{mxmlBean.comboBoxText}"></h:outputText>
-    RadioButtonSelected Value <h:outputText value="#{mxmlBean.radioButtonSelectedValue}"></h:outputText>
-    NumericStepper Value <h:outputText value="#{mxmlBean.numericStepperValue}"></h:outputText>
-    ColorPicker SelectedColor <h:outputText value="#{mxmlBean.colorPickerSelectedColor}"></h:outputText>
-    List SelectedIndex <h:outputText value="#{mxmlBean.listSelectedIndex}"></h:outputText>
-    Tree SelectedIndex <h:outputText value="#{mxmlBean.treeSelectedIndex}"></h:outputText>
-    HorizontalSlider Value <h:outputText value="#{mxmlBean.horizontalSliderValue}"></h:outputText>
-    VerticalSlider Value <h:outputText value="#{mxmlBean.verticalSliderValue}"></h:outputText>
+	<table id="tableViewer" border="3;">
+		<thead>
+			<tr>
+				<td colspan="2" style="color:#6495ED;font-family:Comic Sans MS;font-size:18px;font-weight:700;text-align:center;">
+					Mapping of the fields
+				</td>
+			</tr>
+		</thead>
+		<tr>
+			<td class="fieldDescription">
+				Tab Navigator Selected Index :
+			</td>
+			<td class="fieldValue">
+				<h:outputText value="#{mxmlBean.tabNavigatorSelectedIndex}"></h:outputText>
+			</td>
+		</tr>
+		<tr>
+			<td class="fieldDescription">
+			    TextInput Text :
+			</td>
+			<td class="fieldValue">
+				<h:outputText value="#{mxmlBean.textInputText}"></h:outputText>
+			</td>
+		</tr>
+		<tr>
+			<td class="fieldDescription">
+				RichTextEditorHtmlText :
+			</td>
+			<td class="fieldValue">
+				<h:outputText value="#{mxmlBean.richTextEditorHtmlText}"></h:outputText>
+			</td>
+		</tr>
+		<tr>
+			<td class="fieldDescription">
+				TextArea Text :
+			</td>
+			<td class="fieldValue">
+				<h:outputText value="#{mxmlBean.textAreaText}"></h:outputText>
+			</td>
+		</tr>
+		<tr>
+			<td class="fieldDescription">
+				DateField Text :
+			</td>
+			<td class="fieldValue">
+				<h:outputText value="#{mxmlBean.dateFieldText}"></h:outputText>
+			</td>
+		</tr>
+		<tr>
+			<td class="fieldDescription">
+				CheckBox Selected :
+			</td>
+			<td class="fieldValue">
+				<h:outputText value="#{mxmlBean.checkBoxSelected}"></h:outputText>
+			</td>
+		</tr>
+		<tr>
+			<td class="fieldDescription">
+	    		ComboBox Text :
+	    	</td>
+	    	<td class="fieldValue">
+	    		<h:outputText value="#{mxmlBean.comboBoxText}"></h:outputText>
+	    	</td>
+	    </tr>
+	    <tr>
+	    	<td class="fieldDescription">
+	    		RadioButtonSelected Value :
+	    	</td>
+	    	<td class="fieldValue">
+	    		<h:outputText value="#{mxmlBean.radioButtonSelectedValue}"></h:outputText>
+	    	</td>
+	    </tr>
+	    <tr>
+	    	<td class="fieldDescription">
+    			NumericStepper Value :
+    		</td>
+    		<td class="fieldValue">
+    			<h:outputText value="#{mxmlBean.numericStepperValue}"></h:outputText>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td class="fieldDescription">
+    			ColorPicker SelectedColor :
+    		</td>
+    		<td class="fieldValue">
+    			<h:outputText value="#{mxmlBean.colorPickerSelectedColor}"></h:outputText>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td class="fieldDescription">
+    			List SelectedIndex :
+    		</td>
+    		<td class="fieldValue">
+    			<h:outputText value="#{mxmlBean.listSelectedIndex}"></h:outputText>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td class="fieldDescription">
+		    	Tree SelectedIndex :
+		    </td>
+		    <td class="fieldValue">
+		    	<h:outputText value="#{mxmlBean.treeSelectedIndex}"></h:outputText>
+		    </td>
+		</tr>
+		<tr>
+			<td class="fieldDescription">
+    			HorizontalSlider Value :
+    		</td>
+    		<td class="fieldValue">
+    			<h:outputText value="#{mxmlBean.horizontalSliderValue}"></h:outputText>
+    		</td>
+    	</tr>
+    	<tr>
+    		<td class="fieldDescription">
+    			VerticalSlider Value :
+    		</td>
+    		<td class="fieldValue">
+    			<h:outputText value="#{mxmlBean.verticalSliderValue}"></h:outputText>
+    		</td>
+    	</tr>
+    </table>
 	
 </f:view>
 
