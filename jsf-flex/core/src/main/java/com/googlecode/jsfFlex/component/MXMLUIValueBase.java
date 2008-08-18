@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.component;
 import java.util.Map;
 
 import javax.faces.context.FacesContext;
+import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -50,5 +51,20 @@ public abstract class MXMLUIValueBase
     	}
     	
     }
+	
+	public void processUpdates(FacesContext context) {
+		super.processUpdates(context);
+		
+		if (!isRendered() || !isValid()){
+    		return;
+    	}
+    	
+    	ValueBinding vb = getValueBinding("value");
+		if(vb != null && !vb.isReadOnly(getFacesContext())){
+			vb.setValue(getFacesContext(), getValue());
+			setValue(null);
+		}
+		
+	}
 	
 }
