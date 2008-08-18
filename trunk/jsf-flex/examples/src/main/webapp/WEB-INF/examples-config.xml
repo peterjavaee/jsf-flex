@@ -29,7 +29,7 @@
     <from-view-id>/mxmlExample.jsf</from-view-id>
     <navigation-case>
       <from-outcome>success</from-outcome>
-      <to-view-id>/mxmlExample.jsf</to-view-id>
+      <to-view-id>/mxmlExampleSuccess.jsf</to-view-id>
     </navigation-case>
   </navigation-rule>
   <!-- navigational rules for mxmlcomponent end -->
