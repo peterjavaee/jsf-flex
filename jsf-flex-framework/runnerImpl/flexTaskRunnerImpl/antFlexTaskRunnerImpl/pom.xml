@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project.runner-impl-flex-task-runner</groupId>
     <artifactId>jsf-flex-framework-runner-impl-flex-task-runner-project</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.0.5-SNAPSHOT</version>
   </parent>
   
   <modelVersion>4.0.0</modelVersion>

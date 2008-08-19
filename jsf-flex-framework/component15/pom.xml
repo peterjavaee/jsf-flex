@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.googlecode.jsf-flex</groupId>
     <artifactId>jsf-flex-framework-project</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.0.5-SNAPSHOT</version>
   </parent>
   
   <modelVersion>4.0.0</modelVersion>
@@ -143,7 +143,7 @@
   </build>
   
   <properties>
-    <jsf_flex_framework_core>1.0.0-SNAPSHOT</jsf_flex_framework_core>
+    <jsf_flex_framework_core>0.0.5-SNAPSHOT</jsf_flex_framework_core>
   </properties>
   
 </project>

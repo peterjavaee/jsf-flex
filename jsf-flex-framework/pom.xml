@@ -5,7 +5,7 @@
   <packaging>pom</packaging>
   <name>JSF-FlexFramework Project</name>
   <url>http://code.google.com/p/jsf-flex/</url>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>0.0.5-SNAPSHOT</version>
   <description>
     JSF-FlexFramework will contain the necessary Java + resource files for creation of preMxml, Mxml, and SWF artifacts
   </description>
@@ -129,25 +129,25 @@
       </modules>
     </profile>
     <profile>
-      <id>jsf_flex-1.0</id>
+      <id>jsf_flex-SNAPSHOT</id>
       <activation>
         <property>
           <name>!jsf_flex</name>
         </property>
       </activation>
       <properties>
-        <jsf.flex.version>1.0.0-SNAPSHOT</jsf.flex.version>
+        <jsf.flex.version>0.0.5-SNAPSHOT</jsf.flex.version>
       </properties>
     </profile>
     <profile>
-      <id>jsf_flex_shared-1.0</id>
+      <id>jsf_flex_shared-SNAPSHOT</id>
       <activation>
         <property>
           <name>!jsf_flex_shared</name>
         </property>
       </activation>
       <properties>
-        <jsf.flex.shared.version>1.0.0-SNAPSHOT</jsf.flex.shared.version>
+        <jsf.flex.shared.version>0.0.5-SNAPSHOT</jsf.flex.shared.version>
       </properties>
     </profile>
   </profiles>
