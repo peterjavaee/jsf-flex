@@ -3,13 +3,13 @@
   <parent>
     <groupId>com.googlecode.jsf-flex</groupId>
     <artifactId>jsf-flex-framework-project</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>0.0.5-SNAPSHOT</version>
   </parent>
   
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
   <artifactId>jsf-flex-framework-core</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>0.0.5-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>JSF-FlexFramework Core</name>
   

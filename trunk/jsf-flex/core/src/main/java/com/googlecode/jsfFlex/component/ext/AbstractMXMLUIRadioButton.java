@@ -422,9 +422,9 @@ public abstract class AbstractMXMLUIRadioButton
     	}
     	
     	if(getValue() == null){
-    		setSelected(false);
+    		setSelected(new Boolean(false));
     	}else if(getSelectedValue() != null){
-    		setSelected(getSelectedValue().equals(getValue()));
+    		setSelected(new Boolean(getSelectedValue().equals(getValue())));
     	}
     	
     }
