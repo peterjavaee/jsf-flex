@@ -33,6 +33,7 @@ public abstract class MXMLUIValueBase
 	private static final String VALUE_ID_APPENDED = "_value";
 	
 	public Map getComponentValues() {
+		super.getComponentValues();
 		_componentValues.put("value", getValue() == null ? null : (String) getValue());
 		return super.getComponentValues();
 	}

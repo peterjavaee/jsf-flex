@@ -34,6 +34,7 @@ public abstract class MXMLUIButtonBase
 	private static final String SELECTED_ATTR = "selected";
 	
 	public Map getComponentValues(){
+		super.getComponentValues();
 		_componentValues.put(SELECTED_ATTR, getSelected());
 		return _componentValues;
     }

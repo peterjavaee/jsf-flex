@@ -86,6 +86,23 @@
 					</attribute>
 				</attribute_list>
 			</node>
+			<node>
+				<html_type>INPUT</html_type>
+				<attribute_list>
+					<attribute>
+						<name>TYPE</name>
+						<value>HIDDEN</value>
+					</attribute>
+					<attribute>
+						<name>VALUE</name>
+						<value dynamic="true">selectedIndex</value>
+					</attribute>
+					<attribute>
+						<name>NAME</name>
+						<value dynamic="true" append="_selectedIndex">id</value>
+					</attribute>
+				</attribute_list>
+			</node>
 		</node_list>
 	</class_info>
 	<class_info>

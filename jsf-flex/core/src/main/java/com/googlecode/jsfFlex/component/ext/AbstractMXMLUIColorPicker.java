@@ -377,6 +377,7 @@ public abstract class AbstractMXMLUIColorPicker
 	}
 	
 	public Map getComponentValues() {
+		super.getComponentValues();
 		_componentValues.put("selectedColor", getSelectedColor());
 		return super.getComponentValues();
 	}
