@@ -34,6 +34,7 @@ public abstract class MXMLUISelectedIndexBase
 	private static final String SELECTED_INDEX_ATTR = "selectedIndex";
 	
 	public Map getComponentValues(){
+		super.getComponentValues();
 		_componentValues.put(SELECTED_INDEX_ATTR, getSelectedIndex());
 		return _componentValues;
     }

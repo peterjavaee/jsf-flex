@@ -35,6 +35,7 @@ public abstract class MXMLUITextInputBase
 	private static final String HTML_TEXT_ID_APPENDED = "_htmlText";
 	
 	public Map getComponentValues() {
+		super.getComponentValues();
     	if(getTextBinding().equals(MXML.HTML_TEXT_ATTR)){
     		_componentValues.put(MXML.HTML_TEXT_ATTR, getHtmlText());
     	}else if(getTextBinding().equals(MXML.TEXT_ATTR)){

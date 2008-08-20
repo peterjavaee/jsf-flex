@@ -18,7 +18,7 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import com.googlecode.jsfFlex.component.MXMLUIInputBase;
+import com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIControlSkinAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
@@ -369,7 +369,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIComboBaseAttr
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIComboBox 
-						extends MXMLUIInputBase 
+						extends MXMLUISelectedIndexBase
 						implements _MXMLUIComboBaseAttributes, _MXMLUIBaseAttributes, _MXMLUITextAttribute, 
 						_MXMLUIControlSkinAttributes, _MXMLUIDataProviderAttribute, _MXMLUIEditableAttribute, 
 						_MXMLUIImeModeAttribute, _MXMLUIImmediateAttribute, _MXMLUIRestrictAttribute,
