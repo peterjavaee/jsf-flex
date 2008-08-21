@@ -35,7 +35,10 @@ public class MXMLBean implements Serializable {
 	private String _textAreaText;
 	private String _dateFieldText;
 	private Boolean _checkBoxSelected;
+	private Integer _comboBoxSelectedIndex;
 	private String _comboBoxText;
+	private Boolean _radioButtonFirstSelected;
+	private Boolean _radioButtonSecondSelected;
 	private String _radioButtonSelectedValue;
 	private String _numericStepperValue;
 	private String _colorPickerSelectedColor;
@@ -54,7 +57,10 @@ public class MXMLBean implements Serializable {
 		_textAreaText = new String();
 		_dateFieldText = new String();
 		_checkBoxSelected = new Boolean(false);
+		_comboBoxSelectedIndex = new Integer(0);
 		_comboBoxText = new String();
+		_radioButtonFirstSelected = new Boolean(false);
+		_radioButtonSecondSelected = new Boolean(false);
 		_radioButtonSelectedValue = new String();
 		_numericStepperValue = new String();
 		_listSelectedIndex = new Integer(0);
@@ -80,6 +86,12 @@ public class MXMLBean implements Serializable {
 	}
 	public void setColorPickerSelectedColor(String colorPickerSelectedColor) {
 		_colorPickerSelectedColor = colorPickerSelectedColor;
+	}
+	public Integer getComboBoxSelectedIndex() {
+		return _comboBoxSelectedIndex;
+	}
+	public void setComboBoxSelectedIndex(Integer comboBoxSelectedIndex) {
+		_comboBoxSelectedIndex = comboBoxSelectedIndex;
 	}
 	public String getComboBoxText() {
 		return _comboBoxText;
@@ -116,6 +128,18 @@ public class MXMLBean implements Serializable {
 	}
 	public void setNumericStepperValue(String numericStepperValue) {
 		_numericStepperValue = numericStepperValue;
+	}
+	public Boolean getRadioButtonFirstSelected() {
+		return _radioButtonFirstSelected;
+	}
+	public void setRadioButtonFirstSelected(Boolean radioButtonFirstSelected) {
+		_radioButtonFirstSelected = radioButtonFirstSelected;
+	}
+	public Boolean getRadioButtonSecondSelected() {
+		return _radioButtonSecondSelected;
+	}
+	public void setRadioButtonSecondSelected(Boolean radioButtonSecondSelected) {
+		_radioButtonSecondSelected = radioButtonSecondSelected;
 	}
 	public String getRadioButtonSelectedValue() {
 		return _radioButtonSelectedValue;
