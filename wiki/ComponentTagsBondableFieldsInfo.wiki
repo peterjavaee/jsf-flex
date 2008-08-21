@@ -1,0 +1,64 @@
+= Introduction =
+
+This page will contain brief overview regarding bondable fields of JSF Flex components Tags.
+
+= Details =
+
+ * mxmlAccordion
+    # selectedIndex _Integer_ : contains info regarding which container has been selected.
+
+ * mxmlTabNavigator
+    # selectedIndex _Integer_ : contains info regarding which container has been selected.
+
+ * mxmlTextInput
+    # text _String_ : contains the text inputed by the user.
+    # htmlText _String_ : contains the htmlText {in rich text format specified through xml tags} inputed by the user.
+
+ * mxmlRichTextEditor
+    # text _String_ : contains the text inputed by the user.
+    # htmlText _String_ : contains the htmlText {in rich text format specified through xml tags} inputed by the user.
+
+ * mxmlTextArea
+    # text _String_ : contains the text inputed by the user.
+    # htmlText _String_ : contains the htmlText {in rich text format specified through xml tags} inputed by the user.
+
+ * mxmlDateField
+    # text _String_ : contains the date selected by the user.
+
+ * mxmlCheckBox
+    # selected _Boolean_ : contains the boolean of whether user has selected the checkbox or not.
+
+ * mxmlComboBox
+    # text _String_ : contains the comboxBox's text that the user has selected
+    # selectedIndex _Integer_ : contains the comboxBox that the user has selected {in order to preserve the correct selection, this field must be mapped within the managed beans}.
+
+ * mxmlRadioButton
+    # selectedValue _String_ : contains the value selected within the same groupName radioButtons.
+    # selected _Boolean_ : contains the boolean flag of whether the current radioButton has been selected or not {in order to preserve the correct selection, this field must be mapped within the managed beans}.
+
+ * mxmlNumericStepper
+    # value _String_ : contains the value of the numericStepper
+
+ * mxmlColorPicker
+    # selectedColor _String_ : contains the color chosen for the colorPicker
+
+ * mxmlHorizontalList
+     # selectedIndex _Integer_ : contains the list element that the user has selected.
+
+ * mxmlTileList
+     # selectedIndex _Integer_ : contains the list element that the user has selected.	
+
+ * mxmlList
+    # selectedIndex _Integer_ : contains the list element that the user has selected.
+
+ * mxmlViewStack
+    # selectedIndex _Integer_ : contains the top Tree element that the user has selected.
+
+ * mxmlTree
+    # selectedIndex _Integer_ : contains the top Tree element that the user has selected.
+
+ * mxmlHSlider
+    # value _String_ : contains the slider's value.
+
+ * mxmlVSlier
+    # value _String_ : contains the slider's value.
