@@ -28,7 +28,7 @@ JSF Flex project contains concrete JSF component for each Flex component. Main r
 
 Each of the JSF Component that needs to preserve the value will have the following syntax of values checked during the decode process as they are how the fields are created during the post phase of the HTML 
 
-<id>*underline* <nameOfField> {i.e. for List <id>*underline* selectedIndex}. For certain components there will be a set of ids sent to the decode phase so to preserve several fields for the component {i.e. {{{RadioButton}}} component has two values checked during the JSF decode lifecycle { <id>*underline* selectedValue and <id>*underline* selected }.
+{{{<id>_<nameOfField> {i.e. for List <id>_selectedIndex}. For certain components there will be a set of ids sent to the decode phase so to preserve several fields for the component {i.e. RadioButton component has two values checked during the JSF decode lifecycle { <id>_selectedValue and <id>_selected }.}}}
 
 JSF Flex project utilizes the myfaces build plugIn which automatically creates :
  * the concrete class for each abstract class of JSF component
