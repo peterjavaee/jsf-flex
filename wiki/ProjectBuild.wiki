@@ -1,6 +1,6 @@
 = Introduction =
 
-This page will contain a brief overview of building the JSF-Flex code and importing the projects into an Eclipse IDE.
+This page will contain a brief overview of building the JSF Flex code and importing the projects into an Eclipse IDE.
 
 = Details =
 
