@@ -136,7 +136,7 @@
 		    					lowerThanMinError="The number provided is lower than min value [10]." maxValue="60" minValue="10" 
 		    					required="true" source="{textInput}" />
 				    	
-	    <jf:mxmlAccordion width="100%" height="100%">
+	    <jf:mxmlAccordion width="100%" height="100%" selectedIndex="#{mxmlBean.accordionSelectedIndex}">
 		    
 			<jf:mxmlTabNavigator width="100%" height="100%" selectedIndex="#{mxmlBean.tabNavigatorSelectedIndex}">
 					
