@@ -29,6 +29,7 @@ public class MXMLBean implements Serializable {
 	
 	private static final long serialVersionUID = -6445125288869734960L;
 	
+	private Integer _accordionSelectedIndex;
 	private Integer _tabNavigatorSelectedIndex;
 	private String _textInputText;
 	private String _richTextEditorHtmlText;
@@ -51,6 +52,7 @@ public class MXMLBean implements Serializable {
 		
 	public MXMLBean(){
 		super();
+		_accordionSelectedIndex = new Integer(0);
 		_tabNavigatorSelectedIndex = new Integer(0);
 		_textInputText = new String();
 		_richTextEditorHtmlText = new String();
@@ -74,7 +76,13 @@ public class MXMLBean implements Serializable {
 		_menuList.add("Fourth Menu");
 		
 	}
-
+	
+	public Integer getAccordionSelectedIndex() {
+		return _accordionSelectedIndex;
+	}
+	public void setAccordionSelectedIndex(Integer accordionSelectedIndex) {
+		_accordionSelectedIndex = accordionSelectedIndex;
+	}
 	public Boolean getCheckBoxSelected() {
 		return _checkBoxSelected;
 	}
