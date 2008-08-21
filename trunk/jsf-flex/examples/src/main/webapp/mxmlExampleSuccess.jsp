@@ -68,6 +68,14 @@
 						</tr>
 					</thead>
 					<tr>
+			    		<td class="fieldDescription">
+			    			Accordion Selected Index :
+			    		</td>
+			    		<td class="fieldValue">
+			    			<h:outputText value="#{mxmlBean.accordionSelectedIndex}"></h:outputText>
+			    		</td>
+			    	</tr>
+					<tr>
 						<td class="fieldDescription">
 							Tab Navigator Selected Index :
 						</td>
@@ -124,11 +132,35 @@
 				    	</td>
 				    </tr>
 				    <tr>
+						<td class="fieldDescription">
+				    		ComboBox Selected Index :
+				    	</td>
+				    	<td class="fieldValue">
+				    		<h:outputText value="#{mxmlBean.comboBoxSelectedIndex}"></h:outputText>
+				    	</td>
+				    </tr>
+				    <tr>
 				    	<td class="fieldDescription">
 				    		RadioButtonSelected Value :
 				    	</td>
 				    	<td class="fieldValue">
 				    		<h:outputText value="#{mxmlBean.radioButtonSelectedValue}"></h:outputText>
+				    	</td>
+				    </tr>
+				    <tr>
+				    	<td class="fieldDescription">
+				    		RadioButton First Selected :
+				    	</td>
+				    	<td class="fieldValue">
+				    		<h:outputText value="#{mxmlBean.radioButtonFirstSelected}"></h:outputText>
+				    	</td>
+				    </tr>
+				    <tr>
+				    	<td class="fieldDescription">
+				    		RadioButton Second Selected :
+				    	</td>
+				    	<td class="fieldValue">
+				    		<h:outputText value="#{mxmlBean.radioButtonSecondSelected}"></h:outputText>
 				    	</td>
 				    </tr>
 				    <tr>
