@@ -1,6 +1,6 @@
 = Introduction =
 
-This page will contain brief info regarding the maven projects of JSF-Flex.
+This page will contain brief info regarding the maven projects of JSF Flex.
 
 
 = Details =
@@ -39,9 +39,9 @@ Contains projects that extends the {{{_FileManipulatorTaskRunner}}} abstract cla
 Contains projects that implement the {{{_FlexTaskRunner}}} interface used by jsf-flex-framework/core {i.e. antFlexTaskRunnerImpl project}
 
 
-==jsf-flex-framework/component14 JRE < 5==
+==jsf-flex-framework/component14 JRE < 1.5==
 For component14, during the build time documentation for java files will be inspected by the JSF Flex plug-in and will generate replaceMapping XML files that will be parsed to check which fields to inspect and how to fetch these fields from the JSF component {by attribute map or by method invocation]. Contains an implementation of {{{_AnnotationDocletParser}}} interface used by jsf-flex-framework/core for fetching the fields from the JSF component, {{{AnnotationDocletParser14Impl}}} }
 
 
-==jsf-flex-framework/component15 JRE >= 5==
-Since these components are suppose to be used for JRE >= 5, the attributes will be fetched during runtime through Java annotation and will not require JSF Flex plug-in during build time. Contains an implementation of {{{_AnnotationDocletParser}}} interface used by jsf-flex-framework/core for fetching the fields from the JSF component, {{{AnnotationDocletParser15Impl}}}.
+==jsf-flex-framework/component15 JRE > 1.4==
+Since these components are suppose to be used for JRE >= 1.5, the attributes will be fetched during runtime through Java annotation and will not require JSF Flex plug-in during build time. Contains an implementation of {{{_AnnotationDocletParser}}} interface used by jsf-flex-framework/core for fetching the fields from the JSF component, {{{AnnotationDocletParser15Impl}}}.
