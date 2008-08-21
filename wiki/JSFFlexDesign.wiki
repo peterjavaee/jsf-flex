@@ -10,6 +10,7 @@ Navigational page for JSF Flex design
  * [JSFFlexFrameworkLifeCycle] page contains info regarding the lifecycle of JSF Flex project.
  * [JSFFlexMavenProjects] page contains info regarding the maven projects of JSF Flex project.
  * [JSFFlexBuildSystemInfo] page contains info regarding the project's build system.
+ * [ComponentTagsBondableFieldsInfo] page contains info regarding the bondable fields of JSF Flex project's component tags.
 
 The project itself has been componentized tremendously in order to provide :
  * flexibility in choosing the implementation preferred {i.e. if the institution using this component library only allows ANT implementation, one should choose {{{antFlexTaskRunnerImpl}}} as the project for implementing {{{_FlexTaskRunner}}} interface}
