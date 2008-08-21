@@ -1,14 +1,14 @@
 = Introduction =
 
-Navigational pages for JSF-Flex design
+Navigational page for JSF Flex design
 
 = Details =
 
-==Navigational pages==
- * [JSFFlexComponentInfo] page contains info regarding JSF-Flex components for JSF-Flex project.
- * [JSFFlexFrameworkComponentInfo] page contains info regarding JSF-Flex Framework's components for JSF-Flex project.
- * [JSFFlexFrameworkLifeCycle] page contains info regarding the lifecycle of JSF-Flex project.
- * [JSFFlexMavenProjects] page contains info regarding the maven projects of JSF-Flex project.
+==Page Listings==
+ * [JSFFlexComponentInfo] page contains info regarding JSF Flex components for JSF Flex project.
+ * [JSFFlexFrameworkComponentInfo] page contains info regarding JSF Flex Framework's components for JSF Flex project.
+ * [JSFFlexFrameworkLifeCycle] page contains info regarding the lifecycle of JSF Flex project.
+ * [JSFFlexMavenProjects] page contains info regarding the maven projects of JSF Flex project.
  * [JSFFlexBuildSystemInfo] page contains info regarding the project's build system.
 
 The project itself has been componentized tremendously in order to provide :
