@@ -125,7 +125,7 @@ public class ReplaceTextTask extends Ant_BaseTask implements _Task {
 			
 			java.util.Iterator iterate = _replaceList.keySet().iterator();
 			String tokenVal;
-			String targetToExecute = new String();
+			String targetToExecute = "";
 			
 			if(isMultiLineReplace()){
 				

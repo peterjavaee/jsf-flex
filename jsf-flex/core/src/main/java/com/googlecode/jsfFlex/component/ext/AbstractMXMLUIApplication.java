@@ -258,7 +258,7 @@ public abstract class AbstractMXMLUIApplication
 	public void encodeBegin(FacesContext context) throws IOException {
 		
 		ServletContext servContext = (ServletContext) context.getExternalContext().getContext();
-		setApplicationPath( servContext.getRealPath(new String()) );
+		setApplicationPath( servContext.getRealPath("") );
 		
 		if(getAttributes().get(MX_XMLNS_KEY) == null){
 			getAttributes().put(MX_ACTUAL_KEY, MX_DEFAULT_XMLNS);

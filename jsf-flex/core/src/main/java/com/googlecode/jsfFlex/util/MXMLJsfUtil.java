@@ -42,6 +42,10 @@ public class MXMLJsfUtil {
 	
 	private final static String ENCODING = "UTF-8";
 	
+	private MXMLJsfUtil(){
+		super();
+	}
+	
 	public static void setComponentProperties(UIComponent component, FacesContext context){
     	//set the major level, minor level, and absolutePathToPreMxmlFile
     	UIComponent parent = component.getParent();

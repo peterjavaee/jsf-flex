@@ -180,7 +180,7 @@ public class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRu
 	public void writeBodyContentTask(_MXMLContract componentMXML){
 		
 		Object stringBodyContent = componentMXML.getAttributes().get(MXMLConstants.TAG_BODY_CONTENT_ATTR);
-		String stringBodyContentToReplace = stringBodyContent == null ? new String() : (String) stringBodyContent;
+		String stringBodyContentToReplace = stringBodyContent == null ? "" : (String) stringBodyContent;
 		ReplaceTextTask writeBodyContent = new ReplaceTextTask(componentMXML.getAbsolutePathToPreMxmlFile());
 		writeBodyContent.addTokenValue(MXMLConstants.TAG_BODY_CONTENT_TOKEN, stringBodyContentToReplace);
 		writeBodyContent.setMultiLineReplace(true);
