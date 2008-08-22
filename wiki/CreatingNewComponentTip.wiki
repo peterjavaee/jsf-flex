@@ -87,7 +87,7 @@ This page will provide a quick overview in the steps needed in creating addition
  # Add the properties of the component and identify whether to fetch the information from the attributes Map or by method invocation. This has direct relationship with how the properties have been added within JSF Flex Components. For example if the properties have been 
    * noted as javaDoc within the abstract class, it means it should be fetched from the attribute Map.
    * noted as interfaces for the abstract class, it means it should be fetched by method invocation.
-  How these fields should be set differ for component14 and component15 project. For
+  How these fields should be set differ for component14 and component15 projects. For
    * component14 project, they should be set as javaDocs as shown below for {{{MXMLAccordion}}}
      {{{
       * @JsfFlexAttributes
@@ -109,6 +109,16 @@ This page will provide a quick overview in the steps needed in creating addition
  # If one needs the component created without other specific needs, all one needs to do is add {{{mapFields}}} and {{{addCreatePreMxmlTask}}} method calls within {{{buildComponentBegin}}} and {{{buildComponentInterlude}}} methods respectively. Depending on which component1<4 | 5> project, the parameters will differ. For
    * component14, here is an example of {{{MXMLAccordion}}}
      {{{
+       private static final String MXML_ACCORDION_REPLACE_MAPPING;
+       private static final String MXML_COMPONENT_NAME = "Accordion";
+       
+       static{
+           //TODO : find a better method to implement the below tasks
+	   String packageName = MXMLAccordion.class.getPackage().getName();
+	   packageName = packageName.replace('.', '/');
+	   MXML_ACCORDION_REPLACE_MAPPING = packageName + "/replaceMapping/MXMLAccordionReplaceMapping.xml";
+       }
+       
        public void buildComponentBegin(Object componentObj) throws ComponentBuildException{
 		super.buildComponentBegin(componentObj);
 		
@@ -142,8 +152,8 @@ This page will provide a quick overview in the steps needed in creating addition
 		
 	}
      }}}
- # Add the component entry within jsf-flex-framework/core's mxmlRenderKit.xml {{{in future this will be generated through JSF Flex Plug-In}}}, eliminating this step within the process.
- # One final thing to remember if the data needs to be passed back to the server side and mapped to the managed bean is to add an entry within jsf-flex-framework/core's componentValueMapper.xml.
+ # Add the component entry within jsf-flex-framework/core's mxmlRenderKit.xml { {{{in future this will be generated through JSF Flex Plug-In}}} }, eliminating this step within the process.
+ # One final thing to remember, if the data needs to be passed back to the server side and mapped to the managed bean, is to add an entry within jsf-flex-framework/core's componentValueMapper.xml.
 
 
 All these input are simply to assist new users in creating new components within the project and as always the best method in understanding the process is simply to dig through code and get your hands dirty in seeing how the current components are created. The framework itself follows a specific pattern, so the creation of new components is rather easy once you get the hang of it.
