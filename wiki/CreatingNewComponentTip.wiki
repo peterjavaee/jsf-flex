@@ -1,0 +1,55 @@
+= Introduction =
+
+This page will provide a quick overview in the steps needed in creating additional JSF Flex components.
+
+= Details =
+
+==JSF Flex {JSF side}==
+
+===Components===
+ # Create a class with the following naming convention : {{{AbstractMXMLUI<NameOfComponent>}}}
+ # Add the javaDocs needed in 
+     * creating the concrete component and the tagClass.
+     * inserting the component and the tagClass to the faces-config.xml and jsf-flex.tld.
+     * in defining which is the default renderer of the component.
+   Here is an example from AbstractMXMLUIAccordion.java
+   {{{
+     *   @JSFComponent
+     *   name     = "jf:mxmlAccordion"
+     *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIAccordion"
+     *   type     = "com.googlecode.jsfFlex.MXMLUIAccordion"
+     *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIAccordionTag"
+     *   family   = "javax.faces.MXMLInput"
+     *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
+     *   defaultRendererType= "com.googlecode.jsfFlex.MXMLInput"
+   }}}
+ # Add the javaDocs needed in creating the component's and, to be created, tagClass' properties. *Note that the convention is to have all of the properties of the to be created concrete component and any of the concrete components that it extends from to be part of the javaDoc. This will ensure that the properties will be pushed within the attributes Map and decrease the size of the component class with it's getter and setter methods.*
+   Here is an example from AbstractMXMLUIAccordion.java
+   {{{
+     * @JSFJspProperties
+     * 		properties	=		
+     *   				@JSFJspProperty
+     * 					 name		= "headerRenderer"
+     *   				 returnType	= "java.lang.String"
+     *   				 longDesc	= "A factory used to create the navigation buttons for each child."
+     *   				,
+     *   				
+     *   				@JSFJspProperty
+     *   				 name		= "selectedFillColors"
+     *   				 returnType	= "java.lang.String"
+     *   				 longDesc	= "The two colors used to tint the background of the component when inits selected state."
+     *   				, 
+   }}}
+ # Add the implementation of attributes needed for NON-concrete components {i.e. _MXMLUIContainerAttributes} and any separate attributes.
+   Here is an example from AbstractMXMLUIAccordion.java
+   {{{
+     implements _MXMLUIContainerAttributes, _MXMLUIBaseAttributes, _MXMLUITextAttribute, 
+		_MXMLUIBackgroundAlphaAttribute,
+   }}}
+ # Choose the abstract component to extend for the base functionality and add additional functionality needed within methods such as {{{getComponentValues, encode*, and decode}}}. If one desires to create a new abstract component, please note that one must implement {{{_MXMLContract}}} to integrate with the JSF Flex Framework.
+    Here is an example from AbstractMXMLUIAccordion.java
+    {{{
+      public abstract class AbstractMXMLUIAccordion 
+						extends MXMLUISelectedIndexBase
+    }}}
+  
