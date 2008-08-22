@@ -52,4 +52,14 @@ This page will provide a quick overview in the steps needed in creating addition
       public abstract class AbstractMXMLUIAccordion 
 						extends MXMLUISelectedIndexBase
     }}}
-  
+ # Implement the {{{getMXMLComponentRenderer}}} method to define which JSF Flex Framework component maps to the current JSF Flex component.
+    Here is an example from AbstractMXMLUIAccordion.java
+    {{{
+        private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLAccordion";
+	
+	public String getMXMLComponentRenderer() {
+		return MXML_COMPONENT_RENDERER;
+	}
+    }}}
+
+===Renderers===
