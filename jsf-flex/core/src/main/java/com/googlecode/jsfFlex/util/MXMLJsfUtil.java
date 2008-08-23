@@ -89,7 +89,7 @@ public class MXMLJsfUtil {
         	while(iterate.hasNext()){
         		//get the component's position within structure
         		currComp = (UIComponent) iterate.next();
-        		if(currComp.equals(component)){
+        		if(currComp == component){
         			//got the component's position
         			break;
         		}

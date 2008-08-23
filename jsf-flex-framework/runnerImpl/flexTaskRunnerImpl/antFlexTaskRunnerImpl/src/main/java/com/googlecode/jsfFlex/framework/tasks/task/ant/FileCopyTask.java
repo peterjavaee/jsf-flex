@@ -158,56 +158,6 @@ public class FileCopyTask extends Ant_BaseTask implements _Task {
 		return content.toString();
 	}
 	
-	public boolean equals(Object obj) {
-		if(!(obj instanceof FileCopyTask)){
-			return false;
-		}
-		
-		FileCopyTask copyTaskInstance = (FileCopyTask) obj;
-		
-		boolean conditionMet = true;
-		
-		if(this.getCopyFile() != null && copyTaskInstance.getCopyFile() != null){
-			conditionMet = (this.getCopyFile().equals(copyTaskInstance.getCopyFile()));
-		}
-		
-		if(this.getCopyTo() != null && copyTaskInstance.getCopyTo() != null){
-			conditionMet = (this.getCopyTo() == copyTaskInstance.getCopyTo());
-		}
-		
-		if(this.getCopyDir() != null && copyTaskInstance.getCopyDir() != null){
-			conditionMet = (this.getCopyDir().equals(copyTaskInstance.getCopyDir()));
-		}
-		
-		if(this.getCopyFile() != null && copyTaskInstance.getCopyFile() != null){
-			conditionMet = (this.getCopyFile().equals(copyTaskInstance.getCopyFile()));
-		}
-		
-		return conditionMet;
-	}
-	
-	public int hashCode() {
-		
-		StringBuffer toHash = new StringBuffer();
-		if(getCopyFile() != null){
-			toHash.append(getCopyFile());
-		}
-		
-		if(getCopyTo() != null){
-			toHash.append(getCopyTo());
-		}
-		
-		if(getCopyDir() != null){
-			toHash.append(getCopyDir());
-		}
-		
-		if(getCopyFile() != null){
-			toHash.append(getCopyFile());
-		}
-		
-		return (toHash.toString()).hashCode();
-	}
-
 	public String getCopyFile() {
 		return _copyFile;
 	}

@@ -100,20 +100,6 @@ public class DeleteTask extends Ant_BaseTask implements _Task {
 		return content.toString();
 	}
 	
-	public boolean equals(Object obj) {
-		if(!(obj instanceof DeleteTask)){
-			return false;
-		}
-		
-		DeleteTask deleteTaskInstance = (DeleteTask) obj;
-		return (this.getDeleteResource().equals(deleteTaskInstance.getDeleteResource())) && (this.isDirectory() == deleteTaskInstance.isDirectory());
-	}
-	
-	public int hashCode() {
-		
-		return (getDeleteResource()).hashCode();
-	}
-
 	public String getDeleteResource() {
 		return _deleteResource;
 	}

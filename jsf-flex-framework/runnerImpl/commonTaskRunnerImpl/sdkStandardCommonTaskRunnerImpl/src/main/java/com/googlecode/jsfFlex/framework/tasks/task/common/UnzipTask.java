@@ -124,18 +124,4 @@ public class UnzipTask implements _Task {
 		_file = file;
 	}
 	
-	public boolean equals(Object obj) {
-		if(!(obj instanceof UnzipTask)){
-			return false;
-		}
-		
-		UnzipTask unZipInstance = (UnzipTask) obj;
-		return (this.getFile().equals(unZipInstance.getFile()) && this.getDest().equals(unZipInstance.getDest()));
-	}
-	
-	public int hashCode() {
-		
-		return (getFile() + getDest()).hashCode();
-	}
-
 }

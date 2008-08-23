@@ -73,6 +73,9 @@ public class MXMLConstants {
 	public static final String FLEX_SDK_DIRECTORY_NAME = "flexSDK";
 	public static final String SWC_DIRECTORY_NAME = "swc";
 	
+	public static final int HASH_CODE_INIT_VALUE = 3;
+	public static final int HASH_CODE_MULTIPLY_VALUE = 31;
+	
 	public static final boolean WINDOWS_SYSTEM;
 	
 	public static final String CLASS_ID;

@@ -113,20 +113,6 @@ public class EchoTask extends Ant_BaseTask implements _Task {
 		return content.toString();
 	}
 	
-	public boolean equals(Object obj) {
-		if(!(obj instanceof EchoTask)){
-			return false;
-		}
-		
-		EchoTask echoTaskInstance = (EchoTask) obj;
-		return (this.getFile().equals(echoTaskInstance.getFile()) && this.getMessage().equals(echoTaskInstance.getMessage()));
-	}
-	
-	public int hashCode() {
-		
-		return (getFile() + getMessage()).hashCode();
-	}
-	
 	public boolean getAppend(){
 		return _append;
 	}

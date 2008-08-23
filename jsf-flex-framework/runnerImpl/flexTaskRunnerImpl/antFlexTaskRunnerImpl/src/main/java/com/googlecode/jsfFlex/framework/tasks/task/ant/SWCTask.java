@@ -127,6 +127,9 @@ public class SWCTask extends Ant_BaseTask implements _Task {
 		content.append("loadConfig [ ");
 		content.append(_loadConfig);
 		content.append(" ] ");
+		content.append(" flexSDKRootPath [ ");
+		content.append(_flexSDKRootPath);
+		content.append(" ] ");
 		return content.toString();
 	}
 	
@@ -154,20 +157,6 @@ public class SWCTask extends Ant_BaseTask implements _Task {
 	}
 	public void setFlexSDKRootPath(String flexSDKRootPath) {
 		_flexSDKRootPath = flexSDKRootPath;
-	}
-
-	public boolean equals(Object obj) {
-		if(!(obj instanceof SWCTask)){
-			return false;
-		}
-		
-		SWCTask swcTaskInstance = (SWCTask) obj;
-		return (this.getSourcePath().equals(swcTaskInstance.getSourcePath()) && this.getOutPut().equals(swcTaskInstance.getOutPut()));
-	}
-	
-	public int hashCode() {
-		
-		return (getSourcePath() + getOutPut()).hashCode();
 	}
 	
 }

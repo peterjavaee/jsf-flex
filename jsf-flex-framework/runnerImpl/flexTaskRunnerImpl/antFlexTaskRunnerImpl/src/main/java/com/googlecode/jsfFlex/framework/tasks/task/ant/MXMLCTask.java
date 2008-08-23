@@ -297,19 +297,5 @@ public class MXMLCTask extends Ant_BaseTask implements _Task {
 	public void setFlexSDKRootPath(String flexSDKRootPath) {
 		_flexSDKRootPath = flexSDKRootPath;
 	}
-
-	public boolean equals(Object obj) {
-		if(!(obj instanceof MXMLCTask)){
-			return false;
-		}
-		
-		MXMLCTask mxmlcTaskInstance = (MXMLCTask) obj;
-		return (this.getFile().equals(mxmlcTaskInstance.getFile()));
-	}
-	
-	public int hashCode() {
-		
-		return getFile().hashCode();
-	}
 	
 }

@@ -69,18 +69,4 @@ public class TaskRunnerImpl implements _TaskRunner {
 		clearAllTask();
 	}
 	
-	public boolean equals(Object obj) {
-		if(!(obj instanceof TaskRunnerImpl)){
-			return false;
-		}
-		
-		TaskRunnerImpl taskRunnerInst = (TaskRunnerImpl) obj;
-		return (_tasks.size() == taskRunnerInst._tasks.size());
-	}
-	
-	public int hashCode() {
-		
-		return _tasks.size();
-	}
-
 }
