@@ -62,6 +62,9 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 	private static final String RENDERER_NAME_KEY = "rendererName";
 	private static final String RENDERER_CLASS_KEY = "rendererClass";
 	
+	private static final int HASH_CODE_INIT_VALUE = 3;
+	private static final int HASH_CODE_MULTIPLY_VALUE = 31;
+	
 	static{
 		_parameterList.add(COMPONENT_FAMILY_KEY);
 		_parameterList.add(RENDERER_NAME_KEY);
@@ -139,7 +142,7 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 		
 		@Override
 		public int hashCode() {
-			return this.getComponentFamily().hashCode();
+			return getComponentFamily().hashCode();
 		}
 		
 	}
@@ -180,7 +183,10 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 		
 		@Override
 		public int hashCode() {
-			return (getRendererClass() + getRendererName()).hashCode();
+			int hashCodeVal = HASH_CODE_INIT_VALUE;
+			hashCodeVal = HASH_CODE_MULTIPLY_VALUE * hashCodeVal + getRendererClass().hashCode();
+			hashCodeVal = HASH_CODE_MULTIPLY_VALUE * hashCodeVal + getRendererName().hashCode();
+			return hashCodeVal;
 		}
 		
 	}

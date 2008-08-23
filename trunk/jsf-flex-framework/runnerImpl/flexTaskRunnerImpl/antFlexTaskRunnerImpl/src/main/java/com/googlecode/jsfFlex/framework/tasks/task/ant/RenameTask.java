@@ -103,20 +103,6 @@ public class RenameTask extends Ant_BaseTask implements _Task {
 		return content.toString();
 	}
 	
-	public boolean equals(Object obj) {
-		if(!(obj instanceof RenameTask)){
-			return false;
-		}
-		
-		RenameTask renameTaskInstance = (RenameTask) obj;
-		return (this.getDestFile().equals(renameTaskInstance.getDestFile())) && (this.getSourceFile() == renameTaskInstance.getSourceFile());
-	}
-	
-	public int hashCode() {
-		
-		return (getDestFile() + getSourceFile()).hashCode();
-	}
-
 	public String getDestFile() {
 		return _destFile;
 	}

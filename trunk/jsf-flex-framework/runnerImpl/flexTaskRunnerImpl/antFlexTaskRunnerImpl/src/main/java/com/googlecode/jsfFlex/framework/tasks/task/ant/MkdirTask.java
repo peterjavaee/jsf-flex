@@ -89,20 +89,6 @@ public class MkdirTask extends Ant_BaseTask implements _Task {
 		return content.toString();
 	}
 	
-	public boolean equals(Object obj) {
-		if(!(obj instanceof MkdirTask)){
-			return false;
-		}
-		
-		MkdirTask mkdirTaskInstance = (MkdirTask) obj;
-		return this.getFile().equals(mkdirTaskInstance.getFile());
-	}
-	
-	public int hashCode() {
-		
-		return getFile().hashCode();
-	}
-	
 	public String getFile() {
 		return _file;
 	}

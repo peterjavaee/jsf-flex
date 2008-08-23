@@ -152,20 +152,6 @@ public class MXMLRendererKit {
 			_mxmlRenderer = new HashMap();
 		}
 		
-		public boolean equals(Object obj) {
-			if(!(obj instanceof MXMLComponent)){
-				return false;
-			}
-			
-			MXMLComponent mxml_obj = (MXMLComponent) obj;
-			return (this.getMxmlRenderer().size() == mxml_obj.getMxmlRenderer().size());
-		}
-		
-		public int hashCode() {
-			
-			return getMxmlRenderer().size();
-		}
-		
 		private Map getMxmlRenderer() {
 			return _mxmlRenderer;
 		}

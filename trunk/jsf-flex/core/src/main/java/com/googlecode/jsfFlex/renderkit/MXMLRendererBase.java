@@ -28,7 +28,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.render.Renderer;
 
-import com.googlecode.jsfFlex.framework.MXMLComponentBuilder;
+import com.googlecode.jsfFlex.framework.MXMLComponent;
 import com.googlecode.jsfFlex.framework.context.MxmlContext;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
@@ -37,7 +37,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 public class MXMLRendererBase extends Renderer{
 	
-	protected MXMLComponentBuilder _mxmlCompBuilder;
+	private MXMLComponent _mxmlComponent;
 	
 	private static Comparator _majorKeyComparator = new Comparator(){
 														public int compare(Object obj1, Object obj2){
@@ -83,11 +83,10 @@ public class MXMLRendererBase extends Renderer{
 			
 		}
 		
-		_mxmlCompBuilder = new MXMLComponentBuilder(component, mxmlUIComp.getFamily(), mxmlUIComp.getMXMLComponentRenderer());
+		_mxmlComponent = new MXMLComponent.Builder(component, mxmlUIComp.getFamily(), mxmlUIComp.getMXMLComponentRenderer()).build();
 		
-		_mxmlCompBuilder.loadClass();
-		_mxmlCompBuilder.buildComponentBegin();
-		_mxmlCompBuilder.buildComponentInterlude();
+		_mxmlComponent.buildComponentBegin();
+		_mxmlComponent.buildComponentInterlude();
 		
 	}
 	
@@ -99,7 +98,7 @@ public class MXMLRendererBase extends Renderer{
 			return;
 		}
 		
-		_mxmlCompBuilder.buildComponentChildren();
+		_mxmlComponent.buildComponentChildren();
 		
 	}
 	
@@ -119,12 +118,10 @@ public class MXMLRendererBase extends Renderer{
 			}
 			
 			_MXMLContract mxmlUIComp = (_MXMLContract) component;
-			_mxmlCompBuilder = new MXMLComponentBuilder(component, mxmlUIComp.getFamily(), mxmlUIComp.getMXMLComponentRenderer());
-			
-			_mxmlCompBuilder.loadClass();
+			_mxmlComponent = new MXMLComponent.Builder(component, mxmlUIComp.getFamily(), mxmlUIComp.getMXMLComponentRenderer()).build();
 			
 		}
-		_mxmlCompBuilder.buildComponentEnd();
+		_mxmlComponent.buildComponentEnd();
 	}
 	
 }

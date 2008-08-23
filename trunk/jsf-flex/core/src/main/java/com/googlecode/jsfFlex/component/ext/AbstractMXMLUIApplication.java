@@ -247,6 +247,10 @@ public abstract class AbstractMXMLUIApplication
 	private String _runtimeSharedLibraries;
 	private boolean _accessible;
 	
+	private Boolean _debugMode;
+	private Boolean _simplySwfMode;
+	private Boolean _productionMode;
+	
 	public String getMXMLComponentRenderer() {
 		return MXML_COMPONENT_RENDERER;
 	}
@@ -344,13 +348,22 @@ public abstract class AbstractMXMLUIApplication
 	}
 	
 	public boolean isDebugMode() {
-    	return getMode().equals("debugMode");
+		if(_debugMode == null){
+			_debugMode = getMode().equals("debugMode") ? Boolean.TRUE : Boolean.FALSE;
+		}
+    	return _debugMode.booleanValue();
     }
     public boolean isProductionMode() {
-        return getMode().equals("productionMode");
+    	if(_productionMode == null){
+    		_productionMode = getMode().equals("productionMode") ? Boolean.TRUE : Boolean.FALSE;
+    	}
+        return _productionMode.booleanValue();
     }
     public boolean isSimplySWFMode() {
-        return getMode().equals("simplySwfMode");
+    	if(_simplySwfMode == null){
+    		_simplySwfMode = getMode().equals("simplySwfMode") ? Boolean.TRUE : Boolean.FALSE;
+    	}
+        return _simplySwfMode.booleanValue();
     }
     public String getApplicationPath() {
 		return _applicationPath;

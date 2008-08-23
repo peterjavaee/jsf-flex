@@ -272,19 +272,5 @@ public class ReplaceTextTask extends Ant_BaseTask implements _Task {
 	public synchronized void setRegReplace(String regReplace) {
 		_regReplace = regReplace;
 	}
-
-	public boolean equals(Object obj) {
-		if(!(obj instanceof ReplaceTextTask)){
-			return false;
-		}
-		
-		ReplaceTextTask replaceTextTaskInstance = (ReplaceTextTask) obj;
-		return (this.getFile().equals(replaceTextTaskInstance.getFile()) && this.getReplaceList().size() == replaceTextTaskInstance.getReplaceList().size());
-	}
 	
-	public int hashCode() {
-		
-		return getFile().hashCode() + getReplaceList().size();
-	}
-
 }
