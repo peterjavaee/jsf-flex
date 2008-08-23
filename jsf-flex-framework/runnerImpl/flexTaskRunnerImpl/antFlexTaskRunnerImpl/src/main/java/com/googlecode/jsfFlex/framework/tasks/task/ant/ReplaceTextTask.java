@@ -119,7 +119,7 @@ public class ReplaceTextTask extends Ant_BaseTask implements _Task {
 		_replaceList.put(token, value);
 	}
 	
-	public synchronized void performTask() throws ComponentBuildException {
+	public void performTask() throws ComponentBuildException {
 		
 		try {
 			
@@ -221,13 +221,13 @@ public class ReplaceTextTask extends Ant_BaseTask implements _Task {
 	public String getFile() {
 		return _file;
 	}
-	public synchronized void setFile(String file) {
+	public void setFile(String file) {
 		_file = file;
 	}
 	public boolean isMultiLineReplace() {
 		return _multiLineReplace;
 	}
-	public synchronized void setMultiLineReplace(boolean multiLineReplace) {
+	public void setMultiLineReplace(boolean multiLineReplace) {
 		_multiLineReplace = multiLineReplace;
 		_replaceText = false;
 		_replaceRegExp = false;
@@ -235,7 +235,7 @@ public class ReplaceTextTask extends Ant_BaseTask implements _Task {
 	public boolean isReplaceRegExp() {
 		return _replaceRegExp;
 	}
-	public synchronized void setReplaceRegExp(boolean replaceRegExp) {
+	public void setReplaceRegExp(boolean replaceRegExp) {
 		_replaceRegExp = replaceRegExp;
 		_multiLineReplace = false;
 		_replaceText = false;
@@ -243,7 +243,7 @@ public class ReplaceTextTask extends Ant_BaseTask implements _Task {
 	public boolean isReplaceText() {
 		return _replaceText;
 	}
-	public synchronized void setReplaceText(boolean replaceText) {
+	public void setReplaceText(boolean replaceText) {
 		_replaceText = replaceText;
 		_multiLineReplace = false;
 		_replaceRegExp = false;
@@ -251,25 +251,25 @@ public class ReplaceTextTask extends Ant_BaseTask implements _Task {
 	public Map getReplaceList() {
 		return _replaceList;
 	}
-	public synchronized void setReplaceList(Map replaceList) {
+	public void setReplaceList(Map replaceList) {
 		_replaceList = replaceList;
 	}
 	public String getFlags() {
 		return _flags;
 	}
-	public synchronized void setFlags(String flags) {
+	public void setFlags(String flags) {
 		_flags = flags;
 	}
 	public String getRegMatch() {
 		return _regMatch;
 	}
-	public synchronized void setRegMatch(String regMatch) {
+	public void setRegMatch(String regMatch) {
 		_regMatch = regMatch;
 	}
 	public String getRegReplace() {
 		return _regReplace;
 	}
-	public synchronized void setRegReplace(String regReplace) {
+	public void setRegReplace(String regReplace) {
 		_regReplace = regReplace;
 	}
 	

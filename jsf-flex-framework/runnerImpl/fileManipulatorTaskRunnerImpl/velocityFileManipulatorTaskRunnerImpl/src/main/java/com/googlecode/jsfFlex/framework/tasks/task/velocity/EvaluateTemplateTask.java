@@ -18,6 +18,7 @@
  */
 package com.googlecode.jsfFlex.framework.tasks.task.velocity;
 
+import java.io.IOException;
 import java.io.Reader;
 import java.io.Writer;
 import java.util.Iterator;
@@ -109,13 +110,20 @@ public class EvaluateTemplateTask implements _Task {
 		try{
 			_velocityEngine.evaluate(_context, _writer, _logTag, _template);
 			_writer.flush();
-			_writer.close();
 			_log.debug("Executiong has been completed for " + toString());
 		}catch(Exception _exceptionWhileMerging){
 			StringBuffer errorMessage = new StringBuffer();
 			errorMessage.append("Error in MergeTemplateTask's mergeCollectionToTemplate with following fields \n");
 			errorMessage.append(toString());
 			throw new ComponentBuildException(errorMessage.toString(), _exceptionWhileMerging);
+		}finally{
+			try{
+				if(_writer != null){
+					_writer.close();
+				}
+			}catch(IOException closerException){
+				_log.debug("Error while closing the writer within mergeCollectionToTemplate", closerException);
+			}
 		}
 		
 	}

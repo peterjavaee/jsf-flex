@@ -101,7 +101,7 @@ public class SWCTask extends Ant_BaseTask implements _Task {
 		
 	}
 	
-	public synchronized void performTask() throws ComponentBuildException {
+	public void performTask() throws ComponentBuildException {
 		try {
 			
 			setArguments();

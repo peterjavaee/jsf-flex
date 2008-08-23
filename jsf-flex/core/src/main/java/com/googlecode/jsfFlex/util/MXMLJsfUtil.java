@@ -46,6 +46,26 @@ public class MXMLJsfUtil {
 		super();
 	}
 	
+	public static String escapeCharacters(String toEscape){
+		if(toEscape == null){
+			return null;
+		}
+		//TODO : implement this better
+		try{
+			/*
+			 * special case for line feeds, since otherwise it is replaced with two
+			 * line feeds on the flash side
+			 */
+			toEscape = toEscape.replaceAll(WINDOWS_LINE_FEED, LINE_FEED_ESCAPER);
+			toEscape = toEscape.replaceAll(UNIX_LINE_FEED, LINE_FEED_ESCAPER);
+			return java.net.URLEncoder.encode(toEscape, ENCODING);
+		}catch(java.io.UnsupportedEncodingException unsupportedEncodingExcept){
+			throw new ComponentBuildException("UnsupportedEncoding of " + ENCODING + ", in another words this " +
+												"shouldn't happen", unsupportedEncodingExcept);
+		}
+		
+	}
+	
 	public static void setComponentProperties(UIComponent component, FacesContext context){
     	//set the major level, minor level, and absolutePathToPreMxmlFile
     	UIComponent parent = component.getParent();
@@ -146,26 +166,6 @@ public class MXMLJsfUtil {
 		toReturn.append(MXMLConstants.PRE_MXML_FILE_EXT);
 		
 		currInstance.setAbsolutePathToPreMxmlFile(toReturn.toString());
-		
-	}
-	
-	public static String escapeCharacters(String toEscape){
-		if(toEscape == null){
-			return null;
-		}
-		//TODO : implement this better
-		try{
-			/*
-			 * special case for line feeds, since otherwise it is replaced with two
-			 * line feeds on the flash side
-			 */
-			toEscape = toEscape.replaceAll(WINDOWS_LINE_FEED, LINE_FEED_ESCAPER);
-			toEscape = toEscape.replaceAll(UNIX_LINE_FEED, LINE_FEED_ESCAPER);
-			return java.net.URLEncoder.encode(toEscape, ENCODING);
-		}catch(java.io.UnsupportedEncodingException unsupportedEncodingExcept){
-			throw new ComponentBuildException("UnsupportedEncoding of " + ENCODING + ", in another words this " +
-												"shouldn't happen", unsupportedEncodingExcept);
-		}
 		
 	}
 	

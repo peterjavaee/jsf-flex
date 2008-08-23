@@ -18,6 +18,7 @@
  */
 package com.googlecode.jsfFlexPlugIn.parser.velocity;
 
+import java.io.IOException;
 import java.io.Writer;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -25,6 +26,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 
@@ -34,6 +37,8 @@ import com.googlecode.jsfFlexPlugIn.parser._JsfFlexParserListener;
  * @author Ji Hoon Kim
  */
 public class JsfFlexVelocityParser {
+	
+	private final static Log _log = LogFactory.getLog(JsfFlexVelocityParser.class);
 	
 	private List<_JsfFlexParserListener> _jsfFlexVelocityParserListeners;
 	private VelocityEngine _velocityEngine;
@@ -81,9 +86,17 @@ public class JsfFlexVelocityParser {
 		try{
 			_velocityEngine.mergeTemplate(_template, _context, _targetWriter);
 			_targetWriter.flush();
-			_targetWriter.close();
+			
 		}catch(Exception _exceptionWhileMerging){
 			throw new RuntimeException(_exceptionWhileMerging);
+		}finally{
+			try{
+				if(_targetWriter != null){
+					_targetWriter.close();
+				}
+			}catch(IOException closerException){
+				_log.debug("Error in closing the writer within mergeCollectionToTemplate", closerException);
+			}
 		}
 		
 		mergeCollectionToTemplateFinished();
