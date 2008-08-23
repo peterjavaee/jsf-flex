@@ -29,7 +29,7 @@ import com.googlecode.jsfFlex.framework.mapper._MXMLMapper;
  */
 public abstract class _AnnotationDocletParser {
 	
-	public static final String BY_ATTRIBUTE = "byAttribute";
+	protected static final String BY_ATTRIBUTE = "byAttribute";
 	
 	private Set _filterOutAttributes;
 	private Set _tokenValueSet;

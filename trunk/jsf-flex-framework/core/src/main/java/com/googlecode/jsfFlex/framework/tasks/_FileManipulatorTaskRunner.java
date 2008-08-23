@@ -27,13 +27,17 @@ import java.io.InputStreamReader;
 import java.util.Properties;
 import java.util.Set;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 
 /**
  * @author Ji Hoon Kim
  */
-public abstract class _FileManipulatorTaskRunner extends TaskRunnerImpl
-												 implements _TaskRunner {
+public abstract class _FileManipulatorTaskRunner extends TaskRunnerImpl {
+	
+	private final static Log _log = LogFactory.getLog(_FileManipulatorTaskRunner.class);
 	
 	public abstract void createPreMxmlFileTask(String _preMxmlFilePath, Properties _initProperties, Set _tokenList, String _mxmlComponentName, 
 												String _bodyContent, String _childIdentifier, String _siblingIdentifier) throws ComponentBuildException ;
@@ -52,11 +56,20 @@ public abstract class _FileManipulatorTaskRunner extends TaskRunnerImpl
 				fileContent.append(charBuffer, 0, offSet);
 			}
 			
-			bufferRead.close();
 		}catch(FileNotFoundException fileNotFoundExcept){
 			throw new ComponentBuildException(getErrorMessage("getComponentTemplate", template), fileNotFoundExcept);
 		}catch(IOException ioExcept){
 			throw new ComponentBuildException(getErrorMessage("getComponentTemplate", template), ioExcept);
+		}finally{
+			
+			if(bufferRead != null){
+				try{
+					bufferRead.close();
+				}catch(IOException closerException){
+					_log.debug("Error while closing the writer within getComponentTemplate", closerException);
+				}
+			}
+			
 		}
 		
 		return fileContent.toString();
@@ -64,9 +77,10 @@ public abstract class _FileManipulatorTaskRunner extends TaskRunnerImpl
 	
 	public static synchronized String readFileContent(String fileName) throws ComponentBuildException {
 		StringBuffer fileContent = new StringBuffer();
+		BufferedReader bufferRead = null;
 		
 		try{
-			BufferedReader bufferRead = new BufferedReader(new FileReader(new File(fileName)));
+			bufferRead = new BufferedReader(new FileReader(new File(fileName)));
 			
 			char[] charBuffer = new char[2048];
 			int offSet = 0;
@@ -75,11 +89,20 @@ public abstract class _FileManipulatorTaskRunner extends TaskRunnerImpl
 				fileContent.append(charBuffer, 0, offSet);
 			}
 			
-			bufferRead.close();
 		}catch(FileNotFoundException fileNotFoundExcept){
 			throw new ComponentBuildException("Failure in finding of " + fileName, fileNotFoundExcept);
 		}catch(IOException ioExcept){
 			throw new ComponentBuildException("Failure in reading of " + fileName, ioExcept);
+		}finally{
+			
+			if(bufferRead != null){
+				try{
+					bufferRead.close();
+				}catch(IOException closerException){
+					_log.debug("Error while closing the writer within readFileContent", closerException);
+				}
+			}
+			
 		}
 		
 		return fileContent.toString();

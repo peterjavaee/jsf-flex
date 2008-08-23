@@ -199,7 +199,7 @@ public class MXMLCTask extends Ant_BaseTask implements _Task {
 		_mxmlcTask.maybeConfigure();
 	}
 	
-	public synchronized void performTask() throws ComponentBuildException {
+	public void performTask() throws ComponentBuildException {
 		
 		try {
 			
@@ -282,13 +282,13 @@ public class MXMLCTask extends Ant_BaseTask implements _Task {
 	public String getFile() {
 		return _file;
 	}
-	public synchronized void setFile(String file) {
+	public void setFile(String file) {
 		_file = file;
 	}
 	public String getOutput_path() {
 		return _output_path;
 	}
-	public synchronized void setOutput_path(String output_path) {
+	public void setOutput_path(String output_path) {
 		_output_path = output_path;
 	}
 	public String getFlexSDKRootPath() {

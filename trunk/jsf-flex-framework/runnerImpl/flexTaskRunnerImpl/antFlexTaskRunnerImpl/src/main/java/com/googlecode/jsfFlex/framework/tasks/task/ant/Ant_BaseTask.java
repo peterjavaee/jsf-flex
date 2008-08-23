@@ -28,10 +28,10 @@ import org.apache.tools.ant.Project;
  */
 class Ant_BaseTask {
 	
-	protected Project _taskProject;
+	Project _taskProject;
 	private DefaultLogger _consoleLogger;
 	
-	protected Ant_BaseTask(){
+	Ant_BaseTask(){
 		super();
 		_taskProject = new Project();
 		_consoleLogger = new DefaultLogger();
@@ -41,28 +41,28 @@ class Ant_BaseTask {
 		_taskProject.addBuildListener(_consoleLogger);
 	}
 	
-	protected void buildProject(String targetToExecute){
+	void buildProject(String targetToExecute){
 		_taskProject.fireBuildStarted();
 		_taskProject.init();
 		_taskProject.executeTarget(targetToExecute);
 		_taskProject.fireBuildFinished(null);
 	}
 	
-	protected void addBuildListener(DefaultLogger consoleLogger){
+	void addBuildListener(DefaultLogger consoleLogger){
 		_taskProject.removeBuildListener(_consoleLogger);
 		_consoleLogger = consoleLogger;
 		_taskProject.addBuildListener(_consoleLogger);
 	}
 	
-	protected void setErrorPrintstream(PrintStream errorStream){
+	void setErrorPrintstream(PrintStream errorStream){
 		_consoleLogger.setErrorPrintStream(errorStream);
 	}
 	
-	protected void setOutputPrintStream(PrintStream outStream){
+	void setOutputPrintStream(PrintStream outStream){
 		_consoleLogger.setOutputPrintStream(outStream);
 	}
 	
-	protected void setMessageOutputLevel(int outLevel){
+	void setMessageOutputLevel(int outLevel){
 		_consoleLogger.setMessageOutputLevel(outLevel);
 	}
 	
