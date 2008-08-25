@@ -14,18 +14,30 @@ This page will contain a brief overview of building the JSF Flex code and import
 
 This should be enough to import the projects into Eclipse IDE.
 
- # Create a new workspace :
+ * Create a new workspace :
    * File => Import => Existing Projects into Workspace
    * Select the folder where the resources were checked out to {i.e. C:\jsfFlexProject}
    * Finally add the "M2_REPO" Classpath variable within the workspace by entering the following :
      * Window => Preferences => Java => Build Path => Classpath Variables
      * M2_REPO as variable and value as the maven2 repository {for me it was "C:/Documents and Settings/Administrator/.m2/repository"}
 
-http://jsf-flex.googlecode.com/svn/wiki/importProjects.jpg
+   http://jsf-flex.googlecode.com/svn/wiki/importProjects.jpg
+   
+   http://jsf-flex.googlecode.com/svn/wiki/M2_Repo_ClasspathVariable.jpg
 
-http://jsf-flex.googlecode.com/svn/wiki/M2_Repo_ClasspathVariable.jpg
+ * Then for following list of maven projects, import the jars from jsf-flex-shared and jsf-flex-framework-core maven projects {Note that this should be done after the initial *mvn install* command}.
+   * jsf-flex-framework-ant-flex-task-runner-impl
+   * jsf-flex-framework-sdk-standard-common-task-runner-impl
+   * jsf-flex-framework-velocity-file-manipulator-task-runner-impl
+   
+   http://jsf-flex.googlecode.com/svn/wiki/importAdditionalJars.jpg
+   
+   http://jsf-flex.googlecode.com/svn/wiki/attachSourceToJar.jpg
+   
+   http://jsf-flex.googlecode.com/svn/wiki/markRequiredJars.jpg
 
-
+ * Finally in similar format as done in importing the above jars to the respective maven projects, import jar from jsf-flex-framework-component15 maven project to jsf-flex-build-plugIn-plugin maven project. Now you should be in synch with the system.
+   
 ==Testing the example pages==
 Simply import the generated War file into the workspace.
 
