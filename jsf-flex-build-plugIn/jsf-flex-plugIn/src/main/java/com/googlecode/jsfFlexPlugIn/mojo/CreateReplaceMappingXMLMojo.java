@@ -151,18 +151,13 @@ public class CreateReplaceMappingXMLMojo extends AbstractMojo
 		String _path = StringUtils.getPackageAsPath(_package);
 		String _replaceMappingXMLFileName = rootResourceDirectory.getPath() + File.separatorChar + _path + TO_CREATE_REPLACE_MAPPING_XML_DIRECTORY_NAME + 
 												File.separatorChar + _sourceInspected + TO_CREATE_REPLACE_MAPPING_XML_FILE_SUFFIX;
-		String _checkExtDirExists = rootResourceDirectory.getPath() + File.separatorChar + _path;
 		String _checkDirExists = rootResourceDirectory.getPath() + File.separatorChar + _path + TO_CREATE_REPLACE_MAPPING_XML_DIRECTORY_NAME + 
 										File.separatorChar;
 		try{
-			File _checkExists = new File(_checkExtDirExists);
-			if(!_checkExists.exists()){
-				_checkExists.mkdir();
-			}
 			
-			_checkExists = new File(_checkDirExists);
+			File _checkExists = new File(_checkDirExists);
 			if(!_checkExists.exists()){
-				_checkExists.mkdir();
+				_checkExists.mkdirs();
 			}
 			
 			FileWriter _writer = new FileWriter(new File(_replaceMappingXMLFileName));
