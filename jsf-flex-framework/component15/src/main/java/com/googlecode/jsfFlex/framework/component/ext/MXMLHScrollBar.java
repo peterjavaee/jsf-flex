@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="HScrollBar",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLHScrollBar",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLHScrollBar",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="repeatDelay", byMethod=false),

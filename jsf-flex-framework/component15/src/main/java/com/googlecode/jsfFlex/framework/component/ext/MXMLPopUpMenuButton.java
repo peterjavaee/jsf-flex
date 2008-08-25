@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="PopUpMenuButton",
+		componentFamily="javax.faces.MXMLInput",
+		rendererName="com.googlecode.jsfFlex.MXMLPopUpMenuButton",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLPopUpMenuButton",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="dataDescriptor", byMethod=false),

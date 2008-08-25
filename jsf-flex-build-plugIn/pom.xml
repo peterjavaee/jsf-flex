@@ -43,7 +43,6 @@
   </build>
   
   <modules>
-    <module>jsf-flex-build-annotations</module>
     <module>jsf-flex-plugIn</module>
   </modules>
   

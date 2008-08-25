@@ -29,6 +29,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="Script",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLScript",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLScript",
+		
 		jsfFlexAttributes={}
 	)
 public class MXMLScript extends MXMLComponentBaseActions {

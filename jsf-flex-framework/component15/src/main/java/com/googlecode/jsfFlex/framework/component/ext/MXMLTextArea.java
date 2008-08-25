@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="TextArea",
+		componentFamily="javax.faces.MXMLInput",
+		rendererName="com.googlecode.jsfFlex.MXMLTextArea",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLTextArea",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="condenseWhite", byMethod=false),

@@ -60,14 +60,14 @@ public abstract class _JsfFlexInspectorBase {
 		}
 	}
 	
-	protected synchronized void inspectionCompleted(String _pattern, List<String> _parameters){
+	protected synchronized void inspectionCompleted(){
 		_JsfFlexInspectListener _inspectedCallBack;
 		for(Iterator _jsfFlexQdoxInspectIterator = _jsfFlexInspectListeners.iterator(); _jsfFlexQdoxInspectIterator.hasNext();){
 			_inspectedCallBack = (_JsfFlexInspectListener) _jsfFlexQdoxInspectIterator.next();
-			_inspectedCallBack.inspectionCompleted(_pattern, _parameters);
+			_inspectedCallBack.inspectionCompleted();
 		}
 	}
 	
-	public abstract void inspectFiles(String _pattern, List<String> _parameters);
+	public abstract void inspectFiles();
 	
 }

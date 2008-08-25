@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="VideoDisplay",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLVideoDisplay",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLVideoDisplay",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="autoBandWidthDetection", byMethod=false),

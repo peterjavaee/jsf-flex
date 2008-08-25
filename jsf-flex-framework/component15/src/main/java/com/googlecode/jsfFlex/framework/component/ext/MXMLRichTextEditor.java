@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="RichTextEditor",
+		componentFamily="javax.faces.MXMLInput",
+		rendererName="com.googlecode.jsfFlex.MXMLRichTextEditor",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLRichTextEditor",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="defaultLinkProtocol", byMethod=false),

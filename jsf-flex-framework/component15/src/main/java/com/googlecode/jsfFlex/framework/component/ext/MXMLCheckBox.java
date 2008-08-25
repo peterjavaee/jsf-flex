@@ -28,6 +28,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="CheckBox",
+		componentFamily="javax.faces.MXMLInput",
+		rendererName="com.googlecode.jsfFlex.MXMLCheckBox",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLCheckBox",
+		
 		jsfFlexAttributes={}
 	)
 public class MXMLCheckBox extends MXMLButtonTemplate {

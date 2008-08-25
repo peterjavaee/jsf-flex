@@ -28,6 +28,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="Spacer",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLSpacer",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLSpacer",
+		
 		jsfFlexAttributes={}
 	)
 public class MXMLSpacer extends MXMLComponentBase {

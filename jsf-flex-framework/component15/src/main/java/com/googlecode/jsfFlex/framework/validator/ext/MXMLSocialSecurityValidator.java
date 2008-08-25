@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="SocialSecurityValidator",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLSocialSecurityValidator",
+		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLSocialSecurityValidator",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="allowedFormatChars", byMethod=false),

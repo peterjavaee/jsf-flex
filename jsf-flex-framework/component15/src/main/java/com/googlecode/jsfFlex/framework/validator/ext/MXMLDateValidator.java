@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="DateValidator",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLDateValidator",
+		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLDateValidator",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="allowedFormatChars", byMethod=false),

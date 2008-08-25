@@ -23,8 +23,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -35,10 +35,15 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
 
+import com.googlecode.jsfFlex.framework.annotation.JsfFlexAttributeProperties;
 import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectListener;
+import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectorBase;
 import com.googlecode.jsfFlexPlugIn.inspector.qdox.JsfFlexQdoxInspector;
 import com.googlecode.jsfFlexPlugIn.parser._JsfFlexParserListener;
 import com.googlecode.jsfFlexPlugIn.parser.velocity.JsfFlexVelocityParser;
+import com.thoughtworks.qdox.JavaDocBuilder;
+import com.thoughtworks.qdox.model.DocletTag;
+import com.thoughtworks.qdox.model.JavaClass;
 
 /**
  * TODO : Finish the implementation and test it
@@ -52,11 +57,11 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 	
 	private static final String JSF_FLEX_RENDERKIT_ATTRIBUTE = "JsfFlexRenderKitAttribute";
 	
+	private static final String COMPONENT_14_PROJECT_NAME = "component14";
 	private static final String JSF_FLEX_RENDERERLIST_ATTRIBUTE = "rendererList";
 	private static final String JSF_FLEX_RENDERKIT_XML_TEMPLATE = "jsf-flex-mxmlRenderKitXML.vm";
 	private static final String TO_CREATE_MXML_RENDERKIT_XML_FILE_NAME = "mxmlRenderKit.xml";
 	private static final String FILE_RESOURCE_LOADER_PATH_KEY = "file.resource.loader.path";
-	private static final List<String> _parameterList = new LinkedList<String>();
 	
 	private static final String COMPONENT_FAMILY_KEY = "componentFamily";
 	private static final String RENDERER_NAME_KEY = "rendererName";
@@ -65,13 +70,7 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 	private static final int HASH_CODE_INIT_VALUE = 3;
 	private static final int HASH_CODE_MULTIPLY_VALUE = 31;
 	
-	static{
-		_parameterList.add(COMPONENT_FAMILY_KEY);
-		_parameterList.add(RENDERER_NAME_KEY);
-		_parameterList.add(RENDERER_CLASS_KEY);
-	}
-	
-	private JsfFlexQdoxInspector _jsfFlexQdoxInspector;
+	private _JsfFlexInspectorBase _jsfFlexInspector;
 	private JsfFlexVelocityParser _jsfFlexVelocityParser;
 	private Map<String, Renderer> _rendererMap;
 	
@@ -198,8 +197,6 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 		for(Iterator _compileSourceRootsIterator = _compileSourceRoots.iterator(); 
 													_compileSourceRootsIterator.hasNext();){
 			_currDirPath = (String) _compileSourceRootsIterator.next();
-			_jsfFlexQdoxInspector = new JsfFlexQdoxInspector(_currDirPath);
-			_jsfFlexQdoxInspector.addInspectListener(this);
 			
 			Properties _velocityParserProperties = new Properties();
 			_velocityParserProperties.put(FILE_RESOURCE_LOADER_PATH_KEY, templateSourceDirectory.getPath());
@@ -208,7 +205,45 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 			_jsfFlexVelocityParser.init();
 			_jsfFlexVelocityParser.addParserListener(this);
 			
-			_jsfFlexQdoxInspector.inspectFiles(JSF_FLEX_RENDERKIT_ATTRIBUTE, _parameterList);
+			if(project.getName().equals(COMPONENT_14_PROJECT_NAME)){
+				_jsfFlexInspector = new JsfFlexQdoxInspector(JSF_FLEX_RENDERKIT_ATTRIBUTE, _currDirPath);
+			}else{
+				
+				_jsfFlexInspector = new _JsfFlexInspectorBase(){
+										public void inspectFiles(){
+											Map _inspectedMap;
+											DocletTag[] _inspectedDocletTag;
+											JavaDocBuilder builder = new JavaDocBuilder();
+											builder.addSourceTree(new File(getDirPath()));
+											JavaClass[] _inspectableFiles = builder.getClasses();
+											JsfFlexAttributeProperties _jsfFlexAttributeList;
+											
+											for(JavaClass _currClass : _inspectableFiles){
+												_jsfFlexAttributeList = _currClass.getClass().getAnnotation(JsfFlexAttributeProperties.class);
+												
+												_inspectedMap = new LinkedHashMap();
+												
+												if(_jsfFlexAttributeList.componentFamily() == null || _jsfFlexAttributeList.componentFamily().length() == 0){
+													continue;
+												}
+												
+												_inspectedMap.put(COMPONENT_FAMILY_KEY, _jsfFlexAttributeList.componentFamily());
+												_inspectedMap.put(RENDERER_NAME_KEY, _jsfFlexAttributeList.rendererName());
+												_inspectedMap.put(RENDERER_CLASS_KEY, _jsfFlexAttributeList.rendererClass());
+												
+												inspectFileFinished(_inspectedMap, _currClass.getName(), _currClass.getPackage());
+											}
+											
+											inspectionCompleted();
+										}
+									};
+				
+			}
+			
+			_jsfFlexInspector.addInspectListener(this);
+			
+			
+			_jsfFlexInspector.inspectFiles();
 			
 		}
 		
@@ -240,7 +275,7 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 		
 	}
 	
-	public void inspectionCompleted(String _pattern, List<String> _parameters){
+	public void inspectionCompleted(){
 		
 		String _toCreateMxmlRenderKitXMLFilePath = toCreateMxmlRenderKitXMLPath.getPath() + TO_CREATE_MXML_RENDERKIT_XML_FILE_NAME;
 		

@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="StringValidator",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLStringValidator",
+		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLStringValidator",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="maxLength", byMethod=false),

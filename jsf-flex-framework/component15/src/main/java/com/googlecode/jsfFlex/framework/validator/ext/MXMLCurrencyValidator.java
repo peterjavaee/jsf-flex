@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="CurrencyValidator",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLCurrencyValidator",
+		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLCurrencyValidator",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="alignSymbol", byMethod=false),

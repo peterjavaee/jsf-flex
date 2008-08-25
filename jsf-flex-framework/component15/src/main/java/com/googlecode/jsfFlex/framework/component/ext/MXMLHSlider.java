@@ -28,6 +28,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="HSlider",
+		componentFamily="javax.faces.MXMLInput",
+		rendererName="com.googlecode.jsfFlex.MXMLHSlider",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLHSlider",
+		
 		jsfFlexAttributes={}
 	)
 public class MXMLHSlider extends MXMLSliderTemplate {

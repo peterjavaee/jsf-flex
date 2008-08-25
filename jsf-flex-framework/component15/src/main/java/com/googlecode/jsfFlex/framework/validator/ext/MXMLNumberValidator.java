@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="NumberValidator",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLNumberValidator",
+		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLNumberValidator",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="allowNegative", byMethod=false),

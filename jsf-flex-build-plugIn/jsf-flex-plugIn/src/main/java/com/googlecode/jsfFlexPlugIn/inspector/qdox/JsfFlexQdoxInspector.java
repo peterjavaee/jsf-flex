@@ -20,7 +20,6 @@ package com.googlecode.jsfFlexPlugIn.inspector.qdox;
 
 import java.io.File;
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectorBase;
@@ -33,16 +32,20 @@ import com.thoughtworks.qdox.model.JavaClass;
  */
 public class JsfFlexQdoxInspector extends _JsfFlexInspectorBase {
 	
+	private final String _pattern;
+	
 	public JsfFlexQdoxInspector(){
 		super();
+		_pattern = null;
 	}
 	
-	public JsfFlexQdoxInspector(String dirPath){
+	public JsfFlexQdoxInspector(String pattern, String dirPath){
 		super(dirPath);
+		_pattern = pattern;
 	}
 	
 	@Override
-	public synchronized void inspectFiles(String _pattern, List<String> _parameters){
+	public synchronized void inspectFiles(){
 		Map _inspectedMap;
 		DocletTag[] _inspectedDocletTag;
 		JavaDocBuilder builder = new JavaDocBuilder();
@@ -60,7 +63,7 @@ public class JsfFlexQdoxInspector extends _JsfFlexInspectorBase {
 			inspectFileFinished(_inspectedMap, _currClass.getName(), _currClass.getPackage());
 		}
 		
-		inspectionCompleted(_pattern, _parameters);
+		inspectionCompleted();
 		
 	}
 	

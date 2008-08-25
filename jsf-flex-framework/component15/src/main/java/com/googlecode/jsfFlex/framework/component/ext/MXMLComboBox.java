@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="ComboBox",
+		componentFamily="javax.faces.MXMLInput",
+		rendererName="com.googlecode.jsfFlex.MXMLComboBox",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLComboBox",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="dropdownFactory", byMethod=false),

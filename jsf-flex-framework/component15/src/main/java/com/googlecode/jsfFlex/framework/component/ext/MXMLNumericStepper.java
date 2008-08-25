@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="NumericStepper",
+		componentFamily="javax.faces.MXMLInput",
+		rendererName="com.googlecode.jsfFlex.MXMLNumericStepper",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLNumericStepper",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="imeMode", byMethod=false),

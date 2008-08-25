@@ -28,6 +28,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="Canvas",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLCanvas",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLCanvas",
+		
 		jsfFlexAttributes={}
 	)
 public class MXMLCanvas extends MXMLContainerTemplate {

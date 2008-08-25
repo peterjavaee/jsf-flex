@@ -28,6 +28,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="Box",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLBox",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLBox",
+		
 		jsfFlexAttributes={}
 	)
 public class MXMLBox extends MXMLBoxTemplate {

@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="MenuBar",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLMenuBar",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLMenuBar",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="dataDescriptor", byMethod=false),

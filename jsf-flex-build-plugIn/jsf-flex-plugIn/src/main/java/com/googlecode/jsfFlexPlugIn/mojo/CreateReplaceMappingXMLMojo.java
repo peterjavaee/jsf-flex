@@ -35,6 +35,7 @@ import org.apache.maven.project.MavenProject;
 import org.apache.velocity.util.StringUtils;
 
 import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectListener;
+import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectorBase;
 import com.googlecode.jsfFlexPlugIn.inspector.qdox.JsfFlexQdoxInspector;
 import com.googlecode.jsfFlexPlugIn.parser._JsfFlexParserListener;
 import com.googlecode.jsfFlexPlugIn.parser.velocity.JsfFlexVelocityParser;
@@ -56,7 +57,7 @@ public class CreateReplaceMappingXMLMojo extends AbstractMojo
 	private static final String TO_CREATE_REPLACE_MAPPING_XML_FILE_SUFFIX = "ReplaceMapping.xml";
 	private static final String FILE_RESOURCE_LOADER_PATH_KEY = "file.resource.loader.path";
 	
-	private JsfFlexQdoxInspector _jsfFlexQdoxInspector;
+	private _JsfFlexInspectorBase _jsfFlexInspector;
 	private JsfFlexVelocityParser _jsfFlexVelocityParser;
 	
 	public CreateReplaceMappingXMLMojo(){
@@ -85,8 +86,8 @@ public class CreateReplaceMappingXMLMojo extends AbstractMojo
 		for(Iterator _compileSourceRootsIterator = _compileSourceRoots.iterator(); 
 													_compileSourceRootsIterator.hasNext();){
 			_currDirPath = (String) _compileSourceRootsIterator.next();
-			_jsfFlexQdoxInspector = new JsfFlexQdoxInspector(_currDirPath);
-			_jsfFlexQdoxInspector.addInspectListener(this);
+			_jsfFlexInspector = new JsfFlexQdoxInspector(JSF_FLEX_ATTRIBUTE, _currDirPath);
+			_jsfFlexInspector.addInspectListener(this);
 			
 			Properties _velocityParserProperties = new Properties();
 			_velocityParserProperties.put(FILE_RESOURCE_LOADER_PATH_KEY, templateSourceDirectory.getPath());
@@ -95,7 +96,7 @@ public class CreateReplaceMappingXMLMojo extends AbstractMojo
 			_jsfFlexVelocityParser.init();
 			_jsfFlexVelocityParser.addParserListener(this);
 			
-			_jsfFlexQdoxInspector.inspectFiles(JSF_FLEX_ATTRIBUTE, null);
+			_jsfFlexInspector.inspectFiles();
 			
 		}
 		
@@ -171,7 +172,7 @@ public class CreateReplaceMappingXMLMojo extends AbstractMojo
 		
 	}
 	
-	public void inspectionCompleted(String _pattern, List<String> _parameters){
+	public void inspectionCompleted(){
 		
 	}
 	

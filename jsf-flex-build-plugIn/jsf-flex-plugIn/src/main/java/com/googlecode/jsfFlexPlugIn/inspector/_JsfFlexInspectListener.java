@@ -18,7 +18,6 @@
  */
 package com.googlecode.jsfFlexPlugIn.inspector;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -28,6 +27,6 @@ public interface _JsfFlexInspectListener {
 	
 	void inspectFileFinished(Map _inspected, String _sourceInspected, String _package);
 	
-	void inspectionCompleted(String _pattern, List<String> _parameters);
+	void inspectionCompleted();
 	
 }

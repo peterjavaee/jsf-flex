@@ -28,6 +28,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="DividedBox",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLDividedBox",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLDividedBox",
+		
 		jsfFlexAttributes={}
 	)
 public class MXMLDividedBox extends MXMLDividedBoxTemplate {

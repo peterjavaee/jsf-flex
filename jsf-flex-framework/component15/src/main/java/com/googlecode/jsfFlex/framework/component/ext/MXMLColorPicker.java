@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="ColorPicker",
+		componentFamily="javax.faces.MXMLInput",
+		rendererName="com.googlecode.jsfFlex.MXMLColorPicker",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLColorPicker",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="colorField", byMethod=false),
