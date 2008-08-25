@@ -35,6 +35,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
 /**
+ * This base class will provide methods for its subclasses, which should be of _MXMLContracts implementations.<br>
+ * In order to allow flexibility in chose of implementation and JRE version, the class will mainly invoke methods<br>
+ * through interfaces which are retrieved through MxmlContext.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public abstract class MXMLComponentBaseActions implements _Component {
@@ -64,6 +68,12 @@ public abstract class MXMLComponentBaseActions implements _Component {
 		
 	}
 	
+	/* 
+	 * Will write the content of the component body [i.e MXMLApplication and MXMLScript].<br>
+	 * 
+	 * (non-Javadoc)
+	 * @see com.googlecode.jsfFlex.framework._Component#buildComponentEnd(java.lang.Object)
+	 */
 	public void buildComponentEnd(Object componentObj) throws ComponentBuildException{
 		
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
@@ -81,6 +91,13 @@ public abstract class MXMLComponentBaseActions implements _Component {
 		getFlexTaskRunner().execute();
 	}
 	
+	/**
+	 * One can consider this method to be somewhat of a facade in creating application SWF file.<br>
+	 * 
+	 * @param componentMXML
+	 * @param mxmlFile
+	 * @throws ComponentBuildException
+	 */
 	protected void processCreateSwf(_MXMLApplicationContract componentMXML, String mxmlFile) throws ComponentBuildException {
 		
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
@@ -129,6 +146,14 @@ public abstract class MXMLComponentBaseActions implements _Component {
 		
 	}
 	
+	/**
+	 * This method will create the preMxml file of the component.<br>
+	 * 
+	 * @param comp
+	 * @param mxmlComponentName
+	 * @param bodyContent
+	 * @throws ComponentBuildException
+	 */
 	protected void addCreatePreMxmlTask(_MXMLContract comp, String mxmlComponentName, String bodyContent) throws ComponentBuildException {
 		
 		String fileDirectory = comp.getAbsolutePathToPreMxmlFile().substring(0, comp.getAbsolutePathToPreMxmlFile().lastIndexOf(File.separatorChar));
@@ -139,54 +164,142 @@ public abstract class MXMLComponentBaseActions implements _Component {
 		
 	}
 	
+	/**
+	 * This method will create a directory, which should be specified in absolute path.<br>
+	 * 
+	 * @param directoryToCreate
+	 * @throws ComponentBuildException
+	 */
 	protected void addMakeDirectoryTask(String directoryToCreate) throws ComponentBuildException {
 		getFlexTaskRunner().addMakeDirectoryTask(directoryToCreate);
 	}
 	
+	/**
+	 * This method will replace a token with a value within a preMxml file.<br>
+	 * 
+	 * @param applicationInstance
+	 * @param valueToReplaceWith
+	 * @param tokenReplace
+	 * @throws ComponentBuildException
+	 */
 	protected void addReplaceTokenWithValueTask(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) throws ComponentBuildException {
 		getFlexTaskRunner().addReplaceTokenWithValueTask(applicationInstance, valueToReplaceWith, tokenReplace);
 	}
 	
+	/**
+	 * This method will flatten the MXMLApplication preMxml file and copy it as a MXML file to its correct directory,<br>
+	 * which should be specified in absolute path.<br>
+	 * 
+	 * @param applicationInstance
+	 * @param copyTo
+	 * @throws ComponentBuildException
+	 */
 	protected void createMXML(_MXMLContract applicationInstance, String copyTo) throws ComponentBuildException {
 		getFlexTaskRunner().createMXML(applicationInstance, copyTo);
 	}
 	
+	/**
+	 * This method will create the necessary SWC source files. Please refer to mxmlConstants.xml for the file listings.<br>
+	 * 
+	 * @param _swcPath
+	 * @param _systemSourceFiles
+	 * @param jsfFlexMainSwcConfigFile
+	 * @throws ComponentBuildException
+	 */
 	protected void createSwcSourceFiles(String _swcPath, String[] _systemSourceFiles, String jsfFlexMainSwcConfigFile) throws ComponentBuildException {
 		getFlexTaskRunner().createSwcSourceFiles(_swcPath, _systemSourceFiles, jsfFlexMainSwcConfigFile);
 	}
 	
+	/**
+	 * This method will create the SWC file, which will contain a library SWF file to be used by application SWF files.<br>
+	 * 
+	 * @param sourcePath
+	 * @param outPut
+	 * @param flexSDKRootPath
+	 * @param loadConfigFilePath
+	 * @throws ComponentBuildException
+	 */
 	protected void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath) 
 											throws ComponentBuildException {
 		getFlexTaskRunner().createSystemSWCFile(sourcePath, outPut, flexSDKRootPath, loadConfigFilePath);
 	}
 	
+	/**
+	 * Thie method will create the application SWF file from its MXML file.<br>
+	 * 
+	 * @param componentMXML
+	 * @param mxmlFile
+	 * @param swfPath
+	 * @param flexSDKRootPath
+	 * @throws ComponentBuildException
+	 */
 	protected void createSWF(_MXMLApplicationContract componentMXML, String mxmlFile, 
 									String swfPath, String flexSDKRootPath) throws ComponentBuildException {
 		getFlexTaskRunner().createSWF(componentMXML, mxmlFile, swfPath, flexSDKRootPath);
 	}
 	
+	/**
+	 * This method will create the necessary source files for the application SWF. Please refer to mxmlConstants.xml for the file listings.<br>
+	 * 
+	 * @param _swfBasePath
+	 * @param _systemSwfSourceFiles
+	 * @throws ComponentBuildException
+	 */
 	protected void createSwfSourceFiles(String _swfBasePath, String[] _systemSwfSourceFiles) throws ComponentBuildException {
 		getFlexTaskRunner().createSwfSourceFiles(_swfBasePath, _systemSwfSourceFiles);
 	}
 	
+	/**
+	 * This method will delete the resource, which should be specified in absolute path.<br>
+	 * 
+	 * @param deleteResource
+	 * @param isDirectory
+	 * @throws ComponentBuildException
+	 */
 	public void deleteResources(String deleteResource, boolean isDirectory) throws ComponentBuildException {
 		getFlexTaskRunner().deleteResources(deleteResource, isDirectory);
 	}
 	
+	/**
+	 * This method will copy one file to an another file. Note that these should be specified in absolute path.<br>
+	 * 
+	 * @param fileToCopy
+	 * @param fileToCopyTo
+	 * @throws ComponentBuildException
+	 */
 	protected void copyFile(String fileToCopy, String fileToCopyTo) throws ComponentBuildException {
 		getFlexTaskRunner().copyFile(fileToCopy, fileToCopyTo);
 	}
 	
+	/**
+	 * This method will copy certain fileSet to the destination directory [i.e. if you wish to exclude or include only a specific set of<br>
+	 * file extensions this method should be used]. Note that the copy source and copy target should be specified in absolute path.<br>
+	 * 
+	 * @param copyDir
+	 * @param copyInclude
+	 * @param copyExclude
+	 * @param copyTo
+	 * @throws ComponentBuildException
+	 */
 	protected void copyFileSet(String copyDir, String copyInclude, String copyExclude, String copyTo) throws ComponentBuildException {
 		getFlexTaskRunner().copyFileSet(copyDir, copyInclude, copyExclude, copyTo);
 	}
 	
+	/**
+	 * This method will enable renaming of a file to an another file name. Note that the copy source and copy target should be specified<br>
+	 * in absolute path.<br>
+	 * 
+	 * @param sourceFile
+	 * @param destFile
+	 * @param overWrite
+	 * @throws ComponentBuildException
+	 */
 	protected void renameFile(String sourceFile, String destFile, boolean overWrite) throws ComponentBuildException {
 		getFlexTaskRunner().renameFile(sourceFile, destFile, overWrite);
 	}
 	
 	/**
-	 * This method should be used for files that are relative to the UnzipTask
+	 * This method should be used for files that are relative to the UnzipTask.<br>
 	 * 
 	 * @param _unZipFile
 	 * @param _unZipDest
@@ -197,7 +310,8 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	}
 	
 	/**
-	 * This method should be used for files that are absolute
+	 * This method should be used for files that are absolute.<br>
+	 * 
 	 * @param _unZipFile
 	 * @param _unZipDest
 	 * @throws ComponentBuildException
@@ -208,7 +322,8 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	}
 	
 	/**
-	 * This method should be used for files that are absolute
+	 * This method should be used for files that are absolute.<br>
+	 * 
 	 * @param _unZipFile
 	 * @param _unZipDest
 	 * @throws ComponentBuildException
@@ -218,20 +333,52 @@ public abstract class MXMLComponentBaseActions implements _Component {
 		getCommonTaskRunner().unZipArchiveAbsolute(_unZipFile, _unZipDest);
 	}
 	
+	/**
+	 * This method will map the fields of javaDoc/annotation [depends on which JRE version was specified during<br>
+	 * build time] from the MXMLComponent to a HashSet.<br>
+	 * 
+	 * @param mapClass
+	 * @param componentObj
+	 * @param mappingFile
+	 * @throws ComponentBuildException
+	 */
 	protected void mapFields(Class mapClass, Object componentObj, String mappingFile) throws ComponentBuildException {
 		_annotationDocletParserInstance.mapComponentFields(mapClass, getClass().getClassLoader(), componentObj, mappingFile);
 	}
 	
+	/**
+	 * This method will load and read the template specified and return it as a String. This method should be mainly used by<br>
+	 * MXMLComponents as the ClassLoader would be of MXMLComponentBaseActions class.<br>
+	 * 
+	 * @param template
+	 * @return
+	 * @throws ComponentBuildException
+	 */
 	public String getComponentTemplate(String template) throws ComponentBuildException {
 		
 		return _FileManipulatorTaskRunner.getComponentTemplate(getClass().getClassLoader(), template);
 	}
 	
+	/**
+	 * This method will read the file specified and return it as a String. Note the fileName should be specified in absolute path.<br>
+	 * 
+	 * @param fileName
+	 * @return
+	 * @throws ComponentBuildException
+	 */
 	protected String readFileContent(String fileName) throws ComponentBuildException {
 		
 		return _FileManipulatorTaskRunner.readFileContent(fileName);
 	}
 	
+	/**
+	 * This method will return the child preMxml component identifier. In another words, when the preMxml file is created<br>
+	 * the file requires this identifier to be placed within the file so that possible child can be added to the correct<br>
+	 * component and have correct relationship.<br>
+	 * 
+	 * @param currInstance
+	 * @return
+	 */
 	protected String childPreMxmlComponentIdentifier(_MXMLContract currInstance){
 		StringBuffer toReturn = new StringBuffer();
 		
@@ -242,6 +389,14 @@ public abstract class MXMLComponentBaseActions implements _Component {
 		return toReturn.toString();
 	}
 	
+	/**
+	 * This method will return the sibling preMxml component identifier. In another words, when the preMxml file is created<br>
+	 * the file requires this identifier to be placed within the file so that possible sibling can be added to the correct<br>
+	 * component and have correct relationship.<br>
+	 * 
+	 * @param currInstance
+	 * @return
+	 */
 	protected String siblingPreMxmlComponentIdentifier(_MXMLContract currInstance){
 		StringBuffer toReturn = new StringBuffer();
 		
@@ -252,6 +407,13 @@ public abstract class MXMLComponentBaseActions implements _Component {
 		return toReturn.toString();
 	}
 	
+	/**
+	 * This method will return the preMxml identifier of the component as a child component. Meaning this component has a minor level of 0,<br>
+	 * so it is the first component of the parent component and should be considered as a child and NOT a sibling.<br>
+	 * 
+	 * @param currInstance
+	 * @return
+	 */
 	protected String childReplaceTokenWithPreMxmlIdentifier(_MXMLContract currInstance){
 		StringBuffer toReturn = new StringBuffer();
 		
@@ -262,6 +424,13 @@ public abstract class MXMLComponentBaseActions implements _Component {
 		return toReturn.toString();
 	}
 	
+	/**
+	 * This method will return the preMxml identifier of the component as a sibling component. Meaning this component does NOT have a minor level of 0,<br>
+	 * so it is NOT the first component of the parent component and should be NOT considered as a child but as a sibling.<br>
+	 * 
+	 * @param currInstance
+	 * @return
+	 */
 	protected String siblingReplaceTokenWithPreMxmlIdentifier(_MXMLContract currInstance){
 		StringBuffer toReturn = new StringBuffer();
 		
@@ -272,21 +441,43 @@ public abstract class MXMLComponentBaseActions implements _Component {
 		return toReturn.toString();
 	}
 	
+	/**
+	 * This method will return _CommonTaskRunner interface from MxmlContext.<br>
+	 * 
+	 * @return
+	 */
 	private _CommonTaskRunner getCommonTaskRunner(){
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 		return mxmlContext.getCommonRunner();
 	}
 		
+	/**
+	 * This method will return _FileManipulatorTaskRunner interface from MxmlContext.<br>
+	 * 
+	 * @return
+	 */
 	private _FileManipulatorTaskRunner getFileManipulatorTaskRunner(){
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 		return mxmlContext.getFileManipulatorRunner();
 	}
 	
+	/**
+	 * This method will return _FlexTaskRunner interface from MxmlContext.<br>
+	 * 
+	 * @return
+	 */
 	protected _FlexTaskRunner getFlexTaskRunner(){
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 		return mxmlContext.getFlexRunner();
 	}
 	
+	/**
+	 * This method will add a field to be filtered for the component, which will not add the field within the preMxml file.<br>
+	 * One component that requires this method is MXMLApplication, since the component can not have an "id" which is added<br>
+	 * for all components as _MXMLUIBaseAttributes.<br>
+	 * 
+	 * @param toBlankOut
+	 */
 	protected void addMapperFilterString(String toBlankOut){
 		_annotationDocletParserInstance.getFilterOutAttributes().add(toBlankOut);
 	}

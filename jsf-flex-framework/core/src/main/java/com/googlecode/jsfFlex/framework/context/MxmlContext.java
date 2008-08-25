@@ -26,6 +26,10 @@ import com.googlecode.jsfFlex.framework.tasks._FlexTaskRunner;
 import com.googlecode.jsfFlex.framework.tasks.factory._RunnerFactory;
 
 /**
+ * An abstract class providing the needed methods of its implementation.<br>
+ * Also static method getCurrentInstance provides an easy method of retrieving current<br>
+ * MxmlContext instance from the ThreadLocal.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public abstract class MxmlContext {

@@ -27,6 +27,11 @@ import org.apache.myfaces.shared_tomahawk.taglib.UIComponentBodyTagBase;
 import com.googlecode.jsfFlex.framework.util.MXMLConstants;
 
 /**
+ * The reason that this tag is created rather than having myfaces plug-In generate it<br>
+ * is because of the need to capture the contents of the JSP tag as an attribute of<br>
+ * MXMLConstants.TAG_BODY_CONTENT_ATTR. This will enable writing of ActionScript contents<br>
+ * as body of mxmlScript JSP tag.
+ * 
  * @author Ji Hoon Kim
  */
 public class MXMLUIScriptTag extends UIComponentBodyTagBase {

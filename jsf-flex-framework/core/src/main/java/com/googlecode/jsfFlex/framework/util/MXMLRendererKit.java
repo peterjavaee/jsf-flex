@@ -33,6 +33,9 @@ import org.xml.sax.helpers.DefaultHandler;
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 
 /**
+ * A class that will parse mxmlRenderKit.xml and return the correct package class<br>
+ * of the component as String for getRendererClass method.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public class MXMLRendererKit {

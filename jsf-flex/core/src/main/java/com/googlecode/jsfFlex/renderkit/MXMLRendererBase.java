@@ -33,6 +33,16 @@ import com.googlecode.jsfFlex.framework.context.MxmlContext;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
 /**
+ * This class is responsible for bridging JSF lifecycle with JSF Flex Framework lifecycle.<br>
+ * It will instantiate the correct MXML[NameOfComponent]Component and invoke the appropriate methods<br>
+ * corresponding to the methods within JSF lifecycle. Following is a mapping of the methods invoked within<br>
+ * JSF lifecycle to methods invoked within JSF Flex Framework's lifecycle : <br>
+ * <ul>
+ * 	<li> encodeBegin 	: buildComponentBegin, buildComponentInterlude
+ * 	<li> encodeChildren : buildComponentChildren [currently serves no purpose]
+ *  <li> encodeEnd		: buildComponentEnd 
+ * </ul>
+ * 
  * @author Ji Hoon Kim
  */
 public class MXMLRendererBase extends Renderer{

@@ -21,6 +21,8 @@ package com.googlecode.jsfFlex.framework;
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 
 /**
+ * All MXMLComponents must implement this method in order to piggy back on JSF lifecycle.<br> 
+ * 
  * @author Ji Hoon Kim
  */
 public interface _Component {

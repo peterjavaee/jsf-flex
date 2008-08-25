@@ -25,16 +25,21 @@ import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * This class will process the needed actions of setting and retrieving of "value" attribute<br>
+ * within the Flex components. Note that since this class invokes the super method of getComponentValues<br>
+ * it will also set and retrieve values of "text" attribute of the component [if it exists].<br>
+ * 
  * @author Ji Hoon Kim
  */ 
 public abstract class MXMLUIValueBase 
 				extends MXMLUIInputBase {
 	
+	private static final String VALUE_ATTR = "value";
 	private static final String VALUE_ID_APPENDED = "_value";
 	
 	public Map getComponentValues() {
 		super.getComponentValues();
-		_componentValues.put("value", getValue() == null ? null : (String) getValue());
+		_componentValues.put(VALUE_ATTR, getValue() == null ? null : (String) getValue());
 		return super.getComponentValues();
 	}
 	
@@ -60,7 +65,7 @@ public abstract class MXMLUIValueBase
     		return;
     	}
     	
-    	ValueBinding vb = getValueBinding("value");
+    	ValueBinding vb = getValueBinding(VALUE_ATTR);
 		if(vb != null && !vb.isReadOnly(getFacesContext())){
 			vb.setValue(getFacesContext(), getValue());
 			setValue(null);

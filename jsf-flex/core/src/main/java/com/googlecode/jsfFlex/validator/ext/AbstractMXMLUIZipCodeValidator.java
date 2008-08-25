@@ -73,7 +73,11 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  *   						 name		= "wrongLengthError"
  *  						 returnType = "java.lang.String"
  *  						 longDesc	= "Error message when the field contains the wrong number of digits for the specified type."
- *   						
+ * 
+ * One thing to note about MXML Formatter and Validator is that they are not actually converters or validators<br>
+ * respectively but actually are components. This is so because they perform the formatting and validation<br>
+ * as Flex components on the client side and not on the server side.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIZipCodeValidator 

@@ -34,6 +34,8 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.framework.tasks.task.velocity.EvaluateTemplateTask;
 
 /**
+ * A Velocity implementation of _FileManipulatorTaskRunner interface.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulatorTaskRunner {

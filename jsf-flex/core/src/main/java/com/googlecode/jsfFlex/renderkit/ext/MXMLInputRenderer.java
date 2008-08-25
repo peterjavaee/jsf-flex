@@ -30,9 +30,14 @@ import com.googlecode.jsfFlex.renderkit.MXMLRendererBase;
 
 /**
  * @JSFRenderer 
- *   renderKitId = "HTML_BASIC" 
+ *   renderKitId = "MXML_BASIC" 
  *   family      = "javax.faces.MXMLInput"
  *   type        = "com.googlecode.jsfFlex.MXMLInput"
+ * 
+ * This renderer should be used for components that do require preservation of values.<br>
+ * In another words, components that ultimately extend from MXMLUIInputBase [i.e. AbstractMXMLUIRichTextEditor].<br>
+ * The main difference between this renderer and MXMLSimpleBaseRenderer is that this renderer creates html components<br>
+ * to avoid having javascript error.<br>
  * 
  * @author Ji Hoon Kim
  */

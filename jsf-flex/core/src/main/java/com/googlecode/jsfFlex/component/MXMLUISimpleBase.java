@@ -28,6 +28,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
 /**
+ * This component should be used as the base action of the component if the component<br>
+ * does not require any preservation of values during the post-back phase [i.e. AbstractMXMLUIVideoDisplay].<br>
+ * 
  * @author Ji Hoon Kim
  */
 public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLContract {

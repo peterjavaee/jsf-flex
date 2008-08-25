@@ -31,6 +31,14 @@ import com.googlecode.jsfFlex.framework.util.MXMLConstants;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
 /**
+ * This Util class will provide functionalities that are need by JSF Flex components, such as : <br>
+ * <ul>
+ * 	<li> escapeCharacters 		: This method will take the argument and return an encoded version in UTF-8<br>
+ * 	<li> setComponentProperties : This method is responsible for setting the components preMxml properties [i.e. its major and minor numbers].<br>
+ *	 							  The reason this method is held within an Utility class is because the base action classes extend from different<br>
+ *								  classes [i.e. MXMLUISimpleBase extend from UIComponentBase and MXMLUIInputBase extend from UIInput].<br>
+ * </ul>
+ * 
  * @author Ji Hoon Kim
  */
 public class MXMLJsfUtil {
@@ -46,6 +54,14 @@ public class MXMLJsfUtil {
 		super();
 	}
 	
+	/**
+	 * This method will take the argument and return an encoded version in UTF-8. Also it will replace<br>
+	 * line feeds ("\r\n", "\n") with the "LINE_FEED" string [due to how Flash interprets these two line feeds<br>
+	 * differently. Then the conversion back to its non-replaced and encoded value will be made on the Flash side.<br>
+	 * 
+	 * @param toEscape
+	 * @return Encoded version of toEscape
+	 */
 	public static String escapeCharacters(String toEscape){
 		if(toEscape == null){
 			return null;
@@ -66,6 +82,14 @@ public class MXMLJsfUtil {
 		
 	}
 	
+	/**
+	 * This method is responsible for setting the components preMxml properties [i.e. its major and minor numbers].<br>
+	 * The reason this method is held within an Utility class is because the base action classes extend from different<br>
+	 * classes [i.e. MXMLUISimpleBase extend from UIComponentBase and MXMLUIInputBase extend from UIInput].<br>
+	 * 
+	 * @param component
+	 * @param context
+	 */
 	public static void setComponentProperties(UIComponent component, FacesContext context){
     	//set the major level, minor level, and absolutePathToPreMxmlFile
     	UIComponent parent = component.getParent();

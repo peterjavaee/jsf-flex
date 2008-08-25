@@ -29,6 +29,15 @@ import com.googlecode.jsfFlex.framework.tasks._FileManipulatorTaskRunner;
 import com.googlecode.jsfFlex.framework.tasks._FlexTaskRunner;
 
 /**
+ * Each implementation of _RunnerFactory should return a String specifying the package class<br>
+ * for each of the following interfaces :<br>
+ * <ul>
+ *     <li> _CommonTaskRunner
+ *     <li> _FileManipulatorTaskRunner
+ *     <li> _FlexTaskRunner
+ *     <li> _AnnotationDocletParser
+ * </ul>
+ * 
  * @author Ji Hoon Kim
  */
 public abstract class _RunnerFactory {

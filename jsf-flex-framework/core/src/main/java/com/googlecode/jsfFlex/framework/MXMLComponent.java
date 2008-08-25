@@ -24,6 +24,16 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.framework.util.MXMLRendererKit;
 
 /**
+ * This class is responsible for instantiating correct MXML[NameOfComponent]Component for the JSF component<br>
+ * and invoking the correct methods of the MXML[NameOfComponent]Component to integrate JSF Flex Framework's lifecycle to JSF<br>
+ * lifecycle. Following is a mapping of the methods invoked within JSF lifecycle to methods invoked within<br>
+ * JSF Flex Framework's lifecycle : <br>
+ * <ul>
+ * 	<li> encodeBegin 	: buildComponentBegin, buildComponentInterlude
+ * 	<li> encodeChildren : buildComponentChildren [currently serves no purpose]
+ *  <li> encodeEnd		: buildComponentEnd 
+ * </ul>
+ * 
  * @author Ji Hoon Kim
  */
 public final class MXMLComponent {
@@ -41,7 +51,6 @@ public final class MXMLComponent {
 		private UIComponent _jsfComponent;
 		private String _compFamily;
 		private String _rendererClass;
-		private _Component _component;
 		
 		public Builder(UIComponent jsfComponent, String compFamily, String rendererClass){
 			_jsfComponent = jsfComponent;
@@ -51,16 +60,16 @@ public final class MXMLComponent {
 		
 		public MXMLComponent build(){
 			
-			if(_component == null){
-				try{
-					_component = (_Component) MXMLComponent.class.getClassLoader().loadClass(_rendererClass).newInstance();
-				}catch(InstantiationException instantiationExcept){
-					throw new ComponentBuildException("Error in creating an instance of " + _rendererClass, instantiationExcept);
-				}catch(IllegalAccessException illegalAccessExcept){
-					throw new ComponentBuildException("Error in creating an instance of " + _rendererClass, illegalAccessExcept);
-				}catch(ClassNotFoundException classNotFoundExcept){
-					throw new ComponentBuildException("Error in creating an instance of " + _rendererClass, classNotFoundExcept);
-				}
+			_Component _component;
+			
+			try{
+				_component = (_Component) MXMLComponent.class.getClassLoader().loadClass(_rendererClass).newInstance();
+			}catch(InstantiationException instantiationExcept){
+				throw new ComponentBuildException("Error in creating an instance of " + _rendererClass, instantiationExcept);
+			}catch(IllegalAccessException illegalAccessExcept){
+				throw new ComponentBuildException("Error in creating an instance of " + _rendererClass, illegalAccessExcept);
+			}catch(ClassNotFoundException classNotFoundExcept){
+				throw new ComponentBuildException("Error in creating an instance of " + _rendererClass, classNotFoundExcept);
 			}
 			
 			return new MXMLComponent(_jsfComponent, _component);
@@ -76,10 +85,6 @@ public final class MXMLComponent {
 		}
 		public Builder setRendererClass(String rendererClass) {
 			_rendererClass = rendererClass;
-			return this;
-		}
-		public Builder setComponent(_Component component) {
-			_component = component;
 			return this;
 		}
 		

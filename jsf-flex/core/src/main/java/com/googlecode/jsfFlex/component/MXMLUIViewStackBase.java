@@ -23,6 +23,11 @@ import java.io.IOException;
 import javax.faces.context.FacesContext;
 
 /**
+ * This class will extend from MXMLUISelectedIndexBase class, so it will process the needed actions<br>
+ * of setting and retrieving of "selectedIndex" and "text" attributes. Additional task taken by the<br>
+ * component is to set the "creationPolicy" to "all", so that the Flex component will be accessible<br>
+ * after it finished its loading.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public abstract class MXMLUIViewStackBase 

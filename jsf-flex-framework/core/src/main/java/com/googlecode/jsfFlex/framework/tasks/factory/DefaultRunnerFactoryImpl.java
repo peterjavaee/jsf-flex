@@ -22,6 +22,10 @@ import java.io.IOException;
 import java.util.Properties;
 
 /**
+ * Default implementation of _RunnerFactory. It simply loads the defaultImplementation.properties<br>
+ * and returns a String specifying the package class for each interface that _RunnerFactory should instantiate.<br>
+ * Note that property of "annotation_doclet_parser_impl_package" is set during build time by maven.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public class DefaultRunnerFactoryImpl extends _RunnerFactory {

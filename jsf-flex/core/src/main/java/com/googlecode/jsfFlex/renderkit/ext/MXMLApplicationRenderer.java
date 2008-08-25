@@ -35,9 +35,16 @@ import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
 /**
  * @JSFRenderer
- *   renderKitId = "HTML_BASIC" 
+ *   renderKitId = "MXML_BASIC" 
  *   family      = "javax.faces.MXMLApplication"
  *   type        = "com.googlecode.jsfFlex.MXMLApplication"  
+ * 
+ * This renderer should be used solely for AbstractMXMLUIApplication and will have following list of responsibilities :<br>
+ * <ul>
+ *     <li> creation of html element to wrap the application SWF file
+ *     <li> creation of JSON objects to be used for initialization of Flex component values
+ *     <li> attaching com.googlecode.jsfFlex.communication.pageLoad function to dojo.addOnLoad [since tomahawk supports 0.4 release of Dojo]
+ * </ul>
  * 
  * @author Ji Hoon Kim
  */
