@@ -139,9 +139,6 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  * 							 name		= "stateChange"
  *   						 returnType	= "java.lang.String"
  *   						 longDesc	= "Dispatched when the state of the control changes."
- *   						
- *   						
- *   						
  *   						,
  *   						
  *   						@JSFJspProperty

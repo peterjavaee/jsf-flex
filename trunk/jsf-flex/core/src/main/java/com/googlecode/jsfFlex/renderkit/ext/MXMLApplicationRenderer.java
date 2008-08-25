@@ -35,7 +35,7 @@ import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
 /**
  * @JSFRenderer
- *   renderKitId = "MXML_BASIC" 
+ *   renderKitId = "HTML_BASIC" 
  *   family      = "javax.faces.MXMLApplication"
  *   type        = "com.googlecode.jsfFlex.MXMLApplication"  
  * 

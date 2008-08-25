@@ -30,7 +30,7 @@ import com.googlecode.jsfFlex.renderkit.MXMLRendererBase;
 
 /**
  * @JSFRenderer 
- *   renderKitId = "MXML_BASIC" 
+ *   renderKitId = "HTML_BASIC" 
  *   family      = "javax.faces.MXMLInput"
  *   type        = "com.googlecode.jsfFlex.MXMLInput"
  * 

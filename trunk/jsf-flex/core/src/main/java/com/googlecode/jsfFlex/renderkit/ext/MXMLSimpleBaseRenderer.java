@@ -22,7 +22,7 @@ import com.googlecode.jsfFlex.renderkit.MXMLRendererBase;
 
 /**
  * @JSFRenderer
- *   renderKitId = "MXML_BASIC" 
+ *   renderKitId = "HTML_BASIC" 
  *   family      = "javax.faces.MXMLSimpleBase"
  *   type        = "com.googlecode.jsfFlex.MXMLSimpleBase"  
  * 
