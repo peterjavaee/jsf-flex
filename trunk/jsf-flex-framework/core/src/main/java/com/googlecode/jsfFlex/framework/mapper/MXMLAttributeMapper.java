@@ -23,6 +23,9 @@ import java.util.Map;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
 /**
+ * An implementation of _MXMLMapper that retrieves the field<br>
+ * from the attribute Map of the component.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public class MXMLAttributeMapper implements _MXMLMapper {

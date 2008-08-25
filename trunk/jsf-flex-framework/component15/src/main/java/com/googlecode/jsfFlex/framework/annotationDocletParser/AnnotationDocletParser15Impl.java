@@ -30,6 +30,9 @@ import com.googlecode.jsfFlex.framework.tasks._AnnotationDocletParser;
 import com.googlecode.jsfFlex.framework.mapper.TokenValue;
 
 /**
+ * A class that extends _AnnotationDocletParser for JRE greater than 1.4. This class will get<br>
+ * the fields to inspect by inspecting the class' annotation.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public class AnnotationDocletParser15Impl extends _AnnotationDocletParser {

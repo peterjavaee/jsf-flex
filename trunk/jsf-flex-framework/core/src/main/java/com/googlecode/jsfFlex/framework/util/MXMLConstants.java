@@ -35,6 +35,8 @@ import org.xml.sax.helpers.DefaultHandler;
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 
 /**
+ * A constant class that defines various properties for the system.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public class MXMLConstants {

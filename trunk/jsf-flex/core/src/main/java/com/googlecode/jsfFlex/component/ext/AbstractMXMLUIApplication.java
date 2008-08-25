@@ -65,7 +65,6 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
 import com.googlecode.jsfFlex.framework.context.MxmlContext;
 import com.googlecode.jsfFlex.framework.context.MxmlContextImpl;
 import com.googlecode.jsfFlex.framework.util.MXMLConstants;
-import com.googlecode.jsfFlex.renderkit.MXML;
 import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexResourceHandler;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.util.MXMLJsfUtil;
@@ -235,6 +234,7 @@ public abstract class AbstractMXMLUIApplication
 						_MXMLUIThumbSkinAttributes, _MXMLUITrackAttributes, _MXMLUIHideAttribute,
 						_MXMLUITitleAttribute, _MXMLUIIconAttribute {
 	
+	private static final String INITIALIZE_ATTR = "initialize";
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLApplication";
 	
 	private static final String MX_ACTUAL_KEY = "xmlns:mx";
@@ -279,9 +279,9 @@ public abstract class AbstractMXMLUIApplication
 		mxmlContext.setSwfWebPath(swfWebPath);
 		
 		//setting or appending scripts to execute upon application initialization
-		String _init = (String) getAttributes().get(MXML.INITIALIZE_ATTR);
+		String _init = (String) getAttributes().get(INITIALIZE_ATTR);
 		_init = (_init == null) ? INITIALIZE_CALL : _init + " " + INITIALIZE_CALL;
-		getAttributes().put(MXML.INITIALIZE_ATTR, _init);
+		getAttributes().put(INITIALIZE_ATTR, _init);
 		
 		//to reflect the correct state when debugging
 		if(isProductionMode()){

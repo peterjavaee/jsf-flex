@@ -24,6 +24,9 @@ import java.lang.reflect.Method;
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 
 /**
+ * An implementation of _MXMLMapper that retrieves the field<br>
+ * as a method invocation of the object.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public class MXMLMethodMapper implements _MXMLMapper{

@@ -19,6 +19,8 @@
 package com.googlecode.jsfFlex.framework.mapper;
 
 /**
+ * A simple object to contain the token and value state.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public class TokenValue {

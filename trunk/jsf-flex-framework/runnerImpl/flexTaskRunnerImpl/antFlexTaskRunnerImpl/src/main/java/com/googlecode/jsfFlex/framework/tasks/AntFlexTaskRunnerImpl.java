@@ -39,6 +39,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
 /**
+ * An implementation of _FlexTaskRunner using ANT.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRunner {

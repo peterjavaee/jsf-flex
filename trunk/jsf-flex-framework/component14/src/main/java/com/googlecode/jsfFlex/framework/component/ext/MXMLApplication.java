@@ -65,6 +65,20 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  rendererName=com.googlecode.jsfFlex.MXMLApplication
  *  rendererClass=com.googlecode.jsfFlex.framework.component.ext.MXMLApplication
  * 
+ * Aside from its normal task of mapping the field to the Set and creating the preMxml file, MXMLApplication has<br>
+ * an added responsibility of :<br>
+ * <ul>
+ *     <li> merging preMxml file into a single preMxml file.
+ *     <li> creating an application MXML file.
+ *     <li> extracting the flexSDK zip file.
+ *     <li> creating necessary SWC source files.
+ *     <li> creating system SWC file.
+ *     <li> creating necessary application SWF source files.
+ *     <li> and creating application SWF file.
+ * </ul>
+ * Other than merging of the preMxml file into a single preMxml file, all other tasks are performed by invoking processCreateSwf<br>
+ * method within MXMLComponentBaseActions class.
+ * 
  * @author Ji Hoon Kim
  */
 public class MXMLApplication extends MXMLContainerTemplate {

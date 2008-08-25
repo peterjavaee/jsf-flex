@@ -23,6 +23,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * A simple bean to demonstrate the binding of the fields.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public class MXMLBean implements Serializable {

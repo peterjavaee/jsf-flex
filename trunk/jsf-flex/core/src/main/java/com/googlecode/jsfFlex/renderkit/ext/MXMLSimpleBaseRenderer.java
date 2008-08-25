@@ -22,9 +22,12 @@ import com.googlecode.jsfFlex.renderkit.MXMLRendererBase;
 
 /**
  * @JSFRenderer
- *   renderKitId = "HTML_BASIC" 
+ *   renderKitId = "MXML_BASIC" 
  *   family      = "javax.faces.MXMLSimpleBase"
  *   type        = "com.googlecode.jsfFlex.MXMLSimpleBase"  
+ * 
+ * This renderer should be used for components that do not require any preservation of values.<br>
+ * In another words, components that extend from MXMLUISimpleBase [i.e. AbstractMXMLUIVideoDisplay]<br>
  * 
  * @author Ji Hoon Kim
  */

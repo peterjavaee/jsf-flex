@@ -27,15 +27,18 @@ import javax.faces.context.FacesContext;
 import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
 
-import com.googlecode.jsfFlex.renderkit.MXML;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
 /**
+ * This class will process the needed actions of setting and retrieving of "text" attribute<br>
+ * within the Flex components.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 	
+	private static final String TEXT_ATTR = "text";
 	private static final String TEXT_ID_APPENDED = "_text";
 	
 	protected Map _componentValues;
@@ -61,7 +64,7 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 	}
 	
 	public Map getComponentValues(){
-		_componentValues.put(MXML.TEXT_ATTR, getText());
+		_componentValues.put(TEXT_ATTR, getText());
     	return _componentValues;
     }
 	
@@ -92,7 +95,7 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
     		return;
     	}
     	
-    	ValueBinding vb = getValueBinding("text");
+    	ValueBinding vb = getValueBinding(TEXT_ATTR);
 		if(vb != null && !vb.isReadOnly(getFacesContext())){
 			vb.setValue(getFacesContext(), getText());
 			setText(null);

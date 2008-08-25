@@ -28,6 +28,15 @@ import com.googlecode.jsfFlex.framework.tasks._FlexTaskRunner;
 import com.googlecode.jsfFlex.framework.tasks.factory._RunnerFactory;
 
 /**
+ * An implementation of MxmlContext which will instantiate and store all the needed data structures<br>
+ * and instantiate and store the implementation of following interfaces :<br>
+ * <ul>
+ *     <li> _FileManipulatorTaskRunner
+ *     <li> _FlexTaskRunner
+ *     <li> _CommonTaskRunner
+ * </ul>
+ * Also it will set the current MxmlContextImpl to the ThreadLocal.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public class MxmlContextImpl extends MxmlContext {

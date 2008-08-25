@@ -30,6 +30,8 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.framework.tasks.task.common.UnzipTask;
 
 /**
+ * A SDKStandard implementation of _CommonTaskRunner interface.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public class SDKStandardCommonTaskRunnerImpl extends TaskRunnerImpl implements _CommonTaskRunner {

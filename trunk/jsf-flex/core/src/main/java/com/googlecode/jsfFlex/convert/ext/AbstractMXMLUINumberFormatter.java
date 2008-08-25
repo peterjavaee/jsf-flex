@@ -79,7 +79,11 @@ import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
  * 							 name		= "useThousandsSeparator"
  *   						 returnType	= "java.lang.String"
  *   						 longDesc	= "If true, split the number into thousands increments by using a separator character."
- *  
+ * 
+ * One thing to note about MXML Formatter and Validator is that they are not actually converters or validators<br>
+ * respectively but actually are components. This is so because they perform the formatting and validation<br>
+ * as Flex components on the client side and not on the server side.<br> 
+ * 
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUINumberFormatter 

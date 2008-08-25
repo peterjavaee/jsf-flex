@@ -24,22 +24,26 @@ import javax.faces.context.FacesContext;
 import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
 
-import com.googlecode.jsfFlex.renderkit.MXML;
-
 /**
+ * This class will process the needed actions of setting and retrieving of "htmlText" attribute<br>
+ * within the Flex components. Note that since this class invokes the super method of getComponentValues<br>
+ * it will also set and retrieve values of "text" attribute of the component [if it exists].<br>
+ * 
  * @author Ji Hoon Kim
  */ 
 public abstract class MXMLUITextInputBase 
 						extends MXMLUIInputBase {
 	
+	private static final String HTML_TEXT_ATTR = "htmlText";
 	private static final String HTML_TEXT_ID_APPENDED = "_htmlText";
+	private static final String TEXT_ATTR = "text";
 	
 	public Map getComponentValues() {
 		super.getComponentValues();
-    	if(getTextBinding().equals(MXML.HTML_TEXT_ATTR)){
-    		_componentValues.put(MXML.HTML_TEXT_ATTR, getHtmlText());
-    	}else if(getTextBinding().equals(MXML.TEXT_ATTR)){
-    		_componentValues.put(MXML.TEXT_ATTR, getText());
+    	if(getTextBinding().equals(HTML_TEXT_ATTR)){
+    		_componentValues.put(HTML_TEXT_ATTR, getHtmlText());
+    	}else if(getTextBinding().equals(TEXT_ATTR)){
+    		_componentValues.put(TEXT_ATTR, getText());
     	}
     	return _componentValues;
     }
@@ -60,9 +64,9 @@ public abstract class MXMLUITextInputBase
     		setHtmlText(htmlTextUpdateVal);
     	}
     	
-    	if(getTextBinding().equals(MXML.HTML_TEXT_ATTR)){
+    	if(getTextBinding().equals(HTML_TEXT_ATTR)){
     		setSubmittedValue(getHtmlText());
-    	}else if(getTextBinding().equals(MXML.TEXT_ATTR)){
+    	}else if(getTextBinding().equals(TEXT_ATTR)){
     		setSubmittedValue(getText());
     	}
     	
@@ -75,7 +79,7 @@ public abstract class MXMLUITextInputBase
     		return;
     	}
     	
-    	ValueBinding vb = getValueBinding("htmlText");
+    	ValueBinding vb = getValueBinding(HTML_TEXT_ATTR);
 		if(vb != null && !vb.isReadOnly(getFacesContext())){
 			vb.setValue(getFacesContext(), getHtmlText());
 			setHtmlText(null);

@@ -141,6 +141,10 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  *  						 returnType = "java.lang.String"
  *  						 longDesc	= "The maximum number of digits allowed to follow the decimal point."
  * 
+ * One thing to note about MXML Formatter and Validator is that they are not actually converters or validators<br>
+ * respectively but actually are components. This is so because they perform the formatting and validation<br>
+ * as Flex components on the client side and not on the server side.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUICurrencyValidator 

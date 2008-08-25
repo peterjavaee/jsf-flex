@@ -19,6 +19,10 @@
 package com.googlecode.jsfFlex.framework.exception;
 
 /**
+ * An exception that once extended from Exception and now extends from<br>
+ * RuntimeException. Should it be converted back to its past state? This is<br>
+ * up for discussion, the first "Back to the Future" was a nice movie.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public class ComponentBuildException extends RuntimeException {

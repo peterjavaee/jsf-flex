@@ -25,6 +25,10 @@ import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
 
 /**
+ * This class will process the needed actions of setting and retrieving of "selected" attribute<br>
+ * within the Flex components. Note that since this class invokes the super method of getComponentValues<br>
+ * it will also set and retrieve values of "text" attribute of the component [if it exists].<br>
+ * 
  * @author Ji Hoon Kim
  */ 
 public abstract class MXMLUIButtonBase 
@@ -61,7 +65,7 @@ public abstract class MXMLUIButtonBase
     		return;
     	}
     	
-    	ValueBinding vb = getValueBinding("selected");
+    	ValueBinding vb = getValueBinding(SELECTED_ATTR);
 		if(vb != null && !vb.isReadOnly(getFacesContext())){
 			vb.setValue(getFacesContext(), getSelected());
 			setSelected(null);
