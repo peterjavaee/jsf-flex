@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="RegExpValidator",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLRegExpValidator",
+		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLRegExpValidator",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="expression", byMethod=false),

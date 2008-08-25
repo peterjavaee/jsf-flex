@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="PhoneFormatter",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLPhoneFormatter",
+		rendererClass="com.googlecode.jsfFlex.framework.convert.ext.MXMLPhoneFormatter",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="areaCode", byMethod=false),

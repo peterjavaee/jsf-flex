@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="ProgressBar",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLProgressBar",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLProgressBar",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="conversion", byMethod=false),

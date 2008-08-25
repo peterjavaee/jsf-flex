@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="VRule",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLVRule",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLVRule",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="strokeColor", byMethod=true),

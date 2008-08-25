@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="TabNavigator",
+		componentFamily="javax.faces.MXMLInput",
+		rendererName="com.googlecode.jsfFlex.MXMLTabNavigator",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLTabNavigator",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="fillAlphas", byMethod=false),

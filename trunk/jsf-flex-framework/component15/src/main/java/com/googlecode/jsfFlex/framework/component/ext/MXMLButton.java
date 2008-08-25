@@ -28,6 +28,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="Button",
+		componentFamily="javax.faces.MXMLInput",
+		rendererName="com.googlecode.jsfFlex.MXMLButton",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLButton",
+		
 		jsfFlexAttributes={}
 	)
 public class MXMLButton extends MXMLButtonTemplate {

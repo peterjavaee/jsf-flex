@@ -28,6 +28,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="Validator",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLValidator",
+		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLValidator",
 		
 		jsfFlexAttributes={}
 	)

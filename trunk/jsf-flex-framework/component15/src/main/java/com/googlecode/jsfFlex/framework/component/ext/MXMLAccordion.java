@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="Accordion",
+		componentFamily="javax.faces.MXMLInput",
+		rendererName="com.googlecode.jsfFlex.MXMLAccordion",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLAccordion",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="headerRenderer", byMethod=false),

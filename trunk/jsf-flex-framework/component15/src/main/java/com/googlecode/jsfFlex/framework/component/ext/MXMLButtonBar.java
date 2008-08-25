@@ -28,6 +28,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="ButtonBar",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLButtonBar",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLButtonBar",
+		
 		jsfFlexAttributes={}
 	)
 public class MXMLButtonBar extends MXMLButtonBarTemplate {

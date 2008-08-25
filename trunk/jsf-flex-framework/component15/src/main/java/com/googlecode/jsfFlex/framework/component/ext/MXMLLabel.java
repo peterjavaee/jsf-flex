@@ -28,6 +28,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="Label",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLLabel",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLLabel",
+		
 		jsfFlexAttributes={}
 	)
 public class MXMLLabel extends MXMLLabelTemplate {

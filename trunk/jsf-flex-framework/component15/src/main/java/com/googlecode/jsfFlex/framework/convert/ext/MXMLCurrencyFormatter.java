@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="CurrencyFormatter",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLCurrencyFormatter",
+		rendererClass="com.googlecode.jsfFlex.framework.convert.ext.MXMLCurrencyFormatter",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="alignSymbol", byMethod=false),

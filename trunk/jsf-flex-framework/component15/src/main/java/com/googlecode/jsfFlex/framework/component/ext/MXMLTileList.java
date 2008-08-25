@@ -28,6 +28,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="TileList",
+		componentFamily="javax.faces.MXMLInput",
+		rendererName="com.googlecode.jsfFlex.MXMLTileList",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLTileList",
+		
 		jsfFlexAttributes={}
 	)
 public class MXMLTileList extends MXMLListBaseTemplate {

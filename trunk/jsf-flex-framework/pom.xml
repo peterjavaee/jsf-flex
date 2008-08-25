@@ -78,6 +78,8 @@
   <modules>
     <module>core</module>
     <module>runnerImpl</module>
+    <module>component14</module>
+    <module>component15</module>
   </modules>
   
   <profiles>
@@ -105,29 +107,6 @@
       </properties>
     </profile>
     
-    <profile>
-      <id>jsf_flex_framework_runtime-1.4</id>
-      <activation>
-        <property>
-          <name>!jsf_flex_framework_runtime</name>
-        </property>
-      </activation>
-      <modules>
-        <module>component14</module>
-      </modules>
-    </profile>
-    <profile>
-      <id>jsf_flex_framework_runtime-1.5</id>
-      <activation>
-        <property>
-          <name>jsf_flex_framework_runtime</name>
-          <value>15</value>
-        </property>
-      </activation>
-      <modules>
-        <module>component15</module>
-      </modules>
-    </profile>
     <profile>
       <id>jsf_flex-SNAPSHOT</id>
       <activation>

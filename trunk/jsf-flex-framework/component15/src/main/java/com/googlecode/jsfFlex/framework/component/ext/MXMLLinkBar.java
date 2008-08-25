@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="LinkBar",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLLinkBar",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLLinkBar",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="rollOverColor", byMethod=false),

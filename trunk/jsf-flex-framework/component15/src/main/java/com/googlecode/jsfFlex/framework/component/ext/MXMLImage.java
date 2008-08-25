@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="Image",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLImage",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLImage",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="dataChange", byMethod=false)

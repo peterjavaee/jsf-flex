@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="RadioButton",
+		componentFamily="javax.faces.MXMLInput",
+		rendererName="com.googlecode.jsfFlex.MXMLRadioButton",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLRadioButton",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="groupName", byMethod=true),

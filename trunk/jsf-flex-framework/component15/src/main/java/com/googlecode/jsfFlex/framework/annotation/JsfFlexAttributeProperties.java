@@ -36,4 +36,10 @@ public @interface JsfFlexAttributeProperties {
 	
 	String componentName() default "";
 	
+	String componentFamily() default "";
+	
+	String rendererName() default "";
+	
+	String rendererClass() default "";
+	
 }

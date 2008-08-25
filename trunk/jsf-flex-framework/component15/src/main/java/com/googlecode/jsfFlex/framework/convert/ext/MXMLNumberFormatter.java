@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="NumberFormatter",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLNumberFormatter",
+		rendererClass="com.googlecode.jsfFlex.framework.convert.ext.MXMLNumberFormatter",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="decimalSeparatorFrom", byMethod=false),

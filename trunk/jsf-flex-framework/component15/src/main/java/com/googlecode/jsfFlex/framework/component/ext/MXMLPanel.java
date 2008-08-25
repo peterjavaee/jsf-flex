@@ -28,6 +28,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="Panel",
+		componentFamily="javax.faces.MXMLSimpleBase",
+		rendererName="com.googlecode.jsfFlex.MXMLPanel",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLPanel",
+		
 		jsfFlexAttributes={}
 	)
 public class MXMLPanel extends MXMLPanelTemplate {

@@ -28,6 +28,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="ViewStack",
+		componentFamily="javax.faces.MXMLInput",
+		rendererName="com.googlecode.jsfFlex.MXMLViewStack",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLViewStack",
+		
 		jsfFlexAttributes={}
 	)
 public class MXMLViewStack extends MXMLViewStackTemplate {

@@ -29,6 +29,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="DateField",
+		componentFamily="javax.faces.MXMLInput",
+		rendererName="com.googlecode.jsfFlex.MXMLDateField",
+		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLDateField",
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="dayNames", byMethod=false),
