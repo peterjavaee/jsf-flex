@@ -126,7 +126,6 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   						 name		= "headerStyleName"
  *   						 returnType = "java.lang.String"
  *   						 longDesc	= "Name of the style sheet definition to configure the text (month name and year) and appearance of the header area of the control."
- *   						
  *   						,
  *   						
  *   						@JSFJspProperty
@@ -151,7 +150,6 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   						 name		= "openEasingFunction"
  *   						 returnType = "java.lang.String"
  *   						 longDesc	= "Easing function to control component tweening."
- *   						
  *   						,
  *   						
  *   						@JSFJspProperty
