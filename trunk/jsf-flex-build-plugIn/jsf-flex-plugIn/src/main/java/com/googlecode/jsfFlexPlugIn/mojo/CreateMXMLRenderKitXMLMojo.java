@@ -42,14 +42,11 @@ import com.googlecode.jsfFlexPlugIn.inspector.qdox.JsfFlexQdoxInspector;
 import com.googlecode.jsfFlexPlugIn.parser._JsfFlexParserListener;
 import com.googlecode.jsfFlexPlugIn.parser.velocity.JsfFlexVelocityParser;
 import com.thoughtworks.qdox.JavaDocBuilder;
-import com.thoughtworks.qdox.model.DocletTag;
 import com.thoughtworks.qdox.model.JavaClass;
 
 /**
- * TODO : Finish the implementation and test it
- * 
  * @goal    createMXMLRenderKitXML
- * @phase   process-classes
+ * @phase   generate-resources
  * @author Ji Hoon Kim
  */
 public class CreateMXMLRenderKitXMLMojo extends AbstractMojo 
@@ -57,7 +54,7 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 	
 	private static final String JSF_FLEX_RENDERKIT_ATTRIBUTE = "JsfFlexRenderKitAttribute";
 	
-	private static final String COMPONENT_14_PROJECT_NAME = "component14";
+	private static final String COMPONENT_14_PROJECT_NAME = "jsf-flex-framework-component14";
 	private static final String JSF_FLEX_RENDERERLIST_ATTRIBUTE = "rendererList";
 	private static final String JSF_FLEX_RENDERKIT_XML_TEMPLATE = "jsf-flex-mxmlRenderKitXML.vm";
 	private static final String TO_CREATE_MXML_RENDERKIT_XML_FILE_NAME = "mxmlRenderKit.xml";
@@ -80,7 +77,7 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 	private MavenProject project;
 	
 	/**
-     * @parameter expression="target/classes/com/googlecode/jsfFlex/framework/util"
+     * @parameter expression="${basedir}/target/classes/com/googlecode/jsfFlex/framework/util"
      */
 	private File toCreateMxmlRenderKitXMLPath;
 	
@@ -89,7 +86,7 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
      */
     private File templateSourceDirectory;
 	
-	public CreateMXMLRenderKitXMLMojo(){
+    public CreateMXMLRenderKitXMLMojo(){
 		super();
 		_rendererMap = new HashMap<String, Renderer>();
 	}
@@ -125,7 +122,7 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 		public Set getRendererInfoSet() {
 			return _rendererInfoSet;
 		}
-		public void setRendererInfoSet(Set rendererInfoSet) {
+		public void setRendererInfoSet(Set<RendererInfo> rendererInfoSet) {
 			_rendererInfoSet = rendererInfoSet;
 		}
 		
@@ -205,14 +202,13 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 			_jsfFlexVelocityParser.init();
 			_jsfFlexVelocityParser.addParserListener(this);
 			
-			if(project.getName().equals(COMPONENT_14_PROJECT_NAME)){
+			if(project.getArtifactId().equals(COMPONENT_14_PROJECT_NAME)){
 				_jsfFlexInspector = new JsfFlexQdoxInspector(JSF_FLEX_RENDERKIT_ATTRIBUTE, _currDirPath);
 			}else{
 				
-				_jsfFlexInspector = new _JsfFlexInspectorBase(){
+				_jsfFlexInspector = new _JsfFlexInspectorBase(_currDirPath){
 										public void inspectFiles(){
-											Map _inspectedMap;
-											DocletTag[] _inspectedDocletTag;
+											Map<String, String> _inspectedMap;
 											JavaDocBuilder builder = new JavaDocBuilder();
 											builder.addSourceTree(new File(getDirPath()));
 											JavaClass[] _inspectableFiles = builder.getClasses();
@@ -220,10 +216,10 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 											
 											for(JavaClass _currClass : _inspectableFiles){
 												_jsfFlexAttributeList = _currClass.getClass().getAnnotation(JsfFlexAttributeProperties.class);
+												_inspectedMap = new LinkedHashMap<String, String>();
 												
-												_inspectedMap = new LinkedHashMap();
-												
-												if(_jsfFlexAttributeList.componentFamily() == null || _jsfFlexAttributeList.componentFamily().length() == 0){
+												if(_jsfFlexAttributeList == null || _jsfFlexAttributeList.componentFamily() == null || 
+														_jsfFlexAttributeList.componentFamily().length() == 0){
 													continue;
 												}
 												
@@ -241,7 +237,6 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 			}
 			
 			_jsfFlexInspector.addInspectListener(this);
-			
 			
 			_jsfFlexInspector.inspectFiles();
 			
@@ -277,12 +272,17 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 	
 	public void inspectionCompleted(){
 		
-		String _toCreateMxmlRenderKitXMLFilePath = toCreateMxmlRenderKitXMLPath.getPath() + TO_CREATE_MXML_RENDERKIT_XML_FILE_NAME;
+		//A simple HACK for now
+		String _toCreateMxmlRenderKitXMLFilePath = toCreateMxmlRenderKitXMLPath.getPath();
+		_toCreateMxmlRenderKitXMLFilePath = _toCreateMxmlRenderKitXMLFilePath.replace("component14", "core");
 		
 		try{
-			
-			//FileWriter _writer = new FileWriter(new File(_toCreateMxmlRenderKitXMLFilePath));
-			FileWriter _writer = new FileWriter(new File("C:\\test\\" + TO_CREATE_MXML_RENDERKIT_XML_FILE_NAME));
+			File _mxmlRenderKitFilePath = new File(_toCreateMxmlRenderKitXMLFilePath);
+			if(!_mxmlRenderKitFilePath.exists()){
+				_mxmlRenderKitFilePath.mkdirs();
+			}
+			_toCreateMxmlRenderKitXMLFilePath +=  File.separatorChar + TO_CREATE_MXML_RENDERKIT_XML_FILE_NAME; 
+			FileWriter _writer = new FileWriter(new File(_toCreateMxmlRenderKitXMLFilePath));
 			Map<String, Object> _contextInfoMap = new HashMap<String, Object>();
 			
 			_contextInfoMap.put(JSF_FLEX_RENDERERLIST_ATTRIBUTE, _rendererMap);
