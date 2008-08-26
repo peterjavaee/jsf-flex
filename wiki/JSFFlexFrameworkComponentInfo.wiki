@@ -6,7 +6,7 @@ Brief overview of JSF Flex Framework Components
 = Details =
 
 ==Overview==
-There are two projects for components within JSF Flex component, namely component14 and component15, mainly to provide backward capability for JRE < 1.5 and JRE >= 1.5 {will let reader figure out which one is what =)}. The choice of which component one will choose will depend on the profile provided when building the artifacts through maven {default will be component14}. Other decisions and choices of implementation will be decided when building the artifacts through maven, but more on that later.
+There are two projects for components within JSF Flex component, namely component14 and component15, mainly to provide capability for JRE < 1.5 and JRE >= 1.5 {will let reader figure out which one is what =)}. The choice of which component one will choose will depend on the arguments provided when building the artifacts through maven {default will be component14}. Other decisions and choices of implementation will be decided when building the artifacts through maven, but more on that later.
 
 ==UIComponent field inspection==
 
