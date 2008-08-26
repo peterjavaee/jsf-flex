@@ -37,6 +37,12 @@
       </dependency>
       
       <dependency>
+        <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
+        <artifactId>jsf-flex-framework-core</artifactId>
+        <version>${jsf_flex_framework_core}</version>
+      </dependency>
+      
+      <dependency>
         <groupId>commons-logging</groupId>
         <artifactId>commons-logging</artifactId>
         <version>1.1.1</version>
@@ -76,10 +82,11 @@
   </pluginRepositories>
   
   <modules>
-    <module>core</module>
-    <module>runnerImpl</module>
     <module>component14</module>
     <module>component15</module>
+    <module>annotations</module>
+    <module>core</module>
+    <module>runnerImpl</module>
   </modules>
   
   <profiles>
@@ -130,5 +137,9 @@
       </properties>
     </profile>
   </profiles>
+  
+  <properties>
+    <jsf_flex_framework_core>0.0.5-SNAPSHOT</jsf_flex_framework_core>
+  </properties>
   
 </project>
