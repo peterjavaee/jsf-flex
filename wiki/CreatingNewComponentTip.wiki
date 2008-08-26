@@ -94,18 +94,26 @@ This page will provide a quick overview in the steps needed in creating addition
       * 	headerRenderer=false
       * 	historyManagementEnabled=false
       * 	resizeToContent=false
+      * ...
+      * @JsfFlexRenderKitAttribute
+      *  componentFamily=javax.faces.MXMLInput
+      *  rendererName=com.googlecode.jsfFlex.MXMLAccordion
+      *  rendererClass=com.googlecode.jsfFlex.framework.component.ext.MXMLAccordion
      }}}
    * component15 project, they should be set by annotation as shown below for {{{MXMLAccordion}}}
      {{{
       @JsfFlexAttributeProperties(
 	componentName="Accordion",
-	
+	componentFamily="javax.faces.MXMLInput",
+	rendererName="com.googlecode.jsfFlex.MXMLAccordion",
+	rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLAccordion",
+        
 	jsfFlexAttributes={
 		@JsfFlexAttribute(attribute="headerRenderer", byMethod=false),
 		@JsfFlexAttribute(attribute="historyManagementEnabled", byMethod=false),
 		@JsfFlexAttribute(attribute="resizeToContent", byMethod=false),
      }}}
-   One thing to note for JSF Flex Framework components is that ONLY the properties that belong to that component should be inserted within that class and if the concrete component's properties are shared between components {i.e. other components extend from it} one should create the {{{MXML<ComponentName>Template}}} and have those classes extend from this Template class.
+   One thing to note for JSF Flex Framework components is that ONLY the properties that belong to that component should be inserted within that class and if the concrete component's properties are shared between components {i.e. other components extend from it} one should create the {{{MXML<ComponentName>Template}}} and have those classes extend from this Template class. Another thing to note is the other javaDoc and annotation that are included for each Java file, so to insert its information into mxmlRenderKit.xml file.
  # If one needs the component created without other specific needs, all one needs to do is add {{{mapFields}}} and {{{addCreatePreMxmlTask}}} method calls within {{{buildComponentBegin}}} and {{{buildComponentInterlude}}} methods respectively. Depending on which component1<4 | 5> project, the parameters will differ. For
    * component14, here is an example of {{{MXMLAccordion}}}
      {{{
@@ -152,7 +160,6 @@ This page will provide a quick overview in the steps needed in creating addition
 		
 	}
      }}}
- # Add the component entry within jsf-flex-framework/core's mxmlRenderKit.xml { {{{in future this will be generated through JSF Flex Plug-In, eliminating this step within the process}}} }.
  # One final thing to remember, if the data needs to be passed back to the server side and mapped to the managed bean, is to add an entry within jsf-flex-framework/core's componentValueMapper.xml.
 
 
