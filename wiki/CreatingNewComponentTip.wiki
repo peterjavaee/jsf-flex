@@ -152,7 +152,7 @@ This page will provide a quick overview in the steps needed in creating addition
 		
 	}
      }}}
- # Add the component entry within jsf-flex-framework/core's mxmlRenderKit.xml { {{{in future this will be generated through JSF Flex Plug-In}}} }, eliminating this step within the process.
+ # Add the component entry within jsf-flex-framework/core's mxmlRenderKit.xml { {{{in future this will be generated through JSF Flex Plug-In, eliminating this step within the process}}} }.
  # One final thing to remember, if the data needs to be passed back to the server side and mapped to the managed bean, is to add an entry within jsf-flex-framework/core's componentValueMapper.xml.
 
 
