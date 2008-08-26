@@ -23,13 +23,15 @@ package com.googlecode.jsfFlex.framework.mapper;
  * 
  * @author Ji Hoon Kim
  */
-public class TokenValue {
+public final class TokenValue {
 	
-	private String _token;
-	private Object _value;
+	private final String _token;
+	private final Object _value;
 	
-	public TokenValue(){
+	private TokenValue(){
 		super();
+		_token = null;
+		_value = null;
 	}
 	
 	public TokenValue(String token, Object value){
@@ -41,14 +43,8 @@ public class TokenValue {
 	public String getToken() {
 		return _token;
 	}
-	public void setToken(String token) {
-		_token = token;
-	}
 	public Object getValue() {
 		return _value;
-	}
-	public void setValue(Object value) {
-		_value = value;
 	}
 	
 	public String toString(){
