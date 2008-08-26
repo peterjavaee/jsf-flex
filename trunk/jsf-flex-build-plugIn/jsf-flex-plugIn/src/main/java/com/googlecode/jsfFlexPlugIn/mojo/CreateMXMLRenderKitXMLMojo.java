@@ -22,10 +22,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
@@ -54,7 +52,10 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 	
 	private static final String JSF_FLEX_RENDERKIT_ATTRIBUTE = "JsfFlexRenderKitAttribute";
 	
-	private static final String COMPONENT_14_PROJECT_NAME = "jsf-flex-framework-component14";
+	private static final String CORE_PROJECT_NAME = "core";
+	private static final String COMPONENT_14_PROJECT_NAME = "component14";
+	private static final String COMPONENT_15_PROJECT_NAME = "component15";
+	
 	private static final String JSF_FLEX_RENDERERLIST_ATTRIBUTE = "rendererList";
 	private static final String JSF_FLEX_RENDERKIT_XML_TEMPLATE = "jsf-flex-mxmlRenderKitXML.vm";
 	private static final String TO_CREATE_MXML_RENDERKIT_XML_FILE_NAME = "mxmlRenderKit.xml";
@@ -75,6 +76,11 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 	 * @parameter expression="${project}"
 	 */
 	private MavenProject project;
+	
+	/**
+     * @parameter expression="${targetComponentProject}"
+     */
+	private String targetComponentProject;
 	
 	/**
      * @parameter expression="${basedir}/target/classes/com/googlecode/jsfFlex/framework/util"
@@ -188,25 +194,26 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 	}
 	
 	public void execute() throws MojoExecutionException, MojoFailureException {
-		List _compileSourceRoots = project.getCompileSourceRoots();
-		String _currDirPath;
 		
-		for(Iterator _compileSourceRootsIterator = _compileSourceRoots.iterator(); 
-													_compileSourceRootsIterator.hasNext();){
-			_currDirPath = (String) _compileSourceRootsIterator.next();
+		String _currDirPath = (String) project.getCompileSourceRoots().get(0);
+		_currDirPath = (targetComponentProject.equals(COMPONENT_14_PROJECT_NAME)) ? 
+												_currDirPath.replace(CORE_PROJECT_NAME, COMPONENT_14_PROJECT_NAME) : 
+												_currDirPath.replace(CORE_PROJECT_NAME, COMPONENT_15_PROJECT_NAME);
+		
+		Properties _velocityParserProperties = new Properties();
+		_velocityParserProperties.put(FILE_RESOURCE_LOADER_PATH_KEY, templateSourceDirectory.getPath());
+		
+		_jsfFlexVelocityParser = new JsfFlexVelocityParser(_velocityParserProperties);
+		_jsfFlexVelocityParser.init();
+		_jsfFlexVelocityParser.addParserListener(this);
+		
+		//HACK for now, since QDOX seems to have issues reading Java files with annotations
+		targetComponentProject = COMPONENT_14_PROJECT_NAME;
+		if(targetComponentProject.equals(COMPONENT_14_PROJECT_NAME)){
+			_jsfFlexInspector = new JsfFlexQdoxInspector(JSF_FLEX_RENDERKIT_ATTRIBUTE, _currDirPath);
+		}else{
 			
-			Properties _velocityParserProperties = new Properties();
-			_velocityParserProperties.put(FILE_RESOURCE_LOADER_PATH_KEY, templateSourceDirectory.getPath());
-			
-			_jsfFlexVelocityParser = new JsfFlexVelocityParser(_velocityParserProperties);
-			_jsfFlexVelocityParser.init();
-			_jsfFlexVelocityParser.addParserListener(this);
-			
-			if(project.getArtifactId().equals(COMPONENT_14_PROJECT_NAME)){
-				_jsfFlexInspector = new JsfFlexQdoxInspector(JSF_FLEX_RENDERKIT_ATTRIBUTE, _currDirPath);
-			}else{
-				
-				_jsfFlexInspector = new _JsfFlexInspectorBase(_currDirPath){
+			_jsfFlexInspector = new _JsfFlexInspectorBase(_currDirPath){
 										public void inspectFiles(){
 											Map<String, String> _inspectedMap;
 											JavaDocBuilder builder = new JavaDocBuilder();
@@ -233,14 +240,12 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 											inspectionCompleted();
 										}
 									};
-				
-			}
-			
-			_jsfFlexInspector.addInspectListener(this);
-			
-			_jsfFlexInspector.inspectFiles();
 			
 		}
+		
+		_jsfFlexInspector.addInspectListener(this);
+		
+		_jsfFlexInspector.inspectFiles();
 		
 	}
 	
@@ -272,9 +277,7 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 	
 	public void inspectionCompleted(){
 		
-		//A simple HACK for now
 		String _toCreateMxmlRenderKitXMLFilePath = toCreateMxmlRenderKitXMLPath.getPath();
-		_toCreateMxmlRenderKitXMLFilePath = _toCreateMxmlRenderKitXMLFilePath.replace("component14", "core");
 		
 		try{
 			File _mxmlRenderKitFilePath = new File(_toCreateMxmlRenderKitXMLFilePath);

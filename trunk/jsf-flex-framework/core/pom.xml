@@ -123,6 +123,7 @@
         </property>
       </activation>
       <properties>
+        <jsf_flex_component_project>component14</jsf_flex_component_project>
         <annotation_doclet_parser_impl_package>com.googlecode.jsfFlex.framework.annotationDocletParser.AnnotationDocletParser14Impl</annotation_doclet_parser_impl_package>
       </properties>
     </profile>
@@ -135,6 +136,7 @@
         </property>
       </activation>
       <properties>
+        <jsf_flex_component_project>component15</jsf_flex_component_project>
         <annotation_doclet_parser_impl_package>com.googlecode.jsfFlex.framework.annotationDocletParser.AnnotationDocletParser15Impl</annotation_doclet_parser_impl_package>
       </properties>
     </profile>
@@ -167,6 +169,29 @@
       </resource>
     </resources>
     
+    <plugins>
+      <plugin>
+        <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
+        <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
+        <version>${jsf_flex_plugIn}</version>
+        <executions>
+          <execution>
+            <id>createMXMLRenderKitXML</id>
+            <configuration>
+              <targetComponentProject>${jsf_flex_component_project}</targetComponentProject>
+            </configuration>
+            <goals>
+              <goal>createMXMLRenderKitXML</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    
   </build>
+  
+  <properties>
+    <jsf_flex_plugIn>0.0.5-SNAPSHOT</jsf_flex_plugIn>
+  </properties>
   
 </project>
