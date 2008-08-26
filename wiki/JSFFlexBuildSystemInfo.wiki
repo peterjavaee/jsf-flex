@@ -15,7 +15,7 @@ This page provides a quick overview regarding the project's build system.
 
 ===jsf-flex/examples===
  * jsf-flex
- * jsf-flex-framework-component14 or jsf-flex-framework-component15
+ * jsf-flex-framework-component14 or [jsf-flex-framework-component15 and jsf-flex-framework-annotations]
  * jsf-flex-framework-sdk-standard-common-task-runner-impl or <TO_BE_ADDED>
  * jsf-flex-framework-velocity-file-manipulator-task-runner-impl or <TO_BE_ADDED>
  * jsf-flex-framework-ant-flex-task-runner-impl or <TO_BE_ADDED>
@@ -30,7 +30,7 @@ This page provides a quick overview regarding the project's build system.
 ===jsf-flex-framework/component15===
  * jsf-flex-shared
  * jsf-flex-framework-core
-
+ * jsf-flex-framework-annotations
 
 ===jsf-flex-framework/core===
  * jsf-flex-shared
