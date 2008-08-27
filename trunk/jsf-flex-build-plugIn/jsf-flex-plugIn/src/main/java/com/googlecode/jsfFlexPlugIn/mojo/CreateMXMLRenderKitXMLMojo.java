@@ -47,8 +47,8 @@ import com.thoughtworks.qdox.model.JavaClass;
  * @phase   generate-resources
  * @author Ji Hoon Kim
  */
-public class CreateMXMLRenderKitXMLMojo extends AbstractMojo 
-										implements _JsfFlexInspectListener, _JsfFlexParserListener {
+public final class CreateMXMLRenderKitXMLMojo extends AbstractMojo 
+											  implements _JsfFlexInspectListener, _JsfFlexParserListener {
 	
 	private static final String JSF_FLEX_RENDERKIT_ATTRIBUTE = "JsfFlexRenderKitAttribute";
 	
@@ -97,13 +97,14 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 		_rendererMap = new HashMap<String, Renderer>();
 	}
 	
-	public class Renderer{
+	public final static class Renderer{
 		
-		private String _componentFamily;
-		private Set<RendererInfo> _rendererInfoSet;
+		private final String _componentFamily;
+		private final Set<RendererInfo> _rendererInfoSet;
 		
-		public Renderer(){
+		private Renderer(){
 			super();
+			_componentFamily = null;
 		}
 		
 		public Renderer(String componentFamily){
@@ -119,17 +120,15 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 			_rendererInfoSet.add(_rendInfo);
 		}
 		
-		public String getComponentFamily() {
+		public String getComponentFamily(){
 			return _componentFamily;
 		}
-		public void setComponentFamily(String componentFamily) {
-			_componentFamily = componentFamily;
-		}
-		public Set getRendererInfoSet() {
+		public Set getRendererInfoSet(){
+			/*
+			 * since it's final it should be returned as a defensive copy,
+			 * but it's a plug-in so return it
+			 */
 			return _rendererInfoSet;
-		}
-		public void setRendererInfoSet(Set<RendererInfo> rendererInfoSet) {
-			_rendererInfoSet = rendererInfoSet;
 		}
 		
 		@Override
@@ -139,20 +138,26 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 			}
 			
 			Renderer _rendererInstance = (Renderer) _instance;
-			return this.getComponentFamily().equals(_rendererInstance.getComponentFamily());
+			return this._componentFamily.equals(_rendererInstance._componentFamily);
 		}
 		
 		@Override
 		public int hashCode() {
-			return getComponentFamily().hashCode();
+			return _componentFamily.hashCode();
 		}
 		
 	}
 	
-	public class RendererInfo{
+	public final static class RendererInfo{
 		
-		private String _rendererClass;
-		private String _rendererName;
+		private final String _rendererClass;
+		private final String _rendererName;
+		
+		private RendererInfo(){
+			super();
+			_rendererClass = null;
+			_rendererName = null;
+		}
 		
 		public RendererInfo(String rendererClass, String rendererName){
 			super();
@@ -160,17 +165,11 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 			_rendererName = rendererName;
 		}
 		
-		public String getRendererClass() {
+		public String getRendererClass(){
 			return _rendererClass;
 		}
-		public void setRendererClass(String rendererClass) {
-			_rendererClass = rendererClass;
-		}
-		public String getRendererName() {
+		public String getRendererName(){
 			return _rendererName;
-		}
-		public void setRendererName(String rendererName) {
-			_rendererName = rendererName;
 		}
 		
 		@Override
@@ -180,14 +179,14 @@ public class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 			}
 			
 			RendererInfo _rendererInfoInstance = (RendererInfo) _instance;
-			return this.getRendererClass().equals(_rendererInfoInstance.getRendererClass()) && this.getRendererName().equals(_rendererInfoInstance.getRendererName());
+			return this._rendererClass.equals(_rendererInfoInstance._rendererClass) && this._rendererName.equals(_rendererInfoInstance._rendererName);
 		}
 		
 		@Override
 		public int hashCode() {
 			int hashCodeVal = HASH_CODE_INIT_VALUE;
-			hashCodeVal = HASH_CODE_MULTIPLY_VALUE * hashCodeVal + getRendererClass().hashCode();
-			hashCodeVal = HASH_CODE_MULTIPLY_VALUE * hashCodeVal + getRendererName().hashCode();
+			hashCodeVal = HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _rendererClass.hashCode();
+			hashCodeVal = HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _rendererName.hashCode();
 			return hashCodeVal;
 		}
 		

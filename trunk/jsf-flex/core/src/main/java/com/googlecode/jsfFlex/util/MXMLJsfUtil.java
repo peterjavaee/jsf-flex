@@ -41,7 +41,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLJsfUtil {
+public final class MXMLJsfUtil {
 	
 	private final static String WINDOWS_LINE_FEED = "\r\n";
 	private final static String UNIX_LINE_FEED = "\n";

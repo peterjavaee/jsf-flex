@@ -40,7 +40,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="validPatternChars", byMethod=false)
 		}
 	)
-public class MXMLPhoneFormatter extends MXMLFormatterTemplate {
+public final class MXMLPhoneFormatter extends MXMLFormatterTemplate {
 	
 	public MXMLPhoneFormatter(){
 		super();

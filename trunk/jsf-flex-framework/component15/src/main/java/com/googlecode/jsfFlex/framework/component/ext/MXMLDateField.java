@@ -91,7 +91,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="scroll", byMethod=false)
 		}
 	)
-public class MXMLDateField extends MXMLComboBaseTemplate {
+public final class MXMLDateField extends MXMLComboBaseTemplate {
 	
 	public MXMLDateField(){
 		super();

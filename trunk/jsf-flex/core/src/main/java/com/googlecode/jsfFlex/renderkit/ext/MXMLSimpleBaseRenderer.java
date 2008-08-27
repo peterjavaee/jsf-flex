@@ -31,6 +31,6 @@ import com.googlecode.jsfFlex.renderkit.MXMLRendererBase;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLSimpleBaseRenderer extends MXMLRendererBase {
+public final class MXMLSimpleBaseRenderer extends MXMLRendererBase {
 
 }

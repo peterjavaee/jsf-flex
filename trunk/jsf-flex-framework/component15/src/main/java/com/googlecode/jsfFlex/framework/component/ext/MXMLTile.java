@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		
 		jsfFlexAttributes={}
 	)
-public class MXMLTile extends MXMLTileTemplate {
+public final class MXMLTile extends MXMLTileTemplate {
 	
 	public MXMLTile(){
 		super();

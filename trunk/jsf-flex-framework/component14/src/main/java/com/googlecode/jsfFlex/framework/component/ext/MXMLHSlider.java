@@ -30,7 +30,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLHSlider extends MXMLSliderTemplate {
+public final class MXMLHSlider extends MXMLSliderTemplate {
 	
 	private static final String MXML_COMPONENT_NAME = "HSlider";
 	

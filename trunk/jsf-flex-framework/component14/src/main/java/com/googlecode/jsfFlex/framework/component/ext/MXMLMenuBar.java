@@ -75,7 +75,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLMenuBar extends MXMLComponentBase {
+public final class MXMLMenuBar extends MXMLComponentBase {
 	
 	private static final String MXML_MENU_BAR_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "MenuBar";

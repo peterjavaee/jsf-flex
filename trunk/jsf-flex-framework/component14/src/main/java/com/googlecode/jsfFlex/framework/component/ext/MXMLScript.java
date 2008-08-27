@@ -31,7 +31,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLScript extends MXMLComponentBaseActions {
+public final class MXMLScript extends MXMLComponentBaseActions {
 	
 	private static final String MXML_SCRIPT_BODY_TEMPLATE;
 	private static final String MXML_COMPONENT_NAME = "Script";

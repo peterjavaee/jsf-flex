@@ -31,7 +31,7 @@ import com.googlecode.jsfFlex.framework.tasks.task._Task;
 /**
  * @author Ji Hoon Kim
  */
-public class EchoTask extends Ant_BaseTask implements _Task {
+public final class EchoTask extends Ant_BaseTask implements _Task {
 	
 	private static final String ECHO_TARGET = "echo";
 	

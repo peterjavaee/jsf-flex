@@ -35,7 +35,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLHRule extends MXMLComponentBase {
+public final class MXMLHRule extends MXMLComponentBase {
 	
 	private static final String MXML_HRULE_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "HRule";

@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		
 		jsfFlexAttributes={}
 	)
-public class MXMLSwfLoader extends MXMLSwfLoaderTemplate {
+public final class MXMLSwfLoader extends MXMLSwfLoaderTemplate {
 	
 	public MXMLSwfLoader(){
 		super();

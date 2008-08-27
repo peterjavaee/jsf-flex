@@ -38,7 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="value", byMethod=true)
 		}
 	)
-public class MXMLRadioButton extends MXMLButtonTemplate {
+public final class MXMLRadioButton extends MXMLButtonTemplate {
 	
 	public MXMLRadioButton(){
 		super();

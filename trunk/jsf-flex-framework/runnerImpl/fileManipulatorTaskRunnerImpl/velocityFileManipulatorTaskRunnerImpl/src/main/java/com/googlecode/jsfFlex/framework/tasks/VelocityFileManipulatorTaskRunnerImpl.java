@@ -38,7 +38,7 @@ import com.googlecode.jsfFlex.framework.tasks.task.velocity.EvaluateTemplateTask
  * 
  * @author Ji Hoon Kim
  */
-public class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulatorTaskRunner {
+public final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulatorTaskRunner {
 	
 	private final static String JSF_FLEX_LOG_TAG = "jsf-flex";
 	private final static String JSF_FLEX_TEMPLATE = "jsf-flex-template.vm";

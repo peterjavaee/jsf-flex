@@ -40,7 +40,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="zeroStartError", byMethod=false)
 		}
 	)
-public class MXMLSocialSecurityValidator extends MXMLValidatorTemplate {
+public final class MXMLSocialSecurityValidator extends MXMLValidatorTemplate {
 	
 	public MXMLSocialSecurityValidator(){
 		super();

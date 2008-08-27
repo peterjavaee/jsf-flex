@@ -47,7 +47,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="tabWidth", byMethod=false)
 		}
 	)
-public class MXMLTabNavigator extends MXMLViewStackTemplate {
+public final class MXMLTabNavigator extends MXMLViewStackTemplate {
 	
 	public MXMLTabNavigator(){
 		super();

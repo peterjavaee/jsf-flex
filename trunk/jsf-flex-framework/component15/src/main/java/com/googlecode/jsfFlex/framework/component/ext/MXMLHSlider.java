@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		
 		jsfFlexAttributes={}
 	)
-public class MXMLHSlider extends MXMLSliderTemplate {
+public final class MXMLHSlider extends MXMLSliderTemplate {
 	
 	public MXMLHSlider(){
 		super();

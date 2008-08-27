@@ -42,7 +42,7 @@ import com.googlecode.jsfFlex.framework.mapper.TokenValue;
  * 
  * @author Ji Hoon Kim
  */
-public class AnnotationDocletParser14Impl extends _AnnotationDocletParser {
+public final class AnnotationDocletParser14Impl extends _AnnotationDocletParser {
 	
 	private final static Log _log = LogFactory.getLog(AnnotationDocletParser14Impl.class);
 	

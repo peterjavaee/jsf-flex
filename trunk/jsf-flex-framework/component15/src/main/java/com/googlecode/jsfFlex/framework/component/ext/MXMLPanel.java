@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		
 		jsfFlexAttributes={}
 	)
-public class MXMLPanel extends MXMLPanelTemplate {
+public final class MXMLPanel extends MXMLPanelTemplate {
 	
 	public MXMLPanel(){
 		super();

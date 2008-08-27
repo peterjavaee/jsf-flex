@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.framework.tasks.task.common.UnzipTask;
  * 
  * @author Ji Hoon Kim
  */
-public class SDKStandardCommonTaskRunnerImpl extends TaskRunnerImpl implements _CommonTaskRunner {
+public final class SDKStandardCommonTaskRunnerImpl extends TaskRunnerImpl implements _CommonTaskRunner {
 	
 	private final static Log _log = LogFactory.getLog(SDKStandardCommonTaskRunnerImpl.class);
 	

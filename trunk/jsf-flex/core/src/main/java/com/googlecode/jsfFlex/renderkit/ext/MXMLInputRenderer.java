@@ -41,7 +41,7 @@ import com.googlecode.jsfFlex.renderkit.MXMLRendererBase;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLInputRenderer extends MXMLRendererBase{
+public final class MXMLInputRenderer extends MXMLRendererBase{
 	
 	public void encodeEnd(FacesContext context, UIComponent component) throws IOException {
 		super.encodeEnd(context, component);

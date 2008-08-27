@@ -36,7 +36,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLRichTextEditor extends MXMLPanelTemplate {
+public final class MXMLRichTextEditor extends MXMLPanelTemplate {
 	
 	private static final String MXML_RICH_TEXT_EDITOR_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "RichTextEditor";

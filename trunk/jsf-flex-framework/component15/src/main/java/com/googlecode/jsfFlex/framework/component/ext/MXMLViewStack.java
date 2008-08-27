@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		
 		jsfFlexAttributes={}
 	)
-public class MXMLViewStack extends MXMLViewStackTemplate {
+public final class MXMLViewStack extends MXMLViewStackTemplate {
 	
 	public MXMLViewStack(){
 		super();

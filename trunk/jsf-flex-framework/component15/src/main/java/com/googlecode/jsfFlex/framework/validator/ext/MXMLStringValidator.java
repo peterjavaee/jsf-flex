@@ -40,7 +40,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="tooShortError", byMethod=false)
 		}
 	)
-public class MXMLStringValidator extends MXMLValidatorTemplate {
+public final class MXMLStringValidator extends MXMLValidatorTemplate {
 	
 	public MXMLStringValidator(){
 		super();

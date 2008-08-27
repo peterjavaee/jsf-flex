@@ -82,7 +82,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="textInput", byMethod=false)
 		}
 	)
-public class MXMLTextInput extends MXMLComponentBase {
+public final class MXMLTextInput extends MXMLComponentBase {
 	
 	public MXMLTextInput(){
 		super();

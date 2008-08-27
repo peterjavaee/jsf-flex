@@ -43,7 +43,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="wrongUSFormatError", byMethod=false)
 		}
 	)
-public class MXMLZipCodeValidator extends MXMLValidatorTemplate {
+public final class MXMLZipCodeValidator extends MXMLValidatorTemplate {
 	
 	public MXMLZipCodeValidator(){
 		super();

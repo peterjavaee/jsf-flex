@@ -54,7 +54,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="yearSource", byMethod=false)
 		}
 	)
-public class MXMLDateValidator extends MXMLValidatorTemplate {
+public final class MXMLDateValidator extends MXMLValidatorTemplate {
 	
 	public MXMLDateValidator(){
 		super();

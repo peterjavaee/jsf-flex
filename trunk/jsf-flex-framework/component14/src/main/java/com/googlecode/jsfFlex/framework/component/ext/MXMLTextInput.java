@@ -78,7 +78,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLTextInput extends MXMLComponentBase {
+public final class MXMLTextInput extends MXMLComponentBase {
 	
 	private static final String MXML_TEXT_INPUT_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "TextInput";

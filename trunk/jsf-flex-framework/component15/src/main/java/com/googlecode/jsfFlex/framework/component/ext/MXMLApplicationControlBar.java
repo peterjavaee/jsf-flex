@@ -39,7 +39,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="fillColors", byMethod=true)
 		}
 	)
-public class MXMLApplicationControlBar extends MXMLBoxTemplate {
+public final class MXMLApplicationControlBar extends MXMLBoxTemplate {
 	
 	public MXMLApplicationControlBar(){
 		super();

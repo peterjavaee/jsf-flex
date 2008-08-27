@@ -37,7 +37,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="formatString", byMethod=false)
 		}
 	)
-public class MXMLZipCodeFormatter extends MXMLFormatterTemplate {
+public final class MXMLZipCodeFormatter extends MXMLFormatterTemplate {
 	
 	public MXMLZipCodeFormatter(){
 		super();

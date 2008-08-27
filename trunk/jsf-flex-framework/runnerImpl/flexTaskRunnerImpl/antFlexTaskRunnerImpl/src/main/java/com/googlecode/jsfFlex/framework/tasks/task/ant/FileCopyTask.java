@@ -32,7 +32,7 @@ import com.googlecode.jsfFlex.framework.tasks.task._Task;
 /**
  * @author Ji Hoon Kim
  */
-public class FileCopyTask extends Ant_BaseTask implements _Task {
+public final class FileCopyTask extends Ant_BaseTask implements _Task {
 	
 	private static final String COPY_TARGET = "copy";
 	

@@ -30,7 +30,7 @@ import com.googlecode.jsfFlex.framework.tasks.task._Task;
 /**
  * @author Ji Hoon Kim
  */
-public class DeleteTask extends Ant_BaseTask implements _Task {
+public final class DeleteTask extends Ant_BaseTask implements _Task {
 	
 	private static final String DELETE_TARGET = "delete";
 	

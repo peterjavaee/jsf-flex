@@ -33,7 +33,7 @@ import com.googlecode.jsfFlex.framework.tasks.task._Task;
 /**
  * @author Ji Hoon Kim
  */
-public class UnzipTask implements _Task {
+public final class UnzipTask implements _Task {
 	
 	private static final int BUFFER_SIZE = 2048;
 	

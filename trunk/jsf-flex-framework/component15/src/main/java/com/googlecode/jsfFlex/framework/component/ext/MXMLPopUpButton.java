@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		
 		jsfFlexAttributes={}
 	)
-public class MXMLPopUpButton extends MXMLPopUpButtonTemplate {
+public final class MXMLPopUpButton extends MXMLPopUpButtonTemplate {
 	
 	public MXMLPopUpButton(){
 		super();

@@ -87,7 +87,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLDateField extends MXMLComboBaseTemplate {
+public final class MXMLDateField extends MXMLComboBaseTemplate {
 	
 	private static final String MXML_DATE_FIELD_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "DateField";

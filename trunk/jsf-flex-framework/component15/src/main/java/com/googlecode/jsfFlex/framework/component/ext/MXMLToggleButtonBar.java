@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		
 		jsfFlexAttributes={}
 	)
-public class MXMLToggleButtonBar extends MXMLToggleButtonBarTemplate {
+public final class MXMLToggleButtonBar extends MXMLToggleButtonBarTemplate {
 	
 	public MXMLToggleButtonBar(){
 		super();

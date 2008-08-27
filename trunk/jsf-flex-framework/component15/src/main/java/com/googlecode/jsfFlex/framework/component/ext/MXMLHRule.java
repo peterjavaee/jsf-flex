@@ -39,7 +39,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="strokeWidth", byMethod=false)
 		}
 	)
-public class MXMLHRule extends MXMLComponentBase {
+public final class MXMLHRule extends MXMLComponentBase {
 	
 	public MXMLHRule(){
 		super();

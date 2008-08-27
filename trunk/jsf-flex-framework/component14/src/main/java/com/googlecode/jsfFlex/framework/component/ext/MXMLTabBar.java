@@ -38,7 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLTabBar extends MXMLToggleButtonBarTemplate {
+public final class MXMLTabBar extends MXMLToggleButtonBarTemplate {
 	
 	private static final String MXML_TAB_BAR_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "TabBar";

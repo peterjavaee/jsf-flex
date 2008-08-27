@@ -43,7 +43,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLTabNavigator extends MXMLViewStackTemplate {
+public final class MXMLTabNavigator extends MXMLViewStackTemplate {
 	
 	private static final String MXML_TAB_NAVIGATOR_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "TabNavigator";

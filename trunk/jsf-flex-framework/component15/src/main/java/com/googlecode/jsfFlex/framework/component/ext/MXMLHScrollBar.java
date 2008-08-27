@@ -39,7 +39,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="scroll", byMethod=false)
 		}
 	)
-public class MXMLHScrollBar extends MXMLScrollBarTemplate {
+public final class MXMLHScrollBar extends MXMLScrollBarTemplate {
 	
 	public MXMLHScrollBar(){
 		super();

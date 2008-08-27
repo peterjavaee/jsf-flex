@@ -33,7 +33,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLImage extends MXMLSwfLoaderTemplate {
+public final class MXMLImage extends MXMLSwfLoaderTemplate {
 	
 	private static final String MXML_IMAGE_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "Image";

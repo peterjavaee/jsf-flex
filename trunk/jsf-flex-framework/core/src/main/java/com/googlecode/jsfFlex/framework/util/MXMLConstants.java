@@ -39,7 +39,7 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLConstants {
+public final class MXMLConstants {
 	
 	public static final String STRING_QUOTE = "\"";
 	

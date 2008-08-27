@@ -48,7 +48,7 @@ import com.googlecode.jsfFlex.util.MXMLJsfUtil;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLApplicationRenderer extends MXMLRendererBase {
+public final class MXMLApplicationRenderer extends MXMLRendererBase {
 	
 	private static final String APP_ID = "appId";
 	private static final String ARRAY_OF_IDS = "arrayOfIds";

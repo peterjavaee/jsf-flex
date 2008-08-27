@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLLinkButton extends MXMLButtonTemplate {
+public final class MXMLLinkButton extends MXMLButtonTemplate {
 	
 	private static final String MXML_LINK_BUTTON_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "LinkButton";

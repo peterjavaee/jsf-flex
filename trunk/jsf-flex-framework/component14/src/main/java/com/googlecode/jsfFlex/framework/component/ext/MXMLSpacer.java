@@ -30,7 +30,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLSpacer extends MXMLComponentBase {
+public final class MXMLSpacer extends MXMLComponentBase {
 	
 	private static final String MXML_COMPONENT_NAME = "Spacer";
 	

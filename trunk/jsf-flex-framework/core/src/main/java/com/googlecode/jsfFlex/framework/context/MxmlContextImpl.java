@@ -88,9 +88,6 @@ public class MxmlContextImpl extends MxmlContext {
 	public Map getApplicationIdValueMap() {
 		return _applicationIdValueMap;
 	}
-	public void setApplicationIdValueMap(Map applicationIdValueMap) {
-		_applicationIdValueMap = applicationIdValueMap;
-	}
 	public String getCurrMxml() {
 		return _currMxml;
 	}
@@ -117,9 +114,6 @@ public class MxmlContextImpl extends MxmlContext {
 	}
 	public Map getPreMxmlCompMap() {
 		return _preMxmlCompMap;
-	}
-	public void setPreMxmlCompMap(Map preMxmlCompMap) {
-		_preMxmlCompMap = preMxmlCompMap;
 	}
 	public String getSwfBasePath() {
 		return _swfBasePath;

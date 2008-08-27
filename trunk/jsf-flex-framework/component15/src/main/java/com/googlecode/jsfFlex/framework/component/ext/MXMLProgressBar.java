@@ -77,7 +77,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="completeEffect", byMethod=false)
 		}
 	)
-public class MXMLProgressBar extends MXMLComponentBase {
+public final class MXMLProgressBar extends MXMLComponentBase {
 	
 	public MXMLProgressBar(){
 		super();

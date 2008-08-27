@@ -50,7 +50,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLTextArea extends MXMLScrollControlTemplate {
+public final class MXMLTextArea extends MXMLScrollControlTemplate {
 	
 	private static final String MXML_TEXT_AREA_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "TextArea";

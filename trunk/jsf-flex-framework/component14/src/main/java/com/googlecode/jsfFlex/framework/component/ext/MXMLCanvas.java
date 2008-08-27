@@ -30,7 +30,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLCanvas extends MXMLContainerTemplate {
+public final class MXMLCanvas extends MXMLContainerTemplate {
 	
 	private static final String MXML_COMPONENT_NAME = "Canvas";
 	

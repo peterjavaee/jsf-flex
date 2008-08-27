@@ -37,7 +37,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="showCloseButton", byMethod=false)
 		}
 	)
-public class MXMLTitleWindow extends MXMLPanelTemplate {
+public final class MXMLTitleWindow extends MXMLPanelTemplate {
 	
 	public MXMLTitleWindow(){
 		super();

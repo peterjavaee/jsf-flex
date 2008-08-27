@@ -49,7 +49,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLCurrencyValidator extends MXMLValidatorTemplate {
+public final class MXMLCurrencyValidator extends MXMLValidatorTemplate {
 	
 	private static final String MXML_CURRENCY_VALIDATOR_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "CurrencyValidator";

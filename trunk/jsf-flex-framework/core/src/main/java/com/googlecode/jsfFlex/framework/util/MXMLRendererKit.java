@@ -38,7 +38,7 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLRendererKit {
+public final class MXMLRendererKit {
 	
 	private final static String RENDERER_KIT_XML = "mxmlRenderKit.xml";
 	
@@ -59,7 +59,7 @@ public class MXMLRendererKit {
 	}
 	
 	public static String getRendererClass(String componentName, String rendererName){
-		MXMLComponent comp = (MXMLComponent) _rendererKit.get(componentName);
+		MXMLComponentAttributes comp = (MXMLComponentAttributes) _rendererKit.get(componentName);
 		Object toReturn = comp.getMxmlRenderer().get(rendererName);
 		return (toReturn != null) ? (String) toReturn : null;
 	}
@@ -77,7 +77,7 @@ public class MXMLRendererKit {
 			private boolean renderer_name = false;
 			private boolean renderer_class = false;
 			
-			private MXMLComponent currComponent;
+			private MXMLComponentAttributes currComponent;
 			private String rendererNameValue;
 			private StringBuffer nodeValue;
 			
@@ -115,7 +115,7 @@ public class MXMLRendererKit {
 				
 				if(component_family){
 					//there should be a single entry for each component-family, thought to implement in HashSet, but waste to do so
-					currComponent = new MXMLComponent();
+					currComponent = new MXMLComponentAttributes();
 					MXMLRendererKit._rendererKit.put(currValue, currComponent);
 					component_family = false;
 				}else if(renderer_name){
@@ -146,11 +146,11 @@ public class MXMLRendererKit {
 		
 	}
 	
-	private static class MXMLComponent{
+	private final static class MXMLComponentAttributes {
 		//in the componentList HashMap, the key will be a jsfComponent name and values would be possible MXML renderers
 		private Map _mxmlRenderer;
 		
-		private MXMLComponent(){
+		private MXMLComponentAttributes(){
 			super();
 			_mxmlRenderer = new HashMap();
 		}

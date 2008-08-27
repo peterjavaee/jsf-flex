@@ -44,7 +44,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="tooManyAtSignsError", byMethod=false)
 		}
 	)
-public class MXMLEmailValidator extends MXMLValidatorTemplate {
+public final class MXMLEmailValidator extends MXMLValidatorTemplate {
 	
 	public MXMLEmailValidator(){
 		super();

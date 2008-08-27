@@ -36,7 +36,7 @@ import com.googlecode.jsfFlex.framework.tasks.task._Task;
 /**
  * @author Ji Hoon Kim
  */
-public class ReplaceTextTask extends Ant_BaseTask implements _Task {
+public final class ReplaceTextTask extends Ant_BaseTask implements _Task {
 	
 	//make the below reg exp better later
 	public static final String CLEAN_REG_EXP_MATCH = "\\s{2,}";

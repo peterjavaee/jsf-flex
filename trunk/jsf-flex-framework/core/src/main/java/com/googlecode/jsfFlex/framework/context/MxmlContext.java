@@ -44,8 +44,6 @@ public abstract class MxmlContext {
 	
 	public abstract Map getApplicationIdValueMap();
 	
-	public abstract void setApplicationIdValueMap(Map applicationIdValueMap);
-	
 	public abstract String getCurrMxml();
 	
 	public abstract void setCurrMxml(String currMxml);
@@ -63,8 +61,6 @@ public abstract class MxmlContext {
 	public abstract void setPreMxmlPath(String preMxmlPath);
 	
 	public abstract Map getPreMxmlCompMap();
-	
-	public abstract void setPreMxmlCompMap(Map preMxmlCompMap);
 	
 	public abstract String getSwfBasePath();
 	

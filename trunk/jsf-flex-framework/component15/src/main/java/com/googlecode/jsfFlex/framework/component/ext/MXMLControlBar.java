@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		
 		jsfFlexAttributes={}
 	)
-public class MXMLControlBar extends MXMLBoxTemplate {
+public final class MXMLControlBar extends MXMLBoxTemplate {
 	
 	public MXMLControlBar(){
 		super();

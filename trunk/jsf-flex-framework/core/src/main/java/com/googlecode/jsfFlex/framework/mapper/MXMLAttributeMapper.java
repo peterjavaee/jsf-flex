@@ -28,7 +28,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLAttributeMapper implements _MXMLMapper {
+public final class MXMLAttributeMapper implements _MXMLMapper {
 	
 	private static MXMLAttributeMapper _instance;
 	
