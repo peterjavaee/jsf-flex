@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		
 		jsfFlexAttributes={}
 	)
-public class MXMLText extends MXMLLabelTemplate {
+public final class MXMLText extends MXMLLabelTemplate {
 	
 	public MXMLText(){
 		super();

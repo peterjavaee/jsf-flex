@@ -28,7 +28,7 @@ import java.util.Properties;
  * 
  * @author Ji Hoon Kim
  */
-public class DefaultRunnerFactoryImpl extends _RunnerFactory {
+public final class DefaultRunnerFactoryImpl extends _RunnerFactory {
 	
 	private static final String DEFAULT_IMPLEMENTATION_PROPERTIES = "defaultImplementation.properties";
 	

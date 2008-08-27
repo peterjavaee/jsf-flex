@@ -36,7 +36,7 @@ import com.googlecode.jsfFlex.framework.tasks.task._Task;
 /**
  * @author Ji Hoon Kim
  */
-public class EvaluateTemplateTask implements _Task {
+public final class EvaluateTemplateTask implements _Task {
 	
 	private final static Log _log = LogFactory.getLog(EvaluateTemplateTask.class);
 	

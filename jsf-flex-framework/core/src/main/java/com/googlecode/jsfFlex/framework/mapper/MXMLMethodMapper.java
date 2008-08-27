@@ -29,7 +29,7 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLMethodMapper implements _MXMLMapper{
+public final class MXMLMethodMapper implements _MXMLMapper{
 	
 	private static MXMLMethodMapper _instance;
 	

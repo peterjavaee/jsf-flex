@@ -46,11 +46,15 @@ public final class MXMLComponent {
 		_component = component;
 	}
 	
-	public static class Builder {
+	public final static class Builder {
 		
 		private UIComponent _jsfComponent;
 		private String _compFamily;
 		private String _rendererClass;
+		
+		private Builder(){
+			super();
+		}
 		
 		public Builder(UIComponent jsfComponent, String compFamily, String rendererClass){
 			_jsfComponent = jsfComponent;

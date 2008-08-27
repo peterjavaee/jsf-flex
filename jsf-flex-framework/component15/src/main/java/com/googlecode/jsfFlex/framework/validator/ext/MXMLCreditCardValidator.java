@@ -49,7 +49,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="wrongTypeError", byMethod=false)
 		}
 	)
-public class MXMLCreditCardValidator extends MXMLValidatorTemplate {
+public final class MXMLCreditCardValidator extends MXMLValidatorTemplate {
 	
 	public MXMLCreditCardValidator(){
 		super();

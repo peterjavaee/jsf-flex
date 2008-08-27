@@ -43,7 +43,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="textSelectedColor", byMethod=false)
 		}
 	)
-public class MXMLLinkBar extends MXMLNavBarTemplate {
+public final class MXMLLinkBar extends MXMLNavBarTemplate {
 	
 	public MXMLLinkBar(){
 		super();

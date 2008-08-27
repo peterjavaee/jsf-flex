@@ -30,7 +30,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLToggleButtonBar extends MXMLToggleButtonBarTemplate {
+public final class MXMLToggleButtonBar extends MXMLToggleButtonBarTemplate {
 	
 	private static final String MXML_COMPONENT_NAME = "ToggleButtonBar";
 	

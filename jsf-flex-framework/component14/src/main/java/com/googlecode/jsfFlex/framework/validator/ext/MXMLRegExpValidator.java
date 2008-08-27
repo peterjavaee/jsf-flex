@@ -36,7 +36,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLRegExpValidator extends MXMLValidatorTemplate {
+public final class MXMLRegExpValidator extends MXMLValidatorTemplate {
 	
 	private static final String MXML_REG_EXP_VALIDATOR_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "RegExpValidator";

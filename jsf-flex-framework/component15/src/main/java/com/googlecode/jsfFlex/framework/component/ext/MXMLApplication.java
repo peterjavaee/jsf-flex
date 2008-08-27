@@ -85,7 +85,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="error", byMethod=false)
 		}
 	)
-public class MXMLApplication extends MXMLContainerTemplate {
+public final class MXMLApplication extends MXMLContainerTemplate {
 	
 	private final static Log _log = LogFactory.getLog(MXMLApplication.class);
 	

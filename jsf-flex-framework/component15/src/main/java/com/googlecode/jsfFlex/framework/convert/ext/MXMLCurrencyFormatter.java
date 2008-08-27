@@ -46,7 +46,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="useThousandsSeparator", byMethod=false)
 		}
 	)
-public class MXMLCurrencyFormatter extends MXMLFormatterTemplate {
+public final class MXMLCurrencyFormatter extends MXMLFormatterTemplate {
 	
 	public MXMLCurrencyFormatter(){
 		super();

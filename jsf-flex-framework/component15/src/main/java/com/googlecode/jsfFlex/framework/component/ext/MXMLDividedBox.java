@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		
 		jsfFlexAttributes={}
 	)
-public class MXMLDividedBox extends MXMLDividedBoxTemplate {
+public final class MXMLDividedBox extends MXMLDividedBoxTemplate {
 	
 	public MXMLDividedBox(){
 		super();

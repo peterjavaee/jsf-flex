@@ -39,7 +39,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="wrongLengthError", byMethod=false)
 		}
 	)
-public class MXMLPhoneNumberValidator extends MXMLValidatorTemplate {
+public final class MXMLPhoneNumberValidator extends MXMLValidatorTemplate {
 	
 	public MXMLPhoneNumberValidator(){
 		super();

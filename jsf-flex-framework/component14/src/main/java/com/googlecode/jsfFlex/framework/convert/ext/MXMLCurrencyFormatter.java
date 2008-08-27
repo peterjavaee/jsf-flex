@@ -42,7 +42,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLCurrencyFormatter extends MXMLFormatterTemplate {
+public final class MXMLCurrencyFormatter extends MXMLFormatterTemplate {
 	
 	private static final String MXML_CURRENCY_FORMATTER_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "CurrencyFormatter";

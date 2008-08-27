@@ -38,7 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="selectionColor", byMethod=false)
 		}
 	)
-public class MXMLLinkButton extends MXMLButtonTemplate {
+public final class MXMLLinkButton extends MXMLButtonTemplate {
 	
 	public MXMLLinkButton(){
 		super();

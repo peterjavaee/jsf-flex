@@ -52,7 +52,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="thousandsSeparator", byMethod=false)
 		}
 	)
-public class MXMLNumberValidator extends MXMLValidatorTemplate {
+public final class MXMLNumberValidator extends MXMLValidatorTemplate {
 	
 	public MXMLNumberValidator(){
 		super();

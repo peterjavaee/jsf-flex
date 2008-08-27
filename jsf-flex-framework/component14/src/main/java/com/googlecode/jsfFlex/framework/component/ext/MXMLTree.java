@@ -49,7 +49,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLTree extends MXMLListTemplate {
+public final class MXMLTree extends MXMLListTemplate {
 	
 	private static final String MXML_TREE_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "Tree";

@@ -69,7 +69,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLVideoDisplay extends MXMLComponentBase {
+public final class MXMLVideoDisplay extends MXMLComponentBase {
 	
 	private static final String MXML_VIDEO_DISPLAY_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "VideoDisplay";

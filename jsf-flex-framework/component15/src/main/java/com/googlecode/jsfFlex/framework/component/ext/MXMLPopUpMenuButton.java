@@ -41,7 +41,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="showRoot", byMethod=false)
 		}
 	)
-public class MXMLPopUpMenuButton extends MXMLPopUpButtonTemplate {
+public final class MXMLPopUpMenuButton extends MXMLPopUpButtonTemplate {
 	
 	public MXMLPopUpMenuButton(){
 		super();

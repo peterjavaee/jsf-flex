@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		
 		jsfFlexAttributes={}
 	)
-public class MXMLHorizontalList extends MXMLListBaseTemplate {
+public final class MXMLHorizontalList extends MXMLListBaseTemplate {
 	
 	public MXMLHorizontalList(){
 		super();

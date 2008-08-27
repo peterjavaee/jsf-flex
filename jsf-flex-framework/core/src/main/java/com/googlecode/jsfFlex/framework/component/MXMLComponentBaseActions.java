@@ -43,7 +43,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 public abstract class MXMLComponentBaseActions implements _Component {
 	
-	private _AnnotationDocletParser _annotationDocletParserInstance;
+	private final _AnnotationDocletParser _annotationDocletParserInstance;
 	
 	protected MXMLComponentBaseActions(){
 		super();
@@ -52,7 +52,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 		_annotationDocletParserInstance = _runnerFactoryInstance.getAnnotationDocletParserImpl();
 	}
 	
-	protected Set getTokenValueSet(){
+	protected final Set getTokenValueSet(){
 		return _annotationDocletParserInstance.getTokenValueSet();
 	}
 	
@@ -98,7 +98,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param mxmlFile
 	 * @throws ComponentBuildException
 	 */
-	protected void processCreateSwf(_MXMLApplicationContract componentMXML, String mxmlFile) throws ComponentBuildException {
+	protected final void processCreateSwf(_MXMLApplicationContract componentMXML, String mxmlFile) throws ComponentBuildException {
 		
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 		String copyTo = mxmlContext.getMxmlPath() + mxmlContext.getCurrMxml() + MXMLConstants.MXML_FILE_EXT;
@@ -154,7 +154,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param bodyContent
 	 * @throws ComponentBuildException
 	 */
-	protected void addCreatePreMxmlTask(_MXMLContract comp, String mxmlComponentName, String bodyContent) throws ComponentBuildException {
+	protected final void addCreatePreMxmlTask(_MXMLContract comp, String mxmlComponentName, String bodyContent) throws ComponentBuildException {
 		
 		String fileDirectory = comp.getAbsolutePathToPreMxmlFile().substring(0, comp.getAbsolutePathToPreMxmlFile().lastIndexOf(File.separatorChar));
 		getFlexTaskRunner().addMakeDirectoryTask(fileDirectory);
@@ -170,7 +170,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param directoryToCreate
 	 * @throws ComponentBuildException
 	 */
-	protected void addMakeDirectoryTask(String directoryToCreate) throws ComponentBuildException {
+	protected final void addMakeDirectoryTask(String directoryToCreate) throws ComponentBuildException {
 		getFlexTaskRunner().addMakeDirectoryTask(directoryToCreate);
 	}
 	
@@ -182,7 +182,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param tokenReplace
 	 * @throws ComponentBuildException
 	 */
-	protected void addReplaceTokenWithValueTask(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) throws ComponentBuildException {
+	protected final void addReplaceTokenWithValueTask(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) throws ComponentBuildException {
 		getFlexTaskRunner().addReplaceTokenWithValueTask(applicationInstance, valueToReplaceWith, tokenReplace);
 	}
 	
@@ -194,7 +194,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param copyTo
 	 * @throws ComponentBuildException
 	 */
-	protected void createMXML(_MXMLContract applicationInstance, String copyTo) throws ComponentBuildException {
+	protected final void createMXML(_MXMLContract applicationInstance, String copyTo) throws ComponentBuildException {
 		getFlexTaskRunner().createMXML(applicationInstance, copyTo);
 	}
 	
@@ -206,7 +206,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param jsfFlexMainSwcConfigFile
 	 * @throws ComponentBuildException
 	 */
-	protected void createSwcSourceFiles(String _swcPath, String[] _systemSourceFiles, String jsfFlexMainSwcConfigFile) throws ComponentBuildException {
+	protected final void createSwcSourceFiles(String _swcPath, String[] _systemSourceFiles, String jsfFlexMainSwcConfigFile) throws ComponentBuildException {
 		getFlexTaskRunner().createSwcSourceFiles(_swcPath, _systemSourceFiles, jsfFlexMainSwcConfigFile);
 	}
 	
@@ -219,7 +219,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param loadConfigFilePath
 	 * @throws ComponentBuildException
 	 */
-	protected void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath) 
+	protected final void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath) 
 											throws ComponentBuildException {
 		getFlexTaskRunner().createSystemSWCFile(sourcePath, outPut, flexSDKRootPath, loadConfigFilePath);
 	}
@@ -233,7 +233,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param flexSDKRootPath
 	 * @throws ComponentBuildException
 	 */
-	protected void createSWF(_MXMLApplicationContract componentMXML, String mxmlFile, 
+	protected final void createSWF(_MXMLApplicationContract componentMXML, String mxmlFile, 
 									String swfPath, String flexSDKRootPath) throws ComponentBuildException {
 		getFlexTaskRunner().createSWF(componentMXML, mxmlFile, swfPath, flexSDKRootPath);
 	}
@@ -245,7 +245,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param _systemSwfSourceFiles
 	 * @throws ComponentBuildException
 	 */
-	protected void createSwfSourceFiles(String _swfBasePath, String[] _systemSwfSourceFiles) throws ComponentBuildException {
+	protected final void createSwfSourceFiles(String _swfBasePath, String[] _systemSwfSourceFiles) throws ComponentBuildException {
 		getFlexTaskRunner().createSwfSourceFiles(_swfBasePath, _systemSwfSourceFiles);
 	}
 	
@@ -256,7 +256,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param isDirectory
 	 * @throws ComponentBuildException
 	 */
-	public void deleteResources(String deleteResource, boolean isDirectory) throws ComponentBuildException {
+	public final void deleteResources(String deleteResource, boolean isDirectory) throws ComponentBuildException {
 		getFlexTaskRunner().deleteResources(deleteResource, isDirectory);
 	}
 	
@@ -267,7 +267,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param fileToCopyTo
 	 * @throws ComponentBuildException
 	 */
-	protected void copyFile(String fileToCopy, String fileToCopyTo) throws ComponentBuildException {
+	protected final void copyFile(String fileToCopy, String fileToCopyTo) throws ComponentBuildException {
 		getFlexTaskRunner().copyFile(fileToCopy, fileToCopyTo);
 	}
 	
@@ -281,7 +281,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param copyTo
 	 * @throws ComponentBuildException
 	 */
-	protected void copyFileSet(String copyDir, String copyInclude, String copyExclude, String copyTo) throws ComponentBuildException {
+	protected final void copyFileSet(String copyDir, String copyInclude, String copyExclude, String copyTo) throws ComponentBuildException {
 		getFlexTaskRunner().copyFileSet(copyDir, copyInclude, copyExclude, copyTo);
 	}
 	
@@ -294,7 +294,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param overWrite
 	 * @throws ComponentBuildException
 	 */
-	protected void renameFile(String sourceFile, String destFile, boolean overWrite) throws ComponentBuildException {
+	protected final void renameFile(String sourceFile, String destFile, boolean overWrite) throws ComponentBuildException {
 		getFlexTaskRunner().renameFile(sourceFile, destFile, overWrite);
 	}
 	
@@ -305,7 +305,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param _unZipDest
 	 * @throws ComponentBuildException
 	 */
-	protected void unZipArchiveRelative(String _unZipFile, String _unZipDest) throws ComponentBuildException {
+	protected final void unZipArchiveRelative(String _unZipFile, String _unZipDest) throws ComponentBuildException {
 		getCommonTaskRunner().unZipArchiveRelative(_unZipFile, _unZipDest);
 	}
 	
@@ -316,7 +316,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param _unZipDest
 	 * @throws ComponentBuildException
 	 */
-	protected void unZipArchiveAbsolute(File _unZipFile, String _unZipDest) throws ComponentBuildException {
+	protected final void unZipArchiveAbsolute(File _unZipFile, String _unZipDest) throws ComponentBuildException {
 		
 		getCommonTaskRunner().unZipArchiveAbsolute(_unZipFile, _unZipDest);
 	}
@@ -328,7 +328,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param _unZipDest
 	 * @throws ComponentBuildException
 	 */
-	protected void unZipArchiveAbsolute(InputStream _unZipFile, String _unZipDest) throws ComponentBuildException {
+	protected final void unZipArchiveAbsolute(InputStream _unZipFile, String _unZipDest) throws ComponentBuildException {
 		
 		getCommonTaskRunner().unZipArchiveAbsolute(_unZipFile, _unZipDest);
 	}
@@ -342,7 +342,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param mappingFile
 	 * @throws ComponentBuildException
 	 */
-	protected void mapFields(Class mapClass, Object componentObj, String mappingFile) throws ComponentBuildException {
+	protected final void mapFields(Class mapClass, Object componentObj, String mappingFile) throws ComponentBuildException {
 		_annotationDocletParserInstance.mapComponentFields(mapClass, getClass().getClassLoader(), componentObj, mappingFile);
 	}
 	
@@ -354,7 +354,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @return
 	 * @throws ComponentBuildException
 	 */
-	public String getComponentTemplate(String template) throws ComponentBuildException {
+	public final String getComponentTemplate(String template) throws ComponentBuildException {
 		
 		return _FileManipulatorTaskRunner.getComponentTemplate(getClass().getClassLoader(), template);
 	}
@@ -366,7 +366,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @return
 	 * @throws ComponentBuildException
 	 */
-	protected String readFileContent(String fileName) throws ComponentBuildException {
+	protected final String readFileContent(String fileName) throws ComponentBuildException {
 		
 		return _FileManipulatorTaskRunner.readFileContent(fileName);
 	}
@@ -379,7 +379,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param currInstance
 	 * @return
 	 */
-	protected String childPreMxmlComponentIdentifier(_MXMLContract currInstance){
+	protected final String childPreMxmlComponentIdentifier(_MXMLContract currInstance){
 		StringBuffer toReturn = new StringBuffer();
 		
 		toReturn.append(currInstance.getPreMxmlIdentifier());
@@ -397,7 +397,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param currInstance
 	 * @return
 	 */
-	protected String siblingPreMxmlComponentIdentifier(_MXMLContract currInstance){
+	protected final String siblingPreMxmlComponentIdentifier(_MXMLContract currInstance){
 		StringBuffer toReturn = new StringBuffer();
 		
 		toReturn.append(currInstance.getParentPreMxmlIdentifier());
@@ -414,7 +414,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param currInstance
 	 * @return
 	 */
-	protected String childReplaceTokenWithPreMxmlIdentifier(_MXMLContract currInstance){
+	protected final String childReplaceTokenWithPreMxmlIdentifier(_MXMLContract currInstance){
 		StringBuffer toReturn = new StringBuffer();
 		
 		toReturn.append(MXMLConstants.CHILD_REPLACE_TOKEN_PREMXML_IDENTIFIER_PRE);
@@ -431,7 +431,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param currInstance
 	 * @return
 	 */
-	protected String siblingReplaceTokenWithPreMxmlIdentifier(_MXMLContract currInstance){
+	protected final String siblingReplaceTokenWithPreMxmlIdentifier(_MXMLContract currInstance){
 		StringBuffer toReturn = new StringBuffer();
 		
 		toReturn.append(MXMLConstants.SIBLING_REPLACE_TOKEN_PREMXML_IDENTIFIER_PRE);
@@ -446,7 +446,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * 
 	 * @return
 	 */
-	private _CommonTaskRunner getCommonTaskRunner(){
+	private final _CommonTaskRunner getCommonTaskRunner(){
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 		return mxmlContext.getCommonRunner();
 	}
@@ -456,7 +456,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * 
 	 * @return
 	 */
-	private _FileManipulatorTaskRunner getFileManipulatorTaskRunner(){
+	private final _FileManipulatorTaskRunner getFileManipulatorTaskRunner(){
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 		return mxmlContext.getFileManipulatorRunner();
 	}
@@ -466,7 +466,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * 
 	 * @return
 	 */
-	protected _FlexTaskRunner getFlexTaskRunner(){
+	protected final _FlexTaskRunner getFlexTaskRunner(){
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 		return mxmlContext.getFlexRunner();
 	}
@@ -478,7 +478,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * 
 	 * @param toBlankOut
 	 */
-	protected void addMapperFilterString(String toBlankOut){
+	protected final void addMapperFilterString(String toBlankOut){
 		_annotationDocletParserInstance.getFilterOutAttributes().add(toBlankOut);
 	}
 	

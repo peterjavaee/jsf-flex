@@ -39,7 +39,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLLinkBar extends MXMLNavBarTemplate {
+public final class MXMLLinkBar extends MXMLNavBarTemplate {
 	
 	private static final String MXML_LINK_BAR_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "LinkBar";

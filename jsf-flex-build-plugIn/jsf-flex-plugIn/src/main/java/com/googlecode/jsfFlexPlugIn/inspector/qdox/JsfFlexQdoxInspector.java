@@ -30,7 +30,7 @@ import com.thoughtworks.qdox.model.JavaClass;
 /**
  * @author Ji Hoon Kim
  */
-public class JsfFlexQdoxInspector extends _JsfFlexInspectorBase {
+public final class JsfFlexQdoxInspector extends _JsfFlexInspectorBase {
 	
 	private final String _pattern;
 	

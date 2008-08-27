@@ -40,7 +40,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="noMatchError", byMethod=false)
 		}
 	)
-public class MXMLRegExpValidator extends MXMLValidatorTemplate {
+public final class MXMLRegExpValidator extends MXMLValidatorTemplate {
 	
 	public MXMLRegExpValidator(){
 		super();

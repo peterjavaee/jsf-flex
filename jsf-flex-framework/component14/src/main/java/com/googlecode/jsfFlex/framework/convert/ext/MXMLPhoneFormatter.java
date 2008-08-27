@@ -36,7 +36,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLPhoneFormatter extends MXMLFormatterTemplate {
+public final class MXMLPhoneFormatter extends MXMLFormatterTemplate {
 	
 	private static final String MXML_PHONE_FORMATTER_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "PhoneFormatter";

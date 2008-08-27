@@ -30,7 +30,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLViewStack extends MXMLViewStackTemplate {
+public final class MXMLViewStack extends MXMLViewStackTemplate {
 	
 	private static final String MXML_COMPONENT_NAME = "ViewStack";
 	

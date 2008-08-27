@@ -37,7 +37,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLPopUpMenuButton extends MXMLPopUpButtonTemplate {
+public final class MXMLPopUpMenuButton extends MXMLPopUpButtonTemplate {
 	
 	private static final String MXML_POP_UP_MENU_BUTTON_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "PopUpMenuButton";

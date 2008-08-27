@@ -33,7 +33,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 /**
  * @author Ji Hoon Kim
  */
-public class MXMLCTask extends Ant_BaseTask implements _Task {
+public final class MXMLCTask extends Ant_BaseTask implements _Task {
 	
 	private static final String WINDOWS_EXEC = "bin" + File.separatorChar + "mxmlc.exe";
 	private static final String NON_WINDOWS_SHELL = "bin" + File.separatorChar + "mxmlc.sh";

@@ -53,7 +53,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="change", byMethod=false)
 		}
 	)
-public class MXMLAccordion extends MXMLContainerTemplate {
+public final class MXMLAccordion extends MXMLContainerTemplate {
 	
 	public MXMLAccordion(){
 		super();

@@ -33,7 +33,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLTitleWindow extends MXMLPanelTemplate {
+public final class MXMLTitleWindow extends MXMLPanelTemplate {
 	
 	private static final String MXML_TITLE_WINDOW_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "TitleWindow";

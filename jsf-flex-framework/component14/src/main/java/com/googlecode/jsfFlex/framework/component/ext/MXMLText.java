@@ -30,7 +30,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLText extends MXMLLabelTemplate {
+public final class MXMLText extends MXMLLabelTemplate {
 	
 	private static final String MXML_COMPONENT_NAME = "Text";
 	

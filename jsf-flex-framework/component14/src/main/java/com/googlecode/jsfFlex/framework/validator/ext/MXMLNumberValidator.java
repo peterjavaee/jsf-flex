@@ -48,7 +48,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLNumberValidator extends MXMLValidatorTemplate {
+public final class MXMLNumberValidator extends MXMLValidatorTemplate {
 	
 	private static final String MXML_NUMBER_VALIDATOR_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "NumberValidator";

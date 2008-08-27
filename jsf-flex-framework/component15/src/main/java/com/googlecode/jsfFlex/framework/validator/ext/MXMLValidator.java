@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		
 		jsfFlexAttributes={}
 	)
-public class MXMLValidator extends MXMLValidatorTemplate {
+public final class MXMLValidator extends MXMLValidatorTemplate {
 	
 	public MXMLValidator(){
 		super();

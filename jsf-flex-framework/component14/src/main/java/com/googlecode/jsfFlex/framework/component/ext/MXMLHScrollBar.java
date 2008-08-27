@@ -35,7 +35,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLHScrollBar extends MXMLScrollBarTemplate {
+public final class MXMLHScrollBar extends MXMLScrollBarTemplate {
 	
 	private static final String MXML_HSCROLL_BAR_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "HScrollBar";

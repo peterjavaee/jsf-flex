@@ -33,7 +33,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLZipCodeFormatter extends MXMLFormatterTemplate {
+public final class MXMLZipCodeFormatter extends MXMLFormatterTemplate {
 	
 	private static final String MXML_ZIP_CODE_FORMATTER_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "ZipCodeFormatter";

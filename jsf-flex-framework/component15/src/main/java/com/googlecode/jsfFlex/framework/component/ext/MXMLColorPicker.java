@@ -88,7 +88,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="open", byMethod=false)
 		}
 	)
-public class MXMLColorPicker extends MXMLComboBaseTemplate {
+public final class MXMLColorPicker extends MXMLComboBaseTemplate {
 	
 	public MXMLColorPicker(){
 		super();

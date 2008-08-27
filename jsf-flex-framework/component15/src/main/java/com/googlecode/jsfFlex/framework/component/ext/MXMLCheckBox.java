@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		
 		jsfFlexAttributes={}
 	)
-public class MXMLCheckBox extends MXMLButtonTemplate {
+public final class MXMLCheckBox extends MXMLButtonTemplate {
 	
 	public MXMLCheckBox(){
 		super();

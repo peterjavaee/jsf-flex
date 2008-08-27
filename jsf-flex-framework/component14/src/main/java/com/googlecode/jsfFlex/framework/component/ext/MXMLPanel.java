@@ -30,7 +30,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLPanel extends MXMLPanelTemplate {
+public final class MXMLPanel extends MXMLPanelTemplate {
 	
 	private static final String MXML_COMPONENT_NAME = "Panel";
 	

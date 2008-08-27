@@ -53,7 +53,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="itemOpening", byMethod=false)
 		}
 	)
-public class MXMLTree extends MXMLListTemplate {
+public final class MXMLTree extends MXMLListTemplate {
 	
 	public MXMLTree(){
 		super();

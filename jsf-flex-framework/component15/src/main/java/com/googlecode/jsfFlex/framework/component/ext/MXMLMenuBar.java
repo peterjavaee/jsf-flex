@@ -79,7 +79,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="menuShow", byMethod=false)
 		}
 	)
-public class MXMLMenuBar extends MXMLComponentBase {
+public final class MXMLMenuBar extends MXMLComponentBase {
 	
 	public MXMLMenuBar(){
 		super();

@@ -42,7 +42,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="tabWidth", byMethod=false)
 		}
 	)
-public class MXMLTabBar extends MXMLToggleButtonBarTemplate {
+public final class MXMLTabBar extends MXMLToggleButtonBarTemplate {
 	
 	public MXMLTabBar(){
 		super();

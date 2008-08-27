@@ -39,7 +39,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLZipCodeValidator extends MXMLValidatorTemplate {
+public final class MXMLZipCodeValidator extends MXMLValidatorTemplate {
 	
 	private static final String MXML_ZIP_CODE_VALIDATOR_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "ZipCodeValidator";

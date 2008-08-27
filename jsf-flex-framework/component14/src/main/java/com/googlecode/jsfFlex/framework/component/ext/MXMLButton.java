@@ -30,7 +30,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  
  * @author Ji Hoon Kim
  */
-public class MXMLButton extends MXMLButtonTemplate {
+public final class MXMLButton extends MXMLButtonTemplate {
 	
 	private static final String MXML_COMPONENT_NAME = "Button";
 	

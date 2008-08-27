@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		
 		jsfFlexAttributes={}
 	)
-public class MXMLSpacer extends MXMLComponentBase {
+public final class MXMLSpacer extends MXMLComponentBase {
 	
 	public MXMLSpacer(){
 		super();

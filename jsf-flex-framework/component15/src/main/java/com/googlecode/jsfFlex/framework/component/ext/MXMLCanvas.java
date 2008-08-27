@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		
 		jsfFlexAttributes={}
 	)
-public class MXMLCanvas extends MXMLContainerTemplate {
+public final class MXMLCanvas extends MXMLContainerTemplate {
 	
 	public MXMLCanvas(){
 		super();

@@ -89,7 +89,7 @@ public abstract class _RunnerFactory {
 		return _instance;
 	}
 	
-	public synchronized _CommonTaskRunner getCommonTaskRunnerImpl(){
+	public final synchronized _CommonTaskRunner getCommonTaskRunnerImpl(){
 		final String METHOD = "getCommonTaskRunnerImpl()";
 		
 		_CommonTaskRunner _specificInstance = null;
@@ -109,7 +109,7 @@ public abstract class _RunnerFactory {
 		return _specificInstance;
 	}
 	
-	public synchronized _FileManipulatorTaskRunner getFileManipulatorTaskRunnerImpl(){
+	public final synchronized _FileManipulatorTaskRunner getFileManipulatorTaskRunnerImpl(){
 		final String METHOD = "getFileManipulatorTaskRunnerImpl()";
 		
 		_FileManipulatorTaskRunner _specificInstance = null;
@@ -129,7 +129,7 @@ public abstract class _RunnerFactory {
 		return _specificInstance;
 	}
 	
-	public synchronized _AnnotationDocletParser getAnnotationDocletParserImpl(){
+	public final synchronized _AnnotationDocletParser getAnnotationDocletParserImpl(){
 		final String METHOD = "getAnnotationDocletParserImpl()";
 		
 		_AnnotationDocletParser _specificInstance = null;
@@ -149,7 +149,7 @@ public abstract class _RunnerFactory {
 		return _specificInstance;
 	}
 	
-	public synchronized _FlexTaskRunner getFlexTaskRunnerImpl(){
+	public final synchronized _FlexTaskRunner getFlexTaskRunnerImpl(){
 		final String METHOD = "getFlexTaskRunnerImpl()";
 		
 		_FlexTaskRunner _specificInstance = null;

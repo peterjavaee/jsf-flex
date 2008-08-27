@@ -89,7 +89,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="scroll", byMethod=false)
 		}
 	)
-public class MXMLComboBox extends MXMLComboBaseTemplate {
+public final class MXMLComboBox extends MXMLComboBaseTemplate {
 	
 	public MXMLComboBox(){
 		super();

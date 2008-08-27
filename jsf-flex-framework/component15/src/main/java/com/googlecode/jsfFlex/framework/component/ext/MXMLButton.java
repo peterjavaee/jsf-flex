@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		
 		jsfFlexAttributes={}
 	)
-public class MXMLButton extends MXMLButtonTemplate {
+public final class MXMLButton extends MXMLButtonTemplate {
 	
 	public MXMLButton(){
 		super();

@@ -85,7 +85,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="dataChange", byMethod=false)
 		}
 	)
-public class MXMLNumericStepper extends MXMLComponentBase {
+public final class MXMLNumericStepper extends MXMLComponentBase {
 	
 	public MXMLNumericStepper(){
 		super();

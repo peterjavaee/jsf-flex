@@ -40,7 +40,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="change", byMethod=false)
 		}
 	)
-public class MXMLRichTextEditor extends MXMLPanelTemplate {
+public final class MXMLRichTextEditor extends MXMLPanelTemplate {
 	
 	public MXMLRichTextEditor(){
 		super();

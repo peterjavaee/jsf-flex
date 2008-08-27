@@ -30,7 +30,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLTile extends MXMLTileTemplate {
+public final class MXMLTile extends MXMLTileTemplate {
 	
 	private static final String MXML_COMPONENT_NAME = "Tile";
 	

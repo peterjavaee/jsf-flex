@@ -35,7 +35,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLApplicationControlBar extends MXMLBoxTemplate {
+public final class MXMLApplicationControlBar extends MXMLBoxTemplate {
 	
 	private static final String MXML_APPLICATION_CONTROL_BAR_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "ApplicationControlBar";

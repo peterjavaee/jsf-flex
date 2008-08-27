@@ -40,7 +40,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLEmailValidator extends MXMLValidatorTemplate {
+public final class MXMLEmailValidator extends MXMLValidatorTemplate {
 	
 	private static final String MXML_EMAIL_VALIDATOR_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "EmailValidator";

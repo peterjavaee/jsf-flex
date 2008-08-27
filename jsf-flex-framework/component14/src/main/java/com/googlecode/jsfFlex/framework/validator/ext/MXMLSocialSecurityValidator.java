@@ -36,7 +36,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLSocialSecurityValidator extends MXMLValidatorTemplate {
+public final class MXMLSocialSecurityValidator extends MXMLValidatorTemplate {
 	
 	private static final String MXML_SOCIAL_SECURITY_VALIDATOR_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "SocialSecurityValidator";

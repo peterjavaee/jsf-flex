@@ -73,7 +73,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 			@JsfFlexAttribute(attribute="stateChange", byMethod=false)
 		}
 	)
-public class MXMLVideoDisplay extends MXMLComponentBase {
+public final class MXMLVideoDisplay extends MXMLComponentBase {
 	
 	public MXMLVideoDisplay(){
 		super();

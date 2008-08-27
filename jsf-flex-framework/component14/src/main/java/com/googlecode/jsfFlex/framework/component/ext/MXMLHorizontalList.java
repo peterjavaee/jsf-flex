@@ -30,7 +30,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLHorizontalList extends MXMLListBaseTemplate {
+public final class MXMLHorizontalList extends MXMLListBaseTemplate {
 	
 	private static final String MXML_COMPONENT_NAME = "HorizontalList";
 	

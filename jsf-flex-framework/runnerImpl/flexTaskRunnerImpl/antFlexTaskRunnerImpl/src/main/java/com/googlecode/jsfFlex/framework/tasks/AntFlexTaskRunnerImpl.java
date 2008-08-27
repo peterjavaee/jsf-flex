@@ -43,7 +43,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRunner {
+public final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRunner {
 	
 	private final static Log _log = LogFactory.getLog(AntFlexTaskRunnerImpl.class);
 	

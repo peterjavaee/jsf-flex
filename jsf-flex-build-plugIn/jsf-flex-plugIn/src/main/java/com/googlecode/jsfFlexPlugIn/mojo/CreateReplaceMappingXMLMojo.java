@@ -46,8 +46,8 @@ import com.googlecode.jsfFlexPlugIn.parser.velocity.JsfFlexVelocityParser;
  * @phase   process-classes
  * @author Ji Hoon Kim
  */
-public class CreateReplaceMappingXMLMojo extends AbstractMojo 
-										implements _JsfFlexInspectListener, _JsfFlexParserListener {
+public final class CreateReplaceMappingXMLMojo extends AbstractMojo 
+											   implements _JsfFlexInspectListener, _JsfFlexParserListener {
 	
 	private static final String JSF_FLEX_ATTRIBUTE = "JsfFlexAttributes";
 	
@@ -102,10 +102,16 @@ public class CreateReplaceMappingXMLMojo extends AbstractMojo
 		
 	}
 	
-	public class ReplaceMappingXMLVelocityObject{
+	public final static class ReplaceMappingXMLVelocityObject{
 		
-		private String _token;
-		private Boolean _byMethod;
+		private final String _token;
+		private final Boolean _byMethod;
+		
+		private ReplaceMappingXMLVelocityObject(){
+			super();
+			_token = null;
+			_byMethod = null;
+		}
 		
 		public ReplaceMappingXMLVelocityObject(String token, Boolean byMethod){
 			super();
@@ -116,14 +122,8 @@ public class CreateReplaceMappingXMLMojo extends AbstractMojo
 		public String getToken(){
 			return _token;
 		}
-		public void setToken(String token){
-			_token = token;
-		}
 		public Boolean getByMethod(){
 			return _byMethod;
-		}
-		public void setByMethod(Boolean byMethod){
-			_byMethod = byMethod;
 		}
 		
 	}
@@ -166,6 +166,7 @@ public class CreateReplaceMappingXMLMojo extends AbstractMojo
 			Map<String, Object> _contextInfoMap = new HashMap<String, Object>();
 			_contextInfoMap.put(REPLACE_MAPPING_XML_ATTRIBUTE, replaceMappingXMLVelocityObjects);
 			_jsfFlexVelocityParser.mergeCollectionToTemplate(REPLACE_MAPPING_XML_TEMPLATE, _contextInfoMap, _writer);
+			
 		}catch(IOException _ioExcept){
 			throw new RuntimeException("Error thrown for file " + _replaceMappingXMLFileName, _ioExcept);
 		}
