@@ -45,14 +45,14 @@ public final class SDKStandardCommonTaskRunnerImpl extends TaskRunnerImpl implem
 	public void unZipArchiveRelative(String file, String dest) throws ComponentBuildException {
 		InputStream fileIO = UnzipTask.class.getResourceAsStream(file);
 		UnzipTask toUnzip = new UnzipTask(fileIO, dest);
-		toUnzip.performTask();
+		addTask(toUnzip);
 	}
 	
 	public void unZipArchiveAbsolute(File file, String dest) throws ComponentBuildException {
 		try{
 			FileInputStream _fileIO = new FileInputStream(file);
 			UnzipTask toUnzip = new UnzipTask(_fileIO, dest);
-			toUnzip.performTask();
+			addTask(toUnzip);
 		}catch(FileNotFoundException _fileNotFoundExcept){
 			throw new ComponentBuildException(_fileNotFoundExcept);
 		}
@@ -60,7 +60,7 @@ public final class SDKStandardCommonTaskRunnerImpl extends TaskRunnerImpl implem
 	
 	public void unZipArchiveAbsolute(InputStream file, String dest) throws ComponentBuildException {
 		UnzipTask toUnzip = new UnzipTask(file, dest);
-		toUnzip.performTask();
+		addTask(toUnzip);
 	}
 	
 }

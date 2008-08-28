@@ -23,10 +23,12 @@ import java.io.PrintStream;
 import org.apache.tools.ant.DefaultLogger;
 import org.apache.tools.ant.Project;
 
+import com.googlecode.jsfFlex.framework.tasks._Task;
+
 /**
  * @author Ji Hoon Kim
  */
-class Ant_BaseTask {
+abstract class Ant_BaseTask extends _Task {
 	
 	Project _taskProject;
 	private DefaultLogger _consoleLogger;
