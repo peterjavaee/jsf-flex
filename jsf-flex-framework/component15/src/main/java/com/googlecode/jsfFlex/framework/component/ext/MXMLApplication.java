@@ -31,9 +31,9 @@ import com.googlecode.jsfFlex.framework.annotation.JsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.framework.component.MXMLContainerTemplate;
 import com.googlecode.jsfFlex.framework.context.MxmlContext;
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.framework.mapper.TokenValue;
 import com.googlecode.jsfFlex.framework.tasks._FileManipulatorTaskRunner;
 import com.googlecode.jsfFlex.framework.util.MXMLConstants;
+import com.googlecode.jsfFlex.framework.beans.TokenValue;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 

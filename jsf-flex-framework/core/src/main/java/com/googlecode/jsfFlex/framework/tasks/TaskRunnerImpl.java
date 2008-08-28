@@ -35,7 +35,7 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  */
 public class TaskRunnerImpl implements _TaskRunner {
 	
-	protected List _tasks;
+	private List _tasks;
 	
 	public TaskRunnerImpl(){
 		super();

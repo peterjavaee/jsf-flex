@@ -19,11 +19,9 @@
 package com.googlecode.jsfFlex.framework.tasks.factory;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Properties;
 
-import com.googlecode.jsfFlex.framework.tasks._AnnotationDocletParser;
+import com.googlecode.jsfFlex.framework.annotationDocletParser._AnnotationDocletParser;
 import com.googlecode.jsfFlex.framework.tasks._CommonTaskRunner;
 import com.googlecode.jsfFlex.framework.tasks._FileManipulatorTaskRunner;
 import com.googlecode.jsfFlex.framework.tasks._FlexTaskRunner;
@@ -47,7 +45,6 @@ public abstract class _RunnerFactory {
 	private static final String RUNNER_FACTORY_IMPL_PACKAGE_CLASS;
 	private static final String RUNNER_FACTORY_IMPL_KEY = "runner_factory_impl";
 	
-	private static Map _runnerFactoryMap = new HashMap();
 	private static _RunnerFactory _instance;
 	
 	static{
@@ -64,15 +61,13 @@ public abstract class _RunnerFactory {
 		super();
 	}
 	
-	public static synchronized _RunnerFactory getInstance(){
+	public final static synchronized _RunnerFactory getInstance(){
 		final String METHOD = "getInstance()";
 		
-		if(_runnerFactoryMap.get(RUNNER_FACTORY_IMPL_PACKAGE_CLASS) == null){
-			
+		if(_instance == null){
 			try{
 				Class _specificClass = Class.forName(RUNNER_FACTORY_IMPL_PACKAGE_CLASS);
 				_instance = (_RunnerFactory) _specificClass.newInstance();
-				_runnerFactoryMap.put(RUNNER_FACTORY_IMPL_PACKAGE_CLASS, _instance);
 			}catch(ClassNotFoundException _classNotFound){
 				throw new RuntimeException(errorMessage(METHOD, _classNotFound), _classNotFound);
 			}catch(IllegalAccessException _illegalAccess){
@@ -80,12 +75,8 @@ public abstract class _RunnerFactory {
 			}catch(InstantiationException _instantiation){
 				throw new RuntimeException(errorMessage(METHOD, _instantiation), _instantiation);
 			}
-			
-		}else{
-			
-			_instance = (_RunnerFactory) _runnerFactoryMap.get(RUNNER_FACTORY_IMPL_PACKAGE_CLASS);
-			
 		}
+		
 		return _instance;
 	}
 	
