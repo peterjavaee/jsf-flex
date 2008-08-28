@@ -26,14 +26,13 @@ import org.apache.tools.ant.taskdefs.ExecTask;
 import org.apache.tools.ant.types.Commandline.Argument;
 
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.framework.tasks.task._Task;
 import com.googlecode.jsfFlex.framework.util.MXMLConstants;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 
 /**
  * @author Ji Hoon Kim
  */
-public final class MXMLCTask extends Ant_BaseTask implements _Task {
+public final class MXMLCTask extends Ant_BaseTask {
 	
 	private static final String WINDOWS_EXEC = "bin" + File.separatorChar + "mxmlc.exe";
 	private static final String NON_WINDOWS_SHELL = "bin" + File.separatorChar + "mxmlc.sh";
@@ -199,7 +198,7 @@ public final class MXMLCTask extends Ant_BaseTask implements _Task {
 		_mxmlcTask.maybeConfigure();
 	}
 	
-	public void performTask() throws ComponentBuildException {
+	protected void performTask() throws ComponentBuildException {
 		
 		try {
 			

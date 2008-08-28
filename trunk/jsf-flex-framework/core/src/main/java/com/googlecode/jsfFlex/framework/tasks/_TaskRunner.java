@@ -19,7 +19,6 @@
 package com.googlecode.jsfFlex.framework.tasks;
 
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.framework.tasks.task._Task;
 
 /**
  * @author Ji Hoon Kim
@@ -27,10 +26,6 @@ import com.googlecode.jsfFlex.framework.tasks.task._Task;
 public interface _TaskRunner {
 	
 	void addTask(_Task toAdd);
-	
-	void removeTask(_Task deleteTask);
-	
-	void clearAllTask();
 	
 	void execute() throws ComponentBuildException;
 

@@ -24,9 +24,13 @@ import java.util.LinkedList;
 import java.util.List;
 
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.framework.tasks.task._Task;
 
 /**
+ * Previously TaskRunnerImpl was designed to allow lazy execution<br>
+ * of the _Tasks within the List; however due to separation of implementation<br>
+ * of the various _.+Runner interfaces, it was decided to execute the _Tasks<br>
+ * upon addition.
+ * 
  * @author Ji Hoon Kim
  */
 public class TaskRunnerImpl implements _TaskRunner {
@@ -49,14 +53,7 @@ public class TaskRunnerImpl implements _TaskRunner {
 	
 	public synchronized void addTasks(Collection _tasksToAdd){
 		_tasks.addAll(_tasksToAdd);
-	}
-	
-	public synchronized void removeTask(_Task deleteTask){
-		_tasks.remove(deleteTask);		
-	}
-
-	public synchronized void clearAllTask(){
-		_tasks.clear();
+		execute();
 	}
 	
 	public synchronized void execute() throws ComponentBuildException{
@@ -67,6 +64,10 @@ public class TaskRunnerImpl implements _TaskRunner {
 			current.performTask();
 		}
 		clearAllTask();
+	}
+	
+	private void clearAllTask(){
+		_tasks.clear();
 	}
 	
 }

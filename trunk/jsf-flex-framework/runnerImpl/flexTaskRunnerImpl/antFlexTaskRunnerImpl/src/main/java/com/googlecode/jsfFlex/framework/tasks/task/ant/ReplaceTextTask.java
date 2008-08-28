@@ -31,12 +31,11 @@ import org.apache.tools.ant.taskdefs.Replace.Replacefilter;
 import org.apache.tools.ant.taskdefs.optional.ReplaceRegExp;
 
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.framework.tasks.task._Task;
 
 /**
  * @author Ji Hoon Kim
  */
-public final class ReplaceTextTask extends Ant_BaseTask implements _Task {
+public final class ReplaceTextTask extends Ant_BaseTask {
 	
 	//make the below reg exp better later
 	public static final String CLEAN_REG_EXP_MATCH = "\\s{2,}";
@@ -119,7 +118,7 @@ public final class ReplaceTextTask extends Ant_BaseTask implements _Task {
 		_replaceList.put(token, value);
 	}
 	
-	public void performTask() throws ComponentBuildException {
+	protected void performTask() throws ComponentBuildException {
 		
 		try {
 			

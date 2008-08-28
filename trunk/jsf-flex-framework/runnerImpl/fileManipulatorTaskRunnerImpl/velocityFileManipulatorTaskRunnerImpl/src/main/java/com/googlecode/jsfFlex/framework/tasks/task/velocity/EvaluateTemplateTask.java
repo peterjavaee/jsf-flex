@@ -31,12 +31,12 @@ import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.VelocityEngine;
 
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.framework.tasks.task._Task;
+import com.googlecode.jsfFlex.framework.tasks._Task;
 
 /**
  * @author Ji Hoon Kim
  */
-public final class EvaluateTemplateTask implements _Task {
+public final class EvaluateTemplateTask extends _Task {
 	
 	private final static Log _log = LogFactory.getLog(EvaluateTemplateTask.class);
 	
@@ -67,7 +67,7 @@ public final class EvaluateTemplateTask implements _Task {
 		_context = new VelocityContext();
 	}
 
-	public void performTask() throws ComponentBuildException {
+	protected void performTask() throws ComponentBuildException {
 		
 		init();
 		populateContext();

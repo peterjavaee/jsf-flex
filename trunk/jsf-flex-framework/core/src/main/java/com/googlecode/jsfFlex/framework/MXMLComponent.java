@@ -79,15 +79,15 @@ public final class MXMLComponent {
 			return new MXMLComponent(_jsfComponent, _component);
 		}
 		
-		public Builder setCompFamily(String compFamily) {
+		public Builder compFamily(String compFamily) {
 			_compFamily = compFamily;
 			return this;
 		}
-		public Builder setJsfComponent(UIComponent jsfComponent) {
+		public Builder jsfComponent(UIComponent jsfComponent) {
 			_jsfComponent = jsfComponent;
 			return this;
 		}
-		public Builder setRendererClass(String rendererClass) {
+		public Builder rendererClass(String rendererClass) {
 			_rendererClass = rendererClass;
 			return this;
 		}

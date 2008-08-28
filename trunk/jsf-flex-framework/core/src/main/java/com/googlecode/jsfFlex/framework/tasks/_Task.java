@@ -16,15 +16,15 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.framework.tasks.task;
+package com.googlecode.jsfFlex.framework.tasks;
 
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 
 /**
  * @author Ji Hoon Kim
  */
-public interface _Task {
+public abstract class _Task {
 	
-	void performTask() throws ComponentBuildException;
+	protected abstract void performTask() throws ComponentBuildException;
 	
 }

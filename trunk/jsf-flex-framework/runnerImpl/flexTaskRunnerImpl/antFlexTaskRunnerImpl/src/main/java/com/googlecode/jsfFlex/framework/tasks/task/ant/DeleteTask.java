@@ -25,12 +25,11 @@ import org.apache.tools.ant.Target;
 import org.apache.tools.ant.taskdefs.Delete;
 
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.framework.tasks.task._Task;
 
 /**
  * @author Ji Hoon Kim
  */
-public final class DeleteTask extends Ant_BaseTask implements _Task {
+public final class DeleteTask extends Ant_BaseTask {
 	
 	private static final String DELETE_TARGET = "delete";
 	
@@ -64,7 +63,7 @@ public final class DeleteTask extends Ant_BaseTask implements _Task {
 	}
 	
 	
-	public void performTask() throws ComponentBuildException {
+	protected void performTask() throws ComponentBuildException {
 		
 		if(isDirectory()){
 			_deleteTask.setDir(new File(getDeleteResource()));

@@ -28,12 +28,12 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.framework.tasks.task._Task;
+import com.googlecode.jsfFlex.framework.tasks._Task;
 
 /**
  * @author Ji Hoon Kim
  */
-public final class UnzipTask implements _Task {
+public final class UnzipTask extends _Task {
 	
 	private static final int BUFFER_SIZE = 2048;
 	
@@ -50,7 +50,7 @@ public final class UnzipTask implements _Task {
 		_dest = dest;
 	}
 	
-	public void performTask() throws ComponentBuildException {
+	protected void performTask() throws ComponentBuildException {
 		
 		BufferedOutputStream bufferOutputStream;
 		ZipInputStream zipInputStream = new ZipInputStream(new BufferedInputStream(_file));

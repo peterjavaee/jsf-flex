@@ -25,12 +25,11 @@ import org.apache.tools.ant.Target;
 import org.apache.tools.ant.taskdefs.Mkdir;
 
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.framework.tasks.task._Task;
 
 /**
  * @author Ji Hoon Kim
  */
-public final class MkdirTask extends Ant_BaseTask implements _Task {
+public final class MkdirTask extends Ant_BaseTask {
 	
 	private static final String MKDIR_TARGET = "mkdir";
 	
@@ -60,7 +59,7 @@ public final class MkdirTask extends Ant_BaseTask implements _Task {
 		_mkdirTarget.addTask(_mkdirTask);
 	}
 	
-	public void performTask() throws ComponentBuildException {
+	protected void performTask() throws ComponentBuildException {
 		
 		_mkdirTask.setDir(new File(getFile()));
 		

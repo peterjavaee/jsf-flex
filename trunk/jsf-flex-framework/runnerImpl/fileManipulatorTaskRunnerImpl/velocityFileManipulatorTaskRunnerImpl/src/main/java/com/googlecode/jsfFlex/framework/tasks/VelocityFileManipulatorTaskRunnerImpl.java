@@ -71,7 +71,7 @@ public final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulato
 			Reader _templateReader = new InputStreamReader(EvaluateTemplateTask.class.getResourceAsStream(JSF_FLEX_TEMPLATE));
 			FileWriter _targetWriter = new FileWriter(new File(_preMxmlFilePath));
 			EvaluateTemplateTask _mergeTemplateTask = new EvaluateTemplateTask(_initProperties, _tokenMap, JSF_FLEX_LOG_TAG, _templateReader, _targetWriter);
-			_mergeTemplateTask.performTask();
+			addTask(_mergeTemplateTask);
 			
 		}catch(IOException _ioException){
 			StringBuffer _errorMessage = new StringBuffer();
