@@ -203,7 +203,6 @@ public final class MXMLCTask extends Ant_BaseTask {
 		try {
 			
 			setArguments();
-			System.out.println("Check values : " + toString());
 			buildProject(MXMLC_TARGET);
 			
 		} catch (BuildException buildException) {

@@ -16,11 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.framework.mapper;
+package com.googlecode.jsfFlex.framework.beans;
 
 /**
- * A simple object to contain the token and value state.<br>
- * 
  * @author Ji Hoon Kim
  */
 public final class TokenValue {

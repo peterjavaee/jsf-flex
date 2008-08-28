@@ -25,7 +25,7 @@ import java.util.Set;
 import com.googlecode.jsfFlex.framework._Component;
 import com.googlecode.jsfFlex.framework.context.MxmlContext;
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.framework.tasks._AnnotationDocletParser;
+import com.googlecode.jsfFlex.framework.annotationDocletParser._AnnotationDocletParser;
 import com.googlecode.jsfFlex.framework.tasks._CommonTaskRunner;
 import com.googlecode.jsfFlex.framework.tasks._FileManipulatorTaskRunner;
 import com.googlecode.jsfFlex.framework.tasks._FlexTaskRunner;
