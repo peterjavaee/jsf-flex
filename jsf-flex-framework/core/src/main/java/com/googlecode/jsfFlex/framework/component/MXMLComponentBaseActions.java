@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.framework.component;
 
 import java.io.File;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Set;
 
 import com.googlecode.jsfFlex.framework._Component;
@@ -206,7 +207,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param jsfFlexMainSwcConfigFile
 	 * @throws ComponentBuildException
 	 */
-	protected final void createSwcSourceFiles(String _swcPath, String[] _systemSourceFiles, String jsfFlexMainSwcConfigFile) throws ComponentBuildException {
+	protected final void createSwcSourceFiles(String _swcPath, List _systemSourceFiles, String jsfFlexMainSwcConfigFile) throws ComponentBuildException {
 		getFlexTaskRunner().createSwcSourceFiles(_swcPath, _systemSourceFiles, jsfFlexMainSwcConfigFile);
 	}
 	
@@ -245,7 +246,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param _systemSwfSourceFiles
 	 * @throws ComponentBuildException
 	 */
-	protected final void createSwfSourceFiles(String _swfBasePath, String[] _systemSwfSourceFiles) throws ComponentBuildException {
+	protected final void createSwfSourceFiles(String _swfBasePath, List _systemSwfSourceFiles) throws ComponentBuildException {
 		getFlexTaskRunner().createSwfSourceFiles(_swfBasePath, _systemSwfSourceFiles);
 	}
 	

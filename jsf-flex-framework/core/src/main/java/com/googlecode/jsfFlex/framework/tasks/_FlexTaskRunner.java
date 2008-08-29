@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.framework.tasks;
 
+import java.util.List;
+
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
@@ -41,13 +43,13 @@ public interface _FlexTaskRunner extends _TaskRunner {
 	
 	void createMXML(_MXMLContract applicationInstance, String copyTo) throws ComponentBuildException;
 	
-	void createSwcSourceFiles(String _swcPath, String[] _systemSourceFiles, String jsfFlexMainSwcConfigFile) throws ComponentBuildException;
+	void createSwcSourceFiles(String _swcPath, List _systemSourceFiles, String jsfFlexMainSwcConfigFile) throws ComponentBuildException;
 	
 	void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath) throws ComponentBuildException;
 	
 	void createSWF(_MXMLApplicationContract componentMXML, String mxmlFile, String swfPath, String flexSDKRootPath) throws ComponentBuildException;
 	
-	void createSwfSourceFiles(String _swfBasePath, String[] _systemSwfSourceFiles) throws ComponentBuildException;
+	void createSwfSourceFiles(String _swfBasePath, List _systemSwfSourceFiles) throws ComponentBuildException;
 	
 	void renameFile(String sourceFile, String destFile, boolean overWrite) throws ComponentBuildException;
 	
