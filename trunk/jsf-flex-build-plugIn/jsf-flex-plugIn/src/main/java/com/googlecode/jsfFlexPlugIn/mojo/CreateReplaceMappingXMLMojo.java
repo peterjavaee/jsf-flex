@@ -162,7 +162,7 @@ public final class CreateReplaceMappingXMLMojo extends AbstractMojo
 			}
 			
 			FileWriter _writer = new FileWriter(new File(_replaceMappingXMLFileName));
-			List replaceMappingXMLVelocityObjects = generateReplaceMappingXMLVelocityObjects(_inspected);
+			List<ReplaceMappingXMLVelocityObject> replaceMappingXMLVelocityObjects = generateReplaceMappingXMLVelocityObjects(_inspected);
 			Map<String, Object> _contextInfoMap = new HashMap<String, Object>();
 			_contextInfoMap.put(REPLACE_MAPPING_XML_ATTRIBUTE, replaceMappingXMLVelocityObjects);
 			_jsfFlexVelocityParser.mergeCollectionToTemplate(REPLACE_MAPPING_XML_TEMPLATE, _contextInfoMap, _writer);
@@ -177,7 +177,7 @@ public final class CreateReplaceMappingXMLMojo extends AbstractMojo
 		
 	}
 	
-	private List generateReplaceMappingXMLVelocityObjects(Map _readNamedParameter){
+	private List<ReplaceMappingXMLVelocityObject> generateReplaceMappingXMLVelocityObjects(Map _readNamedParameter){
 		List<ReplaceMappingXMLVelocityObject> _replaceMappingXMLVelocityObjects = new LinkedList<ReplaceMappingXMLVelocityObject>();
 		
 		Iterator _keyIterator = _readNamedParameter.keySet().iterator();

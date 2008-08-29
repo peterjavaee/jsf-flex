@@ -107,12 +107,9 @@ public class JsfFlexVelocityParser {
 	}
 	
 	private synchronized void mergeCollectionToTemplateFinished(){
-		_JsfFlexParserListener _mergeCollectionToTemplateCallBack;
-		for(Iterator _jsfFlexVelocityParserIterator = _jsfFlexVelocityParserListeners.iterator(); _jsfFlexVelocityParserIterator.hasNext();){
-			_mergeCollectionToTemplateCallBack = (_JsfFlexParserListener) _jsfFlexVelocityParserIterator.next();
+		for(_JsfFlexParserListener _mergeCollectionToTemplateCallBack : _jsfFlexVelocityParserListeners){
 			_mergeCollectionToTemplateCallBack.mergeCollectionToTemplateFinished();
 		}
-		
 	}
 	
 }

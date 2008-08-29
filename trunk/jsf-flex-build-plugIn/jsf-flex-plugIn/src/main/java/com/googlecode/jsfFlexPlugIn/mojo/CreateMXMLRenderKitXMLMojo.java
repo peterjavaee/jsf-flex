@@ -123,7 +123,7 @@ public final class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 		public String getComponentFamily(){
 			return _componentFamily;
 		}
-		public Set getRendererInfoSet(){
+		public Set<RendererInfo> getRendererInfoSet(){
 			/*
 			 * since it's final it should be returned as a defensive copy,
 			 * but it's a plug-in so return it
