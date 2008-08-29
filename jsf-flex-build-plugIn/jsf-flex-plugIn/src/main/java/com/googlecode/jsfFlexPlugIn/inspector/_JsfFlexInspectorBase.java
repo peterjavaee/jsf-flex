@@ -18,7 +18,6 @@
  */
 package com.googlecode.jsfFlexPlugIn.inspector;
 
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -53,17 +52,13 @@ public abstract class _JsfFlexInspectorBase {
 	}
 	
 	protected synchronized void inspectFileFinished(Map _inspectedMap, String _inspectedFileName, String _inspectedPackage){
-		_JsfFlexInspectListener _inspectedCallBack;
-		for(Iterator _jsfFlexQdoxInspectIterator = _jsfFlexInspectListeners.iterator(); _jsfFlexQdoxInspectIterator.hasNext();){
-			_inspectedCallBack = (_JsfFlexInspectListener) _jsfFlexQdoxInspectIterator.next();
+		for(_JsfFlexInspectListener _inspectedCallBack : _jsfFlexInspectListeners){
 			_inspectedCallBack.inspectFileFinished(_inspectedMap, _inspectedFileName, _inspectedPackage);
 		}
 	}
 	
 	protected synchronized void inspectionCompleted(){
-		_JsfFlexInspectListener _inspectedCallBack;
-		for(Iterator _jsfFlexQdoxInspectIterator = _jsfFlexInspectListeners.iterator(); _jsfFlexQdoxInspectIterator.hasNext();){
-			_inspectedCallBack = (_JsfFlexInspectListener) _jsfFlexQdoxInspectIterator.next();
+		for(_JsfFlexInspectListener _inspectedCallBack : _jsfFlexInspectListeners){
 			_inspectedCallBack.inspectionCompleted();
 		}
 	}
