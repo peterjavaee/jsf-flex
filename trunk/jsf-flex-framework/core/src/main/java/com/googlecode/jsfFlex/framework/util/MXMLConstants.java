@@ -223,11 +223,11 @@ public final class MXMLConstants {
 		
 	}
 	
-	public static String[] getSwcSourceFiles(){
+	public static List getSwcSourceFiles(){
 		/*
 		 * To disallow removing elements within swcSourceFiles 
 		 */
-		return (String []) _swcSourceFiles.toArray(new String[0]);
+		return new LinkedList(_swcSourceFiles);
 	}
 	
 	public static void addSwcSourceFiles(String sourceToAdd){
@@ -236,11 +236,11 @@ public final class MXMLConstants {
 		}
 	}
 	
-	public static String[] getSwfSourceFiles(){
+	public static List getSwfSourceFiles(){
 		/*
 		 * To disallow removing elements within swfSourceFiles 
 		 */
-		return (String[]) _swfSourceFiles.toArray(new String[0]);
+		return new LinkedList(_swfSourceFiles);
 	}
 	
 	public static void addSwfSourceFiles(String sourceToAdd){

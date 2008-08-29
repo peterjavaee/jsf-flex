@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.framework.tasks;
 import java.io.File;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.List;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -93,7 +94,7 @@ public final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _Flex
 		copyFile(copyFrom, copyTo);
 	}
 	
-	public void createSwcSourceFiles(String _swcPath, String[] _systemSourceFiles, String jsfFlexMainSwcConfigFile) throws ComponentBuildException {
+	public void createSwcSourceFiles(String _swcPath, List _systemSourceFiles, String jsfFlexMainSwcConfigFile) throws ComponentBuildException {
 		//Echo the sourceFiles to the SWC path
 		
 		/*
@@ -104,20 +105,22 @@ public final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _Flex
 		EchoTask curr;
 		String[] currSplit;
 		String _fileName;
+		String _currSystemSource;
 		
 		StringBuffer _path;
 		String _pathToFile;
-		for(int i=0; i < _systemSourceFiles.length; i++){
-			currSplit = _systemSourceFiles[i].split("/");
+		for(Iterator _systemSourceFilesIterator = _systemSourceFiles.iterator(); _systemSourceFilesIterator.hasNext();){
+			_currSystemSource = (String) _systemSourceFilesIterator.next();
+			currSplit = _currSystemSource.split("/");
 			_path = new StringBuffer();
 			
 			/*
 			 * This is a pure HACK, implement it better later
 			 * The path of ActionScript files must be of com/googlecode/jsfFlex/util/frameworks/actionScript
 			 */
-			_pathToFile = _systemSourceFiles[i].substring(_systemSourceFiles[i].indexOf("actionScript") + 13);
+			_pathToFile = _currSystemSource.substring(_currSystemSource.indexOf("actionScript") + 13);
 			if(_pathToFile == null || _pathToFile.length() == 0){
-				_log.debug("The source file [" + _systemSourceFiles[i] + "] is null or the length is zero");
+				_log.debug("The source file [" + _currSystemSource + "] is null or the length is zero");
 				continue;
 			}
 			//remove the last element [name of file]
@@ -129,7 +132,7 @@ public final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _Flex
 			}
 			addMakeDirectoryTask(_swcPath + _path.toString());
 			_fileName = _swcPath + _path.toString() + currSplit[currSplit.length-1];
-			curr = new EchoTask(_FileManipulatorTaskRunner.getComponentTemplate(getClass().getClassLoader(), _systemSourceFiles[i]), _fileName); 
+			curr = new EchoTask(_FileManipulatorTaskRunner.getComponentTemplate(getClass().getClassLoader(), _currSystemSource), _fileName); 
 			addTask(curr);
 		}
 		
@@ -145,7 +148,7 @@ public final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _Flex
 		addTask(swfCreator);
 	}
 	
-	public void createSwfSourceFiles(String _swfBasePath, String[] _systemSwfSourceFiles) throws ComponentBuildException {
+	public void createSwfSourceFiles(String _swfBasePath, List _systemSwfSourceFiles) throws ComponentBuildException {
 		
 		MkdirTask swfBasePathDirCreator = new MkdirTask(_swfBasePath);
 		addTask(swfBasePathDirCreator);
@@ -160,11 +163,13 @@ public final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _Flex
 		EchoTask curr;
 		String[] currSplit;
 		String _fileName;
+		String _currSystemSwfSourceFile;
 		
-		for(int i=0; i < _systemSwfSourceFiles.length; i++){
-			currSplit = _systemSwfSourceFiles[i].split("/");
+		for(Iterator _systemSwfSourceFilesIterator = _systemSwfSourceFiles.iterator(); _systemSwfSourceFilesIterator.hasNext();){
+			_currSystemSwfSourceFile = (String) _systemSwfSourceFilesIterator.next();
+			currSplit = _currSystemSwfSourceFile.split("/");
 			_fileName = _swfBasePath + currSplit[currSplit.length-1];
-			curr = new EchoTask(_FileManipulatorTaskRunner.getComponentTemplate(getClass().getClassLoader(), _systemSwfSourceFiles[i]), _fileName); 
+			curr = new EchoTask(_FileManipulatorTaskRunner.getComponentTemplate(getClass().getClassLoader(), _currSystemSwfSourceFile), _fileName); 
 			addTask(curr);
 		}
 	}
