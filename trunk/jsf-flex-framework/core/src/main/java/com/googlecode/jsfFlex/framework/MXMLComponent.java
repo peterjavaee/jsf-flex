@@ -62,7 +62,7 @@ public final class MXMLComponent {
 			_rendererClass = MXMLRendererKit.getRendererClass(_compFamily, rendererClass);
 		}
 		
-		public MXMLComponent build(){
+		public MXMLComponent build() throws ComponentBuildException {
 			
 			_Component _component;
 			

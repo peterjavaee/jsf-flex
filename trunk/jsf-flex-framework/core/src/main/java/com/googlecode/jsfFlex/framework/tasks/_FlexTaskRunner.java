@@ -27,11 +27,11 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 public interface _FlexTaskRunner extends _TaskRunner {
 	
-	void addMakeDirectoryTask(String directoryToCreate);
+	void addMakeDirectoryTask(String directoryToCreate) throws ComponentBuildException;
 	
-	void deleteResources(String resourceToDelete, boolean isDirectory);
+	void deleteResources(String resourceToDelete, boolean isDirectory) throws ComponentBuildException;
 	
-	void writeBodyContentTask(_MXMLContract componentMXML);
+	void writeBodyContentTask(_MXMLContract componentMXML) throws ComponentBuildException;
 	
 	void addReplaceTokenWithValueTask(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) throws ComponentBuildException;
 	

@@ -24,6 +24,7 @@ import java.util.Map;
 import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 
+import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
@@ -59,7 +60,12 @@ public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLC
     }
 
 	public void encodeBegin(FacesContext context) throws IOException {
-		MXMLJsfUtil.setComponentProperties(this, context);
+		try{
+			MXMLJsfUtil.setComponentProperties(this, context);
+		}catch(ComponentBuildException _componentBuildException){
+			throw new IOException(_componentBuildException.getMessage());
+		}
+		
 		super.encodeBegin(context);
 	}
 

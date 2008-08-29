@@ -47,73 +47,74 @@ public final class AnnotationDocletParser14Impl extends _AnnotationDocletParser 
 		super();
 	}
 	
-	public void mapComponentFields(Class mapClass, final ClassLoader loader, final Object componentObj, final String replaceMappingXML){
+	public void mapComponentFields(Class mapClass, final ClassLoader loader, final Object componentObj, 
+									final String replaceMappingXML) throws ComponentBuildException {
 		
 		try{
 			final SAXParser parser = SAXParserFactory.newInstance().newSAXParser();
 			
 			parser.parse(loader.getResourceAsStream(replaceMappingXML), new DefaultHandler() {
 				
-					private StringBuffer nodeValue;
-					private String replace_token;
+				private StringBuffer nodeValue;
+				private String replace_token;
+				
+				private boolean replace_tokenCheck;
+				private boolean byMethod;
+				
+				public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+					super.startElement(uri, localName, qName, attributes);
+					if(qName.equals("replace-token")){
+						replace_tokenCheck = true;
+						byMethod = (attributes.getLength() == 0 || attributes.getValue(BY_ATTRIBUTE) == null);
+					}
+					nodeValue = new StringBuffer();
+				}
+				
+				public void endElement(String uri, String localName, String qName) throws SAXException {
+					super.endElement(uri, localName, qName);
+					String currentValue = null;
 					
-					private boolean replace_tokenCheck;
-					private boolean byMethod;
-					
-					public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-						super.startElement(uri, localName, qName, attributes);
-						if(qName.equals("replace-token")){
-							replace_tokenCheck = true;
-							byMethod = (attributes.getLength() == 0 || attributes.getValue(BY_ATTRIBUTE) == null);
-						}
-						nodeValue = new StringBuffer();
+					if(nodeValue != null){
+						currentValue = nodeValue.toString().trim();
 					}
 					
-					public void endElement(String uri, String localName, String qName) throws SAXException {
-						super.endElement(uri, localName, qName);
-						String currentValue = null;
+					if(replace_tokenCheck){
+						replace_token = currentValue;
 						
-						if(nodeValue != null){
-							currentValue = nodeValue.toString().trim();
-						}
-						
-						if(replace_tokenCheck){
-							replace_token = currentValue;
+						if(!getFilterOutAttributes().contains(replace_token)){
 							
-							if(!getFilterOutAttributes().contains(replace_token)){
-								
-								if(byMethod){
-									setMapper(MXML_METHOD_MAPPER);
-								}else{
-									setMapper(MXML_ATTRIBUTE_MAPPER);
-								}
-								
-								try{
-									TokenValue _tokenValue = getMapper().mapField(replace_token, componentObj);
-									if(_tokenValue != null){
-										getTokenValueSet().add(_tokenValue);
-									}
-								}catch(ComponentBuildException _componentBuildExcept){
-									_log.debug("Exception thrown for [ Class : " + componentObj.getClass().getName() + ", replaceToken : " + replace_token + " ] ");
-								}
-								
+							if(byMethod){
+								setMapper(MXML_METHOD_MAPPER);
+							}else{
+								setMapper(MXML_ATTRIBUTE_MAPPER);
 							}
 							
-							replace_tokenCheck = false;
+							try{
+								TokenValue _tokenValue = getMapper().mapField(replace_token, componentObj);
+								if(_tokenValue != null){
+									getTokenValueSet().add(_tokenValue);
+								}
+							}catch(ComponentBuildException _componentBuildExcept){
+								_log.debug("Exception thrown for [ Class : " + componentObj.getClass().getName() + ", replaceToken : " + replace_token + " ] ");
+							}
+							
 						}
 						
+						replace_tokenCheck = false;
 					}
 					
-					public void characters(char[] ch, int start, int length) throws SAXException {
-						super.characters(ch, start, length);
-						if(!replace_tokenCheck){
-							return;
-						}
-						nodeValue.append(new String(ch, start, length));
-					}
-					
-				});
+				}
 				
+				public void characters(char[] ch, int start, int length) throws SAXException {
+					super.characters(ch, start, length);
+					if(!replace_tokenCheck){
+						return;
+					}
+					nodeValue.append(new String(ch, start, length));
+				}
+				
+			});
+			
 		}catch(SAXException saxExcept){
 			Exception except = saxExcept.getException();
 			if(except != null && except instanceof ComponentBuildException){

@@ -75,7 +75,7 @@ public final class EvaluateTemplateTask extends _Task {
 		
 	}
 	
-	private void init(){
+	private void init() throws ComponentBuildException {
 		try{
 			if(_initProperties != null){
 				_velocityEngine.init(_initProperties);

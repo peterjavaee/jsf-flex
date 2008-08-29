@@ -213,32 +213,32 @@ public final class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 		}else{
 			
 			_jsfFlexInspector = new _JsfFlexInspectorBase(_currDirPath){
-										public void inspectFiles(){
-											Map<String, String> _inspectedMap;
-											JavaDocBuilder builder = new JavaDocBuilder();
-											builder.addSourceTree(new File(getDirPath()));
-											JavaClass[] _inspectableFiles = builder.getClasses();
-											JsfFlexAttributeProperties _jsfFlexAttributeList;
-											
-											for(JavaClass _currClass : _inspectableFiles){
-												_jsfFlexAttributeList = _currClass.getClass().getAnnotation(JsfFlexAttributeProperties.class);
-												_inspectedMap = new LinkedHashMap<String, String>();
-												
-												if(_jsfFlexAttributeList == null || _jsfFlexAttributeList.componentFamily() == null || 
-														_jsfFlexAttributeList.componentFamily().length() == 0){
-													continue;
-												}
-												
-												_inspectedMap.put(COMPONENT_FAMILY_KEY, _jsfFlexAttributeList.componentFamily());
-												_inspectedMap.put(RENDERER_NAME_KEY, _jsfFlexAttributeList.rendererName());
-												_inspectedMap.put(RENDERER_CLASS_KEY, _jsfFlexAttributeList.rendererClass());
-												
-												inspectFileFinished(_inspectedMap, _currClass.getName(), _currClass.getPackage());
-											}
-											
-											inspectionCompleted();
-										}
-									};
+				public void inspectFiles(){
+					Map<String, String> _inspectedMap;
+					JavaDocBuilder builder = new JavaDocBuilder();
+					builder.addSourceTree(new File(getDirPath()));
+					JavaClass[] _inspectableFiles = builder.getClasses();
+					JsfFlexAttributeProperties _jsfFlexAttributeList;
+					
+					for(JavaClass _currClass : _inspectableFiles){
+						_jsfFlexAttributeList = _currClass.getClass().getAnnotation(JsfFlexAttributeProperties.class);
+						_inspectedMap = new LinkedHashMap<String, String>();
+						
+						if(_jsfFlexAttributeList == null || _jsfFlexAttributeList.componentFamily() == null || 
+									_jsfFlexAttributeList.componentFamily().length() == 0){
+							continue;
+						}
+						
+						_inspectedMap.put(COMPONENT_FAMILY_KEY, _jsfFlexAttributeList.componentFamily());
+						_inspectedMap.put(RENDERER_NAME_KEY, _jsfFlexAttributeList.rendererName());
+						_inspectedMap.put(RENDERER_CLASS_KEY, _jsfFlexAttributeList.rendererClass());
+						
+						inspectFileFinished(_inspectedMap, _currClass.getName(), _currClass.getPackage());
+					}
+					
+					inspectionCompleted();
+				}
+			};
 			
 		}
 		

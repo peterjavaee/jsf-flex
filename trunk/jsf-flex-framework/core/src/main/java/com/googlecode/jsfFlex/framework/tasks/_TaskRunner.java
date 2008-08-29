@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.framework.tasks;
 
+import java.util.Collection;
+
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 
 /**
@@ -25,7 +27,9 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  */
 public interface _TaskRunner {
 	
-	void addTask(_Task toAdd);
+	void addTask(_Task toAdd) throws ComponentBuildException;
+	
+	void addTasks(Collection _tasksToAdd) throws ComponentBuildException;
 	
 	void execute() throws ComponentBuildException;
 
