@@ -32,8 +32,6 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
-
 /**
  * A constant class that defines various properties for the system.<br>
  * 
@@ -106,7 +104,7 @@ public final class MXMLConstants {
 		try{
 			parseSetProperties();
 		}catch(Exception rendererListException){
-			throw new ComponentBuildException("Failure in parsing of " + MXMLCONSTANTS_XML, rendererListException);
+			throw new RuntimeException("Failure in parsing of " + MXMLCONSTANTS_XML, rendererListException);
 		}
 		
 		CLASS_ID = (String) _tempParseMap.get("CLASS_ID");

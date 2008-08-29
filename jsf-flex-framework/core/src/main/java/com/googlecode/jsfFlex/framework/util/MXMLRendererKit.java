@@ -30,8 +30,6 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
-
 /**
  * A class that will parse mxmlRenderKit.xml and return the correct package class<br>
  * of the component as String for getRendererClass method.<br>
@@ -54,7 +52,7 @@ public final class MXMLRendererKit {
 		try{
 			parseSetProperties();
 		}catch(Exception rendererListException){
-			throw new ComponentBuildException("Failure in parsing of " + RENDERER_KIT_XML, rendererListException);
+			throw new RuntimeException("Failure in parsing of " + RENDERER_KIT_XML, rendererListException);
 		}
 	}
 	

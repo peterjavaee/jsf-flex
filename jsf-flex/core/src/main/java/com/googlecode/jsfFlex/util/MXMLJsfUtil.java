@@ -62,7 +62,7 @@ public final class MXMLJsfUtil {
 	 * @param toEscape
 	 * @return Encoded version of toEscape
 	 */
-	public static String escapeCharacters(String toEscape){
+	public static String escapeCharacters(String toEscape) throws ComponentBuildException {
 		if(toEscape == null){
 			return null;
 		}
@@ -90,7 +90,7 @@ public final class MXMLJsfUtil {
 	 * @param component
 	 * @param context
 	 */
-	public static void setComponentProperties(UIComponent component, FacesContext context){
+	public static void setComponentProperties(UIComponent component, FacesContext context) throws ComponentBuildException {
     	//set the major level, minor level, and absolutePathToPreMxmlFile
     	UIComponent parent = component.getParent();
     	_MXMLContract currMXMLComp = (_MXMLContract) component;

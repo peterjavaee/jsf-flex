@@ -64,6 +64,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttributes;
 import com.googlecode.jsfFlex.framework.context.MxmlContext;
 import com.googlecode.jsfFlex.framework.context.MxmlContextImpl;
+import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.framework.util.MXMLConstants;
 import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexResourceHandler;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
@@ -331,7 +332,12 @@ public abstract class AbstractMXMLUIApplication
 			
 		}
 		
-		MXMLJsfUtil.setComponentProperties(this, context);
+		try{
+			MXMLJsfUtil.setComponentProperties(this, context);
+		}catch(ComponentBuildException _componentBuildException){
+			throw new IOException(_componentBuildException.getMessage());
+		}
+		
 		super.encodeBegin(context);
 	}
 	

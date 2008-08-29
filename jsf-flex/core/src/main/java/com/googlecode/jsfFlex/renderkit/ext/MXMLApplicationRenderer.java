@@ -29,6 +29,7 @@ import javax.faces.context.ResponseWriter;
 import org.apache.myfaces.shared_tomahawk.renderkit.html.HTML;
 
 import com.googlecode.jsfFlex.framework.context.MxmlContext;
+import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.framework.util.MXMLConstants;
 import com.googlecode.jsfFlex.renderkit.MXMLRendererBase;
 import com.googlecode.jsfFlex.util.MXMLJsfUtil;
@@ -80,7 +81,13 @@ public final class MXMLApplicationRenderer extends MXMLRendererBase {
 		
 		toWrite.append(FLASH_APPS_NS);
 		toWrite.append(".push(");
-		toWrite.append(getComponentIdValues());
+		
+		try{
+			toWrite.append(getComponentIdValues());
+		}catch(ComponentBuildException _componentBuildException){
+			throw new IOException(_componentBuildException.getMessage());
+		}
+		
 		toWrite.append(");");
 		
 		toWrite.append("dojo.addOnLoad(");
@@ -133,7 +140,7 @@ public final class MXMLApplicationRenderer extends MXMLRendererBase {
 		
 	}
 	
-	private String getComponentIdValues(){
+	private String getComponentIdValues() throws ComponentBuildException {
 		StringBuffer toReturn = new StringBuffer();
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 		Map applicationIdValueMap = mxmlContext.getApplicationIdValueMap();

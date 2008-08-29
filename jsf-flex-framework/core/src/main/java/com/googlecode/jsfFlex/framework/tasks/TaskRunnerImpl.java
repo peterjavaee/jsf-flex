@@ -46,12 +46,12 @@ public class TaskRunnerImpl implements _TaskRunner {
 		_tasks.addAll(tasks);
 	}
 
-	public synchronized void addTask(_Task toAdd){
+	public synchronized void addTask(_Task toAdd) throws ComponentBuildException {
 		_tasks.add(toAdd);
 		execute();
 	}
 	
-	public synchronized void addTasks(Collection _tasksToAdd){
+	public synchronized void addTasks(Collection _tasksToAdd) throws ComponentBuildException {
 		_tasks.addAll(_tasksToAdd);
 		execute();
 	}

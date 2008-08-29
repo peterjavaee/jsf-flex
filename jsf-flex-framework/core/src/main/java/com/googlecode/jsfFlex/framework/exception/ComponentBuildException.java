@@ -25,7 +25,7 @@ package com.googlecode.jsfFlex.framework.exception;
  * 
  * @author Ji Hoon Kim
  */
-public class ComponentBuildException extends RuntimeException {
+public class ComponentBuildException extends Exception {
 	
 	private static final long serialVersionUID = -5173040220355169548L;
 	private Throwable cause;

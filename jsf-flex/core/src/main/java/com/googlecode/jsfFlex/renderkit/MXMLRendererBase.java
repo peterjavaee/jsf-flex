@@ -30,6 +30,7 @@ import javax.faces.render.Renderer;
 
 import com.googlecode.jsfFlex.framework.MXMLComponent;
 import com.googlecode.jsfFlex.framework.context.MxmlContext;
+import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
 /**
@@ -49,15 +50,15 @@ public class MXMLRendererBase extends Renderer{
 	
 	private MXMLComponent _mxmlComponent;
 	
-	private static Comparator _majorKeyComparator = new Comparator(){
-														public int compare(Object obj1, Object obj2){
-															_MXMLContract actObj1 = (_MXMLContract) obj1;
-															_MXMLContract actObj2 = (_MXMLContract) obj2;
-															double actObj1Double = Double.valueOf(actObj1.getPreMxmlIdentifier()).doubleValue();
-															double actObj2Double = Double.valueOf(actObj2.getPreMxmlIdentifier()).doubleValue();
-															return actObj1Double == actObj2Double ? 0 : actObj1Double < actObj2Double ? -1 : 1;
-														}
-													};
+	private static final Comparator _majorKeyComparator = new Comparator(){
+		public int compare(Object obj1, Object obj2){
+			_MXMLContract actObj1 = (_MXMLContract) obj1;
+			_MXMLContract actObj2 = (_MXMLContract) obj2;
+			double actObj1Double = Double.valueOf(actObj1.getPreMxmlIdentifier()).doubleValue();
+			double actObj2Double = Double.valueOf(actObj2.getPreMxmlIdentifier()).doubleValue();
+			return actObj1Double == actObj2Double ? 0 : actObj1Double < actObj2Double ? -1 : 1;
+		}
+	};
 	
 	public void encodeBegin(FacesContext context, UIComponent component) throws IOException {
 		super.encodeBegin(context, component);
@@ -93,10 +94,13 @@ public class MXMLRendererBase extends Renderer{
 			
 		}
 		
-		_mxmlComponent = new MXMLComponent.Builder(component, mxmlUIComp.getFamily(), mxmlUIComp.getMXMLComponentRenderer()).build();
-		
-		_mxmlComponent.buildComponentBegin();
-		_mxmlComponent.buildComponentInterlude();
+		try{
+			_mxmlComponent = new MXMLComponent.Builder(component, mxmlUIComp.getFamily(), mxmlUIComp.getMXMLComponentRenderer()).build();
+			_mxmlComponent.buildComponentBegin();
+			_mxmlComponent.buildComponentInterlude();
+		}catch(ComponentBuildException _componentBuildException){
+			throw new IOException(_componentBuildException.getMessage());
+		}
 		
 	}
 	
@@ -108,7 +112,11 @@ public class MXMLRendererBase extends Renderer{
 			return;
 		}
 		
-		_mxmlComponent.buildComponentChildren();
+		try{
+			_mxmlComponent.buildComponentChildren();
+		}catch(ComponentBuildException _componentBuildException){
+			throw new IOException(_componentBuildException.getMessage());
+		}
 		
 	}
 	
@@ -128,10 +136,20 @@ public class MXMLRendererBase extends Renderer{
 			}
 			
 			_MXMLContract mxmlUIComp = (_MXMLContract) component;
-			_mxmlComponent = new MXMLComponent.Builder(component, mxmlUIComp.getFamily(), mxmlUIComp.getMXMLComponentRenderer()).build();
+			
+			try{
+				_mxmlComponent = new MXMLComponent.Builder(component, mxmlUIComp.getFamily(), mxmlUIComp.getMXMLComponentRenderer()).build();
+			}catch(ComponentBuildException _componentBuildException){
+				throw new IOException(_componentBuildException.getMessage());
+			}
 			
 		}
+		
+		try{
 		_mxmlComponent.buildComponentEnd();
+		}catch(ComponentBuildException _componentBuildException){
+			throw new IOException(_componentBuildException.getMessage());
+		}
 	}
 	
 }

@@ -33,7 +33,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 public abstract class _AnnotationDocletParser {
 	
-	protected static final String BY_ATTRIBUTE = "byAttribute";
+	static final String BY_ATTRIBUTE = "byAttribute";
 	
 	private final Set _filterOutAttributes;
 	private final Set _tokenValueSet;
@@ -56,14 +56,14 @@ public abstract class _AnnotationDocletParser {
 		return _tokenValueSet;
 	}
 	
-	protected _MXMLMapper getMapper(){
+	_MXMLMapper getMapper(){
 		return _mapper;
 	}
-	protected void setMapper(_MXMLMapper mapperToSet){
+	void setMapper(_MXMLMapper mapperToSet){
 		_mapper = mapperToSet;
 	}
 	
-	protected static String getErrorMessage(String caller, String parameter){
+	static String getErrorMessage(String caller, String parameter){
 		StringBuffer errorMessage = new StringBuffer();
 		errorMessage.append("Exception when ");
 		errorMessage.append(caller);
@@ -73,15 +73,16 @@ public abstract class _AnnotationDocletParser {
 		return errorMessage.toString();
 	}
 	
-	public abstract void mapComponentFields(Class mapClass, ClassLoader loader, Object _componentObj, String _replaceMappingXML);
+	public abstract void mapComponentFields(Class mapClass, ClassLoader loader, Object _componentObj, 
+												String _replaceMappingXML) throws ComponentBuildException;
 	
-	protected abstract class _MXMLMapper {
+	abstract class _MXMLMapper {
 		
 		public abstract TokenValue mapField(String tokenName, Object componentObj) throws ComponentBuildException;
 		
 	}
 	
-	protected final _MXMLMapper MXML_ATTRIBUTE_MAPPER = new _MXMLMapper(){
+	final _MXMLMapper MXML_ATTRIBUTE_MAPPER = new _MXMLMapper(){
 		public TokenValue mapField(String tokenName, Object componentObj) {
 			//this class must have Object passed in as a MXMLContract
 			_MXMLContract comp = (_MXMLContract) componentObj;
@@ -96,7 +97,7 @@ public abstract class _AnnotationDocletParser {
 		}
 	};
 	
-	protected final _MXMLMapper MXML_METHOD_MAPPER = new _MXMLMapper(){
+	final _MXMLMapper MXML_METHOD_MAPPER = new _MXMLMapper(){
 		public TokenValue mapField(String tokenName, Object componentObj) throws ComponentBuildException{
 			
 			try{
