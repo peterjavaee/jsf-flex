@@ -35,6 +35,12 @@
     </dependency>
     
     <dependency>
+      <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
+      <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
       <groupId>org.apache.myfaces.core</groupId>
       <artifactId>myfaces-api</artifactId>
       <scope>compile</scope>
@@ -189,9 +195,5 @@
     </plugins>
     
   </build>
-  
-  <properties>
-    <jsf_flex_plugIn>0.0.5-SNAPSHOT</jsf_flex_plugIn>
-  </properties>
   
 </project>

@@ -43,6 +43,12 @@
       </dependency>
       
       <dependency>
+        <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
+        <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
+        <version>${jsf_flex_plugIn}</version>
+      </dependency>
+      
+      <dependency>
         <groupId>commons-logging</groupId>
         <artifactId>commons-logging</artifactId>
         <version>1.1.1</version>
@@ -140,6 +146,7 @@
   
   <properties>
     <jsf_flex_framework_core>0.0.5-SNAPSHOT</jsf_flex_framework_core>
+    <jsf_flex_plugIn>0.0.5-SNAPSHOT</jsf_flex_plugIn>
   </properties>
   
 </project>
