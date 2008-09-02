@@ -231,6 +231,7 @@ public final class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 					
 					for(JavaClass _currClass : _inspectableFiles){
 						_jsfFlexAttributeList = _currClass.getClass().getAnnotation(JsfFlexAttributeProperties.class);
+						_inspectedList = new LinkedList<Map<String, ? extends Object>>();
 						_inspectedMap = new LinkedHashMap<String, String>();
 						
 						if(_jsfFlexAttributeList == null || _jsfFlexAttributeList.componentFamily() == null || 
@@ -242,9 +243,7 @@ public final class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 						_inspectedMap.put(RENDERER_NAME_KEY, _jsfFlexAttributeList.rendererName());
 						_inspectedMap.put(RENDERER_CLASS_KEY, _jsfFlexAttributeList.rendererClass());
 						
-						_inspectedList = new LinkedList<Map<String, ? extends Object>>();
 						_inspectedList.add(_inspectedMap);
-						
 						inspectFileFinished(_inspectedList, _currClass.getName(), _currClass.getPackage());
 					}
 					

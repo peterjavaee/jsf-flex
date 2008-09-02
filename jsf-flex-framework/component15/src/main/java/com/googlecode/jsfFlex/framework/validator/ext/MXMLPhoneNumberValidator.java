@@ -32,6 +32,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		componentFamily="javax.faces.MXMLSimpleBase",
 		rendererName="com.googlecode.jsfFlex.MXMLPhoneNumberValidator",
 		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLPhoneNumberValidator",
+		componentNodeAttributes={},
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="allowedFormatChars", byMethod=false),

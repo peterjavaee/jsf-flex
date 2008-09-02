@@ -59,6 +59,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		componentFamily="javax.faces.MXMLApplication",
 		rendererName="com.googlecode.jsfFlex.MXMLApplication",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLApplication",
+		componentNodeAttributes={},
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="controlBar", byMethod=false),

@@ -32,6 +32,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		componentFamily="javax.faces.MXMLSimpleBase",
 		rendererName="com.googlecode.jsfFlex.MXMLZipCodeValidator",
 		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLZipCodeValidator",
+		componentNodeAttributes={},
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="allowedFormatChars", byMethod=false),

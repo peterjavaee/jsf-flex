@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.framework.component.ext;
 
 import com.googlecode.jsfFlex.framework.annotation.JsfFlexAttribute;
 import com.googlecode.jsfFlex.framework.annotation.JsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.framework.annotation.JsfFlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.framework.component.MXMLComponentBase;
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
@@ -32,6 +33,19 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		componentFamily="javax.faces.MXMLInput",
 		rendererName="com.googlecode.jsfFlex.MXMLNumericStepper",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLNumericStepper",
+		mxmlComponentPackage="mx.controls",
+		mxmlComponentName="NumericStepper",
+		componentNodeAttributes={
+			@JsfFlexComponentNodeAttribute(htmlType="INPUT",
+						typeAttributeValue="HIDDEN",
+						valueAttributeValue="value",
+						isValueDynamic=true,
+						isValueNested=false,
+						valueNestedValues={},
+						nameAttributeValue="id",
+						isNameDynamic=true,
+						nameAppend="_value")
+		},
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="imeMode", byMethod=false),

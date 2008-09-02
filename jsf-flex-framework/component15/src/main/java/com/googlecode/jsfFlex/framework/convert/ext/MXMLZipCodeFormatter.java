@@ -32,6 +32,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		componentFamily="javax.faces.MXMLSimpleBase",
 		rendererName="com.googlecode.jsfFlex.MXMLZipCodeFormatter",
 		rendererClass="com.googlecode.jsfFlex.framework.convert.ext.MXMLZipCodeFormatter",
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="formatString", byMethod=false)

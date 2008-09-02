@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.framework.component.ext;
 
 import com.googlecode.jsfFlex.framework.annotation.JsfFlexAttribute;
 import com.googlecode.jsfFlex.framework.annotation.JsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.framework.annotation.JsfFlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.framework.component.MXMLContainerTemplate;
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
@@ -32,6 +33,19 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		componentFamily="javax.faces.MXMLInput",
 		rendererName="com.googlecode.jsfFlex.MXMLAccordion",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLAccordion",
+		mxmlComponentPackage="mx.containers",
+		mxmlComponentName="Accordion",
+		componentNodeAttributes={
+			@JsfFlexComponentNodeAttribute(htmlType="INPUT",
+						typeAttributeValue="HIDDEN",
+						valueAttributeValue="selectedIndex",
+						isValueDynamic=true,
+						isValueNested=false,
+						valueNestedValues={},
+						nameAttributeValue="id",
+						isNameDynamic=true,
+						nameAppend="_selectedIndex")
+		},
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="headerRenderer", byMethod=false),

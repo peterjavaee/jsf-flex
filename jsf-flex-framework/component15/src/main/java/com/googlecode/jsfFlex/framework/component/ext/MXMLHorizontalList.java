@@ -19,6 +19,7 @@
 package com.googlecode.jsfFlex.framework.component.ext;
 
 import com.googlecode.jsfFlex.framework.annotation.JsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.framework.annotation.JsfFlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.framework.component.MXMLListBaseTemplate;
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
@@ -31,6 +32,19 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		componentFamily="javax.faces.MXMLInput",
 		rendererName="com.googlecode.jsfFlex.MXMLHorizontalList",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLHorizontalList",
+		mxmlComponentPackage="mx.controls",
+		mxmlComponentName="HorizontalList",
+		componentNodeAttributes={
+			@JsfFlexComponentNodeAttribute(htmlType="INPUT",
+						typeAttributeValue="HIDDEN",
+						valueAttributeValue="selectedIndex",
+						isValueDynamic=true,
+						isValueNested=false,
+						valueNestedValues={},
+						nameAttributeValue="id",
+						isNameDynamic=true,
+						nameAppend="_selectedIndex")
+		},
 		
 		jsfFlexAttributes={}
 	)

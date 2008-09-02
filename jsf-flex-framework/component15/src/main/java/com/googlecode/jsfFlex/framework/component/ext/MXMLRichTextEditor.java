@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.framework.component.ext;
 
 import com.googlecode.jsfFlex.framework.annotation.JsfFlexAttribute;
 import com.googlecode.jsfFlex.framework.annotation.JsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.framework.annotation.JsfFlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.framework.component.MXMLPanelTemplate;
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
@@ -32,6 +33,28 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		componentFamily="javax.faces.MXMLInput",
 		rendererName="com.googlecode.jsfFlex.MXMLRichTextEditor",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLRichTextEditor",
+		mxmlComponentPackage="mx.controls",
+		mxmlComponentName="RichTextEditor",
+		componentNodeAttributes={
+			@JsfFlexComponentNodeAttribute(htmlType="INPUT",
+						typeAttributeValue="HIDDEN",
+						valueAttributeValue="text",
+						isValueDynamic=true,
+						isValueNested=false,
+						valueNestedValues={},
+						nameAttributeValue="id",
+						isNameDynamic=true,
+						nameAppend="_text"),
+			@JsfFlexComponentNodeAttribute(htmlType="INPUT",
+						typeAttributeValue="HIDDEN",
+						valueAttributeValue="htmlText",
+						isValueDynamic=true,
+						isValueNested=false,
+						valueNestedValues={},
+						nameAttributeValue="id",
+						isNameDynamic=true,
+						nameAppend="_htmlText")
+		},
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="defaultLinkProtocol", byMethod=false),
