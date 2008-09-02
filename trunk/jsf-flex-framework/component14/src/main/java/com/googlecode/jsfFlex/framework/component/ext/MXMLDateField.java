@@ -85,6 +85,20 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  rendererName=com.googlecode.jsfFlex.MXMLDateField
  *  rendererClass=com.googlecode.jsfFlex.framework.component.ext.MXMLDateField
  * 
+ * @JsfFlexComponentValueClassInfo
+ *  classPackage=mx.controls
+ *  className=DateField
+ *  
+ * @JsfFlexComponentNodeInfo
+ *  htmlType=INPUT
+ *  typeAttributeValue=HIDDEN
+ *  valueAttributeValue=text
+ *  valueDynamic=true
+ *  valueNested=false
+ *  nameAttributeValue=id
+ *  nameDynamic=true
+ *  nameAppend=_text
+ * 
  * @author Ji Hoon Kim
  */
 public final class MXMLDateField extends MXMLComboBaseTemplate {

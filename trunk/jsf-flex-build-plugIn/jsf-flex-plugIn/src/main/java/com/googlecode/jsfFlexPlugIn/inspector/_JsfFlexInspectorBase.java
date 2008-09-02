@@ -51,9 +51,9 @@ public abstract class _JsfFlexInspectorBase {
 		_jsfFlexInspectListeners.add(_callBack);
 	}
 	
-	protected synchronized void inspectFileFinished(Map _inspectedMap, String _inspectedFileName, String _inspectedPackage){
+	protected synchronized void inspectFileFinished(List<Map<String, ? extends Object>> _inspectedList, String _inspectedFileName, String _inspectedPackage){
 		for(_JsfFlexInspectListener _inspectedCallBack : _jsfFlexInspectListeners){
-			_inspectedCallBack.inspectFileFinished(_inspectedMap, _inspectedFileName, _inspectedPackage);
+			_inspectedCallBack.inspectFileFinished(_inspectedList, _inspectedFileName, _inspectedPackage);
 		}
 	}
 	

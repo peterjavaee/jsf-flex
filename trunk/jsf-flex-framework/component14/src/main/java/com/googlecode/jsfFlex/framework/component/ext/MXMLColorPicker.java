@@ -82,6 +82,20 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  rendererName=com.googlecode.jsfFlex.MXMLColorPicker
  *  rendererClass=com.googlecode.jsfFlex.framework.component.ext.MXMLColorPicker
  * 
+ * @JsfFlexComponentValueClassInfo
+ *  classPackage=mx.controls
+ *  className=ColorPicker
+ *  
+ * @JsfFlexComponentNodeInfo
+ *  htmlType=INPUT
+ *  typeAttributeValue=HIDDEN
+ *  valueAttributeValue=selectedColor
+ *  valueDynamic=true
+ *  valueNested=false
+ *  nameAttributeValue=id
+ *  nameDynamic=true
+ *  nameAppend=_selectedColor
+ * 
  * @author Ji Hoon Kim
  */
 public final class MXMLColorPicker extends MXMLComboBaseTemplate {

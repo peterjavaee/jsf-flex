@@ -28,6 +28,20 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  rendererName=com.googlecode.jsfFlex.MXMLHSlider
  *  rendererClass=com.googlecode.jsfFlex.framework.component.ext.MXMLHSlider
  * 
+ * @JsfFlexComponentValueClassInfo
+ *  classPackage=mx.controls
+ *  className=HSlider
+ *  
+ * @JsfFlexComponentNodeInfo
+ *  htmlType=INPUT
+ *  typeAttributeValue=HIDDEN
+ *  valueAttributeValue=value
+ *  valueDynamic=true
+ *  valueNested=false
+ *  nameAttributeValue=id
+ *  nameDynamic=true
+ *  nameAppend=_value
+ * 
  * @author Ji Hoon Kim
  */
 public final class MXMLHSlider extends MXMLSliderTemplate {

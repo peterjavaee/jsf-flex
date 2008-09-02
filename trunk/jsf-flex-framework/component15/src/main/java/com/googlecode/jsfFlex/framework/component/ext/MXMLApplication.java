@@ -103,6 +103,12 @@ public final class MXMLApplication extends MXMLContainerTemplate {
 		super();
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.googlecode.jsfFlex.framework.component.MXMLContainerTemplate#buildComponentBegin(java.lang.Object)
+	 * 
+	 * since getTokenValueSet() must be supported for JRE < & >= 1.5, suppressing the warning rather than specifying the parameter
+	 */
+	@SuppressWarnings("unchecked")
 	public void buildComponentBegin(Object componentObj) throws ComponentBuildException{
 		
 		/*

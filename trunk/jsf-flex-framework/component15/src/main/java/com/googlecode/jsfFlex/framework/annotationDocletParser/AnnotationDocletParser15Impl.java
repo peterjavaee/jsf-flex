@@ -40,6 +40,12 @@ public final class AnnotationDocletParser15Impl extends _AnnotationDocletParser 
 		super();
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.googlecode.jsfFlex.framework.annotationDocletParser._AnnotationDocletParser#mapComponentFields(java.lang.Class, java.lang.ClassLoader, java.lang.Object, java.lang.String)
+	 * 
+	 * since mapComponentFields and getTokenValueSet must support JRE < & >= 1.5, suppressing the warning rather than specifying the parameter.
+	 */
+	@SuppressWarnings("unchecked")
 	public void mapComponentFields(Class mapClass, final ClassLoader loader, final Object componentObj, final String replaceMappingXML){
 		
 		JsfFlexAttributeProperties _jsfFlexAttributeList = (JsfFlexAttributeProperties) mapClass.getAnnotation(JsfFlexAttributeProperties.class);

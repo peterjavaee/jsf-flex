@@ -32,6 +32,30 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  rendererName=com.googlecode.jsfFlex.MXMLRadioButton
  *  rendererClass=com.googlecode.jsfFlex.framework.component.ext.MXMLRadioButton
  * 
+ * @JsfFlexComponentValueClassInfo
+ *  classPackage=mx.controls
+ *  className=RadioButton
+ *  
+ * @JsfFlexComponentNodeInfo
+ *  htmlType=INPUT
+ *  typeAttributeValue=HIDDEN
+ *  valueDynamic=true
+ *  valueNested=true
+ *  valueNestedValues=group_selectedValue
+ *  nameAttributeValue=groupName
+ *  nameDynamic=true
+ *  nameAppend=_selectedValue
+ * 
+ * @JsfFlexComponentNodeInfo
+ *  htmlType=INPUT
+ *  typeAttributeValue=HIDDEN
+ *  valueAttributeValue=selected
+ *  valueDynamic=true
+ *  valueNested=false
+ *  nameAttributeValue=id
+ *  nameDynamic=true
+ *  nameAppend=_selected
+ * 
  * @author Ji Hoon Kim
  */
 public final class MXMLRadioButton extends MXMLButtonTemplate {
