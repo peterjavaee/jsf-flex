@@ -30,22 +30,24 @@ import java.lang.annotation.Target;
 @Documented
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface JsfFlexAttributeProperties {
+public @interface JsfFlexComponentNodeAttribute {
 	
-	JsfFlexAttribute[] jsfFlexAttributes();
+	String htmlType();
 	
-	JsfFlexComponentNodeAttribute[] componentNodeAttributes();
+	String typeAttributeValue();
 	
-	String mxmlComponentPackage() default "";
+	String valueAttributeValue() default "";
 	
-	String mxmlComponentName() default "";
+	boolean isValueDynamic();
 	
-	String componentName() default "";
+	boolean isValueNested();
 	
-	String componentFamily() default "";
+	String[] valueNestedValues();
 	
-	String rendererName() default "";
+	String nameAttributeValue();
 	
-	String rendererClass() default "";
+	boolean isNameDynamic();
+	
+	String nameAppend();
 	
 }

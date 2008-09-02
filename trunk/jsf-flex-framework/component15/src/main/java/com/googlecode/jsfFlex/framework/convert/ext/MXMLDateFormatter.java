@@ -32,6 +32,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		componentFamily="javax.faces.MXMLSimpleBase",
 		rendererName="com.googlecode.jsfFlex.MXMLDateFormatter",
 		rendererClass="com.googlecode.jsfFlex.framework.convert.ext.MXMLDateFormatter",
+		componentNodeAttributes={},
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="formatString", byMethod=false)

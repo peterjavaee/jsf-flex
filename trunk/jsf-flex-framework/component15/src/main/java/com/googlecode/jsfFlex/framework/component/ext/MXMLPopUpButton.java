@@ -31,6 +31,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		componentFamily="javax.faces.MXMLInput",
 		rendererName="com.googlecode.jsfFlex.MXMLPopUpButton",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLPopUpButton",
+		componentNodeAttributes={},
 		
 		jsfFlexAttributes={}
 	)

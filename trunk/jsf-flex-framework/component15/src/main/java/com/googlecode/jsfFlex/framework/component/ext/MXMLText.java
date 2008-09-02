@@ -31,6 +31,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		componentFamily="javax.faces.MXMLSimpleBase",
 		rendererName="com.googlecode.jsfFlex.MXMLText",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLText",
+		componentNodeAttributes={},
 		
 		jsfFlexAttributes={}
 	)

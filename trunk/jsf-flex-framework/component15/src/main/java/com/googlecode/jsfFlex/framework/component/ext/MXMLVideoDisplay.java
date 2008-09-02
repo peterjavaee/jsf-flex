@@ -32,6 +32,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		componentFamily="javax.faces.MXMLSimpleBase",
 		rendererName="com.googlecode.jsfFlex.MXMLVideoDisplay",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLVideoDisplay",
+		componentNodeAttributes={},
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="autoBandWidthDetection", byMethod=false),

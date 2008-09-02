@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -35,11 +36,15 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
 
+import com.googlecode.jsfFlex.framework.annotation.JsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.framework.annotation.JsfFlexComponentNodeAttribute;
 import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectListener;
 import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectorBase;
 import com.googlecode.jsfFlexPlugIn.inspector.qdox.JsfFlexQdoxInspector;
 import com.googlecode.jsfFlexPlugIn.parser._JsfFlexParserListener;
 import com.googlecode.jsfFlexPlugIn.parser.velocity.JsfFlexVelocityParser;
+import com.thoughtworks.qdox.JavaDocBuilder;
+import com.thoughtworks.qdox.model.JavaClass;
 
 /**
  * @goal    createComponentValueMapperXML
@@ -69,8 +74,8 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
 	private static final String TO_CREATE_COMPONENT_VALUE_MAPPER_XML_FILE_NAME = "componentValueMapper.xml";
 	private static final String FILE_RESOURCE_LOADER_PATH_KEY = "file.resource.loader.path";
 	
-	private static final String CLASS_PACKAGE_KEY = "classPackage";
-	private static final String CLASS_NAME_KEY = "className";
+	private static final String MXML_CLASS_PACKAGE_KEY = "classPackage";
+	private static final String MXML_CLASS_NAME_KEY = "className";
 	
 	private static final String HTML_TYPE_KEY = "htmlType";
 	private static final String TYPE_ATTRIBUTE_VALUE_KEY = "typeAttributeValue";
@@ -258,6 +263,92 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
 			_jsfFlexInspector = new JsfFlexQdoxInspector(CREATE_COMPONENT_VALUE_MAPPER_XML_PATTERN_LIST, _currDirPath);
 		}else{
 			
+			_jsfFlexInspector = new _JsfFlexInspectorBase(_currDirPath){
+				public void inspectFiles(){
+					/*
+					 * In order to keep in synch with the QDox parsing, following is the 
+					 * format to be inserted into the LinkedList<Map<String, ? extends Object>> :
+					 * 		(1) Map containing 	CLASS_PACKAGE_KEY
+					 * 							CLASS_NAME_KEY
+					 * 
+					 * 		(2) Map containing 	HTML_TYPE_KEY
+					 * 							TYPE_ATTRIBUTE_VALUE_KEY
+					 * 							
+					 * 							VALUE_ATTRIBUTE_VALUE_KEY
+					 * 							VALUE_DYNAMIC_KEY
+					 * 							VALUE_NESTED_KEY
+					 * 							VALUE_NESTED_VALUES_KEY
+					 * 							
+					 * 							NAME_ATTRIBUTE_VALUE_KEY
+					 * 							NAME_DYNAMIC_KEY
+					 * 							NAME_APPEND_KEY
+					 * 							
+					 */
+					List<Map<String, ? extends Object>> _inspectedList;
+					Map<String, String> _inspectedMap;
+					JavaDocBuilder builder = new JavaDocBuilder();
+					builder.addSourceTree(new File(getDirPath()));
+					JavaClass[] _inspectableFiles = builder.getClasses();
+					JsfFlexAttributeProperties _jsfFlexAttributeList;
+					StringBuilder _toBuildString;
+					String _builtString;
+					
+					for(JavaClass _currClass : _inspectableFiles){
+						_jsfFlexAttributeList = _currClass.getClass().getAnnotation(JsfFlexAttributeProperties.class);
+						_inspectedList = new LinkedList<Map<String, ? extends Object>>();
+						_inspectedMap = new LinkedHashMap<String, String>();
+						
+						if(_jsfFlexAttributeList == null || _jsfFlexAttributeList.mxmlComponentPackage() == null || 
+									_jsfFlexAttributeList.mxmlComponentName().length() == 0){
+							continue;
+						}
+						
+						_inspectedMap.put(MXML_CLASS_PACKAGE_KEY, _jsfFlexAttributeList.mxmlComponentPackage());
+						_inspectedMap.put(MXML_CLASS_NAME_KEY, _jsfFlexAttributeList.mxmlComponentName());
+						
+						_inspectedList.add(_inspectedMap);
+						//have added Map info containing CLASS_* info
+						
+						for(JsfFlexComponentNodeAttribute _currComponentNodeInfo : _jsfFlexAttributeList.componentNodeAttributes()){
+							_inspectedMap = new LinkedHashMap<String, String>();
+							
+							_inspectedMap.put(HTML_TYPE_KEY, _currComponentNodeInfo.htmlType());
+							_inspectedMap.put(TYPE_ATTRIBUTE_VALUE_KEY, _currComponentNodeInfo.typeAttributeValue());
+							
+							_inspectedMap.put(VALUE_ATTRIBUTE_VALUE_KEY, _currComponentNodeInfo.valueAttributeValue());
+							_inspectedMap.put(VALUE_DYNAMIC_KEY, String.valueOf(_currComponentNodeInfo.isValueDynamic()));
+							_inspectedMap.put(VALUE_NESTED_KEY, String.valueOf(_currComponentNodeInfo.isValueNested()));
+							
+							if(_currComponentNodeInfo.isValueNested()){
+								_toBuildString = new StringBuilder();
+								
+								for(String _buildInto : _currComponentNodeInfo.valueNestedValues()){
+									_toBuildString.append(_buildInto);
+									_toBuildString.append("_");
+								}
+								
+								_toBuildString.deleteCharAt(_toBuildString.length()-1);
+								_builtString = _toBuildString.toString();
+							}else{
+								_builtString = "";
+							}
+							
+							_inspectedMap.put(VALUE_NESTED_VALUES_KEY, _builtString);
+							
+							_inspectedMap.put(NAME_ATTRIBUTE_VALUE_KEY, _currComponentNodeInfo.nameAttributeValue());
+							_inspectedMap.put(NAME_DYNAMIC_KEY, String.valueOf(_currComponentNodeInfo.isNameDynamic()));
+							_inspectedMap.put(NAME_APPEND_KEY, _currComponentNodeInfo.nameAppend());
+							
+							_inspectedList.add(_inspectedMap);
+						}
+						
+						inspectFileFinished(_inspectedList, _currClass.getName(), _currClass.getPackage());
+					}
+					
+					inspectionCompleted();
+				}
+			};
+			
 		}
 		
 		_jsfFlexInspector.addInspectListener(this);
@@ -275,8 +366,8 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
 			if(_inspected != null && _inspected.size() > 0){
 				
 				if(_currClassInfo == null){
-					String _classPackage = (String) _inspected.get(CLASS_PACKAGE_KEY);
-					String _className = (String) _inspected.get(CLASS_NAME_KEY);
+					String _classPackage = (String) _inspected.get(MXML_CLASS_PACKAGE_KEY);
+					String _className = (String) _inspected.get(MXML_CLASS_NAME_KEY);
 					
 					String _fullClassName = _classPackage + "::" + _className;
 					

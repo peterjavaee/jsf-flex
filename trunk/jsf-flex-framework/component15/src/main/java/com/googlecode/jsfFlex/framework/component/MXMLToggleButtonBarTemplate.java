@@ -26,6 +26,8 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  * @author Ji Hoon Kim
  */
 @JsfFlexAttributeProperties(
+		componentNodeAttributes={},
+		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="toggleOnClick", byMethod=false),
 			@JsfFlexAttribute(attribute="selectedButtonTextStyleName", byMethod=false)

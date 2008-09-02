@@ -26,6 +26,8 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  * @author Ji Hoon Kim
  */
 @JsfFlexAttributeProperties(
+		componentNodeAttributes={},
+		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="allowDragSelection", byMethod=true),
 			@JsfFlexAttribute(attribute="allowMultipleSelection", byMethod=true),

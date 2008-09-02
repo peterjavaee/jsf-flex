@@ -26,6 +26,8 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  * @author Ji Hoon Kim
  */
 @JsfFlexAttributeProperties(
+		componentNodeAttributes={},
+		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="layout", byMethod=false),
 			@JsfFlexAttribute(attribute="status", byMethod=false),

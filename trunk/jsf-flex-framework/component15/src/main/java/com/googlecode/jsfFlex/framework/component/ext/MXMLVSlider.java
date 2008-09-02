@@ -19,6 +19,7 @@
 package com.googlecode.jsfFlex.framework.component.ext;
 
 import com.googlecode.jsfFlex.framework.annotation.JsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.framework.annotation.JsfFlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.framework.component.MXMLSliderTemplate;
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
@@ -31,6 +32,19 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		componentFamily="javax.faces.MXMLInput",
 		rendererName="com.googlecode.jsfFlex.MXMLVSlider",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLVSlider",
+		mxmlComponentPackage="mx.controls",
+		mxmlComponentName="VSlider",
+		componentNodeAttributes={
+			@JsfFlexComponentNodeAttribute(htmlType="INPUT",
+						typeAttributeValue="HIDDEN",
+						valueAttributeValue="value",
+						isValueDynamic=true,
+						isValueNested=false,
+						valueNestedValues={},
+						nameAttributeValue="id",
+						isNameDynamic=true,
+						nameAppend="_value")
+		},
 		
 		jsfFlexAttributes={}
 	)

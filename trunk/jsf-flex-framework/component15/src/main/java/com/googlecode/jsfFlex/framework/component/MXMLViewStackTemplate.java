@@ -26,6 +26,8 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  * @author Ji Hoon Kim
  */
 @JsfFlexAttributeProperties(
+		componentNodeAttributes={},
+		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="historyManagementEnabled", byMethod=false),
 			@JsfFlexAttribute(attribute="resizeToContent", byMethod=false),

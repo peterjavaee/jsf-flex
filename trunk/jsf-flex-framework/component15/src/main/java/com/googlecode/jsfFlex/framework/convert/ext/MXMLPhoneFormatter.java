@@ -32,6 +32,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		componentFamily="javax.faces.MXMLSimpleBase",
 		rendererName="com.googlecode.jsfFlex.MXMLPhoneFormatter",
 		rendererClass="com.googlecode.jsfFlex.framework.convert.ext.MXMLPhoneFormatter",
+		componentNodeAttributes={},
 		
 		jsfFlexAttributes={
 			@JsfFlexAttribute(attribute="areaCode", byMethod=false),
