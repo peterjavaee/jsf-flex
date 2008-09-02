@@ -18,7 +18,6 @@
   </scm>
   
   <profiles>
-    <!-- By default the war examples use myfaces! :) -->
     <profile>
       <id>myfaces</id>
       <activation>

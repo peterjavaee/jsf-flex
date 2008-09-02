@@ -50,6 +50,12 @@ public final class CreateReplaceMappingXMLMojo extends AbstractMojo
 											   implements _JsfFlexInspectListener, _JsfFlexParserListener {
 	
 	private static final String JSF_FLEX_ATTRIBUTE = "JsfFlexAttributes";
+	private static final List<String> CREATE_REPLACE_MAPPING_XML_PATTERN_LIST;
+	
+	static{
+		CREATE_REPLACE_MAPPING_XML_PATTERN_LIST = new LinkedList<String>();
+		CREATE_REPLACE_MAPPING_XML_PATTERN_LIST.add(JSF_FLEX_ATTRIBUTE);
+	}
 	
 	private static final String REPLACE_MAPPING_XML_ATTRIBUTE = "tokenList";
 	private static final String REPLACE_MAPPING_XML_TEMPLATE = "jsf-flex-replaceMappingXML.vm";
@@ -86,7 +92,7 @@ public final class CreateReplaceMappingXMLMojo extends AbstractMojo
 		for(Iterator _compileSourceRootsIterator = _compileSourceRoots.iterator(); 
 													_compileSourceRootsIterator.hasNext();){
 			_currDirPath = (String) _compileSourceRootsIterator.next();
-			_jsfFlexInspector = new JsfFlexQdoxInspector(JSF_FLEX_ATTRIBUTE, _currDirPath);
+			_jsfFlexInspector = new JsfFlexQdoxInspector(CREATE_REPLACE_MAPPING_XML_PATTERN_LIST, _currDirPath);
 			_jsfFlexInspector.addInspectListener(this);
 			
 			Properties _velocityParserProperties = new Properties();
@@ -128,7 +134,7 @@ public final class CreateReplaceMappingXMLMojo extends AbstractMojo
 		
 	}
 	
-	public void inspectFileFinished(Map _inspected, String _sourceInspected, String _package){
+	public void inspectFileFinished(List<Map<String, ? extends Object>> _inspected, String _sourceInspected, String _package){
 		
 		/*
 		 * For this Mojo there will be a breakage in terms of concept for the Inspector's inspectFiles method
@@ -177,17 +183,21 @@ public final class CreateReplaceMappingXMLMojo extends AbstractMojo
 		
 	}
 	
-	private List<ReplaceMappingXMLVelocityObject> generateReplaceMappingXMLVelocityObjects(Map _readNamedParameter){
+	private List<ReplaceMappingXMLVelocityObject> generateReplaceMappingXMLVelocityObjects(List<Map<String, ? extends Object>> _readNamedParameterList){
 		List<ReplaceMappingXMLVelocityObject> _replaceMappingXMLVelocityObjects = new LinkedList<ReplaceMappingXMLVelocityObject>();
 		
-		Iterator _keyIterator = _readNamedParameter.keySet().iterator();
-		String _token;
-		Object _byMethod;
-		while(_keyIterator.hasNext()){
-			_token = (String) _keyIterator.next();
-			_byMethod = _readNamedParameter.get(_token);
-			_byMethod = _byMethod == null ? "false" : _byMethod;
-			_replaceMappingXMLVelocityObjects.add(new ReplaceMappingXMLVelocityObject(_token, Boolean.valueOf((String) _byMethod)));
+		for(Map<String, ? extends Object> _readNamedParameter : _readNamedParameterList){
+			
+			Iterator<String> _keyIterator = _readNamedParameter.keySet().iterator();
+			String _token;
+			Object _byMethod;
+			while(_keyIterator.hasNext()){
+				_token = _keyIterator.next();
+				_byMethod = _readNamedParameter.get(_token);
+				_byMethod = _byMethod == null ? "false" : _byMethod;
+				_replaceMappingXMLVelocityObjects.add(new ReplaceMappingXMLVelocityObject(_token, Boolean.valueOf((String) _byMethod)));
+			}
+			
 		}
 		
 		return _replaceMappingXMLVelocityObjects;

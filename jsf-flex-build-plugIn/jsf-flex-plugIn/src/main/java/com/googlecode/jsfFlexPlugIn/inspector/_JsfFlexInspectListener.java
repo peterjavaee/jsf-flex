@@ -18,6 +18,7 @@
  */
 package com.googlecode.jsfFlexPlugIn.inspector;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -25,7 +26,7 @@ import java.util.Map;
  */
 public interface _JsfFlexInspectListener {
 	
-	void inspectFileFinished(Map _inspected, String _sourceInspected, String _package);
+	void inspectFileFinished(List<Map<String, ? extends Object>> _inspectedList, String _sourceInspected, String _package);
 	
 	void inspectionCompleted();
 	

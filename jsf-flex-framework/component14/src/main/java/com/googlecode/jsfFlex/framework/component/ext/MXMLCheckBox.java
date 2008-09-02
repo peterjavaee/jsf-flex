@@ -28,6 +28,20 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  rendererName=com.googlecode.jsfFlex.MXMLCheckBox
  *  rendererClass=com.googlecode.jsfFlex.framework.component.ext.MXMLCheckBox
  * 
+ * @JsfFlexComponentValueClassInfo
+ *  classPackage=mx.controls
+ *  className=CheckBox
+ *  
+ * @JsfFlexComponentNodeInfo
+ *  htmlType=INPUT
+ *  typeAttributeValue=HIDDEN
+ *  valueAttributeValue=selected
+ *  valueDynamic=true
+ *  valueNested=false
+ *  nameAttributeValue=id
+ *  nameDynamic=true
+ *  nameAppend=_selected
+ *  
  * @author Ji Hoon Kim
  */
 public final class MXMLCheckBox extends MXMLButtonTemplate {

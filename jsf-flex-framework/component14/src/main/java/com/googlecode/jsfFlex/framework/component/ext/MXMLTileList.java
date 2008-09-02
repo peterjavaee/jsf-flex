@@ -28,6 +28,20 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  rendererName=com.googlecode.jsfFlex.MXMLTileList
  *  rendererClass=com.googlecode.jsfFlex.framework.component.ext.MXMLTileList
  * 
+ * @JsfFlexComponentValueClassInfo
+ *  classPackage=mx.controls
+ *  className=TileList
+ *  
+ * @JsfFlexComponentNodeInfo
+ *  htmlType=INPUT
+ *  typeAttributeValue=HIDDEN
+ *  valueAttributeValue=selectedIndex
+ *  valueDynamic=true
+ *  valueNested=false
+ *  nameAttributeValue=id
+ *  nameDynamic=true
+ *  nameAppend=_selectedIndex
+ * 
  * @author Ji Hoon Kim
  */
 public final class MXMLTileList extends MXMLListBaseTemplate {

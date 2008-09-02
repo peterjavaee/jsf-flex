@@ -83,6 +83,30 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  rendererName=com.googlecode.jsfFlex.MXMLComboBox
  *  rendererClass=com.googlecode.jsfFlex.framework.component.ext.MXMLComboBox
  * 
+ * @JsfFlexComponentValueClassInfo
+ *  classPackage=mx.controls
+ *  className=ComboBox
+ *  
+ * @JsfFlexComponentNodeInfo
+ *  htmlType=INPUT
+ *  typeAttributeValue=HIDDEN
+ *  valueAttributeValue=text
+ *  valueDynamic=true
+ *  valueNested=false
+ *  nameAttributeValue=id
+ *  nameDynamic=true
+ *  nameAppend=_text
+ *  
+ * @JsfFlexComponentNodeInfo
+ *  htmlType=INPUT
+ *  typeAttributeValue=HIDDEN
+ *  valueAttributeValue=selectedIndex
+ *  valueDynamic=true
+ *  valueNested=false
+ *  nameAttributeValue=id
+ *  nameDynamic=true
+ *  nameAppend=_selectedIndex
+ * 
  * @author Ji Hoon Kim
  */
 public final class MXMLComboBox extends MXMLComboBaseTemplate {

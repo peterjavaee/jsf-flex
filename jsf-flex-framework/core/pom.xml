@@ -33,13 +33,7 @@
       <artifactId>jsf-flex-shared</artifactId>
       <scope>compile</scope>
     </dependency>
-    
-    <dependency>
-      <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
-      <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    
+
     <dependency>
       <groupId>org.apache.myfaces.core</groupId>
       <artifactId>myfaces-api</artifactId>
@@ -63,51 +57,6 @@
     </dependency>
     
   </dependencies>
-  
-  <reporting>
-    <plugins>
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>changelog-maven-plugin</artifactId>
-        <version>2.0-beta-1</version>
-        <reportSets>
-          <reportSet>
-            <id>dual-report</id>
-            <configuration>
-              <type>range</type>
-              <range>30</range>
-            </configuration>
-            <reports>
-              <report>changelog</report>
-              <report>file-activity</report>
-              <report>dev-activity</report>
-            </reports>
-          </reportSet>
-        </reportSets>
-      </plugin>
-      
-      <plugin>
-        <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.4</version>
-      </plugin>
-      
-      <plugin>
-        <artifactId>maven-jxr-plugin</artifactId>
-        <version>2.1</version>
-      </plugin>
-      
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>taglist-maven-plugin</artifactId>
-        <version>2.0</version>
-      </plugin>
-      
-      <plugin>
-        <artifactId>maven-surefire-report-plugin</artifactId>
-        <version>2.4</version>
-      </plugin>
-    </plugins>
-  </reporting>
   
   <profiles>
     <profile>
@@ -146,21 +95,6 @@
         <annotation_doclet_parser_impl_package>com.googlecode.jsfFlex.framework.annotationDocletParser.AnnotationDocletParser15Impl</annotation_doclet_parser_impl_package>
       </properties>
     </profile>
-    <profile>
-      <id>generate-site</id>
-      <reporting>
-        <plugins>
-          <plugin>
-            <groupId>net.sourceforge.maven-taglib</groupId>
-            <artifactId>maven-taglib-plugin</artifactId>
-            <configuration>
-              <taglib.src.dir>${basedir}/target/classes/META-INF</taglib.src.dir>
-              <tldDocDir>${basedir}/target/site/tlddoc</tldDocDir>
-            </configuration>
-          </plugin>
-        </plugins>
-      </reporting>
-    </profile>
   </profiles>
   
   <build>
@@ -190,7 +124,23 @@
               <goal>createMXMLRenderKitXML</goal>
             </goals>
           </execution>
+          <execution>
+            <id>createComponentValueMapperXML</id>
+            <configuration>
+              <targetComponentProject>${jsf_flex_component_project}</targetComponentProject>
+            </configuration>
+            <goals>
+              <goal>createComponentValueMapperXML</goal>
+            </goals>
+          </execution>
         </executions>
+        <dependencies>
+          <dependency>
+            <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
+            <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
+            <version>${jsf_flex_plugIn}</version>
+          </dependency>
+        </dependencies>
       </plugin>
     </plugins>
     

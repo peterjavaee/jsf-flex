@@ -24,6 +24,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
@@ -51,6 +53,12 @@ public final class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 											  implements _JsfFlexInspectListener, _JsfFlexParserListener {
 	
 	private static final String JSF_FLEX_RENDERKIT_ATTRIBUTE = "JsfFlexRenderKitAttribute";
+	private static final List<String> CREATE_MXML_RENDER_KIT_XML_PATTERN_LIST;
+	
+	static{
+		CREATE_MXML_RENDER_KIT_XML_PATTERN_LIST = new LinkedList<String>();
+		CREATE_MXML_RENDER_KIT_XML_PATTERN_LIST.add(JSF_FLEX_RENDERKIT_ATTRIBUTE);
+	}
 	
 	private static final String CORE_PROJECT_NAME = "core";
 	private static final String COMPONENT_14_PROJECT_NAME = "component14";
@@ -209,11 +217,12 @@ public final class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 		//HACK for now, since QDOX seems to have issues reading Java files with annotations
 		targetComponentProject = COMPONENT_14_PROJECT_NAME;
 		if(targetComponentProject.equals(COMPONENT_14_PROJECT_NAME)){
-			_jsfFlexInspector = new JsfFlexQdoxInspector(JSF_FLEX_RENDERKIT_ATTRIBUTE, _currDirPath);
+			_jsfFlexInspector = new JsfFlexQdoxInspector(CREATE_MXML_RENDER_KIT_XML_PATTERN_LIST, _currDirPath);
 		}else{
 			
 			_jsfFlexInspector = new _JsfFlexInspectorBase(_currDirPath){
 				public void inspectFiles(){
+					List<Map<String, ? extends Object>> _inspectedList;
 					Map<String, String> _inspectedMap;
 					JavaDocBuilder builder = new JavaDocBuilder();
 					builder.addSourceTree(new File(getDirPath()));
@@ -233,7 +242,10 @@ public final class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 						_inspectedMap.put(RENDERER_NAME_KEY, _jsfFlexAttributeList.rendererName());
 						_inspectedMap.put(RENDERER_CLASS_KEY, _jsfFlexAttributeList.rendererClass());
 						
-						inspectFileFinished(_inspectedMap, _currClass.getName(), _currClass.getPackage());
+						_inspectedList = new LinkedList<Map<String, ? extends Object>>();
+						_inspectedList.add(_inspectedMap);
+						
+						inspectFileFinished(_inspectedList, _currClass.getName(), _currClass.getPackage());
 					}
 					
 					inspectionCompleted();
@@ -248,28 +260,32 @@ public final class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 		
 	}
 	
-	public void inspectFileFinished(Map _inspected, String _sourceInspected, String _package) {
+	public void inspectFileFinished(List<Map<String, ? extends Object>> _inspectedList, String _sourceInspected, String _package) {
 		
-		if(_inspected != null && _inspected.size() > 0){
-			
-			String _compFamily = (String) _inspected.get(COMPONENT_FAMILY_KEY);
-			Object _renderer;
-			Renderer _currRenderer;
-			
-			String _rendererName;
-			String _rendererClass;
-			
-			if((_renderer = _rendererMap.get(_compFamily)) != null){
-				_currRenderer = (Renderer) _renderer;
-			}else{
-				_currRenderer = new Renderer(_compFamily);
-				_rendererMap.put(_compFamily, _currRenderer);
+		for(Map<String, ? extends Object> _inspected : _inspectedList){
+		
+			if(_inspected != null && _inspected.size() > 0){
+				
+				String _compFamily = (String) _inspected.get(COMPONENT_FAMILY_KEY);
+				Object _renderer;
+				Renderer _currRenderer;
+				
+				String _rendererName;
+				String _rendererClass;
+				
+				if((_renderer = _rendererMap.get(_compFamily)) != null){
+					_currRenderer = (Renderer) _renderer;
+				}else{
+					_currRenderer = new Renderer(_compFamily);
+					_rendererMap.put(_compFamily, _currRenderer);
+				}
+				
+				_rendererClass = (String) _inspected.get(RENDERER_CLASS_KEY);
+				_rendererName = (String) _inspected.get(RENDERER_NAME_KEY);
+				
+				_currRenderer.addRendererInfo(new RendererInfo(_rendererClass, _rendererName));
 			}
-			
-			_rendererClass = (String) _inspected.get(RENDERER_CLASS_KEY);
-			_rendererName = (String) _inspected.get(RENDERER_NAME_KEY);
-			
-			_currRenderer.addRendererInfo(new RendererInfo(_rendererClass, _rendererName));
+		
 		}
 		
 	}

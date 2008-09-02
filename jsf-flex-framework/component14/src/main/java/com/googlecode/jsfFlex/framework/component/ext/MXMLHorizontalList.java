@@ -28,6 +28,20 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  rendererName=com.googlecode.jsfFlex.MXMLHorizontalList
  *  rendererClass=com.googlecode.jsfFlex.framework.component.ext.MXMLHorizontalList
  * 
+ * @JsfFlexComponentValueClassInfo
+ *  classPackage=mx.controls
+ *  className=HorizontalList
+ *  
+ * @JsfFlexComponentNodeInfo
+ *  htmlType=INPUT
+ *  typeAttributeValue=HIDDEN
+ *  valueAttributeValue=selectedIndex
+ *  valueDynamic=true
+ *  valueNested=false
+ *  nameAttributeValue=id
+ *  nameDynamic=true
+ *  nameAppend=_selectedIndex
+ * 
  * @author Ji Hoon Kim
  */
 public final class MXMLHorizontalList extends MXMLListBaseTemplate {

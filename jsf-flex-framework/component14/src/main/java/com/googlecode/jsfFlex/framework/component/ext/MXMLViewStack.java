@@ -28,6 +28,20 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  rendererName=com.googlecode.jsfFlex.MXMLViewStack
  *  rendererClass=com.googlecode.jsfFlex.framework.component.ext.MXMLViewStack
  * 
+ * @JsfFlexComponentValueClassInfo
+ *  classPackage=mx.containers
+ *  className=ViewStack
+ *  
+ * @JsfFlexComponentNodeInfo
+ *  htmlType=INPUT
+ *  typeAttributeValue=HIDDEN
+ *  valueAttributeValue=selectedIndex
+ *  valueDynamic=true
+ *  valueNested=false
+ *  nameAttributeValue=id
+ *  nameDynamic=true
+ *  nameAppend=_selectedIndex
+ * 
  * @author Ji Hoon Kim
  */
 public final class MXMLViewStack extends MXMLViewStackTemplate {

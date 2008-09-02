@@ -17,18 +17,8 @@
     <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/jsf-flex-framework/runnerImpl/fileManipulatorTaskRunnerImpl</developerConnection>
   </scm>
   
-  <profiles>
-    <profile>
-      <id>default_runner_factory_impl</id>
-      <activation>
-        <property>
-          <name>!runner_factory_impl</name>
-        </property>
-      </activation>
-      <modules>
-        <module>velocityFileManipulatorTaskRunnerImpl</module>
-      </modules>
-    </profile>
-  </profiles>
+  <modules>
+    <module>velocityFileManipulatorTaskRunnerImpl</module>
+  </modules>
   
 </project>

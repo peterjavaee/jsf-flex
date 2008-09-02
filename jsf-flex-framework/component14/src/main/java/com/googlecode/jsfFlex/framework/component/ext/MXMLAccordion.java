@@ -46,6 +46,20 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  componentFamily=javax.faces.MXMLInput
  *  rendererName=com.googlecode.jsfFlex.MXMLAccordion
  *  rendererClass=com.googlecode.jsfFlex.framework.component.ext.MXMLAccordion
+ * 
+ * @JsfFlexComponentValueClassInfo
+ *  classPackage=mx.containers
+ *  className=Accordion
+ *  
+ * @JsfFlexComponentNodeInfo
+ *  htmlType=INPUT
+ *  typeAttributeValue=HIDDEN
+ *  valueAttributeValue=selectedIndex
+ *  valueDynamic=true
+ *  valueNested=false
+ *  nameAttributeValue=id
+ *  nameDynamic=true
+ *  nameAppend=_selectedIndex
  *  
  * @author Ji Hoon Kim
  */

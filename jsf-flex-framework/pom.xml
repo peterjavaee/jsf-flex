@@ -73,20 +73,6 @@
     </plugins>
   </build>
   
-  <pluginRepositories>
-    <pluginRepository>
-      <id>Maven Plugin SnapShot</id>
-      <name>Maven Plugin SnapShot Repository</name>
-      <url>http://people.apache.org/repo/m2-snapshot-repository</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
-  
   <modules>
     <module>component14</module>
     <module>component15</module>

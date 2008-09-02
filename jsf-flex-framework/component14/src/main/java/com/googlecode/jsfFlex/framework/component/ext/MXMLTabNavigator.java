@@ -41,6 +41,20 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  rendererName=com.googlecode.jsfFlex.MXMLTabNavigator
  *  rendererClass=com.googlecode.jsfFlex.framework.component.ext.MXMLTabNavigator
  * 
+ * @JsfFlexComponentValueClassInfo
+ *  classPackage=mx.containers
+ *  className=TabNavigator
+ *  
+ * @JsfFlexComponentNodeInfo
+ *  htmlType=INPUT
+ *  typeAttributeValue=HIDDEN
+ *  valueAttributeValue=selectedIndex
+ *  valueDynamic=true
+ *  valueNested=false
+ *  nameAttributeValue=id
+ *  nameDynamic=true
+ *  nameAppend=_selectedIndex
+ * 
  * @author Ji Hoon Kim
  */
 public final class MXMLTabNavigator extends MXMLViewStackTemplate {

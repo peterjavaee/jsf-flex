@@ -79,6 +79,20 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  rendererName=com.googlecode.jsfFlex.MXMLNumericStepper
  *  rendererClass=com.googlecode.jsfFlex.framework.component.ext.MXMLNumericStepper
  * 
+ * @JsfFlexComponentValueClassInfo
+ *  classPackage=mx.controls
+ *  className=NumericStepper
+ *  
+ * @JsfFlexComponentNodeInfo
+ *  htmlType=INPUT
+ *  typeAttributeValue=HIDDEN
+ *  valueAttributeValue=value
+ *  valueDynamic=true
+ *  valueNested=false
+ *  nameAttributeValue=id
+ *  nameDynamic=true
+ *  nameAppend=_value
+ * 
  * @author Ji Hoon Kim
  */
 public final class MXMLNumericStepper extends MXMLComponentBase {

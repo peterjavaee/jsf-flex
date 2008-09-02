@@ -20,6 +20,8 @@ package com.googlecode.jsfFlexPlugIn.inspector.qdox;
 
 import java.io.File;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectorBase;
@@ -32,35 +34,44 @@ import com.thoughtworks.qdox.model.JavaClass;
  */
 public final class JsfFlexQdoxInspector extends _JsfFlexInspectorBase {
 	
-	private final String _pattern;
+	private final List<String> _patternList;
 	
 	public JsfFlexQdoxInspector(){
 		super();
-		_pattern = null;
+		_patternList = null;
 	}
 	
-	public JsfFlexQdoxInspector(String pattern, String dirPath){
+	public JsfFlexQdoxInspector(List<String> patternList, String dirPath){
 		super(dirPath);
-		_pattern = pattern;
+		_patternList = patternList;
 	}
 	
 	@Override
 	public synchronized void inspectFiles(){
-		Map _inspectedMap;
+		
+		List<Map<String, ? extends Object>> _inspectedList;
+		Map<String, Object> _inspectedMap;
 		DocletTag[] _inspectedDocletTag;
 		JavaDocBuilder builder = new JavaDocBuilder();
 		builder.addSourceTree(new File(getDirPath()));
 		JavaClass[] _inspectableFiles = builder.getClasses();
 		
 		for(JavaClass _currClass : _inspectableFiles){
-			_inspectedDocletTag = _currClass.getTagsByName(_pattern);
-			_inspectedMap = new LinkedHashMap();
+			//TODO implement it better later, but since it's a plug-in does it have to be???
+			_inspectedList = new LinkedList<Map<String, ? extends Object>>();
 			
-			for(DocletTag _currDocletTag : _inspectedDocletTag){
-				_inspectedMap.putAll(_currDocletTag.getNamedParameterMap());
+			for(String _currPattern : _patternList){
+				_inspectedDocletTag = _currClass.getTagsByName(_currPattern);
+				
+				for(DocletTag _currDocletTag : _inspectedDocletTag){
+					_inspectedMap = new LinkedHashMap<String, Object>();
+					_inspectedMap.putAll(_currDocletTag.getNamedParameterMap());
+					_inspectedList.add(_inspectedMap);
+				}
+				
 			}
 			
-			inspectFileFinished(_inspectedMap, _currClass.getName(), _currClass.getPackage());
+			inspectFileFinished(_inspectedList, _currClass.getName(), _currClass.getPackage());
 		}
 		
 		inspectionCompleted();
