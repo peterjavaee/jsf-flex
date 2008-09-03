@@ -36,7 +36,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  classPackage=mx.controls
  *  className=RadioButton
  *  
- * @JsfFlexComponentNodeInfo
+ * @JsfFlexComponentNodeAttribute
  *  htmlType=INPUT
  *  typeAttributeValue=HIDDEN
  *  valueDynamic=true
@@ -46,7 +46,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  nameDynamic=true
  *  nameAppend=_selectedValue
  * 
- * @JsfFlexComponentNodeInfo
+ * @JsfFlexComponentNodeAttribute
  *  htmlType=INPUT
  *  typeAttributeValue=HIDDEN
  *  valueAttributeValue=selected

@@ -51,7 +51,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  classPackage=mx.containers
  *  className=Accordion
  *  
- * @JsfFlexComponentNodeInfo
+ * @JsfFlexComponentNodeAttribute
  *  htmlType=INPUT
  *  typeAttributeValue=HIDDEN
  *  valueAttributeValue=selectedIndex
