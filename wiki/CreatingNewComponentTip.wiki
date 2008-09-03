@@ -27,17 +27,17 @@ This page will provide a quick overview in the steps needed in creating addition
    Here is an example from AbstractMXMLUIAccordion.java
    {{{
      * @JSFJspProperties
-     * 		properties	=		
-     *   				@JSFJspProperty
-     * 					 name		= "headerRenderer"
-     *   				 returnType	= "java.lang.String"
-     *   				 longDesc	= "A factory used to create the navigation buttons for each child."
-     *   				,
-     *   				
-     *   				@JSFJspProperty
-     *   				 name		= "selectedFillColors"
-     *   				 returnType	= "java.lang.String"
-     *   				 longDesc	= "The two colors used to tint the background of the component when inits selected state."
+     * 		properties =		
+     *   			@JSFJspProperty
+     * 				 name		= "headerRenderer"
+     *   			 returnType	= "java.lang.String"
+     *   			 longDesc	= "A factory used to create the navigation buttons for each child."
+     *   			,
+     *   			
+     *   			@JSFJspProperty
+     *   			 name		= "selectedFillColors"
+     *   			 returnType	= "java.lang.String"
+     *   			 longDesc	= "The two colors used to tint the background of the component when inits selected state."
      *   				, 
    }}}
  # Add the interfaces of attributes needed for NON-concrete components {i.e. {{{_MXMLUIContainerAttributes}}} } and any additional attributes.
@@ -95,9 +95,9 @@ This page will provide a quick overview in the steps needed in creating addition
    * component14 project, they should be set as javaDocs as shown below for {{{MXMLAccordion}}}
      {{{
       * @JsfFlexAttributes
-      * 	headerRenderer=false
-      * 	historyManagementEnabled=false
-      * 	resizeToContent=false
+      *  headerRenderer=false
+      *  historyManagementEnabled=false
+      *  resizeToContent=false
       * ...
       * @JsfFlexRenderKitAttribute
       *  componentFamily=javax.faces.MXMLInput
