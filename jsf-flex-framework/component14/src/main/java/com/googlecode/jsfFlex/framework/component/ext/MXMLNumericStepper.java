@@ -83,7 +83,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  classPackage=mx.controls
  *  className=NumericStepper
  *  
- * @JsfFlexComponentNodeInfo
+ * @JsfFlexComponentNodeAttribute
  *  htmlType=INPUT
  *  typeAttributeValue=HIDDEN
  *  valueAttributeValue=value

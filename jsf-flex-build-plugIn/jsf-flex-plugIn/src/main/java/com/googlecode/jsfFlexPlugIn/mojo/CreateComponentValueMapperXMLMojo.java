@@ -55,14 +55,14 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
 											   implements _JsfFlexInspectListener, _JsfFlexParserListener {
 	
 	private static final String JSF_FLEX_COMPONENT_VALUE_CLASS_INFO_ATTRIBUTE = "JsfFlexComponentValueClassInfo";
-	private static final String JSF_FLEX_COMPONENT_NODE_INFO_ATTRIBUTE = "JsfFlexComponentNodeInfo";
+	private static final String JSF_FLEX_COMPONENT_NODE_ATTRIBUTE = "JsfFlexComponentNodeAttribute";
 	
 	private static final List<String> CREATE_COMPONENT_VALUE_MAPPER_XML_PATTERN_LIST;
 	
 	static{
 		CREATE_COMPONENT_VALUE_MAPPER_XML_PATTERN_LIST = new LinkedList<String>();
 		CREATE_COMPONENT_VALUE_MAPPER_XML_PATTERN_LIST.add(JSF_FLEX_COMPONENT_VALUE_CLASS_INFO_ATTRIBUTE);
-		CREATE_COMPONENT_VALUE_MAPPER_XML_PATTERN_LIST.add(JSF_FLEX_COMPONENT_NODE_INFO_ATTRIBUTE);
+		CREATE_COMPONENT_VALUE_MAPPER_XML_PATTERN_LIST.add(JSF_FLEX_COMPONENT_NODE_ATTRIBUTE);
 	}
 	
 	private static final String CORE_PROJECT_NAME = "core";
