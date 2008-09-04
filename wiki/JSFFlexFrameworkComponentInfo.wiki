@@ -11,10 +11,10 @@ There are two projects for components within JSF Flex component, namely componen
 ==UIComponent field inspection==
 
 ===component14===
-For component14, during the build time documentation for java files will be inspected by the JSF Flex plugIn and will generate replaceMapping XML files that will be parsed to check which fields to inspect and how to fetch these fields from the JSF component that extends UIComponent {by attribute map or by method invocation}.
+For component14, during the build time javaDocs will be inspected by the JSF Flex Plug-in to generate replaceMapping XML files that will be parsed during runtime to check which fields to inspect and how to fetch these fields from the sub-classes of UIComponent {by attribute map or by method invocation}.
 
 ===component15===
-Since these components are suppose to be used for JRE >= 1.5, the attributes will be fetched during runtime through java annotation and will not require JSF Flex plugIn during build time.
+Since these components are suppose to be used for JRE >= 1.5, the attributes will be fetched during runtime through annotation and will not require JSF Flex Plug-in during build time.
 
 ===Etcetera===
 In order to have single point of entry for retrieving these info for jsf-flex-framework-core project, each will implement {{{_AnnotationDocletParser}}} interface provided from the jsf-flex-framework-core project {i.e. component14 will be 
@@ -23,7 +23,13 @@ In order to have single point of entry for retrieving these info for jsf-flex-fr
 
 ==Main points for JSF Flex Framework Components==
 Main thing to note in terms of design for the component are the following :
- * Classes which are not concrete, meaning MXML.+Template will mainly have a method called mapFields which is simply to inspect either the replaceMapping XML or annotation {depending on the JRE version} to retrieve the values from the JSF component that extends UIComponent during the JSF Flex Framework's buildComponentBegin lifecycle.
- * Concrete classes has a method addCreatePreMxmlTask which is to create the preMxml file where the responsibility of creating such files are of implementators of {{{_FileManipulatorTaskRunner}}} interface {default being  {{{VelocityFileManipulatorTaskRunnerImpl}}} }. The implementation choice for this interface and two other interfaces {{{_CommonTaskRunner}}} and {{{_FlexTaskRunner}}} are determined during the maven build process. For more info refer to this page regarding the build process.
- * {{{MXMLComponentBaseActions}}} class within jsf-flex-framework-core project during the buildComponentEnd will write the body content of the component {i.e. MXMLScript} as long as the correct content is pushed to the attribute map. For an example view the {{{MXMLUIScriptTag}}} within the jsf-flex project where the body content is pushed to the component's attribute map as MXMLConstants.TAG_BODY_CONTENT_ATTR.
- * MXMLApplication is a special class that has an added responsibility during its buildComponentEnd to merge the preMxml files into a mxml file, to create SWC file for the system's library, to extract the SWF file from SWC for the shared resource of all application SWF files, to flush necessary resources {i.e. componentValueMapper.xml} for the system's library to the correct directory, to extract the flexSDK to the correct directory, and to finally create the application's SWF file.
+ * Classes which are not concrete, meaning MXML.+Template will mainly have a method called mapFields which is simply to inspect either the replaceMapping XML or annotation {depending on the JRE version} to retrieve the values from the sub-class of UIComponent during the JSF Flex Framework's buildComponentBegin lifecycle.
+ * Concrete classes have a method addCreatePreMxmlTask which is to create the preMxml file with the responsibility of creating these files lie with implementations of {{{_FileManipulatorTaskRunner}}} interface {default being  {{{VelocityFileManipulatorTaskRunnerImpl}}} }. The implementation choice for this interface and two other interfaces {{{_CommonTaskRunner}}} and {{{_FlexTaskRunner}}} are determined during the maven build process.
+ * {{{MXMLComponentBaseActions}}} class within jsf-flex-framework-core project during the buildComponentEnd will write the body content of the component {i.e. MXMLScript} as long as the correct content is pushed to the attribute map. For an example, view the {{{MXMLUIScriptTag}}} within the jsf-flex project where the body content is pushed to the component's attribute map as MXMLConstants.TAG_BODY_CONTENT_ATTR.
+ * MXMLApplication is a special class that has an added responsibility during its buildComponentEnd to 
+   * merge the preMxml files into a MXML file
+   * create SWC file for the system's library
+   * extract the SWF file from SWC for the shared resource of all application SWF files
+   * flush necessary resources {i.e. componentValueMapper.xml} for the system's library to the correct directory
+   * extract the flexSDK to the correct directory
+   * create the application's SWF file.
