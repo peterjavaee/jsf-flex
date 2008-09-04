@@ -1,19 +1,19 @@
 = Introduction =
 
-Brief overview regarding JSF Flex Components for JSF Flex project.
+Brief overview regarding JSF Flex components for JSF Flex project.
 
 = Details =
 
 ==Renderers==
 JSF Flex project contains the following renderers :
  * MXMLApplicationRenderer
-       specifically for MXMLApplication in drawing up the html content for JSON object and the swf file
+       specifically for MXMLApplication in drawing up the html content for JSON object and the SWF file
  * MXMLInputRenderer 
-       for JSF components that require data preservation {i.e. {{{TextArea}}}, {{{InputText}}}, {{{CheckBox}}}, Accordion, {{{NumericStepper}}}, HSlider, and etcetera]
+       for JSF components that require data preservation {{{ {i.e. TextArea, InputText, CheckBox, Accordion, NumericStepper, HSlider, and etcetera} }}}
  * MXMLSimpleBaseRenderer
-       for JSF components that do NOT require data preservation {i.e. Panel, {{{VideoDisplay}}}, and etcetera}
+       for JSF components that do NOT require data preservation {{{ {i.e. Panel, VideoDisplay, and etcetera} }}}
 
-Each of these renderers extend MXMLRendererBase which bridges the JSF component to JSF Flex framework component by instantiating an instance of MXMLComponentBuilder class which loads the correct JSF Flex framework component mapping to JSF component and runs the corresponding lifecycle process of JSF Flex framework component to JSF lifecycle :
+Each of these renderers extend MXMLRendererBase which bridges the JSF component to JSF Flex Framework component by utilizing MXMLComponent.Builder class, which loads the correct JSF Flex Framework component mapping to JSF component and runs the corresponding JSF Flex Framework's lifecycle process to JSF lifecycle process :
  
  # encodeBegin 
        buildComponentBegin
@@ -24,16 +24,16 @@ Each of these renderers extend MXMLRendererBase which bridges the JSF component 
        buildComponentEnd
 
 ==Components==
-JSF Flex project contains concrete JSF component for each Flex component. Main reason that there exists one to one mapping between Flex component to JSF component rather than Flex component to JSF renderer is because of the want and desire to provide as much of the same attributes present within Flex component as in JSF component.
+JSF Flex project contains concrete JSF component for each Flex component. Main reason that there exists one to one mapping between Flex component to JSF component rather than Flex component to JSF renderer is because of the want and desire to provide as much of the same attributes present within Flex component to its corresponding JSF component.
 
-Each of the JSF Component that needs to preserve the value will have the following syntax of values checked during the decode process as they are how the fields are created during the post phase of the HTML 
+Each of the JSF component that needs to preserve the value will have the following syntax of values checked during the decode process
 
-{{{<id>_<nameOfField> {i.e. for List <id>_selectedIndex}. For certain components there will be a set of ids sent to the decode phase so to preserve several fields for the component {i.e. RadioButton component has two values checked during the JSF decode lifecycle { <id>_selectedValue and <id>_selected }.}}}
+{{{<id>_<nameOfField> {i.e. for List <id>_selectedIndex}. For certain components there will be a set of ids sent to the decode phase {i.e. RadioButton component has two values checked during the JSF decode lifecycle { <id>_selectedValue and <id>_selected }.}}}
 
 JSF Flex project utilizes the myfaces build plugIn which automatically creates :
  * the concrete class for each abstract class of JSF component
  * the tag class for each JSF component
- * the tld file for the JSP
+ * the tld file
  * the facesconfig.xml for the configuration
 
 In order to view how to create such components, please refer to the current components within jsf-flex project.
