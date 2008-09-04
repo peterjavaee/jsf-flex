@@ -34,6 +34,7 @@ This page provides a quick overview regarding the project's build system.
 
 ===jsf-flex-framework/core===
  * jsf-flex-shared
+ * jsf-flex-build-plugIn-plugin
 
 
 ===jsf-flex-framework/runnerImpl/commonTaskRunnerImpl/sdkStandardCommonTaskRunnerImpl===
