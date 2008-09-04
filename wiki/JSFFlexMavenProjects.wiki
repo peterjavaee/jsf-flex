@@ -7,7 +7,7 @@ This page will contain brief info regarding the maven projects of JSF Flex.
 
 
 ==jsf-flex-build-plugIn==
-A plug-in project that utilizes qdox open source project to inspect the java file’s documentations in order to generate replaceMapping XML for jsf-flex-framework/component14 project.
+A plug-in project that utilizes qdox open source project to inspect the java file’s documentations in order to generate replaceMapping XML for jsf-flex-framework/component14 project. Also it will generated componentValueMapper.xml and mxmlRenderKit.xml for jsf-flex-framework/core project by inspecting the javaDocs or annotations for component14 project or component15 project respectively. Currently there exists a Hack to always use component14 project, because qdox open source project has an issue when parsing Java files with annotations.
 
 
 ==jsf-flex/core==
