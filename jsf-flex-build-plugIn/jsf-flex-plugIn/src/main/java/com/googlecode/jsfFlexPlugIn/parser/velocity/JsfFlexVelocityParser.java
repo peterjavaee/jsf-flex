@@ -75,7 +75,7 @@ public class JsfFlexVelocityParser {
 		
 	}
 	
-	public synchronized void mergeCollectionToTemplate(String _template, Map<String, Object> _contextInfo, Writer _targetWriter){
+	public synchronized void mergeCollectionToTemplate(String _template, Map<String, Object> _contextInfo, Writer _targetWriter, String _fileMerged){
 		
 		String _currKey;
 		for(Iterator<String> _contextInfoIterator = _contextInfo.keySet().iterator(); _contextInfoIterator.hasNext();){
@@ -99,16 +99,16 @@ public class JsfFlexVelocityParser {
 			}
 		}
 		
-		mergeCollectionToTemplateFinished();
+		mergeCollectionToTemplateFinished(_fileMerged);
 	}
 	
 	public synchronized void addParserListener(_JsfFlexParserListener _callBack){
 		_jsfFlexVelocityParserListeners.add(_callBack);
 	}
 	
-	private synchronized void mergeCollectionToTemplateFinished(){
+	private synchronized void mergeCollectionToTemplateFinished(String _fileMerged){
 		for(_JsfFlexParserListener _mergeCollectionToTemplateCallBack : _jsfFlexVelocityParserListeners){
-			_mergeCollectionToTemplateCallBack.mergeCollectionToTemplateFinished();
+			_mergeCollectionToTemplateCallBack.mergeCollectionToTemplateFinished(_fileMerged);
 		}
 	}
 	

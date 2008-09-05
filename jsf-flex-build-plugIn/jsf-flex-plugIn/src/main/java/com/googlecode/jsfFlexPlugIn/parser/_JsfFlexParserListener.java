@@ -23,6 +23,6 @@ package com.googlecode.jsfFlexPlugIn.parser;
  */
 public interface _JsfFlexParserListener {
 	
-	void mergeCollectionToTemplateFinished();
+	void mergeCollectionToTemplateFinished(String _fileMerged);
 	
 }

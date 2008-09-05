@@ -39,11 +39,12 @@ import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectorBase;
 import com.googlecode.jsfFlexPlugIn.inspector.qdox.JsfFlexQdoxInspector;
 import com.googlecode.jsfFlexPlugIn.parser._JsfFlexParserListener;
 import com.googlecode.jsfFlexPlugIn.parser.velocity.JsfFlexVelocityParser;
+import com.googlecode.jsfFlexPlugIn.utils.tasks.ReplaceText;
 
 /**
  * 
  * @goal    createMXMLComponentReplaceMappingXML
- * @phase   process-classes
+ * @phase   generate-resources
  * @author Ji Hoon Kim
  */
 public final class CreateReplaceMappingXMLMojo extends AbstractMojo 
@@ -171,7 +172,8 @@ public final class CreateReplaceMappingXMLMojo extends AbstractMojo
 			List<ReplaceMappingXMLVelocityObject> replaceMappingXMLVelocityObjects = generateReplaceMappingXMLVelocityObjects(_inspected);
 			Map<String, Object> _contextInfoMap = new HashMap<String, Object>();
 			_contextInfoMap.put(REPLACE_MAPPING_XML_ATTRIBUTE, replaceMappingXMLVelocityObjects);
-			_jsfFlexVelocityParser.mergeCollectionToTemplate(REPLACE_MAPPING_XML_TEMPLATE, _contextInfoMap, _writer);
+			_jsfFlexVelocityParser.mergeCollectionToTemplate(REPLACE_MAPPING_XML_TEMPLATE, _contextInfoMap, 
+																_writer, _replaceMappingXMLFileName);
 			
 		}catch(IOException _ioExcept){
 			throw new RuntimeException("Error thrown for file " + _replaceMappingXMLFileName, _ioExcept);
@@ -203,7 +205,14 @@ public final class CreateReplaceMappingXMLMojo extends AbstractMojo
 		return _replaceMappingXMLVelocityObjects;
 	}
 	
-	public void mergeCollectionToTemplateFinished(){
+	public void mergeCollectionToTemplateFinished(String _fileMerged){
+		
+		ReplaceText removeEmptySpace = new ReplaceText(_fileMerged);
+		removeEmptySpace.setReplaceRegExp(true);
+		removeEmptySpace.setRegMatch(ReplaceText.CLEAN_REG_EXP_MATCH);
+		removeEmptySpace.setRegReplace(ReplaceText.CLEAN_REG_EXP_REPLACE_WITH);
+		
+		removeEmptySpace.performTask();
 		
 	}
 	
