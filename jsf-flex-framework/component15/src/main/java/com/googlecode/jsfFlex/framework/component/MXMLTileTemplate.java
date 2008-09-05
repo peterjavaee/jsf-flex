@@ -27,17 +27,17 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  */
 @JsfFlexAttributeProperties(
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="direction", byMethod=false),
-			@JsfFlexAttribute(attribute="tileHeight", byMethod=false),
-			@JsfFlexAttribute(attribute="tileWidth", byMethod=false),
-			@JsfFlexAttribute(attribute="horizontalAlign", byMethod=false),
-			@JsfFlexAttribute(attribute="horizontalGap", byMethod=false),
-			@JsfFlexAttribute(attribute="verticalAlign", byMethod=false),
-			@JsfFlexAttribute(attribute="verticalGap", byMethod=false)
+				@JsfFlexAttribute(attribute="direction", byMethod=false),
+				@JsfFlexAttribute(attribute="tileHeight", byMethod=false),
+				@JsfFlexAttribute(attribute="tileWidth", byMethod=false),
+				@JsfFlexAttribute(attribute="horizontalAlign", byMethod=false),
+				@JsfFlexAttribute(attribute="horizontalGap", byMethod=false),
+				@JsfFlexAttribute(attribute="verticalAlign", byMethod=false),
+				@JsfFlexAttribute(attribute="verticalGap", byMethod=false)
 		}
-	)
+)
 public class MXMLTileTemplate extends MXMLContainerTemplate {
 	
 	public MXMLTileTemplate(){

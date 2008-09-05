@@ -36,7 +36,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentPackage="mx.controls",
 		mxmlComponentName="TextArea",
 		componentNodeAttributes={
-			@JsfFlexComponentNodeAttribute(htmlType="INPUT",
+				@JsfFlexComponentNodeAttribute(
+						htmlType="INPUT",
 						typeAttributeValue="HIDDEN",
 						valueAttributeValue="text",
 						isValueDynamic=true,
@@ -45,7 +46,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						nameAttributeValue="id",
 						isNameDynamic=true,
 						nameAppend="_text"),
-			@JsfFlexComponentNodeAttribute(htmlType="INPUT",
+				@JsfFlexComponentNodeAttribute(
+						htmlType="INPUT",
 						typeAttributeValue="HIDDEN",
 						valueAttributeValue="htmlText",
 						isValueDynamic=true,
@@ -55,28 +57,28 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						isNameDynamic=true,
 						nameAppend="_htmlText")
 		},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="condenseWhite", byMethod=false),
-			@JsfFlexAttribute(attribute="data", byMethod=false),
-			@JsfFlexAttribute(attribute="displayAsPassword", byMethod=false),
-			@JsfFlexAttribute(attribute="editable", byMethod=false),
-			@JsfFlexAttribute(attribute="imeMode", byMethod=false),
-			@JsfFlexAttribute(attribute="listData", byMethod=false),
-			@JsfFlexAttribute(attribute="maxChars", byMethod=false),
-			@JsfFlexAttribute(attribute="restrict", byMethod=false),
-			@JsfFlexAttribute(attribute="selectionBeginIndex", byMethod=false),
-			@JsfFlexAttribute(attribute="selectionEndIndex", byMethod=false),
-			@JsfFlexAttribute(attribute="styleSheet", byMethod=false),
-			@JsfFlexAttribute(attribute="wordWrap", byMethod=false),
-			@JsfFlexAttribute(attribute="disabledColor", byMethod=false),
-			@JsfFlexAttribute(attribute="focusAlpha", byMethod=false),
-			@JsfFlexAttribute(attribute="focusRoundedCorners", byMethod=false),
-			@JsfFlexAttribute(attribute="paddingLeft", byMethod=false),
-			@JsfFlexAttribute(attribute="paddingRight", byMethod=false),
-			@JsfFlexAttribute(attribute="change", byMethod=false)
+				@JsfFlexAttribute(attribute="condenseWhite", byMethod=false),
+				@JsfFlexAttribute(attribute="data", byMethod=false),
+				@JsfFlexAttribute(attribute="displayAsPassword", byMethod=false),
+				@JsfFlexAttribute(attribute="editable", byMethod=false),
+				@JsfFlexAttribute(attribute="imeMode", byMethod=false),
+				@JsfFlexAttribute(attribute="listData", byMethod=false),
+				@JsfFlexAttribute(attribute="maxChars", byMethod=false),
+				@JsfFlexAttribute(attribute="restrict", byMethod=false),
+				@JsfFlexAttribute(attribute="selectionBeginIndex", byMethod=false),
+				@JsfFlexAttribute(attribute="selectionEndIndex", byMethod=false),
+				@JsfFlexAttribute(attribute="styleSheet", byMethod=false),
+				@JsfFlexAttribute(attribute="wordWrap", byMethod=false),
+				@JsfFlexAttribute(attribute="disabledColor", byMethod=false),
+				@JsfFlexAttribute(attribute="focusAlpha", byMethod=false),
+				@JsfFlexAttribute(attribute="focusRoundedCorners", byMethod=false),
+				@JsfFlexAttribute(attribute="paddingLeft", byMethod=false),
+				@JsfFlexAttribute(attribute="paddingRight", byMethod=false),
+				@JsfFlexAttribute(attribute="change", byMethod=false)
 		}
-	)
+)
 public final class MXMLTextArea extends MXMLScrollControlTemplate {
 	
 	public MXMLTextArea(){

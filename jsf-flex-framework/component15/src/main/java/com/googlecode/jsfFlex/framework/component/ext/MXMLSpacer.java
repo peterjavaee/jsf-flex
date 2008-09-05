@@ -32,9 +32,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLSpacer",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLSpacer",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={}
-	)
+)
 public final class MXMLSpacer extends MXMLComponentBase {
 	
 	public MXMLSpacer(){

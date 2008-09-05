@@ -27,24 +27,24 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  */
 @JsfFlexAttributeProperties(
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="dataProvider", byMethod=true),
-			@JsfFlexAttribute(attribute="editable", byMethod=true),
-			@JsfFlexAttribute(attribute="imeMode", byMethod=true),
-			@JsfFlexAttribute(attribute="restrict", byMethod=true),
-			@JsfFlexAttribute(attribute="selectedIndex", byMethod=true),
-			@JsfFlexAttribute(attribute="selectedItem", byMethod=true),
-			@JsfFlexAttribute(attribute="disabledSkin", byMethod=true),
-			@JsfFlexAttribute(attribute="downSkin", byMethod=true),
-			@JsfFlexAttribute(attribute="editableDisabledSkin", byMethod=true),
-			@JsfFlexAttribute(attribute="editableDownSkin", byMethod=true),
-			@JsfFlexAttribute(attribute="editableOverSkin", byMethod=true),
-			@JsfFlexAttribute(attribute="editableUpSkin", byMethod=true),
-			@JsfFlexAttribute(attribute="overSkin", byMethod=true),
-			@JsfFlexAttribute(attribute="upSkin", byMethod=true)
+				@JsfFlexAttribute(attribute="dataProvider", byMethod=true),
+				@JsfFlexAttribute(attribute="editable", byMethod=true),
+				@JsfFlexAttribute(attribute="imeMode", byMethod=true),
+				@JsfFlexAttribute(attribute="restrict", byMethod=true),
+				@JsfFlexAttribute(attribute="selectedIndex", byMethod=true),
+				@JsfFlexAttribute(attribute="selectedItem", byMethod=true),
+				@JsfFlexAttribute(attribute="disabledSkin", byMethod=true),
+				@JsfFlexAttribute(attribute="downSkin", byMethod=true),
+				@JsfFlexAttribute(attribute="editableDisabledSkin", byMethod=true),
+				@JsfFlexAttribute(attribute="editableDownSkin", byMethod=true),
+				@JsfFlexAttribute(attribute="editableOverSkin", byMethod=true),
+				@JsfFlexAttribute(attribute="editableUpSkin", byMethod=true),
+				@JsfFlexAttribute(attribute="overSkin", byMethod=true),
+				@JsfFlexAttribute(attribute="upSkin", byMethod=true)
 		}
-	)
+)
 public abstract class MXMLComboBaseTemplate extends MXMLComponentBase {
 	
 	public MXMLComboBaseTemplate(){

@@ -33,13 +33,13 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLVScrollBar",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLVScrollBar",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="repeatDelay", byMethod=false),
-			@JsfFlexAttribute(attribute="repeatInterval", byMethod=false),
-			@JsfFlexAttribute(attribute="scroll", byMethod=false)
+				@JsfFlexAttribute(attribute="repeatDelay", byMethod=false),
+				@JsfFlexAttribute(attribute="repeatInterval", byMethod=false),
+				@JsfFlexAttribute(attribute="scroll", byMethod=false)
 		}
-	)
+)
 public final class MXMLVScrollBar extends MXMLScrollBarTemplate {
 	
 	public MXMLVScrollBar(){

@@ -33,23 +33,23 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLCreditCardValidator",
 		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLCreditCardValidator",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="allowedFormatChars", byMethod=false),
-			@JsfFlexAttribute(attribute="cardNumberListener", byMethod=false),
-			@JsfFlexAttribute(attribute="cardNumberProperty", byMethod=false),
-			@JsfFlexAttribute(attribute="cardNumberSource", byMethod=false),
-			@JsfFlexAttribute(attribute="cardTypeListener", byMethod=false),
-			@JsfFlexAttribute(attribute="cardTypeProperty", byMethod=false),
-			@JsfFlexAttribute(attribute="cardTypeSource", byMethod=false),
-			@JsfFlexAttribute(attribute="invalidCharError", byMethod=false),
-			@JsfFlexAttribute(attribute="invalidNumberError", byMethod=false),
-			@JsfFlexAttribute(attribute="noNumError", byMethod=false),
-			@JsfFlexAttribute(attribute="noTypeError", byMethod=false),
-			@JsfFlexAttribute(attribute="wrongLengthError", byMethod=false),
-			@JsfFlexAttribute(attribute="wrongTypeError", byMethod=false)
+				@JsfFlexAttribute(attribute="allowedFormatChars", byMethod=false),
+				@JsfFlexAttribute(attribute="cardNumberListener", byMethod=false),
+				@JsfFlexAttribute(attribute="cardNumberProperty", byMethod=false),
+				@JsfFlexAttribute(attribute="cardNumberSource", byMethod=false),
+				@JsfFlexAttribute(attribute="cardTypeListener", byMethod=false),
+				@JsfFlexAttribute(attribute="cardTypeProperty", byMethod=false),
+				@JsfFlexAttribute(attribute="cardTypeSource", byMethod=false),
+				@JsfFlexAttribute(attribute="invalidCharError", byMethod=false),
+				@JsfFlexAttribute(attribute="invalidNumberError", byMethod=false),
+				@JsfFlexAttribute(attribute="noNumError", byMethod=false),
+				@JsfFlexAttribute(attribute="noTypeError", byMethod=false),
+				@JsfFlexAttribute(attribute="wrongLengthError", byMethod=false),
+				@JsfFlexAttribute(attribute="wrongTypeError", byMethod=false)
 		}
-	)
+)
 public final class MXMLCreditCardValidator extends MXMLValidatorTemplate {
 	
 	public MXMLCreditCardValidator(){

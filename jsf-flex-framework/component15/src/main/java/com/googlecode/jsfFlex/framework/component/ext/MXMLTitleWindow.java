@@ -33,11 +33,11 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLTitleWindow",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLTitleWindow",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="showCloseButton", byMethod=false)
+				@JsfFlexAttribute(attribute="showCloseButton", byMethod=false)
 		}
-	)
+)
 public final class MXMLTitleWindow extends MXMLPanelTemplate {
 	
 	public MXMLTitleWindow(){

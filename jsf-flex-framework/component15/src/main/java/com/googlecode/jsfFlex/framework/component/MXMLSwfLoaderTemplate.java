@@ -27,30 +27,30 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  */
 @JsfFlexAttributeProperties(
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="autoLoad", byMethod=false),
-			@JsfFlexAttribute(attribute="loaderContext", byMethod=false),
-			@JsfFlexAttribute(attribute="maintainAspectRatio", byMethod=false),
-			@JsfFlexAttribute(attribute="scaleContent", byMethod=false),
-			@JsfFlexAttribute(attribute="showBusyCursor", byMethod=false),
-			@JsfFlexAttribute(attribute="source", byMethod=false),
-			@JsfFlexAttribute(attribute="trustContent", byMethod=false),
-			@JsfFlexAttribute(attribute="brokenImageBorderSkin", byMethod=false),
-			@JsfFlexAttribute(attribute="brokenImageSkin", byMethod=false),
-			@JsfFlexAttribute(attribute="horizontalAlign", byMethod=false),
-			@JsfFlexAttribute(attribute="verticalAlign", byMethod=false),
-			@JsfFlexAttribute(attribute="completeEffect", byMethod=false),
-			@JsfFlexAttribute(attribute="complete", byMethod=false),
-			@JsfFlexAttribute(attribute="httpStatus", byMethod=false),
-			@JsfFlexAttribute(attribute="init", byMethod=false),
-			@JsfFlexAttribute(attribute="ioError", byMethod=false),
-			@JsfFlexAttribute(attribute="open", byMethod=false),
-			@JsfFlexAttribute(attribute="progress", byMethod=false),
-			@JsfFlexAttribute(attribute="securityError", byMethod=false),
-			@JsfFlexAttribute(attribute="unload", byMethod=false)
+				@JsfFlexAttribute(attribute="autoLoad", byMethod=false),
+				@JsfFlexAttribute(attribute="loaderContext", byMethod=false),
+				@JsfFlexAttribute(attribute="maintainAspectRatio", byMethod=false),
+				@JsfFlexAttribute(attribute="scaleContent", byMethod=false),
+				@JsfFlexAttribute(attribute="showBusyCursor", byMethod=false),
+				@JsfFlexAttribute(attribute="source", byMethod=false),
+				@JsfFlexAttribute(attribute="trustContent", byMethod=false),
+				@JsfFlexAttribute(attribute="brokenImageBorderSkin", byMethod=false),
+				@JsfFlexAttribute(attribute="brokenImageSkin", byMethod=false),
+				@JsfFlexAttribute(attribute="horizontalAlign", byMethod=false),
+				@JsfFlexAttribute(attribute="verticalAlign", byMethod=false),
+				@JsfFlexAttribute(attribute="completeEffect", byMethod=false),
+				@JsfFlexAttribute(attribute="complete", byMethod=false),
+				@JsfFlexAttribute(attribute="httpStatus", byMethod=false),
+				@JsfFlexAttribute(attribute="init", byMethod=false),
+				@JsfFlexAttribute(attribute="ioError", byMethod=false),
+				@JsfFlexAttribute(attribute="open", byMethod=false),
+				@JsfFlexAttribute(attribute="progress", byMethod=false),
+				@JsfFlexAttribute(attribute="securityError", byMethod=false),
+				@JsfFlexAttribute(attribute="unload", byMethod=false)
 		}
-	)
+)
 public class MXMLSwfLoaderTemplate extends MXMLComponentBase {
 	
 	public MXMLSwfLoaderTemplate(){

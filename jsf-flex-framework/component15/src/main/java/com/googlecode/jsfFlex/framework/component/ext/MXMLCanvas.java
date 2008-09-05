@@ -32,9 +32,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLCanvas",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLCanvas",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={}
-	)
+)
 public final class MXMLCanvas extends MXMLContainerTemplate {
 	
 	public MXMLCanvas(){

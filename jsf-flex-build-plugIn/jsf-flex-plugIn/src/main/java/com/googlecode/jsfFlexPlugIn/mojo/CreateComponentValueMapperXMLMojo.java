@@ -245,6 +245,10 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
     }
 	
 	public void execute() throws MojoExecutionException, MojoFailureException {
+		
+		//HACK for now, since QDOX seems to have issues reading Java files with annotations
+		targetComponentProject = COMPONENT_14_PROJECT_NAME;
+		
 		String _currDirPath = (String) project.getCompileSourceRoots().get(0);
 		_currDirPath = (targetComponentProject.equals(COMPONENT_14_PROJECT_NAME)) ? 
 												_currDirPath.replace(CORE_PROJECT_NAME, COMPONENT_14_PROJECT_NAME) : 
@@ -257,8 +261,6 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
 		_jsfFlexVelocityParser.init();
 		_jsfFlexVelocityParser.addParserListener(this);
 		
-		//HACK for now, since QDOX seems to have issues reading Java files with annotations
-		targetComponentProject = COMPONENT_14_PROJECT_NAME;
 		if(targetComponentProject.equals(COMPONENT_14_PROJECT_NAME)){
 			_jsfFlexInspector = new JsfFlexQdoxInspector(CREATE_COMPONENT_VALUE_MAPPER_XML_PATTERN_LIST, _currDirPath);
 		}else{

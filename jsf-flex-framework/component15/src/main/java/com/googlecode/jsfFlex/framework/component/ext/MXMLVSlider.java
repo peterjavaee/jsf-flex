@@ -35,7 +35,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentPackage="mx.controls",
 		mxmlComponentName="VSlider",
 		componentNodeAttributes={
-			@JsfFlexComponentNodeAttribute(htmlType="INPUT",
+				@JsfFlexComponentNodeAttribute(
+						htmlType="INPUT",
 						typeAttributeValue="HIDDEN",
 						valueAttributeValue="value",
 						isValueDynamic=true,
@@ -45,9 +46,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						isNameDynamic=true,
 						nameAppend="_value")
 		},
-		
+
 		jsfFlexAttributes={}
-	)
+)
 public final class MXMLVSlider extends MXMLSliderTemplate {
 	
 	public MXMLVSlider(){

@@ -33,13 +33,13 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLPhoneNumberValidator",
 		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLPhoneNumberValidator",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="allowedFormatChars", byMethod=false),
-			@JsfFlexAttribute(attribute="invalidCharError", byMethod=false),
-			@JsfFlexAttribute(attribute="wrongLengthError", byMethod=false)
+				@JsfFlexAttribute(attribute="allowedFormatChars", byMethod=false),
+				@JsfFlexAttribute(attribute="invalidCharError", byMethod=false),
+				@JsfFlexAttribute(attribute="wrongLengthError", byMethod=false)
 		}
-	)
+)
 public final class MXMLPhoneNumberValidator extends MXMLValidatorTemplate {
 	
 	public MXMLPhoneNumberValidator(){

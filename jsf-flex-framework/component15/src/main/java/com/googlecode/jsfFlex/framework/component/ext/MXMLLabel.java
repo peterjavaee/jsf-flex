@@ -32,9 +32,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLLabel",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLLabel",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={}
-	)
+)
 public final class MXMLLabel extends MXMLLabelTemplate {
 	
 	public MXMLLabel(){

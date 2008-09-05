@@ -33,28 +33,28 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLDateValidator",
 		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLDateValidator",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="allowedFormatChars", byMethod=false),
-			@JsfFlexAttribute(attribute="dayListener", byMethod=false),
-			@JsfFlexAttribute(attribute="dayProperty", byMethod=false),
-			@JsfFlexAttribute(attribute="daySource", byMethod=false),
-			@JsfFlexAttribute(attribute="formatError", byMethod=false),
-			@JsfFlexAttribute(attribute="inputFormat", byMethod=false),
-			@JsfFlexAttribute(attribute="invalidCharError", byMethod=true),
-			@JsfFlexAttribute(attribute="monthListener", byMethod=false),
-			@JsfFlexAttribute(attribute="monthProperty", byMethod=false),
-			@JsfFlexAttribute(attribute="monthSource", byMethod=false),
-			@JsfFlexAttribute(attribute="validateAsString", byMethod=false),
-			@JsfFlexAttribute(attribute="wrongDayError", byMethod=false),
-			@JsfFlexAttribute(attribute="wrongLengthError", byMethod=false),
-			@JsfFlexAttribute(attribute="wrongMonthError", byMethod=false),
-			@JsfFlexAttribute(attribute="wrongYearError", byMethod=false),
-			@JsfFlexAttribute(attribute="yearListener", byMethod=false),
-			@JsfFlexAttribute(attribute="yearProperty", byMethod=false),
-			@JsfFlexAttribute(attribute="yearSource", byMethod=false)
+				@JsfFlexAttribute(attribute="allowedFormatChars", byMethod=false),
+				@JsfFlexAttribute(attribute="dayListener", byMethod=false),
+				@JsfFlexAttribute(attribute="dayProperty", byMethod=false),
+				@JsfFlexAttribute(attribute="daySource", byMethod=false),
+				@JsfFlexAttribute(attribute="formatError", byMethod=false),
+				@JsfFlexAttribute(attribute="inputFormat", byMethod=false),
+				@JsfFlexAttribute(attribute="invalidCharError", byMethod=true),
+				@JsfFlexAttribute(attribute="monthListener", byMethod=false),
+				@JsfFlexAttribute(attribute="monthProperty", byMethod=false),
+				@JsfFlexAttribute(attribute="monthSource", byMethod=false),
+				@JsfFlexAttribute(attribute="validateAsString", byMethod=false),
+				@JsfFlexAttribute(attribute="wrongDayError", byMethod=false),
+				@JsfFlexAttribute(attribute="wrongLengthError", byMethod=false),
+				@JsfFlexAttribute(attribute="wrongMonthError", byMethod=false),
+				@JsfFlexAttribute(attribute="wrongYearError", byMethod=false),
+				@JsfFlexAttribute(attribute="yearListener", byMethod=false),
+				@JsfFlexAttribute(attribute="yearProperty", byMethod=false),
+				@JsfFlexAttribute(attribute="yearSource", byMethod=false)
 		}
-	)
+)
 public final class MXMLDateValidator extends MXMLValidatorTemplate {
 	
 	public MXMLDateValidator(){

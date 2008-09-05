@@ -27,17 +27,17 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  */
 @JsfFlexAttributeProperties(
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="buttonHeight", byMethod=false),
-			@JsfFlexAttribute(attribute="buttonStyleName", byMethod=false),
-			@JsfFlexAttribute(attribute="buttonWidth", byMethod=false),
-			@JsfFlexAttribute(attribute="firstButtonStyleName", byMethod=false),
-			@JsfFlexAttribute(attribute="focusAlpha", byMethod=false),
-			@JsfFlexAttribute(attribute="focusRoundedCorners", byMethod=false),
-			@JsfFlexAttribute(attribute="lastButtonStyleName", byMethod=false)
+				@JsfFlexAttribute(attribute="buttonHeight", byMethod=false),
+				@JsfFlexAttribute(attribute="buttonStyleName", byMethod=false),
+				@JsfFlexAttribute(attribute="buttonWidth", byMethod=false),
+				@JsfFlexAttribute(attribute="firstButtonStyleName", byMethod=false),
+				@JsfFlexAttribute(attribute="focusAlpha", byMethod=false),
+				@JsfFlexAttribute(attribute="focusRoundedCorners", byMethod=false),
+				@JsfFlexAttribute(attribute="lastButtonStyleName", byMethod=false)
 		}
-	)
+)
 public abstract class MXMLButtonBarTemplate extends MXMLNavBarTemplate {
 	
 	public MXMLButtonBarTemplate(){

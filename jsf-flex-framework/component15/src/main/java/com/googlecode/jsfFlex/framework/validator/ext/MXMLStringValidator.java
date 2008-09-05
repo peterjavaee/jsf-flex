@@ -33,14 +33,14 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLStringValidator",
 		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLStringValidator",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="maxLength", byMethod=false),
-			@JsfFlexAttribute(attribute="minLength", byMethod=false),
-			@JsfFlexAttribute(attribute="tooLongError", byMethod=false),
-			@JsfFlexAttribute(attribute="tooShortError", byMethod=false)
+				@JsfFlexAttribute(attribute="maxLength", byMethod=false),
+				@JsfFlexAttribute(attribute="minLength", byMethod=false),
+				@JsfFlexAttribute(attribute="tooLongError", byMethod=false),
+				@JsfFlexAttribute(attribute="tooShortError", byMethod=false)
 		}
-	)
+)
 public final class MXMLStringValidator extends MXMLValidatorTemplate {
 	
 	public MXMLStringValidator(){

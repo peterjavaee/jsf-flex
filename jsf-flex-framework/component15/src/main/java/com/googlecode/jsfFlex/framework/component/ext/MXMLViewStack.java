@@ -35,7 +35,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentPackage="mx.containers",
 		mxmlComponentName="ViewStack",
 		componentNodeAttributes={
-			@JsfFlexComponentNodeAttribute(htmlType="INPUT",
+				@JsfFlexComponentNodeAttribute(
+						htmlType="INPUT",
 						typeAttributeValue="HIDDEN",
 						valueAttributeValue="selectedIndex",
 						isValueDynamic=true,
@@ -45,9 +46,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						isNameDynamic=true,
 						nameAppend="_selectedIndex")
 		},
-		
+
 		jsfFlexAttributes={}
-	)
+)
 public final class MXMLViewStack extends MXMLViewStackTemplate {
 	
 	public MXMLViewStack(){

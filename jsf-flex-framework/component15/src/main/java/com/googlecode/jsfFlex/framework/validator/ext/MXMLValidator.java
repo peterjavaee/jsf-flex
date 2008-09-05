@@ -32,9 +32,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLValidator",
 		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLValidator",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={}
-	)
+)
 public final class MXMLValidator extends MXMLValidatorTemplate {
 	
 	public MXMLValidator(){

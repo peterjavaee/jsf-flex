@@ -33,18 +33,18 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLNumberFormatter",
 		rendererClass="com.googlecode.jsfFlex.framework.convert.ext.MXMLNumberFormatter",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="decimalSeparatorFrom", byMethod=false),
-			@JsfFlexAttribute(attribute="decimalSeparatorTo", byMethod=false),
-			@JsfFlexAttribute(attribute="precision", byMethod=false),
-			@JsfFlexAttribute(attribute="rounding", byMethod=false),
-			@JsfFlexAttribute(attribute="thousandsSeparatorFrom", byMethod=false),
-			@JsfFlexAttribute(attribute="thousandsSeparatorTo", byMethod=false),
-			@JsfFlexAttribute(attribute="useNegativeSign", byMethod=false),
-			@JsfFlexAttribute(attribute="useThousandsSeparator", byMethod=false)
+				@JsfFlexAttribute(attribute="decimalSeparatorFrom", byMethod=false),
+				@JsfFlexAttribute(attribute="decimalSeparatorTo", byMethod=false),
+				@JsfFlexAttribute(attribute="precision", byMethod=false),
+				@JsfFlexAttribute(attribute="rounding", byMethod=false),
+				@JsfFlexAttribute(attribute="thousandsSeparatorFrom", byMethod=false),
+				@JsfFlexAttribute(attribute="thousandsSeparatorTo", byMethod=false),
+				@JsfFlexAttribute(attribute="useNegativeSign", byMethod=false),
+				@JsfFlexAttribute(attribute="useThousandsSeparator", byMethod=false)
 		}
-	)
+)
 public final class MXMLNumberFormatter extends MXMLFormatterTemplate {
 	
 	public MXMLNumberFormatter(){

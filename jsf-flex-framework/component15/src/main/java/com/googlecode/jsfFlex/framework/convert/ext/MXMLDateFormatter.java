@@ -33,11 +33,11 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLDateFormatter",
 		rendererClass="com.googlecode.jsfFlex.framework.convert.ext.MXMLDateFormatter",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="formatString", byMethod=false)
+				@JsfFlexAttribute(attribute="formatString", byMethod=false)
 		}
-	)
+)
 public final class MXMLDateFormatter extends MXMLFormatterTemplate {
 	
 	public MXMLDateFormatter(){

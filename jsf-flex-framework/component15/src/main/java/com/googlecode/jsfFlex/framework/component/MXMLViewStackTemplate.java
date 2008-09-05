@@ -27,15 +27,15 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  */
 @JsfFlexAttributeProperties(
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="historyManagementEnabled", byMethod=false),
-			@JsfFlexAttribute(attribute="resizeToContent", byMethod=false),
-			@JsfFlexAttribute(attribute="horizontalGap", byMethod=false),
-			@JsfFlexAttribute(attribute="verticalGap", byMethod=false),
-			@JsfFlexAttribute(attribute="change", byMethod=false)
+				@JsfFlexAttribute(attribute="historyManagementEnabled", byMethod=false),
+				@JsfFlexAttribute(attribute="resizeToContent", byMethod=false),
+				@JsfFlexAttribute(attribute="horizontalGap", byMethod=false),
+				@JsfFlexAttribute(attribute="verticalGap", byMethod=false),
+				@JsfFlexAttribute(attribute="change", byMethod=false)
 		}
-	)
+)
 public class MXMLViewStackTemplate extends MXMLContainerTemplate {
 	
 	public MXMLViewStackTemplate(){

@@ -28,19 +28,19 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  */
 @JsfFlexAttributeProperties(
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="id", byMethod=true),
-			@JsfFlexAttribute(attribute="enabled", byMethod=true),
-			@JsfFlexAttribute(attribute="listener", byMethod=true),
-			@JsfFlexAttribute(attribute="property", byMethod=true),
-			@JsfFlexAttribute(attribute="required", byMethod=true),
-			@JsfFlexAttribute(attribute="requiredFieldError", byMethod=true),
-			@JsfFlexAttribute(attribute="source", byMethod=true),
-			@JsfFlexAttribute(attribute="trigger", byMethod=true),
-			@JsfFlexAttribute(attribute="triggerEvent", byMethod=true)
+				@JsfFlexAttribute(attribute="id", byMethod=true),
+				@JsfFlexAttribute(attribute="enabled", byMethod=true),
+				@JsfFlexAttribute(attribute="listener", byMethod=true),
+				@JsfFlexAttribute(attribute="property", byMethod=true),
+				@JsfFlexAttribute(attribute="required", byMethod=true),
+				@JsfFlexAttribute(attribute="requiredFieldError", byMethod=true),
+				@JsfFlexAttribute(attribute="source", byMethod=true),
+				@JsfFlexAttribute(attribute="trigger", byMethod=true),
+				@JsfFlexAttribute(attribute="triggerEvent", byMethod=true)
 		}
-	)
+)
 public class MXMLValidatorTemplate extends MXMLComponentBaseActions {
 	
 	public MXMLValidatorTemplate(){

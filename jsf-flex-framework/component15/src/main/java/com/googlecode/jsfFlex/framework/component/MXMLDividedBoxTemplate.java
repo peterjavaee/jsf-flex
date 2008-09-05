@@ -27,22 +27,22 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  */
 @JsfFlexAttributeProperties(
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="liveDragging", byMethod=false),
-			@JsfFlexAttribute(attribute="resizeToContent", byMethod=false),
-			@JsfFlexAttribute(attribute="dividerAffordance", byMethod=false),
-			@JsfFlexAttribute(attribute="dividerAlpha", byMethod=false),
-			@JsfFlexAttribute(attribute="dividerColor", byMethod=false),
-			@JsfFlexAttribute(attribute="dividerSkin", byMethod=false),
-			@JsfFlexAttribute(attribute="dividerThickness", byMethod=false),
-			@JsfFlexAttribute(attribute="horizontalDividerCursor", byMethod=false),
-			@JsfFlexAttribute(attribute="verticalDividerCursor", byMethod=false),
-			@JsfFlexAttribute(attribute="dividerPress", byMethod=false),
-			@JsfFlexAttribute(attribute="dividerDrag", byMethod=false),
-			@JsfFlexAttribute(attribute="dividerRelease", byMethod=false)
+				@JsfFlexAttribute(attribute="liveDragging", byMethod=false),
+				@JsfFlexAttribute(attribute="resizeToContent", byMethod=false),
+				@JsfFlexAttribute(attribute="dividerAffordance", byMethod=false),
+				@JsfFlexAttribute(attribute="dividerAlpha", byMethod=false),
+				@JsfFlexAttribute(attribute="dividerColor", byMethod=false),
+				@JsfFlexAttribute(attribute="dividerSkin", byMethod=false),
+				@JsfFlexAttribute(attribute="dividerThickness", byMethod=false),
+				@JsfFlexAttribute(attribute="horizontalDividerCursor", byMethod=false),
+				@JsfFlexAttribute(attribute="verticalDividerCursor", byMethod=false),
+				@JsfFlexAttribute(attribute="dividerPress", byMethod=false),
+				@JsfFlexAttribute(attribute="dividerDrag", byMethod=false),
+				@JsfFlexAttribute(attribute="dividerRelease", byMethod=false)
 		}
-	)
+)
 public class MXMLDividedBoxTemplate extends MXMLBoxTemplate {
 	
 	public MXMLDividedBoxTemplate(){

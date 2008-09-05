@@ -36,7 +36,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentPackage="mx.controls",
 		mxmlComponentName="Tree",
 		componentNodeAttributes={
-			@JsfFlexComponentNodeAttribute(htmlType="INPUT",
+				@JsfFlexComponentNodeAttribute(
+						htmlType="INPUT",
 						typeAttributeValue="HIDDEN",
 						valueAttributeValue="selectedIndex",
 						isValueDynamic=true,
@@ -46,27 +47,27 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						isNameDynamic=true,
 						nameAppend="_selectedIndex")
 		},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="dataDescriptor", byMethod=false),
-			@JsfFlexAttribute(attribute="firstVisibleItem", byMethod=false),
-			@JsfFlexAttribute(attribute="itemIcons", byMethod=false),
-			@JsfFlexAttribute(attribute="openItems", byMethod=false),
-			@JsfFlexAttribute(attribute="showRoot", byMethod=false),
-			@JsfFlexAttribute(attribute="defaultLeafIcon", byMethod=false),
-			@JsfFlexAttribute(attribute="depthColors", byMethod=false),
-			@JsfFlexAttribute(attribute="disclosureClosedIcon", byMethod=false),
-			@JsfFlexAttribute(attribute="disclosureOpenIcon", byMethod=false),
-			@JsfFlexAttribute(attribute="folderClosedIcon", byMethod=false),
-			@JsfFlexAttribute(attribute="folderOpenIcon", byMethod=false),
-			@JsfFlexAttribute(attribute="indentation", byMethod=false),
-			@JsfFlexAttribute(attribute="openDuration", byMethod=false),
-			@JsfFlexAttribute(attribute="openEasingFunction", byMethod=false),
-			@JsfFlexAttribute(attribute="itemClose", byMethod=false),
-			@JsfFlexAttribute(attribute="itemOpen", byMethod=false),
-			@JsfFlexAttribute(attribute="itemOpening", byMethod=false)
+				@JsfFlexAttribute(attribute="dataDescriptor", byMethod=false),
+				@JsfFlexAttribute(attribute="firstVisibleItem", byMethod=false),
+				@JsfFlexAttribute(attribute="itemIcons", byMethod=false),
+				@JsfFlexAttribute(attribute="openItems", byMethod=false),
+				@JsfFlexAttribute(attribute="showRoot", byMethod=false),
+				@JsfFlexAttribute(attribute="defaultLeafIcon", byMethod=false),
+				@JsfFlexAttribute(attribute="depthColors", byMethod=false),
+				@JsfFlexAttribute(attribute="disclosureClosedIcon", byMethod=false),
+				@JsfFlexAttribute(attribute="disclosureOpenIcon", byMethod=false),
+				@JsfFlexAttribute(attribute="folderClosedIcon", byMethod=false),
+				@JsfFlexAttribute(attribute="folderOpenIcon", byMethod=false),
+				@JsfFlexAttribute(attribute="indentation", byMethod=false),
+				@JsfFlexAttribute(attribute="openDuration", byMethod=false),
+				@JsfFlexAttribute(attribute="openEasingFunction", byMethod=false),
+				@JsfFlexAttribute(attribute="itemClose", byMethod=false),
+				@JsfFlexAttribute(attribute="itemOpen", byMethod=false),
+				@JsfFlexAttribute(attribute="itemOpening", byMethod=false)
 		}
-	)
+)
 public final class MXMLTree extends MXMLListTemplate {
 	
 	public MXMLTree(){

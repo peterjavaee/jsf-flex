@@ -33,14 +33,14 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLSocialSecurityValidator",
 		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLSocialSecurityValidator",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="allowedFormatChars", byMethod=false),
-			@JsfFlexAttribute(attribute="invalidCharError", byMethod=false),
-			@JsfFlexAttribute(attribute="wrongFormatError", byMethod=false),
-			@JsfFlexAttribute(attribute="zeroStartError", byMethod=false)
+				@JsfFlexAttribute(attribute="allowedFormatChars", byMethod=false),
+				@JsfFlexAttribute(attribute="invalidCharError", byMethod=false),
+				@JsfFlexAttribute(attribute="wrongFormatError", byMethod=false),
+				@JsfFlexAttribute(attribute="zeroStartError", byMethod=false)
 		}
-	)
+)
 public final class MXMLSocialSecurityValidator extends MXMLValidatorTemplate {
 	
 	public MXMLSocialSecurityValidator(){

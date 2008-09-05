@@ -33,14 +33,14 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLPhoneFormatter",
 		rendererClass="com.googlecode.jsfFlex.framework.convert.ext.MXMLPhoneFormatter",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="areaCode", byMethod=false),
-			@JsfFlexAttribute(attribute="areaCodeFormat", byMethod=false),
-			@JsfFlexAttribute(attribute="formatString", byMethod=false),
-			@JsfFlexAttribute(attribute="validPatternChars", byMethod=false)
+				@JsfFlexAttribute(attribute="areaCode", byMethod=false),
+				@JsfFlexAttribute(attribute="areaCodeFormat", byMethod=false),
+				@JsfFlexAttribute(attribute="formatString", byMethod=false),
+				@JsfFlexAttribute(attribute="validPatternChars", byMethod=false)
 		}
-	)
+)
 public final class MXMLPhoneFormatter extends MXMLFormatterTemplate {
 	
 	public MXMLPhoneFormatter(){

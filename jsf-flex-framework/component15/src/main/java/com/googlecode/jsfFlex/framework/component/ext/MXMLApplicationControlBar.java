@@ -33,13 +33,13 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLApplicationControlBar",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLApplicationControlBar",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="dock", byMethod=false),
-			@JsfFlexAttribute(attribute="fillAlphas", byMethod=true),
-			@JsfFlexAttribute(attribute="fillColors", byMethod=true)
+				@JsfFlexAttribute(attribute="dock", byMethod=false),
+				@JsfFlexAttribute(attribute="fillAlphas", byMethod=true),
+				@JsfFlexAttribute(attribute="fillColors", byMethod=true)
 		}
-	)
+)
 public final class MXMLApplicationControlBar extends MXMLBoxTemplate {
 	
 	public MXMLApplicationControlBar(){

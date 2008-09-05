@@ -33,14 +33,14 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLRegExpValidator",
 		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLRegExpValidator",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="expression", byMethod=false),
-			@JsfFlexAttribute(attribute="flags", byMethod=false),
-			@JsfFlexAttribute(attribute="noExpressionError", byMethod=false),
-			@JsfFlexAttribute(attribute="noMatchError", byMethod=false)
+				@JsfFlexAttribute(attribute="expression", byMethod=false),
+				@JsfFlexAttribute(attribute="flags", byMethod=false),
+				@JsfFlexAttribute(attribute="noExpressionError", byMethod=false),
+				@JsfFlexAttribute(attribute="noMatchError", byMethod=false)
 		}
-	)
+)
 public final class MXMLRegExpValidator extends MXMLValidatorTemplate {
 	
 	public MXMLRegExpValidator(){
