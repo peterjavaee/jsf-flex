@@ -43,6 +43,7 @@ import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectorBase;
 import com.googlecode.jsfFlexPlugIn.inspector.qdox.JsfFlexQdoxInspector;
 import com.googlecode.jsfFlexPlugIn.parser._JsfFlexParserListener;
 import com.googlecode.jsfFlexPlugIn.parser.velocity.JsfFlexVelocityParser;
+import com.googlecode.jsfFlexPlugIn.utils.tasks.ReplaceText;
 import com.thoughtworks.qdox.JavaDocBuilder;
 import com.thoughtworks.qdox.model.JavaClass;
 
@@ -425,7 +426,8 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
 			Map<String, Object> _contextInfoMap = new HashMap<String, Object>();
 			
 			_contextInfoMap.put(JSF_FLEX_CLASS_SET_ATTRIBUTE, _classInfoSet);
-			_jsfFlexVelocityParser.mergeCollectionToTemplate(JSF_FLEX_COMPONENT_VALUE_MAPPER_TEMPLATE, _contextInfoMap, _writer);
+			_jsfFlexVelocityParser.mergeCollectionToTemplate(JSF_FLEX_COMPONENT_VALUE_MAPPER_TEMPLATE, _contextInfoMap, 
+																_writer, _toCreateComponentValueMapperXMLPath);
 			
 		}catch(IOException _ioException){
 			
@@ -433,7 +435,14 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
 		
 	}
 	
-	public void mergeCollectionToTemplateFinished() {
+	public void mergeCollectionToTemplateFinished(String _fileMerged) {
+		
+		ReplaceText removeEmptySpace = new ReplaceText(_fileMerged);
+		removeEmptySpace.setReplaceRegExp(true);
+		removeEmptySpace.setRegMatch(ReplaceText.CLEAN_REG_EXP_MATCH);
+		removeEmptySpace.setRegReplace(ReplaceText.CLEAN_REG_EXP_REPLACE_WITH);
+		
+		removeEmptySpace.performTask();
 		
 	}
 	
