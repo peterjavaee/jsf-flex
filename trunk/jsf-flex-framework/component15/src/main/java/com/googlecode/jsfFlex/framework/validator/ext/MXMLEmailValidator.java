@@ -33,18 +33,18 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLEmailValidator",
 		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLEmailValidator",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="invalidCharError", byMethod=false),
-			@JsfFlexAttribute(attribute="invalidDomainError", byMethod=false),
-			@JsfFlexAttribute(attribute="invalidIPDomainError", byMethod=false),
-			@JsfFlexAttribute(attribute="invalidPeriodsInDomainError", byMethod=false),
-			@JsfFlexAttribute(attribute="missingAtSignError", byMethod=false),
-			@JsfFlexAttribute(attribute="missingPeriodInDomainError", byMethod=false),
-			@JsfFlexAttribute(attribute="missingUsernameError", byMethod=false),
-			@JsfFlexAttribute(attribute="tooManyAtSignsError", byMethod=false)
+				@JsfFlexAttribute(attribute="invalidCharError", byMethod=false),
+				@JsfFlexAttribute(attribute="invalidDomainError", byMethod=false),
+				@JsfFlexAttribute(attribute="invalidIPDomainError", byMethod=false),
+				@JsfFlexAttribute(attribute="invalidPeriodsInDomainError", byMethod=false),
+				@JsfFlexAttribute(attribute="missingAtSignError", byMethod=false),
+				@JsfFlexAttribute(attribute="missingPeriodInDomainError", byMethod=false),
+				@JsfFlexAttribute(attribute="missingUsernameError", byMethod=false),
+				@JsfFlexAttribute(attribute="tooManyAtSignsError", byMethod=false)
 		}
-	)
+)
 public final class MXMLEmailValidator extends MXMLValidatorTemplate {
 	
 	public MXMLEmailValidator(){

@@ -27,36 +27,36 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  */
 @JsfFlexAttributeProperties(
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="direction", byMethod=true),
-			@JsfFlexAttribute(attribute="lineScrollSize", byMethod=true),
-			@JsfFlexAttribute(attribute="maxScrollPosition", byMethod=true),
-			@JsfFlexAttribute(attribute="minScrollPosition", byMethod=true),
-			@JsfFlexAttribute(attribute="pageScrollSize", byMethod=true),
-			@JsfFlexAttribute(attribute="pageSize", byMethod=true),
-			@JsfFlexAttribute(attribute="scrollPosition", byMethod=true),
-			@JsfFlexAttribute(attribute="borderColor", byMethod=true),
-			@JsfFlexAttribute(attribute="cornerRadius", byMethod=true),
-			@JsfFlexAttribute(attribute="downArrowDisabledSkin", byMethod=true),
-			@JsfFlexAttribute(attribute="downArrowDownSkin", byMethod=true),
-			@JsfFlexAttribute(attribute="downArrowOverSkin", byMethod=true),
-			@JsfFlexAttribute(attribute="downArrowUpSkin", byMethod=true),
-			@JsfFlexAttribute(attribute="fillAlphas", byMethod=true),
-			@JsfFlexAttribute(attribute="fillColors", byMethod=true),
-			@JsfFlexAttribute(attribute="highlightAlphas", byMethod=true),
-			@JsfFlexAttribute(attribute="thumbDownSkin", byMethod=true),
-			@JsfFlexAttribute(attribute="thumbIcon", byMethod=true),
-			@JsfFlexAttribute(attribute="thumbOverSkin", byMethod=true),
-			@JsfFlexAttribute(attribute="thumbUpSkin", byMethod=true),
-			@JsfFlexAttribute(attribute="trackColors", byMethod=true),
-			@JsfFlexAttribute(attribute="trackSkin", byMethod=true),
-			@JsfFlexAttribute(attribute="upArrowDisabledSkin", byMethod=true),
-			@JsfFlexAttribute(attribute="upArrowDownSkin", byMethod=true),
-			@JsfFlexAttribute(attribute="upArrowOverSkin", byMethod=true),
-			@JsfFlexAttribute(attribute="upArrowUpSkin", byMethod=true)
+				@JsfFlexAttribute(attribute="direction", byMethod=true),
+				@JsfFlexAttribute(attribute="lineScrollSize", byMethod=true),
+				@JsfFlexAttribute(attribute="maxScrollPosition", byMethod=true),
+				@JsfFlexAttribute(attribute="minScrollPosition", byMethod=true),
+				@JsfFlexAttribute(attribute="pageScrollSize", byMethod=true),
+				@JsfFlexAttribute(attribute="pageSize", byMethod=true),
+				@JsfFlexAttribute(attribute="scrollPosition", byMethod=true),
+				@JsfFlexAttribute(attribute="borderColor", byMethod=true),
+				@JsfFlexAttribute(attribute="cornerRadius", byMethod=true),
+				@JsfFlexAttribute(attribute="downArrowDisabledSkin", byMethod=true),
+				@JsfFlexAttribute(attribute="downArrowDownSkin", byMethod=true),
+				@JsfFlexAttribute(attribute="downArrowOverSkin", byMethod=true),
+				@JsfFlexAttribute(attribute="downArrowUpSkin", byMethod=true),
+				@JsfFlexAttribute(attribute="fillAlphas", byMethod=true),
+				@JsfFlexAttribute(attribute="fillColors", byMethod=true),
+				@JsfFlexAttribute(attribute="highlightAlphas", byMethod=true),
+				@JsfFlexAttribute(attribute="thumbDownSkin", byMethod=true),
+				@JsfFlexAttribute(attribute="thumbIcon", byMethod=true),
+				@JsfFlexAttribute(attribute="thumbOverSkin", byMethod=true),
+				@JsfFlexAttribute(attribute="thumbUpSkin", byMethod=true),
+				@JsfFlexAttribute(attribute="trackColors", byMethod=true),
+				@JsfFlexAttribute(attribute="trackSkin", byMethod=true),
+				@JsfFlexAttribute(attribute="upArrowDisabledSkin", byMethod=true),
+				@JsfFlexAttribute(attribute="upArrowDownSkin", byMethod=true),
+				@JsfFlexAttribute(attribute="upArrowOverSkin", byMethod=true),
+				@JsfFlexAttribute(attribute="upArrowUpSkin", byMethod=true)
 		}
-	)
+)
 public class MXMLScrollBarTemplate extends MXMLComponentBase {
 	
 	public MXMLScrollBarTemplate(){

@@ -27,23 +27,23 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  */
 @JsfFlexAttributeProperties(
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="openAlways", byMethod=false),
-			@JsfFlexAttribute(attribute="popUp", byMethod=false),
-			@JsfFlexAttribute(attribute="arrowButtonWidth", byMethod=false),
-			@JsfFlexAttribute(attribute="closeDuration", byMethod=false),
-			@JsfFlexAttribute(attribute="closeEasingFunction", byMethod=false),
-			@JsfFlexAttribute(attribute="openDuration", byMethod=false),
-			@JsfFlexAttribute(attribute="openEasingFunction", byMethod=false),
-			@JsfFlexAttribute(attribute="popUpDownSkin", byMethod=false),
-			@JsfFlexAttribute(attribute="popUpGap", byMethod=false),
-			@JsfFlexAttribute(attribute="popUpIcon", byMethod=false),
-			@JsfFlexAttribute(attribute="popUpOverSkin", byMethod=false),
-			@JsfFlexAttribute(attribute="close", byMethod=false),
-			@JsfFlexAttribute(attribute="open", byMethod=false)
+				@JsfFlexAttribute(attribute="openAlways", byMethod=false),
+				@JsfFlexAttribute(attribute="popUp", byMethod=false),
+				@JsfFlexAttribute(attribute="arrowButtonWidth", byMethod=false),
+				@JsfFlexAttribute(attribute="closeDuration", byMethod=false),
+				@JsfFlexAttribute(attribute="closeEasingFunction", byMethod=false),
+				@JsfFlexAttribute(attribute="openDuration", byMethod=false),
+				@JsfFlexAttribute(attribute="openEasingFunction", byMethod=false),
+				@JsfFlexAttribute(attribute="popUpDownSkin", byMethod=false),
+				@JsfFlexAttribute(attribute="popUpGap", byMethod=false),
+				@JsfFlexAttribute(attribute="popUpIcon", byMethod=false),
+				@JsfFlexAttribute(attribute="popUpOverSkin", byMethod=false),
+				@JsfFlexAttribute(attribute="close", byMethod=false),
+				@JsfFlexAttribute(attribute="open", byMethod=false)
 		}
-	)
+)
 public abstract class MXMLPopUpButtonTemplate extends MXMLButtonTemplate {
 	
 	public MXMLPopUpButtonTemplate(){

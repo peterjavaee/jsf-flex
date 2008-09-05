@@ -27,15 +27,15 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  */
 @JsfFlexAttributeProperties(
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="direction", byMethod=false),
-			@JsfFlexAttribute(attribute="horizontalAlign", byMethod=false),
-			@JsfFlexAttribute(attribute="horizontalGap", byMethod=false),
-			@JsfFlexAttribute(attribute="verticalAlign", byMethod=false),
-			@JsfFlexAttribute(attribute="verticalGap", byMethod=false)
+				@JsfFlexAttribute(attribute="direction", byMethod=false),
+				@JsfFlexAttribute(attribute="horizontalAlign", byMethod=false),
+				@JsfFlexAttribute(attribute="horizontalGap", byMethod=false),
+				@JsfFlexAttribute(attribute="verticalAlign", byMethod=false),
+				@JsfFlexAttribute(attribute="verticalGap", byMethod=false)
 		}
-	)
+)
 public abstract class MXMLBoxTemplate extends MXMLContainerTemplate {
 	
 	public MXMLBoxTemplate(){

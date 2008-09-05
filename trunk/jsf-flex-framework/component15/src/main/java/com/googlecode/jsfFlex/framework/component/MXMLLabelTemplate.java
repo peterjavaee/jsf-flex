@@ -27,33 +27,33 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  */
 @JsfFlexAttributeProperties(
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="condenseWhite", byMethod=false),
-			@JsfFlexAttribute(attribute="data", byMethod=false),
-			@JsfFlexAttribute(attribute="htmlText", byMethod=false),
-			@JsfFlexAttribute(attribute="listData", byMethod=false),
-			@JsfFlexAttribute(attribute="selectable", byMethod=false),
-			@JsfFlexAttribute(attribute="text", byMethod=false),
-			@JsfFlexAttribute(attribute="truncateToFit", byMethod=false),
-			@JsfFlexAttribute(attribute="color", byMethod=false),
-			@JsfFlexAttribute(attribute="disabledColor", byMethod=false),
-			@JsfFlexAttribute(attribute="fontAntiAliasType", byMethod=false),
-			@JsfFlexAttribute(attribute="fontFamily", byMethod=false),
-			@JsfFlexAttribute(attribute="fontGridFitType", byMethod=false),
-			@JsfFlexAttribute(attribute="fontSharpness", byMethod=false),
-			@JsfFlexAttribute(attribute="fontSize", byMethod=false),
-			@JsfFlexAttribute(attribute="fontStyle", byMethod=false),
-			@JsfFlexAttribute(attribute="fontThickness", byMethod=false),
-			@JsfFlexAttribute(attribute="fontWeight", byMethod=false),
-			@JsfFlexAttribute(attribute="paddingLeft", byMethod=false),
-			@JsfFlexAttribute(attribute="paddingRight", byMethod=false),
-			@JsfFlexAttribute(attribute="textAlign", byMethod=false),
-			@JsfFlexAttribute(attribute="textDecoration", byMethod=false),
-			@JsfFlexAttribute(attribute="textIndent", byMethod=false),
-			@JsfFlexAttribute(attribute="dataChange", byMethod=false)
+				@JsfFlexAttribute(attribute="condenseWhite", byMethod=false),
+				@JsfFlexAttribute(attribute="data", byMethod=false),
+				@JsfFlexAttribute(attribute="htmlText", byMethod=false),
+				@JsfFlexAttribute(attribute="listData", byMethod=false),
+				@JsfFlexAttribute(attribute="selectable", byMethod=false),
+				@JsfFlexAttribute(attribute="text", byMethod=false),
+				@JsfFlexAttribute(attribute="truncateToFit", byMethod=false),
+				@JsfFlexAttribute(attribute="color", byMethod=false),
+				@JsfFlexAttribute(attribute="disabledColor", byMethod=false),
+				@JsfFlexAttribute(attribute="fontAntiAliasType", byMethod=false),
+				@JsfFlexAttribute(attribute="fontFamily", byMethod=false),
+				@JsfFlexAttribute(attribute="fontGridFitType", byMethod=false),
+				@JsfFlexAttribute(attribute="fontSharpness", byMethod=false),
+				@JsfFlexAttribute(attribute="fontSize", byMethod=false),
+				@JsfFlexAttribute(attribute="fontStyle", byMethod=false),
+				@JsfFlexAttribute(attribute="fontThickness", byMethod=false),
+				@JsfFlexAttribute(attribute="fontWeight", byMethod=false),
+				@JsfFlexAttribute(attribute="paddingLeft", byMethod=false),
+				@JsfFlexAttribute(attribute="paddingRight", byMethod=false),
+				@JsfFlexAttribute(attribute="textAlign", byMethod=false),
+				@JsfFlexAttribute(attribute="textDecoration", byMethod=false),
+				@JsfFlexAttribute(attribute="textIndent", byMethod=false),
+				@JsfFlexAttribute(attribute="dataChange", byMethod=false)
 		}
-	)
+)
 public abstract class MXMLLabelTemplate extends MXMLComponentBase {
 	
 	public MXMLLabelTemplate(){

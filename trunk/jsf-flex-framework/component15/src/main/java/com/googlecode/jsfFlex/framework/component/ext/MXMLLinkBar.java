@@ -33,17 +33,17 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLLinkBar",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLLinkBar",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="rollOverColor", byMethod=false),
-			@JsfFlexAttribute(attribute="selectionColor", byMethod=false),
-			@JsfFlexAttribute(attribute="separatorColor", byMethod=false),
-			@JsfFlexAttribute(attribute="separatorSkin", byMethod=false),
-			@JsfFlexAttribute(attribute="separatorWidth", byMethod=false),
-			@JsfFlexAttribute(attribute="textRollOverColor", byMethod=false),
-			@JsfFlexAttribute(attribute="textSelectedColor", byMethod=false)
+				@JsfFlexAttribute(attribute="rollOverColor", byMethod=false),
+				@JsfFlexAttribute(attribute="selectionColor", byMethod=false),
+				@JsfFlexAttribute(attribute="separatorColor", byMethod=false),
+				@JsfFlexAttribute(attribute="separatorSkin", byMethod=false),
+				@JsfFlexAttribute(attribute="separatorWidth", byMethod=false),
+				@JsfFlexAttribute(attribute="textRollOverColor", byMethod=false),
+				@JsfFlexAttribute(attribute="textSelectedColor", byMethod=false)
 		}
-	)
+)
 public final class MXMLLinkBar extends MXMLNavBarTemplate {
 	
 	public MXMLLinkBar(){

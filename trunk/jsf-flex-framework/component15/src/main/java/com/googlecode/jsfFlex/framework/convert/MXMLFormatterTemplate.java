@@ -28,12 +28,12 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  */
 @JsfFlexAttributeProperties(
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="id", byMethod=true),
-			@JsfFlexAttribute(attribute="error", byMethod=true)
+				@JsfFlexAttribute(attribute="id", byMethod=true),
+				@JsfFlexAttribute(attribute="error", byMethod=true)
 		}
-	)
+)
 public abstract class MXMLFormatterTemplate extends MXMLComponentBaseActions {
 	
 	public MXMLFormatterTemplate(){

@@ -32,9 +32,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLPopUpButton",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLPopUpButton",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={}
-	)
+)
 public final class MXMLPopUpButton extends MXMLPopUpButtonTemplate {
 	
 	public MXMLPopUpButton(){

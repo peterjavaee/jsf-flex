@@ -32,9 +32,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLDividedBox",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLDividedBox",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={}
-	)
+)
 public final class MXMLDividedBox extends MXMLDividedBoxTemplate {
 	
 	public MXMLDividedBox(){

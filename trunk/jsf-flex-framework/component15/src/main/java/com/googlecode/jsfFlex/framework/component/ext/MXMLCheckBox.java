@@ -35,7 +35,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentPackage="mx.controls",
 		mxmlComponentName="CheckBox",
 		componentNodeAttributes={
-			@JsfFlexComponentNodeAttribute(htmlType="INPUT",
+				@JsfFlexComponentNodeAttribute(
+						htmlType="INPUT",
 						typeAttributeValue="HIDDEN",
 						valueAttributeValue="selected",
 						isValueDynamic=true,
@@ -45,9 +46,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						isNameDynamic=true,
 						nameAppend="_selected")
 		},
-		
+
 		jsfFlexAttributes={}
-	)
+)
 public final class MXMLCheckBox extends MXMLButtonTemplate {
 	
 	public MXMLCheckBox(){

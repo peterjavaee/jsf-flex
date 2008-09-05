@@ -33,17 +33,17 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLZipCodeValidator",
 		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLZipCodeValidator",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="allowedFormatChars", byMethod=false),
-			@JsfFlexAttribute(attribute="domain", byMethod=false),
-			@JsfFlexAttribute(attribute="invalidCharError", byMethod=false),
-			@JsfFlexAttribute(attribute="invalidDomainError", byMethod=false),
-			@JsfFlexAttribute(attribute="wrongCAFormatError", byMethod=false),
-			@JsfFlexAttribute(attribute="wrongLengthError", byMethod=false),
-			@JsfFlexAttribute(attribute="wrongUSFormatError", byMethod=false)
+				@JsfFlexAttribute(attribute="allowedFormatChars", byMethod=false),
+				@JsfFlexAttribute(attribute="domain", byMethod=false),
+				@JsfFlexAttribute(attribute="invalidCharError", byMethod=false),
+				@JsfFlexAttribute(attribute="invalidDomainError", byMethod=false),
+				@JsfFlexAttribute(attribute="wrongCAFormatError", byMethod=false),
+				@JsfFlexAttribute(attribute="wrongLengthError", byMethod=false),
+				@JsfFlexAttribute(attribute="wrongUSFormatError", byMethod=false)
 		}
-	)
+)
 public final class MXMLZipCodeValidator extends MXMLValidatorTemplate {
 	
 	public MXMLZipCodeValidator(){

@@ -36,8 +36,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentPackage="mx.containers",
 		mxmlComponentName="Accordion",
 		componentNodeAttributes={
-			@JsfFlexComponentNodeAttribute(htmlType="INPUT",
-						typeAttributeValue="HIDDEN",
+				@JsfFlexComponentNodeAttribute(
+						htmlType="INPUT", 
+						typeAttributeValue="HIDDEN", 
 						valueAttributeValue="selectedIndex",
 						isValueDynamic=true,
 						isValueNested=false,
@@ -46,27 +47,27 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						isNameDynamic=true,
 						nameAppend="_selectedIndex")
 		},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="headerRenderer", byMethod=false),
-			@JsfFlexAttribute(attribute="historyManagementEnabled", byMethod=false),
-			@JsfFlexAttribute(attribute="resizeToContent", byMethod=false),
-			@JsfFlexAttribute(attribute="fillAlphas", byMethod=false),
-			@JsfFlexAttribute(attribute="fillColors", byMethod=false),
-			@JsfFlexAttribute(attribute="focusAlpha", byMethod=false),
-			@JsfFlexAttribute(attribute="focusRoundedCorners", byMethod=false),
-			@JsfFlexAttribute(attribute="headerHeight", byMethod=false),
-			@JsfFlexAttribute(attribute="headerStyleName", byMethod=false),
-			@JsfFlexAttribute(attribute="horizontalGap", byMethod=false),
-			@JsfFlexAttribute(attribute="openDuration", byMethod=false),
-			@JsfFlexAttribute(attribute="openEasingFunction", byMethod=false),
-			@JsfFlexAttribute(attribute="selectedFillColors", byMethod=false),
-			@JsfFlexAttribute(attribute="textRollOverColor", byMethod=false),
-			@JsfFlexAttribute(attribute="textSelectedColor", byMethod=false),
-			@JsfFlexAttribute(attribute="verticalGap", byMethod=false),
-			@JsfFlexAttribute(attribute="change", byMethod=false)
+				@JsfFlexAttribute(attribute="headerRenderer", byMethod=false),
+				@JsfFlexAttribute(attribute="historyManagementEnabled", byMethod=false),
+				@JsfFlexAttribute(attribute="resizeToContent", byMethod=false),
+				@JsfFlexAttribute(attribute="fillAlphas", byMethod=false),
+				@JsfFlexAttribute(attribute="fillColors", byMethod=false),
+				@JsfFlexAttribute(attribute="focusAlpha", byMethod=false),
+				@JsfFlexAttribute(attribute="focusRoundedCorners", byMethod=false),
+				@JsfFlexAttribute(attribute="headerHeight", byMethod=false),
+				@JsfFlexAttribute(attribute="headerStyleName", byMethod=false),
+				@JsfFlexAttribute(attribute="horizontalGap", byMethod=false),
+				@JsfFlexAttribute(attribute="openDuration", byMethod=false),
+				@JsfFlexAttribute(attribute="openEasingFunction", byMethod=false),
+				@JsfFlexAttribute(attribute="selectedFillColors", byMethod=false),
+				@JsfFlexAttribute(attribute="textRollOverColor", byMethod=false),
+				@JsfFlexAttribute(attribute="textSelectedColor", byMethod=false),
+				@JsfFlexAttribute(attribute="verticalGap", byMethod=false),
+				@JsfFlexAttribute(attribute="change", byMethod=false)
 		}
-	)
+)
 public final class MXMLAccordion extends MXMLContainerTemplate {
 	
 	public MXMLAccordion(){

@@ -36,7 +36,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentPackage="mx.controls",
 		mxmlComponentName="RadioButton",
 		componentNodeAttributes={
-			@JsfFlexComponentNodeAttribute(htmlType="INPUT",
+				@JsfFlexComponentNodeAttribute(
+						htmlType="INPUT",
 						typeAttributeValue="HIDDEN",
 						isValueDynamic=true,
 						isValueNested=true,
@@ -44,7 +45,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						nameAttributeValue="groupName",
 						isNameDynamic=true,
 						nameAppend="_selectedValue"),
-			@JsfFlexComponentNodeAttribute(htmlType="INPUT",
+				@JsfFlexComponentNodeAttribute(
+						htmlType="INPUT",
 						typeAttributeValue="HIDDEN",
 						valueAttributeValue="selected",
 						isValueDynamic=true,
@@ -54,12 +56,12 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						isNameDynamic=true,
 						nameAppend="_selected")
 		},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="groupName", byMethod=true),
-			@JsfFlexAttribute(attribute="value", byMethod=true)
+				@JsfFlexAttribute(attribute="groupName", byMethod=true),
+				@JsfFlexAttribute(attribute="value", byMethod=true)
 		}
-	)
+)
 public final class MXMLRadioButton extends MXMLButtonTemplate {
 	
 	public MXMLRadioButton(){

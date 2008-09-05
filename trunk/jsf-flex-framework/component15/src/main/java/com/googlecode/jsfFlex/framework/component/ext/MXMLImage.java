@@ -33,11 +33,11 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLImage",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLImage",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="dataChange", byMethod=false)
+				@JsfFlexAttribute(attribute="dataChange", byMethod=false)
 		}
-	)
+)
 public final class MXMLImage extends MXMLSwfLoaderTemplate {
 	
 	public MXMLImage(){

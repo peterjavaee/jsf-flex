@@ -27,16 +27,16 @@ import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
  */
 @JsfFlexAttributeProperties(
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="dataProvider", byMethod=true),
-			@JsfFlexAttribute(attribute="iconField", byMethod=true),
-			@JsfFlexAttribute(attribute="labelField", byMethod=true),
-			@JsfFlexAttribute(attribute="selectedIndex", byMethod=true),
-			@JsfFlexAttribute(attribute="toolTipField", byMethod=true),
-			@JsfFlexAttribute(attribute="itemClick", byMethod=true)
+				@JsfFlexAttribute(attribute="dataProvider", byMethod=true),
+				@JsfFlexAttribute(attribute="iconField", byMethod=true),
+				@JsfFlexAttribute(attribute="labelField", byMethod=true),
+				@JsfFlexAttribute(attribute="selectedIndex", byMethod=true),
+				@JsfFlexAttribute(attribute="toolTipField", byMethod=true),
+				@JsfFlexAttribute(attribute="itemClick", byMethod=true)
 		}
-	)
+)
 public abstract class MXMLNavBarTemplate extends MXMLBoxTemplate {
 	
 	public MXMLNavBarTemplate(){

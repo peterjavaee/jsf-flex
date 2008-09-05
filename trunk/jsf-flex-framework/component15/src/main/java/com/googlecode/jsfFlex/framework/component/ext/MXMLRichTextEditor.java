@@ -36,7 +36,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentPackage="mx.controls",
 		mxmlComponentName="RichTextEditor",
 		componentNodeAttributes={
-			@JsfFlexComponentNodeAttribute(htmlType="INPUT",
+				@JsfFlexComponentNodeAttribute(
+						htmlType="INPUT",
 						typeAttributeValue="HIDDEN",
 						valueAttributeValue="text",
 						isValueDynamic=true,
@@ -45,7 +46,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						nameAttributeValue="id",
 						isNameDynamic=true,
 						nameAppend="_text"),
-			@JsfFlexComponentNodeAttribute(htmlType="INPUT",
+				@JsfFlexComponentNodeAttribute(
+						htmlType="INPUT",
 						typeAttributeValue="HIDDEN",
 						valueAttributeValue="htmlText",
 						isValueDynamic=true,
@@ -55,14 +57,14 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						isNameDynamic=true,
 						nameAppend="_htmlText")
 		},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="defaultLinkProtocol", byMethod=false),
-			@JsfFlexAttribute(attribute="showControlBar", byMethod=false),
-			@JsfFlexAttribute(attribute="showToolTips", byMethod=false),
-			@JsfFlexAttribute(attribute="change", byMethod=false)
+				@JsfFlexAttribute(attribute="defaultLinkProtocol", byMethod=false),
+				@JsfFlexAttribute(attribute="showControlBar", byMethod=false),
+				@JsfFlexAttribute(attribute="showToolTips", byMethod=false),
+				@JsfFlexAttribute(attribute="change", byMethod=false)
 		}
-	)
+)
 public final class MXMLRichTextEditor extends MXMLPanelTemplate {
 	
 	public MXMLRichTextEditor(){

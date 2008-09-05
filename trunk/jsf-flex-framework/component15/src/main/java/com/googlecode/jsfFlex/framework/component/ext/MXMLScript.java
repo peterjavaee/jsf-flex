@@ -33,9 +33,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLScript",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLScript",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={}
-	)
+)
 public final class MXMLScript extends MXMLComponentBaseActions {
 	
 	private static final String MXML_SCRIPT_BODY_TEMPLATE;

@@ -33,27 +33,27 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLCurrencyValidator",
 		rendererClass="com.googlecode.jsfFlex.framework.validator.ext.MXMLCurrencyValidator",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="alignSymbol", byMethod=false),
-			@JsfFlexAttribute(attribute="allowNegative", byMethod=false),
-			@JsfFlexAttribute(attribute="currencySymbol", byMethod=false),
-			@JsfFlexAttribute(attribute="currencySymbolError", byMethod=false),
-			@JsfFlexAttribute(attribute="decimalPointCountError", byMethod=false),
-			@JsfFlexAttribute(attribute="decimalSeparator", byMethod=false),
-			@JsfFlexAttribute(attribute="exceedsMaxError", byMethod=false),
-			@JsfFlexAttribute(attribute="invalidCharError", byMethod=false),
-			@JsfFlexAttribute(attribute="invalidFormatCharsError", byMethod=false),
-			@JsfFlexAttribute(attribute="lowerThanMinError", byMethod=false),
-			@JsfFlexAttribute(attribute="maxValue", byMethod=false),
-			@JsfFlexAttribute(attribute="minValue", byMethod=false),
-			@JsfFlexAttribute(attribute="negativeError", byMethod=false),
-			@JsfFlexAttribute(attribute="precision", byMethod=false),
-			@JsfFlexAttribute(attribute="precisionError", byMethod=false),
-			@JsfFlexAttribute(attribute="separationError", byMethod=false),
-			@JsfFlexAttribute(attribute="thousandsSeparator", byMethod=false)
+				@JsfFlexAttribute(attribute="alignSymbol", byMethod=false),
+				@JsfFlexAttribute(attribute="allowNegative", byMethod=false),
+				@JsfFlexAttribute(attribute="currencySymbol", byMethod=false),
+				@JsfFlexAttribute(attribute="currencySymbolError", byMethod=false),
+				@JsfFlexAttribute(attribute="decimalPointCountError", byMethod=false),
+				@JsfFlexAttribute(attribute="decimalSeparator", byMethod=false),
+				@JsfFlexAttribute(attribute="exceedsMaxError", byMethod=false),
+				@JsfFlexAttribute(attribute="invalidCharError", byMethod=false),
+				@JsfFlexAttribute(attribute="invalidFormatCharsError", byMethod=false),
+				@JsfFlexAttribute(attribute="lowerThanMinError", byMethod=false),
+				@JsfFlexAttribute(attribute="maxValue", byMethod=false),
+				@JsfFlexAttribute(attribute="minValue", byMethod=false),
+				@JsfFlexAttribute(attribute="negativeError", byMethod=false),
+				@JsfFlexAttribute(attribute="precision", byMethod=false),
+				@JsfFlexAttribute(attribute="precisionError", byMethod=false),
+				@JsfFlexAttribute(attribute="separationError", byMethod=false),
+				@JsfFlexAttribute(attribute="thousandsSeparator", byMethod=false)
 		}
-	)
+)
 public final class MXMLCurrencyValidator extends MXMLValidatorTemplate {
 	
 	public MXMLCurrencyValidator(){

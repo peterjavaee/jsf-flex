@@ -32,9 +32,9 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLSwfLoader",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLSwfLoader",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={}
-	)
+)
 public final class MXMLSwfLoader extends MXMLSwfLoaderTemplate {
 	
 	public MXMLSwfLoader(){

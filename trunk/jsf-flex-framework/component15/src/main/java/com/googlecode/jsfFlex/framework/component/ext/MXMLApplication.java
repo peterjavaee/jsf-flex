@@ -60,32 +60,32 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLApplication",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLApplication",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="controlBar", byMethod=false),
-			@JsfFlexAttribute(attribute="frameRate", byMethod=false),
-			@JsfFlexAttribute(attribute="layout", byMethod=false),
-			@JsfFlexAttribute(attribute="pageTitle", byMethod=false),
-			@JsfFlexAttribute(attribute="preloader", byMethod=false),
-			@JsfFlexAttribute(attribute="resetHistory", byMethod=false),
-			@JsfFlexAttribute(attribute="scriptRecursionLimit", byMethod=false),
-			@JsfFlexAttribute(attribute="scriptTimeLimit", byMethod=false),
-			@JsfFlexAttribute(attribute="usePreloader", byMethod=false),
-			@JsfFlexAttribute(attribute="viewSourceURL", byMethod=false),
-			@JsfFlexAttribute(attribute="backgroundGradientAlphas", byMethod=false),
-			@JsfFlexAttribute(attribute="backgroundGradientColors", byMethod=false),
-			@JsfFlexAttribute(attribute="horizontalAlign", byMethod=false),
-			@JsfFlexAttribute(attribute="horizontalGap", byMethod=false),
-			@JsfFlexAttribute(attribute="modalTransparency", byMethod=false),
-			@JsfFlexAttribute(attribute="modalTransparencyBlur", byMethod=false),
-			@JsfFlexAttribute(attribute="modalTransparencyColor", byMethod=false),
-			@JsfFlexAttribute(attribute="modalTransparencyDuration", byMethod=false),
-			@JsfFlexAttribute(attribute="verticalAlign", byMethod=false),
-			@JsfFlexAttribute(attribute="verticalGap", byMethod=false),
-			@JsfFlexAttribute(attribute="applicationComplete", byMethod=false),
-			@JsfFlexAttribute(attribute="error", byMethod=false)
+				@JsfFlexAttribute(attribute="controlBar", byMethod=false),
+				@JsfFlexAttribute(attribute="frameRate", byMethod=false),
+				@JsfFlexAttribute(attribute="layout", byMethod=false),
+				@JsfFlexAttribute(attribute="pageTitle", byMethod=false),
+				@JsfFlexAttribute(attribute="preloader", byMethod=false),
+				@JsfFlexAttribute(attribute="resetHistory", byMethod=false),
+				@JsfFlexAttribute(attribute="scriptRecursionLimit", byMethod=false),
+				@JsfFlexAttribute(attribute="scriptTimeLimit", byMethod=false),
+				@JsfFlexAttribute(attribute="usePreloader", byMethod=false),
+				@JsfFlexAttribute(attribute="viewSourceURL", byMethod=false),
+				@JsfFlexAttribute(attribute="backgroundGradientAlphas", byMethod=false),
+				@JsfFlexAttribute(attribute="backgroundGradientColors", byMethod=false),
+				@JsfFlexAttribute(attribute="horizontalAlign", byMethod=false),
+				@JsfFlexAttribute(attribute="horizontalGap", byMethod=false),
+				@JsfFlexAttribute(attribute="modalTransparency", byMethod=false),
+				@JsfFlexAttribute(attribute="modalTransparencyBlur", byMethod=false),
+				@JsfFlexAttribute(attribute="modalTransparencyColor", byMethod=false),
+				@JsfFlexAttribute(attribute="modalTransparencyDuration", byMethod=false),
+				@JsfFlexAttribute(attribute="verticalAlign", byMethod=false),
+				@JsfFlexAttribute(attribute="verticalGap", byMethod=false),
+				@JsfFlexAttribute(attribute="applicationComplete", byMethod=false),
+				@JsfFlexAttribute(attribute="error", byMethod=false)
 		}
-	)
+)
 public final class MXMLApplication extends MXMLContainerTemplate {
 	
 	private final static Log _log = LogFactory.getLog(MXMLApplication.class);

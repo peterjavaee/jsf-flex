@@ -36,7 +36,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentPackage="mx.containers",
 		mxmlComponentName="TabNavigator",
 		componentNodeAttributes={
-			@JsfFlexComponentNodeAttribute(htmlType="INPUT",
+				@JsfFlexComponentNodeAttribute(
+						htmlType="INPUT",
 						typeAttributeValue="HIDDEN",
 						valueAttributeValue="selectedIndex",
 						isValueDynamic=true,
@@ -46,21 +47,21 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						isNameDynamic=true,
 						nameAppend="_selectedIndex")
 		},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="fillAlphas", byMethod=false),
-			@JsfFlexAttribute(attribute="fillColors", byMethod=false),
-			@JsfFlexAttribute(attribute="firstTabStyleName", byMethod=false),
-			@JsfFlexAttribute(attribute="focusAlpha", byMethod=false),
-			@JsfFlexAttribute(attribute="focusRoundedCorners", byMethod=false),
-			@JsfFlexAttribute(attribute="horizontalAlign", byMethod=false),
-			@JsfFlexAttribute(attribute="lastTabStyleName", byMethod=false),
-			@JsfFlexAttribute(attribute="selectedTabTextStyleName", byMethod=false),
-			@JsfFlexAttribute(attribute="tabHeight", byMethod=false),
-			@JsfFlexAttribute(attribute="tabStyleName", byMethod=false),
-			@JsfFlexAttribute(attribute="tabWidth", byMethod=false)
+				@JsfFlexAttribute(attribute="fillAlphas", byMethod=false),
+				@JsfFlexAttribute(attribute="fillColors", byMethod=false),
+				@JsfFlexAttribute(attribute="firstTabStyleName", byMethod=false),
+				@JsfFlexAttribute(attribute="focusAlpha", byMethod=false),
+				@JsfFlexAttribute(attribute="focusRoundedCorners", byMethod=false),
+				@JsfFlexAttribute(attribute="horizontalAlign", byMethod=false),
+				@JsfFlexAttribute(attribute="lastTabStyleName", byMethod=false),
+				@JsfFlexAttribute(attribute="selectedTabTextStyleName", byMethod=false),
+				@JsfFlexAttribute(attribute="tabHeight", byMethod=false),
+				@JsfFlexAttribute(attribute="tabStyleName", byMethod=false),
+				@JsfFlexAttribute(attribute="tabWidth", byMethod=false)
 		}
-	)
+)
 public final class MXMLTabNavigator extends MXMLViewStackTemplate {
 	
 	public MXMLTabNavigator(){

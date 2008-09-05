@@ -33,13 +33,13 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		rendererName="com.googlecode.jsfFlex.MXMLVRule",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLVRule",
 		componentNodeAttributes={},
-		
+
 		jsfFlexAttributes={
-			@JsfFlexAttribute(attribute="strokeColor", byMethod=true),
-			@JsfFlexAttribute(attribute="shadowColor", byMethod=true),
-			@JsfFlexAttribute(attribute="strokeWidth", byMethod=true)
+				@JsfFlexAttribute(attribute="strokeColor", byMethod=true),
+				@JsfFlexAttribute(attribute="shadowColor", byMethod=true),
+				@JsfFlexAttribute(attribute="strokeWidth", byMethod=true)
 		}
-	)
+)
 public final class MXMLVRule extends MXMLComponentBase {
 	
 	public MXMLVRule(){
