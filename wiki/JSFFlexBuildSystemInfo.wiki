@@ -66,10 +66,10 @@ JSF Flex project currently has dependencies from following list of open source p
  * qdox for creating the replaceMapping XML for jsf-flex-build-plugIn\jsf-flex-plugIn if using jsf-flex-framework\component14 project. Note that this dependency is required only during build time and not runtime.
 
 ==Methods of triggering different artifacts/dependencies for the project==
- * *mvn install* will provide default artifacts with component14 {JRE < 1.5} Jar file and {{{DefaultRunnerFactoryImpl}}} being instantiated during runtime for {{{_RunnerFactory}}} abstract class. Which will subsequently instantiate concrete classes for the following interfaces/abstract class from the following list of projects respectively :
+ * *mvn install* will provide default artifacts with component15 {JRE >= 1.5} Jar file and {{{DefaultRunnerFactoryImpl}}} being instantiated during runtime for {{{_RunnerFactory}}} abstract class. Which will subsequently instantiate concrete classes for the following interfaces/abstract class from the following list of projects respectively :
    * {{{_CommonTaskRunner}}}		sdkStandardCommonTaskRunnerImpl
    * {{{_FileManipulatorTaskRunner}}}	velocityFileManipulatorTaskRunnerImpl
    * {{{_FlexTaskRunner}}}		antFlexTaskRunnerImpl
- * *mvn install -Djsf_flex_framework_runtime=15* will provide the same artifacts as *mvn install* with the exception that component15 {JRE >= 1.5} Jar file will be linked as the frameworks components.
+ * *mvn install -Djsf_flex_framework_runtime=14* will provide the same artifacts as *mvn install* with the exception that component14 {JRE < 1.5} Jar file will be linked as the frameworks components.
  * In future, providing an argument of following syntax *mvn install -Drunner_factory_impl=<implementation_class>* will allow a different implementation of {{{_RunnerFactory}}} to be linked during build time.
  * *mvn install -Djsf=12* will allow usage of myfaces1.2 dependency to be linked.
