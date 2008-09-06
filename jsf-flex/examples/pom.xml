@@ -100,28 +100,12 @@
         </dependency>
       </dependencies>
     </profile>
-    
-    <profile>
-      <id>jsf_flex_framework_runtime-1.4</id>
-      <activation>
-        <property>
-          <name>!jsf_flex_framework_runtime</name>
-        </property>
-      </activation>
-      <dependencies>
-        <dependency>
-          <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
-          <artifactId>jsf-flex-framework-component14</artifactId>
-          <version>${jsf.flex.framework.component.version}</version>
-        </dependency>
-      </dependencies>
-    </profile>
+
     <profile>
       <id>jsf_flex_framework_runtime-1.5</id>
       <activation>
         <property>
-          <name>jsf_flex_framework_runtime</name>
-          <value>15</value>
+          <name>!jsf_flex_framework_runtime</name>
         </property>
       </activation>
       <dependencies>
@@ -134,6 +118,23 @@
            <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
            <artifactId>jsf-flex-framework-annotations</artifactId>
            <version>${jsf.flex.framework.annotations.version}</version>
+        </dependency>
+      </dependencies>
+    </profile>
+
+    <profile>
+      <id>jsf_flex_framework_runtime-1.4</id>
+      <activation>
+        <property>
+          <name>jsf_flex_framework_runtime</name>
+          <value>14</value>
+        </property>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
+          <artifactId>jsf-flex-framework-component14</artifactId>
+          <version>${jsf.flex.framework.component.version}</version>
         </dependency>
       </dependencies>
     </profile>

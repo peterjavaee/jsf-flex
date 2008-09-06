@@ -91,7 +91,7 @@
       <plugin>
         <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
         <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
-        <version>${jsf_flex_plugIn}</version>
+        <version>${jsf.flex.plugIn.version}</version>
         <executions>
           <execution>
             <id>createMXMLComponentReplaceMappingXML</id>
@@ -106,7 +106,7 @@
           <dependency>
             <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
             <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
-            <version>${jsf_flex_plugIn}</version>
+            <version>${jsf.flex.plugIn.version}</version>
           </dependency>
         </dependencies>
       </plugin>

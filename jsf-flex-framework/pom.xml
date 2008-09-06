@@ -39,13 +39,13 @@
       <dependency>
         <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
         <artifactId>jsf-flex-framework-core</artifactId>
-        <version>${jsf_flex_framework_core}</version>
+        <version>${jsf.flex.framework.core.version}</version>
       </dependency>
       
       <dependency>
         <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
         <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
-        <version>${jsf_flex_plugIn}</version>
+        <version>${jsf.flex.plugIn.version}</version>
       </dependency>
       
       <dependency>
@@ -131,8 +131,8 @@
   </profiles>
   
   <properties>
-    <jsf_flex_framework_core>0.0.5-SNAPSHOT</jsf_flex_framework_core>
-    <jsf_flex_plugIn>0.0.5-SNAPSHOT</jsf_flex_plugIn>
+    <jsf.flex.framework.core.version>0.0.5-SNAPSHOT</jsf.flex.framework.core.version>
+    <jsf.flex.plugIn.version>0.0.5-SNAPSHOT</jsf.flex.plugIn.version>
   </properties>
   
 </project>
