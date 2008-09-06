@@ -70,29 +70,31 @@
         <runner_factory_impl>com.googlecode.jsfFlex.framework.tasks.factory.DefaultRunnerFactoryImpl</runner_factory_impl>
       </properties>
     </profile>
+
     <profile>
-      <id>jsf_flex_framework_runtime-1.4</id>
+      <id>jsf_flex_framework_runtime-1.5</id>
       <activation>
         <property>
           <name>!jsf_flex_framework_runtime</name>
         </property>
       </activation>
       <properties>
-        <jsf_flex_component_project>component14</jsf_flex_component_project>
-        <annotation_doclet_parser_impl_package>com.googlecode.jsfFlex.framework.annotationDocletParser.AnnotationDocletParser14Impl</annotation_doclet_parser_impl_package>
+        <jsf_flex_component_project>component15</jsf_flex_component_project>
+        <annotation_doclet_parser_impl_package>com.googlecode.jsfFlex.framework.annotationDocletParser.AnnotationDocletParser15Impl</annotation_doclet_parser_impl_package>
       </properties>
     </profile>
+
     <profile>
-      <id>jsf_flex_framework_runtime-1.5</id>
+      <id>jsf_flex_framework_runtime-1.4</id>
       <activation>
         <property>
           <name>jsf_flex_framework_runtime</name>
-          <value>15</value>
+          <value>14</value>
         </property>
       </activation>
       <properties>
-        <jsf_flex_component_project>component15</jsf_flex_component_project>
-        <annotation_doclet_parser_impl_package>com.googlecode.jsfFlex.framework.annotationDocletParser.AnnotationDocletParser15Impl</annotation_doclet_parser_impl_package>
+        <jsf_flex_component_project>component14</jsf_flex_component_project>
+        <annotation_doclet_parser_impl_package>com.googlecode.jsfFlex.framework.annotationDocletParser.AnnotationDocletParser14Impl</annotation_doclet_parser_impl_package>
       </properties>
     </profile>
   </profiles>
@@ -113,7 +115,7 @@
       <plugin>
         <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
         <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
-        <version>${jsf_flex_plugIn}</version>
+        <version>${jsf.flex.plugIn.version}</version>
         <executions>
           <execution>
             <id>createMXMLRenderKitXML</id>
@@ -138,7 +140,7 @@
           <dependency>
             <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
             <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
-            <version>${jsf_flex_plugIn}</version>
+            <version>${jsf.flex.plugIn.version}</version>
           </dependency>
         </dependencies>
       </plugin>
