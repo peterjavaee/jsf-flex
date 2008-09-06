@@ -25,19 +25,6 @@ This should be enough to import the projects into Eclipse IDE.
    
    http://jsf-flex.googlecode.com/svn/wiki/M2_Repo_ClasspathVariable.jpg
 
- * Then for following list of maven projects, import the jars from jsf-flex-shared and jsf-flex-framework-core maven projects {Note that this should be done after the initial *mvn install* command}.
-   * jsf-flex-framework-ant-flex-task-runner-impl
-   * jsf-flex-framework-sdk-standard-common-task-runner-impl
-   * jsf-flex-framework-velocity-file-manipulator-task-runner-impl
-   
-   http://jsf-flex.googlecode.com/svn/wiki/importAdditionalJars.jpg
-   
-   http://jsf-flex.googlecode.com/svn/wiki/attachSourceToJar.jpg
-   
-   http://jsf-flex.googlecode.com/svn/wiki/markRequiredJars.jpg
-
- * Finally in similar format as done in importing the above jars to the respective maven projects, import jar from jsf-flex-framework/annotations maven project to jsf-flex-build-plugIn-plugin and jsf-flex-framework-component15 maven projects. Now you should be in synch with the system, if not simply follow the similar procedure for the remaining maven projects such as linking jsf-flex-framework/core + jsf-flex-shared to jsf-flex-framework/component15.
-   
 ==Testing the example pages==
 Simply import the generated War file into the workspace.
 
