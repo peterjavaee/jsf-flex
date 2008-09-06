@@ -211,6 +211,14 @@
 			    			<h:outputText value="#{mxmlBean.verticalSliderValue}"></h:outputText>
 			    		</td>
 			    	</tr>
+			    	<tr>
+			    		<td class="fieldDescription">
+			    			ProgressBar Value :
+			    		</td>
+			    		<td class="fieldValue">
+			    			<h:outputText value="#{mxmlBean.progressBarValue}"></h:outputText>
+			    		</td>
+			    	</tr>
 			    </table>
     		</td>
     		<td style="width:1%">

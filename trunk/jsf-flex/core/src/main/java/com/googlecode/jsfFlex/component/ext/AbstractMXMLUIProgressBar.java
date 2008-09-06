@@ -18,7 +18,12 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import java.util.Map;
+
+import com.googlecode.jsfFlex.component.MXMLUIValueBase;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIValueAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
@@ -27,9 +32,9 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIProgressBar"
  *   type     = "com.googlecode.jsfFlex.MXMLUIProgressBar"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIProgressBarTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLInput"
  *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLInput"
  *   
  * @JSFJspProperties
  * 		properties	=		
@@ -277,17 +282,27 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  * 							 name		= "completeEffect"
  *  						 returnType = "java.lang.String"
  *  						 longDesc	= "Effect called when Flex dispatches the complete event, which occurs when the load completes."
- *   						
+ * 
+ * Note though MXMLUIProgressBar extends MXMLUIValueBase, it will simply retrieve the value during the post-back phase<br>
+ * and NOT set the field of the Flex component as this field is read only.<br>
+ * 
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIProgressBar 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIBaseAttributes {
+						extends MXMLUIValueBase 
+						implements _MXMLUIBaseAttributes, _MXMLUITextAttribute, 
+						_MXMLUIImmediateAttribute, _MXMLUIValueAttribute {
 	
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLProgressBar";
+	private static final String VALUE_ATTR = "value";
 	
 	public String getMXMLComponentRenderer() {
 		return MXML_COMPONENT_RENDERER;
+	}
+	
+	public Map getComponentValues(){
+		_componentValues.put(VALUE_ATTR, null);
+		return _componentValues;
 	}
 	
 }
