@@ -219,7 +219,8 @@
 				        <jf:mxmlButton label="Decrease Progress Bar" buttonDown="decreaseProgressBar();" />
 				    </jf:mxmlTile>
 				    
-				    <jf:mxmlProgressBar mode="manual" minimum="0" maximum="100" creationComplete="setProgressBar(event);" />
+				    <jf:mxmlProgressBar mode="manual" minimum="0" maximum="100" creationComplete="setProgressBar(event);" 
+				    					value="#{mxmlBean.progressBarValue}" />
 				    
 				</jf:mxmlTitleWindow>
 				

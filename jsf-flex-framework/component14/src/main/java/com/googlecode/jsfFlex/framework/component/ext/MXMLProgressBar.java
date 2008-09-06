@@ -67,10 +67,24 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 	completeEffect=false
  * 
  * @JsfFlexRenderKitAttribute
- *  componentFamily=javax.faces.MXMLSimpleBase
+ *  componentFamily=javax.faces.MXMLInput
  *  rendererName=com.googlecode.jsfFlex.MXMLProgressBar
  *  rendererClass=com.googlecode.jsfFlex.framework.component.ext.MXMLProgressBar
  * 
+ * @JsfFlexComponentValueClassInfo
+ *  classPackage=mx.controls
+ *  className=ProgressBar
+ *  
+ * @JsfFlexComponentNodeAttribute
+ *  htmlType=INPUT
+ *  typeAttributeValue=HIDDEN
+ *  valueAttributeValue=value
+ *  valueDynamic=true
+ *  valueNested=false
+ *  nameAttributeValue=id
+ *  nameDynamic=true
+ *  nameAppend=_value
+ *  
  * @author Ji Hoon Kim
  */
 public final class MXMLProgressBar extends MXMLComponentBase {

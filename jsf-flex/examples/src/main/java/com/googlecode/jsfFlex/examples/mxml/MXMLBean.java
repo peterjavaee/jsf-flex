@@ -49,6 +49,7 @@ public class MXMLBean implements Serializable {
 	private Integer _treeSelectedIndex;
 	private String _horizontalSliderValue;
 	private String _verticalSliderValue;
+	private String _progressBarValue;
 	
 	private List _menuList;
 		
@@ -71,6 +72,7 @@ public class MXMLBean implements Serializable {
 		_treeSelectedIndex = new Integer(0);
 		_horizontalSliderValue = "";
 		_verticalSliderValue = "";
+		_progressBarValue = "";
 		_menuList = new LinkedList();
 		_menuList.add("First Menu");
 		_menuList.add("Second Menu");
@@ -138,6 +140,12 @@ public class MXMLBean implements Serializable {
 	}
 	public void setNumericStepperValue(String numericStepperValue) {
 		_numericStepperValue = numericStepperValue;
+	}
+	public String getProgressBarValue() {
+		return _progressBarValue;
+	}
+	public void setProgressBarValue(String progressBarValue) {
+		_progressBarValue = progressBarValue;
 	}
 	public Boolean getRadioButtonFirstSelected() {
 		return _radioButtonFirstSelected;

@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.framework.component.ext;
 
 import com.googlecode.jsfFlex.framework.annotation.JsfFlexAttribute;
 import com.googlecode.jsfFlex.framework.annotation.JsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.framework.annotation.JsfFlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.framework.component.MXMLComponentBase;
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
@@ -29,10 +30,23 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JsfFlexAttributeProperties(
 		componentName="ProgressBar",
-		componentFamily="javax.faces.MXMLSimpleBase",
+		componentFamily="javax.faces.MXMLInput",
 		rendererName="com.googlecode.jsfFlex.MXMLProgressBar",
 		rendererClass="com.googlecode.jsfFlex.framework.component.ext.MXMLProgressBar",
-		componentNodeAttributes={},
+		mxmlComponentPackage="mx.controls",
+		mxmlComponentName="ProgressBar",
+		componentNodeAttributes={
+				@JsfFlexComponentNodeAttribute(
+						htmlType="INPUT",
+						typeAttributeValue="HIDDEN",
+						valueAttributeValue="value",
+						isValueDynamic=true,
+						isValueNested=false,
+						valueNestedValues={},
+						nameAttributeValue="id",
+						isNameDynamic=true,
+						nameAppend="_value")
+		},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="conversion", byMethod=false),
