@@ -34,14 +34,14 @@ import com.thoughtworks.qdox.model.JavaClass;
  */
 public final class JsfFlexQdoxInspector extends _JsfFlexInspectorBase {
 	
-	private final List<String> _patternList;
+	private final String[] _patternList;
 	
 	public JsfFlexQdoxInspector(){
 		super();
 		_patternList = null;
 	}
 	
-	public JsfFlexQdoxInspector(List<String> patternList, String dirPath){
+	public JsfFlexQdoxInspector(String dirPath, String... patternList){
 		super(dirPath);
 		_patternList = patternList;
 	}
