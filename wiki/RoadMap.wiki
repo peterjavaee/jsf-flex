@@ -36,3 +36,4 @@ on application server {{{TomCat}}} 5.5.
  * Complete testing on remaining OS, browsers, and application servers must be performed, so to support every type of user.
  * {{{DataGrid}}} component must be implemented as a service.
  * Possible nesting of mx:Application within h:form should be attempted. Currently it has been nested outside the form element due to failure of initial attempt in referencing the SWF file within the form element for IE browser.
+ * Write articles and blogs regarding the project, so to spread the word regarding the project and attract talented individuals.
