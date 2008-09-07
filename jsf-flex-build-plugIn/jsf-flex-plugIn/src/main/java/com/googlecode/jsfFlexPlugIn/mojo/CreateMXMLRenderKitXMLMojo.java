@@ -54,12 +54,6 @@ public final class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 											  implements _JsfFlexInspectListener, _JsfFlexParserListener {
 	
 	private static final String JSF_FLEX_RENDERKIT_ATTRIBUTE = "JsfFlexRenderKitAttribute";
-	private static final List<String> CREATE_MXML_RENDER_KIT_XML_PATTERN_LIST;
-	
-	static{
-		CREATE_MXML_RENDER_KIT_XML_PATTERN_LIST = new LinkedList<String>();
-		CREATE_MXML_RENDER_KIT_XML_PATTERN_LIST.add(JSF_FLEX_RENDERKIT_ATTRIBUTE);
-	}
 	
 	private static final String CORE_PROJECT_NAME = "core";
 	private static final String COMPONENT_14_PROJECT_NAME = "component14";
@@ -219,7 +213,7 @@ public final class CreateMXMLRenderKitXMLMojo extends AbstractMojo
 		_jsfFlexVelocityParser.addParserListener(this);
 		
 		if(targetComponentProject.equals(COMPONENT_14_PROJECT_NAME)){
-			_jsfFlexInspector = new JsfFlexQdoxInspector(CREATE_MXML_RENDER_KIT_XML_PATTERN_LIST, _currDirPath);
+			_jsfFlexInspector = new JsfFlexQdoxInspector(_currDirPath, JSF_FLEX_RENDERKIT_ATTRIBUTE);
 		}else{
 			
 			_jsfFlexInspector = new _JsfFlexInspectorBase(_currDirPath){

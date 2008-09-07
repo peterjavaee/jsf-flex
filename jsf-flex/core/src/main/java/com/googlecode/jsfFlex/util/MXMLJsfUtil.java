@@ -64,7 +64,7 @@ public final class MXMLJsfUtil {
 	 */
 	public static String escapeCharacters(String toEscape) throws ComponentBuildException {
 		if(toEscape == null){
-			return null;
+			return "";
 		}
 		//TODO : implement this better
 		try{
@@ -103,15 +103,9 @@ public final class MXMLJsfUtil {
     	//set the name for absolutePathToPreMxmlFile
     	MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
     	
-    	String _idCheck = component.getId();
-    	if(component.getAttributes().get("id") == null){
-    		//sanity check for replaceMapping
-    		component.getAttributes().put("id", _idCheck);
-    	}
-    	
     	if(!(component instanceof com.googlecode.jsfFlex.component.ext.MXMLUIApplication) && currMXMLComp.getComponentValues() != null){
 	    	Map applicationIdValueMap = mxmlContext.getApplicationIdValueMap();
-	    	applicationIdValueMap.put(_idCheck, currMXMLComp.getComponentValues());
+	    	applicationIdValueMap.put(component.getId(), currMXMLComp.getComponentValues());
     	}
     	
     	if(mxmlContext.isProductionEnv() || mxmlContext.isSimplySWF()){

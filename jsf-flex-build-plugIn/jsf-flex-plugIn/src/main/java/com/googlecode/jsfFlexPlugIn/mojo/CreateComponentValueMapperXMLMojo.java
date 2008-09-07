@@ -58,14 +58,6 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
 	private static final String JSF_FLEX_COMPONENT_VALUE_CLASS_INFO_ATTRIBUTE = "JsfFlexComponentValueClassInfo";
 	private static final String JSF_FLEX_COMPONENT_NODE_ATTRIBUTE = "JsfFlexComponentNodeAttribute";
 	
-	private static final List<String> CREATE_COMPONENT_VALUE_MAPPER_XML_PATTERN_LIST;
-	
-	static{
-		CREATE_COMPONENT_VALUE_MAPPER_XML_PATTERN_LIST = new LinkedList<String>();
-		CREATE_COMPONENT_VALUE_MAPPER_XML_PATTERN_LIST.add(JSF_FLEX_COMPONENT_VALUE_CLASS_INFO_ATTRIBUTE);
-		CREATE_COMPONENT_VALUE_MAPPER_XML_PATTERN_LIST.add(JSF_FLEX_COMPONENT_NODE_ATTRIBUTE);
-	}
-	
 	private static final String CORE_PROJECT_NAME = "core";
 	private static final String COMPONENT_14_PROJECT_NAME = "component14";
 	private static final String COMPONENT_15_PROJECT_NAME = "component15";
@@ -263,7 +255,8 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
 		_jsfFlexVelocityParser.addParserListener(this);
 		
 		if(targetComponentProject.equals(COMPONENT_14_PROJECT_NAME)){
-			_jsfFlexInspector = new JsfFlexQdoxInspector(CREATE_COMPONENT_VALUE_MAPPER_XML_PATTERN_LIST, _currDirPath);
+			_jsfFlexInspector = new JsfFlexQdoxInspector(_currDirPath, JSF_FLEX_COMPONENT_VALUE_CLASS_INFO_ATTRIBUTE, 
+															JSF_FLEX_COMPONENT_NODE_ATTRIBUTE);
 		}else{
 			
 			_jsfFlexInspector = new _JsfFlexInspectorBase(_currDirPath){

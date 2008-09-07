@@ -42,7 +42,6 @@ import com.googlecode.jsfFlexPlugIn.parser.velocity.JsfFlexVelocityParser;
 import com.googlecode.jsfFlexPlugIn.utils.tasks.ReplaceText;
 
 /**
- * 
  * @goal    createMXMLComponentReplaceMappingXML
  * @phase   generate-resources
  * @author Ji Hoon Kim
@@ -51,12 +50,6 @@ public final class CreateReplaceMappingXMLMojo extends AbstractMojo
 											   implements _JsfFlexInspectListener, _JsfFlexParserListener {
 	
 	private static final String JSF_FLEX_ATTRIBUTE = "JsfFlexAttributes";
-	private static final List<String> CREATE_REPLACE_MAPPING_XML_PATTERN_LIST;
-	
-	static{
-		CREATE_REPLACE_MAPPING_XML_PATTERN_LIST = new LinkedList<String>();
-		CREATE_REPLACE_MAPPING_XML_PATTERN_LIST.add(JSF_FLEX_ATTRIBUTE);
-	}
 	
 	private static final String REPLACE_MAPPING_XML_ATTRIBUTE = "tokenList";
 	private static final String REPLACE_MAPPING_XML_TEMPLATE = "jsf-flex-replaceMappingXML.vm";
@@ -93,7 +86,7 @@ public final class CreateReplaceMappingXMLMojo extends AbstractMojo
 		for(Iterator _compileSourceRootsIterator = _compileSourceRoots.iterator(); 
 													_compileSourceRootsIterator.hasNext();){
 			_currDirPath = (String) _compileSourceRootsIterator.next();
-			_jsfFlexInspector = new JsfFlexQdoxInspector(CREATE_REPLACE_MAPPING_XML_PATTERN_LIST, _currDirPath);
+			_jsfFlexInspector = new JsfFlexQdoxInspector(_currDirPath, JSF_FLEX_ATTRIBUTE);
 			_jsfFlexInspector.addInspectListener(this);
 			
 			Properties _velocityParserProperties = new Properties();
