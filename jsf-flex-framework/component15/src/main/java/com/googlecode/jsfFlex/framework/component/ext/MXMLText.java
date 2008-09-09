@@ -50,7 +50,7 @@ public final class MXMLText extends MXMLLabelTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLText.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLText.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 		
 	}

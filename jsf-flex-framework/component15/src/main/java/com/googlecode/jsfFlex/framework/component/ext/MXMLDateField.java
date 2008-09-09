@@ -123,7 +123,7 @@ public final class MXMLDateField extends MXMLComboBaseTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLDateField.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLDateField.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 
 	}

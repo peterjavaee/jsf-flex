@@ -97,7 +97,7 @@ public final class MXMLMenuBar extends MXMLComponentBase {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLMenuBar.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLMenuBar.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 
 	}

@@ -50,7 +50,7 @@ public final class MXMLBox extends MXMLBoxTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLBox.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLBox.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 		
 	}

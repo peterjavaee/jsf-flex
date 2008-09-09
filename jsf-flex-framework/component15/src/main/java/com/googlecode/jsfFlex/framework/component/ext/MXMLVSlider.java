@@ -59,7 +59,7 @@ public final class MXMLVSlider extends MXMLSliderTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLVSlider.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLVSlider.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 		
 	}

@@ -64,7 +64,7 @@ public final class MXMLCheckBox extends MXMLButtonTemplate {
 		super.buildComponentInterlude(componentObj);
 
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLCheckBox.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLCheckBox.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 		
 	}

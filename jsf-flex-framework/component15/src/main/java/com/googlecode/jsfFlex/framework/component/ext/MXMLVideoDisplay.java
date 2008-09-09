@@ -91,7 +91,7 @@ public final class MXMLVideoDisplay extends MXMLComponentBase {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLVideoDisplay.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLVideoDisplay.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 
 	}

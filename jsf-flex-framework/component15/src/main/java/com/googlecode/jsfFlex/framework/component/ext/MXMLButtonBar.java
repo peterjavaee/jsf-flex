@@ -50,7 +50,7 @@ public final class MXMLButtonBar extends MXMLButtonBarTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLButtonBar.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLButtonBar.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 		
 	}

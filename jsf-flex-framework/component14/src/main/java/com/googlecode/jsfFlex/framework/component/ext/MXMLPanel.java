@@ -47,7 +47,7 @@ public final class MXMLPanel extends MXMLPanelTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXML_COMPONENT_NAME, null);
+		createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 	

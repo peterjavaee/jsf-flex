@@ -24,6 +24,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -45,14 +46,18 @@ public final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulato
 	private final static String TOKEN_LIST_TOKEN = "tokenList";
 	private final static String MXML_COMPONENT_NAME_TOKEN = "mxmlComponent";
 	private final static String BODY_CONTENT_TOKEN = "bodyContent";
-	private final static String CHILD_PRE_MXML_IDENTIFIER = "childIdentifier";
-	private final static String SIBLING_PRE_MXML_IDENTIFIER = "siblingIdentifier";
+	private final static String CHILD_PRE_MXML_IDENTIFIER_TOKEN = "childIdentifier";
+	private final static String SIBLING_PRE_MXML_IDENTIFIER_TOKEN = "siblingIdentifier";
+	
+	private final static String JSF_FLEX_MXML_OBJECT_BEAN_TEMPLATE = "jsf-flex-mxml-object-bean-template.vm";
+	private final static String MXML_OBJECT_SET_TEMP_FILE_NAME = "mxmlObjectSetTempFile.txt";
+	private final static String MXML_OBJECT_SET_TOKEN = "mxmlObjectSet";
 	
 	public VelocityFileManipulatorTaskRunnerImpl(){
 		super();
 	}
 	
-	public synchronized void createPreMxmlFileTask(String _preMxmlFilePath, Properties _initProperties, Set _tokenList, String _mxmlComponentName, 
+	public synchronized void createPreMxmlFile(String _preMxmlFilePath, Properties _initProperties, Set _tokenList, String _mxmlComponentName, 
 													String _bodyContent, String _childIdentifier, String _siblingIdentifier) throws ComponentBuildException {
 		if(_tokenList == null){
 			_tokenList = new LinkedHashSet();
@@ -64,8 +69,8 @@ public final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulato
 		_tokenMap.put(TOKEN_LIST_TOKEN, _tokenList);
 		_tokenMap.put(MXML_COMPONENT_NAME_TOKEN, _mxmlComponentName);
 		_tokenMap.put(BODY_CONTENT_TOKEN, _bodyContent);
-		_tokenMap.put(CHILD_PRE_MXML_IDENTIFIER, _childIdentifier);
-		_tokenMap.put(SIBLING_PRE_MXML_IDENTIFIER, _siblingIdentifier);
+		_tokenMap.put(CHILD_PRE_MXML_IDENTIFIER_TOKEN, _childIdentifier);
+		_tokenMap.put(SIBLING_PRE_MXML_IDENTIFIER_TOKEN, _siblingIdentifier);
 		
 		try{
 			Reader _templateReader = new InputStreamReader(EvaluateTemplateTask.class.getResourceAsStream(JSF_FLEX_TEMPLATE));
@@ -80,9 +85,8 @@ public final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulato
 			_errorMessage.append(" ] ");
 			
 			_errorMessage.append("tokenList [ ");
-			Iterator _tokenIterator = _tokenList.iterator();
 			Object _tokenValue;
-			while(_tokenIterator.hasNext()){
+			for(Iterator _tokenIterator = _tokenList.iterator(); _tokenIterator.hasNext(); ){
 				_tokenValue = _tokenIterator.next();
 				_errorMessage.append(_tokenValue.toString());
 				if(_tokenIterator.hasNext()){
@@ -100,6 +104,32 @@ public final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulato
 			
 			throw new ComponentBuildException(_errorMessage.toString(), _ioException);
 		}
+	}
+	
+	public synchronized String generateMXMLObjectBeanContent(Set _mxmlObjectBeanSet, String _fileOutPutPath) throws ComponentBuildException {
+		if(_mxmlObjectBeanSet == null){
+			_mxmlObjectBeanSet = new HashSet();
+		}
+		
+		Map _tokenMap = new HashMap();
+		_tokenMap.put(MXML_OBJECT_SET_TOKEN, _mxmlObjectBeanSet);
+		_fileOutPutPath += File.separatorChar + MXML_OBJECT_SET_TEMP_FILE_NAME;
+		
+		try{
+			Reader _templateReader = new InputStreamReader(EvaluateTemplateTask.class.getResourceAsStream(JSF_FLEX_MXML_OBJECT_BEAN_TEMPLATE));
+			FileWriter _targetWriter = new FileWriter(new File(_fileOutPutPath));
+			EvaluateTemplateTask _mergeTemplateTask = new EvaluateTemplateTask(null, _tokenMap, JSF_FLEX_LOG_TAG, _templateReader, _targetWriter);
+			addTask(_mergeTemplateTask);
+			
+		}catch(IOException _ioException){
+			StringBuffer _errorMessage = new StringBuffer();
+			_errorMessage.append("fileOutPutPath [ ");
+			_errorMessage.append(_fileOutPutPath);
+			_errorMessage.append(" ] ");
+			throw new ComponentBuildException(_errorMessage.toString(), _ioException);
+		}
+		
+		return readFileContent(_fileOutPutPath);
 	}
 	
 }

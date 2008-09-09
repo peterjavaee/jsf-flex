@@ -64,7 +64,7 @@ public final class MXMLList extends MXMLListTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLList.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), null);
+		createPreMxml(componentMXML, MXMLList.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), null);
 		
 	}
 

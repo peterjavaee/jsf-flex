@@ -57,7 +57,7 @@ public final class MXMLApplicationControlBar extends MXMLBoxTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLApplicationControlBar.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLApplicationControlBar.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 
 	}

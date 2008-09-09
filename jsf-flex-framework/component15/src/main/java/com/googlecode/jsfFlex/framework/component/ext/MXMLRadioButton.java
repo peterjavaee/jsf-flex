@@ -79,7 +79,7 @@ public final class MXMLRadioButton extends MXMLButtonTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLRadioButton.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLRadioButton.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 
 	}

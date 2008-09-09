@@ -82,7 +82,7 @@ public final class MXMLRichTextEditor extends MXMLPanelTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLRichTextEditor.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLRichTextEditor.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 
 	}

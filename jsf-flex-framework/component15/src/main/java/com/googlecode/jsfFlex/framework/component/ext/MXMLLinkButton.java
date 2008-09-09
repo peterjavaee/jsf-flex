@@ -56,7 +56,7 @@ public final class MXMLLinkButton extends MXMLButtonTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLLinkButton.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLLinkButton.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 
 	}

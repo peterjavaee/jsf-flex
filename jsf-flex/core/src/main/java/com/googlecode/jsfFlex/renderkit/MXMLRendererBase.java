@@ -146,7 +146,7 @@ public class MXMLRendererBase extends Renderer{
 		}
 		
 		try{
-		_mxmlComponent.buildComponentEnd();
+			_mxmlComponent.buildComponentEnd();
 		}catch(ComponentBuildException _componentBuildException){
 			throw new IOException(_componentBuildException.getMessage());
 		}

@@ -58,7 +58,7 @@ public final class MXMLSocialSecurityValidator extends MXMLValidatorTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLSocialSecurityValidator.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLSocialSecurityValidator.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 
 	}

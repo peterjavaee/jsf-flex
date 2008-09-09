@@ -85,6 +85,7 @@ public final class MXMLApplication extends MXMLContainerTemplate {
 	
 	private final static Log _log = LogFactory.getLog(MXMLApplication.class);
 	
+	private static final String MXML_OBJECT_SET_TOKEN = "${mxmlObjectBean}";
 	private static final String MXML_APPLICATION_BODY_TEMPLATE;
 	private static final String MXML_APPLICATION_REPLACE_MAPPING;
 	private static final String MX_KEY = "xmlns:mx";
@@ -129,13 +130,17 @@ public final class MXMLApplication extends MXMLContainerTemplate {
 		_MXMLApplicationContract componentMXML = (_MXMLApplicationContract) componentObj;
 		String _bodyContent = _FileManipulatorTaskRunner.getComponentTemplate(MXMLApplication.class.getClassLoader(), 
 																		MXML_APPLICATION_BODY_TEMPLATE);
-
-		addCreatePreMxmlTask(componentMXML, MXML_COMPONENT_NAME, _bodyContent);
 		
+		createPreMxml(componentMXML, MXML_COMPONENT_NAME, _bodyContent);
 	}
 	
 	public void buildComponentEnd(Object componentObj) throws ComponentBuildException {
 		super.buildComponentEnd(componentObj);
+		
+		_MXMLApplicationContract componentMXML = (_MXMLApplicationContract) componentObj;
+		
+		String mxmlObjectBeanContent = generateMXMLObjectBeanContent();
+		replaceTokenWithValue(componentMXML, mxmlObjectBeanContent, MXML_OBJECT_SET_TOKEN);
 		
 		/*
 		 * Now must go through the Set and place the component's within the main preMxml file
@@ -144,14 +149,13 @@ public final class MXMLApplication extends MXMLContainerTemplate {
 		 * 				Key being the major number and value being a TreeSet with absolutePathToPreMxmlFile
 		 * Afterwards will create it as a MXML file and will create the SWF file 
 		 */
-		_MXMLApplicationContract componentMXML = (_MXMLApplicationContract) componentObj;
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 		String mxmlFile = mxmlContext.getMxmlPath() + mxmlContext.getCurrMxml() + MXMLConstants.MXML_FILE_EXT;;
 		
 		//check if simplySWF boolean flag is set and if so, create the SWF file and exit
 		if(mxmlContext.isSimplySWF()){
 			if(!new File(mxmlContext.getFlexSDKPath()).exists()){
-				addMakeDirectoryTask(mxmlContext.getFlexSDKPath());
+				makeDirectory(mxmlContext.getFlexSDKPath());
 				unZipArchiveRelative(MXMLConstants.FLEX_SDK_ZIP, mxmlContext.getFlexSDKPath());
 			}
 			createSWF(componentMXML, mxmlFile, mxmlContext.getSwfPath(), mxmlContext.getFlexSDKPath());
@@ -159,32 +163,29 @@ public final class MXMLApplication extends MXMLContainerTemplate {
 		}
 		
 		Map _preMxmlMap = mxmlContext.getPreMxmlCompMap();
-		Iterator majorIterator = _preMxmlMap.keySet().iterator();
 		Integer currMajor;
 		
 		Set siblingSet;
-		Iterator siblingIterator;
 		_MXMLContract currComp;
 		if(_preMxmlMap.keySet().size() > 0){
 			
 			//Application must be a top component with others as children component
-			while(majorIterator.hasNext()){
+			for(Iterator majorIterator = _preMxmlMap.keySet().iterator(); majorIterator.hasNext();){
 				
 				currMajor = (Integer) majorIterator.next();
 				siblingSet = (Set) _preMxmlMap.get(currMajor);
-				siblingIterator = siblingSet.iterator();
 				
-				while(siblingIterator.hasNext()){
+				for(Iterator siblingIterator = siblingSet.iterator(); siblingIterator.hasNext();){
 				
 					currComp = (_MXMLContract) siblingIterator.next();
 					
 					if(currComp.getMinorLevel() == 0){
-						addReplaceTokenWithValueTask((_MXMLContract) componentMXML, readFileContent(currComp.getAbsolutePathToPreMxmlFile()), 
+						replaceTokenWithValue((_MXMLContract) componentMXML, readFileContent(currComp.getAbsolutePathToPreMxmlFile()), 
 								childReplaceTokenWithPreMxmlIdentifier(currComp));
 						
 						_log.debug("Replacing token with value as a child for " + currComp.getAbsolutePathToPreMxmlFile());
 					}else{
-						addReplaceTokenWithValueTask((_MXMLContract) componentMXML, readFileContent(currComp.getAbsolutePathToPreMxmlFile()), 
+						replaceTokenWithValue((_MXMLContract) componentMXML, readFileContent(currComp.getAbsolutePathToPreMxmlFile()), 
 															siblingReplaceTokenWithPreMxmlIdentifier(currComp));
 						_log.debug("Replacing token with value as a sibling for " + currComp.getAbsolutePathToPreMxmlFile());
 					}

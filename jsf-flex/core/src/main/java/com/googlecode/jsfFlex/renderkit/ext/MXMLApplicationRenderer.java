@@ -156,16 +156,14 @@ public final class MXMLApplicationRenderer extends MXMLRendererBase {
 			toReturn.append(ARRAY_OF_IDS);
 			toReturn.append(": [");
 			
-			Iterator iterate = applicationIdValueMap.keySet().iterator();
 			String currItem;
 			
 			Object initValue;
 			Map initValueMap;
-			Iterator iterateInitValue;
 			String attribute;
 			Object value;
 			
-			while(iterate.hasNext()){
+			for(Iterator iterate = applicationIdValueMap.keySet().iterator(); iterate.hasNext();){
 				
 				currItem = (String) iterate.next();
 				
@@ -183,8 +181,7 @@ public final class MXMLApplicationRenderer extends MXMLRendererBase {
 					toReturn.append("[ ");
 					
 					initValueMap = (Map) initValue;
-					iterateInitValue = initValueMap.keySet().iterator();
-					while(iterateInitValue.hasNext()){
+					for(Iterator iterateInitValue = initValueMap.keySet().iterator(); iterateInitValue.hasNext();){
 						attribute = (String) iterateInitValue.next();
 						value = initValueMap.get(attribute);
 						

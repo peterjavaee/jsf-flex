@@ -183,11 +183,8 @@ public final class CreateReplaceMappingXMLMojo extends AbstractMojo
 		
 		for(Map<String, ? extends Object> _readNamedParameter : _readNamedParameterList){
 			
-			Iterator<String> _keyIterator = _readNamedParameter.keySet().iterator();
-			String _token;
 			Object _byMethod;
-			while(_keyIterator.hasNext()){
-				_token = _keyIterator.next();
+			for(String _token : _readNamedParameter.keySet()){
 				_byMethod = _readNamedParameter.get(_token);
 				_byMethod = _byMethod == null ? "false" : _byMethod;
 				_replaceMappingXMLVelocityObjects.add(new ReplaceMappingXMLVelocityObject(_token, Boolean.valueOf((String) _byMethod)));

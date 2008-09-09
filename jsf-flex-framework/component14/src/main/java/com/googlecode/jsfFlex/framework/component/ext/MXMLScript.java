@@ -60,7 +60,7 @@ public final class MXMLScript extends MXMLComponentBaseActions {
 		String _bodyContent = _FileManipulatorTaskRunner.getComponentTemplate(MXMLScript.class.getClassLoader(), 
 																				MXML_SCRIPT_BODY_TEMPLATE);
 		
-		addCreatePreMxmlTask(componentMXML, MXML_COMPONENT_NAME, _bodyContent);
+		createPreMxml(componentMXML, MXML_COMPONENT_NAME, _bodyContent);
 		
 		
 	}
