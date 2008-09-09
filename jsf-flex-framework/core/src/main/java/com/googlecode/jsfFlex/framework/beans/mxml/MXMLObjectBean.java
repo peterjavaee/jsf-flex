@@ -51,10 +51,10 @@ public final class MXMLObjectBean extends _MXMLBean {
 	public String generateVariableInfoAsString(){
 		StringBuffer generatedString = new StringBuffer(LEFT_OBJECT_ENCLOSURE);
 		
-		_MXMLBean _mxmlBean;
+		MXMLObjectData _mxmlObjectData;
 		for(Iterator iterator = _objectDataSet.iterator(); iterator.hasNext();){
-			_mxmlBean = (_MXMLBean) iterator.next();
-			generatedString.append(_mxmlBean.generateVariableInfoAsString());
+			_mxmlObjectData = (MXMLObjectData) iterator.next();
+			generatedString.append(_mxmlObjectData.generateVariableInfoAsString());
 			if(iterator.hasNext()){
 				generatedString.append(",");
 			}
