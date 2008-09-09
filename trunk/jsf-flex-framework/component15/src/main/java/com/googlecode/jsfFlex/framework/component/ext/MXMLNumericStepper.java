@@ -117,7 +117,7 @@ public final class MXMLNumericStepper extends MXMLComponentBase {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLNumericStepper.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLNumericStepper.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 
 	}

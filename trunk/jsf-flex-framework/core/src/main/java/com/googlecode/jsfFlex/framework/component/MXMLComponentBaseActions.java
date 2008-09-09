@@ -70,7 +70,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	}
 	
 	/* 
-	 * Will write the content of the component body [i.e MXMLApplication and MXMLScript].<br>
+	 * Will write the content of the component body [i.e MXMLScript].<br>
 	 * 
 	 * (non-Javadoc)
 	 * @see com.googlecode.jsfFlex.framework._Component#buildComponentEnd(java.lang.Object)
@@ -83,7 +83,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 		}
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		getFlexTaskRunner().writeBodyContentTask(componentMXML);
+		getFlexTaskRunner().writeBodyContent(componentMXML);
 		
 	}
 	
@@ -107,7 +107,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 		createMXML(componentMXML, copyTo);
 		
 		if(!new File(mxmlContext.getFlexSDKPath()).exists()){
-			addMakeDirectoryTask(mxmlContext.getFlexSDKPath());
+			makeDirectory(mxmlContext.getFlexSDKPath());
 			unZipArchiveRelative(MXMLConstants.FLEX_SDK_ZIP, mxmlContext.getFlexSDKPath());
 			
 			//copy the necessary ActionScript files over for SWF generation 
@@ -155,14 +155,19 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param bodyContent
 	 * @throws ComponentBuildException
 	 */
-	protected final void addCreatePreMxmlTask(_MXMLContract comp, String mxmlComponentName, String bodyContent) throws ComponentBuildException {
+	protected final void createPreMxml(_MXMLContract comp, String mxmlComponentName, String bodyContent) throws ComponentBuildException {
 		
 		String fileDirectory = comp.getAbsolutePathToPreMxmlFile().substring(0, comp.getAbsolutePathToPreMxmlFile().lastIndexOf(File.separatorChar));
-		getFlexTaskRunner().addMakeDirectoryTask(fileDirectory);
+		getFlexTaskRunner().makeDirectory(fileDirectory);
 		
-		getFileManipulatorTaskRunner().createPreMxmlFileTask(comp.getAbsolutePathToPreMxmlFile(), null, _annotationDocletParserInstance.getTokenValueSet(), mxmlComponentName, 
+		getFileManipulatorTaskRunner().createPreMxmlFile(comp.getAbsolutePathToPreMxmlFile(), null, _annotationDocletParserInstance.getTokenValueSet(), mxmlComponentName, 
 																bodyContent, childPreMxmlComponentIdentifier(comp), siblingPreMxmlComponentIdentifier(comp));
 		
+	}
+	
+	protected final String generateMXMLObjectBeanContent() throws ComponentBuildException {
+		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		return getFileManipulatorTaskRunner().generateMXMLObjectBeanContent(mxmlContext.getMxmlObjectBeanSet(), mxmlContext.getPreMxmlPath());
 	}
 	
 	/**
@@ -171,8 +176,8 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param directoryToCreate
 	 * @throws ComponentBuildException
 	 */
-	protected final void addMakeDirectoryTask(String directoryToCreate) throws ComponentBuildException {
-		getFlexTaskRunner().addMakeDirectoryTask(directoryToCreate);
+	protected final void makeDirectory(String directoryToCreate) throws ComponentBuildException {
+		getFlexTaskRunner().makeDirectory(directoryToCreate);
 	}
 	
 	/**
@@ -183,8 +188,8 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	 * @param tokenReplace
 	 * @throws ComponentBuildException
 	 */
-	protected final void addReplaceTokenWithValueTask(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) throws ComponentBuildException {
-		getFlexTaskRunner().addReplaceTokenWithValueTask(applicationInstance, valueToReplaceWith, tokenReplace);
+	protected final void replaceTokenWithValue(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) throws ComponentBuildException {
+		getFlexTaskRunner().replaceTokenWithValue(applicationInstance, valueToReplaceWith, tokenReplace);
 	}
 	
 	/**

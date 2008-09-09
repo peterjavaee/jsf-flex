@@ -57,9 +57,9 @@ public class TaskRunnerImpl implements _TaskRunner {
 	}
 	
 	public synchronized void execute() throws ComponentBuildException{
-		Iterator iterate = _tasks.iterator();
+		
 		_Task current;
-		while(iterate.hasNext()){
+		for(Iterator iterate = _tasks.iterator(); iterate.hasNext();){
 			current = (_Task) iterate.next();
 			current.performTask();
 		}

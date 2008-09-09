@@ -67,7 +67,7 @@ public final class MXMLCreditCardValidator extends MXMLValidatorTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLCreditCardValidator.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLCreditCardValidator.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 
 	}

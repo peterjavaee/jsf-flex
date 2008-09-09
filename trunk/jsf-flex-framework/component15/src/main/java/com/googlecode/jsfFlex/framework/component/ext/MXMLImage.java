@@ -55,7 +55,7 @@ public final class MXMLImage extends MXMLSwfLoaderTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLImage.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLImage.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 
 	}

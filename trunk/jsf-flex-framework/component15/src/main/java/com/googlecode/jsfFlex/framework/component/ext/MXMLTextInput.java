@@ -124,7 +124,7 @@ public final class MXMLTextInput extends MXMLComponentBase {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLTextInput.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLTextInput.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 
 	}

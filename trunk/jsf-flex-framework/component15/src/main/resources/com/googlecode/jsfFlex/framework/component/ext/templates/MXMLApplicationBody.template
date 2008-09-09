@@ -23,5 +23,7 @@
 		
 		}
 		
+		${mxmlObjectBean}
+		
 		]]>
-	</mx:Script>
+</mx:Script>

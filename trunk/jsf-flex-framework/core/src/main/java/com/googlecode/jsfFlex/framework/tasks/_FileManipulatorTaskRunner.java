@@ -39,8 +39,10 @@ public abstract class _FileManipulatorTaskRunner extends TaskRunnerImpl {
 	
 	private final static Log _log = LogFactory.getLog(_FileManipulatorTaskRunner.class);
 	
-	public abstract void createPreMxmlFileTask(String _preMxmlFilePath, Properties _initProperties, Set _tokenList, String _mxmlComponentName, 
-												String _bodyContent, String _childIdentifier, String _siblingIdentifier) throws ComponentBuildException ;
+	public abstract void createPreMxmlFile(String _preMxmlFilePath, Properties _initProperties, Set _tokenList, String _mxmlComponentName, 
+												String _bodyContent, String _childIdentifier, String _siblingIdentifier) throws ComponentBuildException;
+	
+	public abstract String generateMXMLObjectBeanContent(Set _mxmlObjectBeanSet, String _fileOutPutPath) throws ComponentBuildException;
 	
 	public static synchronized String getComponentTemplate(ClassLoader _loader, String template) throws ComponentBuildException {
 		StringBuffer fileContent = new StringBuffer();

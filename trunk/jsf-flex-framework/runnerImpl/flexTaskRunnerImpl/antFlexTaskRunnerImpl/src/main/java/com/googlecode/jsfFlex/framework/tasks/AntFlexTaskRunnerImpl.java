@@ -52,12 +52,12 @@ public final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _Flex
 		super();
 	}
 	
-	public void addMakeDirectoryTask(String directoryToCreate) throws ComponentBuildException {
+	public void makeDirectory(String directoryToCreate) throws ComponentBuildException {
 		MkdirTask preMxmlDirCreator = new MkdirTask(directoryToCreate);
 		addTask(preMxmlDirCreator);
 	}
 	
-	public void addReplaceTokenWithValueTask(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) throws ComponentBuildException {
+	public void replaceTokenWithValue(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) throws ComponentBuildException {
 
 		ReplaceTextTask addUIComponentTemplate = new ReplaceTextTask(applicationInstance.getAbsolutePathToPreMxmlFile());
 		addUIComponentTemplate.setMultiLineReplace(true);
@@ -130,7 +130,7 @@ public final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _Flex
 				_path.append(_fileSeparator.next().toString());
 				_path.append(File.separatorChar);
 			}
-			addMakeDirectoryTask(_swcPath + _path.toString());
+			makeDirectory(_swcPath + _path.toString());
 			_fileName = _swcPath + _path.toString() + currSplit[currSplit.length-1];
 			curr = new EchoTask(_FileManipulatorTaskRunner.getComponentTemplate(getClass().getClassLoader(), _currSystemSource), _fileName); 
 			addTask(curr);
@@ -184,7 +184,7 @@ public final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _Flex
 		addTask(rename);
 	}
 	
-	public void writeBodyContentTask(_MXMLContract componentMXML) throws ComponentBuildException {
+	public void writeBodyContent(_MXMLContract componentMXML) throws ComponentBuildException {
 		
 		Object stringBodyContent = componentMXML.getAttributes().get(MXMLConstants.TAG_BODY_CONTENT_ATTR);
 		String stringBodyContentToReplace = stringBodyContent == null ? "" : (String) stringBodyContent;

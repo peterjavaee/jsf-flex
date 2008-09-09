@@ -131,7 +131,7 @@ public final class MXMLComboBox extends MXMLComboBaseTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLComboBox.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLComboBox.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 
 	}

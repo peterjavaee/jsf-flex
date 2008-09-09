@@ -57,7 +57,7 @@ public final class MXMLVScrollBar extends MXMLScrollBarTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLVScrollBar.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLVScrollBar.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 
 	}

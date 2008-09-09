@@ -59,7 +59,7 @@ public final class MXMLPopUpMenuButton extends MXMLPopUpButtonTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLPopUpMenuButton.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLPopUpMenuButton.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 
 	}

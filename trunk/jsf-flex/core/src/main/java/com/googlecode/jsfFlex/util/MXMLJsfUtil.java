@@ -120,11 +120,10 @@ public final class MXMLJsfUtil {
     		
 			//now set the minor level
         	List childrenList = parent.getChildren();
-        	Iterator iterate = childrenList.iterator();
         	UIComponent currComp;
         	int counter = 0;
         	
-        	while(iterate.hasNext()){
+        	for(Iterator iterate = childrenList.iterator(); iterate.hasNext();){
         		//get the component's position within structure
         		currComp = (UIComponent) iterate.next();
         		if(currComp == component){

@@ -61,7 +61,7 @@ public final class MXMLLinkBar extends MXMLNavBarTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLLinkBar.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLLinkBar.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 
 	}

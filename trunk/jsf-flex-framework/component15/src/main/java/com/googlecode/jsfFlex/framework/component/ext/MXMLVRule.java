@@ -57,7 +57,7 @@ public final class MXMLVRule extends MXMLComponentBase {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLVRule.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLVRule.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 
 	}

@@ -16,35 +16,48 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.framework.exception;
+package com.googlecode.jsfFlex.framework.beans.mxml;
 
 /**
  * @author Ji Hoon Kim
  */
-public class ComponentBuildException extends RuntimeException {
+public abstract class _MXMLBean {
 	
-	private static final long serialVersionUID = -5173040220355169548L;
-	private Throwable cause;
+	private final String _variableId;
+	private final String _variableType;
 	
-	public ComponentBuildException(){
+	protected _MXMLBean(){
 		super();
+		_variableId = null;
+		_variableType = null;
 	}
 	
-	public ComponentBuildException(String errorMessage){
-		super(errorMessage);
+	protected _MXMLBean(String variableId, String variableType){
+		super();
+		_variableId = variableId;
+		_variableType = variableType;
 	}
 	
-	public ComponentBuildException(Throwable cause){
-		this.cause = cause;
+	public abstract String generateVariableInfoAsString();
+	
+	public String getVariableId() {
+		return _variableId;
+	}
+	public String getVariableType() {
+		return _variableType;
 	}
 	
-	public ComponentBuildException(String errorMessage, Throwable cause) {
-		super(errorMessage);
-		this.cause = cause;
+	public boolean equals(Object _instance) {
+		if(!(_instance instanceof _MXMLBean)){
+			return false;
+		}
+		
+		_MXMLBean _mxmlBeanInstance = (_MXMLBean) _instance;
+		return this.getVariableId().equals(_mxmlBeanInstance.getVariableId());
 	}
 	
-	public Throwable getCause() {
-		return cause;
+	public int hashCode() {
+		return getVariableId().hashCode();
 	}
 	
 }

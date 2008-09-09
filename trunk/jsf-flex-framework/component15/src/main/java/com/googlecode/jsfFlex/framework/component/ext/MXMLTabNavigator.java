@@ -79,7 +79,7 @@ public final class MXMLTabNavigator extends MXMLViewStackTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, MXMLTabNavigator.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		createPreMxml(componentMXML, MXMLTabNavigator.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 								null);
 
 	}

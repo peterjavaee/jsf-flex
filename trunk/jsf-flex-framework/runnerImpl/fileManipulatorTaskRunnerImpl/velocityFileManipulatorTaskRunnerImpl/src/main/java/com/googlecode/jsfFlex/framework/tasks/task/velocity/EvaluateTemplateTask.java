@@ -93,11 +93,11 @@ public final class EvaluateTemplateTask extends _Task {
 	}
 	
 	private void populateContext(){
-		Iterator _keys = _contextValues.keySet().iterator();
+		
 		Object _key;
 		Object _value;
 		
-		while(_keys.hasNext()){
+		for(Iterator _keys = _contextValues.keySet().iterator(); _keys.hasNext();){
 			_key = _keys.next();
 			_value = _contextValues.get(_key);
 			_context.put(_key.toString(), _value);

@@ -61,7 +61,7 @@ public final class MXMLZipCodeValidator extends MXMLValidatorTemplate {
 		super.buildComponentInterlude(componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		addCreatePreMxmlTask(componentMXML, 
+		createPreMxml(componentMXML, 
 					MXMLZipCodeValidator.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 					null);
 		

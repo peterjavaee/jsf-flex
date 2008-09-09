@@ -19,6 +19,7 @@
 package com.googlecode.jsfFlex.framework.context;
 
 import java.util.Map;
+import java.util.Set;
 
 import com.googlecode.jsfFlex.framework.tasks._CommonTaskRunner;
 import com.googlecode.jsfFlex.framework.tasks._FileManipulatorTaskRunner;
@@ -51,6 +52,10 @@ public abstract class MxmlContext {
 	public abstract String getFlexSDKPath();
 	
 	public abstract void setFlexSDKPath(String flexSDKPath);
+	
+	public abstract Set getMxmlObjectBeanSet();
+	
+	public abstract void setMxmlObjectBeanSet(Set mxmlObjectBeanSet);
 	
 	public abstract String getMxmlPath();
 	

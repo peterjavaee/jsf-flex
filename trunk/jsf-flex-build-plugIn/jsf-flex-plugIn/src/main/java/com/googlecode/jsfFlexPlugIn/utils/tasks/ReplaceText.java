@@ -201,9 +201,8 @@ public final class ReplaceText extends Ant_Base {
 		content.append(_flags);
 		content.append(" ] ");
 		content.append("replaceList [");
-		Iterator iterate = _replaceList.keySet().iterator();
 		String currVal;
-		while(iterate.hasNext()){
+		for(Iterator iterate = _replaceList.keySet().iterator(); iterate.hasNext();){
 			content.append(" ");
 			content.append("key/value");
 			currVal = (String) iterate.next();
