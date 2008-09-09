@@ -33,8 +33,16 @@ Currently the project supports most of the Flex standard components with excepti
 on application server {{{TomCat}}} 5.5.
 
 ====TODO====
- * Complete testing on remaining OS, browsers, and application servers must be performed, so to support every type of user.
- * {{{DataGrid}}} component must be implemented as a service.
- * Possible nesting of mx:Application within h:form should be attempted. Currently it has been nested outside the form element due to failure of initial attempt in referencing the SWF file within the form element for IE browser.
- * Write articles and blogs regarding the project, so to spread the word regarding the project and attract talented individuals.
- * Allow databinding to dataProvider field of the components.
+ * Complete testing on remaining OS, browsers, and application servers must be performed, so to support every type of user. 
+   ||Operating System||Browser Tested||
+   ||Windows||Firefox 2.0 , IE 6.0, Opera 9.25||
+   ||Linux||TODO||
+   ||Mac OS X||TODO||
+   
+   ||Application Server Tested||
+   ||{{{TomCat}}} 5.5||
+   {For ALL}
+ * {{{DataGrid}}} component must be implemented as a service. {Unassigned}
+ * Possible nesting of mx:Application within h:form should be attempted. Currently it has been nested outside the form element due to failure of initial attempt in referencing the SWF file within the form element for IE browser. {Unassigned}
+ * Write articles and blogs regarding the project, so to spread the word regarding the project and attract talented individuals. {For ALL}
+ * Allow databinding to dataProvider field of the components. {Jihoon}
