@@ -50,7 +50,7 @@ public final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulato
 	private final static String SIBLING_PRE_MXML_IDENTIFIER_TOKEN = "siblingIdentifier";
 	
 	private final static String JSF_FLEX_MXML_OBJECT_BEAN_TEMPLATE = "jsf-flex-mxml-object-bean-template.vm";
-	private final static String MXML_OBJECT_SET_TEMP_FILE_NAME = "mxmlObjectSetTempFile.txt";
+	private final static String MXML_OBJECT_SET_TEMP_FILE_NAME = "mxmlObjectSetTempFile.tmp";
 	private final static String MXML_OBJECT_SET_TOKEN = "mxmlObjectSet";
 	
 	public VelocityFileManipulatorTaskRunnerImpl(){
