@@ -18,6 +18,7 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import java.io.IOException;
 import java.util.Map;
 
 import javax.faces.context.FacesContext;
@@ -36,6 +37,7 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedItemAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIComboBaseAttributes;
+import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
 /**
  * @JSFComponent
@@ -370,6 +372,7 @@ public abstract class AbstractMXMLUIColorPicker
 						_MXMLUIRestrictAttribute, _MXMLUISelectedIndexAttribute {
 	
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLColorPicker";
+	private static final String SELECTED_COLOR_ATTR = "selectedColor";
 	private static final String SELECTED_COLOR_ID_APPENDED = "_selectedColor";
 	
 	public String getMXMLComponentRenderer() {
@@ -378,8 +381,13 @@ public abstract class AbstractMXMLUIColorPicker
 	
 	public Map getComponentValues() {
 		super.getComponentValues();
-		_componentValues.put("selectedColor", getSelectedColor());
+		_componentValues.put(SELECTED_COLOR_ATTR, getSelectedColor());
 		return super.getComponentValues();
+	}
+	
+	public void encodeBegin(FacesContext context) throws IOException {
+		MXMLJsfUtil.processDataProviderCollection(this, (_MXMLUIDataProviderAttribute) this);
+		super.encodeBegin(context);
 	}
 	
 	public void decode(FacesContext context) {
@@ -404,7 +412,7 @@ public abstract class AbstractMXMLUIColorPicker
     		return;
     	}
     	
-    	ValueBinding vb = getValueBinding("selectedColor");
+    	ValueBinding vb = getValueBinding(SELECTED_COLOR_ATTR);
 		if(vb != null && !vb.isReadOnly(getFacesContext())){
 			vb.setValue(getFacesContext(), getSelectedColor());
 			setSelectedColor(null);

@@ -106,13 +106,13 @@ public final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulato
 		}
 	}
 	
-	public synchronized String generateMXMLObjectBeanContent(Set _mxmlObjectBeanSet, String _fileOutPutPath) throws ComponentBuildException {
-		if(_mxmlObjectBeanSet == null){
-			_mxmlObjectBeanSet = new HashSet();
+	public synchronized String generateMXMLObjectBeanContent(Set _mxmlObjectBeanWrapperSet, String _fileOutPutPath) throws ComponentBuildException {
+		if(_mxmlObjectBeanWrapperSet == null){
+			_mxmlObjectBeanWrapperSet = new HashSet();
 		}
 		
 		Map _tokenMap = new HashMap();
-		_tokenMap.put(MXML_OBJECT_SET_TOKEN, _mxmlObjectBeanSet);
+		_tokenMap.put(MXML_OBJECT_SET_TOKEN, _mxmlObjectBeanWrapperSet);
 		_fileOutPutPath += File.separatorChar + MXML_OBJECT_SET_TEMP_FILE_NAME;
 		
 		try{

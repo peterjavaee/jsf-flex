@@ -84,9 +84,6 @@
             }
 	    	
 	    	[Bindable]
-			public var simpleArray:Array = [{label:"First", data:"First"}, {label:"Second", data:"Second"}];
-			
-			[Bindable]
 			public var reallySimpleArray:Array = ["First", "Second", "Third"];
 			
 			public var complexStruct:XMLList = <>
@@ -149,7 +146,7 @@
 				    </jf:mxmlPanel>
 		    			
 		    		<jf:mxmlPanel label="Second Tab" width="100%" height="100%">
-				    	<jf:mxmlComboBox dataProvider="{simpleArray}" text="#{mxmlBean.comboBoxText}" selectedIndex="#{mxmlBean.comboBoxSelectedIndex}" />
+				    	<jf:mxmlComboBox dataProviderCollection="#{mxmlBean.comboBoxDataProviderBeanList}" text="#{mxmlBean.comboBoxText}" selectedIndex="#{mxmlBean.comboBoxSelectedIndex}" />
 				    	<jf:mxmlRadioButton groupName="radioTest" label="First" value="First" 
 				    							selectedValue="#{mxmlBean.radioButtonSelectedValue}" selected="#{mxmlBean.radioButtonFirstSelected}"/>
 				       	<jf:mxmlRadioButton groupName="radioTest" label="Second" value="Second" selected="#{mxmlBean.radioButtonSecondSelected}"/>

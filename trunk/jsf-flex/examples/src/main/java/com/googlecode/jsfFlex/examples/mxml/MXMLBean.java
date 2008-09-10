@@ -22,6 +22,10 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.googlecode.jsfFlex.framework.beans.mxml.MXMLArrayBean;
+import com.googlecode.jsfFlex.framework.beans.mxml.MXMLObjectBean;
+import com.googlecode.jsfFlex.framework.util.MXMLConstants;
+
 /**
  * A simple bean to demonstrate the binding of the fields.<br>
  * 
@@ -50,9 +54,8 @@ public class MXMLBean implements Serializable {
 	private String _horizontalSliderValue;
 	private String _verticalSliderValue;
 	private String _progressBarValue;
+	private List _comboBoxDataProviderBeanList;
 	
-	private List _menuList;
-		
 	public MXMLBean(){
 		super();
 		_accordionSelectedIndex = new Integer(0);
@@ -73,12 +76,35 @@ public class MXMLBean implements Serializable {
 		_horizontalSliderValue = "";
 		_verticalSliderValue = "";
 		_progressBarValue = "";
-		_menuList = new LinkedList();
-		_menuList.add("First Menu");
-		_menuList.add("Second Menu");
-		_menuList.add("Third Menu");
-		_menuList.add("Fourth Menu");
 		
+		_comboBoxDataProviderBeanList = new LinkedList();
+		MXMLArrayBean _mxmlArrayBean = new MXMLArrayBean(Boolean.TRUE);
+		MXMLObjectBean _mxmlObjectBean = new MXMLObjectBean(Boolean.FALSE);
+		
+		String label = "label";
+		String data = MXMLConstants.STRING_QUOTE + "First" + MXMLConstants.STRING_QUOTE;
+		_mxmlObjectBean.addData(label, data);
+		
+		label = "data";
+		data = MXMLConstants.STRING_QUOTE + "First" + MXMLConstants.STRING_QUOTE;
+		_mxmlObjectBean.addData(label, data);
+		
+		
+		_mxmlArrayBean.addBean(_mxmlObjectBean);
+		
+		_mxmlObjectBean = new MXMLObjectBean(Boolean.FALSE);
+		
+		label = "label";
+		data = MXMLConstants.STRING_QUOTE + "Second" + MXMLConstants.STRING_QUOTE;
+		_mxmlObjectBean.addData(label, data);
+		
+		label = "data";
+		data = MXMLConstants.STRING_QUOTE + "Second" + MXMLConstants.STRING_QUOTE;
+		_mxmlObjectBean.addData(label, data);
+		
+		_mxmlArrayBean.addBean(_mxmlObjectBean);
+		
+		_comboBoxDataProviderBeanList.add(_mxmlArrayBean);
 	}
 	
 	public Integer getAccordionSelectedIndex() {
@@ -98,6 +124,12 @@ public class MXMLBean implements Serializable {
 	}
 	public void setColorPickerSelectedColor(String colorPickerSelectedColor) {
 		_colorPickerSelectedColor = colorPickerSelectedColor;
+	}
+	public List getComboBoxDataProviderBeanList() {
+		return _comboBoxDataProviderBeanList;
+	}
+	public void setComboBoxDataProviderBeanList(List comboBoxDataProviderBeanList) {
+		_comboBoxDataProviderBeanList = comboBoxDataProviderBeanList;
 	}
 	public Integer getComboBoxSelectedIndex() {
 		return _comboBoxSelectedIndex;
@@ -128,12 +160,6 @@ public class MXMLBean implements Serializable {
 	}
 	public void setListSelectedIndex(Integer listSelectedIndex) {
 		_listSelectedIndex = listSelectedIndex;
-	}
-	public List getMenuList() {
-		return _menuList;
-	}
-	public void setMenuList(List menuList) {
-		_menuList = menuList;
 	}
 	public String getNumericStepperValue() {
 		return _numericStepperValue;

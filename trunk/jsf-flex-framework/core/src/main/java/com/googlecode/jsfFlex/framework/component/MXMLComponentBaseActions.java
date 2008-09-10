@@ -167,7 +167,7 @@ public abstract class MXMLComponentBaseActions implements _Component {
 	
 	protected final String generateMXMLObjectBeanContent() throws ComponentBuildException {
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-		return getFileManipulatorTaskRunner().generateMXMLObjectBeanContent(mxmlContext.getMxmlObjectBeanSet(), mxmlContext.getPreMxmlPath());
+		return getFileManipulatorTaskRunner().generateMXMLObjectBeanContent(mxmlContext.getMxmlObjectBeanWrapperSet(), mxmlContext.getPreMxmlPath());
 	}
 	
 	/**

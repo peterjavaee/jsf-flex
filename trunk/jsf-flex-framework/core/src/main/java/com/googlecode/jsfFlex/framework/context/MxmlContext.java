@@ -53,9 +53,9 @@ public abstract class MxmlContext {
 	
 	public abstract void setFlexSDKPath(String flexSDKPath);
 	
-	public abstract Set getMxmlObjectBeanSet();
+	public abstract Set getMxmlObjectBeanWrapperSet();
 	
-	public abstract void setMxmlObjectBeanSet(Set mxmlObjectBeanSet);
+	public abstract void setMxmlObjectBeanWrapperSet(Set mxmlObjectBeanWrapperSet);
 	
 	public abstract String getMxmlPath();
 	

@@ -18,13 +18,18 @@
  */
 package com.googlecode.jsfFlex.util;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.el.ValueBinding;
 
+import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
+import com.googlecode.jsfFlex.framework.beans.mxml.MXMLBeanWrapper;
+import com.googlecode.jsfFlex.framework.beans.mxml._MXMLBean;
 import com.googlecode.jsfFlex.framework.context.MxmlContext;
 import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.framework.util.MXMLConstants;
@@ -47,11 +52,42 @@ public final class MXMLJsfUtil {
 	private final static String UNIX_LINE_FEED = "\n";
 	
 	private final static String LINE_FEED_ESCAPER = "LINE_FEED";
-	
 	private final static String ENCODING = "UTF-8";
+	
+	private final static String DATA_PROVIDER_BEAN_SUFFIX = "MxmlBean";
+	private final static String DATA_PROVIDER_COLLECTION_ATTR = "dataProviderCollection";
+	private final static String DATA_PROVIDER_ATTR = "dataProvider";
+	private final static String INVALID_DATA_PROVIDER_DATA_BINDING_FIELD_MESSAGE = "Only type of dataBinding allowed for dataProviderCollec field is of String or Collection";
 	
 	private MXMLJsfUtil(){
 		super();
+	}
+	
+	public static void processDataProviderCollection(UIComponent _currComponent, _MXMLUIDataProviderAttribute _dataProviderComponent){
+		
+		//TODO : Implement this better later
+		ValueBinding _valueBinding = _currComponent.getValueBinding(DATA_PROVIDER_COLLECTION_ATTR);
+		if(_valueBinding != null){
+			Object value = _valueBinding.getValue(FacesContext.getCurrentInstance());
+			if(value != null){
+				//ONLY other type accepted is Collection<_MXMLBean>
+				if(!(value instanceof Collection)){
+					throw new IllegalArgumentException(INVALID_DATA_PROVIDER_DATA_BINDING_FIELD_MESSAGE);
+				}
+				
+				String _componentId = _currComponent.getId() + DATA_PROVIDER_BEAN_SUFFIX;
+				Collection _valueCollection = (Collection) value;
+				
+				MXMLBeanWrapper _mxmlBeanWrapper = new MXMLBeanWrapper(_componentId, 
+														(_MXMLBean) _valueCollection.iterator().next());
+				
+				MxmlContext _currInstance = MxmlContext.getCurrentInstance();
+				_currInstance.getMxmlObjectBeanWrapperSet().add(_mxmlBeanWrapper);
+				
+				_dataProviderComponent.setDataProvider("{" + _componentId + "}");
+			}
+		}
+		
 	}
 	
 	/**
