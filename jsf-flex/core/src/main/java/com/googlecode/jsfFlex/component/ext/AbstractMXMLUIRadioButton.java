@@ -396,6 +396,7 @@ public abstract class AbstractMXMLUIRadioButton
 						_MXMLUITextAttribute, _MXMLUISelectedAttribute {
 	
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLRadioButton";
+	private static final String SELECTED_VALUE_ATTR = "selectedValue";
 	private static final String SELECTED_VALUE_ID_APPENDED = "_selectedValue";
 	
 	public String getMXMLComponentRenderer(){
@@ -436,7 +437,7 @@ public abstract class AbstractMXMLUIRadioButton
     		return;
     	}
     	
-    	ValueBinding vb = getValueBinding("selectedValue");
+    	ValueBinding vb = getValueBinding(SELECTED_VALUE_ATTR);
 		if(vb != null && !vb.isReadOnly(getFacesContext())){
 			vb.setValue(getFacesContext(), getSelectedValue());
 			setSelectedValue(null);

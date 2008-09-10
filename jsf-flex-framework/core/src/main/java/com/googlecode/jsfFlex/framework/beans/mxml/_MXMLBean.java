@@ -23,41 +23,41 @@ package com.googlecode.jsfFlex.framework.beans.mxml;
  */
 public abstract class _MXMLBean {
 	
-	private final String _variableId;
 	private final String _variableType;
+	private final String _packageName;
+	private final Boolean _bindable;
 	
 	protected _MXMLBean(){
 		super();
-		_variableId = null;
 		_variableType = null;
+		_packageName = null;
+		_bindable = null;
 	}
 	
-	protected _MXMLBean(String variableId, String variableType){
+	protected _MXMLBean(String variableType, Boolean bindable){
 		super();
-		_variableId = variableId;
 		_variableType = variableType;
+		_bindable = bindable;
+		_packageName = null;
+	}
+	
+	protected _MXMLBean(String variableType, Boolean bindable, String packageName){
+		super();
+		_variableType = variableType;
+		_bindable = bindable;
+		_packageName = packageName;
 	}
 	
 	public abstract String generateVariableInfoAsString();
 	
-	public String getVariableId() {
-		return _variableId;
+	public String getPackageName() {
+		return _packageName;
 	}
 	public String getVariableType() {
 		return _variableType;
 	}
-	
-	public boolean equals(Object _instance) {
-		if(!(_instance instanceof _MXMLBean)){
-			return false;
-		}
-		
-		_MXMLBean _mxmlBeanInstance = (_MXMLBean) _instance;
-		return this.getVariableId().equals(_mxmlBeanInstance.getVariableId());
-	}
-	
-	public int hashCode() {
-		return getVariableId().hashCode();
+	public Boolean isBindable(){
+		return _bindable;
 	}
 	
 }

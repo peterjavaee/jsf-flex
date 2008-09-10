@@ -48,7 +48,7 @@ public class MxmlContextImpl extends MxmlContext {
 	
 	private Map _preMxmlCompMap;
 	private Map _applicationIdValueMap;
-	private Set _mxmlObjectBeanSet;
+	private Set _mxmlObjectBeanWrapperSet;
 	private String _currMxml;
 	
 	private String _mxmlPath;
@@ -69,7 +69,7 @@ public class MxmlContextImpl extends MxmlContext {
 		_currMxml = currMxml;
 		_preMxmlCompMap = new TreeMap();
 		_applicationIdValueMap = new HashMap();
-		_mxmlObjectBeanSet = new HashSet();
+		_mxmlObjectBeanWrapperSet = new HashSet();
 		_runnerFactoryInstance = _RunnerFactory.getInstance();
 		_flexRunner = _runnerFactoryInstance.getFlexTaskRunnerImpl();
 		_commonRunner = _runnerFactoryInstance.getCommonTaskRunnerImpl();
@@ -104,11 +104,11 @@ public class MxmlContextImpl extends MxmlContext {
 	public void setFlexSDKPath(String flexSDKPath) {
 		_flexSDKPath = flexSDKPath;
 	}
-	public Set getMxmlObjectBeanSet() {
-		return _mxmlObjectBeanSet;
+	public Set getMxmlObjectBeanWrapperSet() {
+		return _mxmlObjectBeanWrapperSet;
 	}
-	public void setMxmlObjectBeanSet(Set mxmlObjectBeanSet) {
-		_mxmlObjectBeanSet = mxmlObjectBeanSet;
+	public void setMxmlObjectBeanWrapperSet(Set mxmlObjectBeanWrapperSet) {
+		_mxmlObjectBeanWrapperSet = mxmlObjectBeanWrapperSet;
 	}
 	public String getMxmlPath() {
 		return _mxmlPath;

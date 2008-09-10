@@ -29,6 +29,8 @@ import com.googlecode.jsfFlex.framework.util.MXMLConstants;
  */
 public final class MXMLObjectBean extends _MXMLBean {
 	
+	private static final String VARIABLE_TYPE = "Object";
+	
 	private static final String LEFT_OBJECT_ENCLOSURE = "{";
 	private static final String RIGHT_OBJECT_ENCLOSURE = "}";
 	
@@ -36,16 +38,22 @@ public final class MXMLObjectBean extends _MXMLBean {
 	
 	private MXMLObjectBean(){
 		super();
-		_objectDataSet = null;
 	}
 	
-	public MXMLObjectBean(String variableId, String variableType){
-		super(variableId, variableType);
+	public MXMLObjectBean(Boolean bindable){
+		super(VARIABLE_TYPE, bindable);
+	}
+	
+	public MXMLObjectBean(Boolean bindable, String packageName){
+		super(VARIABLE_TYPE, bindable, packageName);
+	}
+	
+	{
 		_objectDataSet = new HashSet();
 	}
 	
-	public void addData(String data, String label){
-		_objectDataSet.add(new MXMLObjectData(data, label));
+	public void addData(String label, String data){
+		_objectDataSet.add(new MXMLObjectData(label, data));
 	}
 	
 	public String generateVariableInfoAsString(){
@@ -69,20 +77,20 @@ public final class MXMLObjectBean extends _MXMLBean {
 		
 		private final int HASH_CODE_VAL;
 		
-		private final String _data;
 		private final String _label;
+		private final String _data;
 		
 		private MXMLObjectData(){
 			super();
-			_data = null;
 			_label = null;
+			_data = null;
 			HASH_CODE_VAL = -1;
 		}
 		
-		private MXMLObjectData(String data, String label){
+		private MXMLObjectData(String label, String data){
 			super();
-			_data = data;
 			_label = label;
+			_data = data;
 			int hashCodeVal = MXMLConstants.HASH_CODE_INIT_VALUE;
 			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _data.hashCode();
 			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _label.hashCode();
@@ -97,7 +105,7 @@ public final class MXMLObjectBean extends _MXMLBean {
 		}
 		
 		public String generateVariableInfoAsString(){
-			return _label + " : " + MXMLConstants.STRING_QUOTE + _data + MXMLConstants.STRING_QUOTE;
+			return _label + " : " + _data;
 		}
 		
 		public boolean equals(Object _instance) {

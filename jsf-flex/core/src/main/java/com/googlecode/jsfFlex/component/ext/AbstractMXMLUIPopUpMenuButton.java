@@ -18,11 +18,17 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import java.io.IOException;
+
+import javax.faces.context.FacesContext;
+
 import com.googlecode.jsfFlex.component.MXMLUIButtonBase;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
+import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
 /**
  * @JSFComponent
@@ -47,12 +53,6 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   						 returnType = "java.lang.String"
  *   						 longDesc = "The object that accesses and manipulates data in the data provider."
  *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "dataProvider"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "The set of items this component displays."
- *   						,
  *   						
  *   						@JSFJspProperty
  * 							 name		= "labelField"
@@ -496,12 +496,17 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
 public abstract class AbstractMXMLUIPopUpMenuButton 
 						extends MXMLUIButtonBase
 						implements _MXMLUIBaseAttributes, _MXMLUIImmediateAttribute, _MXMLUITextAttribute,
-						_MXMLUISelectedAttribute {
+						_MXMLUISelectedAttribute, _MXMLUIDataProviderAttribute {
 	
 	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLPopUpMenuButton";
 	
 	public String getMXMLComponentRenderer(){
     	return MXML_COMPONENT_RENDERER;
     }
+	
+	public void encodeBegin(FacesContext context) throws IOException {
+		MXMLJsfUtil.processDataProviderCollection(this, (_MXMLUIDataProviderAttribute) this);
+		super.encodeBegin(context);
+	}
 	
 }

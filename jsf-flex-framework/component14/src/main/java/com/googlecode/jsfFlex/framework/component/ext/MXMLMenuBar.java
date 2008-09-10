@@ -25,7 +25,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 /**
  * @JsfFlexAttributes
  * 	dataDescriptor=false
- * 	dataProvider=false
+ * 	dataProvider=true
  * 	iconField=false
  * 	labelField=false
  * 	labelFunction=false

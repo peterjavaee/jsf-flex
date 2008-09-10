@@ -16,37 +16,46 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.component.attributes;
-
-import java.util.Collection;
+package com.googlecode.jsfFlex.framework.beans.mxml;
 
 /**
  * @author Ji Hoon Kim
  */
-public interface _MXMLUIDataProviderAttribute {
+public class MXMLBeanWrapper {
 	
-	/**
-	 * The set of items this component displays.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "The set of items this component displays."
-	 */
-	String getDataProvider();
+	private final String _mxmlBeanId;
+	private final _MXMLBean _mxmlBean;
 	
-	void setDataProvider(String dataProvider);
+	private MXMLBeanWrapper(){
+		super();
+		_mxmlBeanId = null;
+		_mxmlBean = null;
+	}
 	
-	/**
-	 * The set of items this component displays.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "The set of items this component displays."
-	 */
-	Collection getDataProviderCollection();
+	public MXMLBeanWrapper(String mxmlBeanId, _MXMLBean mxmlBean){
+		super();
+		_mxmlBeanId = mxmlBeanId;
+		_mxmlBean = mxmlBean;
+	}
 	
-	void setDataProviderCollection(Collection dataProviderCollection);
+	public String getMxmlBeanId() {
+		return _mxmlBeanId;
+	}
+	public _MXMLBean getMxmlBean() {
+		return _mxmlBean;
+	}
+	
+	public boolean equals(Object _instance) {
+		if(!(_instance instanceof MXMLBeanWrapper)){
+			return false;
+		}
+		
+		MXMLBeanWrapper _mxmlBeanWrapperInstance = (MXMLBeanWrapper) _instance;
+		return this.getMxmlBeanId().equals(_mxmlBeanWrapperInstance.getMxmlBeanId());
+	}
+	
+	public int hashCode() {
+		return getMxmlBeanId().hashCode();
+	}
 	
 }

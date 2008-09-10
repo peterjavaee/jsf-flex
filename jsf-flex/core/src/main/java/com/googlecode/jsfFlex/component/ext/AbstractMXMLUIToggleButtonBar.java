@@ -18,6 +18,10 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import java.io.IOException;
+
+import javax.faces.context.FacesContext;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
@@ -58,6 +62,7 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIVerticalAlignAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttributes;
+import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
 /**
  * @JSFComponent
@@ -147,6 +152,11 @@ public abstract class AbstractMXMLUIToggleButtonBar
 	
 	public String getMXMLComponentRenderer() {
 		return MXML_COMPONENT_RENDERER;
+	}
+	
+	public void encodeBegin(FacesContext context) throws IOException {
+		MXMLJsfUtil.processDataProviderCollection(this, (_MXMLUIDataProviderAttribute) this);
+		super.encodeBegin(context);
 	}
 	
 }

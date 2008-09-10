@@ -1,8 +1,7 @@
-#foreach( $mxmlObjectBean in $mxmlObjectSet )
+#foreach( $mxmlObjectBeanWrapper in $mxmlObjectSet )
+  #set( $mxmlObjectBean = ${mxmlObjectBeanWrapper.getMxmlBean()} )
   #if ( ${mxmlObjectBean.isBindable()})
     [Bindable]
-    private var ${mxmlObjectBean.getVariableId()}:${mxmlObjectBean.getVariableType()} = ${mxmlObjectBean.generateVariableInfoAsString()};
-  #else
-    private var ${mxmlObjectBean.getVariableId()}:${mxmlObjectBean.getVariableType()} = ${mxmlObjectBean.generateVariableInfoAsString()};
   #end
+  private var ${mxmlObjectBeanWrapper.getMxmlBeanId()}:${mxmlObjectBean.getVariableType()} = ${mxmlObjectBean.generateVariableInfoAsString()};
 #end

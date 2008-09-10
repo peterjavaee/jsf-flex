@@ -48,12 +48,19 @@ public abstract class _RunnerFactory {
 	private static _RunnerFactory _instance;
 	
 	static{
-		Properties _runnerFactoryImplProperties = new Properties();
-		try{
-			_runnerFactoryImplProperties.load(_RunnerFactory.class.getResourceAsStream(RUNNER_FACTORY_IMPL_PROPERTIES));
-			RUNNER_FACTORY_IMPL_PACKAGE_CLASS = _runnerFactoryImplProperties.getProperty(RUNNER_FACTORY_IMPL_KEY);
-		}catch(IOException _ioExcept){
-			throw new RuntimeException("Exception thrown when loading of " + RUNNER_FACTORY_IMPL_PROPERTIES, _ioExcept);
+		
+		String runnerFactoryImplFromProperty = System.getProperty(RUNNER_FACTORY_IMPL_KEY);
+		
+		if(runnerFactoryImplFromProperty != null){
+			RUNNER_FACTORY_IMPL_PACKAGE_CLASS = runnerFactoryImplFromProperty;
+		}else{
+			Properties _runnerFactoryImplProperties = new Properties();
+			try{
+				_runnerFactoryImplProperties.load(_RunnerFactory.class.getResourceAsStream(RUNNER_FACTORY_IMPL_PROPERTIES));
+				RUNNER_FACTORY_IMPL_PACKAGE_CLASS = _runnerFactoryImplProperties.getProperty(RUNNER_FACTORY_IMPL_KEY);
+			}catch(IOException _ioExcept){
+				throw new RuntimeException("Exception thrown when loading of " + RUNNER_FACTORY_IMPL_PROPERTIES, _ioExcept);
+			}
 		}
 	}
 	

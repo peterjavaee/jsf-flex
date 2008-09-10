@@ -27,6 +27,8 @@ import java.util.List;
  */
 public final class MXMLArrayBean extends _MXMLBean {
 	
+	private static final String VARIABLE_TYPE = "Array";
+	
 	private static final String LEFT_ARRAY_CLOSURE = "[";
 	private static final String RIGHT_ARRAY_CLOSURE = "]";
 	
@@ -34,11 +36,17 @@ public final class MXMLArrayBean extends _MXMLBean {
 	
 	private MXMLArrayBean(){
 		super();
-		_beanArrayList = null;
 	}
 	
-	public MXMLArrayBean(String variableId, String variableType){
-		super(variableId, variableType);
+	public MXMLArrayBean(Boolean bindable){
+		super(VARIABLE_TYPE, bindable);
+	}
+	
+	public MXMLArrayBean(Boolean bindable, String packageName){
+		super(VARIABLE_TYPE, bindable, packageName);
+	}
+	
+	{
 		_beanArrayList = new LinkedList();
 	}
 	
@@ -54,6 +62,9 @@ public final class MXMLArrayBean extends _MXMLBean {
 		for(Iterator iterator = _beanArrayList.iterator(); iterator.hasNext();){
 			_objectBean = (_MXMLBean) iterator.next();
 			generatedString.append(_objectBean.generateVariableInfoAsString());
+			if(iterator.hasNext()){
+				generatedString.append(",");
+			}
 		}
 		
 		generatedString.append(RIGHT_ARRAY_CLOSURE);

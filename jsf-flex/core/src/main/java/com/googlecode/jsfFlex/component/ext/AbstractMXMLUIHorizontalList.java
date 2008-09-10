@@ -18,6 +18,10 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import java.io.IOException;
+
+import javax.faces.context.FacesContext;
+
 import com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIAllowMultipleSelectionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
@@ -69,6 +73,7 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIWordWrapAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIListBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControlAttributes;
+import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
 /**
  * @JSFComponent
@@ -106,6 +111,11 @@ public abstract class AbstractMXMLUIHorizontalList
 	
 	public String getMXMLComponentRenderer() {
 		return MXML_COMPONENT_RENDERER;
+	}
+	
+	public void encodeBegin(FacesContext context) throws IOException {
+		MXMLJsfUtil.processDataProviderCollection(this, (_MXMLUIDataProviderAttribute) this);
+		super.encodeBegin(context);
 	}
 	
 }
