@@ -43,6 +43,7 @@ on application server {{{TomCat}}} 5.5.
    ||{{{TomCat}}} 5.5||
    {For ALL}
  * {{{DataGrid}}} component must be implemented as a service. {Unassigned}
- * Possible nesting of mx:Application within h:form should be attempted. Currently it has been nested outside the form element due to failure of initial attempt in referencing the SWF file within the form element for IE browser. {Unassigned}
+ * Possible nesting of mx:Application within h:form should be attempted. Currently it has been nested outside the form element due to failure of initial attempt in referencing the SWF file within the form element for IE browser. {Hazem Saleh}
  * Write articles and blogs regarding the project, so to spread the word regarding the project and attract talented individuals. {For ALL}
  * Allow databinding to dataProvider field of the components. {Jihoon}
+ * Supporting Facelets. {Hazem Saleh}
