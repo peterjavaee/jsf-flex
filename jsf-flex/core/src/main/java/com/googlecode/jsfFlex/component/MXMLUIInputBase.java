@@ -18,7 +18,6 @@
  */
 package com.googlecode.jsfFlex.component;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,9 +26,10 @@ import javax.faces.context.FacesContext;
 import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
 
-import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
+import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.util.MXMLJsfUtil;
+import com.googlecode.jsfFlex.shared.context.MxmlContext;
+import com.googlecode.jsfFlex.shared.tasks.factory._RunnerFactory;
 
 /**
  * This class will process the needed actions of setting and retrieving of "text" attribute<br>
@@ -41,6 +41,8 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 	
 	private static final String TEXT_ATTR = "text";
 	private static final String TEXT_ID_APPENDED = "_text";
+	
+	private _AnnotationDocletParser _annotationDocletParserInstance;
 	
 	protected Map _componentValues;
 	private String _absolutePathToPreMxmlFile;
@@ -60,24 +62,10 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 		_componentValues = new HashMap();
 	}
 	
-	public String getMXMLComponentRenderer(){
-		return null;
-	}
-	
 	public Map getComponentValues(){
 		_componentValues.put(TEXT_ATTR, getText());
     	return _componentValues;
     }
-	
-	public void encodeBegin(FacesContext context) throws IOException {
-		try{
-			MXMLJsfUtil.setComponentProperties(this, context);
-		}catch(ComponentBuildException _componentBuildException){
-			throw new IOException(_componentBuildException.getMessage());
-		}
-		
-		super.encodeBegin(context);
-	}
 	
 	public void decode(FacesContext context) {
     	super.decode(context);
@@ -108,6 +96,17 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 		}
     	
     }
+	
+	public _AnnotationDocletParser getAnnotationDocletParserInstance(){
+		
+		if(_annotationDocletParserInstance == null){
+			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+			_RunnerFactory _runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
+			_annotationDocletParserInstance = _runnerFactoryInstance.getAnnotationDocletParserImpl();
+		}
+		
+		return _annotationDocletParserInstance;
+	}
 
 	public String getAbsolutePathToPreMxmlFile() {
 		return _absolutePathToPreMxmlFile;

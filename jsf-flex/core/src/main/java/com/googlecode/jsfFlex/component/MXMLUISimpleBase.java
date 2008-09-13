@@ -18,15 +18,14 @@
  */
 package com.googlecode.jsfFlex.component;
 
-import java.io.IOException;
 import java.util.Map;
 
 import javax.faces.component.UIComponentBase;
-import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
+import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.util.MXMLJsfUtil;
+import com.googlecode.jsfFlex.shared.context.MxmlContext;
+import com.googlecode.jsfFlex.shared.tasks.factory._RunnerFactory;
 
 /**
  * This component should be used as the base action of the component if the component<br>
@@ -35,6 +34,8 @@ import com.googlecode.jsfFlex.util.MXMLJsfUtil;
  * @author Ji Hoon Kim
  */
 public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLContract {
+	
+	private _AnnotationDocletParser _annotationDocletParserInstance;
 	
 	private String _absolutePathToPreMxmlFile;
 	
@@ -51,24 +52,21 @@ public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLC
 		super();
 	}
 	
-	public String getMXMLComponentRenderer(){
-		return null;
-	}
-	
 	public Map getComponentValues(){
     	return null;
     }
 
-	public void encodeBegin(FacesContext context) throws IOException {
-		try{
-			MXMLJsfUtil.setComponentProperties(this, context);
-		}catch(ComponentBuildException _componentBuildException){
-			throw new IOException(_componentBuildException.getMessage());
+	public _AnnotationDocletParser getAnnotationDocletParserInstance(){
+		
+		if(_annotationDocletParserInstance == null){
+			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+			_RunnerFactory _runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
+			_annotationDocletParserInstance = _runnerFactoryInstance.getAnnotationDocletParserImpl();
 		}
 		
-		super.encodeBegin(context);
+		return _annotationDocletParserInstance;
 	}
-
+	
 	public String getAbsolutePathToPreMxmlFile() {
 		return _absolutePathToPreMxmlFile;
 	}

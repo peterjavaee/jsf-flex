@@ -20,6 +20,8 @@ package com.googlecode.jsfFlex.shared.adapter;
 
 import java.util.Map;
 
+import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
+
 /**
  * Technically it is not an adapter, but since it bridges jsfFlex and jsfFlexFramework project
  * without a cyclic dependency I thought to call it an adapter.
@@ -28,11 +30,9 @@ import java.util.Map;
  */
 public interface _MXMLContract {
 	
-	String getMXMLComponentRenderer();
-	
 	Map getAttributes();
 	
-	String getFamily();
+	_AnnotationDocletParser getAnnotationDocletParserInstance();
 	
 	String getAbsolutePathToPreMxmlFile();
 	void setAbsolutePathToPreMxmlFile(String absolutePathToPreMxmlFile);

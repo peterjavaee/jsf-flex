@@ -56,8 +56,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   type     = "com.googlecode.jsfFlex.MXMLUITile"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUITileTag"
  *   family   = "javax.faces.MXMLSimpleBase"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLTile"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -116,11 +115,5 @@ public abstract class AbstractMXMLUITile
 						_MXMLUIPaddingVerticalAttributes, _MXMLUIScrollAttribute, _MXMLUIScrollAttributes, 
 						_MXMLUIScrollBarAttributes, _MXMLUIShadowAttributes, _MXMLUITextStyleAttributes, 
 						_MXMLUIThumbSkinAttributes, _MXMLUITrackAttributes, _MXMLUIIconAttribute {
-
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLTile";
-	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
 	
 }

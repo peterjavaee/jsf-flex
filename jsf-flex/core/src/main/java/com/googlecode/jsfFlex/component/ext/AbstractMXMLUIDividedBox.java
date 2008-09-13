@@ -60,8 +60,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   type     = "com.googlecode.jsfFlex.MXMLUIDividedBox"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIDividedBoxTag"
  *   family   = "javax.faces.MXMLSimpleBase"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLDividedBox"
  *   
  * @JSFJspProperties
  * 		properties	=		
@@ -153,10 +152,4 @@ public abstract class AbstractMXMLUIDividedBox
 						_MXMLUIShadowAttributes, _MXMLUITextStyleAttributes, _MXMLUIThumbSkinAttributes, 
 						_MXMLUITrackAttributes {
 	
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLDividedBox";
-	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
-
 }

@@ -24,5 +24,8 @@
 -->
 
 <faces-config xmlns="http://java.sun.com/JSF/Configuration">
+  <factory>
+    <render-kit-factory>com.googlecode.jsfFlex.renderkit.MXMLRenderKitFactoryImpl</render-kit-factory>
+  </factory>
   
 </faces-config>

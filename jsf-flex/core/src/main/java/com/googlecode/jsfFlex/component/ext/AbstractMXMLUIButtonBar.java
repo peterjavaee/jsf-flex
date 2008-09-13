@@ -18,10 +18,6 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import java.io.IOException;
-
-import javax.faces.context.FacesContext;
-
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
@@ -62,7 +58,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIVerticalAlignAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttributes;
-import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
 /**
  * @JSFComponent
@@ -71,8 +66,7 @@ import com.googlecode.jsfFlex.util.MXMLJsfUtil;
  *   type     = "com.googlecode.jsfFlex.MXMLUIButtonBar"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIButtonBarTag"
  *   family   = "javax.faces.MXMLSimpleBase"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLButtonBar"
  *   
  * @JSFJspProperties
  * 		properties	=		
@@ -134,16 +128,5 @@ public abstract class AbstractMXMLUIButtonBar
 							_MXMLUIPaddingVerticalAttributes, _MXMLUIScrollAttribute, _MXMLUIScrollAttributes, 
 							_MXMLUIScrollBarAttributes, _MXMLUISelectedIndexAttribute, _MXMLUIShadowAttributes, 
 							_MXMLUITextStyleAttributes, _MXMLUIThumbSkinAttributes, _MXMLUITrackAttributes {
-
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLButtonBar";
 	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
-	
-	public void encodeBegin(FacesContext context) throws IOException {
-		MXMLJsfUtil.processDataProviderCollection(this, (_MXMLUIDataProviderAttribute) this);
-		super.encodeBegin(context);
-	}
-
 }

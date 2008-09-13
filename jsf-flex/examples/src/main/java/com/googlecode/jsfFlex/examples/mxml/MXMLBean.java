@@ -22,9 +22,9 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.googlecode.jsfFlex.framework.beans.mxml.MXMLArrayBean;
-import com.googlecode.jsfFlex.framework.beans.mxml.MXMLObjectBean;
-import com.googlecode.jsfFlex.framework.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.beans.mxml.MXMLArrayBean;
+import com.googlecode.jsfFlex.shared.beans.mxml.MXMLObjectBean;
+import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
  * A simple bean to demonstrate the binding of the fields.<br>

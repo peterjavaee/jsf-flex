@@ -18,7 +18,6 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import java.io.IOException;
 import java.util.Map;
 
 import javax.faces.context.FacesContext;
@@ -37,7 +36,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedItemAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIComboBaseAttributes;
-import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
 /**
  * @JSFComponent
@@ -46,8 +44,7 @@ import com.googlecode.jsfFlex.util.MXMLJsfUtil;
  *   type     = "com.googlecode.jsfFlex.MXMLUIColorPicker"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIColorPickerTag"
  *   family   = "javax.faces.MXMLInput"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLInput"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLColorPicker"
  *   
  * @JSFJspProperties
  * 		properties	=		
@@ -371,23 +368,13 @@ public abstract class AbstractMXMLUIColorPicker
 						_MXMLUIImeModeAttribute, _MXMLUIImmediateAttribute, _MXMLUISelectedItemAttribute, 
 						_MXMLUIRestrictAttribute, _MXMLUISelectedIndexAttribute {
 	
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLColorPicker";
 	private static final String SELECTED_COLOR_ATTR = "selectedColor";
 	private static final String SELECTED_COLOR_ID_APPENDED = "_selectedColor";
-	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
 	
 	public Map getComponentValues() {
 		super.getComponentValues();
 		_componentValues.put(SELECTED_COLOR_ATTR, getSelectedColor());
 		return super.getComponentValues();
-	}
-	
-	public void encodeBegin(FacesContext context) throws IOException {
-		MXMLJsfUtil.processDataProviderCollection(this, (_MXMLUIDataProviderAttribute) this);
-		super.encodeBegin(context);
 	}
 	
 	public void decode(FacesContext context) {

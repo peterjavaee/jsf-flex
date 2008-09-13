@@ -84,57 +84,57 @@
       </activation>
       <dependencies>
         <dependency>
-          <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project.runner-impl-common-task-runner</groupId>
-          <artifactId>jsf-flex-framework-sdk-standard-common-task-runner-impl</artifactId>
-          <version>${jsf.flex.framework.task.runner.version}</version>
+          <groupId>com.googlecode.jsf-flex.runner-impl-project.common-runner-project</groupId>
+          <artifactId>sdk-standard-common-impl</artifactId>
+          <version>${jsf.flex.runner.version}</version>
         </dependency>
         <dependency>
-          <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project.runner-impl-file-manipulator-task-runner</groupId>
-          <artifactId>jsf-flex-framework-velocity-file-manipulator-task-runner-impl</artifactId>
-          <version>${jsf.flex.framework.task.runner.version}</version>
+          <groupId>com.googlecode.jsf-flex.runner-impl-project.file-manipulator-runner-project</groupId>
+          <artifactId>velocity-file-manipulator-impl</artifactId>
+          <version>${jsf.flex.runner.version}</version>
         </dependency>
         <dependency>
-          <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project.runner-impl-flex-task-runner</groupId>
-          <artifactId>jsf-flex-framework-ant-flex-task-runner-impl</artifactId>
-          <version>${jsf.flex.framework.task.runner.version}</version>
-        </dependency>
-      </dependencies>
-    </profile>
-
-    <profile>
-      <id>jsf_flex_framework_runtime-1.5</id>
-      <activation>
-        <property>
-          <name>!jsf_flex_framework_runtime</name>
-        </property>
-      </activation>
-      <dependencies>
-        <dependency>
-          <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
-          <artifactId>jsf-flex-framework-component15</artifactId>
-          <version>${jsf.flex.framework.component.version}</version>
-        </dependency>
-        <dependency>
-           <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
-           <artifactId>jsf-flex-framework-annotations</artifactId>
-           <version>${jsf.flex.framework.annotations.version}</version>
+          <groupId>com.googlecode.jsf-flex.runner-impl-project.flex-runner-project</groupId>
+          <artifactId>ant-flex-impl</artifactId>
+          <version>${jsf.flex.runner.version}</version>
         </dependency>
       </dependencies>
     </profile>
 
     <profile>
-      <id>jsf_flex_framework_runtime-1.4</id>
+      <id>jsf_flex_renderKit_runtime-1.4</id>
       <activation>
         <property>
-          <name>jsf_flex_framework_runtime</name>
-          <value>14</value>
+          <name>!jsf_flex_renderKit_runtime</name>
         </property>
       </activation>
       <dependencies>
         <dependency>
-          <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
-          <artifactId>jsf-flex-framework-component14</artifactId>
-          <version>${jsf.flex.framework.component.version}</version>
+          <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
+          <artifactId>jsf-flex-project-renderKit14</artifactId>
+          <version>${jsf.flex.renderKit.version}</version>
+        </dependency>
+      </dependencies>
+    </profile>
+
+    <profile>
+      <id>jsf_flex_renderKit_runtime-1.5</id>
+      <activation>
+        <property>
+          <name>jsf_flex_renderKit_runtime</name>
+          <value>15</value>
+        </property>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
+          <artifactId>jsf-flex-project-renderKit15</artifactId>
+          <version>${jsf.flex.renderKit.version}</version>
+        </dependency>
+        <dependency>
+           <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
+           <artifactId>jsf-flex-annotations</artifactId>
+           <version>${jsf.flex.annotations.version}</version>
         </dependency>
       </dependencies>
     </profile>
@@ -198,8 +198,8 @@
   </build>
   
   <properties>
-    <jsf.flex.framework.task.runner.version>0.0.5-SNAPSHOT</jsf.flex.framework.task.runner.version>
-    <jsf.flex.framework.annotations.version>0.0.5-SNAPSHOT</jsf.flex.framework.annotations.version>
+    <jsf.flex.runner.version>0.0.5-SNAPSHOT</jsf.flex.runner.version>
+    <jsf.flex.annotations.version>0.0.5-SNAPSHOT</jsf.flex.annotations.version>
   </properties>
   
 </project>

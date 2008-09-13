@@ -38,9 +38,9 @@
 
   <dependencies>
     <dependency>
-      <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
-      <artifactId>jsf-flex-framework-annotations</artifactId>
-      <version>${jsf.flex.framework.annotations.version}</version>
+      <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
+      <artifactId>jsf-flex-annotations</artifactId>
+      <version>${jsf.flex.annotations.version}</version>
     </dependency>
     
     <dependency>
@@ -90,7 +90,7 @@
   </dependencies>
   
   <properties>
-    <jsf.flex.framework.annotations.version>0.0.5-SNAPSHOT</jsf.flex.framework.annotations.version>
+    <jsf.flex.annotations.version>0.0.5-SNAPSHOT</jsf.flex.annotations.version>
   </properties>
 
 </project>

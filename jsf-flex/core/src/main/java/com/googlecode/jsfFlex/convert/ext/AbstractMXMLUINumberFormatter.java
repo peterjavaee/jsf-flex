@@ -28,8 +28,7 @@ import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
  *   type     = "com.googlecode.jsfFlex.MXMLUINumberFormatter"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUINumberFormatterTag"
  *   family   = "javax.faces.MXMLSimpleBase"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLNumberFormatter"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -89,11 +88,5 @@ import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
 public abstract class AbstractMXMLUINumberFormatter 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIFormatter {
-
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLNumberFormatter";
-	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
 	
 }

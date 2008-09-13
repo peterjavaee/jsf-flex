@@ -18,10 +18,6 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import java.io.IOException;
-
-import javax.faces.context.FacesContext;
-
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
@@ -60,7 +56,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIToolTipFieldAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIVerticalAlignAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttributes;
-import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
 /**
  * @JSFComponent
@@ -69,8 +64,7 @@ import com.googlecode.jsfFlex.util.MXMLJsfUtil;
  *   type     = "com.googlecode.jsfFlex.MXMLUILinkBar"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUILinkBarTag"
  *   family   = "javax.faces.MXMLSimpleBase"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLLinkBar"
  *   
  * @JSFJspProperties
  * 		properties	=		
@@ -132,16 +126,5 @@ public abstract class AbstractMXMLUILinkBar
 						_MXMLUIFontGeneralAttributes, _MXMLUIScrollBarAttributes, _MXMLUIPaddingHorizontalAttributes,
 						_MXMLUIPaddingVerticalAttributes, _MXMLUITextStyleAttributes, _MXMLUIDataChangeAttribute, 
 						_MXMLUIScrollAttribute {
-
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLLinkBar";
-	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
-	
-	public void encodeBegin(FacesContext context) throws IOException {
-		MXMLJsfUtil.processDataProviderCollection(this, (_MXMLUIDataProviderAttribute) this);
-		super.encodeBegin(context);
-	}
 	
 }

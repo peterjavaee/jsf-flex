@@ -19,37 +19,10 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import com.googlecode.jsfFlex.component.MXMLUITextInputBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderThicknessAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIChangeAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUICornerRadiusAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataChangeAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIEnterAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFontSpecificAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHtmlTextAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImeModeAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIMaxCharsAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingHorizontalAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIRestrictAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIShadowAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextBindingAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextStyleAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
@@ -59,8 +32,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   type     = "com.googlecode.jsfFlex.MXMLUITextInput"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUITextInputTag"
  *   family   = "javax.faces.MXMLInput"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLInput"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLTextInput"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -346,11 +318,4 @@ public abstract class AbstractMXMLUITextInput
 						implements _MXMLUIBaseAttributes, _MXMLUITextAttribute, _MXMLUIImmediateAttribute,  
 						_MXMLUIHtmlTextAttribute, _MXMLUITextBindingAttribute {
 	
-	
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLTextInput";
-	
-	public String getMXMLComponentRenderer(){
-    	return MXML_COMPONENT_RENDERER;
-    }
-    
 }

@@ -29,7 +29,8 @@
 
 <body>
 
-<f:view>
+<f:view renderKitId="MXML_BASIC">
+    
     <h:form>
     	<br>
     	This page is a simple test to ensure that the base framework is working [creation of preMxml, Mxml, and etcetera].<br>
@@ -38,7 +39,7 @@
     </h:form>
     
     <jf:mxmlApplication mode="debugMode" mxmlPackageName="simpleSwf">
-    	<jf:mxmlLabel text="I simply am an another SWF file. DHan, DHAn, DHAN!!!" />
+    	<jf:mxmlLabel text="I simply am a SWF file. DHan, DHAn, DHAN!!!" />
     </jf:mxmlApplication>
     
 </f:view>

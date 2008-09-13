@@ -60,8 +60,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   type     = "com.googlecode.jsfFlex.MXMLUIControlBar"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIControlBarTag"
  *   family   = "javax.faces.MXMLSimpleBase"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLControlBar"
  *   
  * @author Ji Hoon Kim
  */
@@ -79,10 +78,4 @@ public abstract class AbstractMXMLUIControlBar
 						_MXMLUIScrollBarAttributes, _MXMLUIShadowAttributes, _MXMLUITextStyleAttributes, 
 						_MXMLUIThumbSkinAttributes, _MXMLUITrackAttributes, _MXMLUIVerticalAlignAttribute {
 	
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLControlBar";
-	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
-
 }

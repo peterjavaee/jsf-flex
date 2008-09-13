@@ -36,8 +36,8 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
 
-import com.googlecode.jsfFlex.framework.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.framework.annotation.JsfFlexComponentNodeAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexComponentNodeAttribute;
 import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectListener;
 import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectorBase;
 import com.googlecode.jsfFlexPlugIn.inspector.qdox.JsfFlexQdoxInspector;
@@ -58,9 +58,12 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
 	private static final String JSF_FLEX_COMPONENT_VALUE_CLASS_INFO_ATTRIBUTE = "JsfFlexComponentValueClassInfo";
 	private static final String JSF_FLEX_COMPONENT_NODE_ATTRIBUTE = "JsfFlexComponentNodeAttribute";
 	
+	private static final String JSF_FLEX_PROJECT = "jsf-flex";
+	private static final String JSF_FLEX_SHARED_PROJECT = "jsf-flex-shared";
+	
 	private static final String CORE_PROJECT_NAME = "core";
-	private static final String COMPONENT_14_PROJECT_NAME = "component14";
-	private static final String COMPONENT_15_PROJECT_NAME = "component15";
+	private static final String RENDERKIT_14_PROJECT_NAME = "renderKit14";
+	private static final String RENDERKIT_15_PROJECT_NAME = "renderKit15";
 	
 	private static final String JSF_FLEX_CLASS_SET_ATTRIBUTE = "classSet";
 	private static final String JSF_FLEX_COMPONENT_VALUE_MAPPER_TEMPLATE = "jsf-flex-componentValueMapperXML.vm";
@@ -96,7 +99,7 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
 	private String targetComponentProject;
 	
 	/**
-     * @parameter expression="${basedir}/target/classes/com/googlecode/jsfFlex/framework/swfSourceFiles"
+     * @parameter expression="${basedir}/target/classes/com/googlecode/jsfFlex/shared/swfSourceFiles"
      */
 	private File toCreateComponentValueMapperXMLPath;
 	
@@ -237,15 +240,16 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
     	
     }
 	
-	public void execute() throws MojoExecutionException, MojoFailureException {
+    public void execute() throws MojoExecutionException, MojoFailureException {
 		
 		//HACK for now, since QDOX seems to have issues reading Java files with annotations
-		targetComponentProject = COMPONENT_14_PROJECT_NAME;
+		targetComponentProject = RENDERKIT_14_PROJECT_NAME;
 		
 		String _currDirPath = (String) project.getCompileSourceRoots().get(0);
-		_currDirPath = (targetComponentProject.equals(COMPONENT_14_PROJECT_NAME)) ? 
-												_currDirPath.replace(CORE_PROJECT_NAME, COMPONENT_14_PROJECT_NAME) : 
-												_currDirPath.replace(CORE_PROJECT_NAME, COMPONENT_15_PROJECT_NAME);
+		_currDirPath = _currDirPath.replace(JSF_FLEX_SHARED_PROJECT, JSF_FLEX_PROJECT);
+		_currDirPath = (targetComponentProject.equals(RENDERKIT_14_PROJECT_NAME)) ? 
+												_currDirPath.replace(CORE_PROJECT_NAME, RENDERKIT_14_PROJECT_NAME) : 
+												_currDirPath.replace(CORE_PROJECT_NAME, RENDERKIT_15_PROJECT_NAME);
 		
 		Properties _velocityParserProperties = new Properties();
 		_velocityParserProperties.put(FILE_RESOURCE_LOADER_PATH_KEY, templateSourceDirectory.getPath());
@@ -254,7 +258,7 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
 		_jsfFlexVelocityParser.init();
 		_jsfFlexVelocityParser.addParserListener(this);
 		
-		if(targetComponentProject.equals(COMPONENT_14_PROJECT_NAME)){
+		if(targetComponentProject.equals(RENDERKIT_14_PROJECT_NAME)){
 			_jsfFlexInspector = new JsfFlexQdoxInspector(_currDirPath, JSF_FLEX_COMPONENT_VALUE_CLASS_INFO_ATTRIBUTE, 
 															JSF_FLEX_COMPONENT_NODE_ATTRIBUTE);
 		}else{

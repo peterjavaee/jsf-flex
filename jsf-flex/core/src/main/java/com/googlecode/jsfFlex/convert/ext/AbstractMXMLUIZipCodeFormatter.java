@@ -28,8 +28,7 @@ import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
  *   type     = "com.googlecode.jsfFlex.MXMLUIZipCodeFormatter"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIZipCodeFormatterTag"
  *   family   = "javax.faces.MXMLSimpleBase"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLZipCodeFormatter"
  * 
  * @JSFJspProperty
  *   name		= "formatString"
@@ -45,11 +44,5 @@ import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
 public abstract class AbstractMXMLUIZipCodeFormatter 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIFormatter {
-
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLZipCodeFormatter";
-	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
 	
 }

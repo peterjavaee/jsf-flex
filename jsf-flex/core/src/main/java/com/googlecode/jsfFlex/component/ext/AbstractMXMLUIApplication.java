@@ -43,9 +43,9 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUICornerRadiusAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataChangeAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDisabledColorAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontSpecificAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHideAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIIconAttribute;
@@ -62,13 +62,13 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUITitleAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttributes;
-import com.googlecode.jsfFlex.framework.context.MxmlContext;
-import com.googlecode.jsfFlex.framework.context.MxmlContextImpl;
-import com.googlecode.jsfFlex.framework.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.framework.util.MXMLConstants;
+import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
 import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexResourceHandler;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
-import com.googlecode.jsfFlex.util.MXMLJsfUtil;
+import com.googlecode.jsfFlex.shared.context.MxmlContext;
+import com.googlecode.jsfFlex.shared.context.MxmlContextImpl;
+import com.googlecode.jsfFlex.shared.tasks.factory._RunnerFactory;
+import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
  * @JSFComponent
@@ -77,7 +77,6 @@ import com.googlecode.jsfFlex.util.MXMLJsfUtil;
  *   family   = "javax.faces.MXMLApplication"
  *   type     = "com.googlecode.jsfFlex.MXMLUIApplication"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIApplicationTag"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLApplication"
  *   
  * @JSFJspProperties
@@ -236,13 +235,14 @@ public abstract class AbstractMXMLUIApplication
 						_MXMLUITitleAttribute, _MXMLUIIconAttribute {
 	
 	private static final String INITIALIZE_ATTR = "initialize";
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLApplication";
 	
 	private static final String MX_ACTUAL_KEY = "xmlns:mx";
 	private static final String MX_XMLNS_KEY = "xmlnsMX";
 	private static final String MX_DEFAULT_XMLNS = "http://www.adobe.com/2006/mxml";
     private static final String INITIALIZE_CALL = "initializeApp(event);";
 	
+    private _AnnotationDocletParser _annotationDocletParserInstance;
+    
 	private String _applicationPath;
 	private String _externalLibraryPath;
 	private String _runtimeSharedLibraries;
@@ -251,10 +251,6 @@ public abstract class AbstractMXMLUIApplication
 	private Boolean _debugMode;
 	private Boolean _simplySwfMode;
 	private Boolean _productionMode;
-	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
 	
 	public Map getComponentValues(){
 		return null;
@@ -332,12 +328,6 @@ public abstract class AbstractMXMLUIApplication
 			
 		}
 		
-		try{
-			MXMLJsfUtil.setComponentProperties(this, context);
-		}catch(ComponentBuildException _componentBuildException){
-			throw new IOException(_componentBuildException.getMessage());
-		}
-		
 		super.encodeBegin(context);
 	}
 	
@@ -351,6 +341,17 @@ public abstract class AbstractMXMLUIApplication
 												getClass(), 
 												MXMLConstants.JSF_FLEX_COMMUNICATOR_JS));
 		super.encodeEnd(context);
+	}
+	
+	public _AnnotationDocletParser getAnnotationDocletParserInstance(){
+		
+		if(_annotationDocletParserInstance == null){
+			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+			_RunnerFactory _runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
+			_annotationDocletParserInstance = _runnerFactoryInstance.getAnnotationDocletParserImpl();
+		}
+		
+		return _annotationDocletParserInstance;
 	}
 	
 	public boolean isDebugMode() {

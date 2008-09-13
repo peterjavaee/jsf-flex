@@ -28,8 +28,7 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  *   type     = "com.googlecode.jsfFlex.MXMLUIPhoneNumberValidator"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIPhoneNumberValidatorTag"
  *   family   = "javax.faces.MXMLSimpleBase"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLPhoneNumberValidator"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -59,11 +58,5 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
 public abstract class AbstractMXMLUIPhoneNumberValidator 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIValidatorAttributes {
-	
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLPhoneNumberValidator";
-	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
 	
 }

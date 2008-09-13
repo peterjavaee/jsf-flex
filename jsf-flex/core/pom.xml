@@ -20,12 +20,6 @@
     
     <!-- compile -->
     <dependency>
-      <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
-      <artifactId>jsf-flex-framework-core</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    
-    <dependency>
       <groupId>com.googlecode.jsf-flex.jsf-flex-shared-project</groupId>
       <artifactId>jsf-flex-shared</artifactId>
       <scope>compile</scope>
@@ -36,7 +30,7 @@
       <artifactId>myfaces-shared-impl</artifactId>
       <scope>compile</scope>
     </dependency>
-
+    
     <dependency>
       <groupId>org.apache.myfaces.tomahawk</groupId>
       <artifactId>tomahawk</artifactId>
@@ -50,14 +44,14 @@
     </dependency>
     
     <dependency>
-      <groupId>commons-logging</groupId>
-      <artifactId>commons-logging</artifactId>
+      <groupId>org.apache.myfaces.core</groupId>
+      <artifactId>myfaces-api</artifactId>
       <scope>compile</scope>
     </dependency>
     
     <dependency>
       <groupId>org.apache.myfaces.core</groupId>
-      <artifactId>myfaces-api</artifactId>
+      <artifactId>myfaces-impl</artifactId>
       <scope>compile</scope>
     </dependency>
     
@@ -77,6 +71,12 @@
       <groupId>javax.servlet</groupId>
       <artifactId>servlet-api</artifactId>
       <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <scope>compile</scope>
     </dependency>
     
     <!-- test dependencies -->

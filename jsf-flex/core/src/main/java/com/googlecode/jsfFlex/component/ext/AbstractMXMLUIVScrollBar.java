@@ -37,8 +37,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollBarAttr
  *   type     = "com.googlecode.jsfFlex.MXMLUIVScrollBar"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIVScrollBarTag"
  *   family   = "javax.faces.MXMLSimpleBase"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLVScrollBar"
  * 
  @JSFJspProperties
  * 		properties	=		
@@ -67,11 +66,5 @@ public abstract class AbstractMXMLUIVScrollBar
 						_MXMLUIBorderColorAttribute, _MXMLUICornerRadiusAttribute, _MXMLUIDirectionAttribute, 
 						_MXMLUIFillAttributes, _MXMLUIHighlightAlphaAttribute, _MXMLUITrackAttributes, 
 						_MXMLUIThumbSkinAttributes {
-
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLVScrollBar";
-	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
 	
 }

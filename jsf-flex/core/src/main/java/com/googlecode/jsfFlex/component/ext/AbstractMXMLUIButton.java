@@ -31,8 +31,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   type     = "com.googlecode.jsfFlex.MXMLUIButton"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIButtonTag"
  *   family   = "javax.faces.MXMLInput"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLInput"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLButton"
  *   
  * @JSFJspProperties
  * 		properties	=		
@@ -389,11 +388,5 @@ public abstract class AbstractMXMLUIButton
 						extends MXMLUIButtonBase 
 						implements _MXMLUIBaseAttributes, _MXMLUIImmediateAttribute, _MXMLUITextAttribute,
 						_MXMLUISelectedAttribute {
-	
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLButton";
-	
-	public String getMXMLComponentRenderer(){
-    	return MXML_COMPONENT_RENDERER;
-    }
 	
 }
