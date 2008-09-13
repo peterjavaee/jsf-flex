@@ -28,8 +28,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   type     = "com.googlecode.jsfFlex.MXMLUISwfLoader"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUISwfLoaderTag"
  *   family   = "javax.faces.MXMLSimpleBase"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSWFLoader"
  *   
  * @JSFJspProperties
  * 		properties	=		
@@ -157,11 +156,5 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
 public abstract class AbstractMXMLUISwfLoader 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIBaseAttributes {
-
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLSwfLoader";
-	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
 	
 }

@@ -29,8 +29,9 @@
 
 <body>
 
-<f:view>
-    <h:form>
+<f:view renderKitId="MXML_BASIC">
+	
+	<h:form>
     	<br>
     	One thing to note is that mxmlApplication needs to be outside of the form tag, since IE doesn't support finding
     	of swf inside of a form. But during the pageUnload phase, HTML elements would be created as a child nodes
@@ -41,8 +42,8 @@
     	<br>
         
     </h:form>
-    
-    <jf:mxmlApplication mode="debugMode" mxmlPackageName="anotherSwf" height="5%" width="85%" verticalScrollPolicy="off">
+	
+	<jf:mxmlApplication mode="debugMode" mxmlPackageName="anotherSwf" height="5%" width="85%" verticalScrollPolicy="off">
     	<jf:mxmlLabel text="I simply am an another SWF file. DHan, DHAn, DHAN!!!" color="#FFFFFF" fontWeight="bold"/>
     </jf:mxmlApplication>
     

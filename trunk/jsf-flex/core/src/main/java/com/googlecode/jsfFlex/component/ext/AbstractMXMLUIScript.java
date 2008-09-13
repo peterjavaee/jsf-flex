@@ -28,18 +28,12 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   type     = "com.googlecode.jsfFlex.MXMLUIScript"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIScriptTag"
  *   family   = "javax.faces.MXMLSimpleBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLScript"
  *   
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIScript 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIBaseAttributes {
-	
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLScript";
-	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
 	
 }

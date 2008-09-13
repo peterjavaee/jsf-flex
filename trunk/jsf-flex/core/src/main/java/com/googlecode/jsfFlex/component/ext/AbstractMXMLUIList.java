@@ -18,10 +18,6 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import java.io.IOException;
-
-import javax.faces.context.FacesContext;
-
 import com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIAllowMultipleSelectionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
@@ -73,7 +69,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIWordWrapAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIListBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControlAttributes;
-import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
 /**
  * @JSFComponent
@@ -82,8 +77,7 @@ import com.googlecode.jsfFlex.util.MXMLJsfUtil;
  *   type     = "com.googlecode.jsfFlex.MXMLUIList"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIListTag"
  *   family   = "javax.faces.MXMLInput"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLInput"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLList"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -215,16 +209,5 @@ public abstract class AbstractMXMLUIList
 						_MXMLUISelectableAttribute, _MXMLUIColumnCountAttribute, _MXMLUISelectedItemAttribute, 
 						_MXMLUISelectionAttributes, _MXMLUIShadowAttributes, _MXMLUITextEventColorAttributes, 
 						_MXMLUITextStyleAttributes, _MXMLUIThumbSkinAttributes {
-	
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLList";
-	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
-	
-	public void encodeBegin(FacesContext context) throws IOException {
-		MXMLJsfUtil.processDataProviderCollection(this, (_MXMLUIDataProviderAttribute) this);
-		super.encodeBegin(context);
-	}
 	
 }

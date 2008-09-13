@@ -28,8 +28,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   type     = "com.googlecode.jsfFlex.MXMLUIImage"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIImageTag"
  *   family   = "javax.faces.MXMLSimpleBase"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLImage"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -163,11 +162,5 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
 public abstract class AbstractMXMLUIImage 
 						extends MXMLUISimpleBase
 						implements _MXMLUIBaseAttributes {
-	
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLImage";
-	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
 	
 }

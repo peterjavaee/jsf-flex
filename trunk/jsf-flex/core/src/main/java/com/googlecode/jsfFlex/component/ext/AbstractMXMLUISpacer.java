@@ -28,19 +28,12 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   type     = "com.googlecode.jsfFlex.MXMLUISpacer"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUISpacerTag"
  *   family   = "javax.faces.MXMLSimpleBase"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSpacer"
  * 
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUISpacer 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIBaseAttributes {
-
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLSpacer";
 	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
-
 }

@@ -41,8 +41,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUISliderAttribu
  *   type     = "com.googlecode.jsfFlex.MXMLUIVSlider"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIVSliderTag"
  *   family   = "javax.faces.MXMLInput"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLInput"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLVSlider"
  * 
  * @author Ji Hoon Kim
  */
@@ -53,11 +52,5 @@ public abstract class AbstractMXMLUIVSlider
 						_MXMLUIValueAttribute, _MXMLUIDirectionAttribute, _MXMLUIFillAttributes ,
 						_MXMLUIImmediateAttribute, _MXMLUIMinMaxAttributes, _MXMLUIThumbSkinAttributes, 
 						_MXMLUITrackAttributes, _MXMLUIDataTipPlacementAttribute {
-
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLVSlider";
-	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
 	
 }

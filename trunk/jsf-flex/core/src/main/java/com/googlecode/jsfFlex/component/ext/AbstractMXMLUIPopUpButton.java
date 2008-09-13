@@ -31,8 +31,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   type     = "com.googlecode.jsfFlex.MXMLUIPopUpButton"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIPopUpButtonTag"
  *   family   = "javax.faces.MXMLInput"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLInput"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLPopUpButton"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -467,11 +466,5 @@ public abstract class AbstractMXMLUIPopUpButton
 							extends MXMLUIButtonBase 
 							implements _MXMLUIBaseAttributes, _MXMLUIImmediateAttribute, _MXMLUITextAttribute,
 							_MXMLUISelectedAttribute {
-	
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLPopUpButton";
-	
-	public String getMXMLComponentRenderer(){
-    	return MXML_COMPONENT_RENDERER;
-    }
 	
 }

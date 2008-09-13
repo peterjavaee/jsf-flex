@@ -22,9 +22,7 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyContent;
 import javax.servlet.jsp.tagext.BodyTag;
 
-import org.apache.myfaces.shared_tomahawk.taglib.UIComponentBodyTagBase;
-
-import com.googlecode.jsfFlex.framework.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
  * The reason that this tag is created rather than having myfaces plug-In generate it<br>
@@ -34,7 +32,7 @@ import com.googlecode.jsfFlex.framework.util.MXMLConstants;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLUIScriptTag extends UIComponentBodyTagBase {
+public class MXMLUIScriptTag extends javax.faces.webapp.UIComponentBodyTag {
 	
 	private String _scriptContent;
 
@@ -59,7 +57,7 @@ public class MXMLUIScriptTag extends UIComponentBodyTagBase {
         {
         	setScriptContent(bodyContent.getString());
         	bodyContent.clearBody();
-        	setStringProperty(getComponentInstance(), MXMLConstants.TAG_BODY_CONTENT_ATTR, _scriptContent);
+        	getComponentInstance().getAttributes().put(MXMLConstants.TAG_BODY_CONTENT_ATTR, _scriptContent);
         }
         return super.doAfterBody();
     }

@@ -36,8 +36,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   type     = "com.googlecode.jsfFlex.MXMLUIRadioButton"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIRadioButtonTag"
  *   family   = "javax.faces.MXMLInput"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLInput"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLRadioButton"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -395,13 +394,8 @@ public abstract class AbstractMXMLUIRadioButton
 						implements _MXMLUIBaseAttributes, _MXMLUIValueAttribute, _MXMLUIImmediateAttribute, 
 						_MXMLUITextAttribute, _MXMLUISelectedAttribute {
 	
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLRadioButton";
 	private static final String SELECTED_VALUE_ATTR = "selectedValue";
 	private static final String SELECTED_VALUE_ID_APPENDED = "_selectedValue";
-	
-	public String getMXMLComponentRenderer(){
-    	return MXML_COMPONENT_RENDERER;
-    }
 	
 	public void decode(FacesContext context) {
     	super.decode(context);

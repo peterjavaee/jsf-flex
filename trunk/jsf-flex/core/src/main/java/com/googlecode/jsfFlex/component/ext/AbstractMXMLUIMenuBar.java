@@ -18,15 +18,10 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import java.io.IOException;
-
-import javax.faces.context.FacesContext;
-
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
 /**
  * @JSFComponent
@@ -35,8 +30,7 @@ import com.googlecode.jsfFlex.util.MXMLJsfUtil;
  *   type     = "com.googlecode.jsfFlex.MXMLUIMenuBar"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIMenuBarTag"
  *   family   = "javax.faces.MXMLSimpleBase"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLMenuBar"
  *   
  * @JSFJspProperties
  * 		properties	=		
@@ -291,16 +285,5 @@ public abstract class AbstractMXMLUIMenuBar
 						extends MXMLUISimpleBase 
 						implements _MXMLUIBaseAttributes, _MXMLUISelectedIndexAttribute,
 						_MXMLUIDataProviderAttribute {
-
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLMenuBar";
-	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
-	
-	public void encodeBegin(FacesContext context) throws IOException {
-		MXMLJsfUtil.processDataProviderCollection(this, (_MXMLUIDataProviderAttribute) this);
-		super.encodeBegin(context);
-	}
 	
 }

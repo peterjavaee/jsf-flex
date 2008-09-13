@@ -56,8 +56,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   type     = "com.googlecode.jsfFlex.MXMLUICanvas"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUICanvasTag"
  *   family   = "javax.faces.MXMLSimpleBase"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLCanvas"
  *   
  * @author Ji Hoon Kim
  */
@@ -73,11 +72,5 @@ public abstract class AbstractMXMLUICanvas
 						_MXMLUIPaddingVerticalAttributes, _MXMLUIScrollAttribute, _MXMLUIScrollAttributes, 
 						_MXMLUIScrollBarAttributes, _MXMLUIShadowAttributes, _MXMLUITextStyleAttributes, 
 						_MXMLUIThumbSkinAttributes, _MXMLUITrackAttributes, _MXMLUIIconAttribute {
-
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLCanvas";
 	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
-
 }

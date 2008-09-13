@@ -63,8 +63,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   type     = "com.googlecode.jsfFlex.MXMLUIAccordion"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIAccordionTag"
  *   family   = "javax.faces.MXMLInput"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLInput"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLAccordion"
  *   
  * @JSFJspProperties
  * 		properties	=		
@@ -187,12 +186,6 @@ public abstract class AbstractMXMLUIAccordion
 						_MXMLUIPaddingHorizontalAttributes, _MXMLUIPaddingVerticalAttributes, _MXMLUIScrollAttribute, 
 						_MXMLUIScrollAttributes, _MXMLUIScrollBarAttributes, _MXMLUIIconAttribute, 
 						_MXMLUIShadowAttributes, _MXMLUITextStyleAttributes {
-	
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLAccordion";
-	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
 	
 	public void encodeBegin(FacesContext context) throws IOException {
 		/*

@@ -49,7 +49,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollBarAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIShadowAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITabAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextStyleAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIThumbSkinAttributes;
@@ -64,8 +63,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   type     = "com.googlecode.jsfFlex.MXMLUITabNavigator"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUITabNavigatorTag"
  *   family   = "javax.faces.MXMLInput"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLInput"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLTabNavigator"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -151,11 +149,5 @@ public abstract class AbstractMXMLUITabNavigator
 						_MXMLUIScrollAttributes, _MXMLUIScrollBarAttributes, _MXMLUIIconAttribute, 
 						_MXMLUIShadowAttributes, _MXMLUITextStyleAttributes, _MXMLUIThumbSkinAttributes, 
 						_MXMLUIHistoryManagementAttribute {
-	
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLTabNavigator";
-	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
 	
 }

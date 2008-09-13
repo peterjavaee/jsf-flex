@@ -17,7 +17,7 @@
     <module>jsf-flex-build-plugIn</module>
     <module>jsf-flex</module>
     <module>jsf-flex-shared</module>
-    <module>jsf-flex-framework</module>
+    <module>runnerImpl</module>
   </modules>
   
   <build>

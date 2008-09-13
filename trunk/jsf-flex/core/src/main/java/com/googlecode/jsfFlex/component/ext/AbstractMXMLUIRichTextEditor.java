@@ -61,8 +61,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   type     = "com.googlecode.jsfFlex.MXMLUIRichTextEditor"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIRichTextEditorTag"
  *   family   = "javax.faces.MXMLInput"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLInput"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLRichTextEditor"
  *   
  * @JSFJspProperties
  * 		properties	=		
@@ -303,11 +302,5 @@ public abstract class AbstractMXMLUIRichTextEditor
 						_MXMLUILabelAttribute, _MXMLUIPaddingHorizontalAttributes, _MXMLUITextStyleAttributes, 
 						_MXMLUIPaddingVerticalAttributes, _MXMLUIScrollAttribute, _MXMLUIScrollAttributes, 
 						_MXMLUIScrollBarAttributes {
-	
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLRichTextEditor";
-	
-    public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
 	
 }

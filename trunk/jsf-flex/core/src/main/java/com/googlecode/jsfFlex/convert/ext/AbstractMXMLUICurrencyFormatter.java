@@ -28,8 +28,7 @@ import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
  *   type     = "com.googlecode.jsfFlex.MXMLUICurrencyFormatter"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUICurrencyFormatterTag"
  *   family   = "javax.faces.MXMLSimpleBase"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSimpleBase"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLCurrencyFormatter"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -101,11 +100,5 @@ import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
 public abstract class AbstractMXMLUICurrencyFormatter 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIFormatter {
-
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLCurrencyFormatter";
 	
-	public String getMXMLComponentRenderer() {
-		return MXML_COMPONENT_RENDERER;
-	}
-		
 }

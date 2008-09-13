@@ -7,7 +7,7 @@
   <url>http://code.google.com/p/jsf-flex/</url>
   <version>0.0.5-SNAPSHOT</version>
   <description>
-    JSF-Flexshared goal is to provide jsf-flex and jsf-flexFramework a shared resources
+    JSF-Flexshared goal is to provide shared resource for jsf-flex subprojects
   </description>
 
   <scm>
@@ -53,5 +53,9 @@
       <layout>legacy</layout>
     </repository>
   </repositories>
+  
+  <properties>
+    <jsf.flex.plugIn.version>0.0.5-SNAPSHOT</jsf.flex.plugIn.version>
+  </properties>
   
 </project>

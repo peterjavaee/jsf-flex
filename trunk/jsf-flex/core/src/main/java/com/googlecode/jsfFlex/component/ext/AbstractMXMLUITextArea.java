@@ -54,8 +54,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControl
  *   type     = "com.googlecode.jsfFlex.MXMLUITextArea"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUITextAreaTag"
  *   family   = "javax.faces.MXMLInput"
- *   tagSuperclass = "org.apache.myfaces.shared_impl.taglib.UIComponentTagBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLInput"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLTextArea"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -174,10 +173,4 @@ public abstract class AbstractMXMLUITextArea
 						_MXMLUITextStyleAttributes,_MXMLUIHtmlTextAttribute, _MXMLUITextBindingAttribute, 
 						_MXMLUIScrollAttributes, _MXMLUIHorizontalScrollPositionAttribute, _MXMLUIDisabledColorAttribute {
 	
-	private static final String MXML_COMPONENT_RENDERER = "com.googlecode.jsfFlex.MXMLTextArea";
-	
-	public String getMXMLComponentRenderer(){
-    	return MXML_COMPONENT_RENDERER;
-    }
-    
 }

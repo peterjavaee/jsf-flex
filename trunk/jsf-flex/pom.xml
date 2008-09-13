@@ -7,7 +7,7 @@
   <url>http://code.google.com/p/jsf-flex/</url>
   <version>0.0.5-SNAPSHOT</version>
   <description>
-    JSF-Flex goal is to provide users capability in creating Flex components as JSF components. So users would 
+    JSF Flex goal is to provide users capability in creating Flex components as JSF components. So users would 
     create the components as normal JSF components and the contribution will create the necessary SWF files and 
     etcetera and link the values of the components back to the managed beans using JSON+Javascript and Actionscript.
     So all users would need is a Jar of the component library and they would be able to create Flex applications by 
@@ -83,23 +83,26 @@
       </dependency>
       
       <dependency>
-        <groupId>com.googlecode.jsf-flex.jsf-flex-framework-project</groupId>
-        <artifactId>jsf-flex-framework-core</artifactId>
-        <version>${jsf.flex.framework.core.version}</version>
-      </dependency>
-      
-      <dependency>
         <groupId>com.googlecode.jsf-flex.jsf-flex-shared-project</groupId>
         <artifactId>jsf-flex-shared</artifactId>
         <version>${jsf.flex.shared.version}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
+        <artifactId>jsf-flex</artifactId>
+        <version>${jsf.flex.version}</version>
       </dependency>
       
     </dependencies>
   </dependencyManagement>
   
   <modules>
+    <module>annotations</module>
     <module>core</module>
     <module>examples</module>
+    <module>renderKit14</module>
+    <module>renderKit15</module>
   </modules>
 
   <build>
@@ -129,29 +132,10 @@
   
   <profiles>
     <profile>
-      <id>myfaces-1.1</id>
-      <activation>
-        <property>
-          <name>!jsf</name>
-        </property>
-      </activation>
-      <properties>
-        <javax.servlet.jstl.version>1.1.2</javax.servlet.jstl.version>
-        <javax.servlet.jsp.api.version>2.0</javax.servlet.jsp.api.version>
-        <javax.servlet.api.version>2.3</javax.servlet.api.version>
-        <myfaces.version>1.1.5</myfaces.version>
-        <myfaces.shared.version>2.0.5</myfaces.shared.version>
-        <myfaces.tomahawk.version>1.1.5</myfaces.tomahawk.version>
-        <myfaces.tomahawk.sandbox.version>1.1.6</myfaces.tomahawk.sandbox.version>
-      </properties>
-    </profile>
-    
-    <profile>
       <id>myfaces-1.2</id>
       <activation>
         <property>
-          <name>jsf</name>
-          <value>12</value>
+          <name>!jsf</name>
         </property>
       </activation>
       <properties>
@@ -160,31 +144,20 @@
         <javax.servlet.api.version>2.5</javax.servlet.api.version>
         <myfaces.version>1.2.2</myfaces.version>
         <myfaces.shared.version>3.0.3</myfaces.shared.version>
-        <myfaces.tomahawk.version>1.1.7-SNAPSHOT</myfaces.tomahawk.version>
-        <myfaces.tomahawk.sandbox.version>1.1.7-SNAPSHOT</myfaces.tomahawk.sandbox.version>
+        <myfaces.tomahawk.version>1.1.6</myfaces.tomahawk.version>
+        <myfaces.tomahawk.sandbox.version>1.1.6</myfaces.tomahawk.sandbox.version>
       </properties>
     </profile>
     
     <profile>
-      <id>jsf_flex_framework_component-SNAPSHOT</id>
+      <id>jsf_flex_renderKit-SNAPSHOT</id>
       <activation>
         <property>
-          <name>!jsf_flex_framework_component</name>
+          <name>!jsf_flex_renderKit</name>
         </property>
       </activation>
       <properties>
-        <jsf.flex.framework.component.version>0.0.5-SNAPSHOT</jsf.flex.framework.component.version>
-      </properties>
-    </profile>
-    <profile>
-      <id>jsf_flex_framework.core-SNAPSHOT</id>
-      <activation>
-        <property>
-          <name>!jsf_flex_framework.core</name>
-        </property>
-      </activation>
-      <properties>
-        <jsf.flex.framework.core.version>0.0.5-SNAPSHOT</jsf.flex.framework.core.version>
+        <jsf.flex.renderKit.version>0.0.5-SNAPSHOT</jsf.flex.renderKit.version>
       </properties>
     </profile>
     <profile>
@@ -202,6 +175,8 @@
   </profiles>
   
   <properties>
+    <jsf.flex.version>0.0.5-SNAPSHOT</jsf.flex.version>
+    <jsf.flex.plugIn.version>0.0.5-SNAPSHOT</jsf.flex.plugIn.version>
     <myfaces.buildtools.version>1.0.1</myfaces.buildtools.version>
   </properties>
 
