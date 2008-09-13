@@ -7,7 +7,7 @@ This page will contain brief info regarding the maven projects of JSF Flex.
 
 
 ==jsf-flex-build-plugIn==
-A plug-in project that utilizes qdox open source project to inspect the java file’s documentations in order to generate replaceMapping XML for jsf-flex-framework/component14 project. Also it will generated componentValueMapper.xml and mxmlRenderKit.xml for jsf-flex-framework/core project by inspecting the javaDocs or annotations for component14 project or component15 project respectively. Currently there exists a Hack to always use component14 project, because qdox open source project has an issue when parsing Java files with annotations.
+A plug-in project that utilizes qdox open source project to inspect the {{{JavaDocs}}} in order to generate replaceMapping XML for jsf-flex/renderKit14 project. Also it will generate componentValueMapper.xml for jsf-flex-shared/core project by inspecting the {{{JavaDocs}}} or annotations for renderKit14 project or renderKit15 project respectively. Currently there exists a Hack to always use renderKit14 project, because qdox open source project has an issue when parsing Java files with annotations.
 
 
 ==jsf-flex/core==
@@ -15,35 +15,25 @@ Contains code pertinent to JSF components. Since the project uses myfaces plug-i
 
 
 ==jsf-flex/examples==
-A WAR project containing sample jsf pages for the project. One thing to note is that this WAR file contains many dependencies due to the project's dependency on {{{MyFaces}}} tomahawk and its sandbox project. So for example poi Jar file is not needed for the JSF Flex project and one of the consideration in the future is to break the dependency upon tomahawk project or at least provide a need to have jar files for using JSF Flex components. Below is an image of have to need basis of what I needed to run the JSF Flex project :
-
-http://jsf-flex.googlecode.com/svn/wiki/warMinimumJar.JPG
+A WAR project containing sample jsf pages for the project. One thing to note is that this WAR file contains many dependencies due to the project's dependency on {{{MyFaces}}} tomahawk and its sandbox project. So for example poi Jar file is not needed for the JSF Flex project and one of the consideration in the future is to break the dependency upon tomahawk project or at least provide a need to have jar files for using JSF Flex components. 
 
 ==jsf-flex-shared==
-A project containing shared resource for jsf-flex and jsf-flex-framework sub-projects. Its main reason of existence is to avoid cyclic dependency between the two projects by providing shared interfaces.
-
-
-==jsf-flex-framework/core==
-Contains the core code that is used by jsf-flex-framework/component14 and jsf-flex-framework/component15 projects.
-
+A project containing shared resource mainly for jsf-flex and jsf-flex/renderKit14 and jsf-flex/renderKit15.
 
 ==jsf-flex-framework/runnerImpl/commonTaskRunnerImpl==
-Contains projects that implement the {{{_CommonTaskRunner}}} interface used by jsf-flex-framework/core {i.e. sdkStandardCommonTaskRunnerImpl project}
-
+Contains projects that implement the {{{_CommonTaskRunner}}} interface used by jsf-flex-shared/core {i.e. sdkStandardCommonTaskRunnerImpl project}
 
 ==jsf-flex-framework/runnerImpl/fileManipulatorTaskRunnerImpl==
-Contains projects that extends the {{{_FileManipulatorTaskRunner}}} abstract class used by jsf-flex-framework/core {i.e. velocityFileManipulatorTaskRunnerImpl project}
-
+Contains projects that extends the {{{_FileManipulatorTaskRunner}}} abstract class used by jsf-flex-shared/core {i.e. velocityFileManipulatorTaskRunnerImpl project}
 
 ==jsf-flex-framework/runnerImpl/flexTaskRunnerImpl==
-Contains projects that implement the {{{_FlexTaskRunner}}} interface used by jsf-flex-framework/core {i.e. antFlexTaskRunnerImpl project}
+Contains projects that implement the {{{_FlexTaskRunner}}} interface used by jsf-flex-shared/core {i.e. antFlexTaskRunnerImpl project}
 
-
-==jsf-flex-framework/component14 JRE < 1.5==
-For component14, during the build time documentation for java files will be inspected by the JSF Flex plug-in and will generate replaceMapping XML files that will be parsed to check which fields to inspect and how to fetch these fields from the JSF component {by attribute map or by method invocation]. Contains an implementation of {{{_AnnotationDocletParser}}} interface used by jsf-flex-framework/core for fetching the fields from the JSF component, {{{AnnotationDocletParser14Impl}}} }
+==jsf-flex/renderKit14 JRE < 1.5==
+For renderKit14, during the build time documentation for java files will be inspected by the JSF Flex plug-in and will generate replaceMapping XML files that will be parsed to check which fields to inspect and how to fetch these fields from the JSF component {by attribute map or by method invocation]. Contains an implementation of {{{_AnnotationDocletParser}}} interface used by jsf-flex-shared/core for fetching the fields from the JSF component, {{{AnnotationDocletParser14Impl}}} }
 
 ==jsf-flex-framework/component15 JRE > 1.4==
-Since these components are suppose to be used for JRE >= 1.5, the attributes will be fetched during runtime through Java annotation and will not require JSF Flex plug-in during build time. Contains an implementation of {{{_AnnotationDocletParser}}} interface used by jsf-flex-framework/core for fetching the fields from the JSF component, {{{AnnotationDocletParser15Impl}}}.
+Since these components are suppose to be used for JRE >= 1.5, the attributes will be fetched during runtime through Java annotation and will not require JSF Flex plug-in during build time. Contains an implementation of {{{_AnnotationDocletParser}}} interface used by jsf-flex-shared/core for fetching the fields from the JSF component, {{{AnnotationDocletParser15Impl}}}.
 
-==jsf-flex-framework/annotations JRE > 1.4 ==
-This maven project contains the annotations from other maven projects, such as from jsf-flex-framework/component15 maven project. Main reason that the annotations have been separated out is to avoid cyclic dependency between various maven projects.
+==jsf-flex/annotations JRE > 1.4 ==
+This maven project contains the annotations from other maven projects, such as from jsf-flex/renderKit15 maven project.
