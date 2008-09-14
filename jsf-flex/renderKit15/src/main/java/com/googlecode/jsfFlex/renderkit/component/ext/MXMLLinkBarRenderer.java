@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLLinkBar"
 )
 @JsfFlexAttributeProperties(
-		componentName="LinkBar",
-		componentNodeAttributes={},
+		mxmlComponentName="LinkBar",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="rollOverColor", byMethod=false),
@@ -63,7 +63,7 @@ public final class MXMLLinkBarRenderer extends MXMLNavBarTemplateRenderer {
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLLinkBarRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLLinkBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLLinkBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

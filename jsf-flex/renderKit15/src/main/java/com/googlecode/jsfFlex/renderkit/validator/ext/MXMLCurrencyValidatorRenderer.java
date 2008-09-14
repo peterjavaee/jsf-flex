@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLCurrencyValidator"
 )
 @JsfFlexAttributeProperties(
-		componentName="CurrencyValidator",
-		componentNodeAttributes={},
+		mxmlComponentName="CurrencyValidator",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="alignSymbol", byMethod=false),
@@ -73,7 +73,7 @@ public final class MXMLCurrencyValidatorRenderer extends MXMLValidatorTemplateRe
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLCurrencyValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLCurrencyValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLCurrencyValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLTabBar"
 )
 @JsfFlexAttributeProperties(
-		componentName="TabBar",
-		componentNodeAttributes={},
+		mxmlComponentName="TabBar",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="firstTabStyleName", byMethod=false),
@@ -62,7 +62,7 @@ public final class MXMLTabBarRenderer extends MXMLToggleButtonBarTemplateRendere
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLTabBarRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLTabBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLTabBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

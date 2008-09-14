@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLNumberFormatter"
 )
 @JsfFlexAttributeProperties(
-		componentName="NumberFormatter",
-		componentNodeAttributes={},
+		mxmlComponentName="NumberFormatter",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="decimalSeparatorFrom", byMethod=false),
@@ -64,7 +64,7 @@ public final class MXMLNumberFormatterRenderer extends MXMLFormatterTemplateRend
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLNumberFormatterRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLNumberFormatterRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLNumberFormatterRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

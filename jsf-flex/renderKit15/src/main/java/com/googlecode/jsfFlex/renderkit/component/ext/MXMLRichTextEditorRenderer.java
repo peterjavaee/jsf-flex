@@ -25,9 +25,9 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
+import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.renderkit.component.MXMLPanelTemplateRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
@@ -41,11 +41,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLRichTextEditor"
 )
 @JsfFlexAttributeProperties(
-		componentName="RichTextEditor",
-		mxmlComponentPackage="mx.controls",
 		mxmlComponentName="RichTextEditor",
-		componentNodeAttributes={
-				@JsfFlexComponentNodeAttribute(
+		mxmlComponentPackage="mx.controls",
+		mxmlComponentNodeAttributes={
+				@FlexComponentNodeAttribute(
 						htmlType="INPUT",
 						typeAttributeValue="HIDDEN",
 						valueAttributeValue="text",
@@ -55,7 +54,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						nameAttributeValue="id",
 						isNameDynamic=true,
 						nameAppend="_text"),
-				@JsfFlexComponentNodeAttribute(
+				@FlexComponentNodeAttribute(
 						htmlType="INPUT",
 						typeAttributeValue="HIDDEN",
 						valueAttributeValue="htmlText",
@@ -84,7 +83,7 @@ public final class MXMLRichTextEditorRenderer extends MXMLPanelTemplateRenderer 
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLRichTextEditorRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLRichTextEditorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLRichTextEditorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

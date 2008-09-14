@@ -25,8 +25,8 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
+import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.renderkit.component.MXMLListTemplateRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
@@ -40,11 +40,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLList"
 )
 @JsfFlexAttributeProperties(
-		componentName="List",
-		mxmlComponentPackage="mx.controls",
 		mxmlComponentName="List",
-		componentNodeAttributes={
-				@JsfFlexComponentNodeAttribute(
+		mxmlComponentPackage="mx.controls",
+		mxmlComponentNodeAttributes={
+				@FlexComponentNodeAttribute(
 						htmlType="INPUT",
 						typeAttributeValue="HIDDEN",
 						valueAttributeValue="selectedIndex",
@@ -67,7 +66,7 @@ public final class MXMLListRenderer extends MXMLListTemplateRenderer {
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
-		writer.createPreMxml(writer, componentMXML, MXMLListRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), null);
+		writer.createPreMxml(writer, componentMXML, MXMLListRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), null);
 		
 	}
 

@@ -25,9 +25,9 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
+import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.renderkit.component.MXMLViewStackTemplateRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
@@ -41,11 +41,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLTabNavigator"
 )
 @JsfFlexAttributeProperties(
-		componentName="TabNavigator",
-		mxmlComponentPackage="mx.containers",
 		mxmlComponentName="TabNavigator",
-		componentNodeAttributes={
-				@JsfFlexComponentNodeAttribute(
+		mxmlComponentPackage="mx.containers",
+		mxmlComponentNodeAttributes={
+				@FlexComponentNodeAttribute(
 						htmlType="INPUT",
 						typeAttributeValue="HIDDEN",
 						valueAttributeValue="selectedIndex",
@@ -81,7 +80,7 @@ public final class MXMLTabNavigatorRenderer extends MXMLViewStackTemplateRendere
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLTabNavigatorRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLTabNavigatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLTabNavigatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

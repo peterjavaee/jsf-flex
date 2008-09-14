@@ -39,8 +39,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLBox"
 )
 @JsfFlexAttributeProperties(
-		componentName="Box",
-		componentNodeAttributes={},
+		mxmlComponentName="Box",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={}
 )
@@ -53,7 +53,7 @@ public final class MXMLBoxRenderer extends MXMLBoxTemplateRenderer {
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
-		writer.createPreMxml(writer, componentMXML, MXMLBoxRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLBoxRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

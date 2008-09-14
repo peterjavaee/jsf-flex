@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLTitleWindow"
 )
 @JsfFlexAttributeProperties(
-		componentName="TitleWindow",
-		componentNodeAttributes={},
+		mxmlComponentName="TitleWindow",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="showCloseButton", byMethod=false)
@@ -57,7 +57,7 @@ public final class MXMLTitleWindowRenderer extends MXMLPanelTemplateRenderer {
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLTitleWindowRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLTitleWindowRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLTitleWindowRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

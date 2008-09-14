@@ -53,11 +53,11 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 	paddingRight=false
  * 	change=false
  * 
- * @JsfFlexComponentValueClassInfo
- *  classPackage=mx.controls
- *  className=TextArea
+ * @FlexComponentValueClassInfo
+ *  mxmlComponentPackage=mx.controls
+ *  mxmlComponentName=TextArea
  *  
- * @JsfFlexComponentNodeAttribute
+ * @FlexComponentNodeAttribute
  *  htmlType=INPUT
  *  typeAttributeValue=HIDDEN
  *  valueAttributeValue=text
@@ -67,7 +67,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  nameDynamic=true
  *  nameAppend=_text
  * 
- * @JsfFlexComponentNodeAttribute
+ * @FlexComponentNodeAttribute
  *  htmlType=INPUT
  *  typeAttributeValue=HIDDEN
  *  valueAttributeValue=htmlText

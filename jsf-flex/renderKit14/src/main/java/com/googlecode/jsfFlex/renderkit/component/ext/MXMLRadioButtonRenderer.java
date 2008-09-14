@@ -37,11 +37,11 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 	groupName=true
  * 	value=true
  * 
- * @JsfFlexComponentValueClassInfo
- *  classPackage=mx.controls
- *  className=RadioButton
+ * @FlexComponentValueClassInfo
+ *  mxmlComponentPackage=mx.controls
+ *  mxmlComponentName=RadioButton
  *  
- * @JsfFlexComponentNodeAttribute
+ * @FlexComponentNodeAttribute
  *  htmlType=INPUT
  *  typeAttributeValue=HIDDEN
  *  valueDynamic=true
@@ -51,7 +51,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  nameDynamic=true
  *  nameAppend=_selectedValue
  * 
- * @JsfFlexComponentNodeAttribute
+ * @FlexComponentNodeAttribute
  *  htmlType=INPUT
  *  typeAttributeValue=HIDDEN
  *  valueAttributeValue=selected

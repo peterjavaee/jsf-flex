@@ -52,11 +52,11 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 	verticalGap=false
  * 	change=false
  * 
- * @JsfFlexComponentValueClassInfo
- *  classPackage=mx.containers
- *  className=Accordion
+ * @FlexComponentValueClassInfo
+ *  mxmlComponentPackage=mx.containers
+ *  mxmlComponentName=Accordion
  *  
- * @JsfFlexComponentNodeAttribute
+ * @FlexComponentNodeAttribute
  *  htmlType=INPUT
  *  typeAttributeValue=HIDDEN
  *  valueAttributeValue=selectedIndex

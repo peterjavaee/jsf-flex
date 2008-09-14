@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLImage"
 )
 @JsfFlexAttributeProperties(
-		componentName="Image",
-		componentNodeAttributes={},
+		mxmlComponentName="Image",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="dataChange", byMethod=false)
@@ -57,7 +57,7 @@ public final class MXMLImageRenderer extends MXMLSwfLoaderTemplateRenderer {
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLImageRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLImageRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLImageRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

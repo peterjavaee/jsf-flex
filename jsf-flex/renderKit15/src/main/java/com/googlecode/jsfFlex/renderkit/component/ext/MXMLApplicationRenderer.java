@@ -67,8 +67,8 @@ import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 		type="com.googlecode.jsfFlex.MXMLApplication"
 )
 @JsfFlexAttributeProperties(
-		componentName="Application",
-		componentNodeAttributes={},
+		mxmlComponentName="Application",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="controlBar", byMethod=false),
@@ -142,7 +142,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		String _bodyContent = writer.getComponentTemplate(MXMLApplicationRenderer.class.getClassLoader(), 
 									MXML_APPLICATION_BODY_TEMPLATE);
 		
-		writer.createPreMxml(writer, componentMXML, MXMLApplicationRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLApplicationRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				_bodyContent);
 		
 	}

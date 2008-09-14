@@ -39,11 +39,11 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 	showToolTips=false
  * 	change=false
  * 
- * @JsfFlexComponentValueClassInfo
- *  classPackage=mx.controls
- *  className=RichTextEditor
+ * @FlexComponentValueClassInfo
+ *  mxmlComponentPackage=mx.controls
+ *  mxmlComponentName=RichTextEditor
  *  
- * @JsfFlexComponentNodeAttribute
+ * @FlexComponentNodeAttribute
  *  htmlType=INPUT
  *  typeAttributeValue=HIDDEN
  *  valueAttributeValue=text
@@ -53,7 +53,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  nameDynamic=true
  *  nameAppend=_text
  * 
- * @JsfFlexComponentNodeAttribute
+ * @FlexComponentNodeAttribute
  *  htmlType=INPUT
  *  typeAttributeValue=HIDDEN
  *  valueAttributeValue=htmlText

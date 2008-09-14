@@ -25,9 +25,9 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
+import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.renderkit.component.MXMLContainerTemplateRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
@@ -41,11 +41,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLAccordion"
 )
 @JsfFlexAttributeProperties(
-		componentName="Accordion",
 		mxmlComponentPackage="mx.containers",
 		mxmlComponentName="Accordion",
-		componentNodeAttributes={
-				@JsfFlexComponentNodeAttribute(
+		mxmlComponentNodeAttributes={
+				@FlexComponentNodeAttribute(
 						htmlType="INPUT", 
 						typeAttributeValue="HIDDEN", 
 						valueAttributeValue="selectedIndex",
@@ -87,7 +86,7 @@ public final class MXMLAccordionRenderer extends MXMLContainerTemplateRenderer {
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLAccordionRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLAccordionRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLAccordionRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

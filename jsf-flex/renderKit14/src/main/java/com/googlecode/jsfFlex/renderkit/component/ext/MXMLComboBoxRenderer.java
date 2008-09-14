@@ -88,11 +88,11 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 	open=false
  * 	scroll=false
  * 
- * @JsfFlexComponentValueClassInfo
- *  classPackage=mx.controls
- *  className=ComboBox
+ * @FlexComponentValueClassInfo
+ *  mxmlComponentPackage=mx.controls
+ *  mxmlComponentName=ComboBox
  *  
- * @JsfFlexComponentNodeAttribute
+ * @FlexComponentNodeAttribute
  *  htmlType=INPUT
  *  typeAttributeValue=HIDDEN
  *  valueAttributeValue=text
@@ -102,7 +102,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  nameDynamic=true
  *  nameAppend=_text
  *  
- * @JsfFlexComponentNodeAttribute
+ * @FlexComponentNodeAttribute
  *  htmlType=INPUT
  *  typeAttributeValue=HIDDEN
  *  valueAttributeValue=selectedIndex

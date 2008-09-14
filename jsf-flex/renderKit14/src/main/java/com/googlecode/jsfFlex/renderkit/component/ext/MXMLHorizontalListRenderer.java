@@ -33,11 +33,11 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  family      = "javax.faces.MXMLInput"
  *  type        = "com.googlecode.jsfFlex.MXMLHorizontalList"
  * 
- * @JsfFlexComponentValueClassInfo
- *  classPackage=mx.controls
- *  className=HorizontalList
+ * @FlexComponentValueClassInfo
+ *  mxmlComponentPackage=mx.controls
+ *  mxmlComponentName=HorizontalList
  *  
- * @JsfFlexComponentNodeAttribute
+ * @FlexComponentNodeAttribute
  *  htmlType=INPUT
  *  typeAttributeValue=HIDDEN
  *  valueAttributeValue=selectedIndex

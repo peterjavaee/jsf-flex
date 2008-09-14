@@ -90,11 +90,11 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 	open=false
  * 	scroll=false
  * 
- * @JsfFlexComponentValueClassInfo
- *  classPackage=mx.controls
- *  className=DateField
+ * @FlexComponentValueClassInfo
+ *  mxmlComponentPackage=mx.controls
+ *  mxmlComponentName=DateField
  *  
- * @JsfFlexComponentNodeAttribute
+ * @FlexComponentNodeAttribute
  *  htmlType=INPUT
  *  typeAttributeValue=HIDDEN
  *  valueAttributeValue=text

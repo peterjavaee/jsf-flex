@@ -39,8 +39,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLButton"
 )
 @JsfFlexAttributeProperties(
-		componentName="Button",
-		componentNodeAttributes={},
+		mxmlComponentName="Button",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={}
 )
@@ -53,7 +53,7 @@ public final class MXMLButtonRenderer extends MXMLButtonTemplateRenderer {
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
-		writer.createPreMxml(writer, componentMXML, MXMLButtonRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLButtonRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

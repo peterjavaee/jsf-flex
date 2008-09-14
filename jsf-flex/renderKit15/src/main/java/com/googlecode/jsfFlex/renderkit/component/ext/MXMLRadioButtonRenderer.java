@@ -25,9 +25,9 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
+import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.renderkit.component.MXMLButtonTemplateRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
@@ -41,11 +41,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLRadioButton"
 )
 @JsfFlexAttributeProperties(
-		componentName="RadioButton",
-		mxmlComponentPackage="mx.controls",
 		mxmlComponentName="RadioButton",
-		componentNodeAttributes={
-				@JsfFlexComponentNodeAttribute(
+		mxmlComponentPackage="mx.controls",
+		mxmlComponentNodeAttributes={
+				@FlexComponentNodeAttribute(
 						htmlType="INPUT",
 						typeAttributeValue="HIDDEN",
 						isValueDynamic=true,
@@ -54,7 +53,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						nameAttributeValue="groupName",
 						isNameDynamic=true,
 						nameAppend="_selectedValue"),
-				@JsfFlexComponentNodeAttribute(
+				@FlexComponentNodeAttribute(
 						htmlType="INPUT",
 						typeAttributeValue="HIDDEN",
 						valueAttributeValue="selected",
@@ -81,7 +80,7 @@ public final class MXMLRadioButtonRenderer extends MXMLButtonTemplateRenderer {
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLRadioButtonRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLRadioButtonRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLRadioButtonRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

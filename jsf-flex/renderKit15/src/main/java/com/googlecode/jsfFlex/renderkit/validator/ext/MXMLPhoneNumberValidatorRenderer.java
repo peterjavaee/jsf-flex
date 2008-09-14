@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLPhoneNumberValidator"
 )
 @JsfFlexAttributeProperties(
-		componentName="PhoneNumberValidator",
-		componentNodeAttributes={},
+		mxmlComponentName="PhoneNumberValidator",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="allowedFormatChars", byMethod=false),
@@ -59,7 +59,7 @@ public final class MXMLPhoneNumberValidatorRenderer extends MXMLValidatorTemplat
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLPhoneNumberValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLPhoneNumberValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLPhoneNumberValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

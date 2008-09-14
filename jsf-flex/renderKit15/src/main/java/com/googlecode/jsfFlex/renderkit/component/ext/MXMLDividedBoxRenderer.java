@@ -39,8 +39,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLDividedBox"
 )
 @JsfFlexAttributeProperties(
-		componentName="DividedBox",
-		componentNodeAttributes={},
+		mxmlComponentName="DividedBox",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={}
 )
@@ -53,7 +53,7 @@ public final class MXMLDividedBoxRenderer extends MXMLDividedBoxTemplateRenderer
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
-		writer.createPreMxml(writer, componentMXML, MXMLDividedBoxRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLDividedBoxRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

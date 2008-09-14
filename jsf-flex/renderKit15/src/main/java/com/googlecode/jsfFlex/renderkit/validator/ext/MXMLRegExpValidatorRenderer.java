@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLRegExpValidator"
 )
 @JsfFlexAttributeProperties(
-		componentName="RegExpValidator",
-		componentNodeAttributes={},
+		mxmlComponentName="RegExpValidator",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="expression", byMethod=false),
@@ -60,7 +60,7 @@ public final class MXMLRegExpValidatorRenderer extends MXMLValidatorTemplateRend
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLRegExpValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLRegExpValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLRegExpValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

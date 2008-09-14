@@ -39,8 +39,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLControlBar"
 )
 @JsfFlexAttributeProperties(
-		componentName="ControlBar",
-		componentNodeAttributes={},
+		mxmlComponentName="ControlBar",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={}
 )
@@ -54,7 +54,7 @@ public final class MXMLControlBarRenderer extends MXMLBoxTemplateRenderer {
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLAccordionRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLControlBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLControlBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}
