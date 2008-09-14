@@ -30,7 +30,7 @@ Currently the project supports most of the Flex standard components with excepti
  * Firefox 2.0
  * IE 6.0
  * Opera 9.25
-on application server {{{TomCat}}} 5.5.
+on application server {{{TomCat}}} 6.0.
 
 ====TODO====
  * Complete testing on remaining OS, browsers, and application servers must be performed, so to support every type of user. 
@@ -40,7 +40,7 @@ on application server {{{TomCat}}} 5.5.
    ||Mac OS X||TODO||
    
    ||Application Server Tested||
-   ||{{{TomCat}}} 5.5||
+   ||{{{TomCat}}} 6.0||
    {For ALL}
  * {{{DataGrid}}} component must be implemented as a service. {Unassigned}
  * Possible nesting of mx:Application within h:form should be attempted. Currently it has been nested outside the form element due to failure of initial attempt in referencing the SWF file within the form element for IE browser. {Hazem Saleh}
