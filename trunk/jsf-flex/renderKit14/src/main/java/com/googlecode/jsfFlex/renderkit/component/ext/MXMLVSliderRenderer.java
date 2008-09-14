@@ -33,11 +33,11 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  family      = "javax.faces.MXMLInput"
  *  type        = "com.googlecode.jsfFlex.MXMLVSlider"
  * 
- * @JsfFlexComponentValueClassInfo
- *  classPackage=mx.controls
- *  className=VSlider
+ * @FlexComponentValueClassInfo
+ *  mxmlComponentPackage=mx.controls
+ *  mxmlComponentName=VSlider
  *  
- * @JsfFlexComponentNodeAttribute
+ * @FlexComponentNodeAttribute
  *  htmlType=INPUT
  *  typeAttributeValue=HIDDEN
  *  valueAttributeValue=value

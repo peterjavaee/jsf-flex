@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLPopUpMenuButton"
 )
 @JsfFlexAttributeProperties(
-		componentName="PopUpMenuButton",
-		componentNodeAttributes={},
+		mxmlComponentName="PopUpMenuButton",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="dataDescriptor", byMethod=false),
@@ -61,7 +61,7 @@ public final class MXMLPopUpMenuButtonRenderer extends MXMLPopUpButtonTemplateRe
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLPopUpMenuButtonRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLPopUpMenuButtonRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLPopUpMenuButtonRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

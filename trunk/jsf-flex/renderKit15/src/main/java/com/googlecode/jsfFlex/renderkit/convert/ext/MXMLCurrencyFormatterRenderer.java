@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLCurrencyFormatter"
 )
 @JsfFlexAttributeProperties(
-		componentName="CurrencyFormatter",
-		componentNodeAttributes={},
+		mxmlComponentName="CurrencyFormatter",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="alignSymbol", byMethod=false),
@@ -66,7 +66,7 @@ public final class MXMLCurrencyFormatterRenderer extends MXMLFormatterTemplateRe
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLCurrencyFormatterRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLCurrencyFormatterRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLCurrencyFormatterRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

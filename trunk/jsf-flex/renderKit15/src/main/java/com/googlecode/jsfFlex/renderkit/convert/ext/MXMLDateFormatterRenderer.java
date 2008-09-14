@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLDateFormatter"
 )
 @JsfFlexAttributeProperties(
-		componentName="DateFormatter",
-		componentNodeAttributes={},
+		mxmlComponentName="DateFormatter",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="formatString", byMethod=false)
@@ -57,7 +57,7 @@ public final class MXMLDateFormatterRenderer extends MXMLFormatterTemplateRender
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLDateFormatterRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLDateFormatterRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLDateFormatterRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

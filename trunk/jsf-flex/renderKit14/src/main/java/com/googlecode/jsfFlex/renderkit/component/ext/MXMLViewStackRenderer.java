@@ -33,11 +33,11 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  family      = "javax.faces.MXMLInput"
  *  type        = "com.googlecode.jsfFlex.MXMLViewStack"
  * 
- * @JsfFlexComponentValueClassInfo
- *  classPackage=mx.containers
- *  className=ViewStack
+ * @FlexComponentValueClassInfo
+ *  mxmlComponentPackage=mx.containers
+ *  mxmlComponentName=ViewStack
  *  
- * @JsfFlexComponentNodeAttribute
+ * @FlexComponentNodeAttribute
  *  htmlType=INPUT
  *  typeAttributeValue=HIDDEN
  *  valueAttributeValue=selectedIndex

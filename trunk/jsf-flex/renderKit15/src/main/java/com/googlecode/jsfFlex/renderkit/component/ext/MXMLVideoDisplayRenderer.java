@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLVideoDisplay"
 )
 @JsfFlexAttributeProperties(
-		componentName="VideoDisplay",
-		componentNodeAttributes={},
+		mxmlComponentName="VideoDisplay",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="autoBandWidthDetection", byMethod=false),
@@ -93,7 +93,7 @@ public final class MXMLVideoDisplayRenderer extends MXMLComponentBaseRenderer {
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLVideoDisplayRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLVideoDisplayRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLVideoDisplayRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

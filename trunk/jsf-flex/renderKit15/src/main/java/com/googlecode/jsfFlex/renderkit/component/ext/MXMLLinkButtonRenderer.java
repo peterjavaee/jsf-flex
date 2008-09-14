@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLLinkButton"
 )
 @JsfFlexAttributeProperties(
-		componentName="LinkButton",
-		componentNodeAttributes={},
+		mxmlComponentName="LinkButton",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="rollOverColor", byMethod=false),
@@ -58,7 +58,7 @@ public final class MXMLLinkButtonRenderer extends MXMLButtonTemplateRenderer {
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLLinkButtonRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLLinkButtonRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLLinkButtonRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

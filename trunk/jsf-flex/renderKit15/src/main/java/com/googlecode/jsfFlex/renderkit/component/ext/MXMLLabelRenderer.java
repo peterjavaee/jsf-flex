@@ -39,8 +39,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLLabel"
 )
 @JsfFlexAttributeProperties(
-		componentName="Label",
-		componentNodeAttributes={},
+		mxmlComponentName="Label",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={}
 )
@@ -53,7 +53,7 @@ public final class MXMLLabelRenderer extends MXMLLabelTemplateRenderer {
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
-		writer.createPreMxml(writer, componentMXML, MXMLLabelRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLLabelRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

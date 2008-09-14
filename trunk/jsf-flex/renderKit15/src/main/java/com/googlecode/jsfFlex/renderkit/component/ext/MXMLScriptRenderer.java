@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.beans.TokenValue;
 		type="com.googlecode.jsfFlex.MXMLScript"
 )
 @JsfFlexAttributeProperties(
-		componentName="Script",
-		componentNodeAttributes={},
+		mxmlComponentName="Script",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={}
 )
@@ -68,7 +68,7 @@ public final class MXMLScriptRenderer extends MXMLComponentBaseRenderer {
 		String _bodyContent = writer.getComponentTemplate(MXMLScriptRenderer.class.getClassLoader(), 
 				MXML_SCRIPT_BODY_TEMPLATE);
 
-		writer.createPreMxml(writer, componentMXML, MXMLScriptRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLScriptRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				_bodyContent);
 		
 	}

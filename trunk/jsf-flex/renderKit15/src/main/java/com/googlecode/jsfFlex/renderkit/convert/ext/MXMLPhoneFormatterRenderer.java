@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLPhoneFormatter"
 )
 @JsfFlexAttributeProperties(
-		componentName="PhoneFormatter",
-		componentNodeAttributes={},
+		mxmlComponentName="PhoneFormatter",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="areaCode", byMethod=false),
@@ -60,7 +60,7 @@ public final class MXMLPhoneFormatterRenderer extends MXMLFormatterTemplateRende
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLPhoneFormatterRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLPhoneFormatterRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLPhoneFormatterRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLMenuBar"
 )
 @JsfFlexAttributeProperties(
-		componentName="MenuBar",
-		componentNodeAttributes={},
+		mxmlComponentName="MenuBar",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="dataDescriptor", byMethod=false),
@@ -99,7 +99,7 @@ public final class MXMLMenuBarRenderer extends MXMLComponentBaseRenderer {
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLMenuBarRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLMenuBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLMenuBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

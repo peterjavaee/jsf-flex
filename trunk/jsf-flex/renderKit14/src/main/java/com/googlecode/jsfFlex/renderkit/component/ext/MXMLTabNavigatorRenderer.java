@@ -46,11 +46,11 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 	tabStyleName=false
  * 	tabWidth=false
  * 
- * @JsfFlexComponentValueClassInfo
- *  classPackage=mx.containers
- *  className=TabNavigator
+ * @FlexComponentValueClassInfo
+ *  mxmlComponentPackage=mx.containers
+ *  mxmlComponentName=TabNavigator
  *  
- * @JsfFlexComponentNodeAttribute
+ * @FlexComponentNodeAttribute
  *  htmlType=INPUT
  *  typeAttributeValue=HIDDEN
  *  valueAttributeValue=selectedIndex

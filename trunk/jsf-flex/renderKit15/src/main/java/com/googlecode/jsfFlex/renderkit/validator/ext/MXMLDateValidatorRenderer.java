@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLDateValidator"
 )
 @JsfFlexAttributeProperties(
-		componentName="DateValidator",
-		componentNodeAttributes={},
+		mxmlComponentName="DateValidator",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="allowedFormatChars", byMethod=false),
@@ -74,7 +74,7 @@ public final class MXMLDateValidatorRenderer extends MXMLValidatorTemplateRender
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLDateValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLDateValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLDateValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

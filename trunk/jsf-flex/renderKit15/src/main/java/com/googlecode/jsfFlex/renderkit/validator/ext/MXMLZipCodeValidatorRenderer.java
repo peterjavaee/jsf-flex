@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLZipCodeValidator"
 )
 @JsfFlexAttributeProperties(
-		componentName="ZipCodeValidator",
-		componentNodeAttributes={},
+		mxmlComponentName="ZipCodeValidator",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="allowedFormatChars", byMethod=false),
@@ -64,7 +64,7 @@ public final class MXMLZipCodeValidatorRenderer extends MXMLValidatorTemplateRen
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLZipCodeValidatorRenderer.class, componentObj, null);
 		writer.createPreMxml(writer, componentMXML, 
-				MXMLZipCodeValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+				MXMLZipCodeValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

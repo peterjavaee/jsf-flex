@@ -36,8 +36,8 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
 
+import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexComponentNodeAttribute;
 import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectListener;
 import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectorBase;
 import com.googlecode.jsfFlexPlugIn.inspector.qdox.JsfFlexQdoxInspector;
@@ -55,8 +55,8 @@ import com.thoughtworks.qdox.model.JavaClass;
 public class CreateComponentValueMapperXMLMojo extends AbstractMojo 
 											   implements _JsfFlexInspectListener, _JsfFlexParserListener {
 	
-	private static final String JSF_FLEX_COMPONENT_VALUE_CLASS_INFO_ATTRIBUTE = "JsfFlexComponentValueClassInfo";
-	private static final String JSF_FLEX_COMPONENT_NODE_ATTRIBUTE = "JsfFlexComponentNodeAttribute";
+	private static final String FLEX_COMPONENT_VALUE_CLASS_INFO_ATTRIBUTE = "FlexComponentValueClassInfo";
+	private static final String FLEX_COMPONENT_NODE_ATTRIBUTE = "FlexComponentNodeAttribute";
 	
 	private static final String JSF_FLEX_PROJECT = "jsf-flex";
 	private static final String JSF_FLEX_SHARED_PROJECT = "jsf-flex-shared";
@@ -70,8 +70,8 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
 	private static final String TO_CREATE_COMPONENT_VALUE_MAPPER_XML_FILE_NAME = "componentValueMapper.xml";
 	private static final String FILE_RESOURCE_LOADER_PATH_KEY = "file.resource.loader.path";
 	
-	private static final String MXML_CLASS_PACKAGE_KEY = "classPackage";
-	private static final String MXML_CLASS_NAME_KEY = "className";
+	private static final String MXML_COMPONENT_PACKAGE_KEY = "mxmlComponentPackage";
+	private static final String MXML_COMPONENT_NAME_KEY = "mxmlComponentName";
 	
 	private static final String HTML_TYPE_KEY = "htmlType";
 	private static final String TYPE_ATTRIBUTE_VALUE_KEY = "typeAttributeValue";
@@ -259,8 +259,8 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
 		_jsfFlexVelocityParser.addParserListener(this);
 		
 		if(targetComponentProject.equals(RENDERKIT_14_PROJECT_NAME)){
-			_jsfFlexInspector = new JsfFlexQdoxInspector(_currDirPath, JSF_FLEX_COMPONENT_VALUE_CLASS_INFO_ATTRIBUTE, 
-															JSF_FLEX_COMPONENT_NODE_ATTRIBUTE);
+			_jsfFlexInspector = new JsfFlexQdoxInspector(_currDirPath, FLEX_COMPONENT_VALUE_CLASS_INFO_ATTRIBUTE, 
+															FLEX_COMPONENT_NODE_ATTRIBUTE);
 		}else{
 			
 			_jsfFlexInspector = new _JsfFlexInspectorBase(_currDirPath){
@@ -303,13 +303,13 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
 							continue;
 						}
 						
-						_inspectedMap.put(MXML_CLASS_PACKAGE_KEY, _jsfFlexAttributeList.mxmlComponentPackage());
-						_inspectedMap.put(MXML_CLASS_NAME_KEY, _jsfFlexAttributeList.mxmlComponentName());
+						_inspectedMap.put(MXML_COMPONENT_PACKAGE_KEY, _jsfFlexAttributeList.mxmlComponentPackage());
+						_inspectedMap.put(MXML_COMPONENT_NAME_KEY, _jsfFlexAttributeList.mxmlComponentName());
 						
 						_inspectedList.add(_inspectedMap);
 						//have added Map info containing CLASS_* info
 						
-						for(JsfFlexComponentNodeAttribute _currComponentNodeInfo : _jsfFlexAttributeList.componentNodeAttributes()){
+						for(FlexComponentNodeAttribute _currComponentNodeInfo : _jsfFlexAttributeList.mxmlComponentNodeAttributes()){
 							_inspectedMap = new LinkedHashMap<String, String>();
 							
 							_inspectedMap.put(HTML_TYPE_KEY, _currComponentNodeInfo.htmlType());
@@ -366,8 +366,8 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
 			if(_inspected != null && _inspected.size() > 0){
 				
 				if(_currClassInfo == null){
-					String _classPackage = (String) _inspected.get(MXML_CLASS_PACKAGE_KEY);
-					String _className = (String) _inspected.get(MXML_CLASS_NAME_KEY);
+					String _classPackage = (String) _inspected.get(MXML_COMPONENT_PACKAGE_KEY);
+					String _className = (String) _inspected.get(MXML_COMPONENT_NAME_KEY);
 					
 					String _fullClassName = _classPackage + "::" + _className;
 					

@@ -32,7 +32,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
  * @author Ji Hoon Kim
  */
 @JsfFlexAttributeProperties(
-		componentNodeAttributes={},
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="error", byMethod=true)

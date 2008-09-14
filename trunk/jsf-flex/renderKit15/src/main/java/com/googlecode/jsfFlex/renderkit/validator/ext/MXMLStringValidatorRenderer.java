@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLStringValidator"
 )
 @JsfFlexAttributeProperties(
-		componentName="StringValidator",
-		componentNodeAttributes={},
+		mxmlComponentName="StringValidator",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="maxLength", byMethod=false),
@@ -60,7 +60,7 @@ public final class MXMLStringValidatorRenderer extends MXMLValidatorTemplateRend
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLStringValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLStringValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLStringValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

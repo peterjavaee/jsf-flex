@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLHScrollBar"
 )
 @JsfFlexAttributeProperties(
-		componentName="HScrollBar",
-		componentNodeAttributes={},
+		mxmlComponentName="HScrollBar",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="repeatDelay", byMethod=false),
@@ -59,7 +59,7 @@ public final class MXMLHScrollBarRenderer extends MXMLScrollBarTemplateRenderer 
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLHScrollBarRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLHScrollBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLHScrollBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

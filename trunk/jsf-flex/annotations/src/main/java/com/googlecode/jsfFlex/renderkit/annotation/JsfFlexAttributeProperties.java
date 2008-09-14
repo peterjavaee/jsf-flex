@@ -34,12 +34,10 @@ public @interface JsfFlexAttributeProperties {
 	
 	JsfFlexAttribute[] jsfFlexAttributes();
 	
-	JsfFlexComponentNodeAttribute[] componentNodeAttributes();
+	FlexComponentNodeAttribute[] mxmlComponentNodeAttributes();
 	
 	String mxmlComponentPackage() default "";
 	
 	String mxmlComponentName() default "";
-	
-	String componentName() default "";
 	
 }

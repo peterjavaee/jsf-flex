@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLEmailValidator"
 )
 @JsfFlexAttributeProperties(
-		componentName="EmailValidator",
-		componentNodeAttributes={},
+		mxmlComponentName="EmailValidator",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="invalidCharError", byMethod=false),
@@ -64,7 +64,7 @@ public final class MXMLEmailValidatorRenderer extends MXMLValidatorTemplateRende
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLEmailValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLEmailValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLEmailValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

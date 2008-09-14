@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.context.MxmlContext;
  * @author Ji Hoon Kim
  */
 @JsfFlexAttributeProperties(
-		componentNodeAttributes={},
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="id", byMethod=true),

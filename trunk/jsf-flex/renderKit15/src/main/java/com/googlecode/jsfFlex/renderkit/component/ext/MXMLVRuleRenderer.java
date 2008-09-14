@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		type="com.googlecode.jsfFlex.MXMLVRule"
 )
 @JsfFlexAttributeProperties(
-		componentName="VRule",
-		componentNodeAttributes={},
+		mxmlComponentName="VRule",
+		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="strokeColor", byMethod=true),
@@ -59,7 +59,7 @@ public final class MXMLVRuleRenderer extends MXMLComponentBaseRenderer {
 		
 		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
 		writer.mapFields(MXMLVRuleRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLVRuleRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(writer, componentMXML, MXMLVRuleRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}
