@@ -1,7 +1,6 @@
 <%@ page session="false" contentType="text/html;charset=utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
-<%@ taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
 <%@ taglib uri="http://jsf-flex.googlecode.com" prefix="jf"%>
 
 <html>
@@ -43,11 +42,11 @@
         
     </h:form>
 	
-	<jf:mxmlApplication mode="debugMode" mxmlPackageName="anotherSwf" height="5%" width="85%" verticalScrollPolicy="off">
+	<jf:mxmlApplication mxmlPackageName="anotherSwf" height="5%" width="85%" verticalScrollPolicy="off">
     	<jf:mxmlLabel text="I simply am an another SWF file. DHan, DHAn, DHAN!!!" color="#FFFFFF" fontWeight="bold"/>
     </jf:mxmlApplication>
     
-    <jf:mxmlApplication mode="debugMode" mxmlPackageName="initialPackage" height="85%" width="85%">
+    <jf:mxmlApplication mxmlPackageName="initialPackage" height="85%" width="85%">
         <jf:mxmlScript>
         	import flash.events.Event;
         	

@@ -150,7 +150,7 @@ com.googlecode.jsfFlex.communication = {
 	
 	function pageLoad(){
 		for(var i=0; i < document.forms.length; i++){
-			dojo.event.connect(document.forms[i], "onsubmit", pageUnload);
+			dojo.connect(document.forms[i], "onsubmit", pageUnload);
 		}
 	}
 	

@@ -27,13 +27,13 @@
         <artifactId>myfaces-api</artifactId>
         <version>${myfaces.version}</version>
       </dependency>
-  
+      
       <dependency>
         <groupId>org.apache.myfaces.core</groupId>
         <artifactId>myfaces-impl</artifactId>
         <version>${myfaces.version}</version>
       </dependency>
-  
+      
       <dependency>
         <groupId>org.apache.myfaces.shared</groupId>
         <artifactId>myfaces-shared-impl</artifactId>
@@ -44,18 +44,6 @@
         <groupId>org.apache.myfaces.buildtools</groupId>
         <artifactId>myfaces-builder-plugin</artifactId>
         <version>${myfaces.buildtools.version}</version>
-      </dependency>
-      
-      <dependency>
-        <groupId>org.apache.myfaces.tomahawk</groupId>
-        <artifactId>tomahawk</artifactId>
-        <version>${myfaces.tomahawk.version}</version>
-      </dependency>
-      
-      <dependency>
-        <groupId>org.apache.myfaces.tomahawk</groupId>
-        <artifactId>tomahawk-sandbox</artifactId>
-        <version>${myfaces.tomahawk.sandbox.version}</version>
       </dependency>
       
       <dependency>
@@ -144,8 +132,6 @@
         <javax.servlet.api.version>2.5</javax.servlet.api.version>
         <myfaces.version>1.2.2</myfaces.version>
         <myfaces.shared.version>3.0.3</myfaces.shared.version>
-        <myfaces.tomahawk.version>1.1.6</myfaces.tomahawk.version>
-        <myfaces.tomahawk.sandbox.version>1.1.6</myfaces.tomahawk.sandbox.version>
       </properties>
     </profile>
     

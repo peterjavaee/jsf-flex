@@ -25,11 +25,6 @@ import java.util.Map;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 
-import org.apache.myfaces.custom.dojo.DojoConfig;
-import org.apache.myfaces.custom.dojo.DojoUtils;
-import org.apache.myfaces.renderkit.html.util.AddResource;
-import org.apache.myfaces.renderkit.html.util.AddResourceFactory;
-
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
@@ -63,7 +58,7 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttributes;
 import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
-import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexResourceHandler;
+import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexDojoResource;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.shared.context.MxmlContextImpl;
@@ -241,16 +236,14 @@ public abstract class AbstractMXMLUIApplication
 	private static final String MX_DEFAULT_XMLNS = "http://www.adobe.com/2006/mxml";
     private static final String INITIALIZE_CALL = "initializeApp(event);";
 	
+    private static final String CONFIG_MODE_NAME = "com.googlecode.jsfFlex.MODE";
+    
     private _AnnotationDocletParser _annotationDocletParserInstance;
     
 	private String _applicationPath;
 	private String _externalLibraryPath;
 	private String _runtimeSharedLibraries;
 	private boolean _accessible;
-	
-	private Boolean _debugMode;
-	private Boolean _simplySwfMode;
-	private Boolean _productionMode;
 	
 	public Map getComponentValues(){
 		return null;
@@ -269,8 +262,22 @@ public abstract class AbstractMXMLUIApplication
 		
 		MxmlContext mxmlContext = new MxmlContextImpl(getMxmlPackageName());
 		
-		mxmlContext.setProductionEnv(isProductionMode());
-		mxmlContext.setSimplySWF(isSimplySWFMode());
+		Object mode = context.getExternalContext().getInitParameter(CONFIG_MODE_NAME);
+		
+		boolean isDebug = false;
+		boolean isSimplySwf = false;
+		boolean isProduction = false;
+		
+		if(mode != null){
+			
+			isDebug = mode.toString().equals("debugMode");
+			isSimplySwf = mode.toString().equals("simplySwfMode");
+			isProduction = mode.toString().equals("productionMode");
+			
+		}
+		
+		mxmlContext.setProductionEnv(isProduction);
+		mxmlContext.setSimplySWF(isSimplySwf);
 		
 		String swfWebPath = MXMLConstants.SWF_DIRECTORY_NAME + "/" + getMxmlPackageName() + "/";
 		mxmlContext.setSwfWebPath(swfWebPath);
@@ -281,7 +288,7 @@ public abstract class AbstractMXMLUIApplication
 		getAttributes().put(INITIALIZE_ATTR, _init);
 		
 		//to reflect the correct state when debugging
-		if(isProductionMode()){
+		if(isProduction){
 			//do not need to create preMXML, MXML, and SWF files
 			
 		}else{
@@ -313,7 +320,7 @@ public abstract class AbstractMXMLUIApplication
 			mxmlContext.setSwfBasePath(swfBasePath);
 			mxmlContext.setSwcPath(swcPath);
 			
-			if(isSimplySWFMode()){
+			if(isSimplySwf){
 				//do not need to create preMXML files
 				
 			}else{
@@ -333,13 +340,10 @@ public abstract class AbstractMXMLUIApplication
 	
 	public void encodeEnd(FacesContext context) throws IOException {
 		
-		DojoConfig currentConfig = DojoUtils.getDjConfigInstance(context);
-		DojoUtils.addMainInclude(context, this, null, currentConfig);
+		JsfFlexDojoResource _jsfFlexDojoResource = JsfFlexDojoResource.getDojoInstance();
+		_jsfFlexDojoResource.addResource(getClass(), MXMLConstants.JSF_FLEX_COMMUNICATOR_JS);
+		_jsfFlexDojoResource.addDojoMain();
 		
-		AddResource addResource = AddResourceFactory.getInstance(context);
-		addResource.addJavaScriptAtPosition(context, AddResource.HEADER_BEGIN, new JsfFlexResourceHandler(
-												getClass(), 
-												MXMLConstants.JSF_FLEX_COMMUNICATOR_JS));
 		super.encodeEnd(context);
 	}
 	
@@ -354,25 +358,7 @@ public abstract class AbstractMXMLUIApplication
 		return _annotationDocletParserInstance;
 	}
 	
-	public boolean isDebugMode() {
-		if(_debugMode == null){
-			_debugMode = getMode().equals("debugMode") ? Boolean.TRUE : Boolean.FALSE;
-		}
-    	return _debugMode.booleanValue();
-    }
-    public boolean isProductionMode() {
-    	if(_productionMode == null){
-    		_productionMode = getMode().equals("productionMode") ? Boolean.TRUE : Boolean.FALSE;
-    	}
-        return _productionMode.booleanValue();
-    }
-    public boolean isSimplySWFMode() {
-    	if(_simplySwfMode == null){
-    		_simplySwfMode = getMode().equals("simplySwfMode") ? Boolean.TRUE : Boolean.FALSE;
-    	}
-        return _simplySwfMode.booleanValue();
-    }
-    public String getApplicationPath() {
+	public String getApplicationPath() {
 		return _applicationPath;
 	}
 	public void setApplicationPath(String applicationPath) {
@@ -407,16 +393,6 @@ public abstract class AbstractMXMLUIApplication
 	 *    desc            = "The mxmlPackageName for the application."
 	 */
 	public abstract String getMxmlPackageName();
-
-	/**
-	 * This value can be of debugMode, productionMode [default], and simplySWF mode. Depending on the value, different action will be taken for the creation of preMxml, Mxml,and SWF files.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "This value can be of debugMode, productionMode [default], and simplySWF mode. Depending on the value, different action will be taken for the creation of preMxml, Mxml,and SWF files."
-	 */
-	public abstract String getMode();
 
 	/**
 	 * This value will be passed to the mxmlc compiler when creating a SWF. It must be an absolutePath to a filesystem where additional ActionScript and MXML files that areneeded for the current SWF generation are located at. There can be multiple valuesseparated with a space.
