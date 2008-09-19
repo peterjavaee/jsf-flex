@@ -27,7 +27,7 @@ import java.util.TreeMap;
 import com.googlecode.jsfFlex.shared.tasks._CommonTaskRunner;
 import com.googlecode.jsfFlex.shared.tasks._FileManipulatorTaskRunner;
 import com.googlecode.jsfFlex.shared.tasks._FlexTaskRunner;
-import com.googlecode.jsfFlex.shared.tasks.factory._RunnerFactory;
+import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
 
 /**
  * An implementation of MxmlContext which will instantiate and store all the needed data structures<br>

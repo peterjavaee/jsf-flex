@@ -39,7 +39,7 @@ import com.googlecode.jsfFlex.shared.tasks.task.velocity.EvaluateTemplateTask;
  * 
  * @author Ji Hoon Kim
  */
-public final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulatorTaskRunner {
+final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulatorTaskRunner {
 	
 	private final static String JSF_FLEX_LOG_TAG = "jsf-flex";
 	private final static String JSF_FLEX_TEMPLATE = "jsf-flex-template.vm";
@@ -53,7 +53,7 @@ public final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulato
 	private final static String MXML_OBJECT_SET_TEMP_FILE_NAME = "mxmlObjectSetTempFile.tmp";
 	private final static String MXML_OBJECT_SET_TOKEN = "mxmlObjectSet";
 	
-	public VelocityFileManipulatorTaskRunnerImpl(){
+	VelocityFileManipulatorTaskRunnerImpl(){
 		super();
 	}
 	

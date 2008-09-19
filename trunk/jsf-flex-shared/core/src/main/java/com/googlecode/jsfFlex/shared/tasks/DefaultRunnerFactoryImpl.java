@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.shared.tasks.factory;
+package com.googlecode.jsfFlex.shared.tasks;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -28,7 +28,7 @@ import java.util.Properties;
  * 
  * @author Ji Hoon Kim
  */
-public final class DefaultRunnerFactoryImpl extends _RunnerFactory {
+final class DefaultRunnerFactoryImpl extends _RunnerFactory {
 	
 	private static final String DEFAULT_IMPLEMENTATION_PROPERTIES = "defaultImplementation.properties";
 	

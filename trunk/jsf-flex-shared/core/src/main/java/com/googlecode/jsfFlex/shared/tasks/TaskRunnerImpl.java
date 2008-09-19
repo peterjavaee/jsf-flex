@@ -33,16 +33,16 @@ import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
  * 
  * @author Ji Hoon Kim
  */
-public class TaskRunnerImpl implements _TaskRunner {
+class TaskRunnerImpl implements _TaskRunner {
 	
 	private List _tasks;
 	
-	public TaskRunnerImpl(){
+	TaskRunnerImpl(){
 		super();
 		_tasks = new LinkedList();
 	}
 	
-	public TaskRunnerImpl(LinkedList tasks){
+	TaskRunnerImpl(LinkedList tasks){
 		_tasks.addAll(tasks);
 	}
 
