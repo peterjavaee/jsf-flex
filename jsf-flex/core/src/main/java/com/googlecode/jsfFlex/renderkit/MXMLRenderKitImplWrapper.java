@@ -33,13 +33,12 @@ import javax.faces.render.Renderer;
  */
 public class MXMLRenderKitImplWrapper extends MXMLRenderKitImpl {
 	
-	private List _additionalRenderKits;
+	private final List _additionalRenderKits;
 	
 	public MXMLRenderKitImplWrapper(){
 		super();
 		_additionalRenderKits = new LinkedList();
 	}
-	
 	
 	public Renderer getRenderer(String family, String rendererType) {
 		Renderer _renderer = super.getRenderer(family, rendererType);

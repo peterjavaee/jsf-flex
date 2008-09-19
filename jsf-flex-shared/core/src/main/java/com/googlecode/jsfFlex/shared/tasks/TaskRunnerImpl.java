@@ -35,7 +35,7 @@ import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
  */
 class TaskRunnerImpl implements _TaskRunner {
 	
-	private List _tasks;
+	private final List _tasks;
 	
 	TaskRunnerImpl(){
 		super();
@@ -43,6 +43,7 @@ class TaskRunnerImpl implements _TaskRunner {
 	}
 	
 	TaskRunnerImpl(LinkedList tasks){
+		_tasks = new LinkedList();
 		_tasks.addAll(tasks);
 	}
 

@@ -19,9 +19,6 @@
 package com.googlecode.jsfFlex.shared.adapter;
 
 /**
- * Technically it is not an adapter, but since it bridges jsfFlex and jsfFlexFramework project
- * without a cyclic dependency I thought to call it an adapter.
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLApplicationContract extends _MXMLContract {

@@ -40,10 +40,10 @@ public class JsfFlexVelocityParser {
 	
 	private final static Log _log = LogFactory.getLog(JsfFlexVelocityParser.class);
 	
-	private List<_JsfFlexParserListener> _jsfFlexVelocityParserListeners;
-	private VelocityEngine _velocityEngine;
-	private VelocityContext _context;
-	private Properties _initProperties;
+	private final List<_JsfFlexParserListener> _jsfFlexVelocityParserListeners;
+	private final VelocityEngine _velocityEngine;
+	private final VelocityContext _context;
+	private final Properties _initProperties;
 	
 	public JsfFlexVelocityParser(){
 		super();

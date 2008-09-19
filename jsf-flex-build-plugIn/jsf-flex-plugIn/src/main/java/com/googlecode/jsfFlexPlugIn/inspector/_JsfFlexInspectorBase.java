@@ -27,11 +27,12 @@ import java.util.Map;
  */
 public abstract class _JsfFlexInspectorBase {
 	
-	private String _dirPath;
-	private List<_JsfFlexInspectListener> _jsfFlexInspectListeners;
+	private final String _dirPath;
+	private final List<_JsfFlexInspectListener> _jsfFlexInspectListeners;
 	
 	public _JsfFlexInspectorBase(){
 		super();
+		_dirPath = null;
 	}
 	
 	public _JsfFlexInspectorBase(String dirPath){
