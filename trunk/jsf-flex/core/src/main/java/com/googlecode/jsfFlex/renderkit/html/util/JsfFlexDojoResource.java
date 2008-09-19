@@ -62,7 +62,7 @@ public abstract class JsfFlexDojoResource extends JsfFlexResource {
 		}
 	}
 	
-	private JsfFlexDojoResource(){
+	JsfFlexDojoResource(){
 		super();
 	}
 	

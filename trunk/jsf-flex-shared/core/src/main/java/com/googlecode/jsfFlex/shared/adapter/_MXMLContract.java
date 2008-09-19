@@ -23,9 +23,6 @@ import java.util.Map;
 import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
 
 /**
- * Technically it is not an adapter, but since it bridges jsfFlex and jsfFlexFramework project
- * without a cyclic dependency I thought to call it an adapter.
- * 
  * @author Ji Hoon Kim
  */
 public interface _MXMLContract {

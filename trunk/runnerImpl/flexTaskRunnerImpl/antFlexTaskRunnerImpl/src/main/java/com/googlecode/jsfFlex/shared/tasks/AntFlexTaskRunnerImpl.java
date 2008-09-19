@@ -48,7 +48,7 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 	
 	private final static Log _log = LogFactory.getLog(AntFlexTaskRunnerImpl.class);
 	
-	public AntFlexTaskRunnerImpl(){
+	AntFlexTaskRunnerImpl(){
 		super();
 	}
 	

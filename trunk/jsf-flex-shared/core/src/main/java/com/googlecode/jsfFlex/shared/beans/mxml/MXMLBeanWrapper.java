@@ -21,7 +21,7 @@ package com.googlecode.jsfFlex.shared.beans.mxml;
 /**
  * @author Ji Hoon Kim
  */
-public class MXMLBeanWrapper {
+public final class MXMLBeanWrapper {
 	
 	private final String _mxmlBeanId;
 	private final _MXMLBean _mxmlBean;

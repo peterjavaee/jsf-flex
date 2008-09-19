@@ -52,7 +52,7 @@ import com.thoughtworks.qdox.model.JavaClass;
  * @phase   generate-resources
  * @author Ji Hoon Kim
  */
-public class CreateComponentValueMapperXMLMojo extends AbstractMojo 
+public final class CreateComponentValueMapperXMLMojo extends AbstractMojo 
 											   implements _JsfFlexInspectListener, _JsfFlexParserListener {
 	
 	private static final String FLEX_COMPONENT_VALUE_CLASS_INFO_ATTRIBUTE = "FlexComponentValueClassInfo";
@@ -108,7 +108,7 @@ public class CreateComponentValueMapperXMLMojo extends AbstractMojo
      */
     private File templateSourceDirectory;
     
-    private Set<ClassInfo> _classInfoSet;
+    private final Set<ClassInfo> _classInfoSet;
 	
     public CreateComponentValueMapperXMLMojo(){
     	super();

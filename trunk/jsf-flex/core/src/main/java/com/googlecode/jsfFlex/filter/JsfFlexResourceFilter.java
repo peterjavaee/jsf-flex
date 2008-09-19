@@ -54,7 +54,7 @@ public final class JsfFlexResourceFilter implements Filter {
 	
 	private static final Log _log = LogFactory.getLog(JsfFlexResourceFilter.class);
 	
-	private final static String ENCODING = "UTF-8";
+	private static final String ENCODING = "UTF-8";
 	
 	private static final String HEAD_SEARCH_PATTERN = "<head";
 	private static final String BODY_SEARCH_PATTERN = "<body";
@@ -100,7 +100,7 @@ public final class JsfFlexResourceFilter implements Filter {
 		
 		jsfFlexResponseWrapper.finishResponse();
 		
-		/** Finished with the usual path of request/response. Now specific for Jsf Flex*/
+		/** Finished with the usual path of request/response. Now specific for JSF Flex*/
 		
 		Collection resourceCollection = jsfFlexResource.getResources();
 		
@@ -109,25 +109,25 @@ public final class JsfFlexResourceFilter implements Filter {
 			Matcher headMatcher = _headPattern.matcher( jsfFlexResponseWrapper.toString() );
 			boolean headMatchedBoolean = headMatcher.find();
 			
-			StringBuffer toFlush = new StringBuffer();
+			PrintWriter actualWriter = httpResponse.getWriter();
 			
 			if(headMatchedBoolean){
 				int headMatchIndex = headMatcher.start();
 				
-				toFlush.append( jsfFlexResponseWrapper.toString().substring(0, headMatchIndex+5) );
+				actualWriter.write( jsfFlexResponseWrapper.toString().substring(0, headMatchIndex+5) );
 				
 				Matcher endTagCharMatcher = _endTagCharPattern.matcher( jsfFlexResponseWrapper.toString() );
 				endTagCharMatcher.find(headMatchIndex);
 				
 				int endTagCharIndex = endTagCharMatcher.start();
 				
-				toFlush.append( jsfFlexResponseWrapper.toString().substring(headMatchIndex+5, endTagCharIndex+1) );
+				actualWriter.write( jsfFlexResponseWrapper.toString().substring(headMatchIndex+5, endTagCharIndex+1) );
 				
 				String resourceConvertedToScriptElements = constructResourceToScriptTags(resourceCollection, requestURISplitted);
 				
-				toFlush.append(resourceConvertedToScriptElements);
+				actualWriter.write(resourceConvertedToScriptElements);
 				
-				toFlush.append(jsfFlexResponseWrapper.toString().substring(endTagCharIndex+1));
+				actualWriter.write(jsfFlexResponseWrapper.toString().substring(endTagCharIndex+1));
 				
 			}else{
 				
@@ -136,22 +136,20 @@ public final class JsfFlexResourceFilter implements Filter {
 				
 				int bodyMatchIndex = bodyMatcher.start();
 				
-				toFlush.append( jsfFlexResponseWrapper.toString().substring(0, bodyMatchIndex) );
+				actualWriter.write( jsfFlexResponseWrapper.toString().substring(0, bodyMatchIndex) );
 				
-				toFlush.append(HEAD_START_TAG);
+				actualWriter.write(HEAD_START_TAG);
 				
 				String resourceConvertedToScriptElements = constructResourceToScriptTags(resourceCollection, requestURISplitted);
 				
-				toFlush.append(resourceConvertedToScriptElements);
+				actualWriter.write(resourceConvertedToScriptElements);
 				
-				toFlush.append(HEAD_END_TAG);
+				actualWriter.write(HEAD_END_TAG);
 				
-				toFlush.append( jsfFlexResponseWrapper.toString().substring(bodyMatchIndex));
+				actualWriter.write( jsfFlexResponseWrapper.toString().substring(bodyMatchIndex) );
 				
 			}
 			
-			PrintWriter actualWriter = httpResponse.getWriter();
-			actualWriter.write(toFlush.toString());
 			actualWriter.flush();
 		}
 		

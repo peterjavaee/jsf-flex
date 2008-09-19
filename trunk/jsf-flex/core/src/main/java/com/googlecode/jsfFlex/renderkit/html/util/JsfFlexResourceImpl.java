@@ -40,13 +40,13 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 /**
  * @author Ji Hoon Kim
  */
-final class JsfFlexResourceImpl extends JsfFlexResource {
+class JsfFlexResourceImpl extends JsfFlexResource {
 	
 	private static final Log _log = LogFactory.getLog(JsfFlexResourceImpl.class);
 	
 	private static final String RESOURCE_DIRECTORY_NAME = "resource";
 	
-	private Set _resourceSet;
+	private final Set _resourceSet;
 	
 	JsfFlexResourceImpl(){
 		super();
@@ -114,12 +114,10 @@ final class JsfFlexResourceImpl extends JsfFlexResource {
 			
 			char[] charBuffer = new char[2048];
 			int offSet = 0;
-			StringBuffer fileContent = new StringBuffer();
 			while((offSet = reader.read(charBuffer, 0, 2048)) > -1){
-				fileContent.append(charBuffer, 0, offSet);
+				responseWriter.write(charBuffer, 0, offSet);
 			}
 			
-			responseWriter.write(fileContent.toString());
 			responseWriter.flush();
 		}catch(IOException ioException){
 			_log.debug("IOException while writing the script's content to PrintWriter of HttpServletResponse", ioException);

@@ -40,14 +40,14 @@ import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
 /**
  * @author Ji Hoon Kim
  */
-public class MXMLRenderKitImpl extends RenderKit {
+class MXMLRenderKitImpl extends RenderKit {
 	
 	private static final Log _log = LogFactory.getLog(MXMLRenderKitImpl.class);
 	
 	private Map _renderers;
 	private ResponseStateManager _responseStateManager;
 	
-	public MXMLRenderKitImpl(){
+	MXMLRenderKitImpl(){
 		super();
 		_renderers = new HashMap();
 		_responseStateManager = new MXMLResponseStateManager();

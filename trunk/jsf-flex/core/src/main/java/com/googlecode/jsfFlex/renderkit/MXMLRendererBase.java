@@ -80,7 +80,7 @@ public class MXMLRendererBase extends Renderer {
 		
 	}
 	
-	private class MXMLRendererBaseHelper{
+	private final class MXMLRendererBaseHelper{
 		
 		private final static String DATA_PROVIDER_BEAN_SUFFIX = "MxmlBean";
 		private final static String DATA_PROVIDER_COLLECTION_ATTR = "dataProviderCollection";

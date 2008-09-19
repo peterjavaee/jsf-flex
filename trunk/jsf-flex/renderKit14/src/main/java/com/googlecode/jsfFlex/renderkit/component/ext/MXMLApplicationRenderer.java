@@ -98,7 +98,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 	
 	private static final String MXML_COMPONENT_NAME = "Application";
 	
-	private MXMLApplicationHTMLRenderer _mxmlApplicationHtmlRenderer;
+	private final MXMLApplicationHTMLRenderer _mxmlApplicationHtmlRenderer;
 	
 	{
 		_mxmlApplicationHtmlRenderer = new MXMLApplicationHTMLRenderer();
@@ -206,7 +206,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		
 	}
 	
-	private class MXMLApplicationHTMLRenderer {
+	private final class MXMLApplicationHTMLRenderer {
 		
 		private static final String APP_ID = "appId";
 		private static final String ARRAY_OF_IDS = "arrayOfIds";
