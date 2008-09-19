@@ -24,7 +24,7 @@ import java.util.Set;
 import com.googlecode.jsfFlex.shared.tasks._CommonTaskRunner;
 import com.googlecode.jsfFlex.shared.tasks._FileManipulatorTaskRunner;
 import com.googlecode.jsfFlex.shared.tasks._FlexTaskRunner;
-import com.googlecode.jsfFlex.shared.tasks.factory._RunnerFactory;
+import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
 
 /**
  * An abstract class providing the needed methods of its implementation.<br>

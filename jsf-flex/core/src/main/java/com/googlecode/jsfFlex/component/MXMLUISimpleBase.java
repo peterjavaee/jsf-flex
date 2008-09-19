@@ -25,7 +25,7 @@ import javax.faces.component.UIComponentBase;
 import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
-import com.googlecode.jsfFlex.shared.tasks.factory._RunnerFactory;
+import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
 
 /**
  * This component should be used as the base action of the component if the component<br>

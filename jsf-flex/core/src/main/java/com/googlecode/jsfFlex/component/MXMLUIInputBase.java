@@ -29,7 +29,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
-import com.googlecode.jsfFlex.shared.tasks.factory._RunnerFactory;
+import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
 
 /**
  * This class will process the needed actions of setting and retrieving of "text" attribute<br>

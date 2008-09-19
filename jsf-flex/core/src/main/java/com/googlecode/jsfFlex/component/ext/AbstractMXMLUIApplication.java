@@ -62,7 +62,7 @@ import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexDojoResource;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.shared.context.MxmlContextImpl;
-import com.googlecode.jsfFlex.shared.tasks.factory._RunnerFactory;
+import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**

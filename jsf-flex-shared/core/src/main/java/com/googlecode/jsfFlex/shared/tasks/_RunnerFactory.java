@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.shared.tasks.factory;
+package com.googlecode.jsfFlex.shared.tasks;
 
 import java.io.IOException;
 import java.util.Properties;

@@ -52,7 +52,7 @@
         </property>
       </activation>
       <properties>
-        <runner_factory_impl>com.googlecode.jsfFlex.shared.tasks.factory.DefaultRunnerFactoryImpl</runner_factory_impl>
+        <runner_factory_impl>com.googlecode.jsfFlex.shared.tasks.DefaultRunnerFactoryImpl</runner_factory_impl>
       </properties>
     </profile>
     
