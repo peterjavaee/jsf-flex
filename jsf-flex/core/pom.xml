@@ -232,6 +232,25 @@
         </executions>
       </plugin>
       
+      <!-- Do not need the Beta components of DOJO, so remove -->
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+          <configuration>
+            <tasks>
+              <delete dir="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/dojox"/>
+            </tasks>
+          </configuration>
+        <executions>
+          <execution>
+            <id>removeDojox</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
