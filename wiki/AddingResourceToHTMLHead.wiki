@@ -1,0 +1,20 @@
+= Introduction =
+
+This page will provide a brief overview of how to insert resources such as JS files within the head of the HTML page.
+
+= Details =
+
+There currently exists two java files to insert JS content to the head of HTML page :
+ * {{{JsfFlexResource}}}
+ * {{{JsfFlexDojoResource}}} which extends {{{JsfFlexResource}}}
+
+_It is assumed that the resource file is within the correct resource directory within the *src* hierarchy._
+
+So in order to add the resource to the head of the HTML file, one simply gets the instance of {{{JsfFlexResource}}} or {{{JsfFlexDojoResource}}} {since they are abstract classes} and invoke the addResource method providing the class where the resource is nested under and the resource name.
+
+Following is an example from {{{AbstractMXMLUIApplication}}} :
+{{{
+  JsfFlexDojoResource _jsfFlexDojoResource = JsfFlexDojoResource.getDojoInstance();
+  _jsfFlexDojoResource.addResource(getClass(), MXMLConstants.JSF_FLEX_COMMUNICATOR_JS);
+  _jsfFlexDojoResource.addDojoMain();
+}}}
