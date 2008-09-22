@@ -24,7 +24,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
 import com.googlecode.jsfFlex.renderkit.convert.MXMLFormatterTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
+import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
 /**
@@ -55,7 +55,7 @@ public final class MXMLZipCodeFormatterRenderer extends MXMLFormatterTemplateRen
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		
-		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
+		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLZipCodeFormatterRenderer.class, componentObj, MXML_ZIP_CODE_FORMATTER_REPLACE_MAPPING);
 		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
 		

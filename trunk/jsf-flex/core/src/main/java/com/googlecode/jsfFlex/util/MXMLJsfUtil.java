@@ -19,6 +19,7 @@
 package com.googlecode.jsfFlex.util;
 
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
+import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
  * This Util class will provide functionalities that are need by JSF Flex components, such as : <br>
@@ -34,7 +35,6 @@ public final class MXMLJsfUtil {
 	private final static String UNIX_LINE_FEED = "\n";
 	
 	private final static String LINE_FEED_ESCAPER = "LINE_FEED";
-	private final static String ENCODING = "UTF-8";
 	
 	private MXMLJsfUtil(){
 		super();
@@ -60,9 +60,9 @@ public final class MXMLJsfUtil {
 			 */
 			toEscape = toEscape.replaceAll(WINDOWS_LINE_FEED, LINE_FEED_ESCAPER);
 			toEscape = toEscape.replaceAll(UNIX_LINE_FEED, LINE_FEED_ESCAPER);
-			return java.net.URLEncoder.encode(toEscape, ENCODING);
+			return java.net.URLEncoder.encode(toEscape, MXMLConstants.UTF_8_ENCODING);
 		}catch(java.io.UnsupportedEncodingException unsupportedEncodingExcept){
-			throw new ComponentBuildException("UnsupportedEncoding of " + ENCODING + ", in another words this " +
+			throw new ComponentBuildException("UnsupportedEncoding of " + MXMLConstants.UTF_8_ENCODING + ", in another words this " +
 												"shouldn't happen", unsupportedEncodingExcept);
 		}
 		

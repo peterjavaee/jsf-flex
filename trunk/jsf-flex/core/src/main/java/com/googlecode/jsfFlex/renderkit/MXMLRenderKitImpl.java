@@ -21,9 +21,13 @@ package com.googlecode.jsfFlex.renderkit;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.Writer;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 
+import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseStream;
 import javax.faces.context.ResponseWriter;
 import javax.faces.render.RenderKit;
@@ -32,10 +36,9 @@ import javax.faces.render.ResponseStateManager;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.myfaces.shared_impl.renderkit.html.HtmlRendererUtils;
 
-import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseStateManager;
-import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
+import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.mxml.MXMLJsfFactory;
 
 /**
  * @author Ji Hoon Kim
@@ -44,13 +47,15 @@ class MXMLRenderKitImpl extends RenderKit {
 	
 	private static final Log _log = LogFactory.getLog(MXMLRenderKitImpl.class);
 	
-	private Map _renderers;
+	private static final String DEFAULT_CHAR_ENCODING = "ISO-8859-1";
+	
+	private final Map _renderers;
 	private ResponseStateManager _responseStateManager;
 	
 	MXMLRenderKitImpl(){
 		super();
 		_renderers = new HashMap();
-		_responseStateManager = new MXMLResponseStateManager();
+		_responseStateManager = MXMLJsfFactory.getMXMLResponseStateManagerImpl();
 	}
 	
 	public void addRenderer(String family, String rendererType, Renderer renderer) {
@@ -126,18 +131,83 @@ class MXMLRenderKitImpl extends RenderKit {
 	}
 	
 	public ResponseWriter createResponseWriter(Writer writer, String contentTypeListString, String characterEncoding){
-		String selectedContentType = HtmlRendererUtils.selectContentType(contentTypeListString);
-
-        if(characterEncoding==null)
-        {
-            characterEncoding = HtmlRendererUtils.DEFAULT_CHAR_ENCODING;
+		String selectedContentType = MXMLRenderKitImplHelper.selectContentType(contentTypeListString);
+		
+        if(characterEncoding==null){
+            characterEncoding = DEFAULT_CHAR_ENCODING;
         }
-
-        return new MXMLResponseWriterImpl(writer, selectedContentType, characterEncoding);
+        
+        AbstractMXMLResponseWriter mxmlResponseWriter = MXMLJsfFactory.getMXMLResponseWriterImpl(writer, selectedContentType, characterEncoding);
+        
+        return mxmlResponseWriter;
 	}
 
 	public ResponseStateManager getResponseStateManager() {
 		return _responseStateManager;
 	}
+	
+	private static final class MXMLRenderKitImplHelper {
+		
+		private static final String HTML_CONTENT_TYPE = "text/html";
+	    private static final String TEXT_ANY_CONTENT_TYPE = "text/*";
+	    private static final String ANY_CONTENT_TYPE = "*/*";
+	    
+	    private static final String XHTML_CONTENT_TYPE = "application/xhtml+xml";
+	    private static final String APPLICATION_XML_CONTENT_TYPE = "application/xml";
+	    private static final String TEXT_XML_CONTENT_TYPE = "text/xml";
+	    
+	    private static final List _htmlAcceptContentType;
+	    private static final List _xhtmlAcceptContentType;
+	    
+	    static{
+	    	_htmlAcceptContentType = Arrays.asList(new String[]{HTML_CONTENT_TYPE, TEXT_ANY_CONTENT_TYPE, ANY_CONTENT_TYPE});
+	    	
+	    	_xhtmlAcceptContentType = Arrays.asList(new String[]{XHTML_CONTENT_TYPE, APPLICATION_XML_CONTENT_TYPE, TEXT_XML_CONTENT_TYPE});
+	    }
+	    
+	    private static final String selectContentType(String contentTypeListString){
+	    	
+	    	String contentType = null;
+	    	
+	    	if(contentTypeListString == null){
+	    		FacesContext currFacesContext = FacesContext.getCurrentInstance();
+	    		
+	    		if(currFacesContext != null){
+	    			//if passed in is null, try to fetch it from the requestMap
+	    			contentTypeListString = (String) currFacesContext.getExternalContext().getRequestHeaderMap().get("Accept");
+	    		}
+	    		
+	    		if(contentTypeListString == null){
+	    			throw new IllegalArgumentException("Content Type Listing passed into createResponseWriter and within RequestHeaderMap is null!");
+	    		}
+	    		
+	    	}
+	    	
+	    	List contentTypeList = Arrays.asList(contentTypeListString.replaceAll("[;\\s]", "").split(","));
+		    //Always search first as htmlAcceptContentType
+		    
+	    	String currentContentType;
+	    	for(Iterator iterate = contentTypeList.iterator(); iterate.hasNext();){
+	    		currentContentType = (String) iterate.next();
+	    		
+	    		if(_htmlAcceptContentType.contains(currentContentType)){
+	    			contentType = HTML_CONTENT_TYPE;
+	    			break;
+	    		}else if(_xhtmlAcceptContentType.contains(currentContentType)){
+	    			contentType = XHTML_CONTENT_TYPE;
+	    			break;
+	    		}
+	    		
+	    	}
+	    	
+	    	if(contentType == null){
+	    		throw new IllegalArgumentException("Content type : " + contentTypeListString + " is not one of the supported content Type");
+	    	}
+	    	
+	    	return contentType;
+	    }
+		
+	}
+	
 
 }

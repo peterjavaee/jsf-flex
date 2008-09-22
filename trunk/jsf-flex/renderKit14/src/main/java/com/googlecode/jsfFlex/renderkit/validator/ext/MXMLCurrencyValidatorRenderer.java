@@ -23,7 +23,7 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
+import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 import com.googlecode.jsfFlex.renderkit.validator.MXMLValidatorTemplateRenderer;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
@@ -71,7 +71,7 @@ public final class MXMLCurrencyValidatorRenderer extends MXMLValidatorTemplateRe
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		
-		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
+		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLCurrencyValidatorRenderer.class, componentObj, MXML_CURRENCY_VALIDATOR_REPLACE_MAPPING);
 		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
 		

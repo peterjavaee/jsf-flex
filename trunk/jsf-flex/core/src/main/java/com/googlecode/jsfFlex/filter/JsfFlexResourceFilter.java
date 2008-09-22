@@ -46,6 +46,7 @@ import org.apache.commons.logging.LogFactory;
 import org.xml.sax.InputSource;
 
 import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexResource;
+import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
  * @author Ji Hoon Kim
@@ -53,8 +54,6 @@ import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexResource;
 public final class JsfFlexResourceFilter implements Filter {
 	
 	private static final Log _log = LogFactory.getLog(JsfFlexResourceFilter.class);
-	
-	private static final String ENCODING = "UTF-8";
 	
 	private static final String HEAD_SEARCH_PATTERN = "<head";
 	private static final String BODY_SEARCH_PATTERN = "<body";
@@ -162,7 +161,7 @@ public final class JsfFlexResourceFilter implements Filter {
 			isForResource = false;
 		}else{
 			try{
-				isForResource = requestURI[2].startsWith(java.net.URLEncoder.encode(JsfFlexResource.JSF_FLEX_SCRIPT_RESOURCE_REQUEST_PREFIX, ENCODING));
+				isForResource = requestURI[2].startsWith(java.net.URLEncoder.encode(JsfFlexResource.JSF_FLEX_SCRIPT_RESOURCE_REQUEST_PREFIX, MXMLConstants.UTF_8_ENCODING));
 			}catch(java.io.UnsupportedEncodingException unsupportedEncodingExcept){
 				isForResource = false;
 			}

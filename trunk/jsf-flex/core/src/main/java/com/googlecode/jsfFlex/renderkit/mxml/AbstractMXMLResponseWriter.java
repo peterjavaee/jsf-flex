@@ -20,10 +20,9 @@ package com.googlecode.jsfFlex.renderkit.mxml;
 
 import java.io.File;
 import java.io.InputStream;
-import java.io.Writer;
 import java.util.List;
 
-import org.apache.myfaces.shared_impl.renderkit.html.HtmlResponseWriterImpl;
+import javax.faces.context.ResponseWriter;
 
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
@@ -35,13 +34,12 @@ import com.googlecode.jsfFlex.shared.tasks._FlexTaskRunner;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
- * TODO : Implement it specifically for JSF Flex
  * @author Ji Hoon Kim
  */
-public class MXMLResponseWriterImpl extends HtmlResponseWriterImpl {
+public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	
-	public MXMLResponseWriterImpl(Writer writer, String selectedContentType, String characterEncoding){
-		super(writer, selectedContentType, characterEncoding);
+	protected AbstractMXMLResponseWriter(){
+		super();
 	}
 	
 	public void execute() throws ComponentBuildException {
@@ -141,7 +139,7 @@ public class MXMLResponseWriterImpl extends HtmlResponseWriterImpl {
 	 * @param bodyContent
 	 * @throws ComponentBuildException
 	 */
-	public final void createPreMxml(MXMLResponseWriterImpl writer, _MXMLContract comp, String mxmlComponentName, String bodyContent) throws ComponentBuildException {
+	public final void createPreMxml(AbstractMXMLResponseWriter writer, _MXMLContract comp, String mxmlComponentName, String bodyContent) throws ComponentBuildException {
 		
 		String fileDirectory = comp.getAbsolutePathToPreMxmlFile().substring(0, comp.getAbsolutePathToPreMxmlFile().lastIndexOf(File.separatorChar));
 		writer.getFlexTaskRunner().makeDirectory(fileDirectory);

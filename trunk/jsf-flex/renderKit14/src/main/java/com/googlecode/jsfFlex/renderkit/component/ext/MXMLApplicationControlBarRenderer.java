@@ -24,7 +24,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
 import com.googlecode.jsfFlex.renderkit.component.MXMLBoxTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
+import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
 /**
@@ -57,7 +57,7 @@ public final class MXMLApplicationControlBarRenderer extends MXMLBoxTemplateRend
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		
-		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
+		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLApplicationControlBarRenderer.class, componentObj, MXML_APPLICATION_CONTROL_BAR_REPLACE_MAPPING);
 		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
 		

@@ -39,6 +39,8 @@ import org.xml.sax.helpers.DefaultHandler;
  */
 public final class MXMLConstants {
 	
+	public static final String UTF_8_ENCODING = "UTF-8";
+	
 	public static final String STRING_QUOTE = "\"";
 	
 	public static final String PRE_MXML_FILE_EXT = ".pre_mxml";
