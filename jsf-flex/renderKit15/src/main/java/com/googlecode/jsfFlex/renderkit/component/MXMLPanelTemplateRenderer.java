@@ -25,7 +25,7 @@ import javax.faces.context.FacesContext;
 
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
+import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 
 /**
  * @author Ji Hoon Kim
@@ -75,7 +75,7 @@ public abstract class MXMLPanelTemplateRenderer extends MXMLContainerTemplateRen
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
+		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLPanelTemplateRenderer.class, componentObj, null);
 		
 	}

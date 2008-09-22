@@ -24,7 +24,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
 import com.googlecode.jsfFlex.renderkit.component.MXMLScrollControlTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
+import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
 /**
@@ -96,7 +96,7 @@ public final class MXMLTextAreaRenderer extends MXMLScrollControlTemplateRendere
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		
-		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
+		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLTextAreaRenderer.class, componentObj, MXML_TEXT_AREA_REPLACE_MAPPING);
 		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
 		

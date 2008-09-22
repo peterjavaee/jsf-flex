@@ -30,15 +30,15 @@ import javax.faces.context.ResponseWriter;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.apache.myfaces.shared_impl.renderkit.html.HTML;
 
 import com.googlecode.jsfFlex.renderkit.component.MXMLContainerTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
+import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.beans.TokenValue;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
+import com.googlecode.jsfFlex.shared.util.MXMLAttributeConstants;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
@@ -115,7 +115,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
+		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		_MXMLApplicationContract componentMXML = (_MXMLApplicationContract) componentObj;
 		
 		componentMXML.getAnnotationDocletParserInstance().getTokenValueSet().remove(new TokenValue("id", null));
@@ -139,7 +139,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		super.encodeEnd(context, componentObj);
 		
 		_MXMLApplicationContract componentMXML = (_MXMLApplicationContract) componentObj;
-		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
+		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		
 		String mxmlObjectBeanContent = writer.generateMXMLObjectBeanContent();
 		writer.replaceTokenWithValue(componentMXML, mxmlObjectBeanContent, MXML_OBJECT_SET_TOKEN);
@@ -229,8 +229,8 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			
 			ResponseWriter writer = context.getResponseWriter();
 			
-			writer.startElement(HTML.SCRIPT_ELEM, component);
-			writer.writeAttribute(HTML.SCRIPT_TYPE_ATTR, HTML.SCRIPT_TYPE_TEXT_JAVASCRIPT, null);
+			writer.startElement(MXMLAttributeConstants.SCRIPT_ELEM, component);
+			writer.writeAttribute(MXMLAttributeConstants.SCRIPT_TYPE_ATTR, MXMLAttributeConstants.SCRIPT_TYPE_TEXT_JAVASCRIPT, null);
 			
 			//print out the JSON objects here
 			StringBuffer toWrite = new StringBuffer();
@@ -250,7 +250,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			toWrite.append(PAGE_LOAD_NS);
 			toWrite.append(");");
 			writer.write(toWrite.toString());
-			writer.endElement(HTML.SCRIPT_ELEM);
+			writer.endElement(MXMLAttributeConstants.SCRIPT_ELEM);
 			
 			writeHTMLSWF(writer, appComponent, mxmlContext.getSwfWebPath());
 			
@@ -258,8 +258,8 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		
 		private void writeHTMLSWF(ResponseWriter writer, com.googlecode.jsfFlex.component.ext.MXMLUIApplication appComponent, 
 									String swfPath) throws IOException{
-			Object heightO = appComponent.getAttributes().get(HTML.HEIGHT_ATTR);
-			Object widthO = appComponent.getAttributes().get(HTML.WIDTH_ATTR);
+			Object heightO = appComponent.getAttributes().get(MXMLAttributeConstants.HEIGHT_ATTR);
+			Object widthO = appComponent.getAttributes().get(MXMLAttributeConstants.WIDTH_ATTR);
 			
 			String height = (heightO == null) ? "100%" : (String) heightO;
 			String width = (widthO == null) ? "100%" : (String) widthO;
@@ -267,29 +267,29 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			
 			writer.startElement("object", appComponent);
 			
-			writer.writeAttribute(HTML.ID_ATTR, appComponent.getMxmlPackageName(), null);
+			writer.writeAttribute(MXMLAttributeConstants.ID_ATTR, appComponent.getMxmlPackageName(), null);
 			writer.writeAttribute("classid", MXMLConstants.CLASS_ID, null);
 			writer.writeAttribute("codebase", MXMLConstants.CODE_BASE, null);
-			writer.writeAttribute(HTML.HEIGHT_ATTR, height, null);
-			writer.writeAttribute(HTML.WIDTH_ATTR, width, null);
+			writer.writeAttribute(MXMLAttributeConstants.HEIGHT_ATTR, height, null);
+			writer.writeAttribute(MXMLAttributeConstants.WIDTH_ATTR, width, null);
 			
 			writer.startElement("param", appComponent);
-			writer.writeAttribute(HTML.NAME_ATTR, "src", null);
-			writer.writeAttribute(HTML.VALUE_ATTR, swfFile, null);
+			writer.writeAttribute(MXMLAttributeConstants.NAME_ATTR, "src", null);
+			writer.writeAttribute(MXMLAttributeConstants.VALUE_ATTR, swfFile, null);
 			writer.endElement("param");
 			
 			writer.startElement("param", appComponent);
-			writer.writeAttribute(HTML.NAME_ATTR, "allowScriptAccess", null);
-			writer.writeAttribute(HTML.VALUE_ATTR, "sameDomain", null);
+			writer.writeAttribute(MXMLAttributeConstants.NAME_ATTR, "allowScriptAccess", null);
+			writer.writeAttribute(MXMLAttributeConstants.VALUE_ATTR, "sameDomain", null);
 			writer.endElement("param");
 			
 			writer.startElement("embed", appComponent);
-			writer.writeAttribute(HTML.NAME_ATTR, appComponent.getMxmlPackageName(), null);
+			writer.writeAttribute(MXMLAttributeConstants.NAME_ATTR, appComponent.getMxmlPackageName(), null);
 			writer.writeAttribute("allowScriptAccess", "sameDomain", null);
 			writer.writeAttribute("pluginspage", MXMLConstants.PLUGINS_PAGE, null);
-			writer.writeAttribute(HTML.SRC_ATTR, swfFile, null);
-			writer.writeAttribute(HTML.HEIGHT_ATTR, height, null);
-			writer.writeAttribute(HTML.WIDTH_ATTR, width, null);
+			writer.writeAttribute(MXMLAttributeConstants.SRC_ATTR, swfFile, null);
+			writer.writeAttribute(MXMLAttributeConstants.HEIGHT_ATTR, height, null);
+			writer.writeAttribute(MXMLAttributeConstants.WIDTH_ATTR, width, null);
 			writer.endElement("embed");
 			
 			writer.endElement("object");

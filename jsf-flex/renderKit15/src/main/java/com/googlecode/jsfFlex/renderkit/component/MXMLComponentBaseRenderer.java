@@ -26,7 +26,7 @@ import javax.faces.context.FacesContext;
 import com.googlecode.jsfFlex.renderkit.MXMLRendererBase;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
+import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
 
@@ -137,7 +137,7 @@ public abstract class MXMLComponentBaseRenderer extends MXMLRendererBase {
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
+		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLComponentBaseRenderer.class, componentObj, null);
 		
 	}
@@ -151,7 +151,7 @@ public abstract class MXMLComponentBaseRenderer extends MXMLRendererBase {
 		}
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
+		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		
 		writer.getFlexTaskRunner().writeBodyContent(componentMXML);
 		

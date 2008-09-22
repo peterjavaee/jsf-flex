@@ -16,14 +16,33 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.renderkit.mxml;
-
-import org.apache.myfaces.renderkit.html.HtmlResponseStateManager;
+package com.googlecode.jsfFlex.shared.util;
 
 /**
- * TODO : Implement it specifically for JSF Flex
+ * An attribute constant class.<br>
+ * 
  * @author Ji Hoon Kim
  */
-public class MXMLResponseStateManager extends HtmlResponseStateManager {
-
+public final class MXMLAttributeConstants {
+	
+	public static final String SCRIPT_ELEM = "script";
+	public static final String SCRIPT_TYPE_ATTR = "type";
+	
+	/** Standard Attributes */
+	public static final String ID_ATTR = "id";
+	public static final String NAME_ATTR = "name";
+	public static final String VALUE_ATTR = "value";
+	
+	/** Style Attributes */
+	public static final String HEIGHT_ATTR = "height";
+	public static final String WIDTH_ATTR = "width";
+	
+	/** Specific Attributes that should be centralized */
+	public static final String SRC_ATTR = "src";
+	public static final String SCRIPT_TYPE_TEXT_JAVASCRIPT = "text/javascript";
+	
+	private MXMLAttributeConstants(){
+		super();
+	}
+	
 }

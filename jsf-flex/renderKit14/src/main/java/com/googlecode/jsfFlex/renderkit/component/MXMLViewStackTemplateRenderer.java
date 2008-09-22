@@ -23,7 +23,7 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
+import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 
 /**
  * @JsfFlexAttributes
@@ -49,7 +49,7 @@ public class MXMLViewStackTemplateRenderer extends MXMLContainerTemplateRenderer
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
+		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLViewStackTemplateRenderer.class, componentObj, MXML_VIEW_STACK_TEMPLATE_REPLACE_MAPPING);
 		
 	}

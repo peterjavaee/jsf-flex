@@ -103,7 +103,7 @@
   </repositories>
 
   <build>
-
+    
     <resources>
       <resource>
         <directory>src/main/resources</directory>
@@ -208,12 +208,65 @@
       </plugin>
       
       <plugin>
+        <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
+        <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
+        <version>${jsf.flex.plugIn.version}</version>
+        <executions>
+          <execution>
+            <id>createMXMLResponseStateManagerImplJavaFile</id>
+            <configuration>
+              <mxmlResponseStateManagerImpl>${mxmlResponseStateManagerImpl}</mxmlResponseStateManagerImpl>
+            </configuration>
+            <goals>
+              <goal>createMXMLResponseStateManagerImplJavaFile</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>createMXMLResponseWriterImplJavaFile</id>
+            <configuration>
+              <mxmlResponseWriterImpl>${mxmlResponseWriterImpl}</mxmlResponseWriterImpl>
+            </configuration>
+            <goals>
+              <goal>createMXMLResponseWriterImplJavaFile</goal>
+            </goals>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
+            <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
+            <version>${jsf.flex.plugIn.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.1</version>
+        <executions>
+          <execution>
+            <id>add-source</id>
+            <phase>process-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>${basedir}/target/jsfFlex-builder-plugin</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
         <executions>
           <execution>
             <id>unpack dojo</id>
-            <phase>generate-sources</phase>
+            <phase>generate-resources</phase>
             <goals>
               <goal>unpack</goal>
             </goals>
@@ -264,6 +317,21 @@
     </plugins>
       
   </build>
+  
+  <profiles>
+    <profile>
+      <id>myfaces-1.2</id>
+      <activation>
+        <property>
+          <name>!jsf</name>
+        </property>
+      </activation>
+      <properties>
+        <mxmlResponseWriterImpl>org.apache.myfaces.shared_impl.renderkit.html.HtmlResponseWriterImpl</mxmlResponseWriterImpl>
+        <mxmlResponseStateManagerImpl>org.apache.myfaces.renderkit.html.HtmlResponseStateManager</mxmlResponseStateManagerImpl>
+      </properties>
+    </profile>
+  </profiles>
   
   <properties>
     <dojo.version>1.1.1</dojo.version>

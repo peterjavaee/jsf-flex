@@ -26,7 +26,7 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
+import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 import com.googlecode.jsfFlex.renderkit.validator.MXMLValidatorTemplateRenderer;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
@@ -52,7 +52,7 @@ public final class MXMLValidatorRenderer extends MXMLValidatorTemplateRenderer {
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		
-		MXMLResponseWriterImpl writer = (MXMLResponseWriterImpl) context.getResponseWriter();
+		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.createPreMxml(writer, componentMXML, MXMLValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
