@@ -34,18 +34,6 @@
     </dependency>
     
     <dependency>
-      <groupId>org.apache.myfaces.shared</groupId>
-      <artifactId>myfaces-shared-impl</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    
-    <dependency>
-      <groupId>org.apache.myfaces.core</groupId>
-      <artifactId>myfaces-api</artifactId>
-      <scope>compile</scope>
-    </dependency>
-    
-    <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
       <scope>compile</scope>
@@ -157,5 +145,28 @@
     </plugins>
     
   </build>
+  
+  <profiles>
+    <profile>
+      <id>myfaces-1.2</id>
+      <activation>
+        <property>
+          <name>!jsf</name>
+        </property>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>org.apache.myfaces.core</groupId>
+          <artifactId>myfaces-api</artifactId>
+        </dependency>
+        
+        <dependency>
+          <groupId>org.apache.myfaces.shared</groupId>
+          <artifactId>myfaces-shared-impl</artifactId>
+        </dependency>
+      </dependencies>
+    </profile>
+        
+  </profiles>
   
 </project>

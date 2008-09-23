@@ -29,8 +29,6 @@ public final class MXMLJsfFactory {
 	private static final String MXML_RESPONSE_WRITER_IMPLEMENTOR = "com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl";
 	private static final Constructor MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR;
 	
-	private static final Class[] MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR_ARGUMENTS = new Class[]{Writer.class, String.class, String.class};
-	
 	private static final String MXML_RESPONSE_STATE_MANAGER_IMPLEMENTOR = "com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseStateManagerImpl";
 	private static final Class MXML_RESPONSE_STATE_MANAGER_IMPLEMENTOR_CLASS;
 	
@@ -46,7 +44,7 @@ public final class MXMLJsfFactory {
 		}
 		
 		try{
-			MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR = mxmlResponseWriterImplementorClass.getDeclaredConstructor(MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR_ARGUMENTS);
+			MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR = mxmlResponseWriterImplementorClass.getDeclaredConstructor(new Class[]{Writer.class, String.class, String.class});
 		}catch(NoSuchMethodException _noSuchMethod){
 			throw new RuntimeException("Failure in retrieving the constructor for " + MXML_RESPONSE_WRITER_IMPLEMENTOR, _noSuchMethod);
 		}
