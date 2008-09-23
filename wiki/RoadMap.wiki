@@ -44,7 +44,6 @@ on application server {{{TomCat}}} 6.0.
    {For ALL}
  * {{{DataGrid}}} component must be implemented as a service. {Unassigned}
  * Possible nesting of mx:Application within h:form should be attempted. Currently it has been nested outside the form element due to failure of initial attempt in referencing the SWF file within the form element for IE browser. {Hazem Saleh}
- * Write articles and blogs regarding the project, so to spread the word regarding the project and attract talented individuals. {For ALL}
  * Allow databinding to dataProvider field of the components. Simple dataProviderCollection tag field has been added that allows single entry of {{{_MXMLBean}}}. Please refer to an example for mxmlComboBox tag to see how it binds. TODO, implement it better later. {Jihoon}
- * Break the dependency on tomahawk + tomahawk-sandbox, since the project uses tomahawk-sandbox mainly for flushing out javascript files. {Jihoon}.
+ * Break the dependency on tomahawk + tomahawk-sandbox, since the project uses tomahawk-sandbox mainly for flushing out javascript files. Done by {Jihoon}.
  * Supporting Facelets. {Hazem Saleh}
