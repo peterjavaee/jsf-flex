@@ -19,7 +19,7 @@
   
   <profiles>
     <profile>
-      <id>myfaces</id>
+      <id>myfaces-1.2</id>
       <activation>
         <property>
           <name>!jsf</name>
@@ -30,39 +30,41 @@
           <groupId>org.apache.myfaces.core</groupId>
           <artifactId>myfaces-api</artifactId>
         </dependency>
+        
         <dependency>
           <groupId>org.apache.myfaces.core</groupId>
           <artifactId>myfaces-impl</artifactId>
           <scope>runtime</scope>
         </dependency>
+        
         <dependency>
-          <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
-          <artifactId>jsf-flex</artifactId>
-          <version>${version}</version>
-          <scope>runtime</scope>
+          <groupId>org.apache.myfaces.shared</groupId>
+          <artifactId>myfaces-shared-impl</artifactId>
         </dependency>
         
         <dependency>
-          <groupId>jstl</groupId>
+          <groupId>javax.servlet</groupId>
           <artifactId>jstl</artifactId>
-          <version>1.1.2</version>
         </dependency>
+        
         <dependency>
           <groupId>taglibs</groupId>
           <artifactId>standard</artifactId>
           <version>1.1.2</version>
         </dependency>
+        
         <dependency>
           <groupId>org.apache.geronimo.specs</groupId>
           <artifactId>geronimo-el_1.0_spec</artifactId>
           <version>1.0-M1</version>
           <scope>provided</scope>
         </dependency>
+        
       </dependencies>
-      
       <properties>
-        <jsf_implementation>MyFaces 1.1</jsf_implementation>
+        <jsf_implementation>MyFaces 1.2</jsf_implementation>
       </properties>
+      
     </profile>
     
     <profile>
@@ -150,15 +152,15 @@
   
   <dependencies>
     <dependency>
+      <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
+      <artifactId>jsf-flex</artifactId>
+      <version>${version}</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
       <groupId>commons-logging</groupId>
       <artifactId>commons-logging</artifactId>
       <scope>compile</scope>
-    </dependency>
-    <dependency>
-      <groupId>cglib</groupId>
-      <artifactId>cglib</artifactId>
-      <version>2.1</version>
-      <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>

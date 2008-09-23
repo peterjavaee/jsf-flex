@@ -49,11 +49,14 @@ import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexResource;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
+ * TODO: Implement it better later
  * @author Ji Hoon Kim
  */
 public final class JsfFlexResourceFilter implements Filter {
 	
 	private static final Log _log = LogFactory.getLog(JsfFlexResourceFilter.class);
+	
+	private static final String REQUEST_FOR_RESOURCE_SEARCH_PATTERN = "%2F" + JsfFlexResource.JSF_FLEX_SCRIPT_RESOURCE_REQUEST_PREFIX + "%2F";
 	
 	private static final String HEAD_SEARCH_PATTERN = "<head";
 	private static final String BODY_SEARCH_PATTERN = "<body";
@@ -62,10 +65,13 @@ public final class JsfFlexResourceFilter implements Filter {
 	private static final String HEAD_START_TAG = "<head>";
 	private static final String HEAD_END_TAG = "</head>";
 	
-	private static final Pattern _headPattern = Pattern.compile(HEAD_SEARCH_PATTERN, Pattern.CASE_INSENSITIVE);
-	private static final Pattern _bodyPattern = Pattern.compile(BODY_SEARCH_PATTERN, Pattern.CASE_INSENSITIVE);
-	private static final Pattern _endTagCharPattern = Pattern.compile(END_TAG_CHAR_SEARCH_PATTERN);
+	private static final Pattern REQUEST_FOR_RESOURCE_PATTERN = Pattern.compile(REQUEST_FOR_RESOURCE_SEARCH_PATTERN);
 	
+	private static final Pattern HEAD_PATTERN = Pattern.compile(HEAD_SEARCH_PATTERN, Pattern.CASE_INSENSITIVE);
+	private static final Pattern BODY_PATTERN = Pattern.compile(BODY_SEARCH_PATTERN, Pattern.CASE_INSENSITIVE);
+	private static final Pattern END_TAG_CHAR_PATTERN = Pattern.compile(END_TAG_CHAR_SEARCH_PATTERN);
+	
+	/** Below is for future configuration */
 	private FilterConfig _filterConfig;
 	
 	public void init(FilterConfig filterConfig) throws ServletException {
@@ -87,7 +93,7 @@ public final class JsfFlexResourceFilter implements Filter {
 		String requestURI = httpRequest.getRequestURI();
 		String[] requestURISplitted = requestURI.split("/");
 		
-		if(isRequestForResource(requestURISplitted)){
+		if(isRequestForResource(requestURI)){
 			/** If request is of resource, process it and return */
 			jsfFlexResource.processRequestResource(httpResponse, requestURISplitted);
 			return;
@@ -105,7 +111,7 @@ public final class JsfFlexResourceFilter implements Filter {
 		
 		if(jsfFlexResponseWrapper.getContentType() != null && isValidContentType(jsfFlexResponseWrapper.getContentType())){
 			
-			Matcher headMatcher = _headPattern.matcher( jsfFlexResponseWrapper.toString() );
+			Matcher headMatcher = HEAD_PATTERN.matcher( jsfFlexResponseWrapper.toString() );
 			boolean headMatchedBoolean = headMatcher.find();
 			
 			PrintWriter actualWriter = httpResponse.getWriter();
@@ -115,7 +121,7 @@ public final class JsfFlexResourceFilter implements Filter {
 				
 				actualWriter.write( jsfFlexResponseWrapper.toString().substring(0, headMatchIndex+5) );
 				
-				Matcher endTagCharMatcher = _endTagCharPattern.matcher( jsfFlexResponseWrapper.toString() );
+				Matcher endTagCharMatcher = END_TAG_CHAR_PATTERN.matcher( jsfFlexResponseWrapper.toString() );
 				endTagCharMatcher.find(headMatchIndex);
 				
 				int endTagCharIndex = endTagCharMatcher.start();
@@ -130,7 +136,7 @@ public final class JsfFlexResourceFilter implements Filter {
 				
 			}else{
 				
-				Matcher bodyMatcher = _bodyPattern.matcher( jsfFlexResponseWrapper.toString() ); 
+				Matcher bodyMatcher = BODY_PATTERN.matcher( jsfFlexResponseWrapper.toString() ); 
 				bodyMatcher.find();
 				
 				int bodyMatchIndex = bodyMatcher.start();
@@ -154,18 +160,14 @@ public final class JsfFlexResourceFilter implements Filter {
 		
 	}
 	
-	private boolean isRequestForResource(String[] requestURI){
+	private boolean isRequestForResource(String requestURI){
 		boolean isForResource = true;
 		
-		if(requestURI.length < 2){
+		try{
+			Matcher requestForResourceMatcher = REQUEST_FOR_RESOURCE_PATTERN.matcher(java.net.URLEncoder.encode(requestURI, MXMLConstants.UTF_8_ENCODING));
+			isForResource = requestForResourceMatcher.find();
+		}catch(java.io.UnsupportedEncodingException unsupportedEncodingExcept){
 			isForResource = false;
-		}else{
-			try{
-				isForResource = requestURI[2].startsWith(java.net.URLEncoder.encode(JsfFlexResource.JSF_FLEX_SCRIPT_RESOURCE_REQUEST_PREFIX, MXMLConstants.UTF_8_ENCODING));
-			}catch(java.io.UnsupportedEncodingException unsupportedEncodingExcept){
-				isForResource = false;
-			}
-			
 		}
 		
 		return isForResource;
