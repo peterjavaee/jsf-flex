@@ -203,6 +203,7 @@
               <goal>createMXMLResponseStateManagerImplJavaFile</goal>
             </goals>
           </execution>
+          
           <execution>
             <id>createMXMLResponseWriterImplJavaFile</id>
             <configuration>
@@ -210,6 +211,16 @@
             </configuration>
             <goals>
               <goal>createMXMLResponseWriterImplJavaFile</goal>
+            </goals>
+          </execution>
+          
+          <execution>
+            <id>createMXMLRenderKitFactoryImplWrapperJavaFile</id>
+            <configuration>
+              <mxmlRenderKitFactoryImplWrapperBaseImpl>${mxmlRenderKitFactoryImplWrapperBaseImpl}</mxmlRenderKitFactoryImplWrapperBaseImpl>
+            </configuration>
+            <goals>
+              <goal>createMXMLRenderKitFactoryImplWrapperJavaFile</goal>
             </goals>
           </execution>
         </executions>
@@ -327,6 +338,7 @@
       <properties>
         <mxmlResponseWriterImpl>org.apache.myfaces.shared_impl.renderkit.html.HtmlResponseWriterImpl</mxmlResponseWriterImpl>
         <mxmlResponseStateManagerImpl>org.apache.myfaces.renderkit.html.HtmlResponseStateManager</mxmlResponseStateManagerImpl>
+        <mxmlRenderKitFactoryImplWrapperBaseImpl>org.apache.myfaces.renderkit.RenderKitFactoryImpl</mxmlRenderKitFactoryImplWrapperBaseImpl>
       </properties>
     </profile>
     
@@ -362,6 +374,7 @@
       <properties>
         <mxmlResponseWriterImpl>com.sun.faces.renderkit.html_basic.HtmlResponseWriter</mxmlResponseWriterImpl>
         <mxmlResponseStateManagerImpl>com.sun.faces.renderkit.ResponseStateManagerImpl</mxmlResponseStateManagerImpl>
+        <mxmlRenderKitFactoryImplWrapperBaseImpl>com.sun.faces.renderkit.RenderKitFactoryImpl</mxmlRenderKitFactoryImplWrapperBaseImpl>
       </properties>
     </profile>
     

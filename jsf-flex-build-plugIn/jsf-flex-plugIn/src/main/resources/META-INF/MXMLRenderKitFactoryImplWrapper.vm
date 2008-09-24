@@ -18,32 +18,24 @@
  */
 package com.googlecode.jsfFlex.renderkit;
 
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
-import javax.faces.context.FacesContext;
 import javax.faces.render.RenderKit;
-import javax.faces.render.RenderKitFactory;
 
 /**
  * @author Ji Hoon Kim
  */
-public class MXMLRenderKitFactoryImpl extends RenderKitFactory {
-	
+public class MXMLRenderKitFactoryImplWrapper extends ${mxmlRenderKitFactoryImplWrapperBaseImpl} {
+
 	private static final String MXML_RENDER_KIT_ID = "MXML_BASIC";
 	
-	private final Map _renderKits;
-	private final List _additionalRenderKitList;
+	private static final List _additionalRenderKitList = new LinkedList();
 	
 	private MXMLRenderKitImplWrapper _mxmlRenderKit;
 	
-	public MXMLRenderKitFactoryImpl(){
+	public MXMLRenderKitFactoryImplWrapper(){
 		super();
-		_renderKits = new HashMap();
-		_additionalRenderKitList = new LinkedList();
 	}
 	
 	public void addRenderKit(String renderKitId, RenderKit renderKit) {
@@ -70,21 +62,7 @@ public class MXMLRenderKitFactoryImpl extends RenderKitFactory {
 			
 		}
 		
-		_renderKits.put(renderKitId, renderKit);
-		
-	}
-	
-	public RenderKit getRenderKit(FacesContext context, String renderKitId) {
-		if(renderKitId == null){
-			throw new NullPointerException("getRenderKit : renderKitId is null");
-		}
-		Object renderKit = _renderKits.get(renderKitId);
-		
-		return renderKit == null ? null : (RenderKit) renderKit;
-	}
-	
-	public Iterator getRenderKitIds() {
-		return _renderKits.keySet().iterator();
+		super.addRenderKit(renderKitId, renderKit);
 	}
 	
 }
