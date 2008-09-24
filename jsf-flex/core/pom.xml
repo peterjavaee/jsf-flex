@@ -330,6 +330,41 @@
       </properties>
     </profile>
     
+    <profile>
+      <id>mojarra-1.2</id>
+      <activation>
+        <property>
+          <name>jsf</name>
+          <value>mojarra12</value>
+        </property>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>javax.faces</groupId>
+          <artifactId>jsf-api</artifactId>
+        </dependency> 
+        
+        <dependency>
+          <groupId>javax.faces</groupId>
+          <artifactId>jsf-impl</artifactId>
+        </dependency>
+      </dependencies>      
+      
+      <repositories>
+        <repository>
+          <id>dev.java.net</id>
+          <name>dev.java.net Maven Repository</name>
+          <url>https://maven-repository.dev.java.net/repository/</url>
+          <layout>legacy</layout>
+        </repository>
+      </repositories>
+      
+      <properties>
+        <mxmlResponseWriterImpl>com.sun.faces.renderkit.html_basic.HtmlResponseWriter</mxmlResponseWriterImpl>
+        <mxmlResponseStateManagerImpl>com.sun.faces.renderkit.ResponseStateManagerImpl</mxmlResponseStateManagerImpl>
+      </properties>
+    </profile>
+    
   </profiles>
   
   <properties>
