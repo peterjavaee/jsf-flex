@@ -141,11 +141,11 @@
     </profile>
     
     <profile>
-      <id>sun-1.2</id>
+      <id>mojarra-1.2</id>
       <activation>
         <property>
           <name>jsf</name>
-          <value>sun12</value>
+          <value>mojarra12</value>
         </property>
       </activation>
       <dependencyManagement>
@@ -153,21 +153,21 @@
           <dependency>
             <groupId>javax.faces</groupId>
             <artifactId>jsf-api</artifactId>
-            <version>${sun.jsf.version}</version>
+            <version>${mojarra.jsf.version}</version>
           </dependency> 
           
           <dependency>
             <groupId>javax.faces</groupId>
             <artifactId>jsf-impl</artifactId>
-            <version>${sun.jsf.version}</version>
+            <version>${mojarra.jsf.version}</version>
           </dependency>
         </dependencies>      
       </dependencyManagement>
       <repositories>
         <repository>
-          <id>java.net</id>
-          <name>java.net Maven 1 Repository</name>
-          <url>http://download.java.net/maven/1</url>
+          <id>dev.java.net</id>
+          <name>dev.java.net Maven Repository</name>
+          <url>https://maven-repository.dev.java.net/repository/</url>
           <layout>legacy</layout>
         </repository>
       </repositories>
@@ -176,7 +176,7 @@
         <javax.servlet.jstl.version>1.1.2</javax.servlet.jstl.version>
         <javax.servlet.jsp.api.version>2.1</javax.servlet.jsp.api.version>
         <javax.servlet.api.version>2.5</javax.servlet.api.version>
-        <sun.jsf.version>1.2_04</sun.jsf.version>
+        <mojarra.jsf.version>1.2_09</mojarra.jsf.version>
       </properties>
     </profile>
     
