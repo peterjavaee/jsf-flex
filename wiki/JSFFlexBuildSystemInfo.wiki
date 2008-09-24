@@ -9,5 +9,6 @@ This page provides a quick overview regarding the project's build system.
    * {{{_CommonTaskRunner}}}		sdkStandardCommonTaskRunnerImpl
    * {{{_FileManipulatorTaskRunner}}}	velocityFileManipulatorTaskRunnerImpl
    * {{{_FlexTaskRunner}}}		antFlexTaskRunnerImpl
- * *mvn install {{{-Djsf_flex_renderKit_runtime=15}}}* will provide the same artifacts as *mvn install* with the exception that renderKit15 {JRE >= 1.5} Jar file will be linked.
- * In future, providing an argument of following syntax *mvn install -Drunner_factory_impl=<implementation_class>* will allow a different implementation of {{{_RunnerFactory}}} to be linked during build time.
+ * *mvn install* {{{-Djsf_flex_renderKit_runtime=15}}} will provide the same artifacts as *mvn install* with the exception that renderKit15 {JRE >= 1.5} Jar file will be linked.
+ * *mvn install* {{{-Djsf=mojarra12}}} will provide the artifacts with Mojarra 1.2 implementation. Default is {{{MyFaces}}} 1.2 implementation.
+ * In future, providing an argument of following syntax *mvn install* -Drunner_factory_impl=<implementation_class> will allow a different implementation of {{{_RunnerFactory}}} to be linked during build time.
