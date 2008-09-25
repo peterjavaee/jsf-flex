@@ -189,31 +189,12 @@
         </executions>
       </plugin>
       
+      
       <plugin>
         <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
         <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
         <version>${jsf.flex.plugIn.version}</version>
         <executions>
-          <execution>
-            <id>createMXMLResponseStateManagerImplJavaFile</id>
-            <configuration>
-              <mxmlResponseStateManagerImpl>${mxmlResponseStateManagerImpl}</mxmlResponseStateManagerImpl>
-            </configuration>
-            <goals>
-              <goal>createMXMLResponseStateManagerImplJavaFile</goal>
-            </goals>
-          </execution>
-          
-          <execution>
-            <id>createMXMLResponseWriterImplJavaFile</id>
-            <configuration>
-              <mxmlResponseWriterImpl>${mxmlResponseWriterImpl}</mxmlResponseWriterImpl>
-            </configuration>
-            <goals>
-              <goal>createMXMLResponseWriterImplJavaFile</goal>
-            </goals>
-          </execution>
-          
           <execution>
             <id>createMXMLRenderKitFactoryImplWrapperJavaFile</id>
             <configuration>

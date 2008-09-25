@@ -50,7 +50,7 @@ class MXMLRenderKitImpl extends RenderKit {
 	private static final String DEFAULT_CHAR_ENCODING = "ISO-8859-1";
 	
 	private final Map _renderers;
-	private ResponseStateManager _responseStateManager;
+	private final ResponseStateManager _responseStateManager;
 	
 	MXMLRenderKitImpl(){
 		super();

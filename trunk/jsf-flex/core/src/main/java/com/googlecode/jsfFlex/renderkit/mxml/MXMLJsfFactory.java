@@ -18,46 +18,40 @@
  */
 package com.googlecode.jsfFlex.renderkit.mxml;
 
+import java.io.IOException;
 import java.io.Writer;
-import java.lang.reflect.Constructor;
+import java.util.Properties;
 
 /**
  * @author Ji Hoon Kim
  */
 public final class MXMLJsfFactory {
 	
-	private static final String MXML_RESPONSE_WRITER_IMPLEMENTOR = "com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl";
-	private static final Constructor MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR;
+	private static final String MXML_JSF_FACTORY_IMPL_PROPERTIES = "mxmlJsfFactoryImpl.properties";
 	
-	private static final String MXML_RESPONSE_STATE_MANAGER_IMPLEMENTOR = "com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseStateManagerImpl";
-	private static final Class MXML_RESPONSE_STATE_MANAGER_IMPLEMENTOR_CLASS;
+	private static final String MXML_RESPONSE_STATE_MANAGER_IMPL_KEY = "mxmlResponseStateManagerImpl";
+	private static final String MXML_RESPONSE_WRITER_IMPL_KEY = "mxmlResponseWriterImpl";
+	
+	private static final String MXML_RESPONSE_STATE_MANAGER_IMPL_PACKAGE_CLASS;
+	private static final String MXML_RESPONSE_WRITER_IMPL_PACKAGE_CLASS;
 	
 	static{
 		
-		/** Beginning for getting the Constructor for MXMLResponseWriterImpl */
-		Class mxmlResponseWriterImplementorClass;
+		Properties mxmlJsfFactoryImpl = new Properties();
 		
 		try{
-			mxmlResponseWriterImplementorClass = Class.forName(MXML_RESPONSE_WRITER_IMPLEMENTOR, false, Thread.currentThread().getContextClassLoader());
-		}catch(ClassNotFoundException _classNotFound){
-			throw new RuntimeException("Failure in retrieving the class for " + MXML_RESPONSE_WRITER_IMPLEMENTOR, _classNotFound);
+			mxmlJsfFactoryImpl.load(MXMLJsfFactory.class.getResourceAsStream(MXML_JSF_FACTORY_IMPL_PROPERTIES));
+			
+			String systemPropertyMxmlResponseStateManagerImpl = System.getProperty(MXML_RESPONSE_STATE_MANAGER_IMPL_KEY);
+			String systemPropertyMxmlResponseWriterImpl = System.getProperty(MXML_RESPONSE_WRITER_IMPL_KEY);
+			
+			MXML_RESPONSE_STATE_MANAGER_IMPL_PACKAGE_CLASS = systemPropertyMxmlResponseStateManagerImpl == null ? 
+													mxmlJsfFactoryImpl.getProperty(MXML_RESPONSE_STATE_MANAGER_IMPL_KEY) : systemPropertyMxmlResponseStateManagerImpl;
+			MXML_RESPONSE_WRITER_IMPL_PACKAGE_CLASS = systemPropertyMxmlResponseWriterImpl == null ? 
+													mxmlJsfFactoryImpl.getProperty(MXML_RESPONSE_WRITER_IMPL_KEY) : systemPropertyMxmlResponseWriterImpl;
+		}catch(IOException _ioExcept){
+			throw new RuntimeException("Exception thrown when loading of " + MXML_JSF_FACTORY_IMPL_PROPERTIES, _ioExcept);
 		}
-		
-		try{
-			MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR = mxmlResponseWriterImplementorClass.getDeclaredConstructor(new Class[]{Writer.class, String.class, String.class});
-		}catch(NoSuchMethodException _noSuchMethod){
-			throw new RuntimeException("Failure in retrieving the constructor for " + MXML_RESPONSE_WRITER_IMPLEMENTOR, _noSuchMethod);
-		}
-		/** End for getting the Constructor for MXMLResponseWriterImpl */
-		
-		
-		/** Beginning for getting the Class for MXMLResponseStateManagerImpl, since will be using default constructor do not require a specific Constructor */
-		try{
-			MXML_RESPONSE_STATE_MANAGER_IMPLEMENTOR_CLASS = Class.forName(MXML_RESPONSE_STATE_MANAGER_IMPLEMENTOR, false, Thread.currentThread().getContextClassLoader());
-		}catch(ClassNotFoundException _classNotFound){
-			throw new RuntimeException("Failure in retrieving the class for " + MXML_RESPONSE_STATE_MANAGER_IMPLEMENTOR, _classNotFound);
-		}
-		/** End for getting the Class for MXMLResponseStateManagerImpl */
 		
 	}
 	
@@ -66,22 +60,19 @@ public final class MXMLJsfFactory {
 	}
 	
 	public static AbstractMXMLResponseWriter getMXMLResponseWriterImpl(Writer writer, String selectedContentType, String characterEncoding){
-		
-		try{
-        	return (AbstractMXMLResponseWriter) MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR.newInstance(new Object[]{writer, selectedContentType, characterEncoding});
-		}catch(Exception _instantiatingException){
-			throw new RuntimeException("Failure in instantiating a class for " + MXML_RESPONSE_WRITER_IMPLEMENTOR, _instantiatingException);
-		}
-		
+		return new MXMLResponseWriterImpl(writer, selectedContentType, characterEncoding);
 	}
 	
 	public static AbstractMXMLResponseStateManager getMXMLResponseStateManagerImpl(){
-		
-		try{
-			return (AbstractMXMLResponseStateManager) MXML_RESPONSE_STATE_MANAGER_IMPLEMENTOR_CLASS.newInstance();
-		}catch(Exception _instantiatingException){
-			throw new RuntimeException("Failure in instantiating a class for " + MXML_RESPONSE_STATE_MANAGER_IMPLEMENTOR, _instantiatingException);
-		}
+		return new MXMLResponseStateManagerImpl();
+	}
+	
+	static String getMXMLResponseStateManagerImplPackageClass(){
+		return MXML_RESPONSE_STATE_MANAGER_IMPL_PACKAGE_CLASS;
+	}
+	
+	static String getMXMLResponseWriterImplPackageClass(){
+		return MXML_RESPONSE_WRITER_IMPL_PACKAGE_CLASS;
 	}
 	
 }

@@ -30,23 +30,40 @@ import javax.faces.context.ResponseWriter;
  */
 class MXMLResponseWriterImpl extends AbstractMXMLResponseWriter {
 	
-	private ResponseWriter _mxmlResponseWriterBaseImplementor;
+	private static final Constructor MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR;
+	
+	private final ResponseWriter _mxmlResponseWriterBaseImplementor;
+	
+	static{
+		
+		Class mxmlResponseWriterImplementorClass;
+		
+		try{
+			mxmlResponseWriterImplementorClass = Class.forName(MXMLJsfFactory.getMXMLResponseWriterImplPackageClass(), false, Thread.currentThread().getContextClassLoader());
+		}catch(ClassNotFoundException _classNotFound){
+			throw new RuntimeException("Failure in retrieving the class for " + MXMLJsfFactory.getMXMLResponseWriterImplPackageClass(), _classNotFound);
+		}
+		
+		try{
+			MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR = mxmlResponseWriterImplementorClass.getDeclaredConstructor(new Class[]{Writer.class, String.class, String.class});
+		}catch(NoSuchMethodException _noSuchMethod){
+			throw new RuntimeException("Failure in retrieving the constructor for " +  MXMLJsfFactory.getMXMLResponseWriterImplPackageClass(), _noSuchMethod);
+		}
+		
+	}
 	
 	MXMLResponseWriterImpl(){
 		super();
+		_mxmlResponseWriterBaseImplementor = null;
 	}
 	
 	MXMLResponseWriterImpl(Writer writer, String contentType, String characterEncoding){
 		super();
 		
-		_mxmlResponseWriterBaseImplementor = new MXMLResponseWriterImplHelper(writer, contentType, characterEncoding);
-		
-	}
-	
-	private final class MXMLResponseWriterImplHelper extends ${mxmlResponseWriterBaseImplementor}{
-		
-		private MXMLResponseWriterImplHelper(Writer writer, String contentType, String characterEncoding){
-			super(writer, contentType, characterEncoding);
+		try{
+			_mxmlResponseWriterBaseImplementor = (ResponseWriter) MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR.newInstance(new Object[]{writer, contentType, characterEncoding});
+		}catch(Exception _instantiatingException){
+			throw new RuntimeException("Failure in instantiating a class for " + MXMLJsfFactory.getMXMLResponseWriterImplPackageClass(), _instantiatingException);
 		}
 		
 	}
