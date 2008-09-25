@@ -29,19 +29,25 @@ import javax.faces.render.ResponseStateManager;
  */
 class MXMLResponseStateManagerImpl extends AbstractMXMLResponseStateManager {
 	
-	private ResponseStateManager _mxmlResponseStateManagerBaseImplementor;
+	private static final Class MXML_RESPONSE_STATE_MANAGER_IMPLEMENTOR_CLASS;
+	
+	private final ResponseStateManager _mxmlResponseStateManagerBaseImplementor;
+	
+	static{
+		try{
+			MXML_RESPONSE_STATE_MANAGER_IMPLEMENTOR_CLASS = Class.forName(MXMLJsfFactory.getMXMLResponseStateManagerImplPackageClass(), false, Thread.currentThread().getContextClassLoader());
+		}catch(ClassNotFoundException _classNotFound){
+			throw new RuntimeException("Failure in retrieving the class for " + MXMLJsfFactory.getMXMLResponseStateManagerImplPackageClass(), _classNotFound);
+		}
+	}
 	
 	MXMLResponseStateManagerImpl(){
 		super();
 		
-		_mxmlResponseStateManagerBaseImplementor = new MXMLResponseStateManagerImplHelper();
-		
-	}
-	
-	private final class MXMLResponseStateManagerImplHelper extends ${mxmlResponseStateManagerBaseImplementor} {
-		
-		private MXMLResponseStateManagerImplHelper(){
-			super();
+		try{
+			_mxmlResponseStateManagerBaseImplementor = (ResponseStateManager) MXML_RESPONSE_STATE_MANAGER_IMPLEMENTOR_CLASS.newInstance();
+		}catch(Exception _instantiatingException){
+			throw new RuntimeException("Failure in instantiating a class for " + MXMLJsfFactory.getMXMLResponseStateManagerImplPackageClass(), _instantiatingException);
 		}
 		
 	}
