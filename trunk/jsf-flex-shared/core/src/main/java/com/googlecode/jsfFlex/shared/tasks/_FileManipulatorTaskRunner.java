@@ -44,7 +44,7 @@ public abstract class _FileManipulatorTaskRunner extends TaskRunnerImpl {
 	
 	public abstract String generateMXMLObjectBeanContent(Set _mxmlObjectBeanWrapperSet, String _fileOutPutPath);
 	
-	public static synchronized String getComponentTemplate(ClassLoader _loader, String template) {
+	public synchronized String getComponentTemplate(ClassLoader _loader, String template) {
 		StringBuffer fileContent = new StringBuffer();
 		BufferedReader bufferRead = null;
 		
@@ -77,7 +77,7 @@ public abstract class _FileManipulatorTaskRunner extends TaskRunnerImpl {
 		return fileContent.toString();
 	}
 	
-	public static synchronized String readFileContent(String fileName) {
+	public synchronized String readFileContent(String fileName) {
 		StringBuffer fileContent = new StringBuffer();
 		BufferedReader bufferRead = null;
 		
@@ -110,7 +110,7 @@ public abstract class _FileManipulatorTaskRunner extends TaskRunnerImpl {
 		return fileContent.toString();
 	}
 	
-	private static String getErrorMessage(String caller, String parameter){
+	private String getErrorMessage(String caller, String parameter){
 		StringBuffer errorMessage = new StringBuffer();
 		errorMessage.append("Exception when ");
 		errorMessage.append(caller);

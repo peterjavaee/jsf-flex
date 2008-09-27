@@ -37,138 +37,168 @@ import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDoclet
  */
 public abstract class _RunnerFactory {
 	
+	private static final _RunnerFactory INSTANCE;
+	
 	private static final String RUNNER_FACTORY_IMPL_PROPERTIES = "runnerFactoryImpl.properties";
 	
-	private static final String RUNNER_FACTORY_IMPL_PACKAGE_CLASS;
-	private static final String RUNNER_FACTORY_IMPL_KEY = "runner_factory_impl";
+	private static final String COMMON_TASK_RUNNER_IMPL_PACKAGE_CLASS_KEY = "common_task_rummer_impl_package";
+	private static final String FILE_MANIPULATOR_TASK_RUNNER_IMPL_PACKAGE_CLASS_KEY = "file_manipulator_task_runner_impl_package";
+	private static final String FLEX_TASK_RUNNER_IMPL_PACKAGE_CLASS_KEY = "flex_task_runner_impl_package";
+	private static final String ANNOTATION_DOCLET_PARSER_IMPL_PACKAGE_CLASS_KEY = "annotation_doclet_parser_impl_package";
 	
-	private static _RunnerFactory _instance;
+	private static final String COMMON_TASK_RUNNER_IMPL_PACKAGE_CLASS;
+	private static final String FILE_MANIPULATOR_TASK_RUNNER_IMPL_PACKAGE_CLASS;
+	private static final String FLEX_TASK_RUNNER_IMPL_PACKAGE_CLASS;
+	private static final String ANNOTATION_DOCLET_PARSER_IMPL_PACKAGE_CLASS;
+	
+	private static final Class COMMON_TASK_RUNNER_IMPL_CLASS;
+	private static final Class FILE_MANIPULATOR_TASK_RUNNER_IMPL_CLASS;
+	private static final Class FLEX_TASK_RUNNER_IMPL_CLASS;
+	private static final Class ANNOTATION_DOCLET_PARSER_IMPL_CLASS;
 	
 	static{
 		
-		String runnerFactoryImplFromProperty = System.getProperty(RUNNER_FACTORY_IMPL_KEY);
+		Properties _runnerFactoryImplProperties = new Properties();
 		
-		if(runnerFactoryImplFromProperty != null){
-			RUNNER_FACTORY_IMPL_PACKAGE_CLASS = runnerFactoryImplFromProperty;
-		}else{
-			Properties _runnerFactoryImplProperties = new Properties();
-			try{
-				_runnerFactoryImplProperties.load(_RunnerFactory.class.getResourceAsStream(RUNNER_FACTORY_IMPL_PROPERTIES));
-				RUNNER_FACTORY_IMPL_PACKAGE_CLASS = _runnerFactoryImplProperties.getProperty(RUNNER_FACTORY_IMPL_KEY);
-			}catch(IOException _ioExcept){
-				throw new RuntimeException("Exception thrown when loading of " + RUNNER_FACTORY_IMPL_PROPERTIES, _ioExcept);
-			}
+		try{
+			_runnerFactoryImplProperties.load(_RunnerFactory.class.getResourceAsStream(RUNNER_FACTORY_IMPL_PROPERTIES));
+		}catch(IOException _ioExcept){
+			throw new RuntimeException("Exception thrown when loading of " + RUNNER_FACTORY_IMPL_PROPERTIES, _ioExcept);
 		}
+		
+		String systemCommonTaskRunnerImplPackageClass = System.getProperty(COMMON_TASK_RUNNER_IMPL_PACKAGE_CLASS_KEY);
+		String systemFileManipulatorTaskRunnerPackageClass = System.getProperty(FILE_MANIPULATOR_TASK_RUNNER_IMPL_PACKAGE_CLASS_KEY);
+		String systemFlexTaskRunnerImplPackageClass = System.getProperty(FLEX_TASK_RUNNER_IMPL_PACKAGE_CLASS_KEY);
+		
+		String systemAnnotationDocletParserImplPackageClass = System.getProperty(ANNOTATION_DOCLET_PARSER_IMPL_PACKAGE_CLASS_KEY);
+		
+		COMMON_TASK_RUNNER_IMPL_PACKAGE_CLASS = systemCommonTaskRunnerImplPackageClass == null ? 
+													_runnerFactoryImplProperties.getProperty(COMMON_TASK_RUNNER_IMPL_PACKAGE_CLASS_KEY) : systemCommonTaskRunnerImplPackageClass;
+		FILE_MANIPULATOR_TASK_RUNNER_IMPL_PACKAGE_CLASS = systemFileManipulatorTaskRunnerPackageClass == null ?
+													_runnerFactoryImplProperties.getProperty(FILE_MANIPULATOR_TASK_RUNNER_IMPL_PACKAGE_CLASS_KEY) : systemFileManipulatorTaskRunnerPackageClass;
+		FLEX_TASK_RUNNER_IMPL_PACKAGE_CLASS = systemFlexTaskRunnerImplPackageClass == null ?
+													_runnerFactoryImplProperties.getProperty(FLEX_TASK_RUNNER_IMPL_PACKAGE_CLASS_KEY) : systemFlexTaskRunnerImplPackageClass;
+		ANNOTATION_DOCLET_PARSER_IMPL_PACKAGE_CLASS = systemAnnotationDocletParserImplPackageClass == null ?
+													_runnerFactoryImplProperties.getProperty(ANNOTATION_DOCLET_PARSER_IMPL_PACKAGE_CLASS_KEY) : systemAnnotationDocletParserImplPackageClass;
+		
+		try{
+			COMMON_TASK_RUNNER_IMPL_CLASS = Class.forName(COMMON_TASK_RUNNER_IMPL_PACKAGE_CLASS);
+		}catch(ClassNotFoundException _classNotFound){
+			throw new RuntimeException(errorMessage(COMMON_TASK_RUNNER_IMPL_PACKAGE_CLASS, _classNotFound), _classNotFound);
+		}
+		
+		try{
+			FILE_MANIPULATOR_TASK_RUNNER_IMPL_CLASS = Class.forName(FILE_MANIPULATOR_TASK_RUNNER_IMPL_PACKAGE_CLASS);
+		}catch(ClassNotFoundException _classNotFound){
+			throw new RuntimeException(errorMessage(FILE_MANIPULATOR_TASK_RUNNER_IMPL_PACKAGE_CLASS, _classNotFound), _classNotFound);
+		}
+		
+		try{
+			FLEX_TASK_RUNNER_IMPL_CLASS = Class.forName(FLEX_TASK_RUNNER_IMPL_PACKAGE_CLASS);
+		}catch(ClassNotFoundException _classNotFound){
+			throw new RuntimeException(errorMessage(FLEX_TASK_RUNNER_IMPL_PACKAGE_CLASS, _classNotFound), _classNotFound);
+		}
+		
+		try{
+			ANNOTATION_DOCLET_PARSER_IMPL_CLASS = Class.forName(ANNOTATION_DOCLET_PARSER_IMPL_PACKAGE_CLASS);
+		}catch(ClassNotFoundException _classNotFound){
+			throw new RuntimeException(errorMessage(ANNOTATION_DOCLET_PARSER_IMPL_PACKAGE_CLASS, _classNotFound), _classNotFound);
+		}
+		
+		INSTANCE = new _RunnerFactory(){
+			
+			String getAnnotationDocletParserImplPackage() {
+				return ANNOTATION_DOCLET_PARSER_IMPL_PACKAGE_CLASS;
+			}
+			
+			String getCommonTaskRunnerImplPackage() {
+				return COMMON_TASK_RUNNER_IMPL_PACKAGE_CLASS;
+			}
+			
+			String getFileManipulatorTaskRunnerImplPackage() {
+				return FILE_MANIPULATOR_TASK_RUNNER_IMPL_PACKAGE_CLASS;
+			}
+			
+			String getFlexTaskRunnerImplPackage() {
+				return FLEX_TASK_RUNNER_IMPL_PACKAGE_CLASS;
+			}
+		};
+		
 	}
 	
-	protected _RunnerFactory(){
+	private _RunnerFactory(){
 		super();
 	}
 	
-	public final static synchronized _RunnerFactory getInstance(){
-		final String METHOD = "getInstance()";
-		
-		if(_instance == null){
-			try{
-				Class _specificClass = Class.forName(RUNNER_FACTORY_IMPL_PACKAGE_CLASS);
-				_instance = (_RunnerFactory) _specificClass.newInstance();
-			}catch(ClassNotFoundException _classNotFound){
-				throw new RuntimeException(errorMessage(METHOD, _classNotFound), _classNotFound);
-			}catch(IllegalAccessException _illegalAccess){
-				throw new RuntimeException(errorMessage(METHOD, _illegalAccess), _illegalAccess);
-			}catch(InstantiationException _instantiation){
-				throw new RuntimeException(errorMessage(METHOD, _instantiation), _instantiation);
-			}
-		}
-		
-		return _instance;
+	public static final synchronized _RunnerFactory getInstance(){
+		return INSTANCE;
 	}
 	
 	public final synchronized _CommonTaskRunner getCommonTaskRunnerImpl(){
-		final String METHOD = "getCommonTaskRunnerImpl()";
 		
 		_CommonTaskRunner _specificInstance = null;
-		String _commonTaskRunnerImplPackage = getCommonTaskRunnerImplPackage();
 		
 		try{
-			Class _specificClass = Class.forName(_commonTaskRunnerImplPackage);
-			_specificInstance = (_CommonTaskRunner) _specificClass.newInstance();
-		}catch(ClassNotFoundException _classNotFound){
-			throw new RuntimeException(errorMessage(METHOD, _classNotFound), _classNotFound);
+			_specificInstance = (_CommonTaskRunner) COMMON_TASK_RUNNER_IMPL_CLASS.newInstance();
 		}catch(IllegalAccessException _illegalAccess){
-			throw new RuntimeException(errorMessage(METHOD, _illegalAccess), _illegalAccess);
+			throw new RuntimeException(errorMessage(getCommonTaskRunnerImplPackage(), _illegalAccess), _illegalAccess);
 		}catch(InstantiationException _instantiation){
-			throw new RuntimeException(errorMessage(METHOD, _instantiation), _instantiation);
+			throw new RuntimeException(errorMessage(getCommonTaskRunnerImplPackage(), _instantiation), _instantiation);
 		}
 		
 		return _specificInstance;
 	}
 	
 	public final synchronized _FileManipulatorTaskRunner getFileManipulatorTaskRunnerImpl(){
-		final String METHOD = "getFileManipulatorTaskRunnerImpl()";
 		
 		_FileManipulatorTaskRunner _specificInstance = null;
-		String _fileManipulatorTaskRunnerImplPackage = getFileManipulatorTaskRunnerImplPackage();
 		
 		try{
-			Class _specificClass = Class.forName(_fileManipulatorTaskRunnerImplPackage);
-			_specificInstance = (_FileManipulatorTaskRunner) _specificClass.newInstance();
-		}catch(ClassNotFoundException _classNotFound){
-			throw new RuntimeException(errorMessage(METHOD, _classNotFound), _classNotFound);
+			_specificInstance = (_FileManipulatorTaskRunner) FILE_MANIPULATOR_TASK_RUNNER_IMPL_CLASS.newInstance();
 		}catch(IllegalAccessException _illegalAccess){
-			throw new RuntimeException(errorMessage(METHOD, _illegalAccess), _illegalAccess);
+			throw new RuntimeException(errorMessage(getFileManipulatorTaskRunnerImplPackage(), _illegalAccess), _illegalAccess);
 		}catch(InstantiationException _instantiation){
-			throw new RuntimeException(errorMessage(METHOD, _instantiation), _instantiation);
-		}
-		
-		return _specificInstance;
-	}
-	
-	public final synchronized _AnnotationDocletParser getAnnotationDocletParserImpl(){
-		final String METHOD = "getAnnotationDocletParserImpl()";
-		
-		_AnnotationDocletParser _specificInstance = null;
-		String _annotationDocletParserImplPackage = getAnnotationDocletParserImplPackage();
-		
-		try{
-			Class _specificClass = Class.forName(_annotationDocletParserImplPackage);
-			_specificInstance = (_AnnotationDocletParser) _specificClass.newInstance();
-		}catch(ClassNotFoundException _classNotFound){
-			throw new RuntimeException(errorMessage(METHOD, _classNotFound), _classNotFound);
-		}catch(IllegalAccessException _illegalAccess){
-			throw new RuntimeException(errorMessage(METHOD, _illegalAccess), _illegalAccess);
-		}catch(InstantiationException _instantiation){
-			throw new RuntimeException(errorMessage(METHOD, _instantiation), _instantiation);
+			throw new RuntimeException(errorMessage(getFileManipulatorTaskRunnerImplPackage(), _instantiation), _instantiation);
 		}
 		
 		return _specificInstance;
 	}
 	
 	public final synchronized _FlexTaskRunner getFlexTaskRunnerImpl(){
-		final String METHOD = "getFlexTaskRunnerImpl()";
 		
 		_FlexTaskRunner _specificInstance = null;
-		String _flexTaskRunnerImplPackage = getFlexTaskRunnerImplPackage();
 		
 		try{
-			Class _specificClass = Class.forName(_flexTaskRunnerImplPackage);
-			_specificInstance = (_FlexTaskRunner) _specificClass.newInstance();
-		}catch(ClassNotFoundException _classNotFound){
-			throw new RuntimeException(errorMessage(METHOD, _classNotFound), _classNotFound);
+			_specificInstance = (_FlexTaskRunner) FLEX_TASK_RUNNER_IMPL_CLASS.newInstance();
 		}catch(IllegalAccessException _illegalAccess){
-			throw new RuntimeException(errorMessage(METHOD, _illegalAccess), _illegalAccess);
+			throw new RuntimeException(errorMessage(getFlexTaskRunnerImplPackage(), _illegalAccess), _illegalAccess);
 		}catch(InstantiationException _instantiation){
-			throw new RuntimeException(errorMessage(METHOD, _instantiation), _instantiation);
+			throw new RuntimeException(errorMessage(getFlexTaskRunnerImplPackage(), _instantiation), _instantiation);
 		}
 		
 		return _specificInstance;
 	}
 	
-	private static String errorMessage(String _method, Exception _type){
+	public final synchronized _AnnotationDocletParser getAnnotationDocletParserImpl(){
+		
+		_AnnotationDocletParser _specificInstance = null;
+		
+		try{
+			_specificInstance = (_AnnotationDocletParser) ANNOTATION_DOCLET_PARSER_IMPL_CLASS.newInstance();
+		}catch(IllegalAccessException _illegalAccess){
+			throw new RuntimeException(errorMessage(getAnnotationDocletParserImplPackage(), _illegalAccess), _illegalAccess);
+		}catch(InstantiationException _instantiation){
+			throw new RuntimeException(errorMessage(getAnnotationDocletParserImplPackage(), _instantiation), _instantiation);
+		}
+		
+		return _specificInstance;
+	}
+	
+	private static String errorMessage(String packageClass, Exception type){
 		StringBuffer errorMessage = new StringBuffer();
 		
-		errorMessage.append("While creating an instance within method " + _method);
-		errorMessage.append(_type.getClass().getName());
+		errorMessage.append("While creating an instance of " + packageClass);
+		errorMessage.append(type.getClass().getName());
 		errorMessage.append(" Exception was thrown.");
 		
 		return errorMessage.toString();

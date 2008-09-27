@@ -107,10 +107,10 @@
     </profile>
     
     <profile>
-      <id>default_runner_factory_impl</id>
+      <id>default_standard_common_impl</id>
       <activation>
         <property>
-          <name>!runner_factory_impl</name>
+          <name>!standard_common_impl</name>
         </property>
       </activation>
       <dependencies>
@@ -119,11 +119,33 @@
           <artifactId>sdk-standard-common-impl</artifactId>
           <version>${jsf.flex.runner.version}</version>
         </dependency>
+      </dependencies>
+    </profile>
+    
+    <profile>
+      <id>default_file_manipulator_impl</id>
+      <activation>
+        <property>
+          <name>!file_manipulator_impl</name>
+        </property>
+      </activation>
+      <dependencies>
         <dependency>
           <groupId>com.googlecode.jsf-flex.runner-impl-project.file-manipulator-runner-project</groupId>
           <artifactId>velocity-file-manipulator-impl</artifactId>
           <version>${jsf.flex.runner.version}</version>
         </dependency>
+      </dependencies>
+    </profile>
+        
+    <profile>
+      <id>default_flex_runner_impl</id>
+      <activation>
+        <property>
+          <name>!flex_runner_impl</name>
+        </property>
+      </activation>
+      <dependencies>
         <dependency>
           <groupId>com.googlecode.jsf-flex.runner-impl-project.flex-runner-project</groupId>
           <artifactId>ant-flex-impl</artifactId>

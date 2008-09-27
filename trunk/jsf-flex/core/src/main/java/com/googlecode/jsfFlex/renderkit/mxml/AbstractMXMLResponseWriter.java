@@ -296,7 +296,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 */
 	public final String getComponentTemplate(ClassLoader loader, String template) {
 		
-		return _FileManipulatorTaskRunner.getComponentTemplate(loader, template);
+		return getFileManipulatorTaskRunner().getComponentTemplate(loader, template);
 	}
 	
 	/**
@@ -307,7 +307,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 */
 	public final String readFileContent(String fileName) {
 		
-		return _FileManipulatorTaskRunner.readFileContent(fileName);
+		return getFileManipulatorTaskRunner().readFileContent(fileName);
 	}
 	
 	/**
