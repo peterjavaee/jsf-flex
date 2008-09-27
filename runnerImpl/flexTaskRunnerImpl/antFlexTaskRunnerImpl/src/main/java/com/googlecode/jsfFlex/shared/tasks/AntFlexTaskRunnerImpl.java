@@ -28,6 +28,7 @@ import org.apache.commons.logging.LogFactory;
 
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.shared.tasks.task.ant.DeleteTask;
 import com.googlecode.jsfFlex.shared.tasks.task.ant.EchoTask;
 import com.googlecode.jsfFlex.shared.tasks.task.ant.FileCopyTask;
@@ -131,13 +132,13 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 			}
 			makeDirectory(_swcPath + _path.toString());
 			_fileName = _swcPath + _path.toString() + currSplit[currSplit.length-1];
-			curr = new EchoTask(_FileManipulatorTaskRunner.getComponentTemplate(getClass().getClassLoader(), _currSystemSource), _fileName); 
+			curr = new EchoTask(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), _currSystemSource), _fileName); 
 			addTask(curr);
 		}
 		
 		//now flush out the swc config file
 		String _jsfFlexMainSwcConfigFileName = _swcPath + jsfFlexMainSwcConfigFile.substring(jsfFlexMainSwcConfigFile.lastIndexOf("/") + 1);
-		curr = new EchoTask(_FileManipulatorTaskRunner.getComponentTemplate(getClass().getClassLoader(), jsfFlexMainSwcConfigFile), _jsfFlexMainSwcConfigFileName); 
+		curr = new EchoTask(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), jsfFlexMainSwcConfigFile), _jsfFlexMainSwcConfigFileName); 
 		addTask(curr);
 		
 	}
@@ -168,7 +169,7 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 			_currSystemSwfSourceFile = (String) _systemSwfSourceFilesIterator.next();
 			currSplit = _currSystemSwfSourceFile.split("/");
 			_fileName = _swfBasePath + currSplit[currSplit.length-1];
-			curr = new EchoTask(_FileManipulatorTaskRunner.getComponentTemplate(getClass().getClassLoader(), _currSystemSwfSourceFile), _fileName); 
+			curr = new EchoTask(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), _currSystemSwfSourceFile), _fileName); 
 			addTask(curr);
 		}
 	}
@@ -191,6 +192,11 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 		writeBodyContent.addTokenValue(MXMLConstants.TAG_BODY_CONTENT_TOKEN, stringBodyContentToReplace);
 		writeBodyContent.setMultiLineReplace(true);
 		addTask(writeBodyContent);
+	}
+	
+	public final _FileManipulatorTaskRunner getFileManipulatorTaskRunner(){
+		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		return mxmlContext.getFileManipulatorRunner();
 	}
 		
 }

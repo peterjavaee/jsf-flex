@@ -178,7 +178,7 @@ class MXMLRenderKitImpl extends RenderKit {
 	    		}
 	    		
 	    		if(contentTypeListString == null){
-	    			throw new IllegalArgumentException("Content Type Listing passed into createResponseWriter and within RequestHeaderMap is null!");
+	    			throw new NullPointerException("Content Type Listing passed into createResponseWriter and within RequestHeaderMap is null!");
 	    		}
 	    		
 	    	}
@@ -201,7 +201,7 @@ class MXMLRenderKitImpl extends RenderKit {
 	    	}
 	    	
 	    	if(contentType == null){
-	    		throw new IllegalArgumentException("Content type : " + contentTypeListString + " is not one of the supported content Type");
+	    		throw new NullPointerException("Content type : " + contentTypeListString + " is not one of the supported content Type");
 	    	}
 	    	
 	    	return contentType;

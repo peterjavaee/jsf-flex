@@ -45,14 +45,38 @@
   
   <profiles>
     <profile>
-      <id>default_runner_factory_impl</id>
+      <id>default_standard_common_impl</id>
       <activation>
         <property>
-          <name>!runner_factory_impl</name>
+          <name>!standard_common_impl</name>
         </property>
       </activation>
       <properties>
-        <runner_factory_impl>com.googlecode.jsfFlex.shared.tasks.DefaultRunnerFactoryImpl</runner_factory_impl>
+        <common_task_rummer_impl_package>com.googlecode.jsfFlex.shared.tasks.SDKStandardCommonTaskRunnerImpl</common_task_rummer_impl_package>
+      </properties>
+    </profile>
+    
+    <profile>
+      <id>default_file_manipulator_impl</id>
+      <activation>
+        <property>
+          <name>!file_manipulator_impl</name>
+        </property>
+      </activation>
+      <properties>
+        <file_manipulator_task_runner_impl_package>com.googlecode.jsfFlex.shared.tasks.VelocityFileManipulatorTaskRunnerImpl</file_manipulator_task_runner_impl_package>
+      </properties>
+    </profile>
+    
+    <profile>
+      <id>default_flex_runner_impl</id>
+      <activation>
+        <property>
+          <name>!flex_runner_impl</name>
+        </property>
+      </activation>
+      <properties>
+        <flex_task_runner_impl_package>com.googlecode.jsfFlex.shared.tasks.AntFlexTaskRunnerImpl</flex_task_runner_impl_package>
       </properties>
     </profile>
     
