@@ -58,7 +58,7 @@ final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulatorTaskRu
 	}
 	
 	public synchronized void createPreMxmlFile(String _preMxmlFilePath, Properties _initProperties, Set _tokenList, String _mxmlComponentName, 
-													String _bodyContent, String _childIdentifier, String _siblingIdentifier) throws ComponentBuildException {
+													String _bodyContent, String _childIdentifier, String _siblingIdentifier) {
 		if(_tokenList == null){
 			_tokenList = new LinkedHashSet();
 		}
@@ -106,7 +106,7 @@ final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulatorTaskRu
 		}
 	}
 	
-	public synchronized String generateMXMLObjectBeanContent(Set _mxmlObjectBeanWrapperSet, String _fileOutPutPath) throws ComponentBuildException {
+	public synchronized String generateMXMLObjectBeanContent(Set _mxmlObjectBeanWrapperSet, String _fileOutPutPath) {
 		if(_mxmlObjectBeanWrapperSet == null){
 			_mxmlObjectBeanWrapperSet = new HashSet();
 		}

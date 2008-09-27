@@ -20,17 +20,15 @@ package com.googlecode.jsfFlex.shared.tasks;
 
 import java.util.Collection;
 
-import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
-
 /**
  * @author Ji Hoon Kim
  */
 public interface _TaskRunner {
 	
-	void addTask(_Task toAdd) throws ComponentBuildException;
+	void addTask(_Task toAdd);
 	
-	void addTasks(Collection _tasksToAdd) throws ComponentBuildException;
+	void addTasks(Collection _tasksToAdd);
 	
-	void execute() throws ComponentBuildException;
+	void execute();
 
 }

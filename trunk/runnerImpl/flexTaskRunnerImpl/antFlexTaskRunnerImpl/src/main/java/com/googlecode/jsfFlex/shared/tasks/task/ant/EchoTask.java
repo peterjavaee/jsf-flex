@@ -67,7 +67,7 @@ public final class EchoTask extends Ant_BaseTask {
 		_append = false;
 	}
 	
-	protected void performTask() throws ComponentBuildException {
+	protected void performTask() {
 		
 		_echoTask.addText(getMessage());
 		_echoTask.setFile(new File(getFile()));

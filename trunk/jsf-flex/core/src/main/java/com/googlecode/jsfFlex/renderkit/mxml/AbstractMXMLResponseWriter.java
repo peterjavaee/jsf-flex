@@ -27,7 +27,6 @@ import javax.faces.context.ResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
-import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.tasks._CommonTaskRunner;
 import com.googlecode.jsfFlex.shared.tasks._FileManipulatorTaskRunner;
 import com.googlecode.jsfFlex.shared.tasks._FlexTaskRunner;
@@ -42,7 +41,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 		super();
 	}
 	
-	public void execute() throws ComponentBuildException {
+	public void execute() {
 		getCommonTaskRunner().execute();
 		getFlexTaskRunner().execute();
 	}
@@ -52,9 +51,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * 
 	 * @param componentMXML
 	 * @param mxmlFile
-	 * @throws ComponentBuildException
 	 */
-	public final void processCreateSwf(_MXMLApplicationContract componentMXML, String mxmlFile) throws ComponentBuildException {
+	public final void processCreateSwf(_MXMLApplicationContract componentMXML, String mxmlFile) {
 		
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 		String copyTo = mxmlContext.getMxmlPath() + mxmlContext.getCurrMxml() + MXMLConstants.MXML_FILE_EXT;
@@ -102,7 +100,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 		
 	}
 	
-	public final String generateMXMLObjectBeanContent() throws ComponentBuildException {
+	public final String generateMXMLObjectBeanContent() {
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 		return getFileManipulatorTaskRunner().generateMXMLObjectBeanContent(mxmlContext.getMxmlObjectBeanWrapperSet(), mxmlContext.getPreMxmlPath());
 	}
@@ -111,9 +109,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * This method will create a directory, which should be specified in absolute path.<br>
 	 * 
 	 * @param directoryToCreate
-	 * @throws ComponentBuildException
 	 */
-	public final void makeDirectory(String directoryToCreate) throws ComponentBuildException {
+	public final void makeDirectory(String directoryToCreate) {
 		getFlexTaskRunner().makeDirectory(directoryToCreate);
 	}
 	
@@ -124,9 +121,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param mapClass
 	 * @param componentObj
 	 * @param mappingFile
-	 * @throws ComponentBuildException
 	 */
-	public final void mapFields(Class mapClass, Object componentObj, String mappingFile) throws ComponentBuildException {
+	public final void mapFields(Class mapClass, Object componentObj, String mappingFile) {
 		_MXMLContract _comp = (_MXMLContract) componentObj;
 		_comp.getAnnotationDocletParserInstance().mapComponentFields(mapClass, componentObj, mappingFile);
 	}
@@ -137,9 +133,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param comp
 	 * @param mxmlComponentName
 	 * @param bodyContent
-	 * @throws ComponentBuildException
 	 */
-	public final void createPreMxml(AbstractMXMLResponseWriter writer, _MXMLContract comp, String mxmlComponentName, String bodyContent) throws ComponentBuildException {
+	public final void createPreMxml(AbstractMXMLResponseWriter writer, _MXMLContract comp, String mxmlComponentName, String bodyContent) {
 		
 		String fileDirectory = comp.getAbsolutePathToPreMxmlFile().substring(0, comp.getAbsolutePathToPreMxmlFile().lastIndexOf(File.separatorChar));
 		writer.getFlexTaskRunner().makeDirectory(fileDirectory);
@@ -155,9 +150,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param applicationInstance
 	 * @param valueToReplaceWith
 	 * @param tokenReplace
-	 * @throws ComponentBuildException
 	 */
-	public final void replaceTokenWithValue(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) throws ComponentBuildException {
+	public final void replaceTokenWithValue(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) {
 		getFlexTaskRunner().replaceTokenWithValue(applicationInstance, valueToReplaceWith, tokenReplace);
 	}
 	
@@ -167,9 +161,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * 
 	 * @param applicationInstance
 	 * @param copyTo
-	 * @throws ComponentBuildException
 	 */
-	public final void createMXML(_MXMLContract applicationInstance, String copyTo) throws ComponentBuildException {
+	public final void createMXML(_MXMLContract applicationInstance, String copyTo) {
 		getFlexTaskRunner().createMXML(applicationInstance, copyTo);
 	}
 	
@@ -179,9 +172,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param _swcPath
 	 * @param _systemSourceFiles
 	 * @param jsfFlexMainSwcConfigFile
-	 * @throws ComponentBuildException
 	 */
-	public final void createSwcSourceFiles(String _swcPath, List _systemSourceFiles, String jsfFlexMainSwcConfigFile) throws ComponentBuildException {
+	public final void createSwcSourceFiles(String _swcPath, List _systemSourceFiles, String jsfFlexMainSwcConfigFile) {
 		getFlexTaskRunner().createSwcSourceFiles(_swcPath, _systemSourceFiles, jsfFlexMainSwcConfigFile);
 	}
 	
@@ -192,10 +184,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param outPut
 	 * @param flexSDKRootPath
 	 * @param loadConfigFilePath
-	 * @throws ComponentBuildException
 	 */
-	public final void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath) 
-											throws ComponentBuildException {
+	public final void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath) {
 		getFlexTaskRunner().createSystemSWCFile(sourcePath, outPut, flexSDKRootPath, loadConfigFilePath);
 	}
 	
@@ -206,10 +196,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param mxmlFile
 	 * @param swfPath
 	 * @param flexSDKRootPath
-	 * @throws ComponentBuildException
 	 */
-	public final void createSWF(_MXMLApplicationContract componentMXML, String mxmlFile, 
-									String swfPath, String flexSDKRootPath) throws ComponentBuildException {
+	public final void createSWF(_MXMLApplicationContract componentMXML, String mxmlFile, String swfPath, String flexSDKRootPath) {
 		getFlexTaskRunner().createSWF(componentMXML, mxmlFile, swfPath, flexSDKRootPath);
 	}
 	
@@ -218,9 +206,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * 
 	 * @param _swfBasePath
 	 * @param _systemSwfSourceFiles
-	 * @throws ComponentBuildException
 	 */
-	public final void createSwfSourceFiles(String _swfBasePath, List _systemSwfSourceFiles) throws ComponentBuildException {
+	public final void createSwfSourceFiles(String _swfBasePath, List _systemSwfSourceFiles) {
 		getFlexTaskRunner().createSwfSourceFiles(_swfBasePath, _systemSwfSourceFiles);
 	}
 	
@@ -229,9 +216,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * 
 	 * @param deleteResource
 	 * @param isDirectory
-	 * @throws ComponentBuildException
 	 */
-	public final void deleteResources(String deleteResource, boolean isDirectory) throws ComponentBuildException {
+	public final void deleteResources(String deleteResource, boolean isDirectory) {
 		getFlexTaskRunner().deleteResources(deleteResource, isDirectory);
 	}
 	
@@ -240,9 +226,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * 
 	 * @param fileToCopy
 	 * @param fileToCopyTo
-	 * @throws ComponentBuildException
 	 */
-	public final void copyFile(String fileToCopy, String fileToCopyTo) throws ComponentBuildException {
+	public final void copyFile(String fileToCopy, String fileToCopyTo) {
 		getFlexTaskRunner().copyFile(fileToCopy, fileToCopyTo);
 	}
 	
@@ -254,9 +239,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param copyInclude
 	 * @param copyExclude
 	 * @param copyTo
-	 * @throws ComponentBuildException
 	 */
-	public final void copyFileSet(String copyDir, String copyInclude, String copyExclude, String copyTo) throws ComponentBuildException {
+	public final void copyFileSet(String copyDir, String copyInclude, String copyExclude, String copyTo) {
 		getFlexTaskRunner().copyFileSet(copyDir, copyInclude, copyExclude, copyTo);
 	}
 	
@@ -267,9 +251,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param sourceFile
 	 * @param destFile
 	 * @param overWrite
-	 * @throws ComponentBuildException
 	 */
-	public final void renameFile(String sourceFile, String destFile, boolean overWrite) throws ComponentBuildException {
+	public final void renameFile(String sourceFile, String destFile, boolean overWrite) {
 		getFlexTaskRunner().renameFile(sourceFile, destFile, overWrite);
 	}
 	
@@ -278,9 +261,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * 
 	 * @param _unZipFile
 	 * @param _unZipDest
-	 * @throws ComponentBuildException
 	 */
-	public final void unZipArchiveRelative(String _unZipFile, String _unZipDest) throws ComponentBuildException {
+	public final void unZipArchiveRelative(String _unZipFile, String _unZipDest) {
 		getCommonTaskRunner().unZipArchiveRelative(_unZipFile, _unZipDest);
 	}
 	
@@ -289,9 +271,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * 
 	 * @param _unZipFile
 	 * @param _unZipDest
-	 * @throws ComponentBuildException
 	 */
-	public final void unZipArchiveAbsolute(File _unZipFile, String _unZipDest) throws ComponentBuildException {
+	public final void unZipArchiveAbsolute(File _unZipFile, String _unZipDest) {
 		
 		getCommonTaskRunner().unZipArchiveAbsolute(_unZipFile, _unZipDest);
 	}
@@ -301,9 +282,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * 
 	 * @param _unZipFile
 	 * @param _unZipDest
-	 * @throws ComponentBuildException
 	 */
-	public final void unZipArchiveAbsolute(InputStream _unZipFile, String _unZipDest) throws ComponentBuildException {
+	public final void unZipArchiveAbsolute(InputStream _unZipFile, String _unZipDest) {
 		
 		getCommonTaskRunner().unZipArchiveAbsolute(_unZipFile, _unZipDest);
 	}
@@ -313,9 +293,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * 
 	 * @param template
 	 * @return
-	 * @throws ComponentBuildException
 	 */
-	public final String getComponentTemplate(ClassLoader loader, String template) throws ComponentBuildException {
+	public final String getComponentTemplate(ClassLoader loader, String template) {
 		
 		return _FileManipulatorTaskRunner.getComponentTemplate(loader, template);
 	}
@@ -325,9 +304,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * 
 	 * @param fileName
 	 * @return
-	 * @throws ComponentBuildException
 	 */
-	public final String readFileContent(String fileName) throws ComponentBuildException {
+	public final String readFileContent(String fileName) {
 		
 		return _FileManipulatorTaskRunner.readFileContent(fileName);
 	}

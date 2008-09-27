@@ -42,13 +42,13 @@ final class SDKStandardCommonTaskRunnerImpl extends TaskRunnerImpl implements _C
 		super();
 	}
 	
-	public void unZipArchiveRelative(String file, String dest) throws ComponentBuildException {
+	public void unZipArchiveRelative(String file, String dest) {
 		InputStream fileIO = UnzipTask.class.getResourceAsStream(file);
 		UnzipTask toUnzip = new UnzipTask(fileIO, dest);
 		addTask(toUnzip);
 	}
 	
-	public void unZipArchiveAbsolute(File file, String dest) throws ComponentBuildException {
+	public void unZipArchiveAbsolute(File file, String dest) {
 		try{
 			FileInputStream _fileIO = new FileInputStream(file);
 			UnzipTask toUnzip = new UnzipTask(_fileIO, dest);
@@ -58,7 +58,7 @@ final class SDKStandardCommonTaskRunnerImpl extends TaskRunnerImpl implements _C
 		}
 	}
 	
-	public void unZipArchiveAbsolute(InputStream file, String dest) throws ComponentBuildException {
+	public void unZipArchiveAbsolute(InputStream file, String dest) {
 		UnzipTask toUnzip = new UnzipTask(file, dest);
 		addTask(toUnzip);
 	}

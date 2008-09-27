@@ -28,7 +28,6 @@ import org.apache.commons.logging.LogFactory;
 
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.tasks.task.ant.DeleteTask;
 import com.googlecode.jsfFlex.shared.tasks.task.ant.EchoTask;
 import com.googlecode.jsfFlex.shared.tasks.task.ant.FileCopyTask;
@@ -52,12 +51,12 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 		super();
 	}
 	
-	public void makeDirectory(String directoryToCreate) throws ComponentBuildException {
+	public void makeDirectory(String directoryToCreate) {
 		MkdirTask preMxmlDirCreator = new MkdirTask(directoryToCreate);
 		addTask(preMxmlDirCreator);
 	}
 	
-	public void replaceTokenWithValue(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) throws ComponentBuildException {
+	public void replaceTokenWithValue(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) {
 
 		ReplaceTextTask addUIComponentTemplate = new ReplaceTextTask(applicationInstance.getAbsolutePathToPreMxmlFile());
 		addUIComponentTemplate.setMultiLineReplace(true);
@@ -65,22 +64,22 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 		addTask(addUIComponentTemplate);
 	}
 	
-	public void deleteResources(String deleteResource, boolean isDirectory) throws ComponentBuildException {
+	public void deleteResources(String deleteResource, boolean isDirectory) {
 		DeleteTask deleteResourceTask = new DeleteTask(deleteResource, isDirectory);
 		addTask(deleteResourceTask);
 	}
 	
-	public void copyFile(String fileToCopy, String fileToCopyTo) throws ComponentBuildException {
+	public void copyFile(String fileToCopy, String fileToCopyTo) {
 		FileCopyTask fileCopier = new FileCopyTask(fileToCopy, fileToCopyTo);
 		addTask(fileCopier);
 	}
 	
-	public void copyFileSet(String copyDir, String copyInclude, String copyExclude, String copyTo) throws ComponentBuildException {
+	public void copyFileSet(String copyDir, String copyInclude, String copyExclude, String copyTo) {
 		FileCopyTask fileCopier = new FileCopyTask(copyDir, copyInclude, copyExclude, copyTo);
 		addTask(fileCopier);
 	}
 	
-	public void createMXML(_MXMLContract applicationInstance, String copyTo) throws ComponentBuildException {
+	public void createMXML(_MXMLContract applicationInstance, String copyTo) {
 		//TODO : Implement this better later
 		ReplaceTextTask removeEmptySpace = new ReplaceTextTask(applicationInstance.getAbsolutePathToPreMxmlFile());
 		removeEmptySpace.setReplaceRegExp(true);
@@ -94,7 +93,7 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 		copyFile(copyFrom, copyTo);
 	}
 	
-	public void createSwcSourceFiles(String _swcPath, List _systemSourceFiles, String jsfFlexMainSwcConfigFile) throws ComponentBuildException {
+	public void createSwcSourceFiles(String _swcPath, List _systemSourceFiles, String jsfFlexMainSwcConfigFile) {
 		//Echo the sourceFiles to the SWC path
 		
 		/*
@@ -143,12 +142,12 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 		
 	}
 	
-	public void createSWF(_MXMLApplicationContract componentMXML, String mxmlFile, String swfPath, String flexSDKRootPath) throws ComponentBuildException {
+	public void createSWF(_MXMLApplicationContract componentMXML, String mxmlFile, String swfPath, String flexSDKRootPath) {
 		MXMLCTask swfCreator = new MXMLCTask(mxmlFile, swfPath, componentMXML, flexSDKRootPath);
 		addTask(swfCreator);
 	}
 	
-	public void createSwfSourceFiles(String _swfBasePath, List _systemSwfSourceFiles) throws ComponentBuildException {
+	public void createSwfSourceFiles(String _swfBasePath, List _systemSwfSourceFiles) {
 		
 		MkdirTask swfBasePathDirCreator = new MkdirTask(_swfBasePath);
 		addTask(swfBasePathDirCreator);
@@ -174,17 +173,17 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 		}
 	}
 	
-	public void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath) throws ComponentBuildException {
+	public void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath) {
 		SWCTask swcCreate = new SWCTask(sourcePath, outPut, flexSDKRootPath, loadConfigFilePath);
 		addTask(swcCreate);
 	}
 	
-	public void renameFile(String sourceFile, String destFile, boolean overWrite) throws ComponentBuildException {
+	public void renameFile(String sourceFile, String destFile, boolean overWrite) {
 		RenameTask rename = new RenameTask(sourceFile, destFile, overWrite);
 		addTask(rename);
 	}
 	
-	public void writeBodyContent(_MXMLContract componentMXML) throws ComponentBuildException {
+	public void writeBodyContent(_MXMLContract componentMXML) {
 		
 		Object stringBodyContent = componentMXML.getAttributes().get(MXMLConstants.TAG_BODY_CONTENT_ATTR);
 		String stringBodyContentToReplace = stringBodyContent == null ? "" : (String) stringBodyContent;

@@ -40,7 +40,6 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.beans.TokenValue;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
-import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.util.MXMLAttributeConstants;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 import com.googlecode.jsfFlex.util.MXMLJsfUtil;
@@ -250,11 +249,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			toWrite.append(FLASH_APPS_NS);
 			toWrite.append(".push(");
 			
-			try{
-				toWrite.append(getComponentIdValues());
-			}catch(ComponentBuildException _componentBuildException){
-				throw new IOException(_componentBuildException.getMessage());
-			}
+			toWrite.append(getComponentIdValues());
 			
 			toWrite.append(");");
 			
@@ -309,7 +304,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			
 		}
 	
-		private String getComponentIdValues() throws ComponentBuildException {
+		private String getComponentIdValues() {
 			
 			StringBuilder toReturn = new StringBuilder();
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();

@@ -100,7 +100,7 @@ public final class SWCTask extends Ant_BaseTask {
 		
 	}
 	
-	protected void performTask() throws ComponentBuildException {
+	protected void performTask() {
 		try {
 			
 			setArguments();

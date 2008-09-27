@@ -23,8 +23,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
-
 /**
  * Previously TaskRunnerImpl was designed to allow lazy execution<br>
  * of the _Tasks within the List; however due to separation of implementation<br>
@@ -47,17 +45,17 @@ class TaskRunnerImpl implements _TaskRunner {
 		_tasks.addAll(tasks);
 	}
 
-	public synchronized void addTask(_Task toAdd) throws ComponentBuildException {
+	public synchronized void addTask(_Task toAdd) {
 		_tasks.add(toAdd);
 		execute();
 	}
 	
-	public synchronized void addTasks(Collection _tasksToAdd) throws ComponentBuildException {
+	public synchronized void addTasks(Collection _tasksToAdd) {
 		_tasks.addAll(_tasksToAdd);
 		execute();
 	}
 	
-	public synchronized void execute() throws ComponentBuildException{
+	public synchronized void execute() {
 		
 		_Task current;
 		for(Iterator iterate = _tasks.iterator(); iterate.hasNext();){

@@ -48,7 +48,7 @@ public final class MXMLJsfUtil {
 	 * @param toEscape
 	 * @return Encoded version of toEscape
 	 */
-	public static String escapeCharacters(String toEscape) throws ComponentBuildException {
+	public static String escapeCharacters(String toEscape) {
 		if(toEscape == null){
 			return "";
 		}

@@ -67,7 +67,7 @@ public final class EvaluateTemplateTask extends _Task {
 		_context = new VelocityContext();
 	}
 
-	protected void performTask() throws ComponentBuildException {
+	protected void performTask() {
 		
 		init();
 		populateContext();
@@ -75,7 +75,7 @@ public final class EvaluateTemplateTask extends _Task {
 		
 	}
 	
-	private void init() throws ComponentBuildException {
+	private void init() {
 		try{
 			if(_initProperties != null){
 				_velocityEngine.init(_initProperties);
@@ -105,7 +105,7 @@ public final class EvaluateTemplateTask extends _Task {
 		
 	}
 	
-	private void mergeCollectionToTemplate() throws ComponentBuildException {
+	private void mergeCollectionToTemplate() {
 		
 		try{
 			_velocityEngine.evaluate(_context, _writer, _logTag, _template);

@@ -48,7 +48,7 @@ public final class AnnotationDocletParser14Impl extends _AnnotationDocletParser 
 	}
 	
 	public void mapComponentFields(Class mapClass, final Object componentObj, 
-									final String replaceMappingXML) throws ComponentBuildException {
+									final String replaceMappingXML) {
 		
 		try{
 			final SAXParser parser = SAXParserFactory.newInstance().newSAXParser();

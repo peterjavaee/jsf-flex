@@ -63,7 +63,7 @@ public final class DeleteTask extends Ant_BaseTask {
 	}
 	
 	
-	protected void performTask() throws ComponentBuildException {
+	protected void performTask() {
 		
 		if(isDirectory()){
 			_deleteTask.setDir(new File(getDeleteResource()));

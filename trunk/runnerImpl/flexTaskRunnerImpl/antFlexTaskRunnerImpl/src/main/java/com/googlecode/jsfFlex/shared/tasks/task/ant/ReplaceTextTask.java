@@ -118,7 +118,7 @@ public final class ReplaceTextTask extends Ant_BaseTask {
 		_replaceList.put(token, value);
 	}
 	
-	protected void performTask() throws ComponentBuildException {
+	protected void performTask() {
 		
 		try {
 			

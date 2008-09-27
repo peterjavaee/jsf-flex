@@ -115,7 +115,7 @@ public final class FileCopyTask extends Ant_BaseTask {
 		_copyTask.maybeConfigure();
 	}
 	
-	protected void performTask() throws ComponentBuildException {
+	protected void performTask() {
 		
 		configureParameters();
 		
