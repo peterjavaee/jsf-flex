@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.component;
 import java.util.Map;
 
 import javax.faces.context.FacesContext;
+import javax.faces.convert.BooleanConverter;
 import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
 
@@ -33,6 +34,8 @@ import javax.servlet.http.HttpServletRequest;
  */ 
 public abstract class MXMLUIButtonBase 
 							extends MXMLUIInputBase {
+	
+	private static final BooleanConverter BOOLEAN_CONVERTER = new BooleanConverter();
 	
 	private static final String SELECTED_ID_APPENDED = "_selected";
 	private static final String SELECTED_ATTR = "selected";
@@ -53,7 +56,7 @@ public abstract class MXMLUIButtonBase
     	
     	if(selectedUpdateVal != null){
     		setSelected(Boolean.valueOf(selectedUpdateVal));
-    		setSubmittedValue(Boolean.valueOf(selectedUpdateVal));
+    		setSubmittedValue(selectedUpdateVal);
     	}
     	
     }
@@ -72,6 +75,14 @@ public abstract class MXMLUIButtonBase
 		}
     	
     }
+	
+	protected Object getConvertedValue(FacesContext context, Object submittedValue) {
+		if(!(submittedValue instanceof String)){
+			return submittedValue;
+		}
+		
+		return BOOLEAN_CONVERTER.getAsObject(context, this, (String) submittedValue);
+	}
 	
 	public abstract Boolean getSelected();
 	

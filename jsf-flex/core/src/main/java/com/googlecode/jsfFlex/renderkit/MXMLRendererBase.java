@@ -37,7 +37,6 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.beans.mxml.MXMLBeanWrapper;
 import com.googlecode.jsfFlex.shared.beans.mxml._MXMLBean;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
-import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
@@ -168,7 +167,7 @@ public class MXMLRendererBase extends Renderer {
 	    		setPreMxmlIdentifiers(null, mxmlUIComp);
 	    		
 	    	}else{
-	    		throw new ComponentBuildException("Failed to meet the condition of either being a top component of " +
+	    		throw new IllegalStateException("Failed to meet the condition of either being a top component of " +
 	    												"MXMLUIApplication or having a parent as implementation of " +
 	    												"MXMLContract");
 	    	}

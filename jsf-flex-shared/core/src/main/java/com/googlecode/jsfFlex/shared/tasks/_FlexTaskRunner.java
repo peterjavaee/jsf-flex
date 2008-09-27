@@ -22,35 +22,34 @@ import java.util.List;
 
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 
 /**
  * @author Ji Hoon Kim
  */
 public interface _FlexTaskRunner extends _TaskRunner {
 	
-	void makeDirectory(String directoryToCreate) throws ComponentBuildException;
+	void makeDirectory(String directoryToCreate);
 	
-	void deleteResources(String resourceToDelete, boolean isDirectory) throws ComponentBuildException;
+	void deleteResources(String resourceToDelete, boolean isDirectory);
 	
-	void writeBodyContent(_MXMLContract componentMXML) throws ComponentBuildException;
+	void writeBodyContent(_MXMLContract componentMXML);
 	
-	void replaceTokenWithValue(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) throws ComponentBuildException;
+	void replaceTokenWithValue(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace);
 	
-	void copyFile(String fileToCopy, String fileToCopyTo) throws ComponentBuildException;
+	void copyFile(String fileToCopy, String fileToCopyTo);
 	
-	void copyFileSet(String copyDir, String copyInclude, String copyExclude, String copyTo) throws ComponentBuildException;
+	void copyFileSet(String copyDir, String copyInclude, String copyExclude, String copyTo);
 	
-	void createMXML(_MXMLContract applicationInstance, String copyTo) throws ComponentBuildException;
+	void createMXML(_MXMLContract applicationInstance, String copyTo);
 	
-	void createSwcSourceFiles(String _swcPath, List _systemSourceFiles, String jsfFlexMainSwcConfigFile) throws ComponentBuildException;
+	void createSwcSourceFiles(String _swcPath, List _systemSourceFiles, String jsfFlexMainSwcConfigFile);
 	
-	void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath) throws ComponentBuildException;
+	void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath);
 	
-	void createSWF(_MXMLApplicationContract componentMXML, String mxmlFile, String swfPath, String flexSDKRootPath) throws ComponentBuildException;
+	void createSWF(_MXMLApplicationContract componentMXML, String mxmlFile, String swfPath, String flexSDKRootPath);
 	
-	void createSwfSourceFiles(String _swfBasePath, List _systemSwfSourceFiles) throws ComponentBuildException;
+	void createSwfSourceFiles(String _swfBasePath, List _systemSwfSourceFiles);
 	
-	void renameFile(String sourceFile, String destFile, boolean overWrite) throws ComponentBuildException;
+	void renameFile(String sourceFile, String destFile, boolean overWrite);
 	
 }

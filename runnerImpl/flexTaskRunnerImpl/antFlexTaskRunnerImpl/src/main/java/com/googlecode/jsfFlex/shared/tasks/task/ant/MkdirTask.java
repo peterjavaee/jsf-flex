@@ -59,7 +59,7 @@ public final class MkdirTask extends Ant_BaseTask {
 		_mkdirTarget.addTask(_mkdirTask);
 	}
 	
-	protected void performTask() throws ComponentBuildException {
+	protected void performTask() {
 		
 		_mkdirTask.setDir(new File(getFile()));
 		

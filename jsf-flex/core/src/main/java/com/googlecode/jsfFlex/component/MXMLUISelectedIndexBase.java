@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.component;
 import java.util.Map;
 
 import javax.faces.context.FacesContext;
+import javax.faces.convert.IntegerConverter;
 import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
 
@@ -33,6 +34,8 @@ import javax.servlet.http.HttpServletRequest;
  */
 public abstract class MXMLUISelectedIndexBase 
 						extends MXMLUIInputBase {
+	
+	private static final IntegerConverter INTEGER_CONVERTER = new IntegerConverter();
 	
 	private static final String SELECTED_INDEX_ID_APPENDED = "_selectedIndex";
 	private static final String SELECTED_INDEX_ATTR = "selectedIndex";
@@ -53,7 +56,7 @@ public abstract class MXMLUISelectedIndexBase
     	
     	if(selectedIndexUpdateVal != null){
     		setSelectedIndex(Integer.valueOf(selectedIndexUpdateVal));
-    		setSubmittedValue(Integer.valueOf(selectedIndexUpdateVal));
+    		setSubmittedValue(selectedIndexUpdateVal);
     	}
 
     }
@@ -72,6 +75,14 @@ public abstract class MXMLUISelectedIndexBase
 		}
     	
     }
+	
+	protected Object getConvertedValue(FacesContext context, Object submittedValue) {
+		if(!(submittedValue instanceof String)){
+			return submittedValue;
+		}
+		
+		return INTEGER_CONVERTER.getAsObject(context, this, (String) submittedValue);
+	}
 	
 	public abstract Integer getSelectedIndex();
 	

@@ -65,7 +65,7 @@ public final class RenameTask extends Ant_BaseTask {
 	}
 	
 	
-	protected void performTask() throws ComponentBuildException {
+	protected void performTask() {
 		
 		_renameTask.setFile(new File(getSourceFile()));
 		_renameTask.setTofile(new File(getDestFile()));

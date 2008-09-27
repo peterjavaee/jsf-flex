@@ -198,7 +198,7 @@ public final class MXMLCTask extends Ant_BaseTask {
 		_mxmlcTask.maybeConfigure();
 	}
 	
-	protected void performTask() throws ComponentBuildException {
+	protected void performTask() {
 		
 		try {
 			

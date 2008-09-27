@@ -50,7 +50,7 @@ public final class UnzipTask extends _Task {
 		_dest = dest;
 	}
 	
-	protected void performTask() throws ComponentBuildException {
+	protected void performTask() {
 		
 		BufferedOutputStream bufferOutputStream;
 		ZipInputStream zipInputStream = new ZipInputStream(new BufferedInputStream(_file));

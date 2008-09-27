@@ -68,11 +68,11 @@ public abstract class _AnnotationDocletParser {
 	}
 	
 	public abstract void mapComponentFields(Class mapClass, Object _componentObj, 
-												String _replaceMappingXML) throws ComponentBuildException;
+												String _replaceMappingXML);
 	
 	abstract class _MXMLMapper {
 		
-		abstract TokenValue mapField(String tokenName, Object componentObj) throws ComponentBuildException;
+		abstract TokenValue mapField(String tokenName, Object componentObj);
 		
 	}
 	
@@ -92,7 +92,7 @@ public abstract class _AnnotationDocletParser {
 	};
 	
 	final _MXMLMapper MXML_METHOD_MAPPER = new _MXMLMapper(){
-		TokenValue mapField(String tokenName, Object componentObj) throws ComponentBuildException{
+		TokenValue mapField(String tokenName, Object componentObj) {
 			
 			try{
 				String searchMethodName = "get" + String.valueOf(tokenName.charAt(0)).toUpperCase() + tokenName.substring(1);

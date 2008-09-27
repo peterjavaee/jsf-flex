@@ -18,13 +18,11 @@
  */
 package com.googlecode.jsfFlex.shared.tasks;
 
-import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
-
 /**
  * @author Ji Hoon Kim
  */
 public abstract class _Task {
 	
-	protected abstract void performTask() throws ComponentBuildException;
+	protected abstract void performTask();
 	
 }
