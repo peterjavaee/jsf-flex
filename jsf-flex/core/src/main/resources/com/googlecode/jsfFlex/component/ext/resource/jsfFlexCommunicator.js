@@ -44,7 +44,7 @@ com.googlecode.jsfFlex = {
 	
 	getApplication:	function(_appId){
 						if (navigator.appName.indexOf("Microsoft") != -1) {
-							return window[_appId] ? window[_appId] : document.getElementById(_appId).object;
+							return document.getElementById(_appId);
 						}else{
 							return document[_appId];
 						}
