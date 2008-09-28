@@ -5,7 +5,7 @@ Brief overview of JSF Flex Process
 
 = Details =
  # The component library will piggy back on JSF lifecycle.
- # All Flex components must be nested within <s:mxmlApplication /> tag as it is the top component and this tag must be outside the <h:form /> component {due to IE's use of objects}.
+ # All Flex components must be nested within <s:mxmlApplication /> tag as it is the top component.
  # During runtime, fields from sub-class of UIComponent will be fetched from the attribute map or by method call depending on the {{{JavaDoc}}}/annotation for the component files. For 
    * renderKit14 fields will be read by parsing replaceMapping XML files, generated during the build time by inspecting the {{{JavaDocs}}}.
    * renderKit15 fields will be read by inspecting the custom annotation of the files during run time.
