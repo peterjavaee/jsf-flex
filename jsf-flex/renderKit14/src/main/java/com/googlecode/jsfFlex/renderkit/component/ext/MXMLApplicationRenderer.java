@@ -208,13 +208,14 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 	private final class MXMLApplicationHTMLRenderer {
 		
 		private static final String APP_ID = "appId";
+		private static final String NAMING_CONTAINER_PREFIX = "namingContainerPrefix";
 		private static final String ARRAY_OF_IDS = "arrayOfIds";
 		private static final String ID = "id";
 		private static final String INIT_VALUE = "initValues";
 		private static final String ATTRIBUTE = "attribute";
 		private static final String VALUE = "value";
 		
-		private static final String FLASH_APPS_NS = "com.googlecode.jsfFlex.flashApps";
+		private static final String JSF_FLEX_TOP_NS = "com.googlecode.jsfFlex";
 		private static final String PAGE_LOAD_NS = "com.googlecode.jsfFlex.communication.pageLoad";
 		
 		private void renderHtmlContent(FacesContext context, UIComponent component) throws IOException {
@@ -234,12 +235,14 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			//print out the JSON objects here
 			StringBuffer toWrite = new StringBuffer();
 			
-			toWrite.append(FLASH_APPS_NS);
-			toWrite.append(".push(");
+			toWrite.append("dojo.addOnLoad(function(){");
+			toWrite.append(JSF_FLEX_TOP_NS);
+			toWrite.append(".addFlashApp(");
 			
-			toWrite.append(getComponentIdValues());
+			toWrite.append(getComponentIdValues(context, component));
 			
 			toWrite.append(");");
+			toWrite.append("});");
 			
 			toWrite.append("dojo.addOnLoad(");
 			toWrite.append(PAGE_LOAD_NS);
@@ -291,7 +294,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			
 		}
 	
-		private String getComponentIdValues() {
+		private String getComponentIdValues(FacesContext context, UIComponent component) {
 			
 			StringBuffer toReturn = new StringBuffer();
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
@@ -305,6 +308,13 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 				toReturn.append(mxmlContext.getCurrMxml());
 				toReturn.append(MXMLConstants.STRING_QUOTE);
 				toReturn.append(", ");
+				toReturn.append(NAMING_CONTAINER_PREFIX);
+				toReturn.append(": ");
+				toReturn.append(MXMLConstants.STRING_QUOTE);
+				toReturn.append( getNamingContainerPrefer( component.getClientId(context) ) );
+				toReturn.append(MXMLConstants.STRING_QUOTE);
+				toReturn.append(", ");
+				
 				toReturn.append(ARRAY_OF_IDS);
 				toReturn.append(": [");
 				
@@ -378,6 +388,11 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			return toReturn.toString();
 		}
 		
+	}
+	
+	private String getNamingContainerPrefer(String toRetrieveFrom){
+		int endIndex = toRetrieveFrom.lastIndexOf(':');
+		return endIndex < 0 ? toRetrieveFrom : toRetrieveFrom.substring(0, toRetrieveFrom.lastIndexOf(':'));
 	}
 	
 }

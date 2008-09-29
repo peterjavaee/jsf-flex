@@ -39,6 +39,7 @@ public abstract class JsfFlexDojoResource extends JsfFlexResource {
 	
 	private static final String DOJO_DIRECTORY;
 	private static final String DIJIT_DIRECTORY;
+	private static final String DOJOX_DIRECTORY;
 	
 	private static final String DOJO_MAIN_JS;
 	private static final String DIJIT_MAIN_JS;
@@ -53,6 +54,7 @@ public abstract class JsfFlexDojoResource extends JsfFlexResource {
 			
 			DOJO_DIRECTORY = DOJO_ROOT_FOLDER_NAME + "/dojo";
 			DIJIT_DIRECTORY = DOJO_ROOT_FOLDER_NAME + "/dijit";
+			DOJOX_DIRECTORY = DOJO_ROOT_FOLDER_NAME + "/dojox";
 			
 			DOJO_MAIN_JS = DOJO_DIRECTORY + "/dojo.js";
 			DIJIT_MAIN_JS = DIJIT_DIRECTORY + "/dijit.js";

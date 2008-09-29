@@ -20,6 +20,7 @@
 /**
  * @author Ji Hoon Kim
  */
+dojo.require("dojox.collections.Dictionary");
 
 var com;
 
@@ -40,7 +41,20 @@ if(com.googlecode.jsfFlex){
 }
 
 com.googlecode.jsfFlex = {
-	flashApps: new Array(),
+	addFlashApp: function(_flashApp){
+					if(_flashApp == null){
+						return;
+					}
+					var _namingContainerPrefixList = com.googlecode.jsfFlex.flashAppsKeyNamingContainer.item(_flashApp.namingContainerPrefix);
+					if(_namingContainerPrefixList == null){
+						_namingContainerPrefixList = new Array();
+						com.googlecode.jsfFlex.flashAppsKeyNamingContainer.add( _flashApp.namingContainerPrefix, _namingContainerPrefixList );
+					}
+					com.googlecode.jsfFlex.flashAppsKeyAppId.add( _flashApp.appId, _flashApp );
+					_namingContainerPrefixList.push(_flashApp);
+				 },
+	flashAppsKeyNamingContainer: new dojox.collections.Dictionary(),
+	flashAppsKeyAppId: new dojox.collections.Dictionary(),
 	
 	getApplication:	function(_appId){
 						if (navigator.appName.indexOf("Microsoft") != -1) {
@@ -78,14 +92,11 @@ com.googlecode.jsfFlex.communication = {
 (function() {
 	var checkInterval = null;
     var formSubmit = null;
+    var flashAppsToUpdateCount = 0;
 	var currUnloaded = 0;
 	
 	function amReady(_readyAmI){
-		for(var i=0; i < com.googlecode.jsfFlex.flashApps.length; i++){
-			if(_readyAmI == com.googlecode.jsfFlex.flashApps[i].appId){
-				return com.googlecode.jsfFlex.flashApps[i];
-			}
-		}
+		return com.googlecode.jsfFlex.flashAppsKeyAppId.item( _readyAmI );
 	}
 	
 	function appendElement(_jsonNodes){
@@ -111,7 +122,7 @@ com.googlecode.jsfFlex.communication = {
 	}
 	
 	function checkUnLoadStatus(){
-		if(com.googlecode.jsfFlex.flashApps.length == currUnloaded){
+		if(flashAppsToUpdateCount == currUnloaded){
 			window.clearInterval(checkInterval);
 			formSubmit.submit();
 		}
@@ -136,8 +147,8 @@ com.googlecode.jsfFlex.communication = {
 		}
 		
 		if(methods.length > 0){
-			for(var method in methods){
-				method(_logMessage);
+			for(var i=0; i < methods.length; i++){
+				methods[i](_logMessage);
 			}
 		}else{
 			if(_severity != 5){
@@ -158,6 +169,7 @@ com.googlecode.jsfFlex.communication = {
 		/* during the page creation :
 		 * 	JSON with =>
 		 *	  appId 					: applicationId specifying the flash app
+		 *    namingContainerPrefix		: namingContainerPrefix [i.e. form that this flashApp is affiliated with]
 		 *	  arrayOfIds 				: an array of...
 		 *									id			:	id of the component
 		 *									initValues	:	an array of...
@@ -168,14 +180,17 @@ com.googlecode.jsfFlex.communication = {
 		 */
 		var _src = getSrcElement( getEvent(_event) );
 		formSubmit = dojo.byId(_src.id);
+		
+		var _namingContainerPrefixList = com.googlecode.jsfFlex.flashAppsKeyNamingContainer.item(_src.id);
+		flashAppsToUpdateCount = _namingContainerPrefixList.length;
 		var _access;
-		for(var i=0; i < com.googlecode.jsfFlex.flashApps.length; i++){
-			_access = com.googlecode.jsfFlex.getApplication(com.googlecode.jsfFlex.flashApps[i].appId);
+		for(var i=0; i < _namingContainerPrefixList.length; i++){
+			_access = com.googlecode.jsfFlex.getApplication(_namingContainerPrefixList[i].appId);
 			try{
-				_access.pageUnloading(com.googlecode.jsfFlex.flashApps[i]);
+				_access.pageUnloading(_namingContainerPrefixList[i]);
 			}catch(error){
 				throw new Error("During the pageUnloading process, an error occurred while invoking pageUnloading for appId [" + 
-									com.googlecode.jsfFlex.flashApps[i].appId + "]");
+									_namingContainerPrefixList[i].appId + "]");
 			}
 		}
 		checkInterval = window.setInterval(checkUnLoadStatus, 1000);
