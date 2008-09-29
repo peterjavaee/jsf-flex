@@ -341,8 +341,8 @@ public abstract class AbstractMXMLUIApplication
 	public void encodeEnd(FacesContext context) throws IOException {
 		
 		JsfFlexDojoResource _jsfFlexDojoResource = JsfFlexDojoResource.getDojoInstance();
-		_jsfFlexDojoResource.addResource(getClass(), MXMLConstants.JSF_FLEX_COMMUNICATOR_JS);
 		_jsfFlexDojoResource.addDojoMain();
+		_jsfFlexDojoResource.addResource(getClass(), MXMLConstants.JSF_FLEX_COMMUNICATOR_JS);
 		
 		super.encodeEnd(context);
 	}

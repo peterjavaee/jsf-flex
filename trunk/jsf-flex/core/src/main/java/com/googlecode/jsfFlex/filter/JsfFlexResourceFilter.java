@@ -45,6 +45,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.xml.sax.InputSource;
 
+import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexDojoResource;
 import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexResource;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
@@ -85,7 +86,7 @@ public final class JsfFlexResourceFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
 		JsfFlexResponseWrapper jsfFlexResponseWrapper = new JsfFlexResponseWrapper((HttpServletResponse) response);
-		JsfFlexResource jsfFlexResource = JsfFlexResource.getInstance();
+		JsfFlexDojoResource jsfFlexDojoResource = JsfFlexDojoResource.getDojoInstance();
 		
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
@@ -95,7 +96,7 @@ public final class JsfFlexResourceFilter implements Filter {
 		
 		if(isRequestForResource(requestURI)){
 			/** If request is of resource, process it and return */
-			jsfFlexResource.processRequestResource(httpResponse, requestURISplitted);
+			jsfFlexDojoResource.processRequestResource(httpResponse, requestURISplitted);
 			return;
 		}
 		
@@ -107,7 +108,7 @@ public final class JsfFlexResourceFilter implements Filter {
 		
 		/** Finished with the usual path of request/response. Now specific for JSF Flex*/
 		
-		Collection resourceCollection = jsfFlexResource.getResources();
+		Collection resourceCollection = jsfFlexDojoResource.getResources();
 		
 		if(jsfFlexResponseWrapper.getContentType() != null && isValidContentType(jsfFlexResponseWrapper.getContentType())){
 			

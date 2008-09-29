@@ -260,6 +260,7 @@
       </plugin>
       
       <!-- Do not need the Beta components of DOJO, so remove -->
+      <!--
       <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
           <configuration>
@@ -277,6 +278,7 @@
           </execution>
         </executions>
       </plugin>
+      -->
       
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

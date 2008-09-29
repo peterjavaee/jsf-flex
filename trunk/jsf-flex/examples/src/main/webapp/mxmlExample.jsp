@@ -32,9 +32,6 @@
 	
 	<h:form>
     	<br>
-    	One thing to note is that mxmlApplication needs to be outside of the form tag, since IE doesn't support finding
-    	of swf inside of a form. But during the pageUnload phase, HTML elements would be created as a child nodes
-    	of the form element that triggered the submit.
     	The button on the right is to test out the decode process and make sure that the information is mapped correctly
     	
     	<h:commandButton value="DecodeTester" action="success" />
