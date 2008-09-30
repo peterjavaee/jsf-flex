@@ -42,9 +42,6 @@ if(com.googlecode.jsfFlex){
 
 com.googlecode.jsfFlex = {
 	addFlashApp: function(_flashApp){
-					if(_flashApp == null){
-						return;
-					}
 					var _namingContainerPrefixList = com.googlecode.jsfFlex.flashAppsKeyNamingContainer.item(_flashApp.namingContainerPrefix);
 					if(_namingContainerPrefixList == null){
 						_namingContainerPrefixList = new Array();
@@ -96,7 +93,25 @@ com.googlecode.jsfFlex.communication = {
 	var currUnloaded = 0;
 	
 	function amReady(_readyAmI){
-		return com.googlecode.jsfFlex.flashAppsKeyAppId.item( _readyAmI );
+		var _flashApp = com.googlecode.jsfFlex.flashAppsKeyAppId.item( _readyAmI );
+		if(_flashApp){
+			if(_flashApp.arrayOfIds){
+				return _flashApp;
+			}
+		}else{
+			/** Must not have been added yet, so simply connect a function to com.googlecode.jsfFlex.addFlashApp */
+			var _handle = dojo.connect(com.googlecode.jsfFlex, "addFlashApp", function(){
+											var _flashApp = com.googlecode.jsfFlex.flashAppsKeyAppId.item( _readyAmI );
+											if(_flashApp){
+												if(_flashApp.arrayOfIds){
+													var _access = com.googlecode.jsfFlex.getApplication( _readyAmI );
+													_access.populateInitValues( _flashApp );
+												}
+												dojo.disconnect(_handle);
+											}
+										});
+						
+		}
 	}
 	
 	function appendElement(_jsonNodes){
@@ -137,19 +152,17 @@ com.googlecode.jsfFlex.communication = {
 	}
 	
 	function logFlashMessage(_logMessage, _severity){
-		var methods = new Array();
+		var method;
 		switch(_severity){
-			case _severity < 1 :	if(console) methods.push(console.log);
-			case _severity < 2 :	if(console) methods.push(console.debug);
-			case _severity < 3 :	if(console) methods.push(console.info);
-			case _severity < 4 :	if(console) methods.push(console.warn);
-			case _severity < 5 :	if(console) methods.push(console.error);
+			case _severity < 2 :	if(console) method = console.log; break;
+			case _severity < 3 :	if(console) method = console.debug; break;
+			case _severity < 4 :	if(console) method = console.info; break;
+			case _severity < 5 :	if(console) method = console.warn; break;
+			case _severity < 6 :	if(console) method = console.error; break;
 		}
 		
-		if(methods.length > 0){
-			for(var i=0; i < methods.length; i++){
-				methods[i](_logMessage);
-			}
+		if(method){
+			method(_logMessage);
 		}else{
 			if(_severity != 5){
 				alert(_logMessage);
@@ -185,6 +198,11 @@ com.googlecode.jsfFlex.communication = {
 		flashAppsToUpdateCount = _namingContainerPrefixList.length;
 		var _access;
 		for(var i=0; i < _namingContainerPrefixList.length; i++){
+			/** If there does not exist any value to retrieve of, simply continue */
+			if(!_namingContainerPrefixList[i].arrayOfIds){
+				currUnloaded++;
+				continue;
+			}
 			_access = com.googlecode.jsfFlex.getApplication(_namingContainerPrefixList[i].appId);
 			try{
 				_access.pageUnloading(_namingContainerPrefixList[i]);

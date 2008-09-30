@@ -10,10 +10,17 @@
 			compValMapper.initialize();
 			
 			ExternalInterface.addCallback("pageUnloading", pageUnloading);
+			ExternalInterface.addCallback("populateInitValues", populateInitValues);
 			
 			var idObject:Object = ExternalInterface.call("com.googlecode.jsfFlex.communication.amReady", this.id);
 			if(idObject != null){
 			    compValMapper.populateInitValues(idObject);
+			}
+		}
+		
+		public function populateInitValues(idObject:Object):void {
+			if(idObject != null){
+				compValMapper.populateInitValues(idObject);
 			}
 		}
 		
