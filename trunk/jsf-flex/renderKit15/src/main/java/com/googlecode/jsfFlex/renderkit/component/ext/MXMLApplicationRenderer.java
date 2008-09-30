@@ -313,20 +313,22 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 			Map applicationIdValueMap = mxmlContext.getApplicationIdValueMap();
 			
+			toReturn.append("{");
+			toReturn.append(APP_ID);
+			toReturn.append(": ");
+			toReturn.append(MXMLConstants.STRING_QUOTE);
+			toReturn.append(mxmlContext.getCurrMxml());
+			toReturn.append(MXMLConstants.STRING_QUOTE);
+			toReturn.append(", ");
+			
+			toReturn.append(NAMING_CONTAINER_PREFIX);
+			toReturn.append(": ");
+			toReturn.append(MXMLConstants.STRING_QUOTE);
+			toReturn.append( getNamingContainerPrefer( component.getClientId(context) ) );
+			toReturn.append(MXMLConstants.STRING_QUOTE);
+			
 			if(applicationIdValueMap.size() > 0){
-				toReturn.append("{");
-				toReturn.append(APP_ID);
-				toReturn.append(": ");
-				toReturn.append(MXMLConstants.STRING_QUOTE);
-				toReturn.append(mxmlContext.getCurrMxml());
-				toReturn.append(MXMLConstants.STRING_QUOTE);
-				toReturn.append(", ");
 				
-				toReturn.append(NAMING_CONTAINER_PREFIX);
-				toReturn.append(": ");
-				toReturn.append(MXMLConstants.STRING_QUOTE);
-				toReturn.append( getNamingContainerPrefer( component.getClientId(context) ) );
-				toReturn.append(MXMLConstants.STRING_QUOTE);
 				toReturn.append(", ");
 				toReturn.append(ARRAY_OF_IDS);
 				toReturn.append(": [");
@@ -396,8 +398,10 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 						toReturn.append(", ");
 					}
 				}
-				toReturn.append("]}");
+				toReturn.append("]");
 			}
+			
+			toReturn.append("}");
 			return toReturn.toString();
 		}
 		
