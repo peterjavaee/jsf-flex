@@ -1,0 +1,214 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.googlecode.jsf-flex</groupId>
+  <artifactId>jsf-flex-project</artifactId>
+  <packaging>pom</packaging>
+  <name>JSF-Flex Project</name>
+  <url>http://code.google.com/p/jsf-flex/</url>
+  <version>0.0.5-SNAPSHOT</version>
+  <description>
+    JSF Flex goal is to provide users capability in creating Flex components as JSF components. So users would 
+    create the components as normal JSF components and the contribution will create the necessary SWF files and 
+    etcetera and link the values of the components back to the managed beans using JSON+Javascript and Actionscript.
+    So all users would need is a Jar of the component library and they would be able to create Flex applications by 
+    using them as normal JSF components. By doing so, developers who are unfamiliar with Adobe Flex can be completely 
+    abstracted from its technology and focus in linking the application's data to legacy information.
+  </description>
+
+  <scm>
+    <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/jsf-flex</connection>
+    <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/jsf-flex</developerConnection>
+  </scm>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.apache.myfaces.buildtools</groupId>
+        <artifactId>myfaces-builder-plugin</artifactId>
+        <version>${myfaces.buildtools.version}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging</artifactId>
+        <version>1.1.1</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+        <version>${javax.servlet.jstl.version}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>javax.servlet.jsp</groupId>
+        <artifactId>jsp-api</artifactId>
+        <version>${javax.servlet.jsp.api.version}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>servlet-api</artifactId>
+        <version>${javax.servlet.api.version}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>com.googlecode.jsf-flex.jsf-flex-shared-project</groupId>
+        <artifactId>jsf-flex-shared</artifactId>
+        <version>${jsf.flex.shared.version}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
+        <artifactId>jsf-flex</artifactId>
+        <version>${jsf.flex.version}</version>
+      </dependency>
+      
+    </dependencies>
+  </dependencyManagement>
+  
+  <modules>
+    <module>annotations</module>
+    <module>core</module>
+    <module>examples</module>
+    <module>renderKit14</module>
+    <module>renderKit15</module>
+  </modules>
+
+  <build>
+    <plugins>	     
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-source</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>    
+    </plugins>
+  </build>
+  
+  <repositories>
+    <repository>
+      <id>Maven2 Repo1</id>
+      <name>Maven2 Repo1</name>
+      <url>http://repo1.maven.org/maven2</url>
+      <layout>legacy</layout>
+    </repository>
+  </repositories>
+  
+  <profiles>
+    <profile>
+      <id>myfaces-1.2</id>
+      <activation>
+        <property>
+          <name>!jsf</name>
+        </property>
+      </activation>
+      <dependencyManagement>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.myfaces.core</groupId>
+            <artifactId>myfaces-api</artifactId>
+            <version>${myfaces.version}</version>
+          </dependency>
+          
+          <dependency>
+            <groupId>org.apache.myfaces.core</groupId>
+            <artifactId>myfaces-impl</artifactId>
+            <version>${myfaces.version}</version>
+          </dependency>
+          
+          <dependency>
+            <groupId>org.apache.myfaces.shared</groupId>
+            <artifactId>myfaces-shared-impl</artifactId>
+            <version>${myfaces.shared.version}</version>
+          </dependency>
+        </dependencies>
+      
+      </dependencyManagement>
+      
+      <properties>
+        <javax.servlet.jstl.version>1.1.2</javax.servlet.jstl.version>
+        <javax.servlet.jsp.api.version>2.1</javax.servlet.jsp.api.version>
+        <javax.servlet.api.version>2.5</javax.servlet.api.version>
+        <myfaces.version>1.2.2</myfaces.version>
+        <myfaces.shared.version>3.0.3</myfaces.shared.version>
+      </properties>
+    </profile>
+    
+    <profile>
+      <id>mojarra-1.2</id>
+      <activation>
+        <property>
+          <name>jsf</name>
+          <value>mojarra12</value>
+        </property>
+      </activation>
+      <dependencyManagement>
+        <dependencies>
+          <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-api</artifactId>
+            <version>${mojarra.jsf.version}</version>
+          </dependency> 
+          
+          <dependency>
+            <groupId>javax.faces</groupId>
+            <artifactId>jsf-impl</artifactId>
+            <version>${mojarra.jsf.version}</version>
+          </dependency>
+        </dependencies>      
+      </dependencyManagement>
+      <repositories>
+        <repository>
+          <id>dev.java.net</id>
+          <name>dev.java.net Maven Repository</name>
+          <url>https://maven-repository.dev.java.net/repository/</url>
+          <layout>legacy</layout>
+        </repository>
+      </repositories>
+      
+      <properties>
+        <javax.servlet.jstl.version>1.1.2</javax.servlet.jstl.version>
+        <javax.servlet.jsp.api.version>2.1</javax.servlet.jsp.api.version>
+        <javax.servlet.api.version>2.5</javax.servlet.api.version>
+        <mojarra.jsf.version>1.2_09</mojarra.jsf.version>
+      </properties>
+    </profile>
+    
+    <profile>
+      <id>jsf_flex_renderKit-SNAPSHOT</id>
+      <activation>
+        <property>
+          <name>!jsf_flex_renderKit</name>
+        </property>
+      </activation>
+      <properties>
+        <jsf.flex.renderKit.version>0.0.5-SNAPSHOT</jsf.flex.renderKit.version>
+      </properties>
+    </profile>
+    <profile>
+      <id>jsf_flex_shared-SNAPSHOT</id>
+      <activation>
+        <property>
+          <name>!jsf_flex_shared</name>
+        </property>
+      </activation>
+      <properties>
+        <jsf.flex.shared.version>0.0.5-SNAPSHOT</jsf.flex.shared.version>
+      </properties>
+    </profile>
+    
+  </profiles>
+  
+  <properties>
+    <jsf.flex.version>0.0.5-SNAPSHOT</jsf.flex.version>
+    <jsf.flex.plugIn.version>0.0.5-SNAPSHOT</jsf.flex.plugIn.version>
+    <myfaces.buildtools.version>1.0.1</myfaces.buildtools.version>
+  </properties>
+
+</project>

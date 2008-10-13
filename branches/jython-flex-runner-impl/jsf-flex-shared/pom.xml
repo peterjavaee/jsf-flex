@@ -1,0 +1,61 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.googlecode.jsf-flex</groupId>
+  <artifactId>jsf-flex-shared-project</artifactId>
+  <packaging>pom</packaging>
+  <name>JSF-FlexShared Project</name>
+  <url>http://code.google.com/p/jsf-flex/</url>
+  <version>0.0.5-SNAPSHOT</version>
+  <description>
+    JSF-Flexshared goal is to provide shared resource for jsf-flex subprojects
+  </description>
+
+  <scm>
+    <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/jsf-flex-shared</connection>
+    <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/jsf-flex-shared</developerConnection>
+  </scm>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging</artifactId>
+        <version>1.1.1</version>
+      </dependency>      
+    </dependencies>
+  </dependencyManagement>
+  
+  <modules>
+    <module>core</module>
+  </modules>
+
+  <build>
+    <plugins>	     
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-source</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>    
+    </plugins>
+  </build>
+  
+  <repositories>
+    <repository>
+      <id>Maven2 Repo1</id>
+      <name>Maven2 Repo1</name>
+      <url>http://repo1.maven.org/maven2</url>
+      <layout>legacy</layout>
+    </repository>
+  </repositories>
+  
+  <properties>
+    <jsf.flex.plugIn.version>0.0.5-SNAPSHOT</jsf.flex.plugIn.version>
+  </properties>
+  
+</project>

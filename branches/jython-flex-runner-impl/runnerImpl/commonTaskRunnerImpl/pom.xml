@@ -1,0 +1,24 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  
+  <parent>
+    <groupId>com.googlecode.jsf-flex.runner-impl-project</groupId>
+    <artifactId>runner-impl-main-project</artifactId>
+    <version>0.0.5-SNAPSHOT</version>
+  </parent>
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.googlecode.jsf-flex.runner-impl-project.common-runner-project</groupId>
+  <artifactId>common-main-runner-project</artifactId>
+  <packaging>pom</packaging>
+  <name>JSF-Flex Common Task Runner Impl</name>
+  
+  <scm>
+    <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/runnerImpl/commonTaskRunnerImpl</connection>
+    <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/runnerImpl/commonTaskRunnerImpl</developerConnection>
+  </scm>
+  
+  <modules>
+    <module>sdkStandardCommonTaskRunnerImpl</module>
+  </modules>
+  
+</project>

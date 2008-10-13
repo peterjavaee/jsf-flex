@@ -1,0 +1,41 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.googlecode.jsf-flex.runner-impl-project</groupId>
+  <artifactId>runner-impl-main-project</artifactId>
+  <packaging>pom</packaging>
+  <version>0.0.5-SNAPSHOT</version>
+  <name>JSF Flex Runner Impl</name>
+  
+  <scm>
+    <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/runnerImpl</connection>
+    <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/runnerImpl</developerConnection>
+  </scm>
+  
+  <modules>
+    <module>commonTaskRunnerImpl</module>
+    <module>fileManipulatorTaskRunnerImpl</module>
+    <module>flexTaskRunnerImpl</module>
+  </modules>
+  
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.googlecode.jsf-flex.jsf-flex-shared-project</groupId>
+        <artifactId>jsf-flex-shared</artifactId>
+        <version>${jsf.flex.shared.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging</artifactId>
+        <scope>compile</scope>
+        <version>1.1.1</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  
+  <properties>
+    <jsf.flex.shared.version>0.0.5-SNAPSHOT</jsf.flex.shared.version>
+  </properties>
+  
+</project>

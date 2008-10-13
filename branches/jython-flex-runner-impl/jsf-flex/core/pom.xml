@@ -1,0 +1,371 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <groupId>com.googlecode.jsf-flex</groupId>
+    <artifactId>jsf-flex-project</artifactId>
+    <version>0.0.5-SNAPSHOT</version>
+  </parent>
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
+  <artifactId>jsf-flex</artifactId>
+  <packaging>jar</packaging>
+  <name>JSF-Flex Core</name>
+
+  <scm>
+    <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/jsf-flex/core</connection>
+    <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/jsf-flex/core</developerConnection>
+  </scm>
+
+  <dependencies>
+    
+    <!-- compile -->
+    <dependency>
+      <groupId>com.googlecode.jsf-flex.jsf-flex-shared-project</groupId>
+      <artifactId>jsf-flex-shared</artifactId>
+      <scope>compile</scope>
+    </dependency>
+        
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>jsp-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    
+    <!-- test dependencies -->
+    
+    <dependency>
+      <groupId>maven-taglib</groupId>
+      <artifactId>maven-taglib-plugin</artifactId>
+      <version>1.4.2</version>
+      <scope>test</scope>
+    </dependency>        
+        
+    <dependency>
+      <groupId>org.apache.shale</groupId>
+      <artifactId>shale-test</artifactId>
+      <version>1.0.3</version>
+      <scope>test</scope>
+    </dependency>
+    
+  </dependencies>
+  
+  <repositories>
+    <repository>
+      <id>dojo</id>
+      <name>Dojo Maven2 Repository</name>
+      <url>http://download.dojotoolkit.org/maven2</url>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+        <checksumPolicy>fail</checksumPolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+      <layout>default</layout>
+    </repository>
+  </repositories>
+
+  <build>
+    
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <filtering>true</filtering>
+        <excludes>
+           <exclude>**/*.vm</exclude>
+        </excludes>
+      </resource>
+    </resources>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.myfaces.buildtools</groupId>
+        <artifactId>myfaces-builder-plugin</artifactId>
+        <version>${myfaces.buildtools.version}</version>
+        <executions>
+	    <execution>
+            <goals>
+              <goal>build-metadata</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>makefacesconfig</id>
+            <configuration>
+              <xmlFile>META-INF/faces-config.xml</xmlFile>
+            </configuration>
+            <goals>
+              <goal>make-config</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>makecomp</id>
+            <goals>
+              <goal>make-components</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>makeval</id>
+            <goals>
+              <goal>make-validators</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>make_tags_jsfFlex</id>
+            <goals>
+              <goal>make-tags</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>make_validator_tags_jsfFlex</id>
+            <goals>
+              <goal>make-validator-tags</goal>
+              <goal>make-converter-tags</goal>
+            </goals>
+          </execution>          
+          <execution>
+            <id>makejsfFlextld</id>
+            <configuration>
+              <xmlFile>META-INF/jsf-flex.tld</xmlFile>
+              <xmlBaseFile>src/main/conf/META-INF/jsf-flex.tld</xmlBaseFile>
+              <templateFile>jsf-flex.vm</templateFile>
+              <params>
+                 <shortname>jf</shortname>
+                 <uri>http://jsf-flex.googlecode.com</uri>
+                 <displayname>JSF-Flex tag library.</displayname>
+                 <description>
+                   JSF-Flex goal is to provide users capability in creating Flex components as JSF components. So users would 
+                   create the components as normal JSF components and the contribution will create the necessary SWF files and 
+                   etcetera and link the values of the components back to the managed beans using JSON+Javascript and Actionscript.
+                   So all users would need is a Jar of the component library and they would be able to create Flex applications by 
+                   using them as normal JSF components. By doing so, developers who are unfamiliar with Adobe Flex can be completely 
+                   abstracted from its technology and focus in linking the application's data to legacy information.
+                 </description>
+              </params>
+              <modelIds>
+                <modelId>jsf-flex</modelId>
+              </modelIds>
+            </configuration>
+            <goals>
+              <goal>make-config</goal>
+            </goals>
+          </execution>        
+          <execution>
+            <id>makejsfFlextaglib</id>
+            <configuration>
+              <xmlFile>META-INF/jsf-flex.taglib.xml</xmlFile>
+              <xmlBaseFile>src/main/conf/META-INF/facelets-taglib-base.xml</xmlBaseFile>
+              <templateFile>facelets-taglib.vm</templateFile>
+              <params>
+                <shortname>jf</shortname>
+                <uri>http://jsf-flex.googlecode.com</uri>
+              </params>
+              <modelIds>
+                <modelId>jsf-flex</modelId>
+              </modelIds>
+            </configuration>
+            <goals>
+              <goal>make-config</goal>
+            </goals>
+          </execution>        
+        </executions>
+      </plugin>
+      
+      
+      <plugin>
+        <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
+        <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
+        <version>${jsf.flex.plugIn.version}</version>
+        <executions>
+          <execution>
+            <id>createMXMLRenderKitFactoryImplWrapperJavaFile</id>
+            <configuration>
+              <mxmlRenderKitFactoryImplWrapperBaseImpl>${mxmlRenderKitFactoryImplWrapperBaseImpl}</mxmlRenderKitFactoryImplWrapperBaseImpl>
+            </configuration>
+            <goals>
+              <goal>createMXMLRenderKitFactoryImplWrapperJavaFile</goal>
+            </goals>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
+            <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
+            <version>${jsf.flex.plugIn.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.1</version>
+        <executions>
+          <execution>
+            <id>add-source</id>
+            <phase>process-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>${basedir}/target/jsfFlex-builder-plugin</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>unpack dojo</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.dojotoolkit</groupId>
+                  <artifactId>dojo</artifactId>
+                  <version>${dojo.version}</version>
+                  <type>zip</type>
+                </artifactItem>
+              </artifactItems>
+              <outputDirectory>${project.build.directory}/${dojo.component.path}</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      
+      <!-- Do not need the Beta components of DOJO, so remove -->
+      <!--
+      <plugin>
+        <artifactId>maven-antrun-plugin</artifactId>
+          <configuration>
+            <tasks>
+              <delete dir="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/dojox"/>
+            </tasks>
+          </configuration>
+        <executions>
+          <execution>
+            <id>removeDojox</id>
+            <phase>process-resources</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      -->
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.4</source>
+          <target>1.4</target>
+          <maxmem>1024</maxmem>
+          <meminitial>256</meminitial>
+        </configuration>
+      </plugin>
+    </plugins>
+      
+  </build>
+  
+  <profiles>
+    <profile>
+      <id>myfaces-1.2</id>
+      <activation>
+        <property>
+          <name>!jsf</name>
+        </property>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>org.apache.myfaces.core</groupId>
+          <artifactId>myfaces-api</artifactId>
+        </dependency>
+        
+        <dependency>
+          <groupId>org.apache.myfaces.core</groupId>
+          <artifactId>myfaces-impl</artifactId>
+        </dependency>
+        
+        <dependency>
+          <groupId>org.apache.myfaces.shared</groupId>
+          <artifactId>myfaces-shared-impl</artifactId>
+        </dependency>
+      </dependencies>
+      <properties>
+        <mxmlResponseWriterImpl>org.apache.myfaces.shared_impl.renderkit.html.HtmlResponseWriterImpl</mxmlResponseWriterImpl>
+        <mxmlResponseStateManagerImpl>org.apache.myfaces.renderkit.html.HtmlResponseStateManager</mxmlResponseStateManagerImpl>
+        <mxmlRenderKitFactoryImplWrapperBaseImpl>org.apache.myfaces.renderkit.RenderKitFactoryImpl</mxmlRenderKitFactoryImplWrapperBaseImpl>
+      </properties>
+    </profile>
+    
+    <profile>
+      <id>mojarra-1.2</id>
+      <activation>
+        <property>
+          <name>jsf</name>
+          <value>mojarra12</value>
+        </property>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>javax.faces</groupId>
+          <artifactId>jsf-api</artifactId>
+        </dependency> 
+        
+        <dependency>
+          <groupId>javax.faces</groupId>
+          <artifactId>jsf-impl</artifactId>
+        </dependency>
+      </dependencies>      
+      
+      <repositories>
+        <repository>
+          <id>dev.java.net</id>
+          <name>dev.java.net Maven Repository</name>
+          <url>https://maven-repository.dev.java.net/repository/</url>
+          <layout>legacy</layout>
+        </repository>
+      </repositories>
+      
+      <properties>
+        <mxmlResponseWriterImpl>com.sun.faces.renderkit.html_basic.HtmlResponseWriter</mxmlResponseWriterImpl>
+        <mxmlResponseStateManagerImpl>com.sun.faces.renderkit.ResponseStateManagerImpl</mxmlResponseStateManagerImpl>
+        <mxmlRenderKitFactoryImplWrapperBaseImpl>com.sun.faces.renderkit.RenderKitFactoryImpl</mxmlRenderKitFactoryImplWrapperBaseImpl>
+      </properties>
+    </profile>
+    
+  </profiles>
+  
+  <properties>
+    <dojo.version>1.1.1</dojo.version>
+    <dojo.component.path>classes/com/googlecode/jsfFlex/renderkit/html/util/resource/</dojo.component.path>
+  </properties>
+
+</project>
