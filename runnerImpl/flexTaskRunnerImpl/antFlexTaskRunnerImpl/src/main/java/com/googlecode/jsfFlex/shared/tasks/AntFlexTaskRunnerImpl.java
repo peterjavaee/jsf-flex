@@ -60,7 +60,7 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 	public void replaceTokenWithValue(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) {
 
 		ReplaceTextTask addUIComponentTemplate = new ReplaceTextTask(applicationInstance.getAbsolutePathToPreMxmlFile());
-		addUIComponentTemplate.setMultiLineReplace(true);
+		addUIComponentTemplate.multiLineReplace(true);
 		addUIComponentTemplate.addTokenValue(tokenReplace, valueToReplaceWith);
 		addTask(addUIComponentTemplate);
 	}
@@ -83,9 +83,9 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 	public void createMXML(_MXMLContract applicationInstance, String copyTo) {
 		//TODO : Implement this better later
 		ReplaceTextTask removeEmptySpace = new ReplaceTextTask(applicationInstance.getAbsolutePathToPreMxmlFile());
-		removeEmptySpace.setReplaceRegExp(true);
-		removeEmptySpace.setRegMatch(ReplaceTextTask.CLEAN_REG_EXP_MATCH);
-		removeEmptySpace.setRegReplace(ReplaceTextTask.CLEAN_REG_EXP_REPLACE_WITH);
+		removeEmptySpace.replaceRegExp(true);
+		removeEmptySpace.regMatch(ReplaceTextTask.CLEAN_REG_EXP_MATCH);
+		removeEmptySpace.regReplace(ReplaceTextTask.CLEAN_REG_EXP_REPLACE_WITH);
 		
 		addTask(removeEmptySpace);
 		
@@ -190,7 +190,7 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 		String stringBodyContentToReplace = stringBodyContent == null ? "" : (String) stringBodyContent;
 		ReplaceTextTask writeBodyContent = new ReplaceTextTask(componentMXML.getAbsolutePathToPreMxmlFile());
 		writeBodyContent.addTokenValue(MXMLConstants.TAG_BODY_CONTENT_TOKEN, stringBodyContentToReplace);
-		writeBodyContent.setMultiLineReplace(true);
+		writeBodyContent.multiLineReplace(true);
 		addTask(writeBodyContent);
 	}
 	

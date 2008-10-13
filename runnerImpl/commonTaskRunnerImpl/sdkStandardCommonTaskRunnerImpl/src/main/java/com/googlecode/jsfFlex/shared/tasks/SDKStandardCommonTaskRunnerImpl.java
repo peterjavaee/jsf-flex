@@ -38,7 +38,7 @@ final class SDKStandardCommonTaskRunnerImpl extends TaskRunnerImpl implements _C
 	
 	private final static Log _log = LogFactory.getLog(SDKStandardCommonTaskRunnerImpl.class);
 	
-	public SDKStandardCommonTaskRunnerImpl(){
+	SDKStandardCommonTaskRunnerImpl(){
 		super();
 	}
 	

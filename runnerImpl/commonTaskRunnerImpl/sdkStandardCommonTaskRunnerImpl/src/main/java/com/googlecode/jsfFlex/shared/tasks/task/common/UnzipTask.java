@@ -27,6 +27,9 @@ import java.io.InputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.tasks._Task;
 
@@ -34,6 +37,8 @@ import com.googlecode.jsfFlex.shared.tasks._Task;
  * @author Ji Hoon Kim
  */
 public final class UnzipTask extends _Task {
+	
+	private final static Log _log = LogFactory.getLog(UnzipTask.class);
 	
 	private static final int BUFFER_SIZE = 2048;
 	
@@ -65,7 +70,7 @@ public final class UnzipTask extends _Task {
 				ensureDirectoryExists(entry.getName(), entry.isDirectory());
 				
 				dataRead = new byte[BUFFER_SIZE];
-				bufferOutputStream = new BufferedOutputStream(new FileOutputStream(getDest() + entry.getName()), BUFFER_SIZE);
+				bufferOutputStream = new BufferedOutputStream(new FileOutputStream(_dest + entry.getName()), BUFFER_SIZE);
 				
 				while((currRead = zipInputStream.read(dataRead, 0, BUFFER_SIZE)) != -1){
 					bufferOutputStream.write(dataRead, 0, currRead);
@@ -74,7 +79,7 @@ public final class UnzipTask extends _Task {
 				bufferOutputStream.close();
 			}
 			zipInputStream.close();
-			
+			_log.debug("UnzipTask performTask has been completed with " + toString());
 		}catch(IOException ioExcept){
 			StringBuffer errorMessage = new StringBuffer();
 			errorMessage.append("Error in Unzip's performTask with following fields \n");
@@ -88,7 +93,7 @@ public final class UnzipTask extends _Task {
 		String[] directorySplitted = directoryToCheck.split("/");
 		int lengthToTraverse = (isDirectory) ? directorySplitted.length : directorySplitted.length - 1;
 		
-		String tempLocation = getDest();
+		String tempLocation = _dest;
 		File currDirCheck;
 		for(int i=0; i < lengthToTraverse; i++){
 			tempLocation += directorySplitted[i] + File.separatorChar;
@@ -110,17 +115,11 @@ public final class UnzipTask extends _Task {
 		content.append(" ]");
 		return content.toString();
 	}
-
-	public String getDest() {
-		return _dest;
-	}
-	public void setDest(String dest) {
+	
+	public void dest(String dest) {
 		_dest = dest;
 	}
-	public InputStream getFile() {
-		return _file;
-	}
-	public void setFile(InputStream file) {
+	public void file(InputStream file) {
 		_file = file;
 	}
 	

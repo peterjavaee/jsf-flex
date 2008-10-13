@@ -76,7 +76,7 @@ public abstract class JsfFlexDojoResource extends JsfFlexResource {
         }
     };
     
-    public static JsfFlexDojoResource getDojoInstance(){
+    public static synchronized JsfFlexDojoResource getDojoInstance(){
 		JsfFlexDojoResource dojoInstance = null;
 		if(_currentResourceInstance.get() == null){
 			dojoInstance = new JsfFlexDojoResource(){
@@ -116,7 +116,7 @@ public abstract class JsfFlexDojoResource extends JsfFlexResource {
 		return dojoInstance;
 	}
     
-    public static JsfFlexResource getInstance(){
+    public static synchronized JsfFlexResource getInstance(){
 		return (JsfFlexResource) JsfFlexDojoResource.getDojoInstance();
 	}
 	

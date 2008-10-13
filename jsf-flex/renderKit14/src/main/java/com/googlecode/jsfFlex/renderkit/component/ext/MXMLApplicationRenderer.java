@@ -90,7 +90,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 	
 	private final static Log _log = LogFactory.getLog(MXMLApplicationRenderer.class);
 	
-	private static final String MXML_OBJECT_SET_TOKEN = "${mxmlObjectBean}";
+	private static final String MXML_OBJECT_SET_TOKEN = "{mxmlObjectBean}";
 	private static final String MXML_APPLICATION_BODY_TEMPLATE;
 	private static final String MXML_APPLICATION_REPLACE_MAPPING;
 	private static final String MX_KEY = "xmlns:mx";

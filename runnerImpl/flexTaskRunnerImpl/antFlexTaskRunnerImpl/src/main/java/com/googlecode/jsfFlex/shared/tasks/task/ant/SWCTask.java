@@ -80,20 +80,20 @@ public final class SWCTask extends Ant_BaseTask {
 		
 		Argument arg;
 		if(MXMLConstants.WINDOWS_SYSTEM){
-			_swcTask.setExecutable(getFlexSDKRootPath() + WINDOWS_EXEC);
+			_swcTask.setExecutable(_flexSDKRootPath + WINDOWS_EXEC);
 		}else{
-			_swcTask.setExecutable(getFlexSDKRootPath() + NON_WINDOWS_SHELL);
+			_swcTask.setExecutable(_flexSDKRootPath + NON_WINDOWS_SHELL);
 		}
 		
 		arg = _swcTask.createArg();
-		arg.setLine(SOURCE_PATH + MXMLConstants.STRING_QUOTE + getSourcePath() + MXMLConstants.STRING_QUOTE);
+		arg.setLine(SOURCE_PATH + MXMLConstants.STRING_QUOTE + _sourcePath + MXMLConstants.STRING_QUOTE);
 		
 		arg = _swcTask.createArg();
-		arg.setLine(OUTPUT + MXMLConstants.STRING_QUOTE + getOutPut() + MXMLConstants.STRING_QUOTE);
+		arg.setLine(OUTPUT + MXMLConstants.STRING_QUOTE + _outPut + MXMLConstants.STRING_QUOTE);
 		
-		if(getLoadConfig() != null){
+		if(_loadConfig != null){
 			arg = _swcTask.createArg();
-			arg.setLine(LOAD_CONFIG_ARG_SYNTAX + MXMLConstants.STRING_QUOTE + getLoadConfig() + MXMLConstants.STRING_QUOTE);
+			arg.setLine(LOAD_CONFIG_ARG_SYNTAX + MXMLConstants.STRING_QUOTE + _loadConfig + MXMLConstants.STRING_QUOTE);
 		}
 		
 		_swcTask.maybeConfigure();
@@ -133,28 +133,16 @@ public final class SWCTask extends Ant_BaseTask {
 	}
 	
 	
-	public String getLoadConfig() {
-		return _loadConfig;
-	}
-	public void setLoadConfig(String loadConfig) {
+	public void loadConfig(String loadConfig) {
 		_loadConfig = loadConfig;
 	}
-	public String getOutPut() {
-		return _outPut;
-	}
-	public void setOutPut(String outPut) {
+	public void outPut(String outPut) {
 		_outPut = outPut;
 	}
-	public String getSourcePath() {
-		return _sourcePath;
-	}
-	public void setSourcePath(String sourcePath) {
+	public void sourcePath(String sourcePath) {
 		_sourcePath = sourcePath;
 	}
-	public String getFlexSDKRootPath() {
-		return _flexSDKRootPath;
-	}
-	public void setFlexSDKRootPath(String flexSDKRootPath) {
+	public void flexSDKRootPath(String flexSDKRootPath) {
 		_flexSDKRootPath = flexSDKRootPath;
 	}
 	

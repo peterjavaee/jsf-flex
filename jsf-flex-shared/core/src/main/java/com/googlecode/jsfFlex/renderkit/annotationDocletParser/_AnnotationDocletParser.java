@@ -35,10 +35,9 @@ public abstract class _AnnotationDocletParser {
 	static final String BY_ATTRIBUTE = "byAttribute";
 	
 	private Set _tokenValueSet;
-	
 	private _MXMLMapper _mapper;
 	
-	public _AnnotationDocletParser(){
+	_AnnotationDocletParser(){
 		super();
 	}
 	
