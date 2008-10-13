@@ -35,6 +35,10 @@ import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
  */
 public abstract class MxmlContext {
 	
+	MxmlContext(){
+		super();
+	}
+	
 	public abstract boolean isProductionEnv();
 	
 	public abstract void setProductionEnv(boolean productionEnv);

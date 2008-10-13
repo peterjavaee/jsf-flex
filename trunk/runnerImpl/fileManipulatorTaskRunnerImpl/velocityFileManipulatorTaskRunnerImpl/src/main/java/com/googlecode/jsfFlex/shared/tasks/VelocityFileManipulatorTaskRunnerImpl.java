@@ -45,7 +45,7 @@ final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulatorTaskRu
 	private final static String JSF_FLEX_TEMPLATE = "jsf-flex-template.vm";
 	private final static String TOKEN_LIST_TOKEN = "tokenList";
 	private final static String MXML_COMPONENT_NAME_TOKEN = "mxmlComponent";
-	private final static String BODY_CONTENT_TOKEN = "bodyContent";
+	private final static String INITIAL_BODY_CONTENT_TOKEN = "initialBodyContent";
 	private final static String CHILD_PRE_MXML_IDENTIFIER_TOKEN = "childIdentifier";
 	private final static String SIBLING_PRE_MXML_IDENTIFIER_TOKEN = "siblingIdentifier";
 	
@@ -68,7 +68,7 @@ final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulatorTaskRu
 		Map _tokenMap = new HashMap();
 		_tokenMap.put(TOKEN_LIST_TOKEN, _tokenList);
 		_tokenMap.put(MXML_COMPONENT_NAME_TOKEN, _mxmlComponentName);
-		_tokenMap.put(BODY_CONTENT_TOKEN, _bodyContent);
+		_tokenMap.put(INITIAL_BODY_CONTENT_TOKEN, _bodyContent);
 		_tokenMap.put(CHILD_PRE_MXML_IDENTIFIER_TOKEN, _childIdentifier);
 		_tokenMap.put(SIBLING_PRE_MXML_IDENTIFIER_TOKEN, _siblingIdentifier);
 		

@@ -37,7 +37,7 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
  */
 public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	
-	protected AbstractMXMLResponseWriter(){
+	AbstractMXMLResponseWriter(){
 		super();
 	}
 	

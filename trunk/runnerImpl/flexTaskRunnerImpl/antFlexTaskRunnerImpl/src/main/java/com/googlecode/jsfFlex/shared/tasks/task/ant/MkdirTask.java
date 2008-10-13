@@ -61,7 +61,7 @@ public final class MkdirTask extends Ant_BaseTask {
 	
 	protected void performTask() {
 		
-		_mkdirTask.setDir(new File(getFile()));
+		_mkdirTask.setDir(new File(_file));
 		
 		_mkdirTask.maybeConfigure();
 		
@@ -88,10 +88,7 @@ public final class MkdirTask extends Ant_BaseTask {
 		return content.toString();
 	}
 	
-	public String getFile() {
-		return _file;
-	}
-	public void setFile(String file) {
+	public void file(String file) {
 		_file = file;
 	}
 

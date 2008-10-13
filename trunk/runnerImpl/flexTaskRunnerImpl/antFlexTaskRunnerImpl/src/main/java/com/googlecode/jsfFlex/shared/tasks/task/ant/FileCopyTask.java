@@ -83,33 +83,33 @@ public final class FileCopyTask extends Ant_BaseTask {
 	
 	private void configureParameters(){
 		
-		if(getCopyFile() != null){
+		if(_copyFile != null){
 			//means by file copy
-			_copyTask.setFile(new File(getCopyFile()));
+			_copyTask.setFile(new File(_copyFile));
 			
 		}else{
 			//means by dir copy with fileset
 			_dirCopyFileSet = new FileSet();
-			_dirCopyFileSet.setDir(new File(getCopyDir()));
+			_dirCopyFileSet.setDir(new File(_copyDir));
 			
-			if(getCopyInclude() != null){
+			if(_copyInclude != null){
 				PatternSet.NameEntry _copyIncludeNE = _dirCopyFileSet.createInclude();
-				_copyIncludeNE.setName(getCopyInclude());
+				_copyIncludeNE.setName(_copyInclude);
 			}
 			
-			if(getCopyExclude() != null){
+			if(_copyExclude != null){
 				PatternSet.NameEntry _copyExcludeNE = _dirCopyFileSet.createExclude();
-				_copyExcludeNE.setName(getCopyExclude());
+				_copyExcludeNE.setName(_copyExclude);
 			}
 			
 			_copyTask.addFileset(_dirCopyFileSet);
 			
 		}
 		
-		if(getCopyToFile() != null){
-			_copyTask.setTofile(new File(getCopyToFile()));
+		if(_copyToFile != null){
+			_copyTask.setTofile(new File(_copyToFile));
 		}else{
-			_copyTask.setTodir(new File(getCopyTo()));
+			_copyTask.setTodir(new File(_copyTo));
 		}
 		
 		_copyTask.maybeConfigure();
@@ -157,40 +157,22 @@ public final class FileCopyTask extends Ant_BaseTask {
 		return content.toString();
 	}
 	
-	public String getCopyFile() {
-		return _copyFile;
-	}
-	public void setCopyFile(String copyFile) {
+	public void copyFile(String copyFile) {
 		_copyFile = copyFile;
 	}
-	public String getCopyDir() {
-		return _copyDir;
-	}
-	public void setCopyDir(String copyDir) {
+	public void copyDir(String copyDir) {
 		_copyDir = copyDir;
 	}
-	public String getCopyExclude() {
-		return _copyExclude;
-	}
-	public void setCopyExclude(String copyExclude) {
+	public void copyExclude(String copyExclude) {
 		_copyExclude = copyExclude;
 	}
-	public String getCopyInclude() {
-		return _copyInclude;
-	}
-	public void setCopyInclude(String copyInclude) {
+	public void copyInclude(String copyInclude) {
 		_copyInclude = copyInclude;
 	}
-	public String getCopyTo() {
-		return _copyTo;
-	}
-	public void setCopyTo(String copyTo) {
+	public void copyTo(String copyTo) {
 		_copyTo = copyTo;
 	}
-	public String getCopyToFile() {
-		return _copyToFile;
-	}
-	public void setCopyToFile(String copyToFile) {
+	public void copyToFile(String copyToFile) {
 		_copyToFile = copyToFile;
 	}
 	

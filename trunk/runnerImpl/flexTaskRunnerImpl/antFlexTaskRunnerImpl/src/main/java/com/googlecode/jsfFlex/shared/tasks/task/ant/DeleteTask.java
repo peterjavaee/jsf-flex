@@ -65,10 +65,10 @@ public final class DeleteTask extends Ant_BaseTask {
 	
 	protected void performTask() {
 		
-		if(isDirectory()){
-			_deleteTask.setDir(new File(getDeleteResource()));
+		if(_isDirectory){
+			_deleteTask.setDir(new File(_deleteResource));
 		}else{
-			_deleteTask.setFile(new File(getDeleteResource()));
+			_deleteTask.setFile(new File(_deleteResource));
 		}
 		
 		_deleteTask.maybeConfigure();
@@ -99,16 +99,10 @@ public final class DeleteTask extends Ant_BaseTask {
 		return content.toString();
 	}
 	
-	public String getDeleteResource() {
-		return _deleteResource;
-	}
-	public void setDeleteResource(String deleteResource) {
+	public void deleteResource(String deleteResource) {
 		_deleteResource = deleteResource;
 	}
-	public boolean isDirectory() {
-		return _isDirectory;
-	}
-	public void setDirectory(boolean isDirectory) {
+	public void directory(boolean isDirectory) {
 		_isDirectory = isDirectory;
 	}
 	

@@ -61,16 +61,16 @@ public final class MXMLCTask extends Ant_BaseTask {
 	private _MXMLApplicationContract _componentMXML;
 	
 	private String _file;
-	private String _output_path;
+	private String _outputPath;
 	private String _flexSDKRootPath;
 	
 	public MXMLCTask(){
 		super();
 	}
 	
-	public MXMLCTask(String file, String output_path, _MXMLApplicationContract componentMXML, String flexSDKRootPath){
+	public MXMLCTask(String file, String outputPath, _MXMLApplicationContract componentMXML, String flexSDKRootPath){
 		_file = file;
-		_output_path = output_path;
+		_outputPath = outputPath;
 		_componentMXML = componentMXML;
 		_flexSDKRootPath = flexSDKRootPath;
 	}
@@ -94,17 +94,17 @@ public final class MXMLCTask extends Ant_BaseTask {
 		//TODO : Implement it better later
 		Argument arg;
 		if(MXMLConstants.WINDOWS_SYSTEM){
-			_mxmlcTask.setExecutable(getFlexSDKRootPath() + WINDOWS_EXEC);
+			_mxmlcTask.setExecutable(_flexSDKRootPath + WINDOWS_EXEC);
 		}else{
-			_mxmlcTask.setExecutable(getFlexSDKRootPath() + NON_WINDOWS_SHELL);
+			_mxmlcTask.setExecutable(_flexSDKRootPath + NON_WINDOWS_SHELL);
 		}
 		
 		arg = _mxmlcTask.createArg();
-		arg.setLine(FILE_PROPERTY + MXMLConstants.STRING_QUOTE + getFile() + MXMLConstants.STRING_QUOTE);
+		arg.setLine(FILE_PROPERTY + MXMLConstants.STRING_QUOTE + _file + MXMLConstants.STRING_QUOTE);
 		
-		if(getOutput_path() != null){
+		if(_outputPath != null){
 			arg = _mxmlcTask.createArg();
-			arg.setLine(OUTPUT_ARG_SYNTAX + MXMLConstants.STRING_QUOTE + getOutput_path() + MXMLConstants.STRING_QUOTE);
+			arg.setLine(OUTPUT_ARG_SYNTAX + MXMLConstants.STRING_QUOTE + _outputPath + MXMLConstants.STRING_QUOTE);
 		}
 		
 		if(_componentMXML.isAccessible()){
@@ -220,8 +220,8 @@ public final class MXMLCTask extends Ant_BaseTask {
 		content.append("file [ ");
 		content.append(_file);
 		content.append(" ] ");
-		content.append("output_path [ ");
-		content.append(_output_path);
+		content.append("outputPath [ ");
+		content.append(_outputPath);
 		content.append(" ] ");
 		content.append("accessible [ ");
 		content.append(_componentMXML.isAccessible());
@@ -277,22 +277,13 @@ public final class MXMLCTask extends Ant_BaseTask {
 		return content.toString();
 	}
 
-	public String getFile() {
-		return _file;
-	}
-	public void setFile(String file) {
+	public void file(String file) {
 		_file = file;
 	}
-	public String getOutput_path() {
-		return _output_path;
+	public void outputPath(String outputPath) {
+		_outputPath = outputPath;
 	}
-	public void setOutput_path(String output_path) {
-		_output_path = output_path;
-	}
-	public String getFlexSDKRootPath() {
-		return _flexSDKRootPath;
-	}
-	public void setFlexSDKRootPath(String flexSDKRootPath) {
+	public void flexSDKRootPath(String flexSDKRootPath) {
 		_flexSDKRootPath = flexSDKRootPath;
 	}
 	

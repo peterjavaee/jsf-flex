@@ -67,7 +67,7 @@ public final class MXMLConstants {
 	public static final String SIBLING_REPLACE_TOKEN_PREMXML_IDENTIFIER_SUFF = " -->";
 	
 	public static final String TAG_BODY_CONTENT_ATTR = "tagBodyContent";
-	public static final String TAG_BODY_CONTENT_TOKEN = "${tagBodyContent}";
+	public static final String TAG_BODY_CONTENT_TOKEN = "{tagBodyContent}";
 	
 	public static final String MXML_DIRECTORY_NAME = "mxml";
 	public static final String SWF_DIRECTORY_NAME = "swf";

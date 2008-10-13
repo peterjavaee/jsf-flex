@@ -33,6 +33,7 @@ import java.util.List;
  */
 class TaskRunnerImpl implements _TaskRunner {
 	
+	private final Object _lock;
 	private final List _tasks;
 	
 	TaskRunnerImpl(){
@@ -44,25 +45,35 @@ class TaskRunnerImpl implements _TaskRunner {
 		_tasks = new LinkedList();
 		_tasks.addAll(tasks);
 	}
+	
+	{
+		_lock = new Object();
+	}
 
-	public synchronized void addTask(_Task toAdd) {
-		_tasks.add(toAdd);
-		execute();
-	}
-	
-	public synchronized void addTasks(Collection _tasksToAdd) {
-		_tasks.addAll(_tasksToAdd);
-		execute();
-	}
-	
-	public synchronized void execute() {
-		
-		_Task current;
-		for(Iterator iterate = _tasks.iterator(); iterate.hasNext();){
-			current = (_Task) iterate.next();
-			current.performTask();
+	public void addTask(_Task toAdd) {
+		synchronized(_lock){
+			_tasks.add(toAdd);
+			execute();
 		}
-		clearAllTask();
+	}
+	
+	public void addTasks(Collection _tasksToAdd) {
+		synchronized(_lock){
+			_tasks.addAll(_tasksToAdd);
+			execute();
+		}
+	}
+	
+	public void execute() {
+		
+		synchronized(_lock){
+			_Task current;
+			for(Iterator iterate = _tasks.iterator(); iterate.hasNext();){
+				current = (_Task) iterate.next();
+				current.performTask();
+			}
+			clearAllTask();
+		}
 	}
 	
 	private void clearAllTask(){

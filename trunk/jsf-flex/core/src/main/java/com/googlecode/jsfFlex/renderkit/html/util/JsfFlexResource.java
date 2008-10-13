@@ -41,7 +41,7 @@ public abstract class JsfFlexResource {
         }
     };
     
-    public static JsfFlexResource getInstance(){
+    public static synchronized JsfFlexResource getInstance(){
 		JsfFlexResource instance = null;
 		if(_currentResourceInstance.get() == null){
 			instance = new JsfFlexResourceImpl();
