@@ -15,6 +15,6 @@ So in order to add the resource to the head of the HTML file, one simply gets th
 Following is an example from {{{AbstractMXMLUIApplication}}} :
 {{{
   JsfFlexDojoResource _jsfFlexDojoResource = JsfFlexDojoResource.getDojoInstance();
-  _jsfFlexDojoResource.addResource(getClass(), MXMLConstants.JSF_FLEX_COMMUNICATOR_JS);
   _jsfFlexDojoResource.addDojoMain();
+  _jsfFlexDojoResource.addResource(getClass(), MXMLConstants.JSF_FLEX_COMMUNICATOR_JS);
 }}}
