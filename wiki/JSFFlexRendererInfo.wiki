@@ -22,7 +22,7 @@ In order to have a single entry point for retrieving these info for jsf-flex-sha
 
 ==Main points for JSF Flex Renderers==
 Main thing to note in terms of design for the renderers are the following :
- * Classes which are not concrete, meaning MXML.+TemplateRenderer will mainly have a method called mapFields which is simply to inspect either the replaceMapping XML or annotation {depending on the JRE version} to retrieve the values from the sub-class of UIComponent during the JSF Flex's encodeBegin lifecycle.
+ * Classes which are not concrete, meaning {{{MXML.+TemplateRenderer}}} will mainly have a method called mapFields which is simply to inspect either the replaceMapping XML or annotation {depending on the JRE version} to retrieve the values from the sub-class of UIComponent during the JSF Flex's encodeBegin lifecycle.
  * Concrete classes have a method createPreMxml which is to create the preMxml file with the responsibility of creating these files lie with implementations of {{{_FileManipulatorTaskRunner}}} interface {default being  {{{VelocityFileManipulatorTaskRunnerImpl}}} }. The implementation choice for this interface and two other interfaces {{{_CommonTaskRunner}}} and {{{_FlexTaskRunner}}} are determined during the maven build process.
  * {{{MXMLComponentBaseRenderer}}} class during the encodeEnd will write the body content of the component {i.e. MXMLScript} as long as the correct content is pushed to the attribute map. For an example, view the {{{MXMLUIScriptTag}}} within the jsf-flex project where the body content is pushed to the component's attribute map as MXMLConstants.TAG_BODY_CONTENT_ATTR.
  * MXMLApplicationRenderer is a special class that has an added responsibility during its encodeEnd to 
