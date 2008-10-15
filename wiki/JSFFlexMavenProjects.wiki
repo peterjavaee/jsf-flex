@@ -15,24 +15,24 @@ Contains code pertinent to JSF components. Since the project uses myfaces plug-i
 
 
 ==jsf-flex/examples==
-A WAR project containing sample jsf pages for the project. One thing to note is that this WAR file contains many dependencies due to the project's dependency on {{{MyFaces}}} tomahawk and its sandbox project. So for example poi Jar file is not needed for the JSF Flex project and one of the consideration in the future is to break the dependency upon tomahawk project or at least provide a need to have jar files for using JSF Flex components. 
+A WAR project containing sample jsf pages for the project.
 
 ==jsf-flex-shared==
-A project containing shared resource mainly for jsf-flex and jsf-flex/renderKit14 and jsf-flex/renderKit15.
+A project containing shared resource for other projects.
 
-==jsf-flex-framework/runnerImpl/commonTaskRunnerImpl==
+==runnerImpl/commonTaskRunnerImpl==
 Contains projects that implement the {{{_CommonTaskRunner}}} interface used by jsf-flex-shared/core {i.e. sdkStandardCommonTaskRunnerImpl project}
 
-==jsf-flex-framework/runnerImpl/fileManipulatorTaskRunnerImpl==
+==runnerImpl/fileManipulatorTaskRunnerImpl==
 Contains projects that extends the {{{_FileManipulatorTaskRunner}}} abstract class used by jsf-flex-shared/core {i.e. velocityFileManipulatorTaskRunnerImpl project}
 
-==jsf-flex-framework/runnerImpl/flexTaskRunnerImpl==
+==runnerImpl/flexTaskRunnerImpl==
 Contains projects that implement the {{{_FlexTaskRunner}}} interface used by jsf-flex-shared/core {i.e. antFlexTaskRunnerImpl project}
 
 ==jsf-flex/renderKit14 JRE < 1.5==
 For renderKit14, during the build time documentation for java files will be inspected by the JSF Flex plug-in and will generate replaceMapping XML files that will be parsed to check which fields to inspect and how to fetch these fields from the JSF component {by attribute map or by method invocation]. Contains an implementation of {{{_AnnotationDocletParser}}} interface used by jsf-flex-shared/core for fetching the fields from the JSF component, {{{AnnotationDocletParser14Impl}}} }
 
-==jsf-flex-framework/component15 JRE > 1.4==
+==jsf-flex/renderKit15 JRE > 1.4==
 Since these components are suppose to be used for JRE >= 1.5, the attributes will be fetched during runtime through Java annotation and will not require JSF Flex plug-in during build time. Contains an implementation of {{{_AnnotationDocletParser}}} interface used by jsf-flex-shared/core for fetching the fields from the JSF component, {{{AnnotationDocletParser15Impl}}}.
 
 ==jsf-flex/annotations JRE > 1.4 ==
