@@ -81,6 +81,19 @@
     </profile>
     
     <profile>
+      <id>jython_flex_runner_impl</id>
+      <activation>
+        <property>
+          <name>flex_runner_impl</name>
+          <value>jython</value>
+        </property>
+      </activation>
+      <properties>
+        <flex_task_runner_impl_package>com.googlecode.jsfFlex.shared.tasks.JythonFlexTaskRunnerImpl</flex_task_runner_impl_package>
+      </properties>
+    </profile>
+    
+    <profile>
       <id>jsf_flex_renderkit_runtime-1.4</id>
       <activation>
         <property>

@@ -153,6 +153,23 @@
         </dependency>
       </dependencies>
     </profile>
+    
+    <profile>
+      <id>jython_flex_runner_impl</id>
+      <activation>
+        <property>
+          <name>flex_runner_impl</name>
+          <value>jython</value>
+        </property>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>com.googlecode.jsf-flex.runner-impl-project.flex-runner-project</groupId>
+          <artifactId>jython-flex-impl</artifactId>
+          <version>${jsf.flex.runner.version}</version>
+        </dependency>
+      </dependencies>
+    </profile>
 
     <profile>
       <id>jsf_flex_renderKit_runtime-1.4</id>
