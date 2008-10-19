@@ -69,14 +69,14 @@ public final class EchoTask extends Ant_BaseTask {
 	
 	protected void performTask() {
 		
-		_echoTask.addText(getMessage());
-		_echoTask.setFile(new File(getFile()));
+		_echoTask.addText(_message);
+		_echoTask.setFile(new File(_file));
 		
 		EchoLevel _echoLevel = new EchoLevel();
-		_echoLevel.setValue(getLevel());
+		_echoLevel.setValue(_level);
 		_echoTask.setLevel(_echoLevel);
 		
-		_echoTask.setAppend(getAppend());
+		_echoTask.setAppend(_append);
 		
 		_echoTask.maybeConfigure();
 		
@@ -112,28 +112,16 @@ public final class EchoTask extends Ant_BaseTask {
 		return content.toString();
 	}
 	
-	public boolean getAppend(){
-		return _append;
-	}
-	public void setAppend(boolean append) {
+	public void append(boolean append) {
 		_append = append;
 	}
-	public String getFile(){
-		return _file;
-	}
-	public void setFile(String file) {
+	public void file(String file) {
 		_file = file;
 	}
-	public String getLevel(){
-		return _level;
-	}
-	public void setLevel(String level) {
+	public void level(String level) {
 		_level = level;
 	}
-	public String getMessage(){
-		return _message;
-	}
-	public void setMessage(String message) {
+	public void message(String message) {
 		_message = message;
 	}
 

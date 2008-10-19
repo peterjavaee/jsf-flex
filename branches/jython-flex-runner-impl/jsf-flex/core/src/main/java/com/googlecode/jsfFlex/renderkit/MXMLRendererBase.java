@@ -142,12 +142,11 @@ public class MXMLRendererBase extends Renderer {
 	    		
 				//now set the minor level
 	        	List childrenList = parent.getChildren();
-	        	UIComponent currComp;
 	        	int counter = 0;
 	        	
 	        	for(Iterator iterate = childrenList.iterator(); iterate.hasNext();){
 	        		//get the component's position within structure
-	        		currComp = (UIComponent) iterate.next();
+	        		UIComponent currComp = (UIComponent) iterate.next();
 	        		if(currComp == component){
 	        			//got the component's position
 	        			break;
@@ -223,17 +222,11 @@ public class MXMLRendererBase extends Renderer {
 				Map preMxmlCompMap = mxmlContext.getPreMxmlCompMap();
 				
 				Integer majorKey = new Integer(mxmlUIComp.getMajorLevel());
-				Object majorKeyEntry = preMxmlCompMap.get(majorKey);
-
+				
 				Set majorKeySet;
-				if(majorKeyEntry != null){
-					majorKeySet = (Set) majorKeyEntry;
-
-				}else{
-					
+				if((majorKeySet = (Set) preMxmlCompMap.get(majorKey)) == null){
 					majorKeySet = new TreeSet( _majorKeyComparator );
 					preMxmlCompMap.put(majorKey, majorKeySet);
-
 				}
 				
 				majorKeySet.add(mxmlUIComp);

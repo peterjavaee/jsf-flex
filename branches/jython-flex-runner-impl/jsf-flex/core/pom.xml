@@ -259,18 +259,19 @@
         </executions>
       </plugin>
       
-      <!-- Do not need the Beta components of DOJO, so remove -->
-      <!--
+      <!-- Need Dojo + Dojox [latter mainly for Dictionary, hopefully it will be moved to Dojo soon. 
+           Since the size of War becomes gt 20GiB with all three packages, will remove Dijit which
+           is not needed for now -->
       <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
           <configuration>
             <tasks>
-              <delete dir="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/dojox"/>
+              <delete dir="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/dijit"/>
             </tasks>
           </configuration>
         <executions>
           <execution>
-            <id>removeDojox</id>
+            <id>removeDijit</id>
             <phase>process-resources</phase>
             <goals>
               <goal>run</goal>
@@ -278,7 +279,6 @@
           </execution>
         </executions>
       </plugin>
-      -->
       
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

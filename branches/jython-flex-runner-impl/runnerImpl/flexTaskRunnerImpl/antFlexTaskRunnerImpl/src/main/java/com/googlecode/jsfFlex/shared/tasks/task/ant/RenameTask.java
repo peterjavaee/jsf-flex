@@ -67,9 +67,9 @@ public final class RenameTask extends Ant_BaseTask {
 	
 	protected void performTask() {
 		
-		_renameTask.setFile(new File(getSourceFile()));
-		_renameTask.setTofile(new File(getDestFile()));
-		_renameTask.setOverwrite(isOverwrite());
+		_renameTask.setFile(new File(_sourceFile));
+		_renameTask.setTofile(new File(_destFile));
+		_renameTask.setOverwrite(_overwrite);
 		
 		_renameTask.maybeConfigure();
 		
@@ -102,22 +102,13 @@ public final class RenameTask extends Ant_BaseTask {
 		return content.toString();
 	}
 	
-	public String getDestFile() {
-		return _destFile;
-	}
-	public void setDestFile(String destFile) {
+	public void destFile(String destFile) {
 		_destFile = destFile;
 	}
-	public boolean isOverwrite() {
-		return _overwrite;
-	}
-	public void setOverwrite(boolean overwrite) {
+	public void overwrite(boolean overwrite) {
 		_overwrite = overwrite;
 	}
-	public String getSourceFile() {
-		return _sourceFile;
-	}
-	public void setSourceFile(String sourceFile) {
+	public void sourceFile(String sourceFile) {
 		_sourceFile = sourceFile;
 	}
 	

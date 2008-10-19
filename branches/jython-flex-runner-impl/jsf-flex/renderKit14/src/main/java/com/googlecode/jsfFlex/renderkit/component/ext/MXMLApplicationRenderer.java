@@ -90,7 +90,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 	
 	private final static Log _log = LogFactory.getLog(MXMLApplicationRenderer.class);
 	
-	private static final String MXML_OBJECT_SET_TOKEN = "${mxmlObjectBean}";
+	private static final String MXML_OBJECT_SET_TOKEN = "{mxmlObjectBean}";
 	private static final String MXML_APPLICATION_BODY_TEMPLATE;
 	private static final String MXML_APPLICATION_REPLACE_MAPPING;
 	private static final String MX_KEY = "xmlns:mx";
@@ -164,21 +164,18 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		}else{
 		
 			Map _preMxmlMap = mxmlContext.getPreMxmlCompMap();
-			Integer currMajor;
 			
-			Set siblingSet;
-			_MXMLContract currComp;
 			if(_preMxmlMap.keySet().size() > 0){
 				
 				//Application must be a top component with others as children component
 				for(Iterator majorIterator = _preMxmlMap.keySet().iterator(); majorIterator.hasNext();){
 					
-					currMajor = (Integer) majorIterator.next();
-					siblingSet = (Set) _preMxmlMap.get(currMajor);
+					Integer currMajor = (Integer) majorIterator.next();
+					Set siblingSet = (Set) _preMxmlMap.get(currMajor);
 					
 					for(Iterator siblingIterator = siblingSet.iterator(); siblingIterator.hasNext();){
 					
-						currComp = (_MXMLContract) siblingIterator.next();
+						_MXMLContract currComp = (_MXMLContract) siblingIterator.next();
 						
 						if(currComp.getMinorLevel() == 0){
 							writer.replaceTokenWithValue((_MXMLContract) componentMXML, writer.readFileContent(currComp.getAbsolutePathToPreMxmlFile()), 
@@ -320,16 +317,9 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 				toReturn.append(ARRAY_OF_IDS);
 				toReturn.append(": [");
 				
-				String currItem;
-				
-				Object initValue;
-				Map initValueMap;
-				String attribute;
-				Object value;
-				
 				for(Iterator iterate = applicationIdValueMap.keySet().iterator(); iterate.hasNext();){
 					
-					currItem = (String) iterate.next();
+					String currItem = (String) iterate.next();
 					
 					toReturn.append("{");
 					toReturn.append(ID);
@@ -341,13 +331,13 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 					toReturn.append(INIT_VALUE);
 					toReturn.append(": ");
 					
-					if((initValue = applicationIdValueMap.get(currItem)) != null){
+					Map initValueMap;
+					if((initValueMap = (Map) applicationIdValueMap.get(currItem)) != null){
 						toReturn.append("[ ");
 						
-						initValueMap = (Map) initValue;
 						for(Iterator iterateInitValue = initValueMap.keySet().iterator(); iterateInitValue.hasNext();){
-							attribute = (String) iterateInitValue.next();
-							value = initValueMap.get(attribute);
+							String attribute = (String) iterateInitValue.next();
+							Object value = initValueMap.get(attribute);
 							
 							toReturn.append("{");
 							toReturn.append(ATTRIBUTE);

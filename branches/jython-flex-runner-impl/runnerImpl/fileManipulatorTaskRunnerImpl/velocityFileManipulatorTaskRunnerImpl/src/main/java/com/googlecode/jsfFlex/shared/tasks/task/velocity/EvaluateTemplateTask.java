@@ -94,12 +94,9 @@ public final class EvaluateTemplateTask extends _Task {
 	
 	private void populateContext(){
 		
-		Object _key;
-		Object _value;
-		
 		for(Iterator _keys = _contextValues.keySet().iterator(); _keys.hasNext();){
-			_key = _keys.next();
-			_value = _contextValues.get(_key);
+			Object _key = _keys.next();
+			Object _value = _contextValues.get(_key);
 			_context.put(_key.toString(), _value);
 		}
 		
@@ -110,7 +107,7 @@ public final class EvaluateTemplateTask extends _Task {
 		try{
 			_velocityEngine.evaluate(_context, _writer, _logTag, _template);
 			_writer.flush();
-			_log.debug("Executiong has been completed for " + toString());
+			_log.debug("EvaluateTemplateTask mergeCollectionToTemplate has been completed with " + toString());
 		}catch(Exception _exceptionWhileMerging){
 			StringBuffer errorMessage = new StringBuffer();
 			errorMessage.append("Error in MergeTemplateTask's mergeCollectionToTemplate with following fields \n");
@@ -132,12 +129,9 @@ public final class EvaluateTemplateTask extends _Task {
 		StringBuffer content = new StringBuffer();
 		
 		content.append("contextValues [ ");
-		Iterator _keys = _contextValues.keySet().iterator();
-		Object _key;
-		Object _value;
-		while(_keys.hasNext()){
-			_key = _keys.next();
-			_value = _contextValues.get(_key);
+		for(Iterator _keys = _contextValues.keySet().iterator(); _keys.hasNext();){
+			Object _key = _keys.next();
+			Object _value = _contextValues.get(_key);
 			content.append(_key.toString());
 			content.append(":");
 			content.append(_value.toString());
@@ -153,34 +147,19 @@ public final class EvaluateTemplateTask extends _Task {
 		return content.toString();
 	}
 
-	public Map getContextValues() {
-		return _contextValues;
-	}
-	public void setContextValues(Map contextValues) {
+	public void contextValues(Map contextValues) {
 		_contextValues = contextValues;
 	}
-	public Properties getInitProperties() {
-		return _initProperties;
-	}
-	public void setInitProperties(Properties initProperties) {
+	public void initProperties(Properties initProperties) {
 		_initProperties = initProperties;
 	}
-	public String getLogTag() {
-		return _logTag;
-	}
-	public void setLogTag(String logTag) {
+	public void logTag(String logTag) {
 		_logTag = logTag;
 	}
-	public Reader getTemplate() {
-		return _template;
-	}
-	public void setTemplate(Reader template) {
+	public void template(Reader template) {
 		_template = template;
 	}
-	public Writer getWriter() {
-		return _writer;
-	}
-	public void setWriter(Writer writer) {
+	public void writer(Writer writer) {
 		_writer = writer;
 	}
 	

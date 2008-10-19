@@ -24,5 +24,9 @@ import javax.faces.render.ResponseStateManager;
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLResponseStateManager extends ResponseStateManager {
-
+	
+	AbstractMXMLResponseStateManager(){
+		super();
+	}
+	
 }

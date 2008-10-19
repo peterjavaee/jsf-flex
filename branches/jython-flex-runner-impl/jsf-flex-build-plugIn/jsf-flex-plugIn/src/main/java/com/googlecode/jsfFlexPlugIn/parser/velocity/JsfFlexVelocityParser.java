@@ -77,9 +77,8 @@ public class JsfFlexVelocityParser {
 	
 	public synchronized void mergeCollectionToTemplate(String _template, Map<String, Object> _contextInfo, Writer _targetWriter, String _fileMerged){
 		
-		String _currKey;
 		for(Iterator<String> _contextInfoIterator = _contextInfo.keySet().iterator(); _contextInfoIterator.hasNext();){
-			_currKey = _contextInfoIterator.next();
+			String _currKey = _contextInfoIterator.next();
 			_context.put(_currKey, _contextInfo.get(_currKey));
 		}
 		

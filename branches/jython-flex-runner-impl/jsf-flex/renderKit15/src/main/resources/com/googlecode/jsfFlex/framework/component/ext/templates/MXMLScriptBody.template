@@ -1,5 +1,5 @@
 <![CDATA[
   
-  ${tagBodyContent}
+  {tagBodyContent}
   
 ]]>
