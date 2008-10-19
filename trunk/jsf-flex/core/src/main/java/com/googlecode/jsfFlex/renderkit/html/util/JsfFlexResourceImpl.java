@@ -60,9 +60,8 @@ class JsfFlexResourceImpl extends JsfFlexResource {
 	public Collection getResources(){
 		
 		List resourceList = new LinkedList();
-		JsfFlexResourceElement currResourceElement;
 		for(Iterator iterate = _resourceSet.iterator(); iterate.hasNext();){
-			currResourceElement = (JsfFlexResourceElement) iterate.next();
+			JsfFlexResourceElement currResourceElement = (JsfFlexResourceElement) iterate.next();
 			resourceList.add(currResourceElement.generateResourcePath());
 		}
 		

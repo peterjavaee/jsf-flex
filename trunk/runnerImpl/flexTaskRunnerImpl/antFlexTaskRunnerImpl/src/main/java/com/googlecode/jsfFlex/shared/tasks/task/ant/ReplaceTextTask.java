@@ -122,19 +122,16 @@ public final class ReplaceTextTask extends Ant_BaseTask {
 		
 		try {
 			
-			java.util.Iterator iterate = _replaceMap.keySet().iterator();
-			String tokenVal;
 			String targetToExecute = "";
 			
 			if(_multiLineReplace){
 				
 				_replaceMultiLineTask.setFile(new File(_file));
-				Replacefilter replaceFilt;
 				
-				while(iterate.hasNext()){
-					tokenVal = (String) iterate.next();
+				for(Iterator iterate = _replaceMap.keySet().iterator(); iterate.hasNext();){
+					String tokenVal = (String) iterate.next();
 					
-					replaceFilt = _replaceMultiLineTask.createReplacefilter();
+					Replacefilter replaceFilt = _replaceMultiLineTask.createReplacefilter();
 					replaceFilt.setToken(tokenVal);
 					replaceFilt.setValue((String) _replaceMap.get(tokenVal));
 				}
@@ -143,14 +140,12 @@ public final class ReplaceTextTask extends Ant_BaseTask {
 			}else if(_replaceText){
 				
 				_replaceTextTask.setFile(new File(_file));
-				NestedString nestedToken = null;
-				NestedString nestedValue = null;
 				
-				while(iterate.hasNext()){
-					tokenVal = (String) iterate.next();
-					nestedToken = _replaceTextTask.createReplaceToken();
+				for(Iterator iterate = _replaceMap.keySet().iterator(); iterate.hasNext();){
+					String tokenVal = (String) iterate.next();
+					NestedString nestedToken = _replaceTextTask.createReplaceToken();
 					nestedToken.addText(tokenVal);
-					nestedValue = _replaceTextTask.createReplaceValue();
+					NestedString nestedValue = _replaceTextTask.createReplaceValue();
 					nestedValue.addText((String) _replaceMap.get(tokenVal));
 				}
 				

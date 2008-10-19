@@ -10,7 +10,7 @@
   <groupId>com.googlecode.jsf-flex.runner-impl-project.flex-runner-project</groupId>
   <artifactId>flex-main-runner-project</artifactId>
   <packaging>pom</packaging>
-  <name>JSF Flex Task Runner Impl</name>
+  <name>JSF Flex Flex Task Runner Impl</name>
   
   <scm>
     <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/runnerImpl/flexTaskRunnerImpl</connection>

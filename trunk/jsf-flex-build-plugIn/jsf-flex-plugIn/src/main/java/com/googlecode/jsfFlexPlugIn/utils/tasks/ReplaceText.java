@@ -120,46 +120,41 @@ public final class ReplaceText extends Ant_Base {
 		
 		try {
 			
-			java.util.Iterator iterate = _replaceList.keySet().iterator();
-			String tokenVal;
 			String targetToExecute = "";
 			
-			if(isMultiLineReplace()){
+			if(_multiLineReplace){
 				
-				_replaceMultiLineTask.setFile(new File(getFile()));
-				Replacefilter replaceFilt;
+				_replaceMultiLineTask.setFile(new File(_file));
 				
-				while(iterate.hasNext()){
-					tokenVal = (String) iterate.next();
+				for(Iterator iterate = _replaceList.keySet().iterator(); iterate.hasNext();){
+					String tokenVal = (String) iterate.next();
 					
-					replaceFilt = _replaceMultiLineTask.createReplacefilter();
+					Replacefilter replaceFilt = _replaceMultiLineTask.createReplacefilter();
 					replaceFilt.setToken(tokenVal);
 					replaceFilt.setValue((String) _replaceList.get(tokenVal));
 				}
 				_replaceMultiLineTask.maybeConfigure();
 				targetToExecute = REPLACE_MULTI_LINE_TARGET;
-			}else if(isReplaceText()){
+			}else if(_replaceText){
 				
-				_replaceTextTask.setFile(new File(getFile()));
-				NestedString nestedToken = null;
-				NestedString nestedValue = null;
+				_replaceTextTask.setFile(new File(_file));
 				
-				while(iterate.hasNext()){
-					tokenVal = (String) iterate.next();
-					nestedToken = _replaceTextTask.createReplaceToken();
+				for(Iterator iterate = _replaceList.keySet().iterator(); iterate.hasNext();){
+					String tokenVal = (String) iterate.next();
+					NestedString nestedToken = _replaceTextTask.createReplaceToken();
 					nestedToken.addText(tokenVal);
-					nestedValue = _replaceTextTask.createReplaceValue();
+					NestedString nestedValue = _replaceTextTask.createReplaceValue();
 					nestedValue.addText((String) _replaceList.get(tokenVal));
 				}
 				
 				_replaceTextTask.maybeConfigure();
 				targetToExecute = REPLACE_TEXT_TARGET;
-			}else if(isReplaceRegExp()){
+			}else if(_replaceRegExp){
 				
-				_replaceRegExpTask.setFile(new File(getFile()));
-				_replaceRegExpTask.setMatch(getRegMatch());
-				_replaceRegExpTask.setReplace(getRegReplace());
-				_replaceRegExpTask.setFlags(getFlags());
+				_replaceRegExpTask.setFile(new File(_file));
+				_replaceRegExpTask.setMatch(_regMatch);
+				_replaceRegExpTask.setReplace(_regReplace);
+				_replaceRegExpTask.setFlags(_flags);
 				
 				_replaceRegExpTask.maybeConfigure();
 				targetToExecute = REPLACE_REG_EXP_TARGET;
@@ -214,55 +209,31 @@ public final class ReplaceText extends Ant_Base {
 		return content.toString();
 	}
 
-	public String getFile() {
-		return _file;
-	}
-	public void setFile(String file) {
+	public void file(String file) {
 		_file = file;
 	}
-	public boolean isMultiLineReplace() {
-		return _multiLineReplace;
-	}
-	public void setMultiLineReplace(boolean multiLineReplace) {
+	public void multiLineReplace(boolean multiLineReplace) {
 		_multiLineReplace = multiLineReplace;
 		_replaceText = false;
 		_replaceRegExp = false;
 	}
-	public boolean isReplaceRegExp() {
-		return _replaceRegExp;
-	}
-	public void setReplaceRegExp(boolean replaceRegExp) {
+	public void replaceRegExp(boolean replaceRegExp) {
 		_replaceRegExp = replaceRegExp;
 		_multiLineReplace = false;
 		_replaceText = false;
 	}
-	public boolean isReplaceText() {
-		return _replaceText;
-	}
-	public void setReplaceText(boolean replaceText) {
+	public void replaceText(boolean replaceText) {
 		_replaceText = replaceText;
 		_multiLineReplace = false;
 		_replaceRegExp = false;
 	}
-	public Map getReplaceList() {
-		return _replaceList;
-	}
-	public String getFlags() {
-		return _flags;
-	}
-	public void setFlags(String flags) {
+	public void flags(String flags) {
 		_flags = flags;
 	}
-	public String getRegMatch() {
-		return _regMatch;
-	}
-	public void setRegMatch(String regMatch) {
+	public void regMatch(String regMatch) {
 		_regMatch = regMatch;
 	}
-	public String getRegReplace() {
-		return _regReplace;
-	}
-	public void setRegReplace(String regReplace) {
+	public void regReplace(String regReplace) {
 		_regReplace = regReplace;
 	}
 	

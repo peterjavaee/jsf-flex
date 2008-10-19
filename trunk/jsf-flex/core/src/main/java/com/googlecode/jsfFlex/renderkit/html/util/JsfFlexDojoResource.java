@@ -49,19 +49,19 @@ public abstract class JsfFlexDojoResource extends JsfFlexResource {
 		
 		try{
 			dojoProperties.load(JsfFlexDojoResource.class.getResourceAsStream(DOJO_PROPERTY_FILE_NAME));
-			DOJO_VERSION = (String) dojoProperties.get(DOJO_VERSION_KEY);
-			DOJO_ROOT_FOLDER_NAME = ((String) dojoProperties.get(DOJO_ROOT_FOLDER_NAME_KEY)) + DOJO_VERSION;
-			
-			DOJO_DIRECTORY = DOJO_ROOT_FOLDER_NAME + "/dojo";
-			DIJIT_DIRECTORY = DOJO_ROOT_FOLDER_NAME + "/dijit";
-			DOJOX_DIRECTORY = DOJO_ROOT_FOLDER_NAME + "/dojox";
-			
-			DOJO_MAIN_JS = DOJO_DIRECTORY + "/dojo.js";
-			DIJIT_MAIN_JS = DIJIT_DIRECTORY + "/dijit.js";
-			
 		}catch(IOException _ioExcept){
 			throw new RuntimeException("Exception thrown when loading of " + DOJO_PROPERTY_FILE_NAME, _ioExcept);
 		}
+		
+		DOJO_VERSION = (String) dojoProperties.get(DOJO_VERSION_KEY);
+		DOJO_ROOT_FOLDER_NAME = ((String) dojoProperties.get(DOJO_ROOT_FOLDER_NAME_KEY)) + DOJO_VERSION;
+		
+		DOJO_DIRECTORY = DOJO_ROOT_FOLDER_NAME + "/dojo";
+		DIJIT_DIRECTORY = DOJO_ROOT_FOLDER_NAME + "/dijit";
+		DOJOX_DIRECTORY = DOJO_ROOT_FOLDER_NAME + "/dojox";
+		
+		DOJO_MAIN_JS = DOJO_DIRECTORY + "/dojo.js";
+		DIJIT_MAIN_JS = DIJIT_DIRECTORY + "/dijit.js";
 	}
 	
 	JsfFlexDojoResource(){

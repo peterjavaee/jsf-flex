@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.shared.tasks;
 import java.io.File;
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -52,31 +53,15 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 		super();
 	}
 	
-	public void makeDirectory(String directoryToCreate) {
-		MkdirTask preMxmlDirCreator = new MkdirTask(directoryToCreate);
-		addTask(preMxmlDirCreator);
-	}
-	
-	public void replaceTokenWithValue(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) {
-
-		ReplaceTextTask addUIComponentTemplate = new ReplaceTextTask(applicationInstance.getAbsolutePathToPreMxmlFile());
-		addUIComponentTemplate.multiLineReplace(true);
-		addUIComponentTemplate.addTokenValue(tokenReplace, valueToReplaceWith);
-		addTask(addUIComponentTemplate);
-	}
-	
-	public void deleteResources(String deleteResource, boolean isDirectory) {
-		DeleteTask deleteResourceTask = new DeleteTask(deleteResource, isDirectory);
-		addTask(deleteResourceTask);
-	}
-	
 	public void copyFile(String fileToCopy, String fileToCopyTo) {
 		FileCopyTask fileCopier = new FileCopyTask(fileToCopy, fileToCopyTo);
 		addTask(fileCopier);
 	}
 	
 	public void copyFileSet(String copyDir, String copyInclude, String copyExclude, String copyTo) {
-		FileCopyTask fileCopier = new FileCopyTask(copyDir, copyInclude, copyExclude, copyTo);
+		List copyIncludeList = copyInclude == null ? new LinkedList() : Arrays.asList(copyInclude.split(" "));
+		List copyExcludeList = copyExclude == null ? new LinkedList() : Arrays.asList(copyExclude.split(" "));
+		FileCopyTask fileCopier = new FileCopyTask(copyDir, copyIncludeList, copyExcludeList, copyTo);
 		addTask(fileCopier);
 	}
 	
@@ -94,6 +79,11 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 		copyFile(copyFrom, copyTo);
 	}
 	
+	public void createSWF(_MXMLApplicationContract componentMXML, String mxmlFile, String swfPath, String flexSDKRootPath) {
+		MXMLCTask swfCreator = new MXMLCTask(mxmlFile, swfPath, componentMXML, flexSDKRootPath);
+		addTask(swfCreator);
+	}
+	
 	public void createSwcSourceFiles(String _swcPath, List _systemSourceFiles, String jsfFlexMainSwcConfigFile) {
 		//Echo the sourceFiles to the SWC path
 		
@@ -102,23 +92,16 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 		 * 	Figure out a method to not create an EchoTask per _systemSourceFiles entry
 		 * 	and possibly look into implementing it in an another method
 		 */
-		EchoTask curr;
-		String[] currSplit;
-		String _fileName;
-		String _currSystemSource;
-		
-		StringBuffer _path;
-		String _pathToFile;
 		for(Iterator _systemSourceFilesIterator = _systemSourceFiles.iterator(); _systemSourceFilesIterator.hasNext();){
-			_currSystemSource = (String) _systemSourceFilesIterator.next();
-			currSplit = _currSystemSource.split("/");
-			_path = new StringBuffer();
+			String _currSystemSource = (String) _systemSourceFilesIterator.next();
+			String[] currSplit = _currSystemSource.split("/");
+			StringBuffer _path = new StringBuffer();
 			
 			/*
 			 * This is a pure HACK, implement it better later
 			 * The path of ActionScript files must be of com/googlecode/jsfFlex/util/shared/actionScript
 			 */
-			_pathToFile = _currSystemSource.substring(_currSystemSource.indexOf("actionScript") + 13);
+			String _pathToFile = _currSystemSource.substring(_currSystemSource.indexOf("actionScript") + 13);
 			if(_pathToFile == null || _pathToFile.length() == 0){
 				_log.debug("The source file [" + _currSystemSource + "] is null or the length is zero");
 				continue;
@@ -131,21 +114,16 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 				_path.append(File.separatorChar);
 			}
 			makeDirectory(_swcPath + _path.toString());
-			_fileName = _swcPath + _path.toString() + currSplit[currSplit.length-1];
-			curr = new EchoTask(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), _currSystemSource), _fileName); 
+			String _fileName = _swcPath + _path.toString() + currSplit[currSplit.length-1];
+			EchoTask curr = new EchoTask(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), _currSystemSource), _fileName); 
 			addTask(curr);
 		}
 		
 		//now flush out the swc config file
 		String _jsfFlexMainSwcConfigFileName = _swcPath + jsfFlexMainSwcConfigFile.substring(jsfFlexMainSwcConfigFile.lastIndexOf("/") + 1);
-		curr = new EchoTask(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), jsfFlexMainSwcConfigFile), _jsfFlexMainSwcConfigFileName); 
+		EchoTask curr = new EchoTask(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), jsfFlexMainSwcConfigFile), _jsfFlexMainSwcConfigFileName); 
 		addTask(curr);
 		
-	}
-	
-	public void createSWF(_MXMLApplicationContract componentMXML, String mxmlFile, String swfPath, String flexSDKRootPath) {
-		MXMLCTask swfCreator = new MXMLCTask(mxmlFile, swfPath, componentMXML, flexSDKRootPath);
-		addTask(swfCreator);
 	}
 	
 	public void createSwfSourceFiles(String _swfBasePath, List _systemSwfSourceFiles) {
@@ -160,16 +138,11 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 		 * 	Figure out a method to not create an EchoTask per _systemSourceFiles entry
 		 * 	and possibly look into implementing it in an another method
 		 */
-		EchoTask curr;
-		String[] currSplit;
-		String _fileName;
-		String _currSystemSwfSourceFile;
-		
 		for(Iterator _systemSwfSourceFilesIterator = _systemSwfSourceFiles.iterator(); _systemSwfSourceFilesIterator.hasNext();){
-			_currSystemSwfSourceFile = (String) _systemSwfSourceFilesIterator.next();
-			currSplit = _currSystemSwfSourceFile.split("/");
-			_fileName = _swfBasePath + currSplit[currSplit.length-1];
-			curr = new EchoTask(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), _currSystemSwfSourceFile), _fileName); 
+			String _currSystemSwfSourceFile = (String) _systemSwfSourceFilesIterator.next();
+			String[] currSplit = _currSystemSwfSourceFile.split("/");
+			String _fileName = _swfBasePath + currSplit[currSplit.length-1];
+			EchoTask curr = new EchoTask(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), _currSystemSwfSourceFile), _fileName); 
 			addTask(curr);
 		}
 	}
@@ -179,9 +152,27 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 		addTask(swcCreate);
 	}
 	
+	public void deleteResources(String deleteResource, boolean isDirectory) {
+		DeleteTask deleteResourceTask = new DeleteTask(deleteResource, isDirectory);
+		addTask(deleteResourceTask);
+	}
+	
+	public void makeDirectory(String directoryToCreate) {
+		MkdirTask preMxmlDirCreator = new MkdirTask(directoryToCreate);
+		addTask(preMxmlDirCreator);
+	}
+	
 	public void renameFile(String sourceFile, String destFile, boolean overWrite) {
 		RenameTask rename = new RenameTask(sourceFile, destFile, overWrite);
 		addTask(rename);
+	}
+	
+	public void replaceTokenWithValue(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) {
+
+		ReplaceTextTask addUIComponentTemplate = new ReplaceTextTask(applicationInstance.getAbsolutePathToPreMxmlFile());
+		addUIComponentTemplate.multiLineReplace(true);
+		addUIComponentTemplate.addTokenValue(tokenReplace, valueToReplaceWith);
+		addTask(addUIComponentTemplate);
 	}
 	
 	public void writeBodyContent(_MXMLContract componentMXML) {

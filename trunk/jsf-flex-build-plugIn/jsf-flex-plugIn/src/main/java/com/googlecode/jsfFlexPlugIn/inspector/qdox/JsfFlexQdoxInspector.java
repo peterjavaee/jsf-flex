@@ -49,22 +49,19 @@ public final class JsfFlexQdoxInspector extends _JsfFlexInspectorBase {
 	@Override
 	public synchronized void inspectFiles(){
 		
-		List<Map<String, ? extends Object>> _inspectedList;
-		Map<String, Object> _inspectedMap;
-		DocletTag[] _inspectedDocletTag;
 		JavaDocBuilder builder = new JavaDocBuilder();
 		builder.addSourceTree(new File(getDirPath()));
 		JavaClass[] _inspectableFiles = builder.getClasses();
 		
 		for(JavaClass _currClass : _inspectableFiles){
 			//TODO implement it better later, but since it's a plug-in does it have to be???
-			_inspectedList = new LinkedList<Map<String, ? extends Object>>();
+			List<Map<String, ? extends Object>> _inspectedList = new LinkedList<Map<String, ? extends Object>>();
 			
 			for(String _currPattern : _patternList){
-				_inspectedDocletTag = _currClass.getTagsByName(_currPattern);
+				DocletTag[] _inspectedDocletTag = _currClass.getTagsByName(_currPattern);
 				
 				for(DocletTag _currDocletTag : _inspectedDocletTag){
-					_inspectedMap = new LinkedHashMap<String, Object>();
+					Map<String, Object> _inspectedMap = new LinkedHashMap<String, Object>();
 					_inspectedMap.putAll(_currDocletTag.getNamedParameterMap());
 					_inspectedList.add(_inspectedMap);
 				}

@@ -284,19 +284,14 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 					 * 							NAME_APPEND_KEY
 					 * 							
 					 */
-					List<Map<String, ? extends Object>> _inspectedList;
-					Map<String, String> _inspectedMap;
 					JavaDocBuilder builder = new JavaDocBuilder();
 					builder.addSourceTree(new File(getDirPath()));
 					JavaClass[] _inspectableFiles = builder.getClasses();
-					JsfFlexAttributeProperties _jsfFlexAttributeList;
-					StringBuilder _toBuildString;
-					String _builtString;
 					
 					for(JavaClass _currClass : _inspectableFiles){
-						_jsfFlexAttributeList = _currClass.getClass().getAnnotation(JsfFlexAttributeProperties.class);
-						_inspectedList = new LinkedList<Map<String, ? extends Object>>();
-						_inspectedMap = new LinkedHashMap<String, String>();
+						JsfFlexAttributeProperties _jsfFlexAttributeList = _currClass.getClass().getAnnotation(JsfFlexAttributeProperties.class);
+						List<Map<String, ? extends Object>> _inspectedList = new LinkedList<Map<String, ? extends Object>>();
+						Map<String, String> _inspectedMap = new LinkedHashMap<String, String>();
 						
 						if(_jsfFlexAttributeList == null || _jsfFlexAttributeList.mxmlComponentPackage() == null || 
 									_jsfFlexAttributeList.mxmlComponentName().length() == 0){
@@ -319,8 +314,9 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 							_inspectedMap.put(VALUE_DYNAMIC_KEY, String.valueOf(_currComponentNodeInfo.isValueDynamic()));
 							_inspectedMap.put(VALUE_NESTED_KEY, String.valueOf(_currComponentNodeInfo.isValueNested()));
 							
+							String _builtString;
 							if(_currComponentNodeInfo.isValueNested()){
-								_toBuildString = new StringBuilder();
+								StringBuilder _toBuildString = new StringBuilder();
 								
 								for(String _buildInto : _currComponentNodeInfo.valueNestedValues()){
 									_toBuildString.append(_buildInto);
@@ -435,9 +431,9 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 	public void mergeCollectionToTemplateFinished(String _fileMerged) {
 		
 		ReplaceText removeEmptySpace = new ReplaceText(_fileMerged);
-		removeEmptySpace.setReplaceRegExp(true);
-		removeEmptySpace.setRegMatch(ReplaceText.CLEAN_REG_EXP_MATCH);
-		removeEmptySpace.setRegReplace(ReplaceText.CLEAN_REG_EXP_REPLACE_WITH);
+		removeEmptySpace.replaceRegExp(true);
+		removeEmptySpace.regMatch(ReplaceText.CLEAN_REG_EXP_MATCH);
+		removeEmptySpace.regReplace(ReplaceText.CLEAN_REG_EXP_REPLACE_WITH);
 		
 		removeEmptySpace.performTask();
 		

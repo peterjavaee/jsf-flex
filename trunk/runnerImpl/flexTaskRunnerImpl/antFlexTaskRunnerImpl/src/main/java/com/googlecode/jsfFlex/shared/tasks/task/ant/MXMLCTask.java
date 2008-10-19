@@ -142,15 +142,15 @@ public final class MXMLCTask extends Ant_BaseTask {
 		
 		if((_componentMXML.getMaxLvRecursion() != null && _componentMXML.getMaxLvRecursion().intValue() > 0) || 
 						(_componentMXML.getMaxScriptExecTime() != null && _componentMXML.getMaxScriptExecTime().intValue() > 0)){
-			StringBuffer limit_val = new StringBuffer();
-			limit_val.append((_componentMXML.getMaxLvRecursion() != null && _componentMXML.getMaxLvRecursion().intValue() <= 0) ? 1000 : 
+			StringBuffer limitVal = new StringBuffer();
+			limitVal.append((_componentMXML.getMaxLvRecursion() != null && _componentMXML.getMaxLvRecursion().intValue() <= 0) ? 1000 : 
 											_componentMXML.getMaxLvRecursion().intValue());
-			limit_val.append(" ");
-			limit_val.append(((_componentMXML.getMaxScriptExecTime() == null || _componentMXML.getMaxScriptExecTime().intValue() <= 0) || 
+			limitVal.append(" ");
+			limitVal.append(((_componentMXML.getMaxScriptExecTime() == null || _componentMXML.getMaxScriptExecTime().intValue() <= 0) || 
 									(_componentMXML.getMaxScriptExecTime() == null || _componentMXML.getMaxScriptExecTime().intValue() > 60)) ? 60 : 
 											_componentMXML.getMaxScriptExecTime().intValue());
 			arg = _mxmlcTask.createArg();
-			arg.setLine(DEFAULT_SCRIPT_LIMIT_ARG_SYNTAX + limit_val.toString());
+			arg.setLine(DEFAULT_SCRIPT_LIMIT_ARG_SYNTAX + limitVal.toString());
 		}
 		
 		if(_componentMXML.isIncremental()){

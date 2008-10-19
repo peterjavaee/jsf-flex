@@ -52,14 +52,17 @@ public final class MXMLJsfUtil {
 		if(toEscape == null){
 			return "";
 		}
-		//TODO : implement this better
+		
+		/*
+		 * TODO : implement this better
+		 * special case for line feeds, since otherwise it is replaced with two
+		 * line feeds on the flash side
+		 */
+		toEscape = toEscape.replaceAll(WINDOWS_LINE_FEED, LINE_FEED_ESCAPER);
+		toEscape = toEscape.replaceAll(UNIX_LINE_FEED, LINE_FEED_ESCAPER);
+		
 		try{
-			/*
-			 * special case for line feeds, since otherwise it is replaced with two
-			 * line feeds on the flash side
-			 */
-			toEscape = toEscape.replaceAll(WINDOWS_LINE_FEED, LINE_FEED_ESCAPER);
-			toEscape = toEscape.replaceAll(UNIX_LINE_FEED, LINE_FEED_ESCAPER);
+			
 			return java.net.URLEncoder.encode(toEscape, MXMLConstants.UTF_8_ENCODING);
 		}catch(java.io.UnsupportedEncodingException unsupportedEncodingExcept){
 			throw new ComponentBuildException("UnsupportedEncoding of " + MXMLConstants.UTF_8_ENCODING + ", in another words this " +

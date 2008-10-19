@@ -66,19 +66,16 @@ class MXMLRenderKitImpl extends RenderKit {
 			throw new NullPointerException("addRenderer: rendererType must not be null");
 		}
 		
-		Object _rendererTypeObject;
 		Map _rendererTypeMap;
 		/*
 		 * Since there exists many rendererType for a single family
 		 */
-		if((_rendererTypeObject = _renderers.get(family)) != null){
-			_rendererTypeMap = (Map) _rendererTypeObject;
-			_rendererTypeMap.put(rendererType, renderer);
-		}else{
+		if((_rendererTypeMap = (Map) _renderers.get(family)) == null){
 			_rendererTypeMap = new HashMap();
-			_rendererTypeMap.put(rendererType, renderer);
 			_renderers.put(family, _rendererTypeMap);
 		}
+		
+		_rendererTypeMap.put(rendererType, renderer);
 		
 	}
 	
@@ -91,13 +88,11 @@ class MXMLRenderKitImpl extends RenderKit {
 		}
 		
 		Renderer _renderer = null;
-		Object _rendererTypeObject = _renderers.get(family);
-		if(_rendererTypeObject == null){
+		Map _rendererTypeMap = (Map) _renderers.get(family);
+		if(_rendererTypeMap == null){
 			_log.info("Empty entry within getRenderes for family [ " + family + " ] rendererType [ " + rendererType + " ] ");
 		}else{
-			Map _rendererTypeMap = (Map) _rendererTypeObject;
-			Object _rendererObject;
-			_renderer = (_rendererObject = _rendererTypeMap.get(rendererType)) != null ? (Renderer) _rendererObject : null; 
+			_renderer = (Renderer) _rendererTypeMap.get(rendererType); 
 		}
 		
 		return _renderer;
@@ -167,8 +162,6 @@ class MXMLRenderKitImpl extends RenderKit {
 	    
 	    private static final String selectContentType(String contentTypeListString){
 	    	
-	    	String contentType = null;
-	    	
 	    	if(contentTypeListString == null){
 	    		FacesContext currFacesContext = FacesContext.getCurrentInstance();
 	    		
@@ -186,9 +179,9 @@ class MXMLRenderKitImpl extends RenderKit {
 	    	List contentTypeList = Arrays.asList(contentTypeListString.replaceAll("[;\\s]", "").split(","));
 		    //Always search first as htmlAcceptContentType
 		    
-	    	String currentContentType;
+	    	String contentType = null;
 	    	for(Iterator iterate = contentTypeList.iterator(); iterate.hasNext();){
-	    		currentContentType = (String) iterate.next();
+	    		String currentContentType = (String) iterate.next();
 	    		
 	    		if(_htmlAcceptContentType.contains(currentContentType)){
 	    			contentType = HTML_CONTENT_TYPE;

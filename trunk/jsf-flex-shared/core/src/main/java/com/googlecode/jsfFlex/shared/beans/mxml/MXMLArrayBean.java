@@ -58,9 +58,8 @@ public final class MXMLArrayBean extends _MXMLBean {
 		
 		StringBuffer generatedString = new StringBuffer(LEFT_ARRAY_CLOSURE);
 		
-		_MXMLBean _objectBean;
 		for(Iterator iterator = _beanArrayList.iterator(); iterator.hasNext();){
-			_objectBean = (_MXMLBean) iterator.next();
+			_MXMLBean _objectBean = (_MXMLBean) iterator.next();
 			generatedString.append(_objectBean.generateVariableInfoAsString());
 			if(iterator.hasNext()){
 				generatedString.append(",");
