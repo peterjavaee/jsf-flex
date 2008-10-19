@@ -46,10 +46,9 @@ public class MXMLRenderKitImplWrapper extends MXMLRenderKitImpl {
 		if(_renderer == null){
 			//simple HACK where to search for remaining renderKits, TODO implement it better later
 			
-			RenderKit _currRenderKit;
 			for(Iterator iterator = _additionalRenderKits.iterator(); iterator.hasNext();){
 				
-				_currRenderKit = (RenderKit) iterator.next();
+				RenderKit _currRenderKit = (RenderKit) iterator.next();
 				_renderer = _currRenderKit.getRenderer(family, rendererType);
 				
 				if(_renderer != null){

@@ -19,6 +19,8 @@
 package com.googlecode.jsfFlex.shared.tasks.task.ant;
 
 import java.io.File;
+import java.util.Iterator;
+import java.util.List;
 
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Target;
@@ -41,8 +43,8 @@ public final class FileCopyTask extends Ant_BaseTask {
 	private String _copyFile;
 	
 	private String _copyDir;
-	private String _copyInclude;
-	private String _copyExclude;
+	private List _copyInclude;
+	private List _copyExclude;
 	
 	private String _copyTo;
 	private String _copyToFile;
@@ -59,7 +61,7 @@ public final class FileCopyTask extends Ant_BaseTask {
 		_copyToFile = copyTo;
 	}
 	
-	public FileCopyTask(String copyDir, String copyInclude, String copyExclude,
+	public FileCopyTask(String copyDir, List copyInclude, List copyExclude,
 						String copyTo){
 		super();
 		_copyDir = copyDir;
@@ -93,13 +95,21 @@ public final class FileCopyTask extends Ant_BaseTask {
 			_dirCopyFileSet.setDir(new File(_copyDir));
 			
 			if(_copyInclude != null){
-				PatternSet.NameEntry _copyIncludeNE = _dirCopyFileSet.createInclude();
-				_copyIncludeNE.setName(_copyInclude);
+				
+				for(Iterator iterate = _copyInclude.iterator(); iterate.hasNext();){
+					String currentCopyInclude = (String) iterate.next();
+					PatternSet.NameEntry _copyIncludeNE = _dirCopyFileSet.createInclude();
+					_copyIncludeNE.setName(currentCopyInclude);
+				}
 			}
 			
 			if(_copyExclude != null){
-				PatternSet.NameEntry _copyExcludeNE = _dirCopyFileSet.createExclude();
-				_copyExcludeNE.setName(_copyExclude);
+				
+				for(Iterator iterate = _copyExclude.iterator(); iterate.hasNext();){
+					String currentCopyExclude = (String) iterate.next();
+					PatternSet.NameEntry _copyExcludeNE = _dirCopyFileSet.createExclude();
+					_copyExcludeNE.setName(currentCopyExclude);
+				}
 			}
 			
 			_copyTask.addFileset(_dirCopyFileSet);
@@ -163,10 +173,10 @@ public final class FileCopyTask extends Ant_BaseTask {
 	public void copyDir(String copyDir) {
 		_copyDir = copyDir;
 	}
-	public void copyExclude(String copyExclude) {
+	public void copyExclude(List copyExclude) {
 		_copyExclude = copyExclude;
 	}
-	public void copyInclude(String copyInclude) {
+	public void copyInclude(List copyInclude) {
 		_copyInclude = copyInclude;
 	}
 	public void copyTo(String copyTo) {

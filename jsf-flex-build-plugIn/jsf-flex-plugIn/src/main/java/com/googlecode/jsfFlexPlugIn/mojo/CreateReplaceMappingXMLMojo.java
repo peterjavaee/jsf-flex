@@ -82,10 +82,9 @@ public final class CreateReplaceMappingXMLMojo extends AbstractMojo
 	public void execute() throws MojoExecutionException, MojoFailureException {
 		List _compileSourceRoots = project.getCompileSourceRoots();
 		
-		String _currDirPath;
 		for(Iterator _compileSourceRootsIterator = _compileSourceRoots.iterator(); 
 													_compileSourceRootsIterator.hasNext();){
-			_currDirPath = (String) _compileSourceRootsIterator.next();
+			String _currDirPath = (String) _compileSourceRootsIterator.next();
 			_jsfFlexInspector = new JsfFlexQdoxInspector(_currDirPath, JSF_FLEX_ATTRIBUTE);
 			_jsfFlexInspector.addInspectListener(this);
 			
@@ -183,9 +182,8 @@ public final class CreateReplaceMappingXMLMojo extends AbstractMojo
 		
 		for(Map<String, ? extends Object> _readNamedParameter : _readNamedParameterList){
 			
-			Object _byMethod;
 			for(String _token : _readNamedParameter.keySet()){
-				_byMethod = _readNamedParameter.get(_token);
+				Object _byMethod = _readNamedParameter.get(_token);
 				_byMethod = _byMethod == null ? "false" : _byMethod;
 				_replaceMappingXMLVelocityObjects.add(new ReplaceMappingXMLVelocityObject(_token, Boolean.valueOf((String) _byMethod)));
 			}
@@ -198,9 +196,9 @@ public final class CreateReplaceMappingXMLMojo extends AbstractMojo
 	public void mergeCollectionToTemplateFinished(String _fileMerged){
 		
 		ReplaceText removeEmptySpace = new ReplaceText(_fileMerged);
-		removeEmptySpace.setReplaceRegExp(true);
-		removeEmptySpace.setRegMatch(ReplaceText.CLEAN_REG_EXP_MATCH);
-		removeEmptySpace.setRegReplace(ReplaceText.CLEAN_REG_EXP_REPLACE_WITH);
+		removeEmptySpace.replaceRegExp(true);
+		removeEmptySpace.regMatch(ReplaceText.CLEAN_REG_EXP_MATCH);
+		removeEmptySpace.regReplace(ReplaceText.CLEAN_REG_EXP_REPLACE_WITH);
 		
 		removeEmptySpace.performTask();
 		

@@ -108,8 +108,6 @@ public final class JsfFlexResourceFilter implements Filter {
 		
 		/** Finished with the usual path of request/response. Now specific for JSF Flex*/
 		
-		Collection resourceCollection = jsfFlexDojoResource.getResources();
-		
 		if(jsfFlexResponseWrapper.getContentType() != null && isValidContentType(jsfFlexResponseWrapper.getContentType())){
 			
 			Matcher headMatcher = HEAD_PATTERN.matcher( jsfFlexResponseWrapper.toString() );
@@ -129,6 +127,7 @@ public final class JsfFlexResourceFilter implements Filter {
 				
 				actualWriter.write( jsfFlexResponseWrapper.toString().substring(headMatchIndex+5, endTagCharIndex+1) );
 				
+				Collection resourceCollection = jsfFlexDojoResource.getResources();
 				String resourceConvertedToScriptElements = constructResourceToScriptTags(resourceCollection, requestURISplitted);
 				
 				actualWriter.write(resourceConvertedToScriptElements);
@@ -146,6 +145,7 @@ public final class JsfFlexResourceFilter implements Filter {
 				
 				actualWriter.write(HEAD_START_TAG);
 				
+				Collection resourceCollection = jsfFlexDojoResource.getResources();
 				String resourceConvertedToScriptElements = constructResourceToScriptTags(resourceCollection, requestURISplitted);
 				
 				actualWriter.write(resourceConvertedToScriptElements);

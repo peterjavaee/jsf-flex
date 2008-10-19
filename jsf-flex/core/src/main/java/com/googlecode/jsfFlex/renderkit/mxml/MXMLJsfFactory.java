@@ -41,17 +41,17 @@ public final class MXMLJsfFactory {
 		
 		try{
 			mxmlJsfFactoryImpl.load(MXMLJsfFactory.class.getResourceAsStream(MXML_JSF_FACTORY_IMPL_PROPERTIES));
-			
-			String systemPropertyMxmlResponseStateManagerImpl = System.getProperty(MXML_RESPONSE_STATE_MANAGER_IMPL_KEY);
-			String systemPropertyMxmlResponseWriterImpl = System.getProperty(MXML_RESPONSE_WRITER_IMPL_KEY);
-			
-			MXML_RESPONSE_STATE_MANAGER_IMPL_PACKAGE_CLASS = systemPropertyMxmlResponseStateManagerImpl == null ? 
-													mxmlJsfFactoryImpl.getProperty(MXML_RESPONSE_STATE_MANAGER_IMPL_KEY) : systemPropertyMxmlResponseStateManagerImpl;
-			MXML_RESPONSE_WRITER_IMPL_PACKAGE_CLASS = systemPropertyMxmlResponseWriterImpl == null ? 
-													mxmlJsfFactoryImpl.getProperty(MXML_RESPONSE_WRITER_IMPL_KEY) : systemPropertyMxmlResponseWriterImpl;
 		}catch(IOException _ioExcept){
 			throw new RuntimeException("Exception thrown when loading of " + MXML_JSF_FACTORY_IMPL_PROPERTIES, _ioExcept);
 		}
+		
+		String systemPropertyMxmlResponseStateManagerImpl = System.getProperty(MXML_RESPONSE_STATE_MANAGER_IMPL_KEY);
+		String systemPropertyMxmlResponseWriterImpl = System.getProperty(MXML_RESPONSE_WRITER_IMPL_KEY);
+		
+		MXML_RESPONSE_STATE_MANAGER_IMPL_PACKAGE_CLASS = systemPropertyMxmlResponseStateManagerImpl == null ? 
+												mxmlJsfFactoryImpl.getProperty(MXML_RESPONSE_STATE_MANAGER_IMPL_KEY) : systemPropertyMxmlResponseStateManagerImpl;
+		MXML_RESPONSE_WRITER_IMPL_PACKAGE_CLASS = systemPropertyMxmlResponseWriterImpl == null ? 
+												mxmlJsfFactoryImpl.getProperty(MXML_RESPONSE_WRITER_IMPL_KEY) : systemPropertyMxmlResponseWriterImpl;
 		
 	}
 	

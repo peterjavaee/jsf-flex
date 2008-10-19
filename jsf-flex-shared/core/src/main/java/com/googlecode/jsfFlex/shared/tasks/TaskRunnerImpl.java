@@ -67,9 +67,8 @@ class TaskRunnerImpl implements _TaskRunner {
 	public void execute() {
 		
 		synchronized(_lock){
-			_Task current;
 			for(Iterator iterate = _tasks.iterator(); iterate.hasNext();){
-				current = (_Task) iterate.next();
+				_Task current = (_Task) iterate.next();
 				current.performTask();
 			}
 			clearAllTask();

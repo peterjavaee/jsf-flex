@@ -61,16 +61,15 @@ public final class UnzipTask extends _Task {
 		ZipInputStream zipInputStream = new ZipInputStream(new BufferedInputStream(_file));
 		ZipEntry entry;
 		
-		int currRead = 0;
-		byte[] dataRead;
-		
 		try{
+			
 			while((entry = zipInputStream.getNextEntry()) != null){
 				
 				ensureDirectoryExists(entry.getName(), entry.isDirectory());
 				
-				dataRead = new byte[BUFFER_SIZE];
 				bufferOutputStream = new BufferedOutputStream(new FileOutputStream(_dest + entry.getName()), BUFFER_SIZE);
+				int currRead = 0;
+				byte[] dataRead = new byte[BUFFER_SIZE];
 				
 				while((currRead = zipInputStream.read(dataRead, 0, BUFFER_SIZE)) != -1){
 					bufferOutputStream.write(dataRead, 0, currRead);
@@ -94,10 +93,9 @@ public final class UnzipTask extends _Task {
 		int lengthToTraverse = (isDirectory) ? directorySplitted.length : directorySplitted.length - 1;
 		
 		String tempLocation = _dest;
-		File currDirCheck;
 		for(int i=0; i < lengthToTraverse; i++){
 			tempLocation += directorySplitted[i] + File.separatorChar;
-			currDirCheck = new File(tempLocation);
+			File currDirCheck = new File(tempLocation);
 			if(!currDirCheck.exists()){
 				currDirCheck.mkdir();
 			}

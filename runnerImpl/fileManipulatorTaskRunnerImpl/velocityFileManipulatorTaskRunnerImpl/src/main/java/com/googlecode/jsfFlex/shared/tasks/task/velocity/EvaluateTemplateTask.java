@@ -94,12 +94,9 @@ public final class EvaluateTemplateTask extends _Task {
 	
 	private void populateContext(){
 		
-		Object _key;
-		Object _value;
-		
 		for(Iterator _keys = _contextValues.keySet().iterator(); _keys.hasNext();){
-			_key = _keys.next();
-			_value = _contextValues.get(_key);
+			Object _key = _keys.next();
+			Object _value = _contextValues.get(_key);
 			_context.put(_key.toString(), _value);
 		}
 		
@@ -132,12 +129,9 @@ public final class EvaluateTemplateTask extends _Task {
 		StringBuffer content = new StringBuffer();
 		
 		content.append("contextValues [ ");
-		Iterator _keys = _contextValues.keySet().iterator();
-		Object _key;
-		Object _value;
-		while(_keys.hasNext()){
-			_key = _keys.next();
-			_value = _contextValues.get(_key);
+		for(Iterator _keys = _contextValues.keySet().iterator(); _keys.hasNext();){
+			Object _key = _keys.next();
+			Object _value = _contextValues.get(_key);
 			content.append(_key.toString());
 			content.append(":");
 			content.append(_value.toString());
