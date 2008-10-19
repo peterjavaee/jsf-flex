@@ -1,0 +1,119 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  
+  <parent>
+    <groupId>com.googlecode.jsf-flex.runner-impl-project.flex-runner-project</groupId>
+    <artifactId>flex-main-runner-project</artifactId>
+    <version>0.0.5-SNAPSHOT</version>
+  </parent>
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.googlecode.jsf-flex.runner-impl-project.flex-runner-project</groupId>
+  <artifactId>jython-flex-impl</artifactId>
+  <packaging>jar</packaging>
+  <name>JSF Flex Jython Flex Task Runner Impl</name>
+  
+  <scm>
+    <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/runnerImp/flexTaskRunnerImpl/jythonFlexTaskRunnerImpl</connection>
+    <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/runnerImp/flexTaskRunnerImpl/jythonFlexTaskRunnerImpl</developerConnection>
+  </scm>
+  
+  <dependencies>
+    
+    <!-- compile -->
+    
+    <dependency>
+      <groupId>org.python</groupId>
+      <artifactId>jython</artifactId>
+      <version>2.2</version>
+      <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.googlecode.jsf-flex.jsf-flex-shared-project</groupId>
+      <artifactId>jsf-flex-shared</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    
+    <!-- test dependencies -->
+    
+    <dependency>
+      <groupId>maven-taglib</groupId>
+      <artifactId>maven-taglib-plugin</artifactId>
+      <version>1.4.2</version>
+      <scope>test</scope>
+    </dependency>        
+        
+    <dependency>
+      <groupId>org.apache.shale</groupId>
+      <artifactId>shale-test</artifactId>
+      <version>1.0.3</version>
+      <scope>test</scope>
+    </dependency>
+    
+  </dependencies>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.4</source>
+          <target>1.4</target>
+          <maxmem>1024</maxmem>
+          <meminitial>256</meminitial>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <profiles>
+    <profile>
+      <id>myfaces-1.2</id>
+      <activation>
+        <property>
+          <name>!jsf</name>
+        </property>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>org.apache.myfaces.core</groupId>
+          <artifactId>myfaces-api</artifactId>
+        </dependency>
+      </dependencies>
+    </profile>
+    
+    <profile>
+      <id>mojarra-1.2</id>
+      <activation>
+        <property>
+          <name>jsf</name>
+          <value>mojarra12</value>
+        </property>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>javax.faces</groupId>
+          <artifactId>jsf-api</artifactId>
+        </dependency>
+      </dependencies>
+      
+      <repositories>
+        <repository>
+          <id>dev.java.net</id>
+          <name>dev.java.net Maven Repository</name>
+          <url>https://maven-repository.dev.java.net/repository/</url>
+          <layout>legacy</layout>
+        </repository>
+      </repositories>
+    </profile>
+    
+  </profiles>
+  
+</project>

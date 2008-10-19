@@ -19,6 +19,7 @@
   
   <modules>
     <module>antFlexTaskRunnerImpl</module>
+    <module>jythonFlexTaskRunnerImpl</module>
   </modules>
   
 </project>
