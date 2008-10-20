@@ -19,7 +19,6 @@
 package com.googlecode.jsfFlex.renderkit;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
@@ -72,7 +71,7 @@ public class MXMLRendererBase extends Renderer {
     	}
 		
 		if(component instanceof _MXMLUIDataProviderAttribute){
-			_mxmlRendererBaseHelper.processDataProviderCollection(component);
+			_mxmlRendererBaseHelper.processDataProviderBean(component);
 		}
 		
 		_mxmlRendererBaseHelper.createStructureForPreMxmlFiles(component);
@@ -82,32 +81,31 @@ public class MXMLRendererBase extends Renderer {
 	private final class MXMLRendererBaseHelper{
 		
 		private final static String DATA_PROVIDER_BEAN_SUFFIX = "MxmlBean";
-		private final static String DATA_PROVIDER_COLLECTION_ATTR = "dataProviderCollection";
-		private final static String INVALID_DATA_PROVIDER_DATA_BINDING_FIELD_MESSAGE = "Only type of dataBinding allowed for dataProviderCollec field is of String or Collection";
+		private final static String DATA_PROVIDER_MXML_BEAN_ATTR = "dataProviderMXMLBean";
+		private final static String INVALID_DATA_PROVIDER_DATA_BINDING_FIELD_MESSAGE = "Only type of dataBinding allowed for dataProviderMXMLBean field is of String or _MXMLBean";
 		
 		private MXMLRendererBaseHelper(){
 			super();
 		}
 		
-		private void processDataProviderCollection(UIComponent _currComponent){
+		private void processDataProviderBean(UIComponent _currComponent){
 			
 			_MXMLUIDataProviderAttribute _dataProviderComponent = (_MXMLUIDataProviderAttribute) _currComponent;
 			
 			//TODO : Implement this better later
-			ValueBinding _valueBinding = _currComponent.getValueBinding(DATA_PROVIDER_COLLECTION_ATTR);
+			ValueBinding _valueBinding = _currComponent.getValueBinding(DATA_PROVIDER_MXML_BEAN_ATTR);
 			if(_valueBinding != null){
 				Object value = _valueBinding.getValue(FacesContext.getCurrentInstance());
 				if(value != null){
-					//ONLY other type accepted is Collection<_MXMLBean>
-					if(!(value instanceof Collection)){
+					//ONLY other type accepted is _MXMLBean
+					if(!(value instanceof _MXMLBean)){
 						throw new IllegalArgumentException(INVALID_DATA_PROVIDER_DATA_BINDING_FIELD_MESSAGE);
 					}
 					
 					String _componentId = _currComponent.getId() + DATA_PROVIDER_BEAN_SUFFIX;
-					Collection _valueCollection = (Collection) value;
+					_MXMLBean _valueMXMLBean = (_MXMLBean) value;
 					
-					MXMLBeanWrapper _mxmlBeanWrapper = new MXMLBeanWrapper(_componentId, 
-															(_MXMLBean) _valueCollection.iterator().next());
+					MXMLBeanWrapper _mxmlBeanWrapper = new MXMLBeanWrapper(_componentId, _valueMXMLBean);
 					
 					MxmlContext _currInstance = MxmlContext.getCurrentInstance();
 					_currInstance.getMxmlObjectBeanWrapperSet().add(_mxmlBeanWrapper);

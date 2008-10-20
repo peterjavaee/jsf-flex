@@ -18,8 +18,6 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import java.util.Collection;
-
 /**
  * @author Ji Hoon Kim
  */
@@ -45,8 +43,8 @@ public interface _MXMLUIDataProviderAttribute {
 	 *    rtexprvalue     = false
 	 *    desc            = "The set of items this component displays."
 	 */
-	Collection getDataProviderCollection();
+	com.googlecode.jsfFlex.shared.beans.mxml._MXMLBean getDataProviderMXMLBean();
 	
-	void setDataProviderCollection(Collection dataProviderCollection);
+	void setDataProviderMXMLBean(com.googlecode.jsfFlex.shared.beans.mxml._MXMLBean dataProviderMXMLBean);
 	
 }
