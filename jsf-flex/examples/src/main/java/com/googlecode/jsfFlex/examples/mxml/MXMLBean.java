@@ -19,11 +19,10 @@
 package com.googlecode.jsfFlex.examples.mxml;
 
 import java.io.Serializable;
-import java.util.LinkedList;
-import java.util.List;
 
 import com.googlecode.jsfFlex.shared.beans.mxml.MXMLArrayBean;
 import com.googlecode.jsfFlex.shared.beans.mxml.MXMLObjectBean;
+import com.googlecode.jsfFlex.shared.beans.mxml._MXMLBean;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
@@ -54,7 +53,7 @@ public class MXMLBean implements Serializable {
 	private String _horizontalSliderValue;
 	private String _verticalSliderValue;
 	private String _progressBarValue;
-	private List _comboBoxDataProviderBeanList;
+	private MXMLArrayBean _comboBoxDataProviderMXMLBean;
 	
 	public MXMLBean(){
 		super();
@@ -77,8 +76,7 @@ public class MXMLBean implements Serializable {
 		_verticalSliderValue = "";
 		_progressBarValue = "";
 		
-		_comboBoxDataProviderBeanList = new LinkedList();
-		MXMLArrayBean _mxmlArrayBean = new MXMLArrayBean(Boolean.TRUE);
+		_comboBoxDataProviderMXMLBean = new MXMLArrayBean(Boolean.TRUE);
 		MXMLObjectBean _mxmlObjectBean = new MXMLObjectBean(Boolean.FALSE);
 		
 		String label = "label";
@@ -90,7 +88,7 @@ public class MXMLBean implements Serializable {
 		_mxmlObjectBean.addData(label, data);
 		
 		
-		_mxmlArrayBean.addBean(_mxmlObjectBean);
+		_comboBoxDataProviderMXMLBean.addBean(_mxmlObjectBean);
 		
 		_mxmlObjectBean = new MXMLObjectBean(Boolean.FALSE);
 		
@@ -102,9 +100,8 @@ public class MXMLBean implements Serializable {
 		data = MXMLConstants.STRING_QUOTE + "Second" + MXMLConstants.STRING_QUOTE;
 		_mxmlObjectBean.addData(label, data);
 		
-		_mxmlArrayBean.addBean(_mxmlObjectBean);
+		_comboBoxDataProviderMXMLBean.addBean(_mxmlObjectBean);
 		
-		_comboBoxDataProviderBeanList.add(_mxmlArrayBean);
 	}
 	
 	public Integer getAccordionSelectedIndex() {
@@ -125,11 +122,11 @@ public class MXMLBean implements Serializable {
 	public void setColorPickerSelectedColor(String colorPickerSelectedColor) {
 		_colorPickerSelectedColor = colorPickerSelectedColor;
 	}
-	public List getComboBoxDataProviderBeanList() {
-		return _comboBoxDataProviderBeanList;
+	public _MXMLBean getComboBoxDataProviderMXMLBean() {
+		return _comboBoxDataProviderMXMLBean;
 	}
-	public void setComboBoxDataProviderBeanList(List comboBoxDataProviderBeanList) {
-		_comboBoxDataProviderBeanList = comboBoxDataProviderBeanList;
+	public void setComboBoxDataProviderMXMLBean(MXMLArrayBean comboBoxDataProviderMXMLBean) {
+		_comboBoxDataProviderMXMLBean = comboBoxDataProviderMXMLBean;
 	}
 	public Integer getComboBoxSelectedIndex() {
 		return _comboBoxSelectedIndex;

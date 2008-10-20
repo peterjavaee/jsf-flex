@@ -66,14 +66,14 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 		
 		String pythonHome = null;
 		
+		FacesContext context = FacesContext.getCurrentInstance();
+		pythonHome = context.getExternalContext().getInitParameter(PYTHON_HOME);
+		
+		if(pythonHome == null){
+			pythonHome = System.getProperty(PYTHON_HOME);
+		}
+		
 		try{
-			
-			FacesContext context = FacesContext.getCurrentInstance();
-			pythonHome = context.getExternalContext().getInitParameter(PYTHON_HOME);
-			
-			if(pythonHome == null){
-				pythonHome = System.getProperty(PYTHON_HOME);
-			}
 			
 			if(pythonHome != null){
 				Properties initProperties = new Properties();
