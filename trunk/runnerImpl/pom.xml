@@ -11,7 +11,7 @@
   <artifactId>runner-impl-main-project</artifactId>
   <packaging>pom</packaging>
   <version>0.0.5-SNAPSHOT</version>
-  <name>JSF Flex Runner Impl</name>
+  <name>JSF Flex Runner Impl Project</name>
   
   <scm>
     <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/runnerImpl</connection>

@@ -16,9 +16,6 @@
     JSF Flex goal is to provide users capability in creating Flex components as JSF components. So users would 
     create the components as normal JSF components and the contribution will create the necessary SWF files and 
     etcetera and link the values of the components back to the managed beans using JSON+Javascript and Actionscript.
-    So all users would need is a Jar of the component library and they would be able to create Flex applications by 
-    using them as normal JSF components. By doing so, developers who are unfamiliar with Adobe Flex can be completely 
-    abstracted from its technology and focus in linking the application's data to legacy information.
   </description>
 
   <scm>
