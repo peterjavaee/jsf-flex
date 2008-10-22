@@ -10,7 +10,7 @@
   <groupId>com.googlecode.jsf-flex.runner-impl-project.file-manipulator-runner-project</groupId>
   <artifactId>file-manipulator-main-runner-project</artifactId>
   <packaging>pom</packaging>
-  <name>JSF Flex File Manipulator Task Runner Impl</name>
+  <name>JSF Flex File Manipulator Task Runner Impl Project</name>
   
   <scm>
     <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/runnerImpl/fileManipulatorTaskRunnerImpl</connection>

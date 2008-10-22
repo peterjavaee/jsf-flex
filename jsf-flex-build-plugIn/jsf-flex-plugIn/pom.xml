@@ -13,7 +13,7 @@
   <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
   <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
   <packaging>maven-plugin</packaging>
-  <name>JSF-Flex Builder Plugin</name>
+  <name>JSF-Flex Build Plugin Project</name>
 
   <scm>
     <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/jsf-flex-build-plugIn/jsf-flex-plugIn</connection>
