@@ -35,16 +35,4 @@ public interface _MXMLUIDataProviderAttribute {
 	
 	void setDataProvider(String dataProvider);
 	
-	/**
-	 * The set of items this component displays.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "The set of items this component displays."
-	 */
-	com.googlecode.jsfFlex.shared.beans.mxml._MXMLBean getDataProviderMXMLBean();
-	
-	void setDataProviderMXMLBean(com.googlecode.jsfFlex.shared.beans.mxml._MXMLBean dataProviderMXMLBean);
-	
 }

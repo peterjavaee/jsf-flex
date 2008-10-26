@@ -20,11 +20,6 @@ package com.googlecode.jsfFlex.examples.mxml;
 
 import java.io.Serializable;
 
-import com.googlecode.jsfFlex.shared.beans.mxml.MXMLArrayBean;
-import com.googlecode.jsfFlex.shared.beans.mxml.MXMLObjectBean;
-import com.googlecode.jsfFlex.shared.beans.mxml._MXMLBean;
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
-
 /**
  * A simple bean to demonstrate the binding of the fields.<br>
  * 
@@ -53,7 +48,6 @@ public class MXMLBean implements Serializable {
 	private String _horizontalSliderValue;
 	private String _verticalSliderValue;
 	private String _progressBarValue;
-	private MXMLArrayBean _comboBoxDataProviderMXMLBean;
 	
 	public MXMLBean(){
 		super();
@@ -76,32 +70,6 @@ public class MXMLBean implements Serializable {
 		_verticalSliderValue = "";
 		_progressBarValue = "";
 		
-		_comboBoxDataProviderMXMLBean = new MXMLArrayBean(Boolean.TRUE);
-		MXMLObjectBean _mxmlObjectBean = new MXMLObjectBean(Boolean.FALSE);
-		
-		String label = "label";
-		String data = MXMLConstants.STRING_QUOTE + "First" + MXMLConstants.STRING_QUOTE;
-		_mxmlObjectBean.addData(label, data);
-		
-		label = "data";
-		data = MXMLConstants.STRING_QUOTE + "First" + MXMLConstants.STRING_QUOTE;
-		_mxmlObjectBean.addData(label, data);
-		
-		
-		_comboBoxDataProviderMXMLBean.addBean(_mxmlObjectBean);
-		
-		_mxmlObjectBean = new MXMLObjectBean(Boolean.FALSE);
-		
-		label = "label";
-		data = MXMLConstants.STRING_QUOTE + "Second" + MXMLConstants.STRING_QUOTE;
-		_mxmlObjectBean.addData(label, data);
-		
-		label = "data";
-		data = MXMLConstants.STRING_QUOTE + "Second" + MXMLConstants.STRING_QUOTE;
-		_mxmlObjectBean.addData(label, data);
-		
-		_comboBoxDataProviderMXMLBean.addBean(_mxmlObjectBean);
-		
 	}
 	
 	public Integer getAccordionSelectedIndex() {
@@ -121,12 +89,6 @@ public class MXMLBean implements Serializable {
 	}
 	public void setColorPickerSelectedColor(String colorPickerSelectedColor) {
 		_colorPickerSelectedColor = colorPickerSelectedColor;
-	}
-	public _MXMLBean getComboBoxDataProviderMXMLBean() {
-		return _comboBoxDataProviderMXMLBean;
-	}
-	public void setComboBoxDataProviderMXMLBean(MXMLArrayBean comboBoxDataProviderMXMLBean) {
-		_comboBoxDataProviderMXMLBean = comboBoxDataProviderMXMLBean;
 	}
 	public Integer getComboBoxSelectedIndex() {
 		return _comboBoxSelectedIndex;

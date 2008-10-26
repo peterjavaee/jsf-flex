@@ -24,7 +24,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
@@ -48,10 +47,6 @@ final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulatorTaskRu
 	private final static String INITIAL_BODY_CONTENT_TOKEN = "initialBodyContent";
 	private final static String CHILD_PRE_MXML_IDENTIFIER_TOKEN = "childIdentifier";
 	private final static String SIBLING_PRE_MXML_IDENTIFIER_TOKEN = "siblingIdentifier";
-	
-	private final static String JSF_FLEX_MXML_OBJECT_BEAN_TEMPLATE = "jsf-flex-mxml-object-bean-template.vm";
-	private final static String MXML_OBJECT_SET_TEMP_FILE_NAME = "mxmlObjectSetTempFile.tmp";
-	private final static String MXML_OBJECT_SET_TOKEN = "mxmlObjectSet";
 	
 	VelocityFileManipulatorTaskRunnerImpl(){
 		super();
@@ -104,32 +99,6 @@ final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulatorTaskRu
 			
 			throw new ComponentBuildException(_errorMessage.toString(), _ioException);
 		}
-	}
-	
-	public synchronized String generateMXMLObjectBeanContent(Set _mxmlObjectBeanWrapperSet, String _fileOutPutPath) {
-		if(_mxmlObjectBeanWrapperSet == null){
-			_mxmlObjectBeanWrapperSet = new HashSet();
-		}
-		
-		Map _tokenMap = new HashMap();
-		_tokenMap.put(MXML_OBJECT_SET_TOKEN, _mxmlObjectBeanWrapperSet);
-		_fileOutPutPath += File.separatorChar + MXML_OBJECT_SET_TEMP_FILE_NAME;
-		
-		try{
-			Reader _templateReader = new InputStreamReader(EvaluateTemplateTask.class.getResourceAsStream(JSF_FLEX_MXML_OBJECT_BEAN_TEMPLATE));
-			FileWriter _targetWriter = new FileWriter(new File(_fileOutPutPath));
-			EvaluateTemplateTask _mergeTemplateTask = new EvaluateTemplateTask(null, _tokenMap, JSF_FLEX_LOG_TAG, _templateReader, _targetWriter);
-			addTask(_mergeTemplateTask);
-			
-		}catch(IOException _ioException){
-			StringBuffer _errorMessage = new StringBuffer();
-			_errorMessage.append("fileOutPutPath [ ");
-			_errorMessage.append(_fileOutPutPath);
-			_errorMessage.append(" ] ");
-			throw new ComponentBuildException(_errorMessage.toString(), _ioException);
-		}
-		
-		return readFileContent(_fileOutPutPath);
 	}
 	
 }

@@ -120,6 +120,9 @@
 				private function setTextInput(event:Event):void{
 					textInput = event.target as TextInput;
 				}
+				
+				[Bindable]
+                public var comboBoxDataProviderArray:Array = [ {label:"First", data:"First"}, {label:"Second", data:"Second"} ];
 		    	
 		    </jf:mxmlScript>
 		    <!-- Validation on the client side -->
@@ -141,7 +144,7 @@
 					    </jf:mxmlPanel>
 			    			
 			    		<jf:mxmlPanel label="Second Tab" width="100%" height="100%">
-					    	<jf:mxmlComboBox dataProviderMXMLBean="#{mxmlBean.comboBoxDataProviderMXMLBean}" text="#{mxmlBean.comboBoxText}" selectedIndex="#{mxmlBean.comboBoxSelectedIndex}" />
+					    	<jf:mxmlComboBox dataProvider="{comboBoxDataProviderArray}" text="#{mxmlBean.comboBoxText}" selectedIndex="#{mxmlBean.comboBoxSelectedIndex}" />
 					    	<jf:mxmlRadioButton groupName="radioTest" label="First" value="First" 
 					    							selectedValue="#{mxmlBean.radioButtonSelectedValue}" selected="#{mxmlBean.radioButtonFirstSelected}"/>
 					       	<jf:mxmlRadioButton groupName="radioTest" label="Second" value="Second" selected="#{mxmlBean.radioButtonSecondSelected}"/>
