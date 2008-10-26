@@ -19,9 +19,7 @@
 package com.googlecode.jsfFlex.shared.context;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 import java.util.TreeMap;
 
 import com.googlecode.jsfFlex.shared.tasks._CommonTaskRunner;
@@ -48,7 +46,6 @@ public class MxmlContextImpl extends MxmlContext {
 	
 	private Map _preMxmlCompMap;
 	private Map _applicationIdValueMap;
-	private Set _mxmlObjectBeanWrapperSet;
 	private String _currMxml;
 	
 	private String _mxmlPath;
@@ -69,7 +66,6 @@ public class MxmlContextImpl extends MxmlContext {
 		_currMxml = currMxml;
 		_preMxmlCompMap = new TreeMap();
 		_applicationIdValueMap = new HashMap();
-		_mxmlObjectBeanWrapperSet = new HashSet();
 		_runnerFactoryInstance = _RunnerFactory.getInstance();
 		_flexRunner = _runnerFactoryInstance.getFlexTaskRunnerImpl();
 		_commonRunner = _runnerFactoryInstance.getCommonTaskRunnerImpl();
@@ -103,12 +99,6 @@ public class MxmlContextImpl extends MxmlContext {
 	}
 	public void setFlexSDKPath(String flexSDKPath) {
 		_flexSDKPath = flexSDKPath;
-	}
-	public Set getMxmlObjectBeanWrapperSet() {
-		return _mxmlObjectBeanWrapperSet;
-	}
-	public void setMxmlObjectBeanWrapperSet(Set mxmlObjectBeanWrapperSet) {
-		_mxmlObjectBeanWrapperSet = mxmlObjectBeanWrapperSet;
 	}
 	public String getMxmlPath() {
 		return _mxmlPath;

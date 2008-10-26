@@ -42,8 +42,6 @@ public abstract class _FileManipulatorTaskRunner extends TaskRunnerImpl {
 	public abstract void createPreMxmlFile(String _preMxmlFilePath, Properties _initProperties, Set _tokenList, String _mxmlComponentName, 
 												String _bodyContent, String _childIdentifier, String _siblingIdentifier);
 	
-	public abstract String generateMXMLObjectBeanContent(Set _mxmlObjectBeanWrapperSet, String _fileOutPutPath);
-	
 	public synchronized String getComponentTemplate(ClassLoader _loader, String template) {
 		StringBuffer fileContent = new StringBuffer();
 		BufferedReader bufferRead = null;

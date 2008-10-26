@@ -100,11 +100,6 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 		
 	}
 	
-	public final String generateMXMLObjectBeanContent() {
-		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-		return getFileManipulatorTaskRunner().generateMXMLObjectBeanContent(mxmlContext.getMxmlObjectBeanWrapperSet(), mxmlContext.getPreMxmlPath());
-	}
-	
 	/**
 	 * This method will create a directory, which should be specified in absolute path.<br>
 	 * 

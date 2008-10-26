@@ -28,13 +28,9 @@ import java.util.TreeSet;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
-import javax.faces.el.ValueBinding;
 import javax.faces.render.Renderer;
 
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.shared.beans.mxml.MXMLBeanWrapper;
-import com.googlecode.jsfFlex.shared.beans.mxml._MXMLBean;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
@@ -70,50 +66,14 @@ public class MXMLRendererBase extends Renderer {
     											" lacks parent component");
     	}
 		
-		if(component instanceof _MXMLUIDataProviderAttribute){
-			_mxmlRendererBaseHelper.processDataProviderBean(component);
-		}
-		
 		_mxmlRendererBaseHelper.createStructureForPreMxmlFiles(component);
 		
 	}
 	
 	private final class MXMLRendererBaseHelper{
 		
-		private final static String DATA_PROVIDER_BEAN_SUFFIX = "MxmlBean";
-		private final static String DATA_PROVIDER_MXML_BEAN_ATTR = "dataProviderMXMLBean";
-		private final static String INVALID_DATA_PROVIDER_DATA_BINDING_FIELD_MESSAGE = "Only type of dataBinding allowed for dataProviderMXMLBean field is of String or _MXMLBean";
-		
 		private MXMLRendererBaseHelper(){
 			super();
-		}
-		
-		private void processDataProviderBean(UIComponent _currComponent){
-			
-			_MXMLUIDataProviderAttribute _dataProviderComponent = (_MXMLUIDataProviderAttribute) _currComponent;
-			
-			//TODO : Implement this better later
-			ValueBinding _valueBinding = _currComponent.getValueBinding(DATA_PROVIDER_MXML_BEAN_ATTR);
-			if(_valueBinding != null){
-				Object value = _valueBinding.getValue(FacesContext.getCurrentInstance());
-				if(value != null){
-					//ONLY other type accepted is _MXMLBean
-					if(!(value instanceof _MXMLBean)){
-						throw new IllegalArgumentException(INVALID_DATA_PROVIDER_DATA_BINDING_FIELD_MESSAGE);
-					}
-					
-					String _componentId = _currComponent.getId() + DATA_PROVIDER_BEAN_SUFFIX;
-					_MXMLBean _valueMXMLBean = (_MXMLBean) value;
-					
-					MXMLBeanWrapper _mxmlBeanWrapper = new MXMLBeanWrapper(_componentId, _valueMXMLBean);
-					
-					MxmlContext _currInstance = MxmlContext.getCurrentInstance();
-					_currInstance.getMxmlObjectBeanWrapperSet().add(_mxmlBeanWrapper);
-					
-					_dataProviderComponent.setDataProvider("{" + _componentId + "}");
-				}
-			}
-			
 		}
 		
 		private void createStructureForPreMxmlFiles(UIComponent component) throws IOException {
