@@ -56,7 +56,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLScrollBarTemplateRenderer extends MXMLComponentBaseRenderer {
+public class MXMLScrollBarTemplateRenderer extends MXMLComponentRenderer {
 	
 	private static final String MXML_SCROLL_BAR_TEMPLATE_REPLACE_MAPPING;
 	

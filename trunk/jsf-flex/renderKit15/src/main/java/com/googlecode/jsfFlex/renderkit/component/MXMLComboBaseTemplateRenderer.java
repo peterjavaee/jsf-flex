@@ -50,7 +50,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 				@JsfFlexAttribute(attribute="upSkin", byMethod=true)
 		}
 )
-public abstract class MXMLComboBaseTemplateRenderer extends MXMLComponentBaseRenderer {
+public abstract class MXMLComboBaseTemplateRenderer extends MXMLComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

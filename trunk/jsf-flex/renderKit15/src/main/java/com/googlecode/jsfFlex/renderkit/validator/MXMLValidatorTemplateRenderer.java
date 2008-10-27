@@ -25,7 +25,7 @@ import javax.faces.context.FacesContext;
 
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
+import com.googlecode.jsfFlex.renderkit.component.MXMLComponentRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 
 /**
@@ -45,7 +45,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 				@JsfFlexAttribute(attribute="triggerEvent", byMethod=true)
 		}
 )
-public class MXMLValidatorTemplateRenderer extends MXMLComponentBaseRenderer {
+public class MXMLValidatorTemplateRenderer extends MXMLComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

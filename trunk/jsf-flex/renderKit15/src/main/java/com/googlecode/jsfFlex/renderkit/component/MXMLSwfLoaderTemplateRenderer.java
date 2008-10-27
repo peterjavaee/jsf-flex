@@ -56,7 +56,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 				@JsfFlexAttribute(attribute="unload", byMethod=false)
 		}
 )
-public class MXMLSwfLoaderTemplateRenderer extends MXMLComponentBaseRenderer {
+public class MXMLSwfLoaderTemplateRenderer extends MXMLComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

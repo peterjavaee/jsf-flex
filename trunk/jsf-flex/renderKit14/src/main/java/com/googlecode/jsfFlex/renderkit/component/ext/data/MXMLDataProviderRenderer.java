@@ -16,37 +16,36 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.renderkit.component;
+package com.googlecode.jsfFlex.renderkit.component.ext.data;
 
 import java.io.IOException;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.MXMLRendererBase;
+import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
 
 /**
+ * @JSFRenderer
+ *  renderKitId = "MXML_BASIC" 
+ *  family      = "javax.faces.MXMLSimpleBase"
+ *  type        = "com.googlecode.jsfFlex.MXMLDataProvider"
+ * 
  * @author Ji Hoon Kim
  */
-
-public abstract class MXMLComponentBaseRenderer extends MXMLRendererBase {
+public final class MXMLDataProviderRenderer extends MXMLComponentBaseRenderer {
 	
-	@Override
-	public void encodeEnd(FacesContext context, UIComponent componentObj) throws IOException {
-		super.encodeEnd(context, componentObj);
-		
-		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-		if(mxmlContext.isSimplySWF() || mxmlContext.isProductionEnv()){
-			return;
-		}
+	private static final String MXML_COMPONENT_NAME = "dataProvider";
+	
+	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
+		super.encodeBegin(context, componentObj);
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		
-		writer.getFlexTaskRunner().writeBodyContent(componentMXML);
+		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
+		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 	

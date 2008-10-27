@@ -364,7 +364,7 @@
   </profiles>
   
   <properties>
-    <dojo.version>1.1.1</dojo.version>
+    <dojo.version>1.2.0</dojo.version>
     <dojo.component.path>classes/com/googlecode/jsfFlex/renderkit/html/util/resource/</dojo.component.path>
   </properties>
 

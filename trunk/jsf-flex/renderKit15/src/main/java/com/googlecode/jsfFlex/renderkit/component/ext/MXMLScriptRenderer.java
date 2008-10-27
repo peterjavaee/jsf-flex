@@ -29,7 +29,6 @@ import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.shared.beans.TokenValue;
 
 /**
  * @author Ji Hoon Kim
@@ -62,8 +61,6 @@ public final class MXMLScriptRenderer extends MXMLComponentBaseRenderer {
 		
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
-		
-		componentMXML.getAnnotationDocletParserInstance().getTokenValueSet().remove(new TokenValue("id", null));
 		
 		String _bodyContent = writer.getComponentTemplate(MXMLScriptRenderer.class.getClassLoader(), 
 				MXML_SCRIPT_BODY_TEMPLATE);

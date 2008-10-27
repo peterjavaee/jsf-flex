@@ -89,7 +89,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
  * 
  * @author Ji Hoon Kim
  */
-public abstract class MXMLContainerTemplateRenderer extends MXMLComponentBaseRenderer {
+public abstract class MXMLContainerTemplateRenderer extends MXMLComponentRenderer {
 	
 	private static final String MXML_CONTAINER_TEMPLATE_REPLACE_MAPPING;
 	
