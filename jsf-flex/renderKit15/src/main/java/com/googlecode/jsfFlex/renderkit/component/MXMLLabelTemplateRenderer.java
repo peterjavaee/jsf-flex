@@ -59,7 +59,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 				@JsfFlexAttribute(attribute="dataChange", byMethod=false)
 		}
 )
-public abstract class MXMLLabelTemplateRenderer extends MXMLComponentBaseRenderer {
+public abstract class MXMLLabelTemplateRenderer extends MXMLComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

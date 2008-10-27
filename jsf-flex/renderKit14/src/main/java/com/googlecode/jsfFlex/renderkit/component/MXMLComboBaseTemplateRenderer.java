@@ -44,7 +44,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
  * 
  * @author Ji Hoon Kim
  */
-public abstract class MXMLComboBaseTemplateRenderer extends MXMLComponentBaseRenderer {
+public abstract class MXMLComboBaseTemplateRenderer extends MXMLComponentRenderer {
 	
 	private static final String MXML_COMBO_BASE_TEMPLATE_REPLACE_MAPPING;
 	

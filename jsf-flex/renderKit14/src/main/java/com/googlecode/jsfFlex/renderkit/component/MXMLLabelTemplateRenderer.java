@@ -53,7 +53,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
  * 
  * @author Ji Hoon Kim
  */
-public abstract class MXMLLabelTemplateRenderer extends MXMLComponentBaseRenderer {
+public abstract class MXMLLabelTemplateRenderer extends MXMLComponentRenderer {
 	
 	private static final String MXML_LABEL_TEMPLATE_REPLACE_MAPPING;
 	

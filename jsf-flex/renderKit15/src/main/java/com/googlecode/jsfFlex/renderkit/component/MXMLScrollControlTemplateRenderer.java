@@ -75,7 +75,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 				@JsfFlexAttribute(attribute="scroll", byMethod=true)
 		}
 )
-public abstract class MXMLScrollControlTemplateRenderer extends MXMLComponentBaseRenderer {
+public abstract class MXMLScrollControlTemplateRenderer extends MXMLComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

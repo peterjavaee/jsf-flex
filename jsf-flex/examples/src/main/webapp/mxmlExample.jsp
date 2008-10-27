@@ -121,9 +121,6 @@
 					textInput = event.target as TextInput;
 				}
 				
-				[Bindable]
-                public var comboBoxDataProviderArray:Array = [ {label:"First", data:"First"}, {label:"Second", data:"Second"} ];
-		    	
 		    </jf:mxmlScript>
 		    <!-- Validation on the client side -->
 		    <jf:mxmlNumberValidator exceedsMaxError="The number provided exceeds max value [60]." property="text"
@@ -144,7 +141,12 @@
 					    </jf:mxmlPanel>
 			    			
 			    		<jf:mxmlPanel label="Second Tab" width="100%" height="100%">
-					    	<jf:mxmlComboBox dataProvider="{comboBoxDataProviderArray}" text="#{mxmlBean.comboBoxText}" selectedIndex="#{mxmlBean.comboBoxSelectedIndex}" />
+					    	<jf:mxmlComboBox text="#{mxmlBean.comboBoxText}" selectedIndex="#{mxmlBean.comboBoxSelectedIndex}" >
+					    		<jf:mxmlDataProvider>
+                                    <jf:mxmlObject label="First" data="First" />
+                                    <jf:mxmlObject label="Second" data="Second" />
+                                </jf:mxmlDataProvider>
+					    	</jf:mxmlComboBox>
 					    	<jf:mxmlRadioButton groupName="radioTest" label="First" value="First" 
 					    							selectedValue="#{mxmlBean.radioButtonSelectedValue}" selected="#{mxmlBean.radioButtonFirstSelected}"/>
 					       	<jf:mxmlRadioButton groupName="radioTest" label="Second" value="Second" selected="#{mxmlBean.radioButtonSecondSelected}"/>
@@ -169,7 +171,12 @@
 				        	
 			        		<jf:mxmlBox width="50%" height="100%">
 				        		<jf:mxmlLabel text="Simple ButtonBar" />
-				        		<jf:mxmlButtonBar dataProvider="{reallySimpleArray}" />
+				        		<jf:mxmlButtonBar>
+				        			<jf:mxmlDataProvider>
+	                                    <jf:mxmlObject label="First Nesting" />
+	                                    <jf:mxmlObject label="Second Nesting" />
+	                                </jf:mxmlDataProvider>
+				        		</jf:mxmlButtonBar>
 				        		<jf:mxmlLabel text="Simple ToggleButtonBar" />
 				        		<jf:mxmlToggleButtonBar dataProvider="{reallySimpleArray}" />
 				        		

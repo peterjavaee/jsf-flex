@@ -23,7 +23,7 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
+import com.googlecode.jsfFlex.renderkit.component.MXMLComponentRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
@@ -74,7 +74,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @author Ji Hoon Kim
  */
-public final class MXMLVideoDisplayRenderer extends MXMLComponentBaseRenderer {
+public final class MXMLVideoDisplayRenderer extends MXMLComponentRenderer {
 	
 	private static final String MXML_VIDEO_DISPLAY_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "VideoDisplay";

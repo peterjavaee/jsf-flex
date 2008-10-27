@@ -50,7 +50,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLSwfLoaderTemplateRenderer extends MXMLComponentBaseRenderer {
+public class MXMLSwfLoaderTemplateRenderer extends MXMLComponentRenderer {
 	
 	private static final String MXML_SWF_LOADER_TEMPLATE_REPLACE_MAPPING;
 	

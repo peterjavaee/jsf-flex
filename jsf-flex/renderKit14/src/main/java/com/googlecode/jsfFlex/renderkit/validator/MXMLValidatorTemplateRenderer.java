@@ -23,7 +23,7 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
+import com.googlecode.jsfFlex.renderkit.component.MXMLComponentRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 
 /**
@@ -39,7 +39,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLValidatorTemplateRenderer extends MXMLComponentBaseRenderer {
+public class MXMLValidatorTemplateRenderer extends MXMLComponentRenderer {
 	
 	private static final String MXML_VALIDATOR_TEMPLATE_REPLACE_MAPPING;
 	

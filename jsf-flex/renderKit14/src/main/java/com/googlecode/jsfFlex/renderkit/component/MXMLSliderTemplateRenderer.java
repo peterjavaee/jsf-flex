@@ -72,7 +72,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLSliderTemplateRenderer extends MXMLComponentBaseRenderer {
+public class MXMLSliderTemplateRenderer extends MXMLComponentRenderer {
 	
 	private static final String MXML_SLIDER_TEMPLATE_REPLACE_MAPPING;
 	

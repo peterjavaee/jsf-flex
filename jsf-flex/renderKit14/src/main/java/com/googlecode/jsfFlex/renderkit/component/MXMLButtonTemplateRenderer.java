@@ -88,7 +88,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
  * 	
  * @author Ji Hoon Kim
  */
-public abstract class MXMLButtonTemplateRenderer extends MXMLComponentBaseRenderer {
+public abstract class MXMLButtonTemplateRenderer extends MXMLComponentRenderer {
 	
 	private static final String MXML_BUTTON_TEMPLATE_REPLACE_MAPPING;
 	

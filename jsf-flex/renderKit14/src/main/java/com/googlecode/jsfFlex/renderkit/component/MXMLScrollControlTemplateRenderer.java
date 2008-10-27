@@ -69,7 +69,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
  * 
  * @author Ji Hoon Kim
  */
-public abstract class MXMLScrollControlTemplateRenderer extends MXMLComponentBaseRenderer {
+public abstract class MXMLScrollControlTemplateRenderer extends MXMLComponentRenderer {
 	
 	private static final String MXML_SCROLL_CONTROL_TEMPLATE_REPLACE_MAPPING;
 	
