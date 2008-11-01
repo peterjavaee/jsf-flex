@@ -30,6 +30,9 @@ import javax.faces.context.ResponseWriter;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.renderkit.component.MXMLContainerTemplateRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
@@ -289,93 +292,63 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 	
 		private String getComponentIdValues(FacesContext context, UIComponent component) {
 			
-			StringBuffer toReturn = new StringBuffer();
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 			Map applicationIdValueMap = mxmlContext.getApplicationIdValueMap();
 			
-			toReturn.append("{");
-			toReturn.append(APP_ID);
-			toReturn.append(": ");
-			toReturn.append(MXMLConstants.STRING_QUOTE);
-			toReturn.append(mxmlContext.getCurrMxml());
-			toReturn.append(MXMLConstants.STRING_QUOTE);
-			toReturn.append(", ");
-			toReturn.append(NAMING_CONTAINER_PREFIX);
-			toReturn.append(": ");
-			toReturn.append(MXMLConstants.STRING_QUOTE);
-			toReturn.append( getNamingContainerPrefer( component.getClientId(context) ) );
-			toReturn.append(MXMLConstants.STRING_QUOTE);
+			JSONObject flashAppObject = new JSONObject();
 			
-			if(applicationIdValueMap.size() > 0){
+			try{
+				flashAppObject.put(APP_ID, mxmlContext.getCurrMxml());
+				flashAppObject.put(NAMING_CONTAINER_PREFIX, getNamingContainerPrefer( component.getClientId(context) ));
 				
-				toReturn.append(", ");
-				
-				toReturn.append(ARRAY_OF_IDS);
-				toReturn.append(": [");
-				
-				for(Iterator iterate = applicationIdValueMap.keySet().iterator(); iterate.hasNext();){
+				if(applicationIdValueMap.size() > 0){
 					
-					String currItem = (String) iterate.next();
+					JSONArray arrayOfIds = new JSONArray();
+					flashAppObject.put(ARRAY_OF_IDS, arrayOfIds);
 					
-					toReturn.append("{");
-					toReturn.append(ID);
-					toReturn.append(": ");
-					toReturn.append(MXMLConstants.STRING_QUOTE);
-					toReturn.append(currItem);
-					toReturn.append(MXMLConstants.STRING_QUOTE);
-					toReturn.append(", ");
-					toReturn.append(INIT_VALUE);
-					toReturn.append(": ");
-					
-					Map initValueMap;
-					if((initValueMap = (Map) applicationIdValueMap.get(currItem)) != null){
-						toReturn.append("[ ");
+					for(Iterator iterate = applicationIdValueMap.keySet().iterator(); iterate.hasNext();){
+						String currItem = (String) iterate.next();
 						
-						for(Iterator iterateInitValue = initValueMap.keySet().iterator(); iterateInitValue.hasNext();){
-							String attribute = (String) iterateInitValue.next();
-							Object value = initValueMap.get(attribute);
+						JSONObject componentObject = new JSONObject();
+						arrayOfIds.put(componentObject);
+						
+						componentObject.put(ID, currItem);
+						
+						Map initValueMap;
+						if((initValueMap = (Map) applicationIdValueMap.get(currItem)) != null){
 							
-							toReturn.append("{");
-							toReturn.append(ATTRIBUTE);
-							toReturn.append(": ");
-							toReturn.append(MXMLConstants.STRING_QUOTE);
-							toReturn.append(attribute);
-							toReturn.append(MXMLConstants.STRING_QUOTE);
-							toReturn.append(", ");
+							JSONArray initValues = new JSONArray();
+							componentObject.put(INIT_VALUE, initValues);
 							
-							toReturn.append(VALUE);
-							toReturn.append(": ");
-							
-							if(value instanceof String){
-								toReturn.append(MXMLConstants.STRING_QUOTE);
-								toReturn.append(MXMLJsfUtil.escapeCharacters((String) value));
-								toReturn.append(MXMLConstants.STRING_QUOTE);
-							}else{
-								toReturn.append(value);
+							for(Iterator iterateInitValue = initValueMap.keySet().iterator(); iterateInitValue.hasNext();){
+								String attribute = (String) iterateInitValue.next();
+								Object value = initValueMap.get(attribute);
+								
+								JSONObject initValue = new JSONObject();
+								
+								initValues.put(initValue);
+								
+								initValue.put(ATTRIBUTE, attribute);
+								
+								if(value instanceof String){
+									value = MXMLJsfUtil.escapeCharacters((String) value);
+								}
+								
+								initValue.put(VALUE, value);
 							}
 							
-							toReturn.append("}");
-							
-							if(iterateInitValue.hasNext()){
-								toReturn.append(", ");
-							}
+						}else{
+							componentObject.put(INIT_VALUE, JSONObject.NULL);
 						}
 						
-						toReturn.append(" ]");
-					}else{
-						toReturn.append("null");
-					}
-					
-					toReturn.append("}");
-					if(iterate.hasNext()){
-						toReturn.append(", ");
 					}
 				}
-				toReturn.append("]");
+				
+			}catch(JSONException jsonException){
+				_log.info("Error while generating JSON content", jsonException);
 			}
 			
-			toReturn.append("}");
-			return toReturn.toString();
+			return flashAppObject.toString();
 		}
 		
 	}
