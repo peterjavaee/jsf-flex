@@ -14,7 +14,13 @@
   </scm>
   
   <dependencyManagement>
-    <dependencies>      
+    <dependencies>
+      <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>20080701</version>
+      </dependency>
+      
       <dependency>
         <groupId>commons-logging</groupId>
         <artifactId>commons-logging</artifactId>
