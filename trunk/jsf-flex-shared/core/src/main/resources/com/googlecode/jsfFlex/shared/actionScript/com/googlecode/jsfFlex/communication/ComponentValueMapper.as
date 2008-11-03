@@ -70,7 +70,7 @@ package com.googlecode.jsfFlex.communication
 				trace("Failure in setting up of getCompValue callBack");
 				logInfo("Failure in setting up of getCompValue callBack");
 			}
-			
+			logInfo("Finished with the initialization of " + _refApp["id"]);
 		}
 		
 		public function populateInitValues(appInfo:Object):void {
