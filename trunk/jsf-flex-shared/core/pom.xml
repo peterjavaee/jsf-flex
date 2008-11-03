@@ -20,6 +20,12 @@
   <dependencies>
     
     <dependency>
+      <groupId>org.json</groupId>
+      <artifactId>json</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    
+    <dependency>
       <groupId>commons-logging</groupId>
       <artifactId>commons-logging</artifactId>
       <scope>compile</scope>

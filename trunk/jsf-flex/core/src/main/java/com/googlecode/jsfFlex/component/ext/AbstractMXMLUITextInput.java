@@ -18,7 +18,7 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import com.googlecode.jsfFlex.component.MXMLUITextInputBase;
+import com.googlecode.jsfFlex.component.MXMLUIHtmlTextInputBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHtmlTextAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
@@ -314,7 +314,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUITextInput 
-						extends MXMLUITextInputBase
+						extends MXMLUIHtmlTextInputBase
 						implements _MXMLUIBaseAttributes, _MXMLUITextAttribute, _MXMLUIImmediateAttribute,  
 						_MXMLUIHtmlTextAttribute, _MXMLUITextBindingAttribute {
 	

@@ -19,7 +19,6 @@
 package com.googlecode.jsfFlex.component;
 
 import javax.faces.context.FacesContext;
-import javax.faces.convert.IntegerConverter;
 import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,27 +27,28 @@ import org.apache.commons.logging.LogFactory;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.googlecode.jsfFlex.util.MXMLJsfUtil;
+
 /**
- * This class will process the needed actions of setting and retrieving of "selectedIndex" attribute<br>
- * within the Flex components.<br>
+ * This class will process the needed actions of setting and retrieving of "htmlText" attribute<br>
+ * within the Flex components. Note that since this class invokes the super method of populateComponentInitValues<br>
+ * it will also set and retrieve values of "text" attribute of the component [if it exists].<br>
  * 
  * @author Ji Hoon Kim
- */
-public abstract class MXMLUISelectedIndexBase extends MXMLUIInputBase {
+ */ 
+public abstract class MXMLUIHtmlTextInputBase extends MXMLUITextInputBase {
 	
-	private final static Log _log = LogFactory.getLog(MXMLUISelectedIndexBase.class);
+	private final static Log _log = LogFactory.getLog(MXMLUIHtmlTextInputBase.class);
 	
-	private static final IntegerConverter INTEGER_CONVERTER = new IntegerConverter();
-	
-	private static final String SELECTED_INDEX_ID_APPENDED = "_selectedIndex";
-	private static final String SELECTED_INDEX_ATTR = "selectedIndex";
+	private static final String HTML_TEXT_ATTR = "htmlText";
+	private static final String HTML_TEXT_ID_APPENDED = "_htmlText";
 	
 	private JSONObject initValue;
 	
 	{
 		try{
 			initValue = new JSONObject();
-			initValue.put(ATTRIBUTE, SELECTED_INDEX_ATTR);
+			initValue.put(ATTRIBUTE, HTML_TEXT_ATTR);
 			
 			_initValues.put(initValue);
 			
@@ -58,55 +58,58 @@ public abstract class MXMLUISelectedIndexBase extends MXMLUIInputBase {
 	}
 	
 	protected void populateComponentInitValues(){
+		super.populateComponentInitValues();
+		
 		try{
-			if(getSelectedIndex() != null){
-				initValue.put(VALUE, getSelectedIndex());
+			if(getTextBinding().equals(HTML_TEXT_ATTR) && getHtmlText() != null){
+				initValue.put(VALUE, MXMLJsfUtil.escapeCharacters( getHtmlText() ));
 			}
 		}catch(JSONException jsonException){
 			_log.info("Error while formatting to JSON content", jsonException);
 		}
 	}
-	
-	public void decode(FacesContext context) {
+    
+    public void decode(FacesContext context) {
     	super.decode(context);
     	
     	HttpServletRequest httpRequest = (HttpServletRequest) context.getExternalContext().getRequest();
+    	/*
+    	 * since there exists two possible returned values [text and htmlText],
+    	 * the attribute will be appended to the id [i.e. id_text and id_htmlText]
+    	 */
     	
-    	String selectedIndexId = getId() + SELECTED_INDEX_ID_APPENDED;
-    	String selectedIndexUpdateVal = httpRequest.getParameter(selectedIndexId);
+    	String htmlTextId = getId() + HTML_TEXT_ID_APPENDED;
+    	String htmlTextUpdateVal = httpRequest.getParameter(htmlTextId);
     	
-    	if(selectedIndexUpdateVal != null){
-    		setSelectedIndex(Integer.valueOf(selectedIndexUpdateVal));
-    		setSubmittedValue(selectedIndexUpdateVal);
+    	if(htmlTextUpdateVal != null){
+    		setHtmlText(htmlTextUpdateVal);
     	}
-
+    	
+    	if(getTextBinding().equals(HTML_TEXT_ATTR)){
+    		setSubmittedValue(getHtmlText());
+    	}
+    	
     }
-	
-	public void processUpdates(FacesContext context) {
+    
+    public void processUpdates(FacesContext context) {
     	super.processUpdates(context);
     	
     	if (!isRendered() || !isValid()){
     		return;
     	}
     	
-    	ValueBinding vb = getValueBinding(SELECTED_INDEX_ATTR);
+    	ValueBinding vb = getValueBinding(HTML_TEXT_ATTR);
 		if(vb != null && !vb.isReadOnly(getFacesContext())){
-			vb.setValue(getFacesContext(), getSelectedIndex());
-			setSelectedIndex(null);
+			vb.setValue(getFacesContext(), getHtmlText());
+			setHtmlText(null);
 		}
     	
     }
 	
-	protected Object getConvertedValue(FacesContext context, Object submittedValue) {
-		if(!(submittedValue instanceof String)){
-			return submittedValue;
-		}
-		
-		return INTEGER_CONVERTER.getAsObject(context, this, (String) submittedValue);
-	}
-	
-	public abstract Integer getSelectedIndex();
-	
-	public abstract void setSelectedIndex(Integer selectedIndex);
+	public abstract String getHtmlText();
+    
+	public abstract void setHtmlText(String htmlText);
+    
+	public abstract String getTextBinding();
 	
 }

@@ -18,8 +18,6 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import java.util.Map;
-
 import com.googlecode.jsfFlex.component.MXMLUIValueBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
@@ -292,11 +290,8 @@ public abstract class AbstractMXMLUIProgressBar
 						implements _MXMLUIBaseAttributes, _MXMLUITextAttribute, 
 						_MXMLUIImmediateAttribute, _MXMLUIValueAttribute {
 	
-	private static final String VALUE_ATTR = "value";
-	
-	public Map getComponentValues(){
-		_componentValues.put(VALUE_ATTR, null);
-		return _componentValues;
+	protected void populateComponentInitValues(){
+		
 	}
 	
 }

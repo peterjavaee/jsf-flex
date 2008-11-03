@@ -34,39 +34,41 @@ package com.googlecode.jsfFlex.communication
 	
 	public class ComponentValueMapper extends JavaScriptLogger{
 		
-		private static var _instance:ComponentValueMapper;
-		private static var _compValueMapper:XML;
-		private static var _refApp:UIComponent;
-		
 		private static const LINE_FEED:String = "\n";
 		private static const LINE_FEED_ESCAPER:RegExp = /LINE_FEED/g;
 		
 		private static const COMP_VALUE_MAPPER:String = "swf/componentValueMapper.xml";
 		
-		public static function getInstance(refApp:UIComponent):ComponentValueMapper{
-			if(_instance == null){
-				_instance = new ComponentValueMapper();
-				_refApp = refApp;
-			}
-			return _instance;
+		private static var _compValueMapper:XML;
+		
+		private var _refApp:UIComponent;
+		
+		public function ComponentValueMapper(refApp:UIComponent){
+			super();
+			_refApp = refApp;
 		}
 		
 		public function initialize():void {
-			var _loader:URLLoader = new URLLoader();
-			_loader.addEventListener(Event.COMPLETE, function (event:Event):void {
-										var _loader:URLLoader = URLLoader(event.target);
-										_compValueMapper = new XML(_loader.data);
-									});
-			try{
-				_loader.load(new URLRequest(COMP_VALUE_MAPPER));
-			}catch(loadingError:Error){
-				trace("Failure in loading of the componentValueMapper.xml file");
+			
+			if(_compValueMapper == null){
+				var _loader:URLLoader = new URLLoader();
+				_loader.addEventListener(Event.COMPLETE, function (event:Event):void {
+											var _loader:URLLoader = URLLoader(event.target);
+											_compValueMapper = new XML(_loader.data);
+										});
+				try{
+					_loader.load(new URLRequest(COMP_VALUE_MAPPER));
+				}catch(loadingError:Error){
+					trace("Failure in loading of the componentValueMapper.xml file");
+					logInfo("Failure in loading of the componentValueMapper.xml file");
+				}
 			}
 			
 			try{
 				ExternalInterface.addCallback("getCompValue", this.getCompValue);
 			}catch(callBackError:Error){
 				trace("Failure in setting up of getCompValue callBack");
+				logInfo("Failure in setting up of getCompValue callBack");
 			}
 			
 		}
@@ -95,20 +97,22 @@ package com.googlecode.jsfFlex.communication
 						
 						currAttr = currAttrObject.attribute as String;
 						
-						if(currValue is String){
-							
-							currValueString = currValue as String;
-							if(currValueString != "null"){
+						if(currValue != null){
+							if(currValue is String){
+								
+								currValueString = currValue as String;
+								if(currValueString != "null"){
+									objectRef = _refApp[currId];
+									currValueString = unEscapeCharacters(currValueString);
+									objectRef[currAttr] = currValueString;
+								}
+								
+							}else{
+								
 								objectRef = _refApp[currId];
-								currValueString = unEscapeCharacters(currValueString);
-								objectRef[currAttr] = currValueString;
+								objectRef[currAttr] = currValue;
+								
 							}
-							
-						}else{
-							
-							objectRef = _refApp[currId];
-							objectRef[currAttr] = currValue;
-							
 						}
 					}
 				}

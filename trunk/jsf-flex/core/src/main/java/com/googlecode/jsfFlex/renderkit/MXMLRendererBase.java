@@ -83,9 +83,9 @@ public class MXMLRendererBase extends Renderer {
 			
 			UIComponent parent = component.getParent();
 			
-			if(!(component instanceof com.googlecode.jsfFlex.component.ext.MXMLUIApplication) && mxmlUIComp.getComponentValues() != null){
-		    	Map applicationIdValueMap = mxmlContext.getApplicationIdValueMap();
-		    	applicationIdValueMap.put(component.getId(), mxmlUIComp.getComponentValues());
+			if(mxmlUIComp.getComponentInitValues() != null){
+				List applicationInitValueList = mxmlContext.getApplicationInitValueList();
+		    	applicationInitValueList.add(mxmlUIComp.getComponentInitValues());
 	    	}
 			
 			if(mxmlContext.isProductionEnv() || mxmlContext.isSimplySWF()){

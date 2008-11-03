@@ -18,7 +18,7 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import com.googlecode.jsfFlex.component.MXMLUIInputBase;
+import com.googlecode.jsfFlex.component.MXMLUITextInputBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIControlSkinAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
@@ -374,7 +374,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIComboBaseAttr
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIDateField 
-						extends MXMLUIInputBase 
+						extends MXMLUITextInputBase 
 						implements _MXMLUIComboBaseAttributes, _MXMLUIBaseAttributes, _MXMLUITextAttribute, 
 						_MXMLUIControlSkinAttributes, _MXMLUIDataProviderAttribute, _MXMLUIImmediateAttribute,  
 						_MXMLUIEditableAttribute, _MXMLUIImeModeAttribute, _MXMLUIRestrictAttribute, 

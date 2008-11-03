@@ -31,6 +31,7 @@ package com.googlecode.jsfFlex.communication
 		private static var CLASS_NAME:String = new String();
 		
 		public function JavaScriptLogger(){
+			super();
 			//TODO implement it better later
 			var runTimeObjectName:String = getQualifiedClassName(this);
 			if(runTimeObjectName != null){

@@ -18,33 +18,54 @@
  */
 package com.googlecode.jsfFlex.component;
 
-import java.util.Map;
-
 import javax.faces.context.FacesContext;
 import javax.faces.convert.BooleanConverter;
 import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * This class will process the needed actions of setting and retrieving of "selected" attribute<br>
- * within the Flex components. Note that since this class invokes the super method of getComponentValues<br>
- * it will also set and retrieve values of "text" attribute of the component [if it exists].<br>
+ * within the Flex components.<br>
  * 
  * @author Ji Hoon Kim
- */ 
-public abstract class MXMLUIButtonBase 
-							extends MXMLUIInputBase {
+ */
+public abstract class MXMLUISelectedBase extends MXMLUIInputBase {
+	
+	private final static Log _log = LogFactory.getLog(MXMLUISelectedBase.class);
 	
 	private static final BooleanConverter BOOLEAN_CONVERTER = new BooleanConverter();
 	
 	private static final String SELECTED_ID_APPENDED = "_selected";
 	private static final String SELECTED_ATTR = "selected";
 	
-	public Map getComponentValues(){
-		super.getComponentValues();
-		_componentValues.put(SELECTED_ATTR, getSelected());
-		return _componentValues;
-    }
+	private JSONObject initValue;
+	
+	{
+		try{
+			initValue = new JSONObject();
+			initValue.put(ATTRIBUTE, SELECTED_ATTR);
+			
+			_initValues.put(initValue);
+			
+		}catch(JSONException jsonException){
+			_log.info("Error while formatting to JSON content", jsonException);
+		}
+	}
+	
+	protected void populateComponentInitValues(){
+		try{
+			if(getSelected() != null){
+				initValue.put(VALUE, getSelected());
+			}
+		}catch(JSONException jsonException){
+			_log.info("Error while formatting to JSON content", jsonException);
+		}
+	}
 	
 	public void decode(FacesContext context) {
     	super.decode(context);

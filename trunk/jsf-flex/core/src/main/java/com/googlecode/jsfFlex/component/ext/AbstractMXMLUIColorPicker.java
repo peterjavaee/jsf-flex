@@ -18,11 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import java.util.Map;
-
 import javax.faces.context.FacesContext;
 import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.component.MXMLUIInputBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIControlSkinAttributes;
@@ -368,13 +371,33 @@ public abstract class AbstractMXMLUIColorPicker
 						_MXMLUIImeModeAttribute, _MXMLUIImmediateAttribute, _MXMLUISelectedItemAttribute, 
 						_MXMLUIRestrictAttribute, _MXMLUISelectedIndexAttribute {
 	
+	private final static Log _log = LogFactory.getLog(AbstractMXMLUIColorPicker.class);
+	
 	private static final String SELECTED_COLOR_ATTR = "selectedColor";
 	private static final String SELECTED_COLOR_ID_APPENDED = "_selectedColor";
 	
-	public Map getComponentValues() {
-		super.getComponentValues();
-		_componentValues.put(SELECTED_COLOR_ATTR, getSelectedColor());
-		return super.getComponentValues();
+	private JSONObject initValue;
+	
+	{
+		try{
+			initValue = new JSONObject();
+			initValue.put(ATTRIBUTE, SELECTED_COLOR_ATTR);
+			
+			_initValues.put(initValue);
+			
+		}catch(JSONException jsonException){
+			_log.info("Error while formatting to JSON content", jsonException);
+		}
+	}
+	
+	protected void populateComponentInitValues(){
+		try{
+			if(getSelectedColor() != null){
+				initValue.put(VALUE, getSelectedColor());
+			}
+		}catch(JSONException jsonException){
+			_log.info("Error while formatting to JSON content", jsonException);
+		}
 	}
 	
 	public void decode(FacesContext context) {

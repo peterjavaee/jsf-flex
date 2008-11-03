@@ -18,7 +18,7 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import com.googlecode.jsfFlex.component.MXMLUIButtonBase;
+import com.googlecode.jsfFlex.component.MXMLUISelectedBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
@@ -385,7 +385,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  * @author Ji Hoon Kim
  */ 
 public abstract class AbstractMXMLUIButton 
-						extends MXMLUIButtonBase 
+						extends MXMLUISelectedBase 
 						implements _MXMLUIBaseAttributes, _MXMLUIImmediateAttribute, _MXMLUITextAttribute,
 						_MXMLUISelectedAttribute {
 	

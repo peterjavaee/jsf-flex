@@ -18,6 +18,15 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import javax.faces.context.FacesContext;
+import javax.faces.el.ValueBinding;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIControlSkinAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
@@ -30,6 +39,7 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedItemAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIComboBaseAttributes;
+import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
 /**
  * @JSFComponent
@@ -364,7 +374,10 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIComboBaseAttr
  * 							 name		= "scroll"
  *  						 returnType = "java.lang.String"
  *  						 longDesc	= "Dispatched when the user manually scrolls the container."
- *   						
+ * 
+ * AbstractMXMLUIComboBox is a special case where the preserving of the state of the "text" field<br>
+ * is held within the code. Main reason is because it extends MXMLUISelectedIndexBase and there exists<br>
+ * no reason to create an another base class to preserve both "selectedIndex" + "text".<br>
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIComboBox 
@@ -373,5 +386,62 @@ public abstract class AbstractMXMLUIComboBox
 						_MXMLUIControlSkinAttributes, _MXMLUIDataProviderAttribute, _MXMLUIEditableAttribute, 
 						_MXMLUIImeModeAttribute, _MXMLUIImmediateAttribute, _MXMLUIRestrictAttribute,
 						_MXMLUISelectedIndexAttribute, _MXMLUISelectedItemAttribute {
+	
+	private final static Log _log = LogFactory.getLog(AbstractMXMLUIComboBox.class);
+	
+	private static final String TEXT_ATTR = "text";
+	private static final String TEXT_ID_APPENDED = "_text";
+	
+	private JSONObject initValue;
+	
+	{
+		try{
+			initValue = new JSONObject();
+			initValue.put(ATTRIBUTE, TEXT_ATTR);
+			
+			_initValues.put(initValue);
+			
+		}catch(JSONException jsonException){
+			_log.info("Error while formatting to JSON content", jsonException);
+		}
+	}
+	
+	protected void populateComponentInitValues(){
+		try{
+			if(getText() != null){
+				initValue.put(VALUE, MXMLJsfUtil.escapeCharacters( getText() ));
+			}
+		}catch(JSONException jsonException){
+			_log.info("Error while formatting to JSON content", jsonException);
+		}
+	}
+	
+	public void decode(FacesContext context) {
+    	super.decode(context);
+    	
+    	HttpServletRequest httpRequest = (HttpServletRequest) context.getExternalContext().getRequest();
+    	
+    	String textId = getId() + TEXT_ID_APPENDED;
+    	String textUpdateVal = httpRequest.getParameter(textId);
+    	
+    	if(textUpdateVal != null){
+    		setText(textUpdateVal);
+    	}
+    }
+    
+    public void processUpdates(FacesContext context) {
+    	super.processUpdates(context);
+    	
+    	if (!isRendered() || !isValid()){
+    		return;
+    	}
+    	
+    	ValueBinding vb = getValueBinding(TEXT_ATTR);
+		if(vb != null && !vb.isReadOnly(getFacesContext())){
+			vb.setValue(getFacesContext(), getText());
+			setText(null);
+		}
+    	
+    }
 	
 }

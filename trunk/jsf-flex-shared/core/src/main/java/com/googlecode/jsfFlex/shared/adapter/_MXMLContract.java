@@ -20,6 +20,8 @@ package com.googlecode.jsfFlex.shared.adapter;
 
 import java.util.Map;
 
+import org.json.JSONObject;
+
 import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
 
 /**
@@ -46,6 +48,6 @@ public interface _MXMLContract {
 	String getPreMxmlIdentifier();
 	void setPreMxmlIdentifier(String preMxmlIdentifier);
 	
-	Map getComponentValues();
+	JSONObject getComponentInitValues();
 	
 }
