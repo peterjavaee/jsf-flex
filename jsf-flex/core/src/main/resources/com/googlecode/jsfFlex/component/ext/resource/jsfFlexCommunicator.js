@@ -154,11 +154,11 @@ com.googlecode.jsfFlex.communication = {
 	function logFlashMessage(_logMessage, _severity){
 		var method;
 		switch(_severity){
-			case _severity < 2 :	if(console) method = console.log; break;
-			case _severity < 3 :	if(console) method = console.debug; break;
-			case _severity < 4 :	if(console) method = console.info; break;
-			case _severity < 5 :	if(console) method = console.warn; break;
-			case _severity < 6 :	if(console) method = console.error; break;
+			case 1 :	if(console) method = console.log; break;
+			case 2 :	if(console) method = console.debug; break;
+			case 3 :	if(console) method = console.info; break;
+			case 4 :	if(console) method = console.warn; break;
+			case 5 :	if(console) method = console.error; break;
 		}
 		
 		if(method){

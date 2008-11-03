@@ -18,9 +18,9 @@
  */
 package com.googlecode.jsfFlex.component;
 
-import java.util.Map;
-
 import javax.faces.component.UIComponentBase;
+
+import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
@@ -52,7 +52,7 @@ public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLC
 		super();
 	}
 	
-	public Map getComponentValues(){
+	public JSONObject getComponentInitValues(){
     	return null;
     }
 

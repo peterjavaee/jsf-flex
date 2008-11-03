@@ -18,29 +18,50 @@
  */
 package com.googlecode.jsfFlex.component;
 
-import java.util.Map;
-
 import javax.faces.context.FacesContext;
 import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * This class will process the needed actions of setting and retrieving of "value" attribute<br>
- * within the Flex components. Note that since this class invokes the super method of getComponentValues<br>
- * it will also set and retrieve values of "text" attribute of the component [if it exists].<br>
+ * within the Flex components.<br>
  * 
  * @author Ji Hoon Kim
  */ 
-public abstract class MXMLUIValueBase 
-				extends MXMLUIInputBase {
+public abstract class MXMLUIValueBase extends MXMLUIInputBase {
+	
+	private final static Log _log = LogFactory.getLog(MXMLUIValueBase.class);
 	
 	private static final String VALUE_ATTR = "value";
 	private static final String VALUE_ID_APPENDED = "_value";
 	
-	public Map getComponentValues() {
-		super.getComponentValues();
-		_componentValues.put(VALUE_ATTR, getValue() == null ? null : (String) getValue());
-		return super.getComponentValues();
+	private JSONObject initValue;
+	
+	{
+		try{
+			initValue = new JSONObject();
+			initValue.put(ATTRIBUTE, VALUE_ATTR);
+			
+			_initValues.put(initValue);
+			
+		}catch(JSONException jsonException){
+			_log.info("Error while formatting to JSON content", jsonException);
+		}
+	}
+	
+	protected void populateComponentInitValues(){
+		try{
+			if(getValue() != null){
+				initValue.put(VALUE, (String) getValue());
+			}
+		}catch(JSONException jsonException){
+			_log.info("Error while formatting to JSON content", jsonException);
+		}
 	}
 	
 	public void decode(FacesContext context) {

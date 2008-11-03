@@ -22,7 +22,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
 
-import com.googlecode.jsfFlex.component.MXMLUIButtonBase;
+import com.googlecode.jsfFlex.component.MXMLUISelectedBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
@@ -390,7 +390,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIRadioButton 
-						extends MXMLUIButtonBase
+						extends MXMLUISelectedBase
 						implements _MXMLUIBaseAttributes, _MXMLUIValueAttribute, _MXMLUIImmediateAttribute, 
 						_MXMLUITextAttribute, _MXMLUISelectedAttribute {
 	

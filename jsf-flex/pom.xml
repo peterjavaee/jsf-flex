@@ -9,7 +9,7 @@
   <groupId>com.googlecode.jsf-flex</groupId>
   <artifactId>jsf-flex-project</artifactId>
   <packaging>pom</packaging>
-  <name>JSF-Flex Project</name>
+  <name>JSF-Flex JSF Component Project</name>
   <url>http://code.google.com/p/jsf-flex/</url>
   <version>0.0.5-SNAPSHOT</version>
   <description>

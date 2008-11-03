@@ -18,6 +18,7 @@
  */
 package com.googlecode.jsfFlex.shared.context;
 
+import java.util.List;
 import java.util.Map;
 
 import com.googlecode.jsfFlex.shared.tasks._CommonTaskRunner;
@@ -46,7 +47,7 @@ public abstract class MxmlContext {
 	
 	public abstract void setSimplySWF(boolean simplySWF);
 	
-	public abstract Map getApplicationIdValueMap();
+	public abstract List getApplicationInitValueList();
 	
 	public abstract String getCurrMxml();
 	

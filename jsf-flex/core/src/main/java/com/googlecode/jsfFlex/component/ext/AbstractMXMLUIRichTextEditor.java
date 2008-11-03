@@ -18,7 +18,7 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import com.googlecode.jsfFlex.component.MXMLUITextInputBase;
+import com.googlecode.jsfFlex.component.MXMLUIHtmlTextInputBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundColorAttribute;
@@ -289,7 +289,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIRichTextEditor 
-						extends MXMLUITextInputBase 
+						extends MXMLUIHtmlTextInputBase 
 						implements _MXMLUIContainerAttributes, _MXMLUIBaseAttributes, _MXMLUIShadowAttributes,
 						_MXMLUITextAttribute, _MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundAttributes, 
 						_MXMLUIBackgroundColorAttribute, _MXMLUIBackgroundDisabledColorAttribute, _MXMLUITextAttributes,

@@ -18,58 +18,66 @@
  */
 package com.googlecode.jsfFlex.component;
 
-import java.util.Map;
-
 import javax.faces.context.FacesContext;
 import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.googlecode.jsfFlex.util.MXMLJsfUtil;
+
 /**
- * This class will process the needed actions of setting and retrieving of "htmlText" attribute<br>
- * within the Flex components. Note that since this class invokes the super method of getComponentValues<br>
- * it will also set and retrieve values of "text" attribute of the component [if it exists].<br>
+ * This class will process the needed actions of setting and retrieving of "text" attribute<br>
+ * within the Flex components.<br>
  * 
  * @author Ji Hoon Kim
  */ 
-public abstract class MXMLUITextInputBase 
-						extends MXMLUIInputBase {
+public abstract class MXMLUITextInputBase extends MXMLUIInputBase {
 	
-	private static final String HTML_TEXT_ATTR = "htmlText";
-	private static final String HTML_TEXT_ID_APPENDED = "_htmlText";
+	private final static Log _log = LogFactory.getLog(MXMLUITextInputBase.class);
+	
 	private static final String TEXT_ATTR = "text";
+	private static final String TEXT_ID_APPENDED = "_text";
 	
-	public Map getComponentValues() {
-		super.getComponentValues();
-    	if(getTextBinding().equals(HTML_TEXT_ATTR)){
-    		_componentValues.put(HTML_TEXT_ATTR, getHtmlText());
-    	}else if(getTextBinding().equals(TEXT_ATTR)){
-    		_componentValues.put(TEXT_ATTR, getText());
-    	}
-    	return _componentValues;
-    }
+	private JSONObject initValue;
+	
+	{
+		try{
+			initValue = new JSONObject();
+			initValue.put(ATTRIBUTE, TEXT_ATTR);
+			
+			_initValues.put(initValue);
+			
+		}catch(JSONException jsonException){
+			_log.info("Error while formatting to JSON content", jsonException);
+		}
+	}
+	
+	protected void populateComponentInitValues(){
+		try{
+			if(getText() != null){
+				initValue.put(VALUE, MXMLJsfUtil.escapeCharacters( getText() ));
+			}
+		}catch(JSONException jsonException){
+			_log.info("Error while formatting to JSON content", jsonException);
+		}
+	}
     
     public void decode(FacesContext context) {
     	super.decode(context);
     	
     	HttpServletRequest httpRequest = (HttpServletRequest) context.getExternalContext().getRequest();
-    	/*
-    	 * since there exists two possible returned values [text and htmlText],
-    	 * the attribute will be appended to the id [i.e. id_text and id_htmlText]
-    	 */
     	
-    	String htmlTextId = getId() + HTML_TEXT_ID_APPENDED;
-    	String htmlTextUpdateVal = httpRequest.getParameter(htmlTextId);
+    	String textId = getId() + TEXT_ID_APPENDED;
+    	String textUpdateVal = httpRequest.getParameter(textId);
     	
-    	if(htmlTextUpdateVal != null){
-    		setHtmlText(htmlTextUpdateVal);
+    	if(textUpdateVal != null){
+    		setText(textUpdateVal);
+    		setSubmittedValue(textUpdateVal);
     	}
-    	
-    	if(getTextBinding().equals(HTML_TEXT_ATTR)){
-    		setSubmittedValue(getHtmlText());
-    	}else if(getTextBinding().equals(TEXT_ATTR)){
-    		setSubmittedValue(getText());
-    	}
-    	
     }
     
     public void processUpdates(FacesContext context) {
@@ -79,18 +87,16 @@ public abstract class MXMLUITextInputBase
     		return;
     	}
     	
-    	ValueBinding vb = getValueBinding(HTML_TEXT_ATTR);
+    	ValueBinding vb = getValueBinding(TEXT_ATTR);
 		if(vb != null && !vb.isReadOnly(getFacesContext())){
-			vb.setValue(getFacesContext(), getHtmlText());
-			setHtmlText(null);
+			vb.setValue(getFacesContext(), getText());
+			setText(null);
 		}
     	
     }
     
-	public abstract String getHtmlText();
+    public abstract String getText();
     
-	public abstract void setHtmlText(String htmlText);
+    public abstract void setText(String text);
     
-	public abstract String getTextBinding();
-	
 }

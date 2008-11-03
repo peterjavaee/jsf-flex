@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.renderkit.component.ext;
 import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -45,7 +46,6 @@ import com.googlecode.jsfFlex.shared.beans.TokenValue;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.shared.util.MXMLAttributeConstants;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
-import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
 /**
  * Aside from its normal task of mapping the field to the Set and creating the preMxml file, MXMLApplicationRenderer has<br>
@@ -247,7 +247,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			toWrite.append(JSF_FLEX_TOP_NS);
 			toWrite.append(".addFlashApp(");
 			
-			toWrite.append(getComponentIdValues(context, component));
+			toWrite.append(getComponentInitValues(context, component));
 			
 			toWrite.append(");");
 			toWrite.append("});");
@@ -303,10 +303,10 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			
 		}
 	
-		private String getComponentIdValues(FacesContext context, UIComponent component) {
+		private String getComponentInitValues(FacesContext context, UIComponent component) {
 			
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-			Map applicationIdValueMap = mxmlContext.getApplicationIdValueMap();
+			List applicationInitValueList = mxmlContext.getApplicationInitValueList();
 			
 			JSONObject flashAppObject = new JSONObject();
 			
@@ -314,47 +314,16 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 				flashAppObject.put(APP_ID, mxmlContext.getCurrMxml());
 				flashAppObject.put(NAMING_CONTAINER_PREFIX, getNamingContainerPrefer( component.getClientId(context) ));
 				
-				if(applicationIdValueMap.size() > 0){
+				if(applicationInitValueList.size() > 0){
 					
 					JSONArray arrayOfIds = new JSONArray();
 					flashAppObject.put(ARRAY_OF_IDS, arrayOfIds);
 					
-					for(Iterator iterate = applicationIdValueMap.keySet().iterator(); iterate.hasNext();){
-						String currItem = (String) iterate.next();
-						
-						JSONObject componentObject = new JSONObject();
-						arrayOfIds.put(componentObject);
-						
-						componentObject.put(ID, currItem);
-						
-						Map initValueMap;
-						if((initValueMap = (Map) applicationIdValueMap.get(currItem)) != null){
-							
-							JSONArray initValues = new JSONArray();
-							componentObject.put(INIT_VALUE, initValues);
-							
-							for(Iterator iterateInitValue = initValueMap.keySet().iterator(); iterateInitValue.hasNext();){
-								String attribute = (String) iterateInitValue.next();
-								Object value = initValueMap.get(attribute);
-								
-								JSONObject initValue = new JSONObject();
-								
-								initValues.put(initValue);
-								
-								initValue.put(ATTRIBUTE, attribute);
-								
-								if(value instanceof String){
-									value = MXMLJsfUtil.escapeCharacters((String) value);
-								}
-								
-								initValue.put(VALUE, value);
-							}
-							
-						}else{
-							componentObject.put(INIT_VALUE, JSONObject.NULL);
-						}
-						
+					for(Iterator iterate = applicationInitValueList.iterator(); iterate.hasNext();){
+						JSONObject currComponentObject = (JSONObject) iterate.next();
+						arrayOfIds.put(currComponentObject);
 					}
+					
 				}
 				
 			}catch(JSONException jsonException){

@@ -20,7 +20,6 @@ package com.googlecode.jsfFlex.component.ext;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Map;
 
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
@@ -244,10 +243,6 @@ public abstract class AbstractMXMLUIApplication
 	private String _externalLibraryPath;
 	private String _runtimeSharedLibraries;
 	private boolean _accessible;
-	
-	public Map getComponentValues(){
-		return null;
-	}
 	
 	public void encodeBegin(FacesContext context) throws IOException {
 		

@@ -18,35 +18,45 @@
  */
 package com.googlecode.jsfFlex.component;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.io.IOException;
 
 import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
-import javax.faces.el.ValueBinding;
-import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
+import com.googlecode.jsfFlex.shared.util.MXMLAttributeConstants;
 
 /**
- * This class will process the needed actions of setting and retrieving of "text" attribute<br>
- * within the Flex components.<br>
+ * This class will process the needed actions of creating JSONObject and JSONArray needed<br>
+ * by subclasses to preserve the state of beans during the post back phase.<br>
  * 
  * @author Ji Hoon Kim
  */
 public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 	
-	private static final String TEXT_ATTR = "text";
-	private static final String TEXT_ID_APPENDED = "_text";
+	private final static Log _log = LogFactory.getLog(MXMLUIInputBase.class);
+	
+	protected static final String ATTRIBUTE = "attribute";
+	protected static final String VALUE = "value";
+	
+	private static final String INIT_VALUES = "initValues";
+	
+	protected JSONArray _initValues;
+	
+	private JSONObject _componentInitValueObject;
 	
 	private _AnnotationDocletParser _annotationDocletParserInstance;
 	
-	protected Map _componentValues;
 	private String _absolutePathToPreMxmlFile;
-	
 	private String _preMxmlIdentifier;
     private String _parentPreMxmlIdentifier;
     
@@ -59,43 +69,35 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 	
 	public MXMLUIInputBase(){
 		super();
-		_componentValues = new HashMap();
 	}
 	
-	public Map getComponentValues(){
-		_componentValues.put(TEXT_ATTR, getText());
-    	return _componentValues;
-    }
-	
-	public void decode(FacesContext context) {
-    	super.decode(context);
-    	
-    	HttpServletRequest httpRequest = (HttpServletRequest) context.getExternalContext().getRequest();
-    	
-    	String textId = getId() + TEXT_ID_APPENDED;
-    	String textUpdateVal = httpRequest.getParameter(textId);
-    	
-    	if(textUpdateVal != null){
-    		setText(textUpdateVal);
-    		setSubmittedValue(textUpdateVal);
-    	}
-    	
-    }
-	
-	public void processUpdates(FacesContext context) {
-    	super.processUpdates(context);
-    	
-    	if (!isRendered() || !isValid()){
-    		return;
-    	}
-    	
-    	ValueBinding vb = getValueBinding(TEXT_ATTR);
-		if(vb != null && !vb.isReadOnly(getFacesContext())){
-			vb.setValue(getFacesContext(), getText());
-			setText(null);
+	{
+		try{
+			_componentInitValueObject = new JSONObject();
+			_initValues = new JSONArray();
+			
+			_componentInitValueObject.put(INIT_VALUES, _initValues);
+			
+		}catch(JSONException jsonException){
+			_log.info("Error while formatting to JSON content", jsonException);
 		}
-    	
+	}
+	
+	public JSONObject getComponentInitValues(){
+		return _componentInitValueObject;
     }
+	
+	public void encodeBegin(FacesContext context) throws IOException {
+		super.encodeBegin(context);
+		
+		try{
+			_componentInitValueObject.put(MXMLAttributeConstants.ID_ATTR, getId());
+		}catch(JSONException jsonException){
+			_log.info("Error while formatting to JSON content", jsonException);
+		}
+		
+		populateComponentInitValues();
+	}
 	
 	public _AnnotationDocletParser getAnnotationDocletParserInstance(){
 		
@@ -107,6 +109,8 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 		
 		return _annotationDocletParserInstance;
 	}
+	
+	protected abstract void populateComponentInitValues();
 
 	public String getAbsolutePathToPreMxmlFile() {
 		return _absolutePathToPreMxmlFile;
@@ -139,8 +143,4 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 		_preMxmlIdentifier = preMxmlIdentifier;
 	}
 	
-	public abstract String getText();
-    
-    public abstract void setText(String text);
-    
 }

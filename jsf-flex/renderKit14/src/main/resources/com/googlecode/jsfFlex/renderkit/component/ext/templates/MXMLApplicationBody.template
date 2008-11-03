@@ -6,7 +6,7 @@
 		static public var compValMapper:ComponentValueMapper;
 
 		private function initializeApp(event:Event):void {
-			compValMapper = ComponentValueMapper.getInstance(this);
+			compValMapper = new ComponentValueMapper(this);
 			compValMapper.initialize();
 			
 			ExternalInterface.addCallback("pageUnloading", pageUnloading);

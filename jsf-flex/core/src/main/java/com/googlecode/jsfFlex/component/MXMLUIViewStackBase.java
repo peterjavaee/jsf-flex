@@ -30,8 +30,7 @@ import javax.faces.context.FacesContext;
  * 
  * @author Ji Hoon Kim
  */
-public abstract class MXMLUIViewStackBase 
-						extends MXMLUISelectedIndexBase {
+public abstract class MXMLUIViewStackBase extends MXMLUISelectedIndexBase {
 	
 	public void encodeBegin(FacesContext context) throws IOException {
 		/*
