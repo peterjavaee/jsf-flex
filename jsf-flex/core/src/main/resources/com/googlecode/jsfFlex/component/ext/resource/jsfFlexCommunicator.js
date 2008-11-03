@@ -99,7 +99,7 @@ com.googlecode.jsfFlex.communication = {
 				return _flashApp;
 			}
 		}else{
-			/** Must not have been added yet, so simply connect a function to com.googlecode.jsfFlex.addFlashApp */
+			/* Must not have been added yet, so simply connect a function to com.googlecode.jsfFlex.addFlashApp */
 			var _handle = dojo.connect(com.googlecode.jsfFlex, "addFlashApp", function(){
 											var _flashApp = com.googlecode.jsfFlex.flashAppsKeyAppId.item( _readyAmI );
 											if(_flashApp){
@@ -152,24 +152,18 @@ com.googlecode.jsfFlex.communication = {
 	}
 	
 	function logFlashMessage(_logMessage, _severity){
-		var method;
+		/*
+		 * For simplicity, currently is supported for FireFox:FireBug only
+		 * TODO: Consider supporting other browsers in the future
+		 */
 		switch(_severity){
-			case 1 :	if(console) method = console.log; break;
-			case 2 :	if(console) method = console.debug; break;
-			case 3 :	if(console) method = console.info; break;
-			case 4 :	if(console) method = console.warn; break;
-			case 5 :	if(console) method = console.error; break;
+			case 1 :	if(console) console.log(_logMessage); return;
+			case 2 :	if(console) console.debug(_logMessage); return;
+			case 3 :	if(console) console.info(_logMessage); return;
+			case 4 :	if(console) console.warn(_logMessage); return;
+			case 5 :	if(console) console.error(_logMessage); return;
 		}
 		
-		if(method){
-			method(_logMessage);
-		}else{
-			if(_severity != 5){
-				alert(_logMessage);
-			}else{
-				throw new Error(_logMessage);
-			}
-		}
 	}
 	
 	function pageLoad(){
@@ -179,7 +173,8 @@ com.googlecode.jsfFlex.communication = {
 	}
 	
 	function pageUnload(_event){
-		/* during the page creation :
+		/*
+		 * during the page creation :
 		 * 	JSON with =>
 		 *	  appId 					: applicationId specifying the flash app
 		 *    namingContainerPrefix		: namingContainerPrefix [i.e. form that this flashApp is affiliated with]
