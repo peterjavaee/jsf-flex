@@ -36,45 +36,52 @@ if(!com.googlecode){
 	throw new Error("com.googlecode exists but is not of type object");
 }
 
-if(com.googlecode.jsfFlex){
-    throw new Error("com.googlecode.jsfFlex namespace already exists");
+if(!com.googlecode.jsfFlex){
+    com.googlecode.jsfFlex = {};
+}else if(typeof com.googlecode.jsfFlex != "object"){
+	throw new Error("com.googlecode.jsfFlex exists but is not of type object");
 }
 
-com.googlecode.jsfFlex = {
+if(!com.googlecode.jsfFlex.communication){
+    com.googlecode.jsfFlex.communication = {};
+}else if(typeof com.googlecode.jsfFlex.communication != "object"){
+	throw new Error("com.googlecode.jsfFlex.communication exists but is not of type object");
+}
+
+if(!com.googlecode.jsfFlex.communication.core){
+    com.googlecode.jsfFlex.communication.core = {};
+}else if(typeof com.googlecode.jsfFlex.communication.core != "object"){
+	throw new Error("com.googlecode.jsfFlex.communication.core exists but is not of type object");
+}
+
+com.googlecode.jsfFlex.communication.core = {
+	data :		{ 
+					flashAppsKeyNamingContainer: new dojox.collections.Dictionary(),
+					flashAppsKeyAppId: new dojox.collections.Dictionary() 
+				},
+	
 	addFlashApp: function(_flashApp){
-					var _namingContainerPrefixList = com.googlecode.jsfFlex.flashAppsKeyNamingContainer.item(_flashApp.namingContainerPrefix);
+					var _namingContainerPrefixList = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyNamingContainer.item(_flashApp.namingContainerPrefix);
 					if(_namingContainerPrefixList == null){
 						_namingContainerPrefixList = new Array();
-						com.googlecode.jsfFlex.flashAppsKeyNamingContainer.add( _flashApp.namingContainerPrefix, _namingContainerPrefixList );
+						com.googlecode.jsfFlex.communication.core.data.flashAppsKeyNamingContainer.add( _flashApp.namingContainerPrefix, _namingContainerPrefixList );
 					}
-					com.googlecode.jsfFlex.flashAppsKeyAppId.add( _flashApp.appId, _flashApp );
+					com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId.add( _flashApp.appId, _flashApp );
 					_namingContainerPrefixList.push(_flashApp);
 				 },
-	flashAppsKeyNamingContainer: new dojox.collections.Dictionary(),
-	flashAppsKeyAppId: new dojox.collections.Dictionary(),
-	
 	getApplication:	function(_appId){
 						if (navigator.appName.indexOf("Microsoft") != -1) {
 							return document.getElementById(_appId);
 						}else{
 							return document[_appId];
 						}
-					}
-};
-
-if(com.googlecode.jsfFlex.communication){
-    throw new Error("com.googlecode.jsfFlex.communication namespace already exists");
-}
-
-com.googlecode.jsfFlex.communication = {
-	
+					},
 	getCompValue:	function(_appId, _objectId){
-						var _access = com.googlecode.jsfFlex.getApplication(_appId);
+						var _access = com.googlecode.jsfFlex.communication.core.getApplication(_appId);
 						if(_access == null){
 							throw new Error("appId [" + _appId + "] returned a null value during lookup");
 						}
 						var _value;
-						
 						try{
 							_value = _access.getCompValue(_objectId);
 						}catch(error){
@@ -82,7 +89,6 @@ com.googlecode.jsfFlex.communication = {
 						}
 						return _value;
 					}
-	
 };
 
 //private namespace
@@ -93,29 +99,27 @@ com.googlecode.jsfFlex.communication = {
 	var currUnloaded = 0;
 	
 	function amReady(_readyAmI){
-		var _flashApp = com.googlecode.jsfFlex.flashAppsKeyAppId.item( _readyAmI );
+		var _flashApp = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId.item( _readyAmI );
 		if(_flashApp){
 			if(_flashApp.arrayOfIds){
 				return _flashApp;
 			}
 		}else{
-			/* Must not have been added yet, so simply connect a function to com.googlecode.jsfFlex.addFlashApp */
-			var _handle = dojo.connect(com.googlecode.jsfFlex, "addFlashApp", function(){
-											var _flashApp = com.googlecode.jsfFlex.flashAppsKeyAppId.item( _readyAmI );
+			/* Must not have been added yet, so simply connect a function to com.googlecode.jsfFlex.communication.core.addFlashApp */
+			var _handle = dojo.connect(com.googlecode.jsfFlexcommunication.core, "addFlashApp", function(){
+											var _flashApp = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId.item( _readyAmI );
 											if(_flashApp){
 												if(_flashApp.arrayOfIds){
-													var _access = com.googlecode.jsfFlex.getApplication( _readyAmI );
+													var _access = com.googlecode.jsfFlex.communication.core.getApplication( _readyAmI );
 													_access.populateInitValues( _flashApp );
 												}
 												dojo.disconnect(_handle);
 											}
-										});
-						
+										});						
 		}
 	}
 	
 	function appendElement(_jsonNodes){
-		
 		var _htmlType;
 		var _attributeArray;
 		var _ele;
@@ -133,7 +137,6 @@ com.googlecode.jsfFlex.communication = {
 				formSubmit.appendChild(_ele);
 			}
 		}
-		
 	}
 	
 	function checkUnLoadStatus(){
@@ -149,21 +152,6 @@ com.googlecode.jsfFlex.communication = {
 	
 	function getSrcElement(_event){
 		return (_event.target) ? _event.target : _event.srcElement;
-	}
-	
-	function logFlashMessage(_logMessage, _severity){
-		/*
-		 * For simplicity, currently is supported for FireFox:FireBug only
-		 * TODO: Consider supporting other browsers in the future
-		 */
-		switch(_severity){
-			case 1 :	if(console) console.log(_logMessage); return;
-			case 2 :	if(console) console.debug(_logMessage); return;
-			case 3 :	if(console) console.info(_logMessage); return;
-			case 4 :	if(console) console.warn(_logMessage); return;
-			case 5 :	if(console) console.error(_logMessage); return;
-		}
-		
 	}
 	
 	function pageLoad(){
@@ -189,7 +177,7 @@ com.googlecode.jsfFlex.communication = {
 		var _src = getSrcElement( getEvent(_event) );
 		formSubmit = dojo.byId(_src.id);
 		
-		var _namingContainerPrefixList = com.googlecode.jsfFlex.flashAppsKeyNamingContainer.item(_src.id);
+		var _namingContainerPrefixList = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyNamingContainer.item(_src.id);
 		flashAppsToUpdateCount = _namingContainerPrefixList.length;
 		var _access;
 		for(var i=0; i < _namingContainerPrefixList.length; i++){
@@ -198,7 +186,7 @@ com.googlecode.jsfFlex.communication = {
 				currUnloaded++;
 				continue;
 			}
-			_access = com.googlecode.jsfFlex.getApplication(_namingContainerPrefixList[i].appId);
+			_access = com.googlecode.jsfFlex.communication.core.getApplication(_namingContainerPrefixList[i].appId);
 			try{
 				_access.pageUnloading(_namingContainerPrefixList[i]);
 			}catch(error){
@@ -228,9 +216,8 @@ com.googlecode.jsfFlex.communication = {
 	}
 	
 	//callers
-	com.googlecode.jsfFlex.communication.amReady = amReady;
-	com.googlecode.jsfFlex.communication.logFlashMessage = logFlashMessage;
-	com.googlecode.jsfFlex.communication.pageLoad = pageLoad;
-    com.googlecode.jsfFlex.communication.updateValues = updateValues;
+	com.googlecode.jsfFlex.communication.core.amReady = amReady;
+	com.googlecode.jsfFlex.communication.core.pageLoad = pageLoad;
+    com.googlecode.jsfFlex.communication.core.updateValues = updateValues;
     
 })();

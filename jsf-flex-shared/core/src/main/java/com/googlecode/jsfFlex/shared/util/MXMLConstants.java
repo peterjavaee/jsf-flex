@@ -51,7 +51,8 @@ public final class MXMLConstants {
 	public static final String MXMLCONSTANTS_XML = "mxmlConstants.xml";
 	
 	public static final String FLEX_SDK_ZIP = "flexSDK.zip";
-	public static final String JSF_FLEX_COMMUNICATOR_JS = "jsfFlexCommunicator.js";
+	public static final String JSF_FLEX_COMMUNICATOR_CORE_JS = "jsfFlexCommunicatorCore.js";
+	public static final String JSF_FLEX_COMMUNICATOR_LOGGER_JS = "jsfFlexCommunicatorLogger.js";
 	public static final String DEFAULT_SWC_LIBRARY_SWF_NAME = "library.swf";
 	public static final String JSF_FLEX_MAIN_SWC_CONFIGURATIONFILE = "jsfFlexMainSwcConfigurationFile.xml";
 	public static final String JSF_FLEX_MAIN_SWC_DIRECTORY_NAME = "jsfFlexMainSwcFileSystem";

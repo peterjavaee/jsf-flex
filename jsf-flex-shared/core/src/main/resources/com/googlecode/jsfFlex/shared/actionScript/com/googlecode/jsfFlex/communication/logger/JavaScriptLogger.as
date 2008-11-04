@@ -19,14 +19,18 @@
  
 /**
  * This class will be used for browser logging by all ActionScript classes
+ * In future there exists consideration to implement the messaging whereas to simulate messageQueue
  * @author Ji Hoon Kim
  */
-package com.googlecode.jsfFlex.communication
+package com.googlecode.jsfFlex.communication.logger
 {
 	import flash.external.ExternalInterface;
 	import flash.utils.getQualifiedClassName;
 	
-	internal class JavaScriptLogger{
+	public class JavaScriptLogger{
+		
+		private static const CLASS_NAME_DELIM:String = ":";
+		private static const JS_COMMUNICATION_LOG_FLASH_MESSAGE_FUNCTION:String = "com.googlecode.jsfFlex.communication.logger.logFlashMessage";
 		
 		private static var CLASS_NAME:String = new String();
 		
@@ -35,7 +39,7 @@ package com.googlecode.jsfFlex.communication
 			//TODO implement it better later
 			var runTimeObjectName:String = getQualifiedClassName(this);
 			if(runTimeObjectName != null){
-				var qualifiedClassName:Array = runTimeObjectName.split(":");
+				var qualifiedClassName:Array = runTimeObjectName.split(CLASS_NAME_DELIM);
 				if(qualifiedClassName != null){
 					CLASS_NAME = qualifiedClassName[qualifiedClassName.length - 1];
 				}
@@ -64,7 +68,7 @@ package com.googlecode.jsfFlex.communication
 		
 		private function logMessage(message:String, severity:int):void {
 			message = CLASS_NAME + " : " + message;
-			ExternalInterface.call("com.googlecode.jsfFlex.communication.logFlashMessage", message, severity);
+			ExternalInterface.call(JS_COMMUNICATION_LOG_FLASH_MESSAGE_FUNCTION, message, severity);
 		}
 		
 	}

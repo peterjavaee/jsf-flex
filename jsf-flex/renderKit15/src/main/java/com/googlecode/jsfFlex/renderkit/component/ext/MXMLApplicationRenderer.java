@@ -218,13 +218,9 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		private static final String APP_ID = "appId";
 		private static final String NAMING_CONTAINER_PREFIX = "namingContainerPrefix";
 		private static final String ARRAY_OF_IDS = "arrayOfIds";
-		private static final String ID = "id";
-		private static final String INIT_VALUE = "initValues";
-		private static final String ATTRIBUTE = "attribute";
-		private static final String VALUE = "value";
 		
-		private static final String JSF_FLEX_TOP_NS = "com.googlecode.jsfFlex";
-		private static final String PAGE_LOAD_NS = "com.googlecode.jsfFlex.communication.pageLoad";
+		private static final String JS_COMMUNICATION_CORE_NS = "com.googlecode.jsfFlex.communication.core";
+		private static final String JS_COMMUNICATION_CORE_PAGE_LOAD_NS = "com.googlecode.jsfFlex.communication.core.pageLoad";
 		
 		private void renderHtmlContent(FacesContext context, UIComponent component) throws IOException {
 			
@@ -244,7 +240,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			StringBuilder toWrite = new StringBuilder();
 			
 			toWrite.append("dojo.addOnLoad(function(){");
-			toWrite.append(JSF_FLEX_TOP_NS);
+			toWrite.append(JS_COMMUNICATION_CORE_NS);
 			toWrite.append(".addFlashApp(");
 			
 			toWrite.append(getComponentInitValues(context, component));
@@ -253,7 +249,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			toWrite.append("});");
 			
 			toWrite.append("dojo.addOnLoad(");
-			toWrite.append(PAGE_LOAD_NS);
+			toWrite.append(JS_COMMUNICATION_CORE_PAGE_LOAD_NS);
 			toWrite.append(");");
 			writer.write(toWrite.toString());
 			writer.endElement(MXMLAttributeConstants.SCRIPT_ELEM);

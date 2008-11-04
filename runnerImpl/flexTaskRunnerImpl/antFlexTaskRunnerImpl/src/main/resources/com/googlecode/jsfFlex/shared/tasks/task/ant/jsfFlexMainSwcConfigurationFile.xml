@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <flex-config>
 	<include-classes>
-        <class>com.googlecode.jsfFlex.communication.ComponentValueMapper</class>
-        <class>com.googlecode.jsfFlex.communication.JavaScriptLogger</class>
+        <class>com.googlecode.jsfFlex.communication.core.ComponentValueMapper</class>
+        <class>com.googlecode.jsfFlex.communication.logger.JavaScriptLogger</class>
 	</include-classes>
 </flex-config>
