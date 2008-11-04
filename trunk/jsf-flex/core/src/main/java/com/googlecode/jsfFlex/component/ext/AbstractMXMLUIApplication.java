@@ -337,7 +337,8 @@ public abstract class AbstractMXMLUIApplication
 		
 		JsfFlexDojoResource _jsfFlexDojoResource = JsfFlexDojoResource.getDojoInstance();
 		_jsfFlexDojoResource.addDojoMain();
-		_jsfFlexDojoResource.addResource(getClass(), MXMLConstants.JSF_FLEX_COMMUNICATOR_JS);
+		_jsfFlexDojoResource.addResource(getClass(), MXMLConstants.JSF_FLEX_COMMUNICATOR_CORE_JS);
+		_jsfFlexDojoResource.addResource(getClass(), MXMLConstants.JSF_FLEX_COMMUNICATOR_LOGGER_JS);
 		
 		super.encodeEnd(context);
 	}

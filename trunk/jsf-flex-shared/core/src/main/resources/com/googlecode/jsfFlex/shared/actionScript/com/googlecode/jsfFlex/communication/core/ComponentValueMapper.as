@@ -20,7 +20,7 @@
 /**
  * @author Ji Hoon Kim
  */
-package com.googlecode.jsfFlex.communication
+package com.googlecode.jsfFlex.communication.core
 {
 	import flash.external.ExternalInterface;
 	import flash.events.Event;
@@ -32,12 +32,22 @@ package com.googlecode.jsfFlex.communication
 	import mx.collections.ArrayCollection;
 	import mx.core.UIComponent;
 	
-	public class ComponentValueMapper extends JavaScriptLogger{
+	import com.googlecode.jsfFlex.communication.logger.JavaScriptLogger;
+	
+	public class ComponentValueMapper extends JavaScriptLogger {
 		
 		private static const LINE_FEED:String = "\n";
 		private static const LINE_FEED_ESCAPER:RegExp = /LINE_FEED/g;
 		
+		private static const APPEND_E4X_ATTR:String = "@append";
+		private static const NESTED_E4X_ATTR:String = "@nested";
+		private static const DYNAMIC_E4X_ATTR:String = "@dynamic";
+		
+		private static const AS_GET_COMP_VALUE_FUNCTION:String = "getCompValue";
 		private static const COMP_VALUE_MAPPER:String = "swf/componentValueMapper.xml";
+		private static const NULL_STRING:String = "null";
+		private static const VALUE_ASSIGNMENT_STATEMENT:String = "value=";
+		private static const VALUE_ATTR:String = "VALUE";
 		
 		private static var _compValueMapper:XML;
 		
@@ -65,7 +75,7 @@ package com.googlecode.jsfFlex.communication
 			}
 			
 			try{
-				ExternalInterface.addCallback("getCompValue", this.getCompValue);
+				ExternalInterface.addCallback(AS_GET_COMP_VALUE_FUNCTION, this.getCompValue);
 			}catch(callBackError:Error){
 				trace("Failure in setting up of getCompValue callBack");
 				logInfo("Failure in setting up of getCompValue callBack");
@@ -101,7 +111,7 @@ package com.googlecode.jsfFlex.communication
 							if(currValue is String){
 								
 								currValueString = currValue as String;
-								if(currValueString != "null"){
+								if(currValueString != NULL_STRING){
 									objectRef = _refApp[currId];
 									currValueString = unEscapeCharacters(currValueString);
 									objectRef[currAttr] = currValueString;
@@ -124,7 +134,7 @@ package com.googlecode.jsfFlex.communication
 			//TODO : implement this better later
 			var toReturn:String = toUnEscape.replace(LINE_FEED_ESCAPER, LINE_FEED);
 			var toEscape:URLVariables = new URLVariables();
-			var toDecode:String = "value=" + toReturn;
+			var toDecode:String = VALUE_ASSIGNMENT_STATEMENT + toReturn;
 			toEscape.decode(toDecode);
 			return toEscape.value;
 		}
@@ -158,7 +168,7 @@ package com.googlecode.jsfFlex.communication
 				classInfoNodeAttributes = classInfoNode.attribute_list.attribute;
 				
 				for each (var attribute:XML in classInfoNodeAttributes){
-					if(attribute.name.toString() == "VALUE"){
+					if(attribute.name.toString() == VALUE_ATTR){
 						
 						attributeValueObject = getAttributeValue(attribute, objectRef);
 						
@@ -186,12 +196,12 @@ package com.googlecode.jsfFlex.communication
 			var attributeCheck:XMLList;
 			var nestedObjects:XMLList;
 			
-			attributeCheck = attribute.value.(hasOwnProperty("@append"));
+			attributeCheck = attribute.value.(hasOwnProperty(APPEND_E4X_ATTR));
 			toAppend = (attributeCheck != null && attributeCheck.length() > 0) ? attribute.value.@append.toString() : new String();
 			
-			attributeCheck = attribute.value.(hasOwnProperty("@nested"));
+			attributeCheck = attribute.value.(hasOwnProperty(NESTED_E4X_ATTR));
 			isNested = (attributeCheck != null && attributeCheck.length() > 0 && attribute.value.@nested.toString() == "true");
-			attributeCheck = attribute.value.(hasOwnProperty("@dynamic"));
+			attributeCheck = attribute.value.(hasOwnProperty(DYNAMIC_E4X_ATTR));
 			isDynamic = (attributeCheck != null && attributeCheck.length() > 0 && attribute.value.@dynamic.toString() == "true");
 			
 			if(isNested){
@@ -217,6 +227,7 @@ package com.googlecode.jsfFlex.communication
 						attributeId = null;
 						attributeValue = null;
 						trace("Failure in getting access to reference " + nestedObjects[k].toString());
+						logInfo("Failure in getting access to reference " + nestedObjects[k].toString());
 						break;
 					}
 				}
