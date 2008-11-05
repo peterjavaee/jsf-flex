@@ -27,7 +27,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.shared.tasks.task.common.UnzipTask;
+import com.googlecode.jsfFlex.shared.tasks.sdk.UnzipTask;
 
 /**
  * A SDKStandard implementation of _CommonTaskRunner interface.<br>

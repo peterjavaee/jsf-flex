@@ -31,7 +31,7 @@ import java.util.Properties;
 import java.util.Set;
 
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.shared.tasks.task.velocity.EvaluateTemplateTask;
+import com.googlecode.jsfFlex.shared.tasks.velocity.EvaluateTemplateTask;
 
 /**
  * A Velocity implementation of _FileManipulatorTaskRunner interface.<br>

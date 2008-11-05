@@ -34,14 +34,14 @@ import org.python.util.PythonInterpreter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
-import com.googlecode.jsfFlex.shared.tasks.task.jython.DeleteTask;
-import com.googlecode.jsfFlex.shared.tasks.task.jython.EchoTask;
-import com.googlecode.jsfFlex.shared.tasks.task.jython.FileCopyTask;
-import com.googlecode.jsfFlex.shared.tasks.task.jython.MXMLCTask;
-import com.googlecode.jsfFlex.shared.tasks.task.jython.MkdirTask;
-import com.googlecode.jsfFlex.shared.tasks.task.jython.RenameTask;
-import com.googlecode.jsfFlex.shared.tasks.task.jython.ReplaceTextTask;
-import com.googlecode.jsfFlex.shared.tasks.task.jython.SWCTask;
+import com.googlecode.jsfFlex.shared.tasks.jython.DeleteTask;
+import com.googlecode.jsfFlex.shared.tasks.jython.EchoTask;
+import com.googlecode.jsfFlex.shared.tasks.jython.FileCopyTask;
+import com.googlecode.jsfFlex.shared.tasks.jython.MXMLCTask;
+import com.googlecode.jsfFlex.shared.tasks.jython.MkdirTask;
+import com.googlecode.jsfFlex.shared.tasks.jython.RenameTask;
+import com.googlecode.jsfFlex.shared.tasks.jython.ReplaceTextTask;
+import com.googlecode.jsfFlex.shared.tasks.jython.SWCTask;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**

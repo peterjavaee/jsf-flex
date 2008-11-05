@@ -30,14 +30,14 @@ import org.apache.commons.logging.LogFactory;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
-import com.googlecode.jsfFlex.shared.tasks.task.ant.DeleteTask;
-import com.googlecode.jsfFlex.shared.tasks.task.ant.EchoTask;
-import com.googlecode.jsfFlex.shared.tasks.task.ant.FileCopyTask;
-import com.googlecode.jsfFlex.shared.tasks.task.ant.MXMLCTask;
-import com.googlecode.jsfFlex.shared.tasks.task.ant.MkdirTask;
-import com.googlecode.jsfFlex.shared.tasks.task.ant.RenameTask;
-import com.googlecode.jsfFlex.shared.tasks.task.ant.ReplaceTextTask;
-import com.googlecode.jsfFlex.shared.tasks.task.ant.SWCTask;
+import com.googlecode.jsfFlex.shared.tasks.ant.DeleteTask;
+import com.googlecode.jsfFlex.shared.tasks.ant.EchoTask;
+import com.googlecode.jsfFlex.shared.tasks.ant.FileCopyTask;
+import com.googlecode.jsfFlex.shared.tasks.ant.MXMLCTask;
+import com.googlecode.jsfFlex.shared.tasks.ant.MkdirTask;
+import com.googlecode.jsfFlex.shared.tasks.ant.RenameTask;
+import com.googlecode.jsfFlex.shared.tasks.ant.ReplaceTextTask;
+import com.googlecode.jsfFlex.shared.tasks.ant.SWCTask;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
