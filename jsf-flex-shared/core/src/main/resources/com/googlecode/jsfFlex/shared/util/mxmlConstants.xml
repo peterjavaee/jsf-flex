@@ -17,6 +17,6 @@
     <swf-source-files>
       <source-file>com/googlecode/jsfFlex/shared/swfSourceFiles/componentValueMapper.xml</source-file>
     </swf-source-files>
-    <jsf-flex-main-swc-config-file>com/googlecode/jsfFlex/shared/tasks/task/ant/jsfFlexMainSwcConfigurationFile.xml</jsf-flex-main-swc-config-file>
+    <jsf-flex-main-swc-config-file>com/googlecode/jsfFlex/shared/tasks/jsfFlexMainSwcConfigurationFile.xml</jsf-flex-main-swc-config-file>
   </system-independent>
 </settings>
