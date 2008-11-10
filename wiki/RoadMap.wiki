@@ -42,5 +42,5 @@ on application server {{{TomCat}}} 6.0.
    ||Application Server Tested||
    ||{{{TomCat}}} 6.0||
    {For ALL}
- * {{{DataGrid}}} component must be implemented as a service. {Unassigned}
+ * {{{DataGrid}}} component must be implemented as a service. {Ji Hoon Kim}
  * Supporting Facelets. {Hazem Saleh}
