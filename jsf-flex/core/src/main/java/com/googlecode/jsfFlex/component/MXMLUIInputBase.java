@@ -89,7 +89,6 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
     }
 	
 	public void encodeBegin(FacesContext context) throws IOException {
-		super.encodeBegin(context);
 		
 		try{
 			_componentInitValueObject.put(MXMLAttributeConstants.ID_ATTR, getId());
@@ -103,6 +102,22 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 		List applicationInitValueList = mxmlContext.getApplicationInitValueList();
     	applicationInitValueList.add(getComponentInitValues());
 		
+    	if(mxmlContext.isSimplySWF() || mxmlContext.isProductionEnv()){
+			//means no need to create preMxml files
+			setRendered(false);
+		}
+    	
+    	super.encodeBegin(context);
+	}
+	
+	public void processDecodes(FacesContext context) {
+		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		if(mxmlContext.isSimplySWF() || mxmlContext.isProductionEnv()){
+			//need to dataBind so set back to true
+			setRendered(true);
+		}
+		
+		super.processDecodes(context);
 	}
 	
 	public _AnnotationDocletParser getAnnotationDocletParserInstance(){

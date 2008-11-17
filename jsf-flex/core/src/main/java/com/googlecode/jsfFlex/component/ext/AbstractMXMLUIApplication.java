@@ -21,10 +21,12 @@ package com.googlecode.jsfFlex.component.ext;
 import java.io.File;
 import java.io.IOException;
 
+import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import org.json.JSONObject;
+
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundColorAttribute;
@@ -59,6 +61,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
 import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
 import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexDojoResource;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
+import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.shared.context.MxmlContextImpl;
 import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
@@ -215,7 +218,7 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIApplication 
-						extends MXMLUISimpleBase 
+						extends UIComponentBase 
 						implements _MXMLUIContainerAttributes, _MXMLUIBaseAttributes, _MXMLApplicationContract,
 						_MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundAttributes, _MXMLUIBackgroundColorAttribute, 
 						_MXMLUIBackgroundDisabledColorAttribute, _MXMLUIBarColorAttribute, _MXMLUIBorderAttributes, 
@@ -226,7 +229,7 @@ public abstract class AbstractMXMLUIApplication
 						_MXMLUIPaddingVerticalAttributes, _MXMLUIScrollAttribute, _MXMLUIScrollAttributes, 
 						_MXMLUIScrollBarAttributes, _MXMLUIShadowAttributes, _MXMLUITextStyleAttributes, 
 						_MXMLUIThumbSkinAttributes, _MXMLUITrackAttributes, _MXMLUIHideAttribute,
-						_MXMLUITitleAttribute, _MXMLUIIconAttribute {
+						_MXMLUITitleAttribute, _MXMLUIIconAttribute, _MXMLContract {
 	
 	private static final String INITIALIZE_ATTR = "initialize";
 	
@@ -238,6 +241,17 @@ public abstract class AbstractMXMLUIApplication
     private static final String CONFIG_MODE_NAME = "com.googlecode.jsfFlex.MODE";
     
     private _AnnotationDocletParser _annotationDocletParserInstance;
+    
+    private String _absolutePathToPreMxmlFile;
+	
+	private String _preMxmlIdentifier;
+	private String _parentPreMxmlIdentifier;
+	/*
+	 * below two variables dictate the depth and the height of this component
+	 * in reference to the top component which should be of MXMLApplication. 
+	 */
+	private int _majorLevel = -1;
+	private int _minorLevel = -1;
     
 	private String _applicationPath;
 	private String _externalLibraryPath;
@@ -259,13 +273,11 @@ public abstract class AbstractMXMLUIApplication
 		
 		Object mode = context.getExternalContext().getInitParameter(CONFIG_MODE_NAME);
 		
-		boolean isDebug = false;
 		boolean isSimplySwf = false;
-		boolean isProduction = false;
+		boolean isProduction = true;
 		
 		if(mode != null){
 			
-			isDebug = mode.toString().equals("debugMode");
 			isSimplySwf = mode.toString().equals("simplySwfMode");
 			isProduction = mode.toString().equals("productionMode");
 			
@@ -343,6 +355,10 @@ public abstract class AbstractMXMLUIApplication
 		super.encodeEnd(context);
 	}
 	
+	public JSONObject getComponentInitValues(){
+    	return null;
+    }
+	
 	public _AnnotationDocletParser getAnnotationDocletParserInstance(){
 		
 		if(_annotationDocletParserInstance == null){
@@ -360,7 +376,6 @@ public abstract class AbstractMXMLUIApplication
 	public void setApplicationPath(String applicationPath) {
 		_applicationPath = applicationPath;
 	}
-	
 	public String getRuntimeSharedLibraries() {
 		return _runtimeSharedLibraries;
 	}
@@ -379,7 +394,38 @@ public abstract class AbstractMXMLUIApplication
 	public void setAccessible(boolean accessible) {
 		_accessible = accessible;
 	}
-
+	
+	public String getAbsolutePathToPreMxmlFile() {
+		return _absolutePathToPreMxmlFile;
+	}
+	public void setAbsolutePathToPreMxmlFile(String absolutePathToPreMxmlFile) {
+		_absolutePathToPreMxmlFile = absolutePathToPreMxmlFile;
+	}
+	public int getMajorLevel() {
+		return _majorLevel;
+	}
+	public void setMajorLevel(int majorLevel) {
+		_majorLevel = majorLevel;
+	}
+	public int getMinorLevel() {
+		return _minorLevel;
+	}
+	public void setMinorLevel(int minorLevel) {
+		_minorLevel = minorLevel;
+	}
+	public String getParentPreMxmlIdentifier() {
+		return _parentPreMxmlIdentifier;
+	}
+	public void setParentPreMxmlIdentifier(String parentPreMxmlIdentifier) {
+		_parentPreMxmlIdentifier = parentPreMxmlIdentifier;
+	}
+	public String getPreMxmlIdentifier() {
+		return _preMxmlIdentifier;
+	}
+	public void setPreMxmlIdentifier(String preMxmlIdentifier) {
+		_preMxmlIdentifier = preMxmlIdentifier;
+	}
+	
 	/**
 	 * The mxmlPackageName for the application.
 	 * 

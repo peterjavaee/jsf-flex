@@ -18,7 +18,10 @@
  */
 package com.googlecode.jsfFlex.component;
 
+import java.io.IOException;
+
 import javax.faces.component.UIComponentBase;
+import javax.faces.context.FacesContext;
 
 import org.json.JSONObject;
 
@@ -65,6 +68,27 @@ public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLC
 		}
 		
 		return _annotationDocletParserInstance;
+	}
+	
+	public void encodeBegin(FacesContext context) throws IOException {
+		
+		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		if(mxmlContext.isSimplySWF() || mxmlContext.isProductionEnv()){
+			//means no need to create preMxml files
+			setRendered(false);
+		}
+		
+		super.encodeBegin(context);
+	}
+	
+	public void processDecodes(FacesContext context) {
+		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		if(mxmlContext.isSimplySWF() || mxmlContext.isProductionEnv()){
+			//need to dataBind so set back to true
+			setRendered(true);
+		}
+		
+		super.processDecodes(context);
 	}
 	
 	public String getAbsolutePathToPreMxmlFile() {
