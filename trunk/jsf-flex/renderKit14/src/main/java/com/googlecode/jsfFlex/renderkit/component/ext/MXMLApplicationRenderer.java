@@ -125,16 +125,24 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		_MXMLApplicationContract componentMXML = (_MXMLApplicationContract) componentObj;
+		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		
+		if(mxmlContext.isSimplySWF() || mxmlContext.isProductionEnv()){
+			return;
+		}		
+		/*
+		 * special case for MXMLApplication to filter out attribute "id"
+		 * In Flex, id attribute is not allowed on the root tag of a component
+		 */
 		
 		componentMXML.getAnnotationDocletParserInstance().getTokenValueSet().remove(new TokenValue("id", null));
-		
 		writer.mapFields(MXMLApplicationRenderer.class, componentObj, MXML_APPLICATION_REPLACE_MAPPING);
+		
 		/*
 		 * HACK
 		 * Because of the colon, the detection of qdox is giving issues. So for the time
 		 * being until a better solution is found, manually pull and push the info.
 		 */
-		
 		componentMXML.getAnnotationDocletParserInstance().getTokenValueSet().add(new TokenValue(MX_KEY, componentMXML.getAttributes().get(MX_KEY).toString()));
 		
 		String _bodyContent = writer.getComponentTemplate(MXMLApplicationRenderer.class.getClassLoader(), 
@@ -159,7 +167,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 				writer.unZipArchiveRelative(MXMLConstants.FLEX_SDK_ZIP, mxmlContext.getFlexSDKPath());
 			}
 			writer.createSWF(componentMXML, mxmlFile, mxmlContext.getSwfPath(), mxmlContext.getFlexSDKPath());
-		}else{
+		}else if(!mxmlContext.isProductionEnv()){
 			
 			AdditionalApplicationScriptContent additionalAppScriptContent = mxmlContext.getAdditionalAppScriptContent();
 			String filePath = mxmlContext.getPreMxmlPath() + mxmlContext.getCurrMxml() + TO_BE_CREATED_ADDITIONAL_APP_SCRIPT_CONTENT_TEMPLATE_SUFFIX;

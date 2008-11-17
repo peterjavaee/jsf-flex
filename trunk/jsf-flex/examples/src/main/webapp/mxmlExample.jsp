@@ -143,8 +143,8 @@
 							    	<jf:mxmlCheckBox label="CheckBox am I [\^$.|?*+(){}" selected="#{mxmlBean.checkBoxSelected}" />
 						    	</jf:mxmlBox>
 						    	
-						    	<jf:mxmlBox width="50%" height="100%">
-						    		<jf:mxmlDataGrid width="100%" height="100%" rowCount=5>
+						    	<jf:mxmlBox width="50%" height="60%">
+						    		<jf:mxmlDataGrid width="100%" height="100%" rowCount="5">
 						    			<jf:mxmlColumns>
 						    				<jf:mxmlDataGridColumn dataField="name" headerText="Name" />
 						    				<jf:mxmlDataGridColumn dataField="phone" headerText="Phone" />

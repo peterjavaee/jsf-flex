@@ -131,7 +131,11 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		_MXMLApplicationContract componentMXML = (_MXMLApplicationContract) componentObj;
+		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 		
+		if(mxmlContext.isSimplySWF() || mxmlContext.isProductionEnv()){
+			return;
+		}
 		/*
 		 * special case for MXMLApplication to filter out attribute "id"
 		 * In Flex, id attribute is not allowed on the root tag of a component
@@ -172,8 +176,8 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 				writer.unZipArchiveRelative(MXMLConstants.FLEX_SDK_ZIP, mxmlContext.getFlexSDKPath());
 			}
 			writer.createSWF(componentMXML, mxmlFile, mxmlContext.getSwfPath(), mxmlContext.getFlexSDKPath());
-		}else{
-			
+		}else if(!mxmlContext.isProductionEnv()){
+			//means it is of debugMode, so must create mxml and etcetera
 			AdditionalApplicationScriptContent additionalAppScriptContent = mxmlContext.getAdditionalAppScriptContent();
 			String filePath = mxmlContext.getPreMxmlPath() + mxmlContext.getCurrMxml() + TO_BE_CREATED_ADDITIONAL_APP_SCRIPT_CONTENT_TEMPLATE_SUFFIX;
 			Map<String, AdditionalApplicationScriptContent> tokenMap = new HashMap<String, AdditionalApplicationScriptContent>();
