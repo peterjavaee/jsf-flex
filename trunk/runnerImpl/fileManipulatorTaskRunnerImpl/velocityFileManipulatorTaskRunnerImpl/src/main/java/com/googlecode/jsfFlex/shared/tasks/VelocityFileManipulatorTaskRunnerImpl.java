@@ -52,6 +52,45 @@ final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulatorTaskRu
 		super();
 	}
 	
+	public synchronized void createFileContent(String _filePath, String _templateFile, Properties _initProperties, Map _tokenMap){
+		
+		try{
+			Reader _templateReader = new InputStreamReader(EvaluateTemplateTask.class.getResourceAsStream(_templateFile));
+			FileWriter _targetWriter = new FileWriter(new File(_filePath));
+			EvaluateTemplateTask _mergeTemplateTask = new EvaluateTemplateTask(_initProperties, _tokenMap, JSF_FLEX_LOG_TAG, _templateReader, _targetWriter);
+			addTask(_mergeTemplateTask);
+			
+		}catch(IOException _ioException){
+			StringBuffer _errorMessage = new StringBuffer();
+			_errorMessage.append("filePath [ ");
+			_errorMessage.append(_filePath);
+			_errorMessage.append(" ] ");
+			_errorMessage.append("templateFile [ ");
+			_errorMessage.append(_templateFile);
+			_errorMessage.append(" ] ");
+			
+			if(_tokenMap != null){
+				
+				_errorMessage.append("overView of tokenMap [ ");
+				for(Iterator keyIterate = _tokenMap.keySet().iterator(); keyIterate.hasNext();){
+					String key = (String) keyIterate.next();
+					_errorMessage.append("key : ");
+					_errorMessage.append(key);
+					_errorMessage.append(", value : ");
+					
+					Object value = _tokenMap.get(key);
+					_errorMessage.append(value.toString());
+					_errorMessage.append(" ");
+					
+				}
+				_errorMessage.append(" ] ");
+			}
+			
+			throw new ComponentBuildException(_errorMessage.toString(), _ioException);
+		}
+		
+	}
+	
 	public synchronized void createPreMxmlFile(String _preMxmlFilePath, Properties _initProperties, Set _tokenList, String _mxmlComponentName, 
 													String _bodyContent, String _childIdentifier, String _siblingIdentifier) {
 		if(_tokenList == null){
@@ -67,38 +106,8 @@ final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulatorTaskRu
 		_tokenMap.put(CHILD_PRE_MXML_IDENTIFIER_TOKEN, _childIdentifier);
 		_tokenMap.put(SIBLING_PRE_MXML_IDENTIFIER_TOKEN, _siblingIdentifier);
 		
-		try{
-			Reader _templateReader = new InputStreamReader(EvaluateTemplateTask.class.getResourceAsStream(JSF_FLEX_TEMPLATE));
-			FileWriter _targetWriter = new FileWriter(new File(_preMxmlFilePath));
-			EvaluateTemplateTask _mergeTemplateTask = new EvaluateTemplateTask(_initProperties, _tokenMap, JSF_FLEX_LOG_TAG, _templateReader, _targetWriter);
-			addTask(_mergeTemplateTask);
-			
-		}catch(IOException _ioException){
-			StringBuffer _errorMessage = new StringBuffer();
-			_errorMessage.append("preMxmlFilePath [ ");
-			_errorMessage.append(_preMxmlFilePath);
-			_errorMessage.append(" ] ");
-			
-			_errorMessage.append("tokenList [ ");
-			Object _tokenValue;
-			for(Iterator _tokenIterator = _tokenList.iterator(); _tokenIterator.hasNext(); ){
-				_tokenValue = _tokenIterator.next();
-				_errorMessage.append(_tokenValue.toString());
-				if(_tokenIterator.hasNext()){
-					_errorMessage.append(" , ");
-				}
-			}
-			_errorMessage.append(" ] ");
-			
-			_errorMessage.append("mxmlComponentName [ ");
-			_errorMessage.append(_mxmlComponentName);
-			_errorMessage.append(" ] ");
-			_errorMessage.append("bodyContent [ ");
-			_errorMessage.append(_bodyContent);
-			_errorMessage.append(" ] ");
-			
-			throw new ComponentBuildException(_errorMessage.toString(), _ioException);
-		}
+		createFileContent(_preMxmlFilePath, JSF_FLEX_TEMPLATE, _initProperties, _tokenMap);
+		
 	}
 	
 }

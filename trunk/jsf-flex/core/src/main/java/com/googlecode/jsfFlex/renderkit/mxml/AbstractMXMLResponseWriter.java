@@ -21,6 +21,8 @@ package com.googlecode.jsfFlex.renderkit.mxml;
 import java.io.File;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
 import javax.faces.context.ResponseWriter;
 
@@ -120,6 +122,10 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	public final void mapFields(Class mapClass, Object componentObj, String mappingFile) {
 		_MXMLContract _comp = (_MXMLContract) componentObj;
 		_comp.getAnnotationDocletParserInstance().mapComponentFields(mapClass, componentObj, mappingFile);
+	}
+	
+	public final void createFileContent(String _filePath, String _templateFile, Properties _initProperties, Map _tokenMap){
+		getFileManipulatorTaskRunner().createFileContent(_filePath, _templateFile, _initProperties, _tokenMap);
 	}
 	
 	/**

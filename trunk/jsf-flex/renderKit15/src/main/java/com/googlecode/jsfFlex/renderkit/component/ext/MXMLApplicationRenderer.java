@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.renderkit.component.ext;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -42,6 +43,7 @@ import com.googlecode.jsfFlex.renderkit.component.MXMLContainerTemplateRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.shared.beans.AdditionalApplicationScriptContent;
 import com.googlecode.jsfFlex.shared.beans.TokenValue;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.shared.util.MXMLAttributeConstants;
@@ -102,7 +104,12 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 	private final static Log _log = LogFactory.getLog(MXMLApplicationRenderer.class);
 	
 	private static final String MXML_APPLICATION_BODY_TEMPLATE;
+	
 	private static final String MX_KEY = "xmlns:mx";
+	private static final String TO_BE_CREATED_ADDITIONAL_APP_SCRIPT_CONTENT_TEMPLATE_SUFFIX = "AdditionalAppScriptContent.tmp";
+	private static final String ADDITIONAL_APPLICATION_SCRIPT_CONTENT_TEMPLATE = "additional-application-script-content.template";
+	private static final String ADDITIONAL_APPLICATION_SCRIPT_CONTENT_TOKEN = "additionalApplicationScriptContent";
+	private static final String ADDITIONAL_SCRIPT_CONTENT_TOKEN = "{additionalScriptContent}";
 	
 	static{
 		//TODO : find a better method to implement the below tasks
@@ -155,13 +162,6 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		_MXMLApplicationContract componentMXML = (_MXMLApplicationContract) componentObj;
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		
-		/*
-		 * Now must go through the Set and place the component's within the main preMxml file
-		 * 		DataStructure is as follows within the Session Map :
-		 * 			Key being the current mxmlPackage_count and value being a HashMap implementation that contains =>
-		 * 				Key being the major number and value being a TreeSet with absolutePathToPreMxmlFile
-		 * Afterwards will create it as a MXML file and will create the SWF file 
-		 */
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 		String mxmlFile = mxmlContext.getMxmlPath() + mxmlContext.getCurrMxml() + MXMLConstants.MXML_FILE_EXT;;
 		
@@ -173,7 +173,16 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			}
 			writer.createSWF(componentMXML, mxmlFile, mxmlContext.getSwfPath(), mxmlContext.getFlexSDKPath());
 		}else{
-		
+			
+			AdditionalApplicationScriptContent additionalAppScriptContent = mxmlContext.getAdditionalAppScriptContent();
+			String filePath = mxmlContext.getPreMxmlPath() + mxmlContext.getCurrMxml() + TO_BE_CREATED_ADDITIONAL_APP_SCRIPT_CONTENT_TEMPLATE_SUFFIX;
+			Map<String, AdditionalApplicationScriptContent> tokenMap = new HashMap<String, AdditionalApplicationScriptContent>();
+			tokenMap.put(ADDITIONAL_APPLICATION_SCRIPT_CONTENT_TOKEN, additionalAppScriptContent);
+			writer.createFileContent(filePath, ADDITIONAL_APPLICATION_SCRIPT_CONTENT_TEMPLATE, null, tokenMap);
+			
+			String additionalApplicationScriptContent = writer.readFileContent(filePath);
+			writer.replaceTokenWithValue(componentMXML, additionalApplicationScriptContent, ADDITIONAL_SCRIPT_CONTENT_TOKEN);
+			
 			Map _preMxmlMap = mxmlContext.getPreMxmlCompMap();
 			
 			if(_preMxmlMap.keySet().size() > 0){

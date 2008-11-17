@@ -23,7 +23,7 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentRenderer;
+import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
@@ -34,12 +34,13 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  type        = "com.googlecode.jsfFlex.MXMLObject"
  * 
  * @JsfFlexAttributes
+ *  id=false
  * 	label=false
  * 	data=false
  * 
  * @author Ji Hoon Kim
  */
-public final class MXMLObjectRenderer extends MXMLComponentRenderer {
+public final class MXMLObjectRenderer extends MXMLComponentBaseRenderer {
 	
 	private static final String MXML_OBJECT_REPLACE_MAPPING;
 	private static final String MXML_COMPONENT_NAME = "Object";

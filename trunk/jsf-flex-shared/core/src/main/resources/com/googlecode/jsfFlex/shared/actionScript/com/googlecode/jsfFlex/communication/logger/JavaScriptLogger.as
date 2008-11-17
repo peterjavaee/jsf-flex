@@ -18,8 +18,8 @@
  */
  
 /**
- * This class will be used for browser logging by all ActionScript classes
- * In future there exists consideration to implement the messaging whereas to simulate messageQueue
+ * TODO : implement it better later
+ * This class will be used for browser logging
  * @author Ji Hoon Kim
  */
 package com.googlecode.jsfFlex.communication.logger
@@ -27,42 +27,35 @@ package com.googlecode.jsfFlex.communication.logger
 	import flash.external.ExternalInterface;
 	import flash.utils.getQualifiedClassName;
 	
-	public class JavaScriptLogger{
+	internal class JavaScriptLogger implements ILogger {
 		
 		private static const CLASS_NAME_DELIM:String = ":";
 		private static const JS_COMMUNICATION_LOG_FLASH_MESSAGE_FUNCTION:String = "com.googlecode.jsfFlex.communication.logger.logFlashMessage";
 		
-		private static var CLASS_NAME:String = new String();
+		private var CLASS_NAME:String = new String();
 		
-		public function JavaScriptLogger(){
+		public function JavaScriptLogger(logClass:Class) {
 			super();
-			//TODO implement it better later
-			var runTimeObjectName:String = getQualifiedClassName(this);
-			if(runTimeObjectName != null){
-				var qualifiedClassName:Array = runTimeObjectName.split(CLASS_NAME_DELIM);
-				if(qualifiedClassName != null){
-					CLASS_NAME = qualifiedClassName[qualifiedClassName.length - 1];
-				}
-			}
+			CLASS_NAME = getQualifiedClassName(logClass);
 		}
 		
-		protected function log(errorMessage:String):void {
+		public function log(errorMessage:String):void {
 			logMessage(errorMessage, 1);
 		}
 		
-		protected function logDebug(errorMessage:String):void {
+		public function logDebug(errorMessage:String):void {
 			logMessage(errorMessage, 2);
 		}
 		
-		protected function logInfo(errorMessage:String):void {
+		public function logInfo(errorMessage:String):void {
 			logMessage(errorMessage, 3);
 		}
 		
-		protected function logWarn(errorMessage:String):void {
+		public function logWarn(errorMessage:String):void {
 			logMessage(errorMessage, 4);
 		}
 		
-		protected function logError(errorMessage:String):void {
+		public function logError(errorMessage:String):void {
 			logMessage(errorMessage, 5);
 		}
 		

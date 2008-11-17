@@ -26,7 +26,7 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentRenderer;
+import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
@@ -44,7 +44,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
 		jsfFlexAttributes={}
 )
-public final class MXMLStatesRenderer extends MXMLComponentRenderer {
+public final class MXMLStatesRenderer extends MXMLComponentBaseRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

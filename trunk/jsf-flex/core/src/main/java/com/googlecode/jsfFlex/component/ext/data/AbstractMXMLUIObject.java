@@ -19,7 +19,6 @@
 package com.googlecode.jsfFlex.component.ext.data;
 
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
  * @JSFComponent
@@ -32,6 +31,12 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  * 
  * @JSFJspProperties
  * 		properties	=		
+ * 							@JSFJspProperty
+ *   						 name		= "id"
+ *   						 returnType	= "java.lang.String"
+ *   						 longDesc	= "ID of the component."
+ *   						,
+ *   						
  * 							@JSFJspProperty
  * 							 name		= "label"
  *   						 returnType	= "java.lang.String"
@@ -46,7 +51,6 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIObject 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIBaseAttributes {
+						extends MXMLUISimpleBase {
 	
 }

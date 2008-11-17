@@ -83,11 +83,6 @@ public class MXMLRendererBase extends Renderer {
 			
 			UIComponent parent = component.getParent();
 			
-			if(mxmlUIComp.getComponentInitValues() != null){
-				List applicationInitValueList = mxmlContext.getApplicationInitValueList();
-		    	applicationInitValueList.add(mxmlUIComp.getComponentInitValues());
-	    	}
-			
 			if(mxmlContext.isProductionEnv() || mxmlContext.isSimplySWF()){
 				//do not need to create preMxml files
 				return;
@@ -159,6 +154,8 @@ public class MXMLRendererBase extends Renderer {
 		private void setAbsolutePathToPreMxmlFile(String mxmlPackageName, _MXMLContract currInstance, String preMxmlPath){
 			StringBuffer toReturn = new StringBuffer(preMxmlPath);
 			toReturn.append(mxmlPackageName);
+			toReturn.append("_");
+			toReturn.append(currInstance.getClass().getSimpleName());
 			toReturn.append("_");
 			toReturn.append(currInstance.getPreMxmlIdentifier());
 			toReturn.append(MXMLConstants.PRE_MXML_FILE_EXT);

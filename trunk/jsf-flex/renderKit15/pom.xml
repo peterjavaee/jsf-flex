@@ -104,7 +104,7 @@
         <configuration>
           <source>1.5</source>
           <target>1.5</target>
-          <maxmem>1024</maxmem>
+          <maxmem>2048</maxmem>
           <meminitial>256</meminitial>
         </configuration>
       </plugin>

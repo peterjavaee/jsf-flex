@@ -32,9 +32,10 @@ package com.googlecode.jsfFlex.communication.core
 	import mx.collections.ArrayCollection;
 	import mx.core.UIComponent;
 	
-	import com.googlecode.jsfFlex.communication.logger.JavaScriptLogger;
+	import com.googlecode.jsfFlex.communication.logger.ILogger;
+	import com.googlecode.jsfFlex.communication.logger.LoggerFactory
 	
-	public class ComponentValueMapper extends JavaScriptLogger {
+	public class ComponentValueMapper {
 		
 		private static const LINE_FEED:String = "\n";
 		private static const LINE_FEED_ESCAPER:RegExp = /LINE_FEED/g;
@@ -51,7 +52,26 @@ package com.googlecode.jsfFlex.communication.core
 		
 		private static var _compValueMapper:XML;
 		
+		private static var _log:ILogger;
+		private static var _loader:URLLoader;
+		
 		private var _refApp:UIComponent;
+		
+		{
+			_log = LoggerFactory.newJSLoggerInstance(ComponentValueMapper);
+			
+			_loader = new URLLoader();
+			_loader.addEventListener(Event.COMPLETE, function (event:Event):void {
+										var _loader:URLLoader = URLLoader(event.target);
+										_compValueMapper = new XML(_loader.data);
+									});
+			try{
+				_loader.load(new URLRequest(COMP_VALUE_MAPPER));
+			}catch(loadingError:Error){
+				trace("Failure in loading of the componentValueMapper.xml file");
+				_log.logInfo("Failure in loading of the componentValueMapper.xml file");
+			}
+		}
 		
 		public function ComponentValueMapper(refApp:UIComponent){
 			super();
@@ -60,27 +80,13 @@ package com.googlecode.jsfFlex.communication.core
 		
 		public function initialize():void {
 			
-			if(_compValueMapper == null){
-				var _loader:URLLoader = new URLLoader();
-				_loader.addEventListener(Event.COMPLETE, function (event:Event):void {
-											var _loader:URLLoader = URLLoader(event.target);
-											_compValueMapper = new XML(_loader.data);
-										});
-				try{
-					_loader.load(new URLRequest(COMP_VALUE_MAPPER));
-				}catch(loadingError:Error){
-					trace("Failure in loading of the componentValueMapper.xml file");
-					logInfo("Failure in loading of the componentValueMapper.xml file");
-				}
-			}
-			
 			try{
 				ExternalInterface.addCallback(AS_GET_COMP_VALUE_FUNCTION, this.getCompValue);
 			}catch(callBackError:Error){
 				trace("Failure in setting up of getCompValue callBack");
-				logInfo("Failure in setting up of getCompValue callBack");
+				_log.logInfo("Failure in setting up of getCompValue callBack");
 			}
-			logInfo("Finished with the initialization of " + _refApp["id"]);
+			_log.logInfo("Finished with the initialization of " + _refApp["id"]);
 		}
 		
 		public function populateInitValues(appInfo:Object):void {
@@ -227,7 +233,7 @@ package com.googlecode.jsfFlex.communication.core
 						attributeId = null;
 						attributeValue = null;
 						trace("Failure in getting access to reference " + nestedObjects[k].toString());
-						logInfo("Failure in getting access to reference " + nestedObjects[k].toString());
+						_log.logInfo("Failure in getting access to reference " + nestedObjects[k].toString());
 						break;
 					}
 				}

@@ -16,24 +16,27 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.component.ext.data;
-
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-
+ 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlDataProvider"
- *   class    = "com.googlecode.jsfFlex.component.ext.data.MXMLUIDataProvider"
- *   type     = "com.googlecode.jsfFlex.MXMLUIDataProvider"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.data.MXMLUIDataProviderTag"
- *   family   = "javax.faces.MXMLSimpleBase"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLDataProvider"
- *   
+ * This interface represents generic methods to be implemented by loggers
+ * [i.e. JavaScriptLogger]
  * @author Ji Hoon Kim
  */
-public abstract class AbstractMXMLUIDataProvider 
-						extends MXMLUISimpleBase {
+package com.googlecode.jsfFlex.communication.logger
+{
 	
-	
+	public interface ILogger {
+		
+		function log(errorMessage:String):void;
+		
+		function logDebug(errorMessage:String):void;
+		
+		function logInfo(errorMessage:String):void;
+		
+		function logWarn(errorMessage:String):void;
+		
+		function logError(errorMessage:String):void;
+		
+	}
 	
 }
