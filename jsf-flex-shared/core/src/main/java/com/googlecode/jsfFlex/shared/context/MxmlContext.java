@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.shared.context;
 import java.util.List;
 import java.util.Map;
 
+import com.googlecode.jsfFlex.shared.beans.AdditionalApplicationScriptContent;
 import com.googlecode.jsfFlex.shared.tasks._CommonTaskRunner;
 import com.googlecode.jsfFlex.shared.tasks._FileManipulatorTaskRunner;
 import com.googlecode.jsfFlex.shared.tasks._FlexTaskRunner;
@@ -46,6 +47,8 @@ public abstract class MxmlContext {
 	public abstract boolean isSimplySWF();
 	
 	public abstract void setSimplySWF(boolean simplySWF);
+	
+	public abstract AdditionalApplicationScriptContent getAdditionalAppScriptContent();
 	
 	public abstract List getApplicationInitValueList();
 	

@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import com.googlecode.jsfFlex.shared.beans.AdditionalApplicationScriptContent;
 import com.googlecode.jsfFlex.shared.tasks._CommonTaskRunner;
 import com.googlecode.jsfFlex.shared.tasks._FileManipulatorTaskRunner;
 import com.googlecode.jsfFlex.shared.tasks._FlexTaskRunner;
@@ -46,7 +47,9 @@ public class MxmlContextImpl extends MxmlContext {
 	private boolean _simplySWF;
 	
 	private Map _preMxmlCompMap;
+	private AdditionalApplicationScriptContent _additionalAppScriptContent;
 	private List _applicationInitValueList;
+	
 	private String _currMxml;
 	
 	private String _mxmlPath;
@@ -66,6 +69,7 @@ public class MxmlContextImpl extends MxmlContext {
 		super();
 		_currMxml = currMxml;
 		_preMxmlCompMap = new TreeMap();
+		_additionalAppScriptContent = new AdditionalApplicationScriptContent();
 		_applicationInitValueList = new LinkedList();
 		_runnerFactoryInstance = _RunnerFactory.getInstance();
 		_flexRunner = _runnerFactoryInstance.getFlexTaskRunnerImpl();
@@ -85,6 +89,9 @@ public class MxmlContextImpl extends MxmlContext {
 	}
 	public void setSimplySWF(boolean simplySWF) {
 		_simplySWF = simplySWF;
+	}
+	public AdditionalApplicationScriptContent getAdditionalAppScriptContent() {
+		return _additionalAppScriptContent;
 	}
 	public List getApplicationInitValueList() {
 		return _applicationInitValueList;

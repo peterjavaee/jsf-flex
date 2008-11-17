@@ -40,7 +40,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
  * 	editableOverSkin=true
  * 	editableUpSkin=true
  * 	overSkin=true
- * 	upSkin
+ * 	upSkin=true
  * 
  * @author Ji Hoon Kim
  */

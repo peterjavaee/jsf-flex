@@ -19,6 +19,7 @@
 package com.googlecode.jsfFlex.component;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
@@ -97,6 +98,11 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 		}
 		
 		populateComponentInitValues();
+		
+		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		List applicationInitValueList = mxmlContext.getApplicationInitValueList();
+    	applicationInitValueList.add(getComponentInitValues());
+		
 	}
 	
 	public _AnnotationDocletParser getAnnotationDocletParserInstance(){

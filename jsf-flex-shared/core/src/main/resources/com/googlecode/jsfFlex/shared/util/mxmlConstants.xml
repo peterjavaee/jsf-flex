@@ -11,8 +11,13 @@
       <plugins-page>http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash</plugins-page>
     </swf-html-attibute>
     <swc-source-files>
+      <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/component/DataGridAsynchronousRequest.as</source-file>
+      <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/component/DataGridColumnBean.as</source-file>
       <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/core/ComponentValueMapper.as</source-file>
       <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/logger/JavaScriptLogger.as</source-file>
+      <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/logger/ILogger.as</source-file>
+      <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/logger/LoggerFactory.as</source-file>
+      <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/services/JSONHttpService.as</source-file>
     </swc-source-files>
     <swf-source-files>
       <source-file>com/googlecode/jsfFlex/shared/swfSourceFiles/componentValueMapper.xml</source-file>

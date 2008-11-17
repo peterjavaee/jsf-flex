@@ -35,5 +35,7 @@
 			ExternalInterface.call(JS_COMMUNICATION_CORE_UPDATE_VALUES_FUNCTION, jsonObject);
 		}
 		
+		{additionalScriptContent}
+		
 		]]>
 </mx:Script>

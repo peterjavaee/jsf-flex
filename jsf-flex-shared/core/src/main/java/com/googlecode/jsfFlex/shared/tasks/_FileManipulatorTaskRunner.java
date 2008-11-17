@@ -24,6 +24,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Map;
 import java.util.Properties;
 import java.util.Set;
 
@@ -38,6 +39,8 @@ import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 public abstract class _FileManipulatorTaskRunner extends TaskRunnerImpl {
 	
 	private final static Log _log = LogFactory.getLog(_FileManipulatorTaskRunner.class);
+	
+	public abstract void createFileContent(String _filePath, String _templateFile, Properties _initProperties, Map _tokenMap);
 	
 	public abstract void createPreMxmlFile(String _preMxmlFilePath, Properties _initProperties, Set _tokenList, String _mxmlComponentName, 
 												String _bodyContent, String _childIdentifier, String _siblingIdentifier);
