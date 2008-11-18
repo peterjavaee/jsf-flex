@@ -111,7 +111,7 @@ public final class MXMLProgressBarRenderer extends MXMLComponentRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLProgressBarRenderer.class, componentObj, MXML_PROGRESS_BAR_REPLACE_MAPPING);
-		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 

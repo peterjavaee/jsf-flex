@@ -53,10 +53,10 @@ public final class MXMLScriptRenderer extends MXMLComponentBaseRenderer {
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		
-		String _bodyContent = writer.getComponentTemplate(MXMLScriptRenderer.class.getClassLoader(), 
+		String bodyContent = writer.getComponentTemplate(MXMLScriptRenderer.class.getClassLoader(), 
 																				MXML_SCRIPT_BODY_TEMPLATE);
 		
-		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, _bodyContent);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, bodyContent);
 		
 	}
 	

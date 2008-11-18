@@ -63,7 +63,7 @@ public final class MXMLZipCodeValidatorRenderer extends MXMLValidatorTemplateRen
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLZipCodeValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, 
+		writer.createPreMxml(componentMXML, 
 				MXMLZipCodeValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		

@@ -66,7 +66,7 @@ public final class MXMLCheckBoxRenderer extends MXMLButtonTemplateRenderer {
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
-		writer.createPreMxml(writer, componentMXML, MXMLCheckBoxRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLCheckBoxRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

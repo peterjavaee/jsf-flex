@@ -49,8 +49,8 @@ public final class MkdirTask extends _JythonBaseTask {
 	
 	void build() {
 		
-		PyObject _mkdirTaskObject = _mkdirTaskClass.__call__(new PyString(_directory));
-		_jythonTask = (_JythonTaskPerformer) _mkdirTaskObject.__tojava__(_JythonTaskPerformer.class);
+		PyObject mkdirTaskObject = _mkdirTaskClass.__call__(new PyString(_directory));
+		_jythonTask = (_JythonTaskPerformer) mkdirTaskObject.__tojava__(_JythonTaskPerformer.class);
 	}
 	
 	public String toString() {

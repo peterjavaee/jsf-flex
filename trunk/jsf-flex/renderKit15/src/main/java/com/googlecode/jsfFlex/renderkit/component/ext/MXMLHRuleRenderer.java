@@ -59,7 +59,7 @@ public final class MXMLHRuleRenderer extends MXMLComponentRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLHRuleRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLHRuleRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLHRuleRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

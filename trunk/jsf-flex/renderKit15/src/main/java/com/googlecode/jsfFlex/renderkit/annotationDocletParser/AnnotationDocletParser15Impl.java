@@ -48,9 +48,9 @@ public final class AnnotationDocletParser15Impl extends _AnnotationDocletParser 
 	@SuppressWarnings("unchecked")
 	public void mapComponentFields(Class mapClass, final Object componentObj, final String replaceMappingXML){
 		
-		JsfFlexAttributeProperties _jsfFlexAttributeList = (JsfFlexAttributeProperties) mapClass.getAnnotation(JsfFlexAttributeProperties.class);
+		JsfFlexAttributeProperties jsfFlexAttributeList = (JsfFlexAttributeProperties) mapClass.getAnnotation(JsfFlexAttributeProperties.class);
 		
-		JsfFlexAttribute[] jsfFlexAttributes = _jsfFlexAttributeList.jsfFlexAttributes();
+		JsfFlexAttribute[] jsfFlexAttributes = jsfFlexAttributeList.jsfFlexAttributes();
 		
 		for(JsfFlexAttribute currAttribute : jsfFlexAttributes){
 			
@@ -61,9 +61,9 @@ public final class AnnotationDocletParser15Impl extends _AnnotationDocletParser 
 			}
 			
 			try{
-				TokenValue _tokenValue = getMapper().mapField(currAttribute.attribute(), componentObj);
-				if(_tokenValue != null){
-					getTokenValueSet().add(_tokenValue);
+				TokenValue tokenValue = getMapper().mapField(currAttribute.attribute(), componentObj);
+				if(tokenValue != null){
+					getTokenValueSet().add(tokenValue);
 				}
 			}catch(ComponentBuildException _componentBuildExcept){
 				_log.debug("Exception thrown for [ Class : " + componentObj.getClass().getName() + ", replaceToken : " + currAttribute.attribute() + " ] ");

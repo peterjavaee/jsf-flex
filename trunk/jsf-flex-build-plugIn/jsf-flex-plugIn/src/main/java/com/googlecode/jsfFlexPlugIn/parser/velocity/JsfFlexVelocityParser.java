@@ -75,39 +75,39 @@ public class JsfFlexVelocityParser {
 		
 	}
 	
-	public synchronized void mergeCollectionToTemplate(String _template, Map<String, Object> _contextInfo, Writer _targetWriter, String _fileMerged){
+	public synchronized void mergeCollectionToTemplate(String template, Map<String, Object> contextInfo, Writer targetWriter, String fileMerged){
 		
-		for(Iterator<String> _contextInfoIterator = _contextInfo.keySet().iterator(); _contextInfoIterator.hasNext();){
-			String _currKey = _contextInfoIterator.next();
-			_context.put(_currKey, _contextInfo.get(_currKey));
+		for(Iterator<String> contextInfoIterator = contextInfo.keySet().iterator(); contextInfoIterator.hasNext();){
+			String currKey = contextInfoIterator.next();
+			_context.put(currKey, contextInfo.get(currKey));
 		}
 		
 		try{
-			_velocityEngine.mergeTemplate(_template, _context, _targetWriter);
-			_targetWriter.flush();
+			_velocityEngine.mergeTemplate(template, _context, targetWriter);
+			targetWriter.flush();
 			
-		}catch(Exception _exceptionWhileMerging){
-			throw new RuntimeException(_exceptionWhileMerging);
+		}catch(Exception exceptionWhileMerging){
+			throw new RuntimeException(exceptionWhileMerging);
 		}finally{
 			try{
-				if(_targetWriter != null){
-					_targetWriter.close();
+				if(targetWriter != null){
+					targetWriter.close();
 				}
 			}catch(IOException closerException){
 				_log.debug("Error in closing the writer within mergeCollectionToTemplate", closerException);
 			}
 		}
 		
-		mergeCollectionToTemplateFinished(_fileMerged);
+		mergeCollectionToTemplateFinished(fileMerged);
 	}
 	
-	public synchronized void addParserListener(_JsfFlexParserListener _callBack){
-		_jsfFlexVelocityParserListeners.add(_callBack);
+	public synchronized void addParserListener(_JsfFlexParserListener callBack){
+		_jsfFlexVelocityParserListeners.add(callBack);
 	}
 	
-	private synchronized void mergeCollectionToTemplateFinished(String _fileMerged){
-		for(_JsfFlexParserListener _mergeCollectionToTemplateCallBack : _jsfFlexVelocityParserListeners){
-			_mergeCollectionToTemplateCallBack.mergeCollectionToTemplateFinished(_fileMerged);
+	private synchronized void mergeCollectionToTemplateFinished(String fileMerged){
+		for(_JsfFlexParserListener mergeCollectionToTemplateCallBack : _jsfFlexVelocityParserListeners){
+			mergeCollectionToTemplateCallBack.mergeCollectionToTemplateFinished(fileMerged);
 		}
 	}
 	

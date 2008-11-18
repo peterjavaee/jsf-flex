@@ -66,7 +66,7 @@ public final class MXMLViewStackRenderer extends MXMLViewStackTemplateRenderer {
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
-		writer.createPreMxml(writer, componentMXML, MXMLViewStackRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLViewStackRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

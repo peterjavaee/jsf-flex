@@ -99,7 +99,7 @@ public final class MXMLDataGridColumnRenderer extends MXMLComponentBaseRenderer 
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLDataGridColumnRenderer.class, componentObj, MXML_DATA_GRID_COLUMN_REPLACE_MAPPING);
-		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 	

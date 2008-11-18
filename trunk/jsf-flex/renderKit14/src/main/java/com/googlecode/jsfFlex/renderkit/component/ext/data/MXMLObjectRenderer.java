@@ -59,7 +59,7 @@ public final class MXMLObjectRenderer extends MXMLComponentBaseRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLObjectRenderer.class, componentObj, MXML_OBJECT_REPLACE_MAPPING);
-		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 	

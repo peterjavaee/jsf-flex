@@ -105,8 +105,8 @@ public final class AdditionalApplicationScriptContent {
 				return false;
 			}
 			
-			DataGridScriptContent _dataGridScriptContentInstance = (DataGridScriptContent) instance; 
-			return this._dataGridId.equals(_dataGridScriptContentInstance._dataGridId);
+			DataGridScriptContent dataGridScriptContentInstance = (DataGridScriptContent) instance; 
+			return this._dataGridId.equals(dataGridScriptContentInstance._dataGridId);
 		}
 		public int hashCode() {
 			return _dataGridId.hashCode();

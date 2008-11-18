@@ -57,7 +57,7 @@ public final class MXMLZipCodeFormatterRenderer extends MXMLFormatterTemplateRen
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLZipCodeFormatterRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLZipCodeFormatterRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLZipCodeFormatterRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

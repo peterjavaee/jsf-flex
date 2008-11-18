@@ -57,15 +57,15 @@ public final class AnnotationDocletParser14Impl extends _AnnotationDocletParser 
 			parser.parse(loader.getResourceAsStream(replaceMappingXML), new DefaultHandler() {
 				
 				private StringBuffer nodeValue;
-				private String replace_token;
+				private String replaceToken;
 				
-				private boolean replace_tokenCheck;
+				private boolean replaceTokenCheck;
 				private boolean byMethod;
 				
 				public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 					super.startElement(uri, localName, qName, attributes);
 					if(qName.equals("replace-token")){
-						replace_tokenCheck = true;
+						replaceTokenCheck = true;
 						byMethod = (attributes.getLength() == 0 || attributes.getValue(BY_ATTRIBUTE) == null);
 					}
 					nodeValue = new StringBuffer();
@@ -79,9 +79,8 @@ public final class AnnotationDocletParser14Impl extends _AnnotationDocletParser 
 						currentValue = nodeValue.toString().trim();
 					}
 					
-					if(replace_tokenCheck){
-						replace_token = currentValue;
-						
+					if(replaceTokenCheck){
+						replaceToken = currentValue;
 						
 						if(byMethod){
 							setMapper(MXML_METHOD_MAPPER);
@@ -90,22 +89,22 @@ public final class AnnotationDocletParser14Impl extends _AnnotationDocletParser 
 						}
 						
 						try{
-							TokenValue _tokenValue = getMapper().mapField(replace_token, componentObj);
-							if(_tokenValue != null){
-								getTokenValueSet().add(_tokenValue);
+							TokenValue tokenValue = getMapper().mapField(replaceToken, componentObj);
+							if(tokenValue != null){
+								getTokenValueSet().add(tokenValue);
 							}
 						}catch(ComponentBuildException _componentBuildExcept){
-							_log.debug("Exception thrown for [ Class : " + componentObj.getClass().getName() + ", replaceToken : " + replace_token + " ] ");
+							_log.debug("Exception thrown for [ Class : " + componentObj.getClass().getName() + ", replaceToken : " + replaceToken + " ] ");
 						}
 						
-						replace_tokenCheck = false;
+						replaceTokenCheck = false;
 					}
 					
 				}
 				
 				public void characters(char[] ch, int start, int length) throws SAXException {
 					super.characters(ch, start, length);
-					if(!replace_tokenCheck){
+					if(!replaceTokenCheck){
 						return;
 					}
 					nodeValue.append(new String(ch, start, length));

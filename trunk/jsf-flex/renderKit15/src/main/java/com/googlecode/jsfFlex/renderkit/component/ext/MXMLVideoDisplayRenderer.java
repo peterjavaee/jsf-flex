@@ -93,7 +93,7 @@ public final class MXMLVideoDisplayRenderer extends MXMLComponentRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLVideoDisplayRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLVideoDisplayRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLVideoDisplayRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

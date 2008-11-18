@@ -72,9 +72,9 @@ public final class EchoTask extends AntBaseTask {
 		_echoTask.addText(_message);
 		_echoTask.setFile(new File(_file));
 		
-		EchoLevel _echoLevel = new EchoLevel();
-		_echoLevel.setValue(_level);
-		_echoTask.setLevel(_echoLevel);
+		EchoLevel echoLevel = new EchoLevel();
+		echoLevel.setValue(_level);
+		_echoTask.setLevel(echoLevel);
 		
 		_echoTask.setAppend(_append);
 		

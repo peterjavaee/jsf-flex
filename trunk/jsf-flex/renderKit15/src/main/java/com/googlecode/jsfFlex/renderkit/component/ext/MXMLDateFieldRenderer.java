@@ -124,7 +124,7 @@ public final class MXMLDateFieldRenderer extends MXMLComboBaseTemplateRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLDateFieldRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLDateFieldRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLDateFieldRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

@@ -53,7 +53,7 @@ public final class MXMLDataProviderRenderer extends MXMLComponentBaseRenderer {
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
-		writer.createPreMxml(writer, componentMXML, MXMLDataProviderRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLDataProviderRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

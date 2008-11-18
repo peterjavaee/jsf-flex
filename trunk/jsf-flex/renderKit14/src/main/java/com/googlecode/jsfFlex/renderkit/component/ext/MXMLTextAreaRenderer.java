@@ -98,7 +98,7 @@ public final class MXMLTextAreaRenderer extends MXMLScrollControlTemplateRendere
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLTextAreaRenderer.class, componentObj, MXML_TEXT_AREA_REPLACE_MAPPING);
-		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 

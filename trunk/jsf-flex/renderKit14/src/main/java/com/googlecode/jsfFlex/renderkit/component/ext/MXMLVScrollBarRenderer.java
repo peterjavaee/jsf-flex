@@ -59,7 +59,7 @@ public final class MXMLVScrollBarRenderer extends MXMLScrollBarTemplateRenderer 
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLVScrollBarRenderer.class, componentObj, MXML_VSCROLL_BAR_REPLACE_MAPPING);
-		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 

@@ -67,31 +67,31 @@ public final class CreateReplaceMappingXMLMojo extends AbstractMojo
 	/**
 	 * @parameter expression="${project}"
 	 */
-	private MavenProject project;
+	private MavenProject _project;
 	
 	/**
      * @parameter expression="target/classes"
      */
-	private File rootResourceDirectory;
+	private File _rootResourceDirectory;
 	
 	/**
      * @parameter expression="src/main/resources/META-INF"
      */
-    private File templateSourceDirectory;
+    private File _templateSourceDirectory;
 	
 	public void execute() throws MojoExecutionException, MojoFailureException {
-		List _compileSourceRoots = project.getCompileSourceRoots();
+		List compileSourceRoots = _project.getCompileSourceRoots();
 		
-		for(Iterator _compileSourceRootsIterator = _compileSourceRoots.iterator(); 
-													_compileSourceRootsIterator.hasNext();){
-			String _currDirPath = (String) _compileSourceRootsIterator.next();
-			_jsfFlexInspector = new JsfFlexQdoxInspector(_currDirPath, JSF_FLEX_ATTRIBUTE);
+		for(Iterator compileSourceRootsIterator = compileSourceRoots.iterator(); 
+													compileSourceRootsIterator.hasNext();){
+			String currDirPath = (String) compileSourceRootsIterator.next();
+			_jsfFlexInspector = new JsfFlexQdoxInspector(currDirPath, JSF_FLEX_ATTRIBUTE);
 			_jsfFlexInspector.addInspectListener(this);
 			
-			Properties _velocityParserProperties = new Properties();
-			_velocityParserProperties.put(FILE_RESOURCE_LOADER_PATH_KEY, templateSourceDirectory.getPath());
+			Properties velocityParserProperties = new Properties();
+			velocityParserProperties.put(FILE_RESOURCE_LOADER_PATH_KEY, _templateSourceDirectory.getPath());
 			
-			_jsfFlexVelocityParser = new JsfFlexVelocityParser(_velocityParserProperties);
+			_jsfFlexVelocityParser = new JsfFlexVelocityParser(velocityParserProperties);
 			_jsfFlexVelocityParser.init();
 			_jsfFlexVelocityParser.addParserListener(this);
 			
@@ -127,7 +127,7 @@ public final class CreateReplaceMappingXMLMojo extends AbstractMojo
 		
 	}
 	
-	public void inspectFileFinished(List<Map<String, ? extends Object>> _inspected, String _sourceInspected, String _package){
+	public void inspectFileFinished(List<Map<String, ? extends Object>> inspected, String sourceInspected, String packageName){
 		
 		/*
 		 * For this Mojo there will be a breakage in terms of concept for the Inspector's inspectFiles method
@@ -148,27 +148,27 @@ public final class CreateReplaceMappingXMLMojo extends AbstractMojo
 		 *   byMethod=byMethodValue
 		 * 
 		 */
-		String _path = StringUtils.getPackageAsPath(_package);
-		String _replaceMappingXMLFileName = rootResourceDirectory.getPath() + File.separatorChar + _path + TO_CREATE_REPLACE_MAPPING_XML_DIRECTORY_NAME + 
-												File.separatorChar + _sourceInspected + TO_CREATE_REPLACE_MAPPING_XML_FILE_SUFFIX;
-		String _checkDirExists = rootResourceDirectory.getPath() + File.separatorChar + _path + TO_CREATE_REPLACE_MAPPING_XML_DIRECTORY_NAME + 
+		String path = StringUtils.getPackageAsPath(packageName);
+		String replaceMappingXMLFileName = _rootResourceDirectory.getPath() + File.separatorChar + path + TO_CREATE_REPLACE_MAPPING_XML_DIRECTORY_NAME + 
+												File.separatorChar + sourceInspected + TO_CREATE_REPLACE_MAPPING_XML_FILE_SUFFIX;
+		String checkDirExists = _rootResourceDirectory.getPath() + File.separatorChar + path + TO_CREATE_REPLACE_MAPPING_XML_DIRECTORY_NAME + 
 										File.separatorChar;
 		try{
 			
-			File _checkExists = new File(_checkDirExists);
-			if(!_checkExists.exists()){
-				_checkExists.mkdirs();
+			File checkExists = new File(checkDirExists);
+			if(!checkExists.exists()){
+				checkExists.mkdirs();
 			}
 			
-			FileWriter _writer = new FileWriter(new File(_replaceMappingXMLFileName));
-			List<ReplaceMappingXMLVelocityObject> replaceMappingXMLVelocityObjects = generateReplaceMappingXMLVelocityObjects(_inspected);
-			Map<String, Object> _contextInfoMap = new HashMap<String, Object>();
-			_contextInfoMap.put(REPLACE_MAPPING_XML_ATTRIBUTE, replaceMappingXMLVelocityObjects);
-			_jsfFlexVelocityParser.mergeCollectionToTemplate(REPLACE_MAPPING_XML_TEMPLATE, _contextInfoMap, 
-																_writer, _replaceMappingXMLFileName);
+			FileWriter writer = new FileWriter(new File(replaceMappingXMLFileName));
+			List<ReplaceMappingXMLVelocityObject> replaceMappingXMLVelocityObjects = generateReplaceMappingXMLVelocityObjects(inspected);
+			Map<String, Object> contextInfoMap = new HashMap<String, Object>();
+			contextInfoMap.put(REPLACE_MAPPING_XML_ATTRIBUTE, replaceMappingXMLVelocityObjects);
+			_jsfFlexVelocityParser.mergeCollectionToTemplate(REPLACE_MAPPING_XML_TEMPLATE, contextInfoMap, 
+																writer, replaceMappingXMLFileName);
 			
 		}catch(IOException _ioExcept){
-			throw new RuntimeException("Error thrown for file " + _replaceMappingXMLFileName, _ioExcept);
+			throw new RuntimeException("Error thrown for file " + replaceMappingXMLFileName, _ioExcept);
 		}
 		
 	}
@@ -177,25 +177,25 @@ public final class CreateReplaceMappingXMLMojo extends AbstractMojo
 		
 	}
 	
-	private List<ReplaceMappingXMLVelocityObject> generateReplaceMappingXMLVelocityObjects(List<Map<String, ? extends Object>> _readNamedParameterList){
-		List<ReplaceMappingXMLVelocityObject> _replaceMappingXMLVelocityObjects = new LinkedList<ReplaceMappingXMLVelocityObject>();
+	private List<ReplaceMappingXMLVelocityObject> generateReplaceMappingXMLVelocityObjects(List<Map<String, ? extends Object>> readNamedParameterList){
+		List<ReplaceMappingXMLVelocityObject> replaceMappingXMLVelocityObjects = new LinkedList<ReplaceMappingXMLVelocityObject>();
 		
-		for(Map<String, ? extends Object> _readNamedParameter : _readNamedParameterList){
+		for(Map<String, ? extends Object> readNamedParameter : readNamedParameterList){
 			
-			for(String _token : _readNamedParameter.keySet()){
-				Object _byMethod = _readNamedParameter.get(_token);
-				_byMethod = _byMethod == null ? "false" : _byMethod;
-				_replaceMappingXMLVelocityObjects.add(new ReplaceMappingXMLVelocityObject(_token, Boolean.valueOf((String) _byMethod)));
+			for(String token : readNamedParameter.keySet()){
+				Object byMethod = readNamedParameter.get(token);
+				byMethod = byMethod == null ? "false" : byMethod;
+				replaceMappingXMLVelocityObjects.add(new ReplaceMappingXMLVelocityObject(token, Boolean.valueOf((String) byMethod)));
 			}
 			
 		}
 		
-		return _replaceMappingXMLVelocityObjects;
+		return replaceMappingXMLVelocityObjects;
 	}
 	
-	public void mergeCollectionToTemplateFinished(String _fileMerged){
+	public void mergeCollectionToTemplateFinished(String fileMerged){
 		
-		ReplaceText removeEmptySpace = new ReplaceText(_fileMerged);
+		ReplaceText removeEmptySpace = new ReplaceText(fileMerged);
 		removeEmptySpace.replaceRegExp(true);
 		removeEmptySpace.regMatch(ReplaceText.CLEAN_REG_EXP_MATCH);
 		removeEmptySpace.regReplace(ReplaceText.CLEAN_REG_EXP_REPLACE_WITH);

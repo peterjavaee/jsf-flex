@@ -53,7 +53,7 @@ public final class MXMLToggleButtonBarRenderer extends MXMLToggleButtonBarTempla
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
-		writer.createPreMxml(writer, componentMXML, MXMLToggleButtonBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLToggleButtonBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

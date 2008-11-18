@@ -60,7 +60,7 @@ public final class MXMLRegExpValidatorRenderer extends MXMLValidatorTemplateRend
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLRegExpValidatorRenderer.class, componentObj, MXML_REG_EXP_VALIDATOR_REPLACE_MAPPING);
-		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 

@@ -61,7 +61,7 @@ public final class MXMLSetEventHandlerRenderer extends MXMLComponentBaseRenderer
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLSetEventHandlerRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLSetEventHandlerRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLSetEventHandlerRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

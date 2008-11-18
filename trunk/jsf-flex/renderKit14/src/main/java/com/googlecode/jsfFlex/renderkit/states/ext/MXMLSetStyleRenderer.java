@@ -60,7 +60,7 @@ public final class MXMLSetStyleRenderer extends MXMLComponentBaseRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLSetStyleRenderer.class, componentObj, MXML_SET_STYLE_REPLACE_MAPPING);
-		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 	

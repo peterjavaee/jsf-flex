@@ -231,6 +231,9 @@ public abstract class AbstractMXMLUIApplication
 						_MXMLUIThumbSkinAttributes, _MXMLUITrackAttributes, _MXMLUIHideAttribute,
 						_MXMLUITitleAttribute, _MXMLUIIconAttribute, _MXMLContract {
 	
+	private static final String JSF_FLEX_COMMUNICATOR_CORE_JS = "jsfFlexCommunicatorCore.js";
+	private static final String JSF_FLEX_COMMUNICATOR_LOGGER_JS = "jsfFlexCommunicatorLogger.js";
+	
 	private static final String INITIALIZE_ATTR = "initialize";
 	
 	private static final String MX_ACTUAL_KEY = "xmlns:mx";
@@ -238,8 +241,6 @@ public abstract class AbstractMXMLUIApplication
 	private static final String MX_DEFAULT_XMLNS = "http://www.adobe.com/2006/mxml";
     private static final String INITIALIZE_CALL = "initializeApp(event);";
 	
-    private static final String CONFIG_MODE_NAME = "com.googlecode.jsfFlex.MODE";
-    
     private _AnnotationDocletParser _annotationDocletParserInstance;
     
     private String _absolutePathToPreMxmlFile;
@@ -271,15 +272,15 @@ public abstract class AbstractMXMLUIApplication
 		
 		MxmlContext mxmlContext = new MxmlContextImpl(getMxmlPackageName());
 		
-		Object mode = context.getExternalContext().getInitParameter(CONFIG_MODE_NAME);
+		Object mode = context.getExternalContext().getInitParameter(MXMLConstants.CONFIG_MODE_NAME);
 		
 		boolean isSimplySwf = false;
 		boolean isProduction = true;
 		
 		if(mode != null){
 			
-			isSimplySwf = mode.toString().equals("simplySwfMode");
-			isProduction = mode.toString().equals("productionMode");
+			isSimplySwf = mode.toString().equals(MXMLConstants.SIMPLY_SWF_MODE);
+			isProduction = mode.toString().equals(MXMLConstants.PRODUCTION_MODE);
 			
 		}
 		
@@ -290,9 +291,9 @@ public abstract class AbstractMXMLUIApplication
 		mxmlContext.setSwfWebPath(swfWebPath);
 		
 		//setting or appending scripts to execute upon application initialization
-		String _init = (String) getAttributes().get(INITIALIZE_ATTR);
-		_init = (_init == null) ? INITIALIZE_CALL : _init + " " + INITIALIZE_CALL;
-		getAttributes().put(INITIALIZE_ATTR, _init);
+		String init = (String) getAttributes().get(INITIALIZE_ATTR);
+		init = (init == null) ? INITIALIZE_CALL : init + " " + INITIALIZE_CALL;
+		getAttributes().put(INITIALIZE_ATTR, init);
 		
 		//to reflect the correct state when debugging
 		if(isProduction){
@@ -347,10 +348,10 @@ public abstract class AbstractMXMLUIApplication
 	
 	public void encodeEnd(FacesContext context) throws IOException {
 		
-		JsfFlexDojoResource _jsfFlexDojoResource = JsfFlexDojoResource.getDojoInstance();
-		_jsfFlexDojoResource.addDojoMain();
-		_jsfFlexDojoResource.addResource(getClass(), MXMLConstants.JSF_FLEX_COMMUNICATOR_CORE_JS);
-		_jsfFlexDojoResource.addResource(getClass(), MXMLConstants.JSF_FLEX_COMMUNICATOR_LOGGER_JS);
+		JsfFlexDojoResource jsfFlexDojoResource = JsfFlexDojoResource.getDojoInstance();
+		jsfFlexDojoResource.addDojoMain();
+		jsfFlexDojoResource.addResource(getClass(), JSF_FLEX_COMMUNICATOR_CORE_JS);
+		jsfFlexDojoResource.addResource(getClass(), JSF_FLEX_COMMUNICATOR_LOGGER_JS);
 		
 		super.encodeEnd(context);
 	}
@@ -363,8 +364,8 @@ public abstract class AbstractMXMLUIApplication
 		
 		if(_annotationDocletParserInstance == null){
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-			_RunnerFactory _runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
-			_annotationDocletParserInstance = _runnerFactoryInstance.getAnnotationDocletParserImpl();
+			_RunnerFactory runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
+			_annotationDocletParserInstance = runnerFactoryInstance.getAnnotationDocletParserImpl();
 		}
 		
 		return _annotationDocletParserInstance;

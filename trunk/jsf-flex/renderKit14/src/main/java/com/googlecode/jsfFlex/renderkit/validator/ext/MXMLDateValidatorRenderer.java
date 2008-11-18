@@ -74,7 +74,7 @@ public final class MXMLDateValidatorRenderer extends MXMLValidatorTemplateRender
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLDateValidatorRenderer.class, componentObj, MXML_DATE_VALIDATOR_REPLACE_MAPPING);
-		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 

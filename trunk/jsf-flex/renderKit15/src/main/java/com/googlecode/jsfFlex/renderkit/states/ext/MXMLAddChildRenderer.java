@@ -62,7 +62,7 @@ public final class MXMLAddChildRenderer extends MXMLComponentBaseRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLAddChildRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLAddChildRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLAddChildRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

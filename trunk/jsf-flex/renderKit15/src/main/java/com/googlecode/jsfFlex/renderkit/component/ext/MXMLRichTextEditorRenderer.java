@@ -83,7 +83,7 @@ public final class MXMLRichTextEditorRenderer extends MXMLPanelTemplateRenderer 
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLRichTextEditorRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLRichTextEditorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLRichTextEditorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

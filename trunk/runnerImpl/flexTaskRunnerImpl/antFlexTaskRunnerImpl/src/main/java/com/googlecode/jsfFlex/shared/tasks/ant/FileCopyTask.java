@@ -98,8 +98,8 @@ public final class FileCopyTask extends AntBaseTask {
 				
 				for(Iterator iterate = _copyInclude.iterator(); iterate.hasNext();){
 					String currentCopyInclude = (String) iterate.next();
-					PatternSet.NameEntry _copyIncludeNE = _dirCopyFileSet.createInclude();
-					_copyIncludeNE.setName(currentCopyInclude);
+					PatternSet.NameEntry copyIncludeNE = _dirCopyFileSet.createInclude();
+					copyIncludeNE.setName(currentCopyInclude);
 				}
 			}
 			
@@ -107,8 +107,8 @@ public final class FileCopyTask extends AntBaseTask {
 				
 				for(Iterator iterate = _copyExclude.iterator(); iterate.hasNext();){
 					String currentCopyExclude = (String) iterate.next();
-					PatternSet.NameEntry _copyExcludeNE = _dirCopyFileSet.createExclude();
-					_copyExcludeNE.setName(currentCopyExclude);
+					PatternSet.NameEntry copyExcludeNE = _dirCopyFileSet.createExclude();
+					copyExcludeNE.setName(currentCopyExclude);
 				}
 			}
 			

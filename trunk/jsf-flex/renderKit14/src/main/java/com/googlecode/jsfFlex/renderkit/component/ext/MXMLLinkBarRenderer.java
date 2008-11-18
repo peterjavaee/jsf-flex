@@ -63,7 +63,7 @@ public final class MXMLLinkBarRenderer extends MXMLNavBarTemplateRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLLinkBarRenderer.class, componentObj, MXML_LINK_BAR_REPLACE_MAPPING);
-		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 

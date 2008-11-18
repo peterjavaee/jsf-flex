@@ -57,9 +57,9 @@ class TaskRunnerImpl implements _TaskRunner {
 		}
 	}
 	
-	public void addTasks(Collection _tasksToAdd) {
+	public void addTasks(Collection tasksToAdd) {
 		synchronized(_lock){
-			_tasks.addAll(_tasksToAdd);
+			_tasks.addAll(tasksToAdd);
 			execute();
 		}
 	}

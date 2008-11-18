@@ -60,7 +60,7 @@ public final class MXMLStateRenderer extends MXMLComponentBaseRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLStateRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLStateRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLStateRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

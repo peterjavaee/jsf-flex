@@ -51,8 +51,8 @@ public final class EchoTask extends _JythonBaseTask {
 	
 	void build() {
 		
-		PyObject _echoTaskObject = _echoTaskClass.__call__(new PyString(_message), new PyString(_file));
-		_jythonTask = (_JythonTaskPerformer) _echoTaskObject.__tojava__(_JythonTaskPerformer.class);
+		PyObject echoTaskObject = _echoTaskClass.__call__(new PyString(_message), new PyString(_file));
+		_jythonTask = (_JythonTaskPerformer) echoTaskObject.__tojava__(_JythonTaskPerformer.class);
 	}
 	
 	public String toString() {

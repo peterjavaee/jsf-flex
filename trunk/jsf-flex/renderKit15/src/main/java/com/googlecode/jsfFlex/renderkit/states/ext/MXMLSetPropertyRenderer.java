@@ -60,7 +60,7 @@ public final class MXMLSetPropertyRenderer extends MXMLComponentBaseRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLSetPropertyRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLSetPropertyRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLSetPropertyRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

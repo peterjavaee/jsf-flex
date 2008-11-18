@@ -59,7 +59,7 @@ public final class MXMLHScrollBarRenderer extends MXMLScrollBarTemplateRenderer 
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLHScrollBarRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLHScrollBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLHScrollBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

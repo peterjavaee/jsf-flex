@@ -59,7 +59,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 		String copyTo = mxmlContext.getMxmlPath() + mxmlContext.getCurrMxml() + MXMLConstants.MXML_FILE_EXT;
 		//now create the MXML file
-		createMXML(componentMXML, copyTo);
+		createMXML(componentMXML.getAbsolutePathToPreMxmlFile(), copyTo);
 		
 		if(!new File(mxmlContext.getFlexSDKPath()).exists()){
 			makeDirectory(mxmlContext.getFlexSDKPath());
@@ -70,9 +70,9 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 										MXMLConstants.JSF_FLEX_MAIN_SWC_CONFIG_FILE);
 			
 			//create the SWC file
-			String _loadConfigAbsolutePath = mxmlContext.getSwcPath() + MXMLConstants.JSF_FLEX_MAIN_SWC_CONFIGURATIONFILE;
-			String _swcFileLocationPath = mxmlContext.getSwcPath() + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWC_FILE_EXT;
-			createSystemSWCFile(mxmlContext.getSwcPath(), _swcFileLocationPath, mxmlContext.getFlexSDKPath(), _loadConfigAbsolutePath);
+			String loadConfigAbsolutePath = mxmlContext.getSwcPath() + MXMLConstants.JSF_FLEX_MAIN_SWC_CONFIGURATIONFILE;
+			String swcFileLocationPath = mxmlContext.getSwcPath() + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWC_FILE_EXT;
+			createSystemSWCFile(mxmlContext.getSwcPath(), swcFileLocationPath, mxmlContext.getFlexSDKPath(), loadConfigAbsolutePath);
 			
 			/*
 			 * 	copy the necessary swf source files to swfBasePath
@@ -83,7 +83,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 			/*
 			 * unzip the swc's library.swf file and copy it to the swf file for linking with the swf file
 			 */
-			unZipArchiveAbsolute(new File(_swcFileLocationPath), mxmlContext.getSwcPath());
+			unZipArchiveAbsolute(new File(swcFileLocationPath), mxmlContext.getSwcPath());
 			
 			//copy the library.swf file to swc directory
 			copyFileSet(mxmlContext.getSwcPath(), "**/*.swf", null, mxmlContext.getSwfBasePath());
@@ -120,12 +120,12 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param mappingFile
 	 */
 	public final void mapFields(Class mapClass, Object componentObj, String mappingFile) {
-		_MXMLContract _comp = (_MXMLContract) componentObj;
-		_comp.getAnnotationDocletParserInstance().mapComponentFields(mapClass, componentObj, mappingFile);
+		_MXMLContract comp = (_MXMLContract) componentObj;
+		comp.getAnnotationDocletParserInstance().mapComponentFields(mapClass, componentObj, mappingFile);
 	}
 	
-	public final void createFileContent(String _filePath, String _templateFile, Properties _initProperties, Map _tokenMap){
-		getFileManipulatorTaskRunner().createFileContent(_filePath, _templateFile, _initProperties, _tokenMap);
+	public final void createFileContent(String filePath, String templateFile, Properties initProperties, Map tokenMap){
+		getFileManipulatorTaskRunner().createFileContent(filePath, templateFile, initProperties, tokenMap);
 	}
 	
 	/**
@@ -135,13 +135,13 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param mxmlComponentName
 	 * @param bodyContent
 	 */
-	public final void createPreMxml(AbstractMXMLResponseWriter writer, _MXMLContract comp, String mxmlComponentName, String bodyContent) {
+	public final void createPreMxml(_MXMLContract comp, String mxmlComponentName, String bodyContent) {
 		
 		String fileDirectory = comp.getAbsolutePathToPreMxmlFile().substring(0, comp.getAbsolutePathToPreMxmlFile().lastIndexOf(File.separatorChar));
-		writer.getFlexTaskRunner().makeDirectory(fileDirectory);
+		getFlexTaskRunner().makeDirectory(fileDirectory);
 		
-		writer.getFileManipulatorTaskRunner().createPreMxmlFile(comp.getAbsolutePathToPreMxmlFile(), null, comp.getAnnotationDocletParserInstance().getTokenValueSet(), mxmlComponentName, 
-																bodyContent, writer.childPreMxmlComponentIdentifier(comp), writer.siblingPreMxmlComponentIdentifier(comp));
+		getFileManipulatorTaskRunner().createPreMxmlFile(comp.getAbsolutePathToPreMxmlFile(), null, comp.getAnnotationDocletParserInstance().getTokenValueSet(), mxmlComponentName, 
+																bodyContent, childPreMxmlComponentIdentifier(comp), siblingPreMxmlComponentIdentifier(comp));
 		
 	}
 	
@@ -152,8 +152,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param valueToReplaceWith
 	 * @param tokenReplace
 	 */
-	public final void replaceTokenWithValue(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) {
-		getFlexTaskRunner().replaceTokenWithValue(applicationInstance, valueToReplaceWith, tokenReplace);
+	public final void replaceTokenWithValue(String targetAbsolutePath, String valueToReplaceWith, String tokenReplace) {
+		getFlexTaskRunner().replaceTokenWithValue(targetAbsolutePath, valueToReplaceWith, tokenReplace);
 	}
 	
 	/**
@@ -163,8 +163,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param applicationInstance
 	 * @param copyTo
 	 */
-	public final void createMXML(_MXMLContract applicationInstance, String copyTo) {
-		getFlexTaskRunner().createMXML(applicationInstance, copyTo);
+	public final void createMXML(String targetAbsolutePath, String copyTo) {
+		getFlexTaskRunner().createMXML(targetAbsolutePath, copyTo);
 	}
 	
 	/**
@@ -174,8 +174,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param _systemSourceFiles
 	 * @param jsfFlexMainSwcConfigFile
 	 */
-	public final void createSwcSourceFiles(String _swcPath, List _systemSourceFiles, String jsfFlexMainSwcConfigFile) {
-		getFlexTaskRunner().createSwcSourceFiles(_swcPath, _systemSourceFiles, jsfFlexMainSwcConfigFile);
+	public final void createSwcSourceFiles(String swcPath, List systemSourceFiles, String jsfFlexMainSwcConfigFile) {
+		getFlexTaskRunner().createSwcSourceFiles(swcPath, systemSourceFiles, jsfFlexMainSwcConfigFile);
 	}
 	
 	/**
@@ -208,8 +208,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param _swfBasePath
 	 * @param _systemSwfSourceFiles
 	 */
-	public final void createSwfSourceFiles(String _swfBasePath, List _systemSwfSourceFiles) {
-		getFlexTaskRunner().createSwfSourceFiles(_swfBasePath, _systemSwfSourceFiles);
+	public final void createSwfSourceFiles(String swfBasePath, List systemSwfSourceFiles) {
+		getFlexTaskRunner().createSwfSourceFiles(swfBasePath, systemSwfSourceFiles);
 	}
 	
 	/**
@@ -263,8 +263,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param _unZipFile
 	 * @param _unZipDest
 	 */
-	public final void unZipArchiveRelative(String _unZipFile, String _unZipDest) {
-		getCommonTaskRunner().unZipArchiveRelative(_unZipFile, _unZipDest);
+	public final void unZipArchiveRelative(String unZipFile, String unZipDest) {
+		getCommonTaskRunner().unZipArchiveRelative(unZipFile, unZipDest);
 	}
 	
 	/**
@@ -273,9 +273,9 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param _unZipFile
 	 * @param _unZipDest
 	 */
-	public final void unZipArchiveAbsolute(File _unZipFile, String _unZipDest) {
+	public final void unZipArchiveAbsolute(File unZipFile, String unZipDest) {
 		
-		getCommonTaskRunner().unZipArchiveAbsolute(_unZipFile, _unZipDest);
+		getCommonTaskRunner().unZipArchiveAbsolute(unZipFile, unZipDest);
 	}
 	
 	/**
@@ -284,9 +284,9 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param _unZipFile
 	 * @param _unZipDest
 	 */
-	public final void unZipArchiveAbsolute(InputStream _unZipFile, String _unZipDest) {
+	public final void unZipArchiveAbsolute(InputStream unZipFile, String unZipDest) {
 		
-		getCommonTaskRunner().unZipArchiveAbsolute(_unZipFile, _unZipDest);
+		getCommonTaskRunner().unZipArchiveAbsolute(unZipFile, unZipDest);
 	}
 	
 	/**

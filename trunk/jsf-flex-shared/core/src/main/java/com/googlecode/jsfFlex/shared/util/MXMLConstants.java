@@ -39,20 +39,20 @@ import org.xml.sax.helpers.DefaultHandler;
  */
 public final class MXMLConstants {
 	
-	public static final String UTF_8_ENCODING = "UTF-8";
+	public static final String CONFIG_MODE_NAME = "com.googlecode.jsfFlex.MODE";
+	public static final String SIMPLY_SWF_MODE = "simplySwfMode";
+	public static final String PRODUCTION_MODE = "productionMode";
 	
+	public static final String UTF_8_ENCODING = "UTF-8";
 	public static final String STRING_QUOTE = "\"";
 	
-	public static final String PRE_MXML_FILE_EXT = ".pre_mxml";
+	public static final String PRE_MXML_FILE_EXT = ".preMxml";
 	public static final String MXML_FILE_EXT = ".mxml";
 	public static final String SWF_FILE_EXT = ".swf";
 	public static final String XML_FILE_EXT = ".xml";
 	public static final String SWC_FILE_EXT = ".swc";
-	public static final String MXMLCONSTANTS_XML = "mxmlConstants.xml";
 	
 	public static final String FLEX_SDK_ZIP = "flexSDK.zip";
-	public static final String JSF_FLEX_COMMUNICATOR_CORE_JS = "jsfFlexCommunicatorCore.js";
-	public static final String JSF_FLEX_COMMUNICATOR_LOGGER_JS = "jsfFlexCommunicatorLogger.js";
 	public static final String DEFAULT_SWC_LIBRARY_SWF_NAME = "library.swf";
 	public static final String JSF_FLEX_MAIN_SWC_CONFIGURATIONFILE = "jsfFlexMainSwcConfigurationFile.xml";
 	public static final String JSF_FLEX_MAIN_SWC_DIRECTORY_NAME = "jsfFlexMainSwcFileSystem";
@@ -75,6 +75,8 @@ public final class MXMLConstants {
 	public static final String PREMXML_DIRECTORY_NAME = "preMxml";
 	public static final String FLEX_SDK_DIRECTORY_NAME = "flexSDK";
 	public static final String SWC_DIRECTORY_NAME = "swc";
+	
+	private static final String MXMLCONSTANTS_XML = "mxmlConstants.xml";
 	
 	public static final int HASH_CODE_INIT_VALUE = 3;
 	public static final int HASH_CODE_MULTIPLY_VALUE = 31;
@@ -125,17 +127,17 @@ public final class MXMLConstants {
 			
 			private boolean settings = true;
 			private boolean windows = false;
-			private boolean non_windows = false;
-			private boolean system_independent = false;
+			private boolean nonWindows = false;
+			private boolean systemIndependent = false;
 			
-			private boolean swf_html_attribute = false;
-			private boolean class_id = false;
-			private boolean code_base = false;
-			private boolean plugins_page = false;
-			private boolean swc_source_files = false;
-			private boolean swf_source_files = false;
-			private boolean source_file = false;
-			private boolean jsf_flex_main_swc_config_file = false;
+			private boolean swfHtmlAttribute = false;
+			private boolean classId = false;
+			private boolean codeBase = false;
+			private boolean pluginsPage = false;
+			private boolean swcSourceFiles = false;
+			private boolean swfSourceFiles = false;
+			private boolean sourceFile = false;
+			private boolean jsfFlexMainSwcConfigFile = false;
 			
 			private StringBuffer nodeValue;
 			
@@ -151,26 +153,26 @@ public final class MXMLConstants {
 					windows = true;
 				}else if(qName.equals("non-windows")){
 					windows = false;
-					non_windows = true;
+					nonWindows = true;
 				}else if(qName.equals("system-independent")){
-					non_windows = false;
-					system_independent = true;
+					nonWindows = false;
+					systemIndependent = true;
 				}else if(qName.equals("swf-html-attibute")){
-					swf_html_attribute = true;
+					swfHtmlAttribute = true;
 				}else if(qName.equals("class-id")){
-					class_id = true;
+					classId = true;
 				}else if(qName.equals("code-base")){
-					code_base = true;
+					codeBase = true;
 				}else if(qName.equals("plugins-page")){
-					plugins_page = true;
+					pluginsPage = true;
 				}else if(qName.equals("swc-source-files")){
-					swc_source_files = true;
+					swcSourceFiles = true;
 				}else if(qName.equals("swf-source-files")){
-					swf_source_files = true;
+					swfSourceFiles = true;
 				}else if(qName.equals("source-file")){
-					source_file = true;
+					sourceFile = true;
 				}else if(qName.equals("jsf-flex-main-swc-config-file")){
-					jsf_flex_main_swc_config_file = true;
+					jsfFlexMainSwcConfigFile = true;
 				}
 				
 				nodeValue = new StringBuffer();
@@ -184,33 +186,33 @@ public final class MXMLConstants {
 					currValue = nodeValue.toString().trim();
 				}
 				
-				if(code_base){
+				if(codeBase){
 					_tempParseMap.put("CODE_BASE", currValue);
-					code_base = false;
-				}else if(class_id){
+					codeBase = false;
+				}else if(classId){
 					_tempParseMap.put("CLASS_ID", currValue);
-					class_id = false;
-				}else if(plugins_page){
+					classId = false;
+				}else if(pluginsPage){
 					_tempParseMap.put("PLUGINS_PAGE", currValue);
-					plugins_page = false;
-				}else if(jsf_flex_main_swc_config_file){
+					pluginsPage = false;
+				}else if(jsfFlexMainSwcConfigFile){
 					_tempParseMap.put("JSF_FLEX_MAIN_SWC_CONFIG_FILE", currValue);
-					jsf_flex_main_swc_config_file = false;
-				}else if(swf_html_attribute){
-					swf_html_attribute = false;
-				}else if(source_file){
-					if(swc_source_files){
+					jsfFlexMainSwcConfigFile = false;
+				}else if(swfHtmlAttribute){
+					swfHtmlAttribute = false;
+				}else if(sourceFile){
+					if(swcSourceFiles){
 						_swcSourceFiles.add(currValue);
-					}else if(swf_source_files){
+					}else if(swfSourceFiles){
 						_swfSourceFiles.add(currValue);
 					}
-					source_file = false;
-				}else if(swc_source_files){
-					swc_source_files = false;
-				}else if(swf_source_files){
-					swf_source_files = false;
-				}else if(system_independent){
-					system_independent = false;
+					sourceFile = false;
+				}else if(swcSourceFiles){
+					swcSourceFiles = false;
+				}else if(swfSourceFiles){
+					swfSourceFiles = false;
+				}else if(systemIndependent){
+					systemIndependent = false;
 				}
 			}
 			

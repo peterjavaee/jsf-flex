@@ -48,19 +48,19 @@ public abstract class _JsfFlexInspectorBase {
 		return _dirPath;
 	}
 	
-	public synchronized void addInspectListener(_JsfFlexInspectListener _callBack){
-		_jsfFlexInspectListeners.add(_callBack);
+	public synchronized void addInspectListener(_JsfFlexInspectListener callBack){
+		_jsfFlexInspectListeners.add(callBack);
 	}
 	
-	protected synchronized void inspectFileFinished(List<Map<String, ? extends Object>> _inspectedList, String _inspectedFileName, String _inspectedPackage){
-		for(_JsfFlexInspectListener _inspectedCallBack : _jsfFlexInspectListeners){
-			_inspectedCallBack.inspectFileFinished(_inspectedList, _inspectedFileName, _inspectedPackage);
+	protected synchronized void inspectFileFinished(List<Map<String, ? extends Object>> inspectedList, String inspectedFileName, String inspectedPackage){
+		for(_JsfFlexInspectListener inspectedCallBack : _jsfFlexInspectListeners){
+			inspectedCallBack.inspectFileFinished(inspectedList, inspectedFileName, inspectedPackage);
 		}
 	}
 	
 	protected synchronized void inspectionCompleted(){
-		for(_JsfFlexInspectListener _inspectedCallBack : _jsfFlexInspectListeners){
-			_inspectedCallBack.inspectionCompleted();
+		for(_JsfFlexInspectListener inspectedCallBack : _jsfFlexInspectListeners){
+			inspectedCallBack.inspectionCompleted();
 		}
 	}
 	

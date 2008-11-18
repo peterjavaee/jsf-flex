@@ -29,6 +29,7 @@ import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDoclet
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
+import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
  * This component should be used as the base action of the component if the component<br>
@@ -63,8 +64,8 @@ public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLC
 		
 		if(_annotationDocletParserInstance == null){
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-			_RunnerFactory _runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
-			_annotationDocletParserInstance = _runnerFactoryInstance.getAnnotationDocletParserImpl();
+			_RunnerFactory runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
+			_annotationDocletParserInstance = runnerFactoryInstance.getAnnotationDocletParserImpl();
 		}
 		
 		return _annotationDocletParserInstance;
@@ -82,8 +83,8 @@ public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLC
 	}
 	
 	public void processDecodes(FacesContext context) {
-		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-		if(mxmlContext.isSimplySWF() || mxmlContext.isProductionEnv()){
+		Object mode = context.getExternalContext().getInitParameter(MXMLConstants.CONFIG_MODE_NAME);
+		if(mode.toString().equals(MXMLConstants.SIMPLY_SWF_MODE) || mode.toString().equals(MXMLConstants.PRODUCTION_MODE)){
 			//need to dataBind so set back to true
 			setRendered(true);
 		}

@@ -104,16 +104,14 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 		addTask(fileCopier);
 	}
 	
-	public void createMXML(_MXMLContract applicationInstance, String copyTo) {
+	public void createMXML(String targetAbsolutePath, String copyTo) {
 		//TODO : Implement this better later
-		ReplaceTextTask removeEmptySpace = new ReplaceTextTask(applicationInstance.getAbsolutePathToPreMxmlFile());
+		ReplaceTextTask removeEmptySpace = new ReplaceTextTask(targetAbsolutePath);
 		removeEmptySpace.addTokenValue(ReplaceTextTask.CLEAN_REG_EXP_MATCH, ReplaceTextTask.CLEAN_REG_EXP_REPLACE_WITH);
 		
 		addTask(removeEmptySpace);
 		
-		String copyFrom = applicationInstance.getAbsolutePathToPreMxmlFile();
-		
-		copyFile(copyFrom, copyTo);
+		copyFile(targetAbsolutePath, copyTo);
 	}
 	
 	public void createSWF(_MXMLApplicationContract componentMXML, String mxmlFile, String swfPath, String flexSDKRootPath) {
@@ -121,54 +119,54 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 		addTask(swfCreator);
 	}
 	
-	public void createSwcSourceFiles(String _swcPath, List _systemSourceFiles, String jsfFlexMainSwcConfigFile) {
+	public void createSwcSourceFiles(String swcPath, List systemSourceFiles, String jsfFlexMainSwcConfigFile) {
 		//Echo the sourceFiles to the SWC path
 		
 		/*
 		 * TODO : implement it better later
 		 */
 		EchoTask toEcho = new EchoTask(null, null);
-		for(Iterator _systemSourceFilesIterator = _systemSourceFiles.iterator(); _systemSourceFilesIterator.hasNext();){
-			String _currSystemSource = (String) _systemSourceFilesIterator.next();
-			String[]currSplit = _currSystemSource.split("/");
-			StringBuffer _path = new StringBuffer();
+		for(Iterator systemSourceFilesIterator = systemSourceFiles.iterator(); systemSourceFilesIterator.hasNext();){
+			String currSystemSource = (String) systemSourceFilesIterator.next();
+			String[] currSplit = currSystemSource.split("/");
+			StringBuffer path = new StringBuffer();
 			
 			/*
 			 * This is a pure HACK, implement it better later
 			 * The path of ActionScript files must be of com/googlecode/jsfFlex/util/shared/actionScript
 			 */
-			String _pathToFile = _currSystemSource.substring(_currSystemSource.indexOf("actionScript") + 13);
-			if(_pathToFile == null || _pathToFile.length() == 0){
-				_log.debug("The source file [" + _currSystemSource + "] is null or the length is zero");
+			String pathToFile = currSystemSource.substring(currSystemSource.indexOf("actionScript") + 13);
+			if(pathToFile == null || pathToFile.length() == 0){
+				_log.debug("The source file [" + currSystemSource + "] is null or the length is zero");
 				continue;
 			}
 			//remove the last element [name of file]
-			_pathToFile = _pathToFile.substring(0, _pathToFile.lastIndexOf("/"));
+			pathToFile = pathToFile.substring(0, pathToFile.lastIndexOf("/"));
 			
-			for(Iterator _fileSeparator = Arrays.asList(_pathToFile.split("/")).iterator(); _fileSeparator.hasNext();){
-				_path.append(_fileSeparator.next().toString());
-				_path.append(File.separatorChar);
+			for(Iterator fileSeparator = Arrays.asList(pathToFile.split("/")).iterator(); fileSeparator.hasNext();){
+				path.append(fileSeparator.next().toString());
+				path.append(File.separatorChar);
 			}
-			makeDirectory(_swcPath + _path.toString());
-			String _fileName = _swcPath + _path.toString() + currSplit[currSplit.length-1];
+			makeDirectory(swcPath + path.toString());
+			String fileName = swcPath + path.toString() + currSplit[currSplit.length-1];
 			
-			toEcho.file(_fileName);
-			toEcho.message(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), _currSystemSource));
+			toEcho.file(fileName);
+			toEcho.message(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), currSystemSource));
 			addTask(toEcho);
 		}
 		
 		//now flush out the swc config file
-		String _jsfFlexMainSwcConfigFileName = _swcPath + jsfFlexMainSwcConfigFile.substring(jsfFlexMainSwcConfigFile.lastIndexOf("/") + 1);
+		String jsfFlexMainSwcConfigFileName = swcPath + jsfFlexMainSwcConfigFile.substring(jsfFlexMainSwcConfigFile.lastIndexOf("/") + 1);
 		
-		toEcho.file(_jsfFlexMainSwcConfigFileName);
+		toEcho.file(jsfFlexMainSwcConfigFileName);
 		toEcho.message(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), jsfFlexMainSwcConfigFile));
 		addTask(toEcho);
 		
 	}
 	
-	public void createSwfSourceFiles(String _swfBasePath, List _systemSwfSourceFiles) {
+	public void createSwfSourceFiles(String swfBasePath, List systemSwfSourceFiles) {
 		
-		MkdirTask swfBasePathDirCreator = new MkdirTask(_swfBasePath);
+		MkdirTask swfBasePathDirCreator = new MkdirTask(swfBasePath);
 		addTask(swfBasePathDirCreator);
 		
 		//Echo the swf sourceFiles to the swfBasepath
@@ -177,13 +175,13 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 		 * TODO : implement it better later
 		 */
 		EchoTask toEcho = new EchoTask(null, null);
-		for(Iterator _systemSwfSourceFilesIterator = _systemSwfSourceFiles.iterator(); _systemSwfSourceFilesIterator.hasNext();){
-			String _currSystemSwfSourceFile = (String) _systemSwfSourceFilesIterator.next();
-			String[] currSplit = _currSystemSwfSourceFile.split("/");
-			String _fileName = _swfBasePath + currSplit[currSplit.length-1];
+		for(Iterator systemSwfSourceFilesIterator = systemSwfSourceFiles.iterator(); systemSwfSourceFilesIterator.hasNext();){
+			String currSystemSwfSourceFile = (String) systemSwfSourceFilesIterator.next();
+			String[] currSplit = currSystemSwfSourceFile.split("/");
+			String fileName = swfBasePath + currSplit[currSplit.length-1];
 			
-			toEcho.file(_fileName);
-			toEcho.message(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), _currSystemSwfSourceFile));
+			toEcho.file(fileName);
+			toEcho.message(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), currSystemSwfSourceFile));
 			addTask(toEcho);
 		}
 	}
@@ -208,9 +206,9 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 		addTask(rename);
 	}
 	
-	public void replaceTokenWithValue(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace) {
+	public void replaceTokenWithValue(String targetAbsolutePath, String valueToReplaceWith, String tokenReplace) {
 		
-		ReplaceTextTask addUIComponentTemplate = new ReplaceTextTask(applicationInstance.getAbsolutePathToPreMxmlFile());
+		ReplaceTextTask addUIComponentTemplate = new ReplaceTextTask(targetAbsolutePath);
 		addUIComponentTemplate.addTokenValue(tokenReplace, valueToReplaceWith);
 		addTask(addUIComponentTemplate);
 	}

@@ -66,36 +66,36 @@ public class CreateMXMLRenderKitFactoryImplWrapperJavaFileMojo extends AbstractM
 	
 	public void execute() throws MojoExecutionException, MojoFailureException {
 		
-		Properties _velocityParserProperties = new Properties();
-		_velocityParserProperties.put(FILE_RESOURCE_LOADER_PATH_KEY, _templateSourceDirectory.getPath());
+		Properties velocityParserProperties = new Properties();
+		velocityParserProperties.put(FILE_RESOURCE_LOADER_PATH_KEY, _templateSourceDirectory.getPath());
 		
-		_jsfFlexVelocityParser = new JsfFlexVelocityParser(_velocityParserProperties);
+		_jsfFlexVelocityParser = new JsfFlexVelocityParser(velocityParserProperties);
 		_jsfFlexVelocityParser.init();
 		_jsfFlexVelocityParser.addParserListener(this);
 		
 		String toCreateMXMLRenderKitFactoryImplWrapperBaseImplJavaPath = _toCreateMXMLRenderKitFactoryImplWrapperBaseImplPath.getPath();
 		
 		try{
-			File _toCreateMXMLRenderKitFactoryImplWrapperBaseImplFilePath = new File(toCreateMXMLRenderKitFactoryImplWrapperBaseImplJavaPath);
-			if(!_toCreateMXMLRenderKitFactoryImplWrapperBaseImplFilePath.exists()){
-				_toCreateMXMLRenderKitFactoryImplWrapperBaseImplFilePath.mkdirs();
+			File toCreateMXMLRenderKitFactoryImplWrapperBaseImplFilePath = new File(toCreateMXMLRenderKitFactoryImplWrapperBaseImplJavaPath);
+			if(!toCreateMXMLRenderKitFactoryImplWrapperBaseImplFilePath.exists()){
+				toCreateMXMLRenderKitFactoryImplWrapperBaseImplFilePath.mkdirs();
 			}
 			toCreateMXMLRenderKitFactoryImplWrapperBaseImplJavaPath +=  File.separatorChar + 
 																			TO_CREATE_JSF_FLEX_MXML_RENDER_KIT_FACTORY_IMPL_WRAPPER_BASE_IMPL_FILE_NAME;
-			FileWriter _writer = new FileWriter(new File(toCreateMXMLRenderKitFactoryImplWrapperBaseImplJavaPath));
-			Map<String, Object> _contextInfoMap = new HashMap<String, Object>();
+			FileWriter writer = new FileWriter(new File(toCreateMXMLRenderKitFactoryImplWrapperBaseImplJavaPath));
+			Map<String, Object> contextInfoMap = new HashMap<String, Object>();
 			
-			_contextInfoMap.put(MXML_RENDER_KIT_FACTORY_IMPL_WRAPPER_BASE_IMPL, _mxmlRenderKitFactoryImplWrapperBaseImpl);
-			_jsfFlexVelocityParser.mergeCollectionToTemplate(JSF_FLEX_MXML_RENDER_KIT_FACTORY_IMPL_WRAPPER_BASE_IMPL_TEMPLATE, _contextInfoMap, 
-																_writer, toCreateMXMLRenderKitFactoryImplWrapperBaseImplJavaPath);
+			contextInfoMap.put(MXML_RENDER_KIT_FACTORY_IMPL_WRAPPER_BASE_IMPL, _mxmlRenderKitFactoryImplWrapperBaseImpl);
+			_jsfFlexVelocityParser.mergeCollectionToTemplate(JSF_FLEX_MXML_RENDER_KIT_FACTORY_IMPL_WRAPPER_BASE_IMPL_TEMPLATE, contextInfoMap, 
+																writer, toCreateMXMLRenderKitFactoryImplWrapperBaseImplJavaPath);
 			
-		}catch(IOException _ioException){
+		}catch(IOException ioException){
 			
 		}
 		
 	}
 	
-	public void mergeCollectionToTemplateFinished(String _fileMerged) {
+	public void mergeCollectionToTemplateFinished(String fileMerged) {
 		
 	}
 	

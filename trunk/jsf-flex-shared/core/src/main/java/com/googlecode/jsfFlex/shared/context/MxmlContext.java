@@ -104,7 +104,7 @@ public abstract class MxmlContext {
 
     public static MxmlContext getCurrentInstance()
     {
-        return (MxmlContext)_currentInstance.get();
+        return (MxmlContext) _currentInstance.get();
     }
 
     protected static void setCurrentInstance(MxmlContext context)

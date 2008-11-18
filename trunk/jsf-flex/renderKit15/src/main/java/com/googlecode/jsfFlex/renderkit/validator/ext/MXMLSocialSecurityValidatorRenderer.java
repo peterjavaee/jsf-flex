@@ -60,7 +60,7 @@ public final class MXMLSocialSecurityValidatorRenderer extends MXMLValidatorTemp
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLSocialSecurityValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLSocialSecurityValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLSocialSecurityValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

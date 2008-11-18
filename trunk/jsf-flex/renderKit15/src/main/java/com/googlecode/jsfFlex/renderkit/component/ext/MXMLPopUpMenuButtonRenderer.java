@@ -61,7 +61,7 @@ public final class MXMLPopUpMenuButtonRenderer extends MXMLPopUpButtonTemplateRe
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLPopUpMenuButtonRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLPopUpMenuButtonRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLPopUpMenuButtonRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

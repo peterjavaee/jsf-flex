@@ -66,16 +66,16 @@ class MXMLRenderKitImpl extends RenderKit {
 			throw new NullPointerException("addRenderer: rendererType must not be null");
 		}
 		
-		Map _rendererTypeMap;
+		Map rendererTypeMap;
 		/*
 		 * Since there exists many rendererType for a single family
 		 */
-		if((_rendererTypeMap = (Map) _renderers.get(family)) == null){
-			_rendererTypeMap = new HashMap();
-			_renderers.put(family, _rendererTypeMap);
+		if((rendererTypeMap = (Map) _renderers.get(family)) == null){
+			rendererTypeMap = new HashMap();
+			_renderers.put(family, rendererTypeMap);
 		}
 		
-		_rendererTypeMap.put(rendererType, renderer);
+		rendererTypeMap.put(rendererType, renderer);
 		
 	}
 	
@@ -87,15 +87,15 @@ class MXMLRenderKitImpl extends RenderKit {
 			throw new NullPointerException("getRenderer: rendererType must not be null");
 		}
 		
-		Renderer _renderer = null;
-		Map _rendererTypeMap = (Map) _renderers.get(family);
-		if(_rendererTypeMap == null){
+		Renderer renderer = null;
+		Map rendererTypeMap = (Map) _renderers.get(family);
+		if(rendererTypeMap == null){
 			_log.info("Empty entry within getRenderes for family [ " + family + " ] rendererType [ " + rendererType + " ] ");
 		}else{
-			_renderer = (Renderer) _rendererTypeMap.get(rendererType); 
+			renderer = (Renderer) rendererTypeMap.get(rendererType); 
 		}
 		
-		return _renderer;
+		return renderer;
 	}
 	
 	public ResponseStream createResponseStream(final OutputStream outPutStream) {

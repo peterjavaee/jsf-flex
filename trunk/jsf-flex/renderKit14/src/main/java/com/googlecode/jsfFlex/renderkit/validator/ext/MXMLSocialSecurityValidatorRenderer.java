@@ -60,7 +60,7 @@ public final class MXMLSocialSecurityValidatorRenderer extends MXMLValidatorTemp
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLSocialSecurityValidatorRenderer.class, componentObj, MXML_SOCIAL_SECURITY_VALIDATOR_REPLACE_MAPPING);
-		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 

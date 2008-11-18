@@ -52,61 +52,61 @@ final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulatorTaskRu
 		super();
 	}
 	
-	public synchronized void createFileContent(String _filePath, String _templateFile, Properties _initProperties, Map _tokenMap){
+	public synchronized void createFileContent(String filePath, String templateFile, Properties initProperties, Map tokenMap){
 		
 		try{
-			Reader _templateReader = new InputStreamReader(EvaluateTemplateTask.class.getResourceAsStream(_templateFile));
-			FileWriter _targetWriter = new FileWriter(new File(_filePath));
-			EvaluateTemplateTask _mergeTemplateTask = new EvaluateTemplateTask(_initProperties, _tokenMap, JSF_FLEX_LOG_TAG, _templateReader, _targetWriter);
-			addTask(_mergeTemplateTask);
+			Reader templateReader = new InputStreamReader(EvaluateTemplateTask.class.getResourceAsStream(templateFile));
+			FileWriter targetWriter = new FileWriter(new File(filePath));
+			EvaluateTemplateTask mergeTemplateTask = new EvaluateTemplateTask(initProperties, tokenMap, JSF_FLEX_LOG_TAG, templateReader, targetWriter);
+			addTask(mergeTemplateTask);
 			
-		}catch(IOException _ioException){
-			StringBuffer _errorMessage = new StringBuffer();
-			_errorMessage.append("filePath [ ");
-			_errorMessage.append(_filePath);
-			_errorMessage.append(" ] ");
-			_errorMessage.append("templateFile [ ");
-			_errorMessage.append(_templateFile);
-			_errorMessage.append(" ] ");
+		}catch(IOException ioException){
+			StringBuffer errorMessage = new StringBuffer();
+			errorMessage.append("filePath [ ");
+			errorMessage.append(filePath);
+			errorMessage.append(" ] ");
+			errorMessage.append("templateFile [ ");
+			errorMessage.append(templateFile);
+			errorMessage.append(" ] ");
 			
-			if(_tokenMap != null){
+			if(tokenMap != null){
 				
-				_errorMessage.append("overView of tokenMap [ ");
-				for(Iterator keyIterate = _tokenMap.keySet().iterator(); keyIterate.hasNext();){
+				errorMessage.append("overView of tokenMap [ ");
+				for(Iterator keyIterate = tokenMap.keySet().iterator(); keyIterate.hasNext();){
 					String key = (String) keyIterate.next();
-					_errorMessage.append("key : ");
-					_errorMessage.append(key);
-					_errorMessage.append(", value : ");
+					errorMessage.append("key : ");
+					errorMessage.append(key);
+					errorMessage.append(", value : ");
 					
-					Object value = _tokenMap.get(key);
-					_errorMessage.append(value.toString());
-					_errorMessage.append(" ");
+					Object value = tokenMap.get(key);
+					errorMessage.append(value.toString());
+					errorMessage.append(" ");
 					
 				}
-				_errorMessage.append(" ] ");
+				errorMessage.append(" ] ");
 			}
 			
-			throw new ComponentBuildException(_errorMessage.toString(), _ioException);
+			throw new ComponentBuildException(errorMessage.toString(), ioException);
 		}
 		
 	}
 	
-	public synchronized void createPreMxmlFile(String _preMxmlFilePath, Properties _initProperties, Set _tokenList, String _mxmlComponentName, 
-													String _bodyContent, String _childIdentifier, String _siblingIdentifier) {
-		if(_tokenList == null){
-			_tokenList = new LinkedHashSet();
+	public synchronized void createPreMxmlFile(String preMxmlFilePath, Properties initProperties, Set tokenList, String mxmlComponentName, 
+													String bodyContent, String childIdentifier, String siblingIdentifier) {
+		if(tokenList == null){
+			tokenList = new LinkedHashSet();
 		}
 		
-		_bodyContent = _bodyContent == null ? "" : _bodyContent;
+		bodyContent = bodyContent == null ? "" : bodyContent;
 		
-		Map _tokenMap = new HashMap();
-		_tokenMap.put(TOKEN_LIST_TOKEN, _tokenList);
-		_tokenMap.put(MXML_COMPONENT_NAME_TOKEN, _mxmlComponentName);
-		_tokenMap.put(INITIAL_BODY_CONTENT_TOKEN, _bodyContent);
-		_tokenMap.put(CHILD_PRE_MXML_IDENTIFIER_TOKEN, _childIdentifier);
-		_tokenMap.put(SIBLING_PRE_MXML_IDENTIFIER_TOKEN, _siblingIdentifier);
+		Map tokenMap = new HashMap();
+		tokenMap.put(TOKEN_LIST_TOKEN, tokenList);
+		tokenMap.put(MXML_COMPONENT_NAME_TOKEN, mxmlComponentName);
+		tokenMap.put(INITIAL_BODY_CONTENT_TOKEN, bodyContent);
+		tokenMap.put(CHILD_PRE_MXML_IDENTIFIER_TOKEN, childIdentifier);
+		tokenMap.put(SIBLING_PRE_MXML_IDENTIFIER_TOKEN, siblingIdentifier);
 		
-		createFileContent(_preMxmlFilePath, JSF_FLEX_TEMPLATE, _initProperties, _tokenMap);
+		createFileContent(preMxmlFilePath, JSF_FLEX_TEMPLATE, initProperties, tokenMap);
 		
 	}
 	

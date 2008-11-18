@@ -118,7 +118,7 @@ public final class MXMLNumericStepperRenderer extends MXMLComponentRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLNumericStepperRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLNumericStepperRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLNumericStepperRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

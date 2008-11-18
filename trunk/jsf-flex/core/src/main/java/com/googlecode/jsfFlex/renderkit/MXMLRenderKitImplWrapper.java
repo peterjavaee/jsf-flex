@@ -41,24 +41,24 @@ public class MXMLRenderKitImplWrapper extends MXMLRenderKitImpl {
 	}
 	
 	public Renderer getRenderer(String family, String rendererType) {
-		Renderer _renderer = super.getRenderer(family, rendererType);
+		Renderer renderer = super.getRenderer(family, rendererType);
 		
-		if(_renderer == null){
+		if(renderer == null){
 			//simple HACK where to search for remaining renderKits, TODO implement it better later
 			
 			for(Iterator iterator = _additionalRenderKits.iterator(); iterator.hasNext();){
 				
-				RenderKit _currRenderKit = (RenderKit) iterator.next();
-				_renderer = _currRenderKit.getRenderer(family, rendererType);
+				RenderKit currRenderKit = (RenderKit) iterator.next();
+				renderer = currRenderKit.getRenderer(family, rendererType);
 				
-				if(_renderer != null){
+				if(renderer != null){
 					break;
 				}
 			}
 			
 		}
 		
-		return _renderer;
+		return renderer;
 	}
 	
 	public void addRenderKit(RenderKit renderKit){

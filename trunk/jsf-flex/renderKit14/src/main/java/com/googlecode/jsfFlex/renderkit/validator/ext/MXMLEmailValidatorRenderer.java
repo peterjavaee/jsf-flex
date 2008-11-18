@@ -64,7 +64,7 @@ public final class MXMLEmailValidatorRenderer extends MXMLValidatorTemplateRende
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLEmailValidatorRenderer.class, componentObj, MXML_EMAIL_VALIDATOR_REPLACE_MAPPING);
-		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 
