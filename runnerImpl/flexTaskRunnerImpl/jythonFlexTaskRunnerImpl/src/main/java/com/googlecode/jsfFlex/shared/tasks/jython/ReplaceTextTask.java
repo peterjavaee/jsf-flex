@@ -72,10 +72,10 @@ public final class ReplaceTextTask extends _JythonBaseTask {
 	
 	void build() {
 		
-		PyDictionary _pyDictionary = new PyDictionary(new Hashtable(_replaceDictionary));
+		PyDictionary pyDictionary = new PyDictionary(new Hashtable(_replaceDictionary));
 		
-		PyObject _replaceTextTaskObject = _replaceTextTaskClass.__call__(new PyString(_file), _pyDictionary, new PyInteger(_replaceAllOccurrence ? 0 : 1));
-		_jythonTask = (_JythonTaskPerformer) _replaceTextTaskObject.__tojava__(_JythonTaskPerformer.class);
+		PyObject replaceTextTaskObject = _replaceTextTaskClass.__call__(new PyString(_file), pyDictionary, new PyInteger(_replaceAllOccurrence ? 0 : 1));
+		_jythonTask = (_JythonTaskPerformer) replaceTextTaskObject.__tojava__(_JythonTaskPerformer.class);
 	}
 	
 	public String toString() {

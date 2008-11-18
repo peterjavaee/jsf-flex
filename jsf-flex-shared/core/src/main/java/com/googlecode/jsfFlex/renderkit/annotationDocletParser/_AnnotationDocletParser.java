@@ -66,8 +66,8 @@ public abstract class _AnnotationDocletParser {
 		return errorMessage.toString();
 	}
 	
-	public abstract void mapComponentFields(Class mapClass, Object _componentObj, 
-												String _replaceMappingXML);
+	public abstract void mapComponentFields(Class mapClass, Object componentObj, 
+												String replaceMappingXML);
 	
 	abstract class _MXMLMapper {
 		

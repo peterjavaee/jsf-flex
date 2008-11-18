@@ -151,11 +151,11 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		 */
 		componentMXML.getAnnotationDocletParserInstance().getTokenValueSet().add(new TokenValue(MX_KEY, componentMXML.getAttributes().get(MX_KEY).toString()));
 		
-		String _bodyContent = writer.getComponentTemplate(MXMLApplicationRenderer.class.getClassLoader(), 
+		String bodyContent = writer.getComponentTemplate(MXMLApplicationRenderer.class.getClassLoader(), 
 									MXML_APPLICATION_BODY_TEMPLATE);
 		
-		writer.createPreMxml(writer, componentMXML, MXMLApplicationRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
-				_bodyContent);
+		writer.createPreMxml(componentMXML, MXMLApplicationRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+				bodyContent);
 		
 	}
 	
@@ -185,29 +185,29 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			writer.createFileContent(filePath, ADDITIONAL_APPLICATION_SCRIPT_CONTENT_TEMPLATE, null, tokenMap);
 			
 			String additionalApplicationScriptContent = writer.readFileContent(filePath);
-			writer.replaceTokenWithValue(componentMXML, additionalApplicationScriptContent, ADDITIONAL_SCRIPT_CONTENT_TOKEN);
+			writer.replaceTokenWithValue(componentMXML.getAbsolutePathToPreMxmlFile(), additionalApplicationScriptContent, ADDITIONAL_SCRIPT_CONTENT_TOKEN);
 			
-			Map _preMxmlMap = mxmlContext.getPreMxmlCompMap();
+			Map preMxmlMap = mxmlContext.getPreMxmlCompMap();
 			
-			if(_preMxmlMap.keySet().size() > 0){
+			if(preMxmlMap.keySet().size() > 0){
 				
 				//Application must be a top component with others as children component
-				for(Iterator majorIterator = _preMxmlMap.keySet().iterator(); majorIterator.hasNext();){
+				for(Iterator majorIterator = preMxmlMap.keySet().iterator(); majorIterator.hasNext();){
 					
 					Integer currMajor = (Integer) majorIterator.next();
-					Set siblingSet = (Set) _preMxmlMap.get(currMajor);
+					Set siblingSet = (Set) preMxmlMap.get(currMajor);
 					
 					for(Iterator siblingIterator = siblingSet.iterator(); siblingIterator.hasNext();){
 					
 						_MXMLContract currComp = (_MXMLContract) siblingIterator.next();
 						
 						if(currComp.getMinorLevel() == 0){
-							writer.replaceTokenWithValue((_MXMLContract) componentMXML, writer.readFileContent(currComp.getAbsolutePathToPreMxmlFile()), 
+							writer.replaceTokenWithValue(((_MXMLContract) componentMXML).getAbsolutePathToPreMxmlFile(), writer.readFileContent(currComp.getAbsolutePathToPreMxmlFile()), 
 									writer.childReplaceTokenWithPreMxmlIdentifier(currComp));
 							
 							_log.debug("Replacing token with value as a child for " + currComp.getAbsolutePathToPreMxmlFile());
 						}else{
-							writer.replaceTokenWithValue((_MXMLContract) componentMXML, writer.readFileContent(currComp.getAbsolutePathToPreMxmlFile()), 
+							writer.replaceTokenWithValue(((_MXMLContract) componentMXML).getAbsolutePathToPreMxmlFile(), writer.readFileContent(currComp.getAbsolutePathToPreMxmlFile()), 
 									writer.siblingReplaceTokenWithPreMxmlIdentifier(currComp));
 							_log.debug("Replacing token with value as a sibling for " + currComp.getAbsolutePathToPreMxmlFile());
 						}

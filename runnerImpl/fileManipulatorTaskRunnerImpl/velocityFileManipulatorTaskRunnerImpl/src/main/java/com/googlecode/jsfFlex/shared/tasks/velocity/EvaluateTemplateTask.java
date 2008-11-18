@@ -83,21 +83,21 @@ public final class EvaluateTemplateTask extends _Task {
 				_velocityEngine.init();
 			}
 			
-		}catch(Exception _exceptionWhileInitializing){
+		}catch(Exception exceptionWhileInitializing){
 			StringBuffer errorMessage = new StringBuffer();
 			errorMessage.append("Error in MergeTemplateTask's init with following fields \n");
 			errorMessage.append(toString());
-			throw new ComponentBuildException(errorMessage.toString(), _exceptionWhileInitializing);
+			throw new ComponentBuildException(errorMessage.toString(), exceptionWhileInitializing);
 		}
 		
 	}
 	
 	private void populateContext(){
 		
-		for(Iterator _keys = _contextValues.keySet().iterator(); _keys.hasNext();){
-			Object _key = _keys.next();
-			Object _value = _contextValues.get(_key);
-			_context.put(_key.toString(), _value);
+		for(Iterator keys = _contextValues.keySet().iterator(); keys.hasNext();){
+			Object key = keys.next();
+			Object value = _contextValues.get(key);
+			_context.put(key.toString(), value);
 		}
 		
 	}
@@ -108,11 +108,11 @@ public final class EvaluateTemplateTask extends _Task {
 			_velocityEngine.evaluate(_context, _writer, _logTag, _template);
 			_writer.flush();
 			_log.debug("EvaluateTemplateTask mergeCollectionToTemplate has been completed with " + toString());
-		}catch(Exception _exceptionWhileMerging){
+		}catch(Exception exceptionWhileMerging){
 			StringBuffer errorMessage = new StringBuffer();
 			errorMessage.append("Error in MergeTemplateTask's mergeCollectionToTemplate with following fields \n");
 			errorMessage.append(toString());
-			throw new ComponentBuildException(errorMessage.toString(), _exceptionWhileMerging);
+			throw new ComponentBuildException(errorMessage.toString(), exceptionWhileMerging);
 		}finally{
 			try{
 				if(_writer != null){
@@ -129,13 +129,13 @@ public final class EvaluateTemplateTask extends _Task {
 		StringBuffer content = new StringBuffer();
 		
 		content.append("contextValues [ ");
-		for(Iterator _keys = _contextValues.keySet().iterator(); _keys.hasNext();){
-			Object _key = _keys.next();
-			Object _value = _contextValues.get(_key);
-			content.append(_key.toString());
+		for(Iterator keys = _contextValues.keySet().iterator(); keys.hasNext();){
+			Object key = keys.next();
+			Object value = _contextValues.get(key);
+			content.append(key.toString());
 			content.append(":");
-			content.append(_value.toString());
-			if(_keys.hasNext()){
+			content.append(value.toString());
+			if(keys.hasNext()){
 				content.append(", ");
 			}
 		}

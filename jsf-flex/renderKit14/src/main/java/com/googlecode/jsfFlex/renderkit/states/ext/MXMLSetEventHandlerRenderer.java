@@ -61,7 +61,7 @@ public final class MXMLSetEventHandlerRenderer extends MXMLComponentBaseRenderer
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLSetEventHandlerRenderer.class, componentObj, MXML_SET_EVENT_HANDLER_REPLACE_MAPPING);
-		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 	

@@ -66,7 +66,7 @@ public final class MXMLCurrencyFormatterRenderer extends MXMLFormatterTemplateRe
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLCurrencyFormatterRenderer.class, componentObj, MXML_CURRENCY_FORMATTER_REPLACE_MAPPING);
-		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 

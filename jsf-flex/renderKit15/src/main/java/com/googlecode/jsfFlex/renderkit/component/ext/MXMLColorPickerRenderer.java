@@ -121,7 +121,7 @@ public final class MXMLColorPickerRenderer extends MXMLComboBaseTemplateRenderer
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLColorPickerRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLColorPickerRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLColorPickerRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

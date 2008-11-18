@@ -60,7 +60,7 @@ public final class MXMLStringValidatorRenderer extends MXMLValidatorTemplateRend
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLStringValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLStringValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLStringValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

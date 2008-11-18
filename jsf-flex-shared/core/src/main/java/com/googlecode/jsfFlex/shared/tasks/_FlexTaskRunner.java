@@ -34,21 +34,21 @@ public interface _FlexTaskRunner extends _TaskRunner {
 	
 	void writeBodyContent(_MXMLContract componentMXML);
 	
-	void replaceTokenWithValue(_MXMLContract applicationInstance, String valueToReplaceWith, String tokenReplace);
+	void replaceTokenWithValue(String targetAbsolutePath, String valueToReplaceWith, String tokenReplace);
 	
 	void copyFile(String fileToCopy, String fileToCopyTo);
 	
 	void copyFileSet(String copyDir, String copyInclude, String copyExclude, String copyTo);
 	
-	void createMXML(_MXMLContract applicationInstance, String copyTo);
+	void createMXML(String targetAbsolutePath, String copyTo);
 	
-	void createSwcSourceFiles(String _swcPath, List _systemSourceFiles, String jsfFlexMainSwcConfigFile);
+	void createSwcSourceFiles(String swcPath, List systemSourceFiles, String jsfFlexMainSwcConfigFile);
 	
 	void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath);
 	
 	void createSWF(_MXMLApplicationContract componentMXML, String mxmlFile, String swfPath, String flexSDKRootPath);
 	
-	void createSwfSourceFiles(String _swfBasePath, List _systemSwfSourceFiles);
+	void createSwfSourceFiles(String swfBasePath, List systemSwfSourceFiles);
 	
 	void renameFile(String sourceFile, String destFile, boolean overWrite);
 	

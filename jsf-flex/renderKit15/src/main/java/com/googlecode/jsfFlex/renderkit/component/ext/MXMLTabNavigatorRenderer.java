@@ -80,7 +80,7 @@ public final class MXMLTabNavigatorRenderer extends MXMLViewStackTemplateRendere
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLTabNavigatorRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLTabNavigatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLTabNavigatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

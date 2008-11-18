@@ -77,9 +77,9 @@ public final class FileCopyTask extends _JythonBaseTask {
 			copyDirParameters.add(_copyExclude);
 		}
 		
-		PyObject _fileCopyTaskObject = _fileCopyTaskClass.__call__(new PyString(_copyFile), 
+		PyObject fileCopyTaskObject = _fileCopyTaskClass.__call__(new PyString(_copyFile), 
 												new PyList(copyDirParameters), new PyString(_copyTo));
-		_jythonTask = (_JythonTaskPerformer) _fileCopyTaskObject.__tojava__(_JythonTaskPerformer.class);
+		_jythonTask = (_JythonTaskPerformer) fileCopyTaskObject.__tojava__(_JythonTaskPerformer.class);
 		
 	}
 	

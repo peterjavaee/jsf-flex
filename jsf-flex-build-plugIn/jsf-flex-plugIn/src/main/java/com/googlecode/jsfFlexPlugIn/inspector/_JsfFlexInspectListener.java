@@ -26,7 +26,7 @@ import java.util.Map;
  */
 public interface _JsfFlexInspectListener {
 	
-	void inspectFileFinished(List<Map<String, ? extends Object>> _inspectedList, String _sourceInspected, String _package);
+	void inspectFileFinished(List<Map<String, ? extends Object>> inspectedList, String sourceInspected, String packageName);
 	
 	void inspectionCompleted();
 	

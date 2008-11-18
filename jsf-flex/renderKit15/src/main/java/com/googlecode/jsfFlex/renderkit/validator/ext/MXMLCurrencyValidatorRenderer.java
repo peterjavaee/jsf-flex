@@ -73,7 +73,7 @@ public final class MXMLCurrencyValidatorRenderer extends MXMLValidatorTemplateRe
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLCurrencyValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLCurrencyValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLCurrencyValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

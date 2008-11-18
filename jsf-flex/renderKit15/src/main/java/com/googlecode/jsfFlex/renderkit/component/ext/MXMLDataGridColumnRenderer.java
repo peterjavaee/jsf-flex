@@ -99,7 +99,7 @@ public class MXMLDataGridColumnRenderer extends MXMLComponentBaseRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLDataGridColumnRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLDataGridColumnRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLDataGridColumnRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

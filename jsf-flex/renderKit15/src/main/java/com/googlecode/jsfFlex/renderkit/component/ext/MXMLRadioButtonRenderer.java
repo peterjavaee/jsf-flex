@@ -80,7 +80,7 @@ public final class MXMLRadioButtonRenderer extends MXMLButtonTemplateRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLRadioButtonRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLRadioButtonRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLRadioButtonRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

@@ -28,8 +28,8 @@ package com.googlecode.jsfFlex.communication.logger
 	public class LoggerFactory {
 		
 		public static function newJSLoggerInstance(actionScriptClass:Class):ILogger {
-			var _log:JavaScriptLogger = new JavaScriptLogger(actionScriptClass);
-			return _log;
+			var log:JavaScriptLogger = new JavaScriptLogger(actionScriptClass);
+			return log;
 		}
 		
 	}

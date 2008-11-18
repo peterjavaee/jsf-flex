@@ -113,11 +113,11 @@ public final class MXMLCTask extends AntBaseTask {
 		}
 		
 		if(_componentMXML.getSourcePath() != null){
-			String[] _sourcePath = _componentMXML.getSourcePath().split(" ");
+			String[] sourcePath = _componentMXML.getSourcePath().split(" ");
 			StringBuffer sourcePathVal = new StringBuffer();
-			for(int i=0; i < _sourcePath.length; i++){
+			for(int i=0; i < sourcePath.length; i++){
 				sourcePathVal.append(MXMLConstants.STRING_QUOTE);
-				sourcePathVal.append(_sourcePath[i]);
+				sourcePathVal.append(sourcePath[i]);
 				sourcePathVal.append(MXMLConstants.STRING_QUOTE);
 				sourcePathVal.append(" ");
 			}
@@ -234,10 +234,10 @@ public final class MXMLCTask extends AntBaseTask {
 		content.append(" ] ");
 		content.append("source_path [");
 		if(_componentMXML.getSourcePath() != null){
-			String[] _sourcePath = _componentMXML.getSourcePath().split(" ");
-			for(int i=0; i < _sourcePath.length; i++){
+			String[] sourcePath = _componentMXML.getSourcePath().split(" ");
+			for(int i=0; i < sourcePath.length; i++){
 				content.append(" ");
-				content.append(_sourcePath[i]);
+				content.append(sourcePath[i]);
 			}
 		}
 		content.append(" ] ");

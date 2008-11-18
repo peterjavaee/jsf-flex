@@ -57,7 +57,7 @@ public final class MXMLTitleWindowRenderer extends MXMLPanelTemplateRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLTitleWindowRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLTitleWindowRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLTitleWindowRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

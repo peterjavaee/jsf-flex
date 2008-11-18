@@ -66,7 +66,7 @@ public final class MXMLListRenderer extends MXMLListTemplateRenderer {
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
-		writer.createPreMxml(writer, componentMXML, MXMLListRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), null);
+		writer.createPreMxml(componentMXML, MXMLListRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), null);
 		
 	}
 

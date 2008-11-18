@@ -46,36 +46,36 @@ public final class TokenValue {
 	}
 	
 	public String toString(){
-		StringBuffer _content = new StringBuffer();
+		StringBuffer content = new StringBuffer();
 		
-		_content.append("token [ ");
-		_content.append(_token);
-		_content.append(" ] ");
+		content.append("token [ ");
+		content.append(_token);
+		content.append(" ] ");
 		
-		_content.append("value [ ");
-		_content.append(_value);
-		_content.append(" ] ");
+		content.append("value [ ");
+		content.append(_value);
+		content.append(" ] ");
 		
-		return _content.toString();
+		return content.toString();
 	}
 	
 	public String toTokenValueSyntax(){
-		StringBuffer _tokenValue = new StringBuffer();
-		_tokenValue.append(_token);
-		_tokenValue.append("=");
-		_tokenValue.append("\"");
-		_tokenValue.append(_value);
-		_tokenValue.append("\" ");
-		return _tokenValue.toString();
+		StringBuffer tokenValue = new StringBuffer();
+		tokenValue.append(_token);
+		tokenValue.append("=");
+		tokenValue.append("\"");
+		tokenValue.append(_value);
+		tokenValue.append("\" ");
+		return tokenValue.toString();
 	}
 	
-	public boolean equals(Object _instance) {
-		if(!(_instance instanceof TokenValue)){
+	public boolean equals(Object instance) {
+		if(!(instance instanceof TokenValue)){
 			return false;
 		}
 		
-		TokenValue _tokenValueInstance = (TokenValue) _instance;
-		return this.getToken().equals(_tokenValueInstance.getToken());
+		TokenValue tokenValueInstance = (TokenValue) instance;
+		return this.getToken().equals(tokenValueInstance.getToken());
 	}
 	
 	public int hashCode() {

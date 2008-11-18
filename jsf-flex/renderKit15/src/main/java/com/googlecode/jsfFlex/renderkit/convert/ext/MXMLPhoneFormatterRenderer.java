@@ -60,7 +60,7 @@ public final class MXMLPhoneFormatterRenderer extends MXMLFormatterTemplateRende
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLPhoneFormatterRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLPhoneFormatterRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLPhoneFormatterRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

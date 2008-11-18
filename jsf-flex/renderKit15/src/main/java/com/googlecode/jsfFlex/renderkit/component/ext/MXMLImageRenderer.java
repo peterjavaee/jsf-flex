@@ -57,7 +57,7 @@ public final class MXMLImageRenderer extends MXMLSwfLoaderTemplateRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLImageRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLImageRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLImageRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

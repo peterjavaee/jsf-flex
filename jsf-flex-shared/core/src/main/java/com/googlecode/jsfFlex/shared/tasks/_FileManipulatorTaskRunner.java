@@ -40,18 +40,18 @@ public abstract class _FileManipulatorTaskRunner extends TaskRunnerImpl {
 	
 	private final static Log _log = LogFactory.getLog(_FileManipulatorTaskRunner.class);
 	
-	public abstract void createFileContent(String _filePath, String _templateFile, Properties _initProperties, Map _tokenMap);
+	public abstract void createFileContent(String filePath, String templateFile, Properties initProperties, Map tokenMap);
 	
-	public abstract void createPreMxmlFile(String _preMxmlFilePath, Properties _initProperties, Set _tokenList, String _mxmlComponentName, 
-												String _bodyContent, String _childIdentifier, String _siblingIdentifier);
+	public abstract void createPreMxmlFile(String preMxmlFilePath, Properties initProperties, Set tokenList, String mxmlComponentName, 
+												String bodyContent, String childIdentifier, String siblingIdentifier);
 	
-	public synchronized String getComponentTemplate(ClassLoader _loader, String template) {
+	public synchronized String getComponentTemplate(ClassLoader loader, String template) {
 		StringBuffer fileContent = new StringBuffer();
 		BufferedReader bufferRead = null;
 		
 		try{
 			
-			bufferRead = new BufferedReader(new InputStreamReader(_loader.getResourceAsStream(template)));
+			bufferRead = new BufferedReader(new InputStreamReader(loader.getResourceAsStream(template)));
 			char[] charBuffer = new char[2048];
 			int offSet = 0;
 			

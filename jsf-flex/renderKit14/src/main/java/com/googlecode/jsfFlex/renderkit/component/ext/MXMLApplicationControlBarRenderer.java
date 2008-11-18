@@ -59,7 +59,7 @@ public final class MXMLApplicationControlBarRenderer extends MXMLBoxTemplateRend
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLApplicationControlBarRenderer.class, componentObj, MXML_APPLICATION_CONTROL_BAR_REPLACE_MAPPING);
-		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 

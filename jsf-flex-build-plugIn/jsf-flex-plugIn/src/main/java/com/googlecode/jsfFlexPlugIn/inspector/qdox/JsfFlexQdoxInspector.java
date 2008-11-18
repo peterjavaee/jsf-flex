@@ -51,24 +51,24 @@ public final class JsfFlexQdoxInspector extends _JsfFlexInspectorBase {
 		
 		JavaDocBuilder builder = new JavaDocBuilder();
 		builder.addSourceTree(new File(getDirPath()));
-		JavaClass[] _inspectableFiles = builder.getClasses();
+		JavaClass[] inspectableFiles = builder.getClasses();
 		
-		for(JavaClass _currClass : _inspectableFiles){
+		for(JavaClass currClass : inspectableFiles){
 			//TODO implement it better later, but since it's a plug-in does it have to be???
-			List<Map<String, ? extends Object>> _inspectedList = new LinkedList<Map<String, ? extends Object>>();
+			List<Map<String, ? extends Object>> inspectedList = new LinkedList<Map<String, ? extends Object>>();
 			
 			for(String _currPattern : _patternList){
-				DocletTag[] _inspectedDocletTag = _currClass.getTagsByName(_currPattern);
+				DocletTag[] inspectedDocletTag = currClass.getTagsByName(_currPattern);
 				
-				for(DocletTag _currDocletTag : _inspectedDocletTag){
-					Map<String, Object> _inspectedMap = new LinkedHashMap<String, Object>();
-					_inspectedMap.putAll(_currDocletTag.getNamedParameterMap());
-					_inspectedList.add(_inspectedMap);
+				for(DocletTag currDocletTag : inspectedDocletTag){
+					Map<String, Object> inspectedMap = new LinkedHashMap<String, Object>();
+					inspectedMap.putAll(currDocletTag.getNamedParameterMap());
+					inspectedList.add(inspectedMap);
 				}
 				
 			}
 			
-			inspectFileFinished(_inspectedList, _currClass.getName(), _currClass.getPackage());
+			inspectFileFinished(inspectedList, currClass.getName(), currClass.getPackage());
 		}
 		
 		inspectionCompleted();

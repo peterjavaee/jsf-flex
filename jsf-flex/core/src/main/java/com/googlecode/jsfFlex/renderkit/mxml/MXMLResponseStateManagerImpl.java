@@ -36,8 +36,8 @@ class MXMLResponseStateManagerImpl extends AbstractMXMLResponseStateManager {
 	static{
 		try{
 			MXML_RESPONSE_STATE_MANAGER_IMPLEMENTOR_CLASS = Class.forName(MXMLJsfFactory.getMXMLResponseStateManagerImplPackageClass(), false, Thread.currentThread().getContextClassLoader());
-		}catch(ClassNotFoundException _classNotFound){
-			throw new RuntimeException("Failure in retrieving the class for " + MXMLJsfFactory.getMXMLResponseStateManagerImplPackageClass(), _classNotFound);
+		}catch(ClassNotFoundException classNotFound){
+			throw new RuntimeException("Failure in retrieving the class for " + MXMLJsfFactory.getMXMLResponseStateManagerImplPackageClass(), classNotFound);
 		}
 	}
 	
@@ -46,8 +46,8 @@ class MXMLResponseStateManagerImpl extends AbstractMXMLResponseStateManager {
 		
 		try{
 			_mxmlResponseStateManagerBaseImplementor = (ResponseStateManager) MXML_RESPONSE_STATE_MANAGER_IMPLEMENTOR_CLASS.newInstance();
-		}catch(Exception _instantiatingException){
-			throw new RuntimeException("Failure in instantiating a class for " + MXMLJsfFactory.getMXMLResponseStateManagerImplPackageClass(), _instantiatingException);
+		}catch(Exception instantiatingException){
+			throw new RuntimeException("Failure in instantiating a class for " + MXMLJsfFactory.getMXMLResponseStateManagerImplPackageClass(), instantiatingException);
 		}
 		
 	}

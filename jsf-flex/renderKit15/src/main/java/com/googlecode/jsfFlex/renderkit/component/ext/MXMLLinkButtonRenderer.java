@@ -58,7 +58,7 @@ public final class MXMLLinkButtonRenderer extends MXMLButtonTemplateRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLLinkButtonRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLLinkButtonRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLLinkButtonRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

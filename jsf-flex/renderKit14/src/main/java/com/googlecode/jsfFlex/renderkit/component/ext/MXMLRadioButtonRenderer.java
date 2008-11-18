@@ -82,7 +82,7 @@ public final class MXMLRadioButtonRenderer extends MXMLButtonTemplateRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLRadioButtonRenderer.class, componentObj, MXML_RADIO_BUTTON_REPLACE_MAPPING);
-		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 

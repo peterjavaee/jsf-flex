@@ -50,11 +50,11 @@ final class SDKStandardCommonTaskRunnerImpl extends TaskRunnerImpl implements _C
 	
 	public void unZipArchiveAbsolute(File file, String dest) {
 		try{
-			FileInputStream _fileIO = new FileInputStream(file);
-			UnzipTask toUnzip = new UnzipTask(_fileIO, dest);
+			FileInputStream fileIO = new FileInputStream(file);
+			UnzipTask toUnzip = new UnzipTask(fileIO, dest);
 			addTask(toUnzip);
-		}catch(FileNotFoundException _fileNotFoundExcept){
-			throw new ComponentBuildException(_fileNotFoundExcept);
+		}catch(FileNotFoundException fileNotFoundExcept){
+			throw new ComponentBuildException(fileNotFoundExcept);
 		}
 	}
 	

@@ -86,7 +86,7 @@ public final class MXMLAccordionRenderer extends MXMLContainerTemplateRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLAccordionRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLAccordionRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLAccordionRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

@@ -69,7 +69,7 @@ public final class MXMLCreditCardValidatorRenderer extends MXMLValidatorTemplate
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLCreditCardValidatorRenderer.class, componentObj, MXML_CREDIT_CARD_VALIDATOR_REPLACE_MAPPING);
-		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 

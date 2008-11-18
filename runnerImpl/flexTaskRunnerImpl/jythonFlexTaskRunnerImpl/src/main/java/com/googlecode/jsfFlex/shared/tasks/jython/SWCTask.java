@@ -72,9 +72,9 @@ public final class SWCTask extends _JythonBaseTask {
 		String commandToExecute = (MXMLConstants.WINDOWS_SYSTEM) ? _flexSDKRootPath + WINDOWS_EXEC : _flexSDKRootPath + NON_WINDOWS_SHELL;
 		Vector commandArguments = getCommandArguments();
 		
-		PyObject _commandExecuteTaskObject = _commandExecuteTaskClass.__call__(new PyString(commandToExecute), 
+		PyObject commandExecuteTaskObject = _commandExecuteTaskClass.__call__(new PyString(commandToExecute), 
 																		new PyList(commandArguments));
-		_jythonTask = (_JythonTaskPerformer) _commandExecuteTaskObject.__tojava__(_JythonTaskPerformer.class);
+		_jythonTask = (_JythonTaskPerformer) commandExecuteTaskObject.__tojava__(_JythonTaskPerformer.class);
 	}
 	
 	private Vector getCommandArguments(){

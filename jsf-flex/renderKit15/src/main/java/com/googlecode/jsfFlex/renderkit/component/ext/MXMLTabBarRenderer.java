@@ -62,7 +62,7 @@ public final class MXMLTabBarRenderer extends MXMLToggleButtonBarTemplateRendere
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLTabBarRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLTabBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLTabBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

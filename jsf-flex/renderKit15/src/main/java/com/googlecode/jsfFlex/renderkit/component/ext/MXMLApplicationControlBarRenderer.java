@@ -59,7 +59,7 @@ public final class MXMLApplicationControlBarRenderer extends MXMLBoxTemplateRend
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLApplicationControlBarRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLApplicationControlBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLApplicationControlBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

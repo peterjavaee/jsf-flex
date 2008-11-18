@@ -58,7 +58,7 @@ public final class MXMLColumnsRenderer extends MXMLComponentBaseRenderer {
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
-		writer.createPreMxml(writer, componentMXML, MXML_COMPONENT_NAME, null);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
 	
@@ -83,12 +83,12 @@ public final class MXMLColumnsRenderer extends MXMLComponentBaseRenderer {
 		}
 		
 		if(childrenListIds.size() > 0){
-			MxmlContext _mxmlContext = MxmlContext.getCurrentInstance();
-			AdditionalApplicationScriptContent _additionalAppScriptContent = _mxmlContext.getAdditionalAppScriptContent();
+			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+			AdditionalApplicationScriptContent additionalAppScriptContent = mxmlContext.getAdditionalAppScriptContent();
 			
-			_additionalAppScriptContent.addDataGridColumnToDataGridScriptContent(dataGridComponentId, childrenListIds);
+			additionalAppScriptContent.addDataGridColumnToDataGridScriptContent(dataGridComponentId, childrenListIds);
 			
-			_additionalAppScriptContent.addActionScriptImport(DATA_GRID_ASYNCHRONOUS_REQUEST_IMPORT);
+			additionalAppScriptContent.addActionScriptImport(DATA_GRID_ASYNCHRONOUS_REQUEST_IMPORT);
 		}
 		
 	}

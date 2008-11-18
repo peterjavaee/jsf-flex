@@ -59,7 +59,7 @@ public final class MXMLPhoneNumberValidatorRenderer extends MXMLValidatorTemplat
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLPhoneNumberValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLPhoneNumberValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLPhoneNumberValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

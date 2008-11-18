@@ -24,7 +24,7 @@ package com.googlecode.jsfFlex.shared.exception;
 public class ComponentBuildException extends RuntimeException {
 	
 	private static final long serialVersionUID = -5173040220355169548L;
-	private Throwable cause;
+	private Throwable _cause;
 	
 	public ComponentBuildException(){
 		super();
@@ -35,16 +35,16 @@ public class ComponentBuildException extends RuntimeException {
 	}
 	
 	public ComponentBuildException(Throwable cause){
-		this.cause = cause;
+		_cause = cause;
 	}
 	
 	public ComponentBuildException(String errorMessage, Throwable cause) {
 		super(errorMessage);
-		this.cause = cause;
+		_cause = cause;
 	}
 	
 	public Throwable getCause() {
-		return cause;
+		return _cause;
 	}
 	
 }

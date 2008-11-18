@@ -132,7 +132,7 @@ public final class MXMLComboBoxRenderer extends MXMLComboBaseTemplateRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLComboBoxRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLComboBoxRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLComboBoxRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

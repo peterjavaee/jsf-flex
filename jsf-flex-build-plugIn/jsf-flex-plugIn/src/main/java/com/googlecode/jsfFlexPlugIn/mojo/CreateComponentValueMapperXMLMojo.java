@@ -91,22 +91,22 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 	/**
 	 * @parameter expression="${project}"
 	 */
-	private MavenProject project;
+	private MavenProject _project;
 	
 	/**
      * @parameter expression="${targetComponentProject}"
      */
-	private String targetComponentProject;
+	private String _targetComponentProject;
 	
 	/**
      * @parameter expression="${basedir}/target/classes/com/googlecode/jsfFlex/shared/swfSourceFiles"
      */
-	private File toCreateComponentValueMapperXMLPath;
+	private File _toCreateComponentValueMapperXMLPath;
 	
 	/**
      * @parameter expression="src/main/resources/META-INF"
      */
-    private File templateSourceDirectory;
+    private File _templateSourceDirectory;
     
     private final Set<ClassInfo> _classInfoSet;
 	
@@ -144,13 +144,13 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 		}
 		
 		@Override
-		public boolean equals(Object _instance) {
-			if(!(_instance instanceof ClassInfo)){
+		public boolean equals(Object instance) {
+			if(!(instance instanceof ClassInfo)){
 				return false;
 			}
 			
-			ClassInfo _classInfoInstance = (ClassInfo) _instance;
-			return this._fullClassName.equals(_classInfoInstance.getFullClassName());
+			ClassInfo classInfoInstance = (ClassInfo) instance;
+			return this._fullClassName.equals(classInfoInstance._fullClassName);
 		}
 		
 		@Override
@@ -243,27 +243,27 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
     public void execute() throws MojoExecutionException, MojoFailureException {
 		
 		//HACK for now, since QDOX seems to have issues reading Java files with annotations
-		targetComponentProject = RENDERKIT_14_PROJECT_NAME;
+		_targetComponentProject = RENDERKIT_14_PROJECT_NAME;
 		
-		String _currDirPath = (String) project.getCompileSourceRoots().get(0);
-		_currDirPath = _currDirPath.replace(JSF_FLEX_SHARED_PROJECT, JSF_FLEX_PROJECT);
-		_currDirPath = (targetComponentProject.equals(RENDERKIT_14_PROJECT_NAME)) ? 
-												_currDirPath.replace(CORE_PROJECT_NAME, RENDERKIT_14_PROJECT_NAME) : 
-												_currDirPath.replace(CORE_PROJECT_NAME, RENDERKIT_15_PROJECT_NAME);
+		String currDirPath = (String) _project.getCompileSourceRoots().get(0);
+		currDirPath = currDirPath.replace(JSF_FLEX_SHARED_PROJECT, JSF_FLEX_PROJECT);
+		currDirPath = (_targetComponentProject.equals(RENDERKIT_14_PROJECT_NAME)) ? 
+												currDirPath.replace(CORE_PROJECT_NAME, RENDERKIT_14_PROJECT_NAME) : 
+												currDirPath.replace(CORE_PROJECT_NAME, RENDERKIT_15_PROJECT_NAME);
 		
-		Properties _velocityParserProperties = new Properties();
-		_velocityParserProperties.put(FILE_RESOURCE_LOADER_PATH_KEY, templateSourceDirectory.getPath());
+		Properties velocityParserProperties = new Properties();
+		velocityParserProperties.put(FILE_RESOURCE_LOADER_PATH_KEY, _templateSourceDirectory.getPath());
 		
-		_jsfFlexVelocityParser = new JsfFlexVelocityParser(_velocityParserProperties);
+		_jsfFlexVelocityParser = new JsfFlexVelocityParser(velocityParserProperties);
 		_jsfFlexVelocityParser.init();
 		_jsfFlexVelocityParser.addParserListener(this);
 		
-		if(targetComponentProject.equals(RENDERKIT_14_PROJECT_NAME)){
-			_jsfFlexInspector = new JsfFlexQdoxInspector(_currDirPath, FLEX_COMPONENT_VALUE_CLASS_INFO_ATTRIBUTE, 
+		if(_targetComponentProject.equals(RENDERKIT_14_PROJECT_NAME)){
+			_jsfFlexInspector = new JsfFlexQdoxInspector(currDirPath, FLEX_COMPONENT_VALUE_CLASS_INFO_ATTRIBUTE, 
 															FLEX_COMPONENT_NODE_ATTRIBUTE);
 		}else{
 			
-			_jsfFlexInspector = new _JsfFlexInspectorBase(_currDirPath){
+			_jsfFlexInspector = new _JsfFlexInspectorBase(currDirPath){
 				public void inspectFiles(){
 					/*
 					 * In order to keep in synch with the QDox parsing, following is the 
@@ -286,59 +286,59 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 					 */
 					JavaDocBuilder builder = new JavaDocBuilder();
 					builder.addSourceTree(new File(getDirPath()));
-					JavaClass[] _inspectableFiles = builder.getClasses();
+					JavaClass[] inspectableFiles = builder.getClasses();
 					
-					for(JavaClass _currClass : _inspectableFiles){
-						JsfFlexAttributeProperties _jsfFlexAttributeList = _currClass.getClass().getAnnotation(JsfFlexAttributeProperties.class);
-						List<Map<String, ? extends Object>> _inspectedList = new LinkedList<Map<String, ? extends Object>>();
-						Map<String, String> _inspectedMap = new LinkedHashMap<String, String>();
+					for(JavaClass currClass : inspectableFiles){
+						JsfFlexAttributeProperties jsfFlexAttributeList = currClass.getClass().getAnnotation(JsfFlexAttributeProperties.class);
+						List<Map<String, ? extends Object>> inspectedList = new LinkedList<Map<String, ? extends Object>>();
+						Map<String, String> inspectedMap = new LinkedHashMap<String, String>();
 						
-						if(_jsfFlexAttributeList == null || _jsfFlexAttributeList.mxmlComponentPackage() == null || 
-									_jsfFlexAttributeList.mxmlComponentName().length() == 0){
+						if(jsfFlexAttributeList == null || jsfFlexAttributeList.mxmlComponentPackage() == null || 
+									jsfFlexAttributeList.mxmlComponentName().length() == 0){
 							continue;
 						}
 						
-						_inspectedMap.put(MXML_COMPONENT_PACKAGE_KEY, _jsfFlexAttributeList.mxmlComponentPackage());
-						_inspectedMap.put(MXML_COMPONENT_NAME_KEY, _jsfFlexAttributeList.mxmlComponentName());
+						inspectedMap.put(MXML_COMPONENT_PACKAGE_KEY, jsfFlexAttributeList.mxmlComponentPackage());
+						inspectedMap.put(MXML_COMPONENT_NAME_KEY, jsfFlexAttributeList.mxmlComponentName());
 						
-						_inspectedList.add(_inspectedMap);
+						inspectedList.add(inspectedMap);
 						//have added Map info containing CLASS_* info
 						
-						for(FlexComponentNodeAttribute _currComponentNodeInfo : _jsfFlexAttributeList.mxmlComponentNodeAttributes()){
-							_inspectedMap = new LinkedHashMap<String, String>();
+						for(FlexComponentNodeAttribute currComponentNodeInfo : jsfFlexAttributeList.mxmlComponentNodeAttributes()){
+							inspectedMap = new LinkedHashMap<String, String>();
 							
-							_inspectedMap.put(HTML_TYPE_KEY, _currComponentNodeInfo.htmlType());
-							_inspectedMap.put(TYPE_ATTRIBUTE_VALUE_KEY, _currComponentNodeInfo.typeAttributeValue());
+							inspectedMap.put(HTML_TYPE_KEY, currComponentNodeInfo.htmlType());
+							inspectedMap.put(TYPE_ATTRIBUTE_VALUE_KEY, currComponentNodeInfo.typeAttributeValue());
 							
-							_inspectedMap.put(VALUE_ATTRIBUTE_VALUE_KEY, _currComponentNodeInfo.valueAttributeValue());
-							_inspectedMap.put(VALUE_DYNAMIC_KEY, String.valueOf(_currComponentNodeInfo.isValueDynamic()));
-							_inspectedMap.put(VALUE_NESTED_KEY, String.valueOf(_currComponentNodeInfo.isValueNested()));
+							inspectedMap.put(VALUE_ATTRIBUTE_VALUE_KEY, currComponentNodeInfo.valueAttributeValue());
+							inspectedMap.put(VALUE_DYNAMIC_KEY, String.valueOf(currComponentNodeInfo.isValueDynamic()));
+							inspectedMap.put(VALUE_NESTED_KEY, String.valueOf(currComponentNodeInfo.isValueNested()));
 							
-							String _builtString;
-							if(_currComponentNodeInfo.isValueNested()){
-								StringBuilder _toBuildString = new StringBuilder();
+							String builtString;
+							if(currComponentNodeInfo.isValueNested()){
+								StringBuilder toBuildString = new StringBuilder();
 								
-								for(String _buildInto : _currComponentNodeInfo.valueNestedValues()){
-									_toBuildString.append(_buildInto);
-									_toBuildString.append("_");
+								for(String buildInto : currComponentNodeInfo.valueNestedValues()){
+									toBuildString.append(buildInto);
+									toBuildString.append("_");
 								}
 								
-								_toBuildString.deleteCharAt(_toBuildString.length()-1);
-								_builtString = _toBuildString.toString();
+								toBuildString.deleteCharAt(toBuildString.length()-1);
+								builtString = toBuildString.toString();
 							}else{
-								_builtString = "";
+								builtString = "";
 							}
 							
-							_inspectedMap.put(VALUE_NESTED_VALUES_KEY, _builtString);
+							inspectedMap.put(VALUE_NESTED_VALUES_KEY, builtString);
 							
-							_inspectedMap.put(NAME_ATTRIBUTE_VALUE_KEY, _currComponentNodeInfo.nameAttributeValue());
-							_inspectedMap.put(NAME_DYNAMIC_KEY, String.valueOf(_currComponentNodeInfo.isNameDynamic()));
-							_inspectedMap.put(NAME_APPEND_KEY, _currComponentNodeInfo.nameAppend());
+							inspectedMap.put(NAME_ATTRIBUTE_VALUE_KEY, currComponentNodeInfo.nameAttributeValue());
+							inspectedMap.put(NAME_DYNAMIC_KEY, String.valueOf(currComponentNodeInfo.isNameDynamic()));
+							inspectedMap.put(NAME_APPEND_KEY, currComponentNodeInfo.nameAppend());
 							
-							_inspectedList.add(_inspectedMap);
+							inspectedList.add(inspectedMap);
 						}
 						
-						inspectFileFinished(_inspectedList, _currClass.getName(), _currClass.getPackage());
+						inspectFileFinished(inspectedList, currClass.getName(), currClass.getPackage());
 					}
 					
 					inspectionCompleted();
@@ -353,33 +353,33 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 		
 	}
 	
-	public void inspectFileFinished(List<Map<String, ? extends Object>> _inspectedList, String _sourceInspected, String _package) {
+	public void inspectFileFinished(List<Map<String, ? extends Object>> inspectedList, String sourceInspected, String packageName) {
 		
-		ClassInfo _currClassInfo = null;
+		ClassInfo currClassInfo = null;
 		
-		for(Map<String, ? extends Object> _inspected : _inspectedList){
+		for(Map<String, ? extends Object> inspected : inspectedList){
 		
-			if(_inspected != null && _inspected.size() > 0){
+			if(inspected != null && inspected.size() > 0){
 				
-				if(_currClassInfo == null){
-					String _classPackage = (String) _inspected.get(MXML_COMPONENT_PACKAGE_KEY);
-					String _className = (String) _inspected.get(MXML_COMPONENT_NAME_KEY);
+				if(currClassInfo == null){
+					String classPackage = (String) inspected.get(MXML_COMPONENT_PACKAGE_KEY);
+					String className = (String) inspected.get(MXML_COMPONENT_NAME_KEY);
 					
-					String _fullClassName = _classPackage + "::" + _className;
+					String fullClassName = classPackage + "::" + className;
 					
-					_currClassInfo  = new ClassInfo(_fullClassName);
-					_classInfoSet.add(_currClassInfo);
+					currClassInfo  = new ClassInfo(fullClassName);
+					_classInfoSet.add(currClassInfo);
 					continue;
 				}
 				//created the ClassInfo instance and now created the NodeInfo to add
 				
-				Object htmlType = _inspected.get(HTML_TYPE_KEY);
-				Object typeAttributeValue = _inspected.get(TYPE_ATTRIBUTE_VALUE_KEY);
+				Object htmlType = inspected.get(HTML_TYPE_KEY);
+				Object typeAttributeValue = inspected.get(TYPE_ATTRIBUTE_VALUE_KEY);
 				
-				Object valueAttributeValue = _inspected.get(VALUE_ATTRIBUTE_VALUE_KEY);
-				Boolean isValueDynamic = _inspected.get(VALUE_DYNAMIC_KEY) != null && _inspected.get(VALUE_DYNAMIC_KEY).equals("true");
-				Boolean isValueNested = _inspected.get(VALUE_NESTED_KEY) != null && _inspected.get(VALUE_NESTED_KEY).equals("true");
-				Object valueNestedValues = _inspected.get(VALUE_NESTED_VALUES_KEY);
+				Object valueAttributeValue = inspected.get(VALUE_ATTRIBUTE_VALUE_KEY);
+				Boolean isValueDynamic = inspected.get(VALUE_DYNAMIC_KEY) != null && inspected.get(VALUE_DYNAMIC_KEY).equals("true");
+				Boolean isValueNested = inspected.get(VALUE_NESTED_KEY) != null && inspected.get(VALUE_NESTED_KEY).equals("true");
+				Object valueNestedValues = inspected.get(VALUE_NESTED_VALUES_KEY);
 				List<String> valueNestedList;
 				if(valueNestedValues != null){
 					valueNestedList = Arrays.asList( ((String) valueNestedValues).split("_") );
@@ -387,11 +387,11 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 					valueNestedList = new LinkedList<String>();
 				}
 				
-				Object nameAttributeValue = _inspected.get(NAME_ATTRIBUTE_VALUE_KEY);
-				Boolean isNameDynamic = _inspected.get(NAME_DYNAMIC_KEY) != null && _inspected.get(NAME_DYNAMIC_KEY).equals("true");
-				Object nameAppend = _inspected.get(NAME_APPEND_KEY);
+				Object nameAttributeValue = inspected.get(NAME_ATTRIBUTE_VALUE_KEY);
+				Boolean isNameDynamic = inspected.get(NAME_DYNAMIC_KEY) != null && inspected.get(NAME_DYNAMIC_KEY).equals("true");
+				Object nameAppend = inspected.get(NAME_APPEND_KEY);
 				
-				_currClassInfo.addNodeInfo(new NodeInfo(returnEmptyStringForNull(htmlType), returnEmptyStringForNull(typeAttributeValue), isValueNested, 
+				currClassInfo.addNodeInfo(new NodeInfo(returnEmptyStringForNull(htmlType), returnEmptyStringForNull(typeAttributeValue), isValueNested, 
 															isValueDynamic, returnEmptyStringForNull(valueAttributeValue), valueNestedList, isNameDynamic, 
 															returnEmptyStringForNull(nameAppend), returnEmptyStringForNull(nameAttributeValue)));
 				
@@ -407,30 +407,30 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 	
 	public void inspectionCompleted() {
 		
-		String _toCreateComponentValueMapperXMLPath = toCreateComponentValueMapperXMLPath.getPath();
+		String toCreateComponentValueMapperXMLPath = _toCreateComponentValueMapperXMLPath.getPath();
 		
 		try{
-			File _toCreateComponentValueMapperXMLFilePath = new File(_toCreateComponentValueMapperXMLPath);
-			if(!_toCreateComponentValueMapperXMLFilePath.exists()){
-				_toCreateComponentValueMapperXMLFilePath.mkdirs();
+			File toCreateComponentValueMapperXMLFilePath = new File(toCreateComponentValueMapperXMLPath);
+			if(!toCreateComponentValueMapperXMLFilePath.exists()){
+				toCreateComponentValueMapperXMLFilePath.mkdirs();
 			}
-			_toCreateComponentValueMapperXMLPath +=  File.separatorChar + TO_CREATE_COMPONENT_VALUE_MAPPER_XML_FILE_NAME; 
-			FileWriter _writer = new FileWriter(new File(_toCreateComponentValueMapperXMLPath));
-			Map<String, Object> _contextInfoMap = new HashMap<String, Object>();
+			toCreateComponentValueMapperXMLPath +=  File.separatorChar + TO_CREATE_COMPONENT_VALUE_MAPPER_XML_FILE_NAME; 
+			FileWriter writer = new FileWriter(new File(toCreateComponentValueMapperXMLPath));
+			Map<String, Object> contextInfoMap = new HashMap<String, Object>();
 			
-			_contextInfoMap.put(JSF_FLEX_CLASS_SET_ATTRIBUTE, _classInfoSet);
-			_jsfFlexVelocityParser.mergeCollectionToTemplate(JSF_FLEX_COMPONENT_VALUE_MAPPER_TEMPLATE, _contextInfoMap, 
-																_writer, _toCreateComponentValueMapperXMLPath);
+			contextInfoMap.put(JSF_FLEX_CLASS_SET_ATTRIBUTE, _classInfoSet);
+			_jsfFlexVelocityParser.mergeCollectionToTemplate(JSF_FLEX_COMPONENT_VALUE_MAPPER_TEMPLATE, contextInfoMap, 
+																writer, toCreateComponentValueMapperXMLPath);
 			
-		}catch(IOException _ioException){
+		}catch(IOException ioException){
 			
 		}
 		
 	}
 	
-	public void mergeCollectionToTemplateFinished(String _fileMerged) {
+	public void mergeCollectionToTemplateFinished(String fileMerged) {
 		
-		ReplaceText removeEmptySpace = new ReplaceText(_fileMerged);
+		ReplaceText removeEmptySpace = new ReplaceText(fileMerged);
 		removeEmptySpace.replaceRegExp(true);
 		removeEmptySpace.regMatch(ReplaceText.CLEAN_REG_EXP_MATCH);
 		removeEmptySpace.regReplace(ReplaceText.CLEAN_REG_EXP_REPLACE_WITH);

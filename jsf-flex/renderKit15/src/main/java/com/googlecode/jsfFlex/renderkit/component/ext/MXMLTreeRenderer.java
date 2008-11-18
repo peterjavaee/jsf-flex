@@ -86,7 +86,7 @@ public final class MXMLTreeRenderer extends MXMLListTemplateRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLTreeRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLTreeRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLTreeRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

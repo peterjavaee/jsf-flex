@@ -64,7 +64,7 @@ public final class MXMLNumberFormatterRenderer extends MXMLFormatterTemplateRend
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLNumberFormatterRenderer.class, componentObj, null);
-		writer.createPreMxml(writer, componentMXML, MXMLNumberFormatterRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLNumberFormatterRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}
