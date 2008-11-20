@@ -267,12 +267,31 @@
       
       <!-- Need Dojo + Dojox [latter mainly for Dictionary, hopefully it will be moved to Dojo soon. 
            Since the size of War becomes gt 20GiB with all three packages, will remove Dijit which
-           is not needed for now -->
+           is not needed for now and all the other components of Dojox except for collections. 
+           This is rather VERY ugly, consider implementing this differently later. -->
       <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
           <configuration>
             <tasks>
               <delete dir="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/dijit"/>
+              
+              <!-- First move dojox/collections to a different location -->
+              <move file="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/dojox/collections" 
+                         todir="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/" />
+              
+              <move file="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/dojox/collections.js" 
+                         todir="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/" />
+              
+              <!-- Now delete all the content under dojox -->
+              <delete dir="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/dojox"/>
+              
+              <!-- Finally move dojox/collections back to its proper location -->
+              <move file="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/collections" 
+                         todir="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/dojox" />
+              
+              <move file="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/collections.js" 
+                         todir="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/dojox" />
+                            
             </tasks>
           </configuration>
         <executions>
