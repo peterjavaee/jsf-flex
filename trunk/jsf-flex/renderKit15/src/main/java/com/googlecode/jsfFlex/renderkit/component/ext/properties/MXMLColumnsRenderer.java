@@ -57,7 +57,7 @@ public final class MXMLColumnsRenderer extends MXMLComponentBaseRenderer {
 	private static final String INVALID_CHILD_COMPONENT = "Invalid Child Component : MXMLUIColumns can only have subclass of following abstract classes [ AbstractMXMLUIDataGridColumn ] as its children";
 	private static final String INVALID_PARENT_COMPONENT = "Invalid Parent Component : MXMLUIColumns can only have subclass of following abstract classes [ AbstractMXMLUIDataGrid ] as its parent";
 	
-	private static final String DATA_GRID_ASYNCHRONOUS_REQUEST_IMPORT = "com.googlecode.jsfFlex.communication.component.DataGridAsynchronousRequest";
+	private static final String DATA_GRID_SERVICE_REQUEST_IMPORT = "com.googlecode.jsfFlex.communication.component.DataGridServiceRequest";
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
@@ -98,7 +98,7 @@ public final class MXMLColumnsRenderer extends MXMLComponentBaseRenderer {
 			
 			additionalAppScriptContent.addDataGridColumnToDataGridScriptContent(dataGridComponentId, childrenListIds);
 			
-			additionalAppScriptContent.addActionScriptImport(DATA_GRID_ASYNCHRONOUS_REQUEST_IMPORT);
+			additionalAppScriptContent.addActionScriptImport(DATA_GRID_SERVICE_REQUEST_IMPORT);
 		}
 		
 	}

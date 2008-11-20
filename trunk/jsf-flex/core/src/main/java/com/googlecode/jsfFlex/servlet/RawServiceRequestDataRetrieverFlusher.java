@@ -16,22 +16,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- 
+package com.googlecode.jsfFlex.servlet;
+
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @author Ji Hoon Kim
  */
-package com.googlecode.jsfFlex.communication.component
-{
+final class RawServiceRequestDataRetrieverFlusher implements _ServiceRequestDataRetrieverFlusher {
 	
-	internal class DataGridColumnBean {
-		
-		private var _columnId:String;
-		private var columnEntries:XMLList;
-		
-		public function DataGridColumnBean(columnId:String){
-			super();
-			_columnId = columnId;
-		}
+	public void retrieveFlushData(HttpServletResponse response, String componentId, String methodToInvoke) {
 		
 	}
 	

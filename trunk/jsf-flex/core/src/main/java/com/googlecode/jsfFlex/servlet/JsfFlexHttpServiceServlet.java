@@ -29,9 +29,21 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Ji Hoon Kim
  */
-public class JSONHttpServiceServlet extends HttpServlet {
+public final class JsfFlexHttpServiceServlet extends HttpServlet {
 	
-	private static final long serialVersionUID = 738201896185005750L;
+	private static final long serialVersionUID = 0L;
+	
+	private static final String COMPONENT_ID = "componentId";
+	private static final String METHOD_TO_INVOKE = "methodToInvoke";
+	private static final String SERVLET_RETURN_METHOD = "servletReturnMethod";
+	
+	private static final String SERVLET_NAME_VALUE_RESULT_FORMAT = "nameValue";
+	private static final String SERVLET_RAW_RESULT_FORMAT = "raw";
+	private static final String SERVLET_XML_RESULT_FORMAT = "xml";
+	
+	private static final _ServiceRequestDataRetrieverFlusher NAME_VALUE_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new NameValueServiceRequestDataRetrieverFlusher();
+	private static final _ServiceRequestDataRetrieverFlusher RAW_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new RawServiceRequestDataRetrieverFlusher();
+	private static final _ServiceRequestDataRetrieverFlusher XML_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new XMLServiceRequestDataRetrieverFlusher();
 	
 	public void init() throws ServletException {
 		super.init();
@@ -48,7 +60,6 @@ public class JSONHttpServiceServlet extends HttpServlet {
 	 */
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		super.doDelete(request, response);
-		
 	}
 	
 	/* 
@@ -58,6 +69,23 @@ public class JSONHttpServiceServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		super.doGet(request, response);
+		
+		String componentId = request.getParameter(COMPONENT_ID);
+		String methodToInvoke = request.getParameter(METHOD_TO_INVOKE);
+		String servletReturnMethod = request.getParameter(SERVLET_RETURN_METHOD);
+		
+		_ServiceRequestDataRetrieverFlusher serviceRequestDataRetrieverFlusher = null;
+		
+		if(servletReturnMethod.equals(SERVLET_NAME_VALUE_RESULT_FORMAT)){
+			serviceRequestDataRetrieverFlusher = NAME_VALUE_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER;
+		}else if(servletReturnMethod.equals(SERVLET_RAW_RESULT_FORMAT)){
+			serviceRequestDataRetrieverFlusher = RAW_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER;
+		}else if(servletReturnMethod.equals(SERVLET_XML_RESULT_FORMAT)){
+			serviceRequestDataRetrieverFlusher = XML_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER;
+		}
+		
+		serviceRequestDataRetrieverFlusher.retrieveFlushData(response, componentId, methodToInvoke);
+		
 	}
 	
 	/* 
@@ -76,7 +104,6 @@ public class JSONHttpServiceServlet extends HttpServlet {
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		super.doPut(request, response);
-		
 	}
 	
 }

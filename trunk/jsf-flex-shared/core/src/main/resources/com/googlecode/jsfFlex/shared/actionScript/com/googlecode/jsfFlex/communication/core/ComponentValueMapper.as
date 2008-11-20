@@ -73,7 +73,7 @@ package com.googlecode.jsfFlex.communication.core
 			}
 		}
 		
-		public function ComponentValueMapper(refApp:UIComponent){
+		public function ComponentValueMapper(refApp:UIComponent) {
 			super();
 			_refApp = refApp;
 		}
@@ -190,7 +190,7 @@ package com.googlecode.jsfFlex.communication.core
 			return valueToReturn;
 		}
 		
-		private function getAttributeValue(attribute:XML, objectRef:Object):Object{
+		private function getAttributeValue(attribute:XML, objectRef:Object):Object {
 			
 			var attributeValue:String;
 			var attributeId:String;

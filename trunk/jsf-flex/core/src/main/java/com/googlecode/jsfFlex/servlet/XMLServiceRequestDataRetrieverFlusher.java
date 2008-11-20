@@ -16,38 +16,20 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- 
+package com.googlecode.jsfFlex.servlet;
+
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * @author Ji Hoon Kim
  */
-package com.googlecode.jsfFlex.communication.component
-{
+final class XMLServiceRequestDataRetrieverFlusher implements _ServiceRequestDataRetrieverFlusher {
 	
-	import com.googlecode.jsfFlex.communication.logger.ILogger;
-	import com.googlecode.jsfFlex.communication.logger.LoggerFactory
+	XMLServiceRequestDataRetrieverFlusher(){
+		super();
+	}
 	
-	import com.googlecode.jsfFlex.communication.services.JSONHttpService;
-	
-	public class DataGridAsynchronousRequest {
-		
-		private static var _log:ILogger;
-		
-		private var _dataGridARId:String;
-		private var _dataGridColumnList:Array;
-		
-		{
-			_log = LoggerFactory.newJSLoggerInstance(DataGridAsynchronousRequest);
-		}
-		
-		public function DataGridAsynchronousRequest(dataGridARId:String){
-			super();
-			_dataGridARId = dataGridARId;
-			_dataGridColumnList = new Array();
-		}
-		
-		public function addDataGridColumBean(dataGridStringId:String):void {
-			_dataGridColumnList.push(new DataGridColumnBean(dataGridStringId));
-		}
+	public void retrieveFlushData(HttpServletResponse response, String componentId, String methodToInvoke) {
 		
 	}
 	
