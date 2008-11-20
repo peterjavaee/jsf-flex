@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <flex-config>
 	<include-classes>
-        <class>com.googlecode.jsfFlex.communication.component.DataGridAsynchronousRequest</class>
-        <class>com.googlecode.jsfFlex.communication.component.DataGridColumnBean</class>
+		<class>com.googlecode.jsfFlex.communication.component.DataGridColumnServiceRequest</class>
+        <class>com.googlecode.jsfFlex.communication.component.DataGridServiceRequest</class>
         <class>com.googlecode.jsfFlex.communication.core.ComponentValueMapper</class>
         <class>com.googlecode.jsfFlex.communication.logger.JavaScriptLogger</class>
         <class>com.googlecode.jsfFlex.communication.logger.ILogger</class>
         <class>com.googlecode.jsfFlex.communication.logger.LoggerFactory</class>
-        <class>com.googlecode.jsfFlex.communication.services.JSONHttpService</class>
+        <class>com.googlecode.jsfFlex.communication.services.JsfFlexHttpService</class>
 	</include-classes>
 </flex-config>

@@ -75,5 +75,19 @@
       <servlet-name>Faces Servlet</servlet-name>
        <url-pattern>*.jsf</url-pattern>
     </servlet-mapping>
+    
+    <!-- JSF Flex HttpServiceServlet -->
+    <servlet>
+    	<servlet-name>JSF Flex HttpServiceServlet</servlet-name>
+    	<servlet-class>com.googlecode.jsfFlex.servlet.JsfFlexHttpServiceServlet</servlet-class>
+    	<load-on-startup>1</load-on-startup>
+    </servlet>
+	
+	<!-- JSF Flex HttpServiceServlet Mapping -->
+	<servlet-mapping>
+		<servlet-name>JSF Flex HttpServiceServlet</servlet-name>
+		<url-pattern>/jsfFlexHttpServiceRequest.service</url-pattern>
+	</servlet-mapping>
+	
 	
 </web-app>

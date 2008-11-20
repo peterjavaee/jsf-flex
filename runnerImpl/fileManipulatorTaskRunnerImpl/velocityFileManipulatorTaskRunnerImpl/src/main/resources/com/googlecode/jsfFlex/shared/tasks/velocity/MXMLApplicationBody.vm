@@ -2,6 +2,9 @@
 		<![CDATA[
 		
 		import com.googlecode.jsfFlex.communication.core.ComponentValueMapper;
+	#foreach( $actionScriptImport in ${additionalApplicationScriptContent.getActionScriptImports()} )
+		import $actionScriptImport;
+	#end
 		
 		private static const AS_PAGE_UNLOADING_FUNCTION:String = "pageUnloading";
 		private static const AS_POPULATE_INIT_VALUES_FUNCTION:String = "populateInitValues";
@@ -22,6 +25,18 @@
 			if(idObject != null){
 			    compValMapper.populateInitValues(idObject);
 			}
+			
+		#foreach( $dataGridScriptContent in ${additionalApplicationScriptContent.getDataGridScriptContent()} )
+			#set( $dataGridVarRef = "${dataGridScriptContent.getDataGridId()}VarRef" )
+			var ${dataGridVarRef}:DataGridServiceRequest = new DataGridServiceRequest("${dataGridScriptContent.getDataGridId()}", this);
+			
+			#foreach( $dataGridColumnId in ${dataGridScriptContent.getDataGridColumns()} )
+				${dataGridVarRef}.addDataGridColumServiceRequest("${dataGridColumnId}");
+			#end
+			
+			${dataGridVarRef}.getDataGridColumnInfo();
+		#end
+			
 		}
 		
 		public function populateInitValues(idObject:Object):void {
@@ -34,8 +49,6 @@
 			var jsonObject:Array = compValMapper.getJSON(idObject);
 			ExternalInterface.call(JS_COMMUNICATION_CORE_UPDATE_VALUES_FUNCTION, jsonObject);
 		}
-		
-		{additionalScriptContent}
 		
 		]]>
 </mx:Script>

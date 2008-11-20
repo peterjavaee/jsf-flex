@@ -103,20 +103,12 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 	
 	private final static Log _log = LogFactory.getLog(MXMLApplicationRenderer.class);
 	
-	private static final String MXML_APPLICATION_BODY_TEMPLATE;
+	private static final String MXML_APPLICATION_BODY_TEMPLATE  = "MXMLApplicationBody.vm";
 	
 	private static final String MX_KEY = "xmlns:mx";
-	private static final String TO_BE_CREATED_ADDITIONAL_APP_SCRIPT_CONTENT_TEMPLATE_SUFFIX = "AdditionalAppScriptContent.tmp";
-	private static final String ADDITIONAL_APPLICATION_SCRIPT_CONTENT_TEMPLATE = "additional-application-script-content.template";
-	private static final String ADDITIONAL_APPLICATION_SCRIPT_CONTENT_TOKEN = "additionalApplicationScriptContent";
-	private static final String ADDITIONAL_SCRIPT_CONTENT_TOKEN = "{additionalScriptContent}";
 	
-	static{
-		//TODO : find a better method to implement the below tasks
-		String packageName = MXMLApplicationRenderer.class.getPackage().getName();
-		packageName = packageName.replace('.', '/');
-		MXML_APPLICATION_BODY_TEMPLATE = packageName + "/templates/MXMLApplicationBody.template";
-	}
+	private static final String TO_BE_CREATED_ADDITIONAL_APP_SCRIPT_CONTENT_TEMPLATE_SUFFIX = "AdditionalAppScriptContent.tmp";
+	private static final String ADDITIONAL_APPLICATION_SCRIPT_CONTENT_TOKEN = "additionalApplicationScriptContent";
 	
 	private final MXMLApplicationHTMLRenderer _mxmlApplicationHtmlRenderer;
 	
@@ -151,17 +143,10 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		 */
 		componentMXML.getAnnotationDocletParserInstance().getTokenValueSet().add(new TokenValue(MX_KEY, componentMXML.getAttributes().get(MX_KEY).toString()));
 		
-		String bodyContent = writer.getComponentTemplate(MXMLApplicationRenderer.class.getClassLoader(), 
-									MXML_APPLICATION_BODY_TEMPLATE);
-		
-		writer.createPreMxml(componentMXML, MXMLApplicationRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
-				bodyContent);
-		
 	}
 	
 	@Override
 	public void encodeEnd(FacesContext context, UIComponent componentObj) throws IOException {
-		super.encodeEnd(context, componentObj);
 		
 		_MXMLApplicationContract componentMXML = (_MXMLApplicationContract) componentObj;
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
@@ -178,14 +163,17 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			writer.createSWF(componentMXML, mxmlFile, mxmlContext.getSwfPath(), mxmlContext.getFlexSDKPath());
 		}else if(!mxmlContext.isProductionEnv()){
 			//means it is of debugMode, so must create mxml and etcetera
+			
+			/* Beginning of creating application body content dynamically [since need to allow additional application script content] */
 			AdditionalApplicationScriptContent additionalAppScriptContent = mxmlContext.getAdditionalAppScriptContent();
 			String filePath = mxmlContext.getPreMxmlPath() + mxmlContext.getCurrMxml() + TO_BE_CREATED_ADDITIONAL_APP_SCRIPT_CONTENT_TEMPLATE_SUFFIX;
 			Map<String, AdditionalApplicationScriptContent> tokenMap = new HashMap<String, AdditionalApplicationScriptContent>();
 			tokenMap.put(ADDITIONAL_APPLICATION_SCRIPT_CONTENT_TOKEN, additionalAppScriptContent);
-			writer.createFileContent(filePath, ADDITIONAL_APPLICATION_SCRIPT_CONTENT_TEMPLATE, null, tokenMap);
+			writer.createFileContent(filePath, MXML_APPLICATION_BODY_TEMPLATE, null, tokenMap);
 			
-			String additionalApplicationScriptContent = writer.readFileContent(filePath);
-			writer.replaceTokenWithValue(componentMXML.getAbsolutePathToPreMxmlFile(), additionalApplicationScriptContent, ADDITIONAL_SCRIPT_CONTENT_TOKEN);
+			String bodyContent = writer.readFileContent(filePath);
+			writer.createPreMxml(componentMXML, MXMLApplicationRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), bodyContent);
+			/* End of creating application body content dynamicall */
 			
 			Map preMxmlMap = mxmlContext.getPreMxmlCompMap();
 			
