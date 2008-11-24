@@ -18,8 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import javax.el.ValueExpression;
 import javax.faces.context.FacesContext;
-import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
@@ -422,11 +422,12 @@ public abstract class AbstractMXMLUIColorPicker
     		return;
     	}
     	
-    	ValueBinding vb = getValueBinding(SELECTED_COLOR_ATTR);
-		if(vb != null && !vb.isReadOnly(getFacesContext())){
-			vb.setValue(getFacesContext(), getSelectedColor());
-			setSelectedColor(null);
-		}
+    	ValueExpression ve = getValueExpression(SELECTED_COLOR_ATTR);
+    	
+    	if(ve != null && !ve.isReadOnly(context.getELContext())){
+    		ve.setValue(context.getELContext(), getSelectedColor());
+    		setSelectedColor(null);
+    	}
     	
     }
 

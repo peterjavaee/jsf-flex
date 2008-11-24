@@ -87,7 +87,7 @@ public class MXMLBean implements Serializable {
 		_quoteColumnData.add("Belief is a wise wager. Granted that faith cannot be proved, what harm will come to you if you gamble on its truth and it proves false? If you gain, you gain all; if you lose, you lose nothing. Wager, then, without hesitation, that He exists.");
 		
 		_emailColumnData = new LinkedList();
-		_emailColumnData.add("fatherOfphysicsCalculusDude@wiseHumble.com");
+		_emailColumnData.add("fatherOfPhysicsCalculusDude@wiseHumble.com");
 		_emailColumnData.add("electroMagneticDude@wiseHumble.com");
 		_emailColumnData.add("probabilityTheoryDude@wiseHumble.com");
 		

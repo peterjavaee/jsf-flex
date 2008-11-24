@@ -45,8 +45,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="id", byMethod=false),
-				@JsfFlexAttribute(attribute="label", byMethod=false),
-				@JsfFlexAttribute(attribute="data", byMethod=false)
+				@JsfFlexAttribute(attribute="label", byMethod=true),
+				@JsfFlexAttribute(attribute="data", byMethod=true)
 		}
 )
 public final class MXMLObjectRenderer extends MXMLComponentBaseRenderer {

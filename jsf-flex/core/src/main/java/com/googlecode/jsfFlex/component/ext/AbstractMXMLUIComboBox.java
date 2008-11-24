@@ -18,8 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import javax.el.ValueExpression;
 import javax.faces.context.FacesContext;
-import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
@@ -436,11 +436,12 @@ public abstract class AbstractMXMLUIComboBox
     		return;
     	}
     	
-    	ValueBinding vb = getValueBinding(TEXT_ATTR);
-		if(vb != null && !vb.isReadOnly(getFacesContext())){
-			vb.setValue(getFacesContext(), getText());
-			setText(null);
-		}
+    	ValueExpression ve = getValueExpression(TEXT_ATTR);
+    	
+    	if(ve != null && !ve.isReadOnly(context.getELContext())){
+    		ve.setValue(context.getELContext(), getText());
+    		setText(null);
+    	}
     	
     }
 	

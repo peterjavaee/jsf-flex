@@ -39,6 +39,9 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
  */
 public class MXMLRendererBase extends Renderer {
 	
+	public static final String MAJOR_MINOR_DELIM = "-";
+	private static final String PRE_MXML_FILE_NAME_DELIM = "_";
+	
 	private MXMLRendererBaseHelper _mxmlRendererBaseHelper;
 	
 	{
@@ -49,8 +52,8 @@ public class MXMLRendererBase extends Renderer {
 		public int compare(Object obj1, Object obj2){
 			_MXMLContract actObj1 = (_MXMLContract) obj1;
 			_MXMLContract actObj2 = (_MXMLContract) obj2;
-			double actObj1Double = Double.valueOf(actObj1.getPreMxmlIdentifier()).doubleValue();
-			double actObj2Double = Double.valueOf(actObj2.getPreMxmlIdentifier()).doubleValue();
+			double actObj1Double = Double.valueOf(actObj1.getPreMxmlIdentifier().replaceAll(MAJOR_MINOR_DELIM, "")).doubleValue();
+			double actObj2Double = Double.valueOf(actObj2.getPreMxmlIdentifier().replaceAll(MAJOR_MINOR_DELIM, "")).doubleValue();
 			return actObj1Double == actObj2Double ? 0 : actObj1Double < actObj2Double ? -1 : 1;
 		}
 	};
@@ -139,8 +142,10 @@ public class MXMLRendererBase extends Renderer {
 				parentPreMxmlIdentifier.append(parentInstance.getPreMxmlIdentifier());
 				
 				preMxmlIdentifier.append(parentInstance.getPreMxmlIdentifier());
+				preMxmlIdentifier.append(MAJOR_MINOR_DELIM);
 				preMxmlIdentifier.append(currInstance.getMajorLevel());
 				preMxmlIdentifier.append(currInstance.getMinorLevel());
+				
 			}else{
 				//currInstance is an instance of MXMLUIApplication
 				preMxmlIdentifier.append(currInstance.getMajorLevel());
@@ -154,9 +159,9 @@ public class MXMLRendererBase extends Renderer {
 		private void setAbsolutePathToPreMxmlFile(String mxmlPackageName, _MXMLContract currInstance, String preMxmlPath){
 			StringBuffer toReturn = new StringBuffer(preMxmlPath);
 			toReturn.append(mxmlPackageName);
-			toReturn.append("_");
+			toReturn.append(PRE_MXML_FILE_NAME_DELIM);
 			toReturn.append(currInstance.getClass().getSimpleName());
-			toReturn.append("_");
+			toReturn.append(PRE_MXML_FILE_NAME_DELIM);
 			toReturn.append(currInstance.getPreMxmlIdentifier());
 			toReturn.append(MXMLConstants.PRE_MXML_FILE_EXT);
 			

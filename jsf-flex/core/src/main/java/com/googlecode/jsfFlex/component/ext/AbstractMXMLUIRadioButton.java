@@ -18,8 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import javax.el.ValueExpression;
 import javax.faces.context.FacesContext;
-import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
 
 import com.googlecode.jsfFlex.component.MXMLUISelectedBase;
@@ -431,11 +431,12 @@ public abstract class AbstractMXMLUIRadioButton
     		return;
     	}
     	
-    	ValueBinding vb = getValueBinding(SELECTED_VALUE_ATTR);
-		if(vb != null && !vb.isReadOnly(getFacesContext())){
-			vb.setValue(getFacesContext(), getSelectedValue());
-			setSelectedValue(null);
-		}
+    	ValueExpression ve = getValueExpression(SELECTED_VALUE_ATTR);
+    	
+    	if(ve != null && !ve.isReadOnly(context.getELContext())){
+    		ve.setValue(context.getELContext(), getSelectedValue());
+    		setSelectedValue(null);
+    	}
     	
     }
 	

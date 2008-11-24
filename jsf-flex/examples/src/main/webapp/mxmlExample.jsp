@@ -37,7 +37,7 @@
     	<h:commandButton value="DecodeTester" action="success" />
     	<br>
         
-	    <jf:mxmlApplication mxmlPackageName="anotherSwf" height="5%" width="85%" verticalScrollPolicy="off">
+	    <jf:mxmlApplication mxmlPackageName="anotherSwf" height="5%" width="85%" verticalScrollPolicy="off" backgroundColor="0xCC6666">
 	    	<jf:mxmlLabel text="I simply am an another SWF file. DHan, DHAn, DHAN!!!" color="#FFFFFF" fontWeight="bold"/>
 	    </jf:mxmlApplication>
 	    

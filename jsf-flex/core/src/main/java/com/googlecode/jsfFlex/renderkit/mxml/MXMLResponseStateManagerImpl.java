@@ -56,8 +56,20 @@ class MXMLResponseStateManagerImpl extends AbstractMXMLResponseStateManager {
 		return _mxmlResponseStateManagerBaseImplementor.getComponentStateToRestore(context);
 	}
 	
+	public Object getState(FacesContext context, String viewId) {
+		return _mxmlResponseStateManagerBaseImplementor.getState(context, viewId);
+	}
+	
 	public Object getTreeStructureToRestore(FacesContext context, String viewId) {
 		return _mxmlResponseStateManagerBaseImplementor.getTreeStructureToRestore(context, viewId);
+	}
+	
+	public boolean isPostback(FacesContext context) {
+		return _mxmlResponseStateManagerBaseImplementor.isPostback(context);
+	}
+	
+	public void writeState(FacesContext context, Object state) throws IOException {
+		_mxmlResponseStateManagerBaseImplementor.writeState(context, state);
 	}
 	
 	public void writeState(FacesContext context, SerializedView serializedView) throws IOException {
