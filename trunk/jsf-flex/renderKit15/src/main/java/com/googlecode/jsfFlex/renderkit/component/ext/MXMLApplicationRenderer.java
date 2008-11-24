@@ -190,12 +190,12 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 						_MXMLContract currComp = (_MXMLContract) siblingIterator.next();
 						
 						if(currComp.getMinorLevel() == 0){
-							writer.replaceTokenWithValue(((_MXMLContract) componentMXML).getAbsolutePathToPreMxmlFile(), writer.readFileContent(currComp.getAbsolutePathToPreMxmlFile()), 
+							writer.replaceTokenWithValue(componentMXML.getAbsolutePathToPreMxmlFile(), writer.readFileContent(currComp.getAbsolutePathToPreMxmlFile()), 
 									writer.childReplaceTokenWithPreMxmlIdentifier(currComp));
 							
 							_log.debug("Replacing token with value as a child for " + currComp.getAbsolutePathToPreMxmlFile());
 						}else{
-							writer.replaceTokenWithValue(((_MXMLContract) componentMXML).getAbsolutePathToPreMxmlFile(), writer.readFileContent(currComp.getAbsolutePathToPreMxmlFile()), 
+							writer.replaceTokenWithValue(componentMXML.getAbsolutePathToPreMxmlFile(), writer.readFileContent(currComp.getAbsolutePathToPreMxmlFile()), 
 									writer.siblingReplaceTokenWithPreMxmlIdentifier(currComp));
 							_log.debug("Replacing token with value as a sibling for " + currComp.getAbsolutePathToPreMxmlFile());
 						}

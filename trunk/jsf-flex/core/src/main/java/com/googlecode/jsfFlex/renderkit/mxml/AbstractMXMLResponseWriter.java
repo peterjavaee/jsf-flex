@@ -26,6 +26,7 @@ import java.util.Properties;
 
 import javax.faces.context.ResponseWriter;
 
+import com.googlecode.jsfFlex.renderkit.MXMLRendererBase;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
@@ -323,6 +324,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 		StringBuffer toReturn = new StringBuffer();
 		
 		toReturn.append(currInstance.getPreMxmlIdentifier());
+		toReturn.append(MXMLRendererBase.MAJOR_MINOR_DELIM);
 		toReturn.append(currInstance.getMajorLevel()+1);
 		toReturn.append(0);
 		
@@ -341,6 +343,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 		StringBuffer toReturn = new StringBuffer();
 		
 		toReturn.append(currInstance.getParentPreMxmlIdentifier());
+		toReturn.append(MXMLRendererBase.MAJOR_MINOR_DELIM);
 		toReturn.append(currInstance.getMajorLevel());
 		toReturn.append(currInstance.getMinorLevel()+1);
 		

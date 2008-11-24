@@ -35,8 +35,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 
  * @JsfFlexAttributes
  *  id=false
- * 	label=false
- * 	data=false
+ * 	label=true
+ * 	data=true
  * 
  * @author Ji Hoon Kim
  */

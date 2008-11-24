@@ -116,6 +116,10 @@ class MXMLResponseWriterImpl extends AbstractMXMLResponseWriter {
 		_mxmlResponseWriterBaseImplementor.writeText(cbuf, off, len);
 	}
 	
+	public void writeText(Object text, UIComponent component, String property) throws IOException {
+		_mxmlResponseWriterBaseImplementor.writeText(text, component, property);
+	}
+	
 	public void writeURIAttribute(String name, Object value, String componentPropertyName) throws IOException {
 		_mxmlResponseWriterBaseImplementor.writeURIAttribute(name, value, componentPropertyName);
 	}

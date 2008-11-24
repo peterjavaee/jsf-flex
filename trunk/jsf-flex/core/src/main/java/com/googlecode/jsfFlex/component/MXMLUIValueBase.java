@@ -18,8 +18,8 @@
  */
 package com.googlecode.jsfFlex.component;
 
+import javax.el.ValueExpression;
 import javax.faces.context.FacesContext;
-import javax.faces.el.ValueBinding;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
@@ -85,13 +85,14 @@ public abstract class MXMLUIValueBase extends MXMLUIInputBase {
 		if (!isRendered() || !isValid()){
     		return;
     	}
-    	
-    	ValueBinding vb = getValueBinding(VALUE_ATTR);
-		if(vb != null && !vb.isReadOnly(getFacesContext())){
-			vb.setValue(getFacesContext(), getValue());
+		
+		ValueExpression ve = getValueExpression(VALUE_ATTR);
+		
+		if(ve != null && !ve.isReadOnly(context.getELContext())){
+			ve.setValue(context.getELContext(), getValue());
 			setValue(null);
 		}
-		
+    	
 	}
 	
 }

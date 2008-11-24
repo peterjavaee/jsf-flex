@@ -163,13 +163,6 @@ class JsfFlexResourceImpl extends JsfFlexResource {
 			return resourcePath.toString();
 		}
 		
-		private Class getJsfFlexComponent(){
-			return _jsfFlexComponent;
-		}
-		private String getResourceName(){
-			return _resourceName;
-		}
-		
 		public boolean equals(Object instance) {
 			if(!(instance instanceof JsfFlexResourceElement)){
 				return false;
