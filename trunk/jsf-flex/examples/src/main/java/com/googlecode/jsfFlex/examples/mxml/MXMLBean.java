@@ -83,7 +83,7 @@ public class MXMLBean implements Serializable {
 		
 		_quoteColumnData = new LinkedList();
 		_quoteColumnData.add("This most beautiful system [The Universe] could only proceed from the dominion of an intelligent and powerful Being.");
-		_quoteColumnData.add("At quite uncertain times and places. The atoms left their heavenly path, Any by fortuitous embraces, Engendered all that being hath.");
+		_quoteColumnData.add("At quite uncertain times and places. The atoms left their heavenly path, And by fortuitous embraces, Engendered all that being hath.");
 		_quoteColumnData.add("Belief is a wise wager. Granted that faith cannot be proved, what harm will come to you if you gamble on its truth and it proves false? If you gain, you gain all; if you lose, you lose nothing. Wager, then, without hesitation, that He exists.");
 		
 		_emailColumnData = new LinkedList();
