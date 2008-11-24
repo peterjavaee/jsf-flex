@@ -26,21 +26,17 @@ For the 1.0 release, plan is to support all the Flex standard components, which 
 N/A
 
 ====Accomplished====
-Currently the project supports most of the Flex standard components with exception to {{{DataGrid}}} component, since the intent is to set and retrieve the values of this component by services. Brief testing has been done on Windows XP operating system with the following list of browsers :
+Currently the project supports most of the Flex standard components. Brief testing has been done on Windows XP operating system with the following list of browsers :
  * Firefox 2.0
  * IE 6.0
  * Opera 9.25
 on application server {{{TomCat}}} 6.0.
 
 ====TODO====
- * Complete testing on remaining OS, browsers, and application servers must be performed, so to support every type of user. 
-   ||Operating System||Browser Tested||
-   ||Windows||Firefox 2.0 , IE 6.0, Opera 9.25||
-   ||Linux||TODO||
-   ||Mac OS X||TODO||
-   
-   ||Application Server Tested||
-   ||{{{TomCat}}} 6.0||
-   {For ALL}
- * {{{DataGrid}}} component must be implemented as a service. {Ji Hoon Kim}
+ * Complete testing on remaining OS, browsers, and application servers must be performed, so to support every type of user. {For ALL}
+|| *Operating System* || *Browser Tested*                 || *Application Server Tested*||
+|| Windows            || Firefox 2.0 , IE 6.0, Opera 9.25 || {{{TomCat}}} 6.0           ||
+|| Linux              || TODO                             || TODO                       ||
+|| Mac OS X           || TODO                             || TODO                       ||
+
  * Supporting Facelets. {Hazem Saleh}
