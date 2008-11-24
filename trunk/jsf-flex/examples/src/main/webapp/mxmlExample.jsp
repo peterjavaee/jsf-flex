@@ -135,7 +135,7 @@
 			    		<jf:mxmlPanel label="First Tab" width="100%" height="100%">
 			    			<jf:mxmlDividedBox direction="horizontal" width="100%" height="100%">
 			    			
-				    			<jf:mxmlBox width="50%" height="100%">
+				    			<jf:mxmlBox width="40%" height="100%">
 					    			<jf:mxmlTextInput text="#{mxmlBean.textInputText}" creationComplete="setTextInput(event);" />
 					    			<jf:mxmlRichTextEditor textBinding="htmlText" htmlText="#{mxmlBean.richTextEditorHtmlText}" />
 							    	<jf:mxmlTextArea text="#{mxmlBean.textAreaText}" />
@@ -143,12 +143,12 @@
 							    	<jf:mxmlCheckBox label="CheckBox am I [\^$.|?*+(){}" selected="#{mxmlBean.checkBoxSelected}" />
 						    	</jf:mxmlBox>
 						    	
-						    	<jf:mxmlBox width="50%" height="60%">
-						    		<jf:mxmlDataGrid width="100%" height="100%" rowCount="5">
+						    	<jf:mxmlBox width="60%" height="100%">
+						    		<jf:mxmlDataGrid width="100%" rowCount="5" rowHeight="80" resizableColumns="true">
 						    			<jf:mxmlColumns>
-						    				<jf:mxmlDataGridColumn dataField="name" headerText="Name" />
-						    				<jf:mxmlDataGridColumn dataField="phone" headerText="Phone" />
-						    				<jf:mxmlDataGridColumn dataField="email" headerText="Email" />
+						    				<jf:mxmlDataGridColumn dataField="name" headerText="Name" columnData="#{mxmlBean.nameColumnData}" />
+						    				<jf:mxmlDataGridColumn wordWrap="true" dataField="quote" headerText="Quote" columnData="#{mxmlBean.quoteColumnData}" />
+						    				<jf:mxmlDataGridColumn dataField="email" headerText="Email" columnData="#{mxmlBean.emailColumnData}" />
 						    			</jf:mxmlColumns>
 						    		</jf:mxmlDataGrid>
 						    	</jf:mxmlBox>

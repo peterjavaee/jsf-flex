@@ -44,7 +44,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="dataField", byMethod=false),
+				@JsfFlexAttribute(attribute="dataField", byMethod=true),
 				@JsfFlexAttribute(attribute="dataTipField", byMethod=false),
 				@JsfFlexAttribute(attribute="dataTipFunction", byMethod=false),
 				@JsfFlexAttribute(attribute="editable", byMethod=false),

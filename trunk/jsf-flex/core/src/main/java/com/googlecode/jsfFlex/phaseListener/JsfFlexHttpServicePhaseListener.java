@@ -16,22 +16,26 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.servlet;
+package com.googlecode.jsfFlex.phaseListener;
 
-import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-import javax.servlet.ServletConfig;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
+import javax.faces.context.FacesContext;
+import javax.faces.event.PhaseEvent;
+import javax.faces.event.PhaseId;
+import javax.faces.event.PhaseListener;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author Ji Hoon Kim
  */
-public final class JsfFlexHttpServiceServlet extends HttpServlet {
+public class JsfFlexHttpServicePhaseListener implements PhaseListener {
 	
-	private static final long serialVersionUID = 0L;
+	private static final long serialVersionUID = -3131829162091907227L;
+	
+	private static final String JSF_FLEX_HTTP_SERVICE_REQUEST_LISTENER_URL = "/jsfFlexHttpServiceRequestListener/";
+	private static final Pattern JSF_FLEX_HTTP_SERVICE_REQUEST_LISTENER_URL_PATTERN = Pattern.compile(JSF_FLEX_HTTP_SERVICE_REQUEST_LISTENER_URL);
 	
 	private static final String COMPONENT_ID = "componentId";
 	private static final String METHOD_TO_INVOKE = "methodToInvoke";
@@ -45,34 +49,24 @@ public final class JsfFlexHttpServiceServlet extends HttpServlet {
 	private static final _ServiceRequestDataRetrieverFlusher RAW_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new RawServiceRequestDataRetrieverFlusher();
 	private static final _ServiceRequestDataRetrieverFlusher XML_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new XMLServiceRequestDataRetrieverFlusher();
 	
-	public void init() throws ServletException {
-		super.init();
-	}
-	
-	public void init(ServletConfig config) throws ServletException {
-		super.init(config);
-	}
-	
-	/* 
-	 * This method will be used to delete information with JSON content
-	 * (non-Javadoc)
-	 * @see javax.servlet.http.HttpServlet#doDelete(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
-	 */
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		super.doDelete(request, response);
-	}
-	
-	/* 
-	 * This method will be used to retrieve information with JSON content
-	 * (non-Javadoc)
-	 * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		super.doGet(request, response);
+	public void afterPhase(PhaseEvent event) {
+		FacesContext context = event.getFacesContext();
+		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+		String urlPath = request.getRequestURI();
 		
-		String componentId = request.getParameter(COMPONENT_ID);
-		String methodToInvoke = request.getParameter(METHOD_TO_INVOKE);
-		String servletReturnMethod = request.getParameter(SERVLET_RETURN_METHOD);
+		Matcher jsfFlexHttpServiceRequestListenerUrlMatcher = JSF_FLEX_HTTP_SERVICE_REQUEST_LISTENER_URL_PATTERN.matcher( urlPath );
+		boolean matchFound = jsfFlexHttpServiceRequestListenerUrlMatcher.find();
+		if(matchFound){
+			processServiceRequest(context);
+		}
+		
+	}
+	
+	private void processServiceRequest(FacesContext context){
+		
+		String componentId = (String) context.getExternalContext().getRequestParameterMap().get(COMPONENT_ID);
+		String methodToInvoke = (String) context.getExternalContext().getRequestParameterMap().get(METHOD_TO_INVOKE);
+		String servletReturnMethod = (String) context.getExternalContext().getRequestParameterMap().get(SERVLET_RETURN_METHOD);
 		
 		_ServiceRequestDataRetrieverFlusher serviceRequestDataRetrieverFlusher = null;
 		
@@ -84,26 +78,22 @@ public final class JsfFlexHttpServiceServlet extends HttpServlet {
 			serviceRequestDataRetrieverFlusher = XML_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER;
 		}
 		
-		serviceRequestDataRetrieverFlusher.retrieveFlushData(response, componentId, methodToInvoke);
+		try{
+			serviceRequestDataRetrieverFlusher.retrieveFlushData(context, componentId, methodToInvoke);
+		}catch(Exception exception){
+			exception.printStackTrace();
+		}finally{
+			context.responseComplete();
+		}
 		
 	}
 	
-	/* 
-	 * This method will be used to update information with JSON content
-	 * (non-Javadoc)
-	 * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		super.doPost(request, response);
+	public void beforePhase(PhaseEvent event) {
+		
 	}
 	
-	/* 
-	 * This method will be used to add information with JSON content
-	 * (non-Javadoc)
-	 * @see javax.servlet.http.HttpServlet#doPut(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
-	 */
-	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		super.doPut(request, response);
+	public PhaseId getPhaseId() {
+		return PhaseId.RESTORE_VIEW;
 	}
 	
 }

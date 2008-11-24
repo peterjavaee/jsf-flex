@@ -19,11 +19,13 @@
  
 /**
  * TODO : Implement better later
- * Unfortunately ActionScript doesn't currently implement inner classes, so currently implemented so
+ * Unfortunately ActionScript currently doesn't implement inner classes, so implemented so
  * @author Ji Hoon Kim
  */
 package com.googlecode.jsfFlex.communication.component
 {
+	import mx.collections.ArrayCollection;
+	import mx.controls.DataGrid;
 	import mx.core.UIComponent;
 	
 	import com.googlecode.jsfFlex.communication.logger.ILogger;
@@ -33,24 +35,29 @@ package com.googlecode.jsfFlex.communication.component
 		
 		private static var _log:ILogger;
 		
-		private var _refApp:UIComponent;
-		
-		private var _dataGridId:String;
+		private var _dataGridComp:DataGrid;
+		private var _dataGridDataProvider:ArrayCollection;
 		private var _dataGridColumnRequests:Array;
 		
 		{
 			_log = LoggerFactory.newJSLoggerInstance(DataGridServiceRequest);
 		}
 		
-		public function DataGridServiceRequest(dataGridId:String, refApp:UIComponent) {
+		public function DataGridServiceRequest(dataGridId:String, maxDataGridColumnLength:int, refApp:UIComponent) {
 			super();
-			_dataGridId = dataGridId;
+			_dataGridComp = refApp[dataGridId];
+			_dataGridDataProvider = new ArrayCollection();
 			_dataGridColumnRequests = new Array();
-			_refApp = refApp;
+			
+			for(var k:uint=0; k < maxDataGridColumnLength; k++){
+				_dataGridDataProvider.addItem(new Object());
+			}
+			
+			_dataGridComp.dataProvider = _dataGridDataProvider;
 		}
 		
-		public function addDataGridColumServiceRequest(dataGridStringId:String):void {
-			_dataGridColumnRequests.push(new DataGridColumnServiceRequest(dataGridStringId, this));
+		public function addDataGridColumServiceRequest(dataGridStringId:String, dataField:String):void {
+			_dataGridColumnRequests.push(new DataGridColumnServiceRequest(dataGridStringId, dataField, this));
 		}
 		
 		public function getDataGridColumnInfo():void {
@@ -62,11 +69,8 @@ package com.googlecode.jsfFlex.communication.component
 			
 		}
 		
-		public function get dataGridId():String {
-			return _dataGridId;
-		}
-		public function get refApp():UIComponent {
-			return _refApp;
+		public function get dataGridDataProvider():ArrayCollection {
+			return _dataGridDataProvider;
 		}
 		
 	}

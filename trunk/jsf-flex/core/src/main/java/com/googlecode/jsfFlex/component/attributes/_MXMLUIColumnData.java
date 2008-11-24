@@ -35,4 +35,6 @@ public interface _MXMLUIColumnData {
 	 */
 	Collection getColumnData();
 	
+	Collection getFormatedColumnData();
+	
 }

@@ -28,10 +28,10 @@
 			
 		#foreach( $dataGridScriptContent in ${additionalApplicationScriptContent.getDataGridScriptContent()} )
 			#set( $dataGridVarRef = "${dataGridScriptContent.getDataGridId()}VarRef" )
-			var ${dataGridVarRef}:DataGridServiceRequest = new DataGridServiceRequest("${dataGridScriptContent.getDataGridId()}", this);
+			var ${dataGridVarRef}:DataGridServiceRequest = new DataGridServiceRequest("${dataGridScriptContent.getDataGridId()}", ${dataGridScriptContent.getMaxDataGridColumnLength()}, this);
 			
-			#foreach( $dataGridColumnId in ${dataGridScriptContent.getDataGridColumns()} )
-				${dataGridVarRef}.addDataGridColumServiceRequest("${dataGridColumnId}");
+			#foreach( $dataGridColumn in ${dataGridScriptContent.getDataGridColumns()} )
+				${dataGridVarRef}.addDataGridColumServiceRequest("${dataGridColumn.getDataGridColumnId()}", "${dataGridColumn.getDataField()}");
 			#end
 			
 			${dataGridVarRef}.getDataGridColumnInfo();

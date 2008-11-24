@@ -65,6 +65,8 @@ package com.googlecode.jsfFlex.communication.services
 				case ARRAY_RESULT_FORMAT :
 				case E4X_RESULT_FORMAT :
 				case FLASH_VARS_RESULT_FORMAT :
+				case XML_RESULT_FORMAT :
+				case OBJECT_RESULT_FORMAT :
 				default : servletResultFormat = XML_RESULT_FORMAT; break;
 			}
 			
@@ -73,8 +75,8 @@ package com.googlecode.jsfFlex.communication.services
 			
 			httpRequest.resultFormat = resultFormatMethod;
 			httpRequest.addEventListener(ResultEvent.RESULT, function(event:ResultEvent):void{
-																			callBack.call(thisObject, httpRequest.lastResult, event);
-																		}, false, 0, false);
+																	callBack.call(thisObject, httpRequest.lastResult, event);
+																}, false, 0, false);
 			
 			httpRequest.send(parameters);
 		}

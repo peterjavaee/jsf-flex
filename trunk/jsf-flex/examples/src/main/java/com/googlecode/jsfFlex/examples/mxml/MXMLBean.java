@@ -19,6 +19,8 @@
 package com.googlecode.jsfFlex.examples.mxml;
 
 import java.io.Serializable;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * A simple bean to demonstrate the binding of the fields.<br>
@@ -49,6 +51,10 @@ public class MXMLBean implements Serializable {
 	private String _verticalSliderValue;
 	private String _progressBarValue;
 	
+	private List _nameColumnData;
+	private List _quoteColumnData;
+	private List _emailColumnData;
+	
 	public MXMLBean(){
 		super();
 		_accordionSelectedIndex = new Integer(0);
@@ -69,6 +75,21 @@ public class MXMLBean implements Serializable {
 		_horizontalSliderValue = "";
 		_verticalSliderValue = "";
 		_progressBarValue = "";
+		
+		_nameColumnData = new LinkedList();
+		_nameColumnData.add("Issac Newton");
+		_nameColumnData.add("James Clark Maxwell");
+		_nameColumnData.add("Blaise Pascal");
+		
+		_quoteColumnData = new LinkedList();
+		_quoteColumnData.add("This most beautiful system [The Universe] could only proceed from the dominion of an intelligent and powerful Being.");
+		_quoteColumnData.add("At quite uncertain times and places. The atoms left their heavenly path, Any by fortuitous embraces, Engendered all that being hath.");
+		_quoteColumnData.add("Belief is a wise wager. Granted that faith cannot be proved, what harm will come to you if you gamble on its truth and it proves false? If you gain, you gain all; if you lose, you lose nothing. Wager, then, without hesitation, that He exists.");
+		
+		_emailColumnData = new LinkedList();
+		_emailColumnData.add("fatherOfphysicsCalculusDude@wiseHumble.com");
+		_emailColumnData.add("electroMagneticDude@wiseHumble.com");
+		_emailColumnData.add("probabilityTheoryDude@wiseHumble.com");
 		
 	}
 	
@@ -108,6 +129,12 @@ public class MXMLBean implements Serializable {
 	public void setDateFieldText(String dateFieldText) {
 		_dateFieldText = dateFieldText;
 	}
+	public List getEmailColumnData() {
+		return _emailColumnData;
+	}
+	public void setEmailColumnData(List emailColumnData) {
+		_emailColumnData = emailColumnData;
+	}
 	public String getHorizontalSliderValue() {
 		return _horizontalSliderValue;
 	}
@@ -120,6 +147,12 @@ public class MXMLBean implements Serializable {
 	public void setListSelectedIndex(Integer listSelectedIndex) {
 		_listSelectedIndex = listSelectedIndex;
 	}
+	public List getNameColumnData() {
+		return _nameColumnData;
+	}
+	public void setNameColumnData(List nameColumnData) {
+		_nameColumnData = nameColumnData;
+	}
 	public String getNumericStepperValue() {
 		return _numericStepperValue;
 	}
@@ -131,6 +164,12 @@ public class MXMLBean implements Serializable {
 	}
 	public void setProgressBarValue(String progressBarValue) {
 		_progressBarValue = progressBarValue;
+	}
+	public List getQuoteColumnData() {
+		return _quoteColumnData;
+	}
+	public void setQuoteColumnData(List quoteColumnData) {
+		_quoteColumnData = quoteColumnData;
 	}
 	public Boolean getRadioButtonFirstSelected() {
 		return _radioButtonFirstSelected;

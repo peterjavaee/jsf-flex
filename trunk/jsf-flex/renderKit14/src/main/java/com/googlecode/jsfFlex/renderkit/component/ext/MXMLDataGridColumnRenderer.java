@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  type        = "com.googlecode.jsfFlex.MXMLDataGridColumn"
  * 
  * @JsfFlexAttributes
- * 	dataField=false
+ * 	dataField=true
  * 	dataTipField=false
  * 	dataTipFunction=false
  * 	editable=false
