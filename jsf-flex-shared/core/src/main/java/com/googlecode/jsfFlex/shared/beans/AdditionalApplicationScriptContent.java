@@ -19,6 +19,7 @@
 package com.googlecode.jsfFlex.shared.beans;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -50,51 +51,56 @@ public final class AdditionalApplicationScriptContent {
 		return _dataGridScriptContent;
 	}
 
-	public void addDataGridScriptContent(String dataGridId){
-		_dataGridScriptContent.put(dataGridId, new DataGridScriptContent(dataGridId));
+	public void addDataGridScriptContent(String dataGridId, int maxDataGridColumnLength){
+		_dataGridScriptContent.put(dataGridId, new DataGridScriptContent(dataGridId, maxDataGridColumnLength));
 	}
 	
-	public void addDataGridColumnToDataGridScriptContent(String dataGridId, String dataGridColumnId){
+	public void addDataGridColumnToDataGridScriptContent(String dataGridId, int maxDataGridColumnLength, String dataGridColumnId, String dataField){
 		DataGridScriptContent dataGridScriptContentInstance;
 		if((dataGridScriptContentInstance = (DataGridScriptContent) _dataGridScriptContent.get(dataGridId)) == null){
-			dataGridScriptContentInstance = new DataGridScriptContent(dataGridId);
+			dataGridScriptContentInstance = new DataGridScriptContent(dataGridId, maxDataGridColumnLength);
 			_dataGridScriptContent.put(dataGridId, dataGridScriptContentInstance);
 		}
 		
-		dataGridScriptContentInstance.addDataGridColumnContent(dataGridColumnId);
+		dataGridScriptContentInstance.addDataGridColumnContent(dataGridColumnId, dataField);
 	}
 	
-	public void addDataGridColumnToDataGridScriptContent(String dataGridId, List dataGridColumnIdList){
+	public void addDataGridColumnToDataGridScriptContent(String dataGridId, int maxDataGridColumnLength, Map dataGridColumnIdMap){
 		DataGridScriptContent dataGridScriptContentInstance;
 		if((dataGridScriptContentInstance = (DataGridScriptContent) _dataGridScriptContent.get(dataGridId)) == null){
-			dataGridScriptContentInstance = new DataGridScriptContent(dataGridId);
+			dataGridScriptContentInstance = new DataGridScriptContent(dataGridId, maxDataGridColumnLength);
 			_dataGridScriptContent.put(dataGridId, dataGridScriptContentInstance);
 		}
 		
-		dataGridScriptContentInstance.addDataGridColumnContent(dataGridColumnIdList);
+		for(Iterator iterate = dataGridColumnIdMap.keySet().iterator(); iterate.hasNext();){
+			String dataGridColumnId = (String) iterate.next();
+			String dataField = (String) dataGridColumnIdMap.get(dataGridColumnId);
+			dataGridScriptContentInstance.addDataGridColumnContent(dataGridColumnId, dataField);
+		}
 	}
 	
 	public static final class DataGridScriptContent {
 		
 		private final String _dataGridId;
+		private final Integer _maxDataGridColumnLength;
 		private final List _dataGridColumns;
 		
-		private DataGridScriptContent(String dataGridId){
+		private DataGridScriptContent(String dataGridId, int maxDataGridColumnLength){
 			super();
 			_dataGridId = dataGridId;
+			_maxDataGridColumnLength = Integer.valueOf(maxDataGridColumnLength);
 			_dataGridColumns = new LinkedList();
 		}
 		
-		private void addDataGridColumnContent(String dataGridColumnId){
-			_dataGridColumns.add(dataGridColumnId);
-		}
-		
-		private void addDataGridColumnContent(List dataGridColumnIdList){
-			_dataGridColumns.addAll(dataGridColumnIdList);
+		private void addDataGridColumnContent(String dataGridColumnId, String dataField){
+			_dataGridColumns.add(new DataGridColumnScriptContent(dataGridColumnId, dataField));
 		}
 		
 		public String getDataGridId() {
 			return _dataGridId;
+		}
+		public Integer getMaxDataGridColumnLength() {
+			return _maxDataGridColumnLength;
 		}
 		public List getDataGridColumns() {
 			return _dataGridColumns;
@@ -110,6 +116,38 @@ public final class AdditionalApplicationScriptContent {
 		}
 		public int hashCode() {
 			return _dataGridId.hashCode();
+		}
+		
+	}
+	
+	public static final class DataGridColumnScriptContent {
+		
+		private final String _dataGridColumnId;
+		private final String _dataField;
+		
+		private DataGridColumnScriptContent(String dataGridColumnId, String dataField){
+			super();
+			_dataGridColumnId = dataGridColumnId;
+			_dataField = dataField;
+		}
+		
+		public String getDataGridColumnId() {
+			return _dataGridColumnId;
+		}
+		public String getDataField() {
+			return _dataField;
+		}
+		
+		public boolean equals(Object instance) {
+			if(!(instance instanceof DataGridColumnScriptContent)){
+				return false;
+			}
+			
+			DataGridColumnScriptContent dataGridColumnScriptContentInstance = (DataGridColumnScriptContent) instance;
+			return this._dataGridColumnId.equals(dataGridColumnScriptContentInstance._dataGridColumnId);
+		}
+		public int hashCode() {
+			return _dataGridColumnId.hashCode();
 		}
 		
 	}

@@ -22,21 +22,22 @@
  */
 package com.googlecode.jsfFlex.communication.component
 {
+	import mx.collections.ArrayCollection;
 	import mx.rpc.events.ResultEvent;
 	
 	import com.googlecode.jsfFlex.communication.logger.ILogger;
 	import com.googlecode.jsfFlex.communication.logger.LoggerFactory
-	
 	import com.googlecode.jsfFlex.communication.services.JsfFlexHttpService;
 	
 	internal class DataGridColumnServiceRequest {
 		
-		private static const JSF_FLEX_HTTP_SERVICE_REQUEST_URL:String = "jsfFlexHttpServiceRequest.service";
-		private static const GET_COLUMN_INFO:String = "getColumnInfo";
+		private static const JSF_FLEX_HTTP_SERVICE_REQUEST_LISTENER_URL:String = "jsfFlexHttpServiceRequestListener/dataGridColumnServiceRequest";
+		private static const GET_FORMATED_COLUMN_DATA:String = "getFormatedColumnData";
 		
 		private static var _log:ILogger;
 		
 		private var _columnId:String;
+		private var _dataField:String;
 		private var _columnEntries:XMLList;
 		
 		private var _dataGridServiceRequest:DataGridServiceRequest;
@@ -46,9 +47,10 @@ package com.googlecode.jsfFlex.communication.component
 			_log = LoggerFactory.newJSLoggerInstance(DataGridColumnServiceRequest);
 		}
 		
-		public function DataGridColumnServiceRequest(columnId:String, dataGridServiceRequest:DataGridServiceRequest) {
+		public function DataGridColumnServiceRequest(columnId:String, dataField:String, dataGridServiceRequest:DataGridServiceRequest) {
 			super();
 			_columnId = columnId;
+			_dataField = dataField;
 			_dataGridServiceRequest = dataGridServiceRequest;
 			_jsfFlexHttpServiceRequest = new JsfFlexHttpService();
 		}
@@ -56,14 +58,22 @@ package com.googlecode.jsfFlex.communication.component
 		public function getDataColumnInfo():void {
 			var dataRequestParameters:Object = new Object();
 			dataRequestParameters.componentId = _columnId;
-			dataRequestParameters.methodToInvoke = GET_COLUMN_INFO;
+			dataRequestParameters.methodToInvoke = GET_FORMATED_COLUMN_DATA;
 			
-			_jsfFlexHttpServiceRequest.sendHttpRequest(JSF_FLEX_HTTP_SERVICE_REQUEST_URL, dataRequestParameters, 
-														this, function(lastResult:Object, event:ResultEvent):void {
-																_log.logInfo("Returned from service request : " + JSF_FLEX_HTTP_SERVICE_REQUEST_URL);
+			_jsfFlexHttpServiceRequest.sendHttpRequest(JSF_FLEX_HTTP_SERVICE_REQUEST_LISTENER_URL, dataRequestParameters, 
+														this, function (lastResult:Object, event:ResultEvent):void {
+																_log.logInfo("Returned from service request : " + JSF_FLEX_HTTP_SERVICE_REQUEST_LISTENER_URL);
 																_log.logInfo("Data returned from servlet : " + lastResult);
+																_columnEntries = new XMLList(lastResult).VALUE;
+																var dataGridDataProvider:ArrayCollection = _dataGridServiceRequest.dataGridDataProvider;
 																
-														}, JsfFlexHttpService.GET_METHOD, JsfFlexHttpService.OBJECT_RESULT_FORMAT, null);
+																var loopCount:int = 0;
+																for each(var currValue:XML in _columnEntries){
+																	var currObject:Object = dataGridDataProvider.getItemAt(loopCount++);
+																	currObject[_dataField] = currValue.toString();
+																}
+																
+															}, JsfFlexHttpService.GET_METHOD, JsfFlexHttpService.E4X_RESULT_FORMAT, null);
 			
 		}
 		

@@ -18,8 +18,15 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import java.io.IOException;
+import java.util.Collection;
+import java.util.Map;
+
+import javax.faces.context.FacesContext;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIColumnData;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIDataFieldAttribute;
 
 /**
  * @JSFComponent
@@ -32,12 +39,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIColumnData;
  *   
  * @JSFJspProperties
  * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "dataField"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The name of the field or property in the data provider item associated with the column."
- *   						,
- *   						
  *   						@JSFJspProperty
  *   						 name		= "dataTipField"
  *   						 returnType	= "java.lang.String"
@@ -293,6 +294,30 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIColumnData;
  */
 public abstract class AbstractMXMLUIDataGridColumn 
 						extends MXMLUISimpleBase 
-						implements _MXMLUIColumnData {
+						implements _MXMLUIColumnData, _MXMLUIDataFieldAttribute {
+	
+	public void encodeEnd(FacesContext context) throws IOException {
+		super.encodeEnd(context);
+		
+		/*
+		 * adding the component to the map for future asynchronous request reference by
+		 * DataGridColumnServiceRequest.as
+		 */
+		Map sessionMap = context.getExternalContext().getSessionMap();
+		sessionMap.put(getId(), this);
+	}
+	
+	public void decode(FacesContext context) {
+		super.decode(context);
+		
+		//No longer needed, so remove the content
+		Map sessionMap = context.getExternalContext().getSessionMap();
+		sessionMap.remove(getId());
+	}
+	
+	public Collection getFormatedColumnData(){
+		// for more complicated Grids, the return data might consist of XML entries
+		return getColumnData();
+	}
 	
 }

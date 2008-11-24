@@ -16,17 +16,21 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.servlet;
-
-import javax.servlet.http.HttpServletResponse;
+package com.googlecode.jsfFlex.component.attributes;
 
 /**
  * @author Ji Hoon Kim
  */
-final class RawServiceRequestDataRetrieverFlusher implements _ServiceRequestDataRetrieverFlusher {
+public interface _MXMLUIDataFieldAttribute {
 	
-	public void retrieveFlushData(HttpServletResponse response, String componentId, String methodToInvoke) {
-		
-	}
+	/**
+	 * The name of the field or property in the data provider item associated with the column.
+	 * 
+	 *@JSFProperty
+	 *    required        = false
+	 *    rtexprvalue     = false
+	 *    desc            = "The name of the field or property in the data provider item associated with the column."
+	 */
+	String getDataField();
 	
 }

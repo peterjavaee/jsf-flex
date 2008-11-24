@@ -20,8 +20,9 @@ package com.googlecode.jsfFlex.renderkit.component.ext.properties;
 
 import java.io.IOException;
 import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -72,21 +73,26 @@ public final class MXMLColumnsRenderer extends MXMLComponentBaseRenderer {
 		}
 		
 		List childrenList = componentObj.getChildren();
-		List childrenListIds = new LinkedList();
+		Map childrenMapInfo = new LinkedHashMap();
+		
+		int maxDataGridColumnLength = -1;
 		for(Iterator iterate = childrenList.iterator(); iterate.hasNext();){
 			UIComponent currChild = (UIComponent) iterate.next();
 			if(!(currChild instanceof AbstractMXMLUIDataGridColumn)){
 				throw new ComponentBuildException(INVALID_CHILD_COMPONENT);
 			}
 			
-			childrenListIds.add(currChild.getId());
+			AbstractMXMLUIDataGridColumn currChildInstance = (AbstractMXMLUIDataGridColumn) currChild;
+			
+			maxDataGridColumnLength = Math.max(maxDataGridColumnLength, currChildInstance.getColumnData().size());
+			childrenMapInfo.put(currChildInstance.getId(), currChildInstance.getDataField());
 		}
 		
-		if(childrenListIds.size() > 0){
+		if(childrenMapInfo.size() > 0){
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 			AdditionalApplicationScriptContent additionalAppScriptContent = mxmlContext.getAdditionalAppScriptContent();
 			
-			additionalAppScriptContent.addDataGridColumnToDataGridScriptContent(dataGridComponentId, childrenListIds);
+			additionalAppScriptContent.addDataGridColumnToDataGridScriptContent(dataGridComponentId, maxDataGridColumnLength, childrenMapInfo);
 			
 			additionalAppScriptContent.addActionScriptImport(DATA_GRID_SERVICE_REQUEST_IMPORT);
 		}
