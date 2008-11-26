@@ -26,7 +26,7 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
  *   class    = "com.googlecode.jsfFlex.states.ext.MXMLUITransition"
  *   type     = "com.googlecode.jsfFlex.MXMLUITransition"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUITransitionTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLTransition"
  * 
  * @JSFJspProperties

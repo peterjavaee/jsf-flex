@@ -57,7 +57,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControl
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIDataGrid"
  *   type     = "com.googlecode.jsfFlex.MXMLUIDataGrid"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIDataGridTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLDataGrid"
  *   
  * @JSFJspProperties

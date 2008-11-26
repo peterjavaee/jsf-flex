@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  *   class    = "com.googlecode.jsfFlex.validator.ext.MXMLUIZipCodeValidator"
  *   type     = "com.googlecode.jsfFlex.MXMLUIZipCodeValidator"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIZipCodeValidatorTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLZipCodeValidator"
  *   
  * @JSFJspProperties

@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  *   class    = "com.googlecode.jsfFlex.validator.ext.MXMLUIPhoneNumberValidator"
  *   type     = "com.googlecode.jsfFlex.MXMLUIPhoneNumberValidator"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIPhoneNumberValidatorTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLPhoneNumberValidator"
  * 
  * @JSFJspProperties

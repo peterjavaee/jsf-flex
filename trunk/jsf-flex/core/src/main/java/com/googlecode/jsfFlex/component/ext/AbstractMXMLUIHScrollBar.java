@@ -36,7 +36,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollBarAttr
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIHScrollBar"
  *   type     = "com.googlecode.jsfFlex.MXMLUIHScrollBar"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIHScrollBarTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLHScrollBar"
  * 
  @JSFJspProperties

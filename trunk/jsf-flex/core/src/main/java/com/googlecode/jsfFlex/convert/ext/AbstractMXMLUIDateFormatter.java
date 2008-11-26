@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
  *   class    = "com.googlecode.jsfFlex.convert.ext.MXMLUIDateFormatter"
  *   type     = "com.googlecode.jsfFlex.MXMLUIDateFormatter"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIDateFormatterTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLDateFormatter"
  * 
  * @JSFJspProperty

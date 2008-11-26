@@ -30,7 +30,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 /**
  * @JSFRenderer
  *  renderKitId = "MXML_BASIC" 
- *  family      = "javax.faces.MXMLSimpleBase"
+ *  family      = "javax.faces.MXMLSimple"
  *  type        = "com.googlecode.jsfFlex.MXMLImage"
  * 
  * @JsfFlexAttributes

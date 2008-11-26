@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
  *   class    = "com.googlecode.jsfFlex.convert.ext.MXMLUIPhoneFormatter"
  *   type     = "com.googlecode.jsfFlex.MXMLUIPhoneFormatter"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIPhoneFormatterTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLPhoneFormatter"
  *   
  * @JSFJspProperties

@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIDataFieldAttribute;
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIDataGridColumn"
  *   type     = "com.googlecode.jsfFlex.MXMLUIDataGridColumn"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIDataGridColumnTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLDataGridColumn"
  *   
  * @JSFJspProperties

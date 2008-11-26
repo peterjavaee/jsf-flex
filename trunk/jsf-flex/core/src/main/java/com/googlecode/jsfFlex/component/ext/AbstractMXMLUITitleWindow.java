@@ -55,7 +55,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUITitleWindow"
  *   type     = "com.googlecode.jsfFlex.MXMLUITitleWindow"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUITitleWindowTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLTitleWindow"
  * 
  * @JSFJspProperties

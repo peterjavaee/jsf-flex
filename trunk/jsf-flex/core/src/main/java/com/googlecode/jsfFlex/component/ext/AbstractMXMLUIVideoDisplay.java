@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIVideoDisplay"
  *   type     = "com.googlecode.jsfFlex.MXMLUIVideoDisplay"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIVideoDisplayTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLVideoDisplay"
  *   
  * @JSFJspProperties

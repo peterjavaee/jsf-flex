@@ -39,7 +39,7 @@ import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 /**
  * @JSFRenderer
  *  renderKitId = "MXML_BASIC" 
- *  family      = "javax.faces.MXMLSimpleBase"
+ *  family      = "javax.faces.MXMLSimple"
  *  type        = "com.googlecode.jsfFlex.MXMLColumns"
  * 
  * @author Ji Hoon Kim

@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIVRule"
  *   type     = "com.googlecode.jsfFlex.MXMLUIVRule"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIVRuleTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLVRule"
  * 
  * @JSFJspProperties

@@ -26,7 +26,7 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
  *   class    = "com.googlecode.jsfFlex.component.ext.properties.MXMLUIColumns"
  *   type     = "com.googlecode.jsfFlex.MXMLUIColumns"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.properties.MXMLUIColumnsTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLColumns"
  * 
  * @author Ji Hoon Kim

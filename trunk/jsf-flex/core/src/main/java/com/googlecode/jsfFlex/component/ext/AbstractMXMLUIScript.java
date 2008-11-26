@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIScript"
  *   type     = "com.googlecode.jsfFlex.MXMLUIScript"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIScriptTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLScript"
  *   
  * @author Ji Hoon Kim

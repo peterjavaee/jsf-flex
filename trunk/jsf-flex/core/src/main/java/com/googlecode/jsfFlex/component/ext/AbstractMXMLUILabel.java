@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUILabel"
  *   type     = "com.googlecode.jsfFlex.MXMLUILabel"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUILabelTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLLabel"
  * 
  * @JSFJspProperties

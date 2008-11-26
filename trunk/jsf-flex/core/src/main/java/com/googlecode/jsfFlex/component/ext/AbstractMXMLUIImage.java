@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIImage"
  *   type     = "com.googlecode.jsfFlex.MXMLUIImage"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIImageTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLImage"
  * 
  * @JSFJspProperties

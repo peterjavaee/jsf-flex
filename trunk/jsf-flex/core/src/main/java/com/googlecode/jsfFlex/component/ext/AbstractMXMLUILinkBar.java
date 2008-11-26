@@ -63,7 +63,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUILinkBar"
  *   type     = "com.googlecode.jsfFlex.MXMLUILinkBar"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUILinkBarTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLLinkBar"
  *   
  * @JSFJspProperties
