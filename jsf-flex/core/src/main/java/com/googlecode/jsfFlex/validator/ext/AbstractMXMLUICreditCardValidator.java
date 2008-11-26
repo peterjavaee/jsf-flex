@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  *   class    = "com.googlecode.jsfFlex.validator.ext.MXMLUICreditCardValidator"
  *   type     = "com.googlecode.jsfFlex.MXMLUICreditCardValidator"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUICreditCardValidatorTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLCreditCardValidator"
  *   
  * @JSFJspProperties

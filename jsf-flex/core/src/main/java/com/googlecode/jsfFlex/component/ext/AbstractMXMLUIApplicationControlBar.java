@@ -60,7 +60,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIApplicationControlBar"
  *   type     = "com.googlecode.jsfFlex.MXMLUIApplicationControlBar"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIApplicationControlBarTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLApplicationControlBar"
  *   
  * @JSFJspProperty

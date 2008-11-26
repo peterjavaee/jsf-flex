@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUISpacer"
  *   type     = "com.googlecode.jsfFlex.MXMLUISpacer"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUISpacerTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSpacer"
  * 
  * @author Ji Hoon Kim

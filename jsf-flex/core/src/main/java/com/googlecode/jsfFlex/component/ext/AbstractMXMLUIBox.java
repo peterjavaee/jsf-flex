@@ -55,7 +55,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIBox"
  *   type     = "com.googlecode.jsfFlex.MXMLUIBox"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIBoxTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLBox"
  * 
  * @JSFJspProperties

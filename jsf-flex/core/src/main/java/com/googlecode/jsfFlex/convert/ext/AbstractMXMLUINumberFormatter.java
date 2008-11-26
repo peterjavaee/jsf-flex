@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
  *   class    = "com.googlecode.jsfFlex.convert.ext.MXMLUINumberFormatter"
  *   type     = "com.googlecode.jsfFlex.MXMLUINumberFormatter"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUINumberFormatterTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLNumberFormatter"
  * 
  * @JSFJspProperties

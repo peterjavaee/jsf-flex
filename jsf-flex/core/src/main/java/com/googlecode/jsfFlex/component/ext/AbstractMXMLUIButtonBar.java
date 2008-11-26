@@ -65,7 +65,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIButtonBar"
  *   type     = "com.googlecode.jsfFlex.MXMLUIButtonBar"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIButtonBarTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLButtonBar"
  *   
  * @JSFJspProperties

@@ -26,7 +26,7 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
  *   class    = "com.googlecode.jsfFlex.states.ext.MXMLUIRemoveChild"
  *   type     = "com.googlecode.jsfFlex.MXMLUIRemoveChild"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIRemoveChildTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLRemoveChild"
  * 
  * @JSFJspProperties

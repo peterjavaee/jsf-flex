@@ -29,7 +29,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIMenuBar"
  *   type     = "com.googlecode.jsfFlex.MXMLUIMenuBar"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIMenuBarTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLMenuBar"
  *   
  * @JSFJspProperties

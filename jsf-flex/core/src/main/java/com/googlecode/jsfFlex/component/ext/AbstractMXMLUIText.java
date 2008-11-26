@@ -40,7 +40,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIText"
  *   type     = "com.googlecode.jsfFlex.MXMLUIText"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUITextTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLText"
  *   
  * @author Ji Hoon Kim

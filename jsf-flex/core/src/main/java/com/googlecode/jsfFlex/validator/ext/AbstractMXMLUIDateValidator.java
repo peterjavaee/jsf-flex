@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  *   class    = "com.googlecode.jsfFlex.validator.ext.MXMLUIDateValidator"
  *   type     = "com.googlecode.jsfFlex.MXMLUIDateValidator"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIDateValidatorTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLDateValidator"
  *   
  * @JSFJspProperties

@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  *   class    = "com.googlecode.jsfFlex.validator.ext.MXMLUISocialSecurityValidator"
  *   type     = "com.googlecode.jsfFlex.MXMLUISocialSecurityValidator"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUISocialSecurityValidatorTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSocialSecurityValidator"
  *   
  * @JSFJspProperties

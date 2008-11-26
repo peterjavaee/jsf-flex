@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  *   class    = "com.googlecode.jsfFlex.validator.ext.MXMLUIValidator"
  *   type     = "com.googlecode.jsfFlex.MXMLUIValidator"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIValidatorTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLValidator"
  * 
  * One thing to note about MXML Formatter and Validator is that they are not actually converters or validators<br>

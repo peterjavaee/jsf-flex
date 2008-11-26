@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUISwfLoader"
  *   type     = "com.googlecode.jsfFlex.MXMLUISwfLoader"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUISwfLoaderTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSWFLoader"
  *   
  * @JSFJspProperties

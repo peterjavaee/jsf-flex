@@ -55,7 +55,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUICanvas"
  *   type     = "com.googlecode.jsfFlex.MXMLUICanvas"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUICanvasTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLCanvas"
  *   
  * @author Ji Hoon Kim

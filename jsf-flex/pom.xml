@@ -107,7 +107,7 @@
   <properties>
     <jsf.flex.version>0.0.5-SNAPSHOT</jsf.flex.version>
     <jsf.flex.plugIn.version>0.0.5-SNAPSHOT</jsf.flex.plugIn.version>
-    <myfaces.buildtools.version>1.0.1</myfaces.buildtools.version>
+    <myfaces.buildtools.version>1.0.2</myfaces.buildtools.version>
   </properties>
 
 </project>

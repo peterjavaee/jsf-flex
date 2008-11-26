@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
  *   class    = "com.googlecode.jsfFlex.convert.ext.MXMLUIZipCodeFormatter"
  *   type     = "com.googlecode.jsfFlex.MXMLUIZipCodeFormatter"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIZipCodeFormatterTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLZipCodeFormatter"
  * 
  * @JSFJspProperty

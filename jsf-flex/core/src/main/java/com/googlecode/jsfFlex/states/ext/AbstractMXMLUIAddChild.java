@@ -26,7 +26,7 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
  *   class    = "com.googlecode.jsfFlex.states.ext.MXMLUIAddChild"
  *   type     = "com.googlecode.jsfFlex.MXMLUIAddChild"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIAddChildTag"
- *   family   = "javax.faces.MXMLSimpleBase"
+ *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLAddChild"
  * 
  * @JSFJspProperties
