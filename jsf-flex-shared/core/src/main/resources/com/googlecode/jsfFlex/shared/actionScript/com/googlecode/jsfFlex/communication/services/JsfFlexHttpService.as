@@ -27,6 +27,9 @@ package com.googlecode.jsfFlex.communication.services
 	import mx.rpc.events.ResultEvent;
 	import mx.rpc.http.HTTPService;
 	
+	import com.googlecode.jsfFlex.communication.logger.ILogger;
+	import com.googlecode.jsfFlex.communication.logger.LoggerFactory
+	
 	public class JsfFlexHttpService {
 		
 		public static const ARRAY_RESULT_FORMAT:String = "array";
@@ -46,6 +49,12 @@ package com.googlecode.jsfFlex.communication.services
 		private static const SERVLET_XML_RESULT_FORMAT:String = "xml";
 		
 		private static const SERVLET_RETURN_METHOD:String = "servletReturnMethod";
+		
+		private static var _log:ILogger;
+		
+		{
+			_log = LoggerFactory.newJSLoggerInstance(JsfFlexHttpService);
+		}
 		
 		public function JsfFlexHttpService() {
 			super();
@@ -75,6 +84,7 @@ package com.googlecode.jsfFlex.communication.services
 			
 			httpRequest.resultFormat = resultFormatMethod;
 			httpRequest.addEventListener(ResultEvent.RESULT, function(event:ResultEvent):void{
+																	httpRequest.removeEventListener(ResultEvent.RESULT, arguments.callee, false);
 																	callBack.call(thisObject, httpRequest.lastResult, event);
 																}, false, 0, false);
 			

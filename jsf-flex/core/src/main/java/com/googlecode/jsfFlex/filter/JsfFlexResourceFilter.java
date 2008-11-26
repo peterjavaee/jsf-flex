@@ -57,6 +57,10 @@ public final class JsfFlexResourceFilter implements Filter {
 	
 	private static final Log _log = LogFactory.getLog(JsfFlexResourceFilter.class);
 	
+	private static final String META_HTTP_EQUIV_EXPIRE = "<META HTTP-EQUIV='Expires' CONTENT='0'>";
+	private static final String META_HTTP_EQUIV_PRAGMA_NO_CACHE = "<META HTTP-EQUIV='PRAGMA' CONTENT='NO-CACHE'>";
+	private static final String META_HTTP_EQUIV_CACHE_CONTROL_NO_CACHE = "<META HTTP-EQUIV='CACHE-CONTROL' CONTENT='NO-CACHE'>";
+	
 	private static final String REQUEST_FOR_RESOURCE_SEARCH_PATTERN = "%2F" + JsfFlexResource.JSF_FLEX_SCRIPT_RESOURCE_REQUEST_PREFIX + "%2F";
 	
 	private static final String HEAD_SEARCH_PATTERN = "<head";
@@ -74,9 +78,15 @@ public final class JsfFlexResourceFilter implements Filter {
 	
 	/** Below is for future configuration */
 	private FilterConfig _filterConfig;
+	private boolean isDebugMode;
 	
 	public void init(FilterConfig filterConfig) throws ServletException {
 		_filterConfig = filterConfig;
+		Object mode = _filterConfig.getServletContext().getInitParameter(MXMLConstants.CONFIG_MODE_NAME);
+		
+		if(!(mode == null || mode.toString().equals(MXMLConstants.SIMPLY_SWF_MODE) || mode.toString().equals(MXMLConstants.PRODUCTION_MODE))){
+			isDebugMode = true;
+		}
 	}
 	
 	public void destroy() {
@@ -127,6 +137,12 @@ public final class JsfFlexResourceFilter implements Filter {
 				
 				actualWriter.write( jsfFlexResponseWrapper.toString().substring(headMatchIndex+5, endTagCharIndex+1) );
 				
+				if(isDebugMode){
+					actualWriter.write(META_HTTP_EQUIV_EXPIRE);
+					actualWriter.write(META_HTTP_EQUIV_PRAGMA_NO_CACHE);
+					actualWriter.write(META_HTTP_EQUIV_CACHE_CONTROL_NO_CACHE);
+				}
+				
 				Collection resourceCollection = jsfFlexDojoResource.getResources();
 				String resourceConvertedToScriptElements = constructResourceToScriptTags(resourceCollection, requestURISplitted);
 				
@@ -144,6 +160,12 @@ public final class JsfFlexResourceFilter implements Filter {
 				actualWriter.write( jsfFlexResponseWrapper.toString().substring(0, bodyMatchIndex) );
 				
 				actualWriter.write(HEAD_START_TAG);
+				
+				if(isDebugMode){
+					actualWriter.write(META_HTTP_EQUIV_EXPIRE);
+					actualWriter.write(META_HTTP_EQUIV_PRAGMA_NO_CACHE);
+					actualWriter.write(META_HTTP_EQUIV_CACHE_CONTROL_NO_CACHE);
+				}
 				
 				Collection resourceCollection = jsfFlexDojoResource.getResources();
 				String resourceConvertedToScriptElements = constructResourceToScriptTags(resourceCollection, requestURISplitted);
