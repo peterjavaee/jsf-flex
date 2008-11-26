@@ -113,7 +113,7 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 	
 	public void processDecodes(FacesContext context) {
 		Object mode = context.getExternalContext().getInitParameter(MXMLConstants.CONFIG_MODE_NAME);
-		if(mode.toString().equals(MXMLConstants.SIMPLY_SWF_MODE) || mode.toString().equals(MXMLConstants.PRODUCTION_MODE)){
+		if(mode == null || mode.toString().equals(MXMLConstants.SIMPLY_SWF_MODE) || mode.toString().equals(MXMLConstants.PRODUCTION_MODE)){
 			//need to dataBind so set back to true
 			setRendered(true);
 		}
@@ -133,7 +133,7 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 	}
 	
 	protected abstract void populateComponentInitValues();
-
+	
 	public String getAbsolutePathToPreMxmlFile() {
 		return _absolutePathToPreMxmlFile;
 	}
