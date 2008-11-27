@@ -32,12 +32,6 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
  * @JSFJspProperties
  * 		properties	=		
  * 							@JSFJspProperty
- * 							 name		= "id"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "ID of the component."
- *   						,
- *   						
- * 							@JSFJspProperty
  * 							 name		= "name"
  *   						 returnType	= "java.lang.String"
  *   						 longDesc	= "The name of the property to change."

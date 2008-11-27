@@ -44,7 +44,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentNodeAttributes={},
 		
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="id", byMethod=false),
+				@JsfFlexAttribute(attribute="id", byMethod=true),
 				@JsfFlexAttribute(attribute="name", byMethod=false),
 				@JsfFlexAttribute(attribute="handlerFunction", byMethod=false),
 				@JsfFlexAttribute(attribute="target", byMethod=false),

@@ -33,30 +33,31 @@ import com.googlecode.jsfFlexPlugIn.parser._JsfFlexParserListener;
 import com.googlecode.jsfFlexPlugIn.parser.velocity.JsfFlexVelocityParser;
 
 /**
- * @goal    createMXMLRenderKitFactoryImplWrapperJavaFile
+ * @goal    createMXMLResponseStateManagerImplJavaFile
  * @phase   generate-sources
  * @author Ji Hoon Kim
  */
-public final class CreateMXMLRenderKitFactoryImplWrapperJavaFileMojo 
-																extends AbstractMojo 
-																implements _JsfFlexParserListener {
+public final class CreateMXMLResponseStateManagerImplJavaFileMojo 
+														extends AbstractMojo 
+														implements _JsfFlexParserListener {
 	
-	private static final String MXML_RENDER_KIT_FACTORY_IMPL_WRAPPER_BASE_IMPL = "mxmlRenderKitFactoryImplWrapperBaseImpl";
+	private static final String JSF_FLEX_MXML_RESPONSE_STATE_MANAGER_IMPL_12_BASE_IMPL_TEMPLATE = "MXMLResponseStateManagerImpl12.vm";
 	
-	private static final String JSF_FLEX_MXML_RENDER_KIT_FACTORY_IMPL_WRAPPER_BASE_IMPL_TEMPLATE = "MXMLRenderKitFactoryImplWrapper.vm";
-	private static final String TO_CREATE_JSF_FLEX_MXML_RENDER_KIT_FACTORY_IMPL_WRAPPER_BASE_IMPL_FILE_NAME = "MXMLRenderKitFactoryImplWrapper.java";
+	private static final String VERSION_12 = "1.2";
+	
+	private static final String TO_CREATE_JSF_FLEX_MXML_RESPONSE_STATE_MANAGER_IMPL_BASE_IMPL_FILE_NAME = "MXMLResponseStateManagerImpl.java";
 	
 	private static final String FILE_RESOURCE_LOADER_PATH_KEY = "file.resource.loader.path";
 	
 	/**
-     * @parameter expression="${mxmlRenderKitFactoryImplWrapperBaseImpl}"
+     * @parameter expression="${implVersion}"
      */
-	private String _mxmlRenderKitFactoryImplWrapperBaseImpl;
+	private String _implVersion;
 	
 	/**
-     * @parameter expression="${basedir}/target/jsfFlex-builder-plugin/main/java/com/googlecode/jsfFlex/renderkit"
+     * @parameter expression="${basedir}/target/jsfFlex-builder-plugin/main/java/com/googlecode/jsfFlex/renderkit/mxml"
      */
-	private File _toCreateMXMLRenderKitFactoryImplWrapperBaseImplPath;
+	private File _toCreateMXMLResponseStateManagerImplBaseImplPath;
 	
 	/**
      * @parameter expression="src/main/resources/META-INF"
@@ -74,21 +75,25 @@ public final class CreateMXMLRenderKitFactoryImplWrapperJavaFileMojo
 		_jsfFlexVelocityParser.init();
 		_jsfFlexVelocityParser.addParserListener(this);
 		
-		String toCreateMXMLRenderKitFactoryImplWrapperBaseImplJavaPath = _toCreateMXMLRenderKitFactoryImplWrapperBaseImplPath.getPath();
+		String toCreateMXMLResponseStateManagerImplBaseImplJavaPath = _toCreateMXMLResponseStateManagerImplBaseImplPath.getPath();
 		
 		try{
-			File toCreateMXMLRenderKitFactoryImplWrapperBaseImplFilePath = new File(toCreateMXMLRenderKitFactoryImplWrapperBaseImplJavaPath);
-			if(!toCreateMXMLRenderKitFactoryImplWrapperBaseImplFilePath.exists()){
-				toCreateMXMLRenderKitFactoryImplWrapperBaseImplFilePath.mkdirs();
+			File toCreateMXMLResponseStateManagerImplBaseFilePath = new File(toCreateMXMLResponseStateManagerImplBaseImplJavaPath);
+			if(!toCreateMXMLResponseStateManagerImplBaseFilePath.exists()){
+				toCreateMXMLResponseStateManagerImplBaseFilePath.mkdirs();
 			}
-			toCreateMXMLRenderKitFactoryImplWrapperBaseImplJavaPath +=  File.separatorChar + 
-																			TO_CREATE_JSF_FLEX_MXML_RENDER_KIT_FACTORY_IMPL_WRAPPER_BASE_IMPL_FILE_NAME;
-			FileWriter writer = new FileWriter(new File(toCreateMXMLRenderKitFactoryImplWrapperBaseImplJavaPath));
+			toCreateMXMLResponseStateManagerImplBaseImplJavaPath +=  File.separatorChar + 
+																		TO_CREATE_JSF_FLEX_MXML_RESPONSE_STATE_MANAGER_IMPL_BASE_IMPL_FILE_NAME;
+			FileWriter writer = new FileWriter(new File(toCreateMXMLResponseStateManagerImplBaseImplJavaPath));
 			Map<String, Object> contextInfoMap = new HashMap<String, Object>();
 			
-			contextInfoMap.put(MXML_RENDER_KIT_FACTORY_IMPL_WRAPPER_BASE_IMPL, _mxmlRenderKitFactoryImplWrapperBaseImpl);
-			_jsfFlexVelocityParser.mergeCollectionToTemplate(JSF_FLEX_MXML_RENDER_KIT_FACTORY_IMPL_WRAPPER_BASE_IMPL_TEMPLATE, contextInfoMap, 
-																writer, toCreateMXMLRenderKitFactoryImplWrapperBaseImplJavaPath);
+			String template = null;
+			if(_implVersion.trim().equals(VERSION_12)){
+				template = JSF_FLEX_MXML_RESPONSE_STATE_MANAGER_IMPL_12_BASE_IMPL_TEMPLATE;
+			}
+			
+			_jsfFlexVelocityParser.mergeCollectionToTemplate(template, contextInfoMap, 
+																writer, toCreateMXMLResponseStateManagerImplBaseImplJavaPath);
 			
 		}catch(IOException ioException){
 			

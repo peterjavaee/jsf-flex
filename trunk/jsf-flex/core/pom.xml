@@ -210,6 +210,28 @@
               <goal>createMXMLRenderKitFactoryImplWrapperJavaFile</goal>
             </goals>
           </execution>
+          
+          <!-- The below two generated files differ from the above in that they use composition design pattern rather than
+               extending the HTML/Default impl.
+          -->
+          <execution>
+            <id>createMXMLResponseStateManagerImplJavaFile</id>
+            <configuration>
+              <implVersion>${implVersion}</implVersion>
+            </configuration>
+            <goals>
+              <goal>createMXMLResponseStateManagerImplJavaFile</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>createMXMLResponseWriterImplJavaFile</id>
+            <configuration>
+              <implVersion>${implVersion}</implVersion>
+            </configuration>
+            <goals>
+              <goal>createMXMLResponseWriterImplJavaFile</goal>
+            </goals>
+          </execution>
         </executions>
         <dependencies>
           <dependency>
@@ -344,9 +366,10 @@
         </dependency>
       </dependencies>
       <properties>
-        <mxmlResponseWriterImpl>org.apache.myfaces.shared_impl.renderkit.html.HtmlResponseWriterImpl</mxmlResponseWriterImpl>
-        <mxmlResponseStateManagerImpl>org.apache.myfaces.renderkit.html.HtmlResponseStateManager</mxmlResponseStateManagerImpl>
+        <mxmlResponseWriterBaseImpl>org.apache.myfaces.shared_impl.renderkit.html.HtmlResponseWriterImpl</mxmlResponseWriterBaseImpl>
+        <mxmlResponseStateManagerBaseImpl>org.apache.myfaces.renderkit.html.HtmlResponseStateManager</mxmlResponseStateManagerBaseImpl>
         <mxmlRenderKitFactoryImplWrapperBaseImpl>org.apache.myfaces.renderkit.RenderKitFactoryImpl</mxmlRenderKitFactoryImplWrapperBaseImpl>
+        <implVersion>1.2</implVersion>
       </properties>
     </profile>
     
@@ -380,9 +403,10 @@
       </repositories>
       
       <properties>
-        <mxmlResponseWriterImpl>com.sun.faces.renderkit.html_basic.HtmlResponseWriter</mxmlResponseWriterImpl>
-        <mxmlResponseStateManagerImpl>com.sun.faces.renderkit.ResponseStateManagerImpl</mxmlResponseStateManagerImpl>
+        <mxmlResponseWriterBaseImpl>com.sun.faces.renderkit.html_basic.HtmlResponseWriter</mxmlResponseWriterBaseImpl>
+        <mxmlResponseStateManagerBaseImpl>com.sun.faces.renderkit.ResponseStateManagerImpl</mxmlResponseStateManagerBaseImpl>
         <mxmlRenderKitFactoryImplWrapperBaseImpl>com.sun.faces.renderkit.RenderKitFactoryImpl</mxmlRenderKitFactoryImplWrapperBaseImpl>
+        <implVersion>1.2</implVersion>
       </properties>
     </profile>
     
