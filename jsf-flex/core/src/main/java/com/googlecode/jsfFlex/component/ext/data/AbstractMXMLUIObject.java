@@ -31,13 +31,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUILabelAttribute;
  *   family   = "javax.faces.MXMLSimple"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLObject"
  * 
- * @JSFJspProperties
- * 		properties	=		
- * 							@JSFJspProperty
- *   						 name		= "id"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "ID of the component."
- *   						
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIObject 

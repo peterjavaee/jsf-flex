@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.renderkit.mxml;
 
 import java.io.IOException;
 import java.io.Writer;
+import java.lang.reflect.Constructor;
 import java.util.Properties;
 
 /**
@@ -29,11 +30,17 @@ public final class MXMLJsfFactory {
 	
 	private static final String MXML_JSF_FACTORY_IMPL_PROPERTIES = "mxmlJsfFactoryImpl.properties";
 	
-	private static final String MXML_RESPONSE_STATE_MANAGER_IMPL_KEY = "mxmlResponseStateManagerImpl";
-	private static final String MXML_RESPONSE_WRITER_IMPL_KEY = "mxmlResponseWriterImpl";
+	private static final String MXML_RESPONSE_STATE_MANAGER_BASE_IMPL_KEY = "mxmlResponseStateManagerBaseImpl";
+	private static final String MXML_RESPONSE_WRITER_BASE_IMPL_KEY = "mxmlResponseWriterBaseImpl";
 	
-	private static final String MXML_RESPONSE_STATE_MANAGER_IMPL_PACKAGE_CLASS;
-	private static final String MXML_RESPONSE_WRITER_IMPL_PACKAGE_CLASS;
+	private static final String MXML_RESPONSE_STATE_MANAGER_BASE_IMPL_PACKAGE_CLASS_NAME;
+	private static final String MXML_RESPONSE_WRITER_BASE_IMPL_PACKAGE_CLASS_NAME;
+	
+	private static final String MXML_RESPONSE_WRITER_IMPL_PACKAGE_CLASS_NAME = "com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl";
+	private static final Constructor MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR;
+	
+	private static final String MXML_RESPONSE_STATE_MANAGER_IMPL_PACKAGE_CLASS_NAME = "com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseStateManagerImpl";
+	private static final Class MXML_RESPONSE_STATE_MANAGER_IMPLEMENTOR_CLASS;
 	
 	static{
 		
@@ -45,13 +52,37 @@ public final class MXMLJsfFactory {
 			throw new RuntimeException("Exception thrown when loading of " + MXML_JSF_FACTORY_IMPL_PROPERTIES, _ioExcept);
 		}
 		
-		String systemPropertyMxmlResponseStateManagerImpl = System.getProperty(MXML_RESPONSE_STATE_MANAGER_IMPL_KEY);
-		String systemPropertyMxmlResponseWriterImpl = System.getProperty(MXML_RESPONSE_WRITER_IMPL_KEY);
+		String systemPropertyMxmlResponseStateManagerBaseImpl = System.getProperty(MXML_RESPONSE_STATE_MANAGER_BASE_IMPL_KEY);
+		String systemPropertyMxmlResponseWriterBaseImpl = System.getProperty(MXML_RESPONSE_WRITER_BASE_IMPL_KEY);
 		
-		MXML_RESPONSE_STATE_MANAGER_IMPL_PACKAGE_CLASS = systemPropertyMxmlResponseStateManagerImpl == null ? 
-												mxmlJsfFactoryImpl.getProperty(MXML_RESPONSE_STATE_MANAGER_IMPL_KEY) : systemPropertyMxmlResponseStateManagerImpl;
-		MXML_RESPONSE_WRITER_IMPL_PACKAGE_CLASS = systemPropertyMxmlResponseWriterImpl == null ? 
-												mxmlJsfFactoryImpl.getProperty(MXML_RESPONSE_WRITER_IMPL_KEY) : systemPropertyMxmlResponseWriterImpl;
+		MXML_RESPONSE_STATE_MANAGER_BASE_IMPL_PACKAGE_CLASS_NAME = systemPropertyMxmlResponseStateManagerBaseImpl == null ? mxmlJsfFactoryImpl.getProperty(MXML_RESPONSE_STATE_MANAGER_BASE_IMPL_KEY) : systemPropertyMxmlResponseStateManagerBaseImpl;
+		MXML_RESPONSE_WRITER_BASE_IMPL_PACKAGE_CLASS_NAME = systemPropertyMxmlResponseWriterBaseImpl == null ? mxmlJsfFactoryImpl.getProperty(MXML_RESPONSE_WRITER_BASE_IMPL_KEY) : systemPropertyMxmlResponseWriterBaseImpl;
+		
+		
+		/* Getting reference to MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR */
+		Class mxmlResponseWriterImplementorClass;
+		
+		try{
+			mxmlResponseWriterImplementorClass = Class.forName(MXML_RESPONSE_WRITER_IMPL_PACKAGE_CLASS_NAME, false, Thread.currentThread().getContextClassLoader());
+		}catch(ClassNotFoundException classNotFound){
+			throw new RuntimeException("Failure in retrieving the class for " + MXML_RESPONSE_WRITER_IMPL_PACKAGE_CLASS_NAME, classNotFound);
+		}
+		
+		try{
+			MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR = mxmlResponseWriterImplementorClass.getDeclaredConstructor(new Class[]{Writer.class, String.class, String.class});
+		}catch(NoSuchMethodException noSuchMethod){
+			throw new RuntimeException("Failure in retrieving the constructor for " +  MXML_RESPONSE_WRITER_IMPL_PACKAGE_CLASS_NAME, noSuchMethod);
+		}
+		/* End of getting reference to MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR */
+		
+		
+		/* Getting reference to MXML_RESPONSE_STATE_MANAGER_IMPL_PACKAGE_CLASS */
+		try{
+			MXML_RESPONSE_STATE_MANAGER_IMPLEMENTOR_CLASS = Class.forName(MXML_RESPONSE_STATE_MANAGER_IMPL_PACKAGE_CLASS_NAME, false, Thread.currentThread().getContextClassLoader());
+		}catch(ClassNotFoundException classNotFound){
+			throw new RuntimeException("Failure in retrieving the class for " + MXML_RESPONSE_STATE_MANAGER_IMPL_PACKAGE_CLASS_NAME, classNotFound);
+		}
+		/* End of getting reference to MXML_RESPONSE_STATE_MANAGER_IMPL_PACKAGE_CLASS */
 		
 	}
 	
@@ -60,19 +91,29 @@ public final class MXMLJsfFactory {
 	}
 	
 	public static AbstractMXMLResponseWriter getMXMLResponseWriterImpl(Writer writer, String selectedContentType, String characterEncoding){
-		return new MXMLResponseWriterImpl(writer, selectedContentType, characterEncoding);
+		
+		try{
+			return (AbstractMXMLResponseWriter) MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR.newInstance(new Object[]{writer, selectedContentType, characterEncoding});
+		}catch(Exception instantiatingException){
+			throw new RuntimeException("Failure in instantiating a class for " + MXML_RESPONSE_WRITER_IMPL_PACKAGE_CLASS_NAME, instantiatingException);
+		}
 	}
 	
 	public static AbstractMXMLResponseStateManager getMXMLResponseStateManagerImpl(){
-		return new MXMLResponseStateManagerImpl();
+		
+		try{
+			return (AbstractMXMLResponseStateManager) MXML_RESPONSE_STATE_MANAGER_IMPLEMENTOR_CLASS.newInstance();
+		}catch(Exception instantiatingException){
+			throw new RuntimeException("Failure in instantiating a class for " + MXML_RESPONSE_STATE_MANAGER_IMPL_PACKAGE_CLASS_NAME, instantiatingException);
+		}
 	}
 	
-	static String getMXMLResponseStateManagerImplPackageClass(){
-		return MXML_RESPONSE_STATE_MANAGER_IMPL_PACKAGE_CLASS;
+	static String getMXMLResponseStateManagerBaseImplPackageClassName(){
+		return MXML_RESPONSE_STATE_MANAGER_BASE_IMPL_PACKAGE_CLASS_NAME;
 	}
 	
-	static String getMXMLResponseWriterImplPackageClass(){
-		return MXML_RESPONSE_WRITER_IMPL_PACKAGE_CLASS;
+	static String getMXMLResponseWriterBaseImplPackageClassName(){
+		return MXML_RESPONSE_WRITER_BASE_IMPL_PACKAGE_CLASS_NAME;
 	}
 	
 }

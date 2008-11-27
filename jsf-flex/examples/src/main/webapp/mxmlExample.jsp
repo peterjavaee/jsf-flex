@@ -25,23 +25,46 @@
  * under the License.
  */
 //-->
+<head>
+<style type="text/css">
+.descriptionStyle{
+    color:#708090;
+    font-family:verdana;
+    font-size:11px;
+    font-weight:700;
+}
 
+.errorStyle{
+    color:#ff6666;
+    font-family:verdana;
+    font-size:11px;
+    font-weight:700;
+}
+</style>
+</head>
 <body>
 
 <f:view renderKitId="MXML_BASIC">
 	
 	<h:form>
-    	<br>
     	The button on the right is to test out the decode process and make sure that the information is mapped correctly
     	
     	<h:commandButton value="DecodeTester" action="success" />
-    	<br>
+        <br>
+        <div class="descriptionStyle">
+            Note that the client validation for the component with id textInputRef [namely mxmlNumberValidator] is not a child tag
+            of the mxmlTextInput tag. However the regular validation tag [validateLongRange] is a child tag which performs the validation
+            on the server side. In future it is thought to prevent submission of data if there exists errors.
+            <br>
+            <h:message for="textInputRef" errorClass="errorStyle" />
+        </div>
+        <br>
         
 	    <jf:mxmlApplication mxmlPackageName="anotherSwf" height="5%" width="85%" verticalScrollPolicy="off" backgroundColor="0xCC6666">
 	    	<jf:mxmlLabel text="I simply am an another SWF file. DHan, DHAn, DHAN!!!" color="#FFFFFF" fontWeight="bold"/>
 	    </jf:mxmlApplication>
 	    
-	    <jf:mxmlApplication mxmlPackageName="initialPackage" height="85%" width="85%">
+	    <jf:mxmlApplication mxmlPackageName="initialPackage" height="80%" width="85%">
 	        <jf:mxmlScript>
 	        	import flash.events.Event;
 	        	
@@ -49,8 +72,6 @@
 		    	import mx.controls.Alert;
 		    	import mx.controls.Menu;
 		    	import mx.controls.PopUpButton;
-		    	import mx.controls.ProgressBar;
-		    	import mx.controls.TextInput;
 		    	import mx.events.MenuEvent;
 		    	
 		    	private function alertMe():void {
@@ -100,25 +121,12 @@
 				[Bindable]
 				public var complexStructCollection:XMLListCollection = new XMLListCollection(complexStruct);
 				
-				public var progressBar:ProgressBar;
-				
 				private function increaseProgressBar():void{
-					progressBar.setProgress((progressBar.value + 10) % 110, 100);
+					progressBarRef.setProgress((progressBarRef.value + 10) % 110, 100);
 				}
 				
 				private function decreaseProgressBar():void{
-					progressBar.setProgress(progressBar.value == 0 ? 0 : progressBar.value - 10, 100);
-				}
-				
-				private function setProgressBar(event:Event):void{
-					progressBar = event.target as ProgressBar;
-				}
-				
-				[Bindable]
-				public var textInput:TextInput;
-				
-				private function setTextInput(event:Event):void{
-					textInput = event.target as TextInput;
+					progressBarRef.setProgress(progressBarRef.value == 0 ? 0 : progressBarRef.value - 10, 100);
 				}
 				
 		    </jf:mxmlScript>
@@ -126,7 +134,7 @@
 		    <jf:mxmlNumberValidator exceedsMaxError="The number provided exceeds max value [60]." property="text"
 		    						domain="int" integerError="Must be an integer value."
 			    					lowerThanMinError="The number provided is lower than min value [10]." maxValue="60" minValue="10" 
-			    					required="true" source="{textInput}" />
+			    					required="true" source="{textInputRef}" />
 			
 			<jf:mxmlAccordion width="100%" height="100%" selectedIndex="#{mxmlBean.accordionSelectedIndex}">
 			    
@@ -136,7 +144,9 @@
 			    			<jf:mxmlDividedBox direction="horizontal" width="100%" height="100%">
 			    			
 				    			<jf:mxmlBox width="40%" height="100%">
-					    			<jf:mxmlTextInput text="#{mxmlBean.textInputText}" creationComplete="setTextInput(event);" />
+					    			<jf:mxmlTextInput id="textInputRef" text="#{mxmlBean.textInputText}" >
+					    				<f:validateLongRange minimum="10" maximum="60" />
+					    			</jf:mxmlTextInput>
 					    			<jf:mxmlRichTextEditor textBinding="htmlText" htmlText="#{mxmlBean.richTextEditorHtmlText}" />
 							    	<jf:mxmlTextArea text="#{mxmlBean.textAreaText}" />
 							    	<jf:mxmlDateField text="#{mxmlBean.dateFieldText}" />
@@ -237,8 +247,7 @@
 					        <jf:mxmlButton label="Decrease Progress Bar" buttonDown="decreaseProgressBar();" />
 					    </jf:mxmlTile>
 					    
-					    <jf:mxmlProgressBar mode="manual" minimum="0" maximum="100" creationComplete="setProgressBar(event);" 
-					    					value="#{mxmlBean.progressBarValue}" />
+					    <jf:mxmlProgressBar id="progressBarRef" mode="manual" minimum="0" maximum="100"	value="#{mxmlBean.progressBarValue}" />
 					    
 					</jf:mxmlTitleWindow>
 					

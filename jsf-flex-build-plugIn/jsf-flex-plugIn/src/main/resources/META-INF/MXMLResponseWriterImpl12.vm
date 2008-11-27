@@ -30,24 +30,24 @@ import javax.faces.context.ResponseWriter;
  */
 class MXMLResponseWriterImpl extends AbstractMXMLResponseWriter {
 	
-	private static final Constructor MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR;
+	private static final Constructor MXML_RESPONSE_WRITER_BASE_IMPLEMENTOR_CONSTRUCTOR;
 	
 	private final ResponseWriter _mxmlResponseWriterBaseImplementor;
 	
 	static{
 		
-		Class mxmlResponseWriterImplementorClass;
+		Class mxmlResponseWriterBaseImplementorClass;
 		
 		try{
-			mxmlResponseWriterImplementorClass = Class.forName(MXMLJsfFactory.getMXMLResponseWriterImplPackageClass(), false, Thread.currentThread().getContextClassLoader());
+			mxmlResponseWriterBaseImplementorClass = Class.forName(MXMLJsfFactory.getMXMLResponseWriterBaseImplPackageClassName(), false, Thread.currentThread().getContextClassLoader());
 		}catch(ClassNotFoundException classNotFound){
-			throw new RuntimeException("Failure in retrieving the class for " + MXMLJsfFactory.getMXMLResponseWriterImplPackageClass(), classNotFound);
+			throw new RuntimeException("Failure in retrieving the class for " + MXMLJsfFactory.getMXMLResponseWriterBaseImplPackageClassName(), classNotFound);
 		}
 		
 		try{
-			MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR = mxmlResponseWriterImplementorClass.getDeclaredConstructor(new Class[]{Writer.class, String.class, String.class});
+			MXML_RESPONSE_WRITER_BASE_IMPLEMENTOR_CONSTRUCTOR = mxmlResponseWriterBaseImplementorClass.getDeclaredConstructor(new Class[]{Writer.class, String.class, String.class});
 		}catch(NoSuchMethodException noSuchMethod){
-			throw new RuntimeException("Failure in retrieving the constructor for " +  MXMLJsfFactory.getMXMLResponseWriterImplPackageClass(), noSuchMethod);
+			throw new RuntimeException("Failure in retrieving the constructor for " +  MXMLJsfFactory.getMXMLResponseWriterBaseImplPackageClassName(), noSuchMethod);
 		}
 		
 	}
@@ -61,9 +61,9 @@ class MXMLResponseWriterImpl extends AbstractMXMLResponseWriter {
 		super();
 		
 		try{
-			_mxmlResponseWriterBaseImplementor = (ResponseWriter) MXML_RESPONSE_WRITER_IMPLEMENTOR_CONSTRUCTOR.newInstance(new Object[]{writer, contentType, characterEncoding});
+			_mxmlResponseWriterBaseImplementor = (ResponseWriter) MXML_RESPONSE_WRITER_BASE_IMPLEMENTOR_CONSTRUCTOR.newInstance(new Object[]{writer, contentType, characterEncoding});
 		}catch(Exception instantiatingException){
-			throw new RuntimeException("Failure in instantiating a class for " + MXMLJsfFactory.getMXMLResponseWriterImplPackageClass(), instantiatingException);
+			throw new RuntimeException("Failure in instantiating a class for " + MXMLJsfFactory.getMXMLResponseWriterBaseImplPackageClassName(), instantiatingException);
 		}
 		
 	}

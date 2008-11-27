@@ -32,12 +32,6 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
  * @JSFJspProperties
  * 		properties	=		
  * 							@JSFJspProperty
- * 							 name		= "id"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "ID of the component."
- *   						,
- *   						
- * 							@JSFJspProperty
  * 							 name		= "basedOn"
  *   						 returnType	= "java.lang.String"
  *   						 longDesc	= "The name of the view state upon which this view state is based, or null if this view state is not based on a named view state."

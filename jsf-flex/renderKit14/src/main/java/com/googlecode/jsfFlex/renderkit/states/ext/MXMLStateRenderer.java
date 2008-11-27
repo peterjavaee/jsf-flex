@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  type        = "com.googlecode.jsfFlex.MXMLState"
  * 
  * @JsfFlexAttributes
- *  id=false
+ *  id=true
  * 	basedOn=false
  * 	name=false
  * 	overrides=false
