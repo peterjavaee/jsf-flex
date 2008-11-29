@@ -20,8 +20,9 @@ package com.googlecode.jsfFlex.component;
 
 import java.io.IOException;
 
-import javax.faces.component.UIComponentBase;
+import javax.faces.component.UIOutput;
 import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
 
 import org.json.JSONObject;
 
@@ -33,16 +34,17 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
  * This component should be used as the base action of the component if the component<br>
- * does not require any preservation of values during the post-back phase [i.e. AbstractMXMLUIVideoDisplay].<br>
+ * does not require any preservation of values during the post-back phase [i.e. AbstractMXMLUILabel], but<br>
+ * require setting of fields of UIOutput [i.e. converter].<br>
  * 
  * @JSFComponent
- *   type     = "com.googlecode.jsfFlex.MXMLUISimpleBase"
- *   family   = "javax.faces.MXMLUISimpleBase"
- *   desc	  = "Base component for MXMLSimple components"
+ *   type     = "com.googlecode.jsfFlex.MXMLUIOutputBase"
+ *   family   = "javax.faces.MXMLOutputBase"
+ *   desc	  = "Base component for MXMLOutput components"
  * 
  * @author Ji Hoon Kim
  */
-public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLContract {
+public abstract class MXMLUIOutputBase extends UIOutput implements _MXMLContract {
 	
 	private _AnnotationDocletParser _annotationDocletParserInstance;
 	
@@ -57,7 +59,7 @@ public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLC
 	private int _majorLevel = -1;
 	private int _minorLevel = -1;
 
-	public MXMLUISimpleBase(){
+	public MXMLUIOutputBase(){
 		super();
 	}
 	
@@ -127,5 +129,18 @@ public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLC
 	public void setPreMxmlIdentifier(String preMxmlIdentifier) {
 		_preMxmlIdentifier = preMxmlIdentifier;
 	}
+	
+	/**
+     * The value can either be a static value (ID) or an EL expression. When a static id is
+     * specified, an instance of the converter type registered with that id is used. When this is an
+     * EL expression, the result of evaluating the expression must be an object that implements the
+     * Converter interface.
+     * 
+     * @JSFProperty
+     *   inheritedTag	  = true
+     */
+    public Converter getConverter(){
+    	return super.getConverter();
+    }
 	
 }

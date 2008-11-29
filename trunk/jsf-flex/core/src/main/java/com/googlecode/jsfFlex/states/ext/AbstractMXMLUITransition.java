@@ -53,4 +53,15 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 public abstract class AbstractMXMLUITransition 
 						extends MXMLUISimpleBase {
 	
+	/**
+	 * Id of the component.
+	 * 
+	 * @JSFProperty
+	 *     desc			= "Id of the component."
+	 *     inheritedTag	= true
+	 */
+	public String getId(){
+		return super.getId();
+	}
+	
 }

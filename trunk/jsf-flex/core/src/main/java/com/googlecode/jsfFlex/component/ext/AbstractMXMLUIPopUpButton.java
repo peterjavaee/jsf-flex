@@ -19,9 +19,6 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import com.googlecode.jsfFlex.component.MXMLUISelectedBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
@@ -31,7 +28,8 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   type     = "com.googlecode.jsfFlex.MXMLUIPopUpButton"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIPopUpButtonTag"
  *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLPopUpButton"
+ *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLPopUpButton"
+ *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -464,7 +462,6 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  */
 public abstract class AbstractMXMLUIPopUpButton 
 							extends MXMLUISelectedBase 
-							implements _MXMLUIBaseAttributes, _MXMLUIImmediateAttribute, _MXMLUITextAttribute,
-							_MXMLUISelectedAttribute {
+							implements _MXMLUIBaseAttributes {
 	
 }

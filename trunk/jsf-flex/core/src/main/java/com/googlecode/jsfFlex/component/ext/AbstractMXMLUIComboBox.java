@@ -32,9 +32,7 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIControlSkinAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIImeModeAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIRestrictAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedItemAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
@@ -48,7 +46,8 @@ import com.googlecode.jsfFlex.util.MXMLJsfUtil;
  *   type     = "com.googlecode.jsfFlex.MXMLUIComboBox"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIComboBoxTag"
  *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLComboBox"
+ *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLComboBox"
+ *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
  *   
  * @JSFJspProperties
  * 		properties	=		
@@ -384,8 +383,7 @@ public abstract class AbstractMXMLUIComboBox
 						extends MXMLUISelectedIndexBase
 						implements _MXMLUIComboBaseAttributes, _MXMLUIBaseAttributes, _MXMLUITextAttribute, 
 						_MXMLUIControlSkinAttributes, _MXMLUIDataProviderAttribute, _MXMLUIEditableAttribute, 
-						_MXMLUIImeModeAttribute, _MXMLUIImmediateAttribute, _MXMLUIRestrictAttribute,
-						_MXMLUISelectedIndexAttribute, _MXMLUISelectedItemAttribute {
+						_MXMLUIImeModeAttribute, _MXMLUISelectedItemAttribute, _MXMLUIRestrictAttribute {
 	
 	private final static Log _log = LogFactory.getLog(AbstractMXMLUIComboBox.class);
 	

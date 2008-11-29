@@ -41,7 +41,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIIconFieldAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIItemClickAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIItemEventAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIItemInfoAttributes;
@@ -55,11 +54,9 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollBarAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectableAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedItemAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectionAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIShadowAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextEventColorAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextStyleAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIThumbSkinAttributes;
@@ -77,7 +74,8 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControl
  *   type     = "com.googlecode.jsfFlex.MXMLUITree"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUITreeTag"
  *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLTree"
+ *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLTree"
+ *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
  *   
  * @JSFJspProperties
  * 		properties	=		
@@ -295,7 +293,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControl
 public abstract class AbstractMXMLUITree 
 						extends MXMLUISelectedIndexBase
 						implements _MXMLUIListBaseAttributes, _MXMLUIScrollControlAttributes, _MXMLUITrackAttributes,  
-						_MXMLUIBaseAttributes, _MXMLUITextAttribute, _MXMLUIAllowMultipleSelectionAttribute, 
+						_MXMLUIBaseAttributes, _MXMLUIShadowAttributes, _MXMLUIAllowMultipleSelectionAttribute, 
 						_MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundAttributes, _MXMLUIBackgroundColorAttribute, 
 						_MXMLUIBorderAttributes, _MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, 
 						_MXMLUIChangeAttribute, _MXMLUIColorAttribute, _MXMLUIWordWrapAttribute, 
@@ -304,12 +302,11 @@ public abstract class AbstractMXMLUITree
 						_MXMLUIDropDownEventColorAttributes, _MXMLUIFocusAlphaAttribute, _MXMLUIVerticalAlignAttribute,  
 						_MXMLUIFocusRoundedCornersAttribute, _MXMLUIFontFamilyAttribute, _MXMLUIFontGeneralAttributes,  
 						_MXMLUIHorizontalScrollPositionAttribute, _MXMLUIIconFieldAttribute, _MXMLUIThumbSkinAttributes, 
-						_MXMLUIImmediateAttribute, _MXMLUIItemClickAttribute, _MXMLUISelectedIndexAttribute, 
+						_MXMLUITextStyleAttributes, _MXMLUIItemClickAttribute, _MXMLUITextEventColorAttributes, 
 						_MXMLUIItemEventAttributes, _MXMLUIItemInfoAttributes, _MXMLUILabelFieldAttribute, 
 						_MXMLUILeadingAttribute, _MXMLUIPaddingHorizontalAttributes, _MXMLUIPaddingVerticalAttributes,  
 						_MXMLUIRepeatAttributes, _MXMLUIScrollAttribute, _MXMLUIScrollAttributes, _MXMLUIScrollBarAttributes,  
 						_MXMLUISelectableAttribute, _MXMLUISelectedItemAttribute, _MXMLUIColumnCountAttribute,
-						_MXMLUISelectionAttributes, _MXMLUIShadowAttributes, _MXMLUITextEventColorAttributes, 
-						_MXMLUITextStyleAttributes {
+						_MXMLUISelectionAttributes {
 	
 }

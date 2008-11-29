@@ -18,40 +18,42 @@
  */
 package com.googlecode.jsfFlex.component;
 
-import javax.el.ValueExpression;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.googlecode.jsfFlex.util.MXMLJsfUtil;
+import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 
 /**
  * This class will process the needed actions of setting and retrieving of "text" attribute<br>
  * within the Flex components.<br>
  * 
+ * @JSFComponent
+ * 	 class    = "com.googlecode.jsfFlex.component.MXMLUITextInputBase"
+ *   type     = "com.googlecode.jsfFlex.MXMLUITextInputBase"
+ *   family   = "javax.faces.MXMLUITextInputBase"
+ *   desc	  = "Base component for MXMLInput components that contain text attribute"
+ *   template = "true"
+ * 
  * @author Ji Hoon Kim
- */ 
-public abstract class MXMLUITextInputBase extends MXMLUIInputBase {
+ */
+public abstract class _MXMLUITextInputBase 
+							extends MXMLUIInputBase 
+							implements _MXMLUITextAttribute {
 	
-	private final static Log _log = LogFactory.getLog(MXMLUITextInputBase.class);
+	private final static org.apache.commons.logging.Log _log = org.apache.commons.logging.LogFactory.getLog(MXMLUITextInputBase.class);
 	
 	private static final String TEXT_ATTR = "text";
 	private static final String TEXT_ID_APPENDED = "_text";
 	
-	private JSONObject initValue;
+	private org.json.JSONObject initValue;
 	
 	{
 		try{
-			initValue = new JSONObject();
+			initValue = new org.json.JSONObject();
 			initValue.put(ATTRIBUTE, TEXT_ATTR);
 			
 			_initValues.put(initValue);
 			
-		}catch(JSONException jsonException){
+		}catch(org.json.JSONException jsonException){
 			_log.info("Error while formatting to JSON content", jsonException);
 		}
 	}
@@ -59,9 +61,9 @@ public abstract class MXMLUITextInputBase extends MXMLUIInputBase {
 	protected void populateComponentInitValues(){
 		try{
 			if(getText() != null){
-				initValue.put(VALUE, MXMLJsfUtil.escapeCharacters( getText() ));
+				initValue.put(VALUE, com.googlecode.jsfFlex.util.MXMLJsfUtil.escapeCharacters( getText() ));
 			}
-		}catch(JSONException jsonException){
+		}catch(org.json.JSONException jsonException){
 			_log.info("Error while formatting to JSON content", jsonException);
 		}
 	}
@@ -69,7 +71,7 @@ public abstract class MXMLUITextInputBase extends MXMLUIInputBase {
     public void decode(FacesContext context) {
     	super.decode(context);
     	
-    	HttpServletRequest httpRequest = (HttpServletRequest) context.getExternalContext().getRequest();
+    	javax.servlet.http.HttpServletRequest httpRequest = (javax.servlet.http.HttpServletRequest) context.getExternalContext().getRequest();
     	
     	String textId = getId() + TEXT_ID_APPENDED;
     	String textUpdateVal = httpRequest.getParameter(textId);
@@ -87,7 +89,7 @@ public abstract class MXMLUITextInputBase extends MXMLUIInputBase {
     		return;
     	}
     	
-    	ValueExpression ve = getValueExpression(TEXT_ATTR);
+    	javax.el.ValueExpression ve = getValueExpression(TEXT_ATTR);
     	
     	if(ve != null && !ve.isReadOnly(context.getELContext())){
     		ve.setValue(context.getELContext(), getText());
@@ -95,9 +97,5 @@ public abstract class MXMLUITextInputBase extends MXMLUIInputBase {
     	}
     	
     }
-    
-    public abstract String getText();
-    
-    public abstract void setText(String text);
     
 }

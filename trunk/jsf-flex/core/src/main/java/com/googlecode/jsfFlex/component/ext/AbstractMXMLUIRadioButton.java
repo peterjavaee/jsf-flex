@@ -23,10 +23,6 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
 import com.googlecode.jsfFlex.component.MXMLUISelectedBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIValueAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
@@ -37,6 +33,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIRadioButtonTag"
  *   family   = "javax.faces.MXMLInput"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLRadioButton"
+ *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -391,8 +388,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  */
 public abstract class AbstractMXMLUIRadioButton 
 						extends MXMLUISelectedBase
-						implements _MXMLUIBaseAttributes, _MXMLUIValueAttribute, _MXMLUIImmediateAttribute, 
-						_MXMLUITextAttribute, _MXMLUISelectedAttribute {
+						implements _MXMLUIBaseAttributes {
 	
 	private static final String SELECTED_VALUE_ATTR = "selectedValue";
 	private static final String SELECTED_VALUE_ID_APPENDED = "_selectedValue";
@@ -461,5 +457,18 @@ public abstract class AbstractMXMLUIRadioButton
 	public abstract String getSelectedValue();
 	
 	public abstract void setSelectedValue(String selectedValue);
+	
+	/**
+	 * Current value.
+	 * 
+	 *@JSFProperty
+	 *    required        = false
+	 *    rtexprvalue     = true
+	 *    desc            = "Current value."
+	 *    inheritedTag	  = true
+	 */
+	public Object getValue(){
+		return super.getValue();
+	}
 	
 }

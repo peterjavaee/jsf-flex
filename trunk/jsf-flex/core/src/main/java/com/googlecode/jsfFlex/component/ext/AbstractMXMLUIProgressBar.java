@@ -19,9 +19,6 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import com.googlecode.jsfFlex.component.MXMLUIValueBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIValueAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
@@ -31,7 +28,8 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   type     = "com.googlecode.jsfFlex.MXMLUIProgressBar"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIProgressBarTag"
  *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLProgressBar"
+ *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLProgressBar"
+ *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
  *   
  * @JSFJspProperties
  * 		properties	=		
@@ -287,8 +285,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  */
 public abstract class AbstractMXMLUIProgressBar 
 						extends MXMLUIValueBase 
-						implements _MXMLUIBaseAttributes, _MXMLUITextAttribute, 
-						_MXMLUIImmediateAttribute, _MXMLUIValueAttribute {
+						implements _MXMLUIBaseAttributes {
 	
 	protected void populateComponentInitValues(){
 		

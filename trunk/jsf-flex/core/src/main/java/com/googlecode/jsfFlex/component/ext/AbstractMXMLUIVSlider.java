@@ -24,13 +24,10 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIChangeAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataTipPlacementAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDirectionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFillAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUILiveDraggingAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIMinMaxAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIThumbSkinAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIValueAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUISliderAttributes;
 
@@ -41,16 +38,16 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUISliderAttribu
  *   type     = "com.googlecode.jsfFlex.MXMLUIVSlider"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIVSliderTag"
  *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLVSlider"
+ *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLVSlider"
+ *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
  * 
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIVSlider 
 						extends MXMLUIValueBase
-						implements _MXMLUISliderAttributes, _MXMLUIBaseAttributes, _MXMLUITextAttribute, 
+						implements _MXMLUISliderAttributes, _MXMLUIBaseAttributes, _MXMLUIDataTipPlacementAttribute, 
 						_MXMLUIBorderColorAttribute, _MXMLUIChangeAttribute, _MXMLUILiveDraggingAttribute, 
-						_MXMLUIValueAttribute, _MXMLUIDirectionAttribute, _MXMLUIFillAttributes ,
-						_MXMLUIImmediateAttribute, _MXMLUIMinMaxAttributes, _MXMLUIThumbSkinAttributes, 
-						_MXMLUITrackAttributes, _MXMLUIDataTipPlacementAttribute {
+						_MXMLUITrackAttributes, _MXMLUIDirectionAttribute, _MXMLUIFillAttributes ,
+						_MXMLUIMinMaxAttributes, _MXMLUIThumbSkinAttributes {
 	
 }

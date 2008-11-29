@@ -32,11 +32,9 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIControlSkinAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIImeModeAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIRestrictAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedItemAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIComboBaseAttributes;
 
@@ -47,7 +45,8 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIComboBaseAttr
  *   type     = "com.googlecode.jsfFlex.MXMLUIColorPicker"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIColorPickerTag"
  *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLColorPicker"
+ *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLColorPicker"
+ *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
  *   
  * @JSFJspProperties
  * 		properties	=		
@@ -366,10 +365,9 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIComboBaseAttr
  */
 public abstract class AbstractMXMLUIColorPicker 
 						extends MXMLUIInputBase 
-						implements _MXMLUIComboBaseAttributes, _MXMLUIBaseAttributes, _MXMLUITextAttribute, 
+						implements _MXMLUIComboBaseAttributes, _MXMLUIBaseAttributes, _MXMLUIRestrictAttribute, 
 						_MXMLUIControlSkinAttributes, _MXMLUIDataProviderAttribute, _MXMLUIEditableAttribute, 
-						_MXMLUIImeModeAttribute, _MXMLUIImmediateAttribute, _MXMLUISelectedItemAttribute, 
-						_MXMLUIRestrictAttribute, _MXMLUISelectedIndexAttribute {
+						_MXMLUIImeModeAttribute, _MXMLUISelectedIndexAttribute, _MXMLUISelectedItemAttribute {
 	
 	private final static Log _log = LogFactory.getLog(AbstractMXMLUIColorPicker.class);
 	
@@ -430,7 +428,7 @@ public abstract class AbstractMXMLUIColorPicker
     	}
     	
     }
-
+	
 	/**
 	 * The value of the currently selected color in the SwatchPanel object.
 	 * 

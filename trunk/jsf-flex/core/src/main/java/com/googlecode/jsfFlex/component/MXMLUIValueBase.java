@@ -31,6 +31,11 @@ import org.json.JSONObject;
  * This class will process the needed actions of setting and retrieving of "value" attribute<br>
  * within the Flex components.<br>
  * 
+ * @JSFComponent
+ *   type     = "com.googlecode.jsfFlex.MXMLUIValueBase"
+ *   family   = "javax.faces.MXMLUIValueBase"
+ *   desc	  = "Base component for MXMLInput components that contain value attribute"
+ * 
  * @author Ji Hoon Kim
  */ 
 public abstract class MXMLUIValueBase extends MXMLUIInputBase {
@@ -93,6 +98,19 @@ public abstract class MXMLUIValueBase extends MXMLUIInputBase {
 			setValue(null);
 		}
     	
+	}
+	
+	/**
+	 * Current value.
+	 * 
+	 *@JSFProperty
+	 *    required        = false
+	 *    rtexprvalue     = true
+	 *    desc            = "Current value."
+	 *    inheritedTag	  = true
+	 */
+	public Object getValue(){
+		return super.getValue();
 	}
 	
 }

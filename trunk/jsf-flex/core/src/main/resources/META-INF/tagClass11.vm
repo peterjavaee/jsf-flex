@@ -29,7 +29,7 @@ public class $utils.getClassFromFullClass($component.tagClass)
 #if (${component.tagSuperclass})
     extends ${component.tagSuperclass}
 #else
-    extends javax.faces.webapp.UIComponentTag
+    extends com.googlecode.jsfFlex.taglib.MXMLUIComponentTagBase
 #end
 {
     public $utils.getClassFromFullClass($component.tagClass)()
