@@ -26,8 +26,9 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   name     = "jf:mxmlScript"
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIScript"
  *   type     = "com.googlecode.jsfFlex.MXMLUIScript"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIScriptTag"
  *   family   = "javax.faces.MXMLSimple"
+ *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIScriptTag"
+ *   tagSuperclass 		= "com.googlecode.jsfFlex.taglib.MXMLUIComponentBodyTagBase"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLScript"
  *   
  * @author Ji Hoon Kim

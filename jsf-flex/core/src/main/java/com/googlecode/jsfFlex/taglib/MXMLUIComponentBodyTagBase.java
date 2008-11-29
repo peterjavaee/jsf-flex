@@ -16,8 +16,9 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.taglib.ext;
+package com.googlecode.jsfFlex.taglib;
 
+import javax.faces.webapp.UIComponentBodyTag;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyContent;
 import javax.servlet.jsp.tagext.BodyTag;
@@ -25,24 +26,14 @@ import javax.servlet.jsp.tagext.BodyTag;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
- * The reason that this tag is created rather than having myfaces plug-In generate it<br>
- * is because of the need to capture the contents of the JSP tag as an attribute of<br>
- * MXMLConstants.TAG_BODY_CONTENT_ATTR. This will enable writing of ActionScript contents<br>
- * as body of mxmlScript JSP tag.
+ * This tag captures the contents of the JSP tag as an attribute of MXMLConstants.TAG_BODY_CONTENT_ATTR.<br>
+ * This will enable writing of ActionScript contents as body of mxmlScript JSP tag.<br>
  * 
  * @author Ji Hoon Kim
  */
-public class MXMLUIScriptTag extends javax.faces.webapp.UIComponentBodyTag {
+public abstract class MXMLUIComponentBodyTagBase extends UIComponentBodyTag {
 	
 	private String _scriptContent;
-
-	public String getComponentType() {
-		return com.googlecode.jsfFlex.component.ext.MXMLUIScript.COMPONENT_TYPE;
-	}
-
-	public String getRendererType() {
-		return com.googlecode.jsfFlex.component.ext.MXMLUIScript.DEFAULT_RENDERER_TYPE;
-	}
 	
 	public int doStartTag() throws JspException
     {
@@ -75,5 +66,5 @@ public class MXMLUIScriptTag extends javax.faces.webapp.UIComponentBodyTag {
 	public void setScriptContent(String scriptContent) {
 		_scriptContent = scriptContent;
 	}
-
+	
 }
