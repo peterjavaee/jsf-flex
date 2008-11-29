@@ -18,41 +18,44 @@
  */
 package com.googlecode.jsfFlex.component;
 
-import javax.el.ValueExpression;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import com.googlecode.jsfFlex.util.MXMLJsfUtil;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIHtmlTextAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUITextBindingAttribute;
 
 /**
  * This class will process the needed actions of setting and retrieving of "htmlText" attribute<br>
  * within the Flex components. Note that since this class invokes the super method of populateComponentInitValues<br>
  * it will also set and retrieve values of "text" attribute of the component [if it exists].<br>
  * 
+ * @JSFComponent
+ * 	 class    = "com.googlecode.jsfFlex.component.MXMLUIHtmlTextInputBase"
+ *   type     = "com.googlecode.jsfFlex.MXMLUIHtmlTextInputBase"
+ *   family   = "javax.faces.MXMLUIHtmlTextInputBase"
+ *   desc	  = "Base component for MXMLInput components that contain htmlText attribute"
+ *   template = "true"
+ * 
  * @author Ji Hoon Kim
- */ 
-public abstract class MXMLUIHtmlTextInputBase extends MXMLUITextInputBase {
-	
-	private final static Log _log = LogFactory.getLog(MXMLUIHtmlTextInputBase.class);
+ */
+public abstract class _MXMLUIHtmlTextInputBase 
+							extends com.googlecode.jsfFlex.component.MXMLUITextInputBase 
+							implements _MXMLUIHtmlTextAttribute, _MXMLUITextBindingAttribute {
+
+	private final static org.apache.commons.logging.Log _log = org.apache.commons.logging.LogFactory.getLog(MXMLUIHtmlTextInputBase.class);
 	
 	private static final String HTML_TEXT_ATTR = "htmlText";
 	private static final String HTML_TEXT_ID_APPENDED = "_htmlText";
 	
-	private JSONObject initValue;
+	private org.json.JSONObject initValue;
 	
 	{
 		try{
-			initValue = new JSONObject();
+			initValue = new org.json.JSONObject();
 			initValue.put(ATTRIBUTE, HTML_TEXT_ATTR);
 			
 			_initValues.put(initValue);
 			
-		}catch(JSONException jsonException){
+		}catch(org.json.JSONException jsonException){
 			_log.info("Error while formatting to JSON content", jsonException);
 		}
 	}
@@ -62,9 +65,9 @@ public abstract class MXMLUIHtmlTextInputBase extends MXMLUITextInputBase {
 		
 		try{
 			if(getTextBinding().equals(HTML_TEXT_ATTR) && getHtmlText() != null){
-				initValue.put(VALUE, MXMLJsfUtil.escapeCharacters( getHtmlText() ));
+				initValue.put(VALUE, com.googlecode.jsfFlex.util.MXMLJsfUtil.escapeCharacters( getHtmlText() ));
 			}
-		}catch(JSONException jsonException){
+		}catch(org.json.JSONException jsonException){
 			_log.info("Error while formatting to JSON content", jsonException);
 		}
 	}
@@ -72,7 +75,7 @@ public abstract class MXMLUIHtmlTextInputBase extends MXMLUITextInputBase {
     public void decode(FacesContext context) {
     	super.decode(context);
     	
-    	HttpServletRequest httpRequest = (HttpServletRequest) context.getExternalContext().getRequest();
+    	javax.servlet.http.HttpServletRequest httpRequest = (javax.servlet.http.HttpServletRequest) context.getExternalContext().getRequest();
     	/*
     	 * since there exists two possible returned values [text and htmlText],
     	 * the attribute will be appended to the id [i.e. id_text and id_htmlText]
@@ -98,7 +101,7 @@ public abstract class MXMLUIHtmlTextInputBase extends MXMLUITextInputBase {
     		return;
     	}
     	
-    	ValueExpression ve = getValueExpression(HTML_TEXT_ATTR);
+    	javax.el.ValueExpression ve = getValueExpression(HTML_TEXT_ATTR);
     	
     	if(ve != null && !ve.isReadOnly(context.getELContext())){
     		ve.setValue(context.getELContext(), getHtmlText());
@@ -106,11 +109,4 @@ public abstract class MXMLUIHtmlTextInputBase extends MXMLUITextInputBase {
     	}
     	
     }
-	
-	public abstract String getHtmlText();
-    
-	public abstract void setHtmlText(String htmlText);
-    
-	public abstract String getTextBinding();
-	
 }

@@ -24,6 +24,15 @@ package com.googlecode.jsfFlex.component.attributes.compBase;
 public interface _MXMLUIBaseAttributes {
 	
 	/**
+	 * Id of the component.
+	 * 
+	 * @JSFProperty
+	 *     desc			= "Id of the component."
+	 *     inheritedTag	= true
+	 */
+	String getId();
+	
+	/**
 	 * Number that specifies the height of the component, in pixels, in the parent's coordinates.
 	 * 
 	 * @JSFProperty

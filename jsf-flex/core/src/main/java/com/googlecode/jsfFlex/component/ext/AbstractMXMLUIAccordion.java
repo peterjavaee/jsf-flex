@@ -40,16 +40,13 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontSpecificAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIIconAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUILabelAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingHorizontalAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingVerticalAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollBarAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIShadowAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextStyleAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIThumbSkinAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
@@ -63,7 +60,8 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   type     = "com.googlecode.jsfFlex.MXMLUIAccordion"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIAccordionTag"
  *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLAccordion"
+ *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLAccordion"
+ *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
  *   
  * @JSFJspProperties
  * 		properties	=		
@@ -175,17 +173,16 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  */
 public abstract class AbstractMXMLUIAccordion 
 						extends MXMLUISelectedIndexBase
-						implements _MXMLUIContainerAttributes, _MXMLUIBaseAttributes, _MXMLUITextAttribute, 
+						implements _MXMLUIContainerAttributes, _MXMLUIBaseAttributes, _MXMLUIIconAttribute, 
 						_MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundAttributes, _MXMLUIBackgroundColorAttribute, 
 						_MXMLUIBackgroundDisabledColorAttribute, _MXMLUIBarColorAttribute, _MXMLUIBorderAttributes, 
-						_MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, _MXMLUISelectedIndexAttribute,
-						_MXMLUIColorAttribute, _MXMLUITrackAttributes, _MXMLUICornerRadiusAttribute, 
+						_MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, _MXMLUIScrollBarAttributes,
+						_MXMLUIColorAttribute, _MXMLUITrackAttributes, _MXMLUICornerRadiusAttribute, _MXMLUIShadowAttributes, 
 						_MXMLUIDataChangeAttribute, _MXMLUIDisabledColorAttribute, _MXMLUIFontFamilyAttribute, 
 						_MXMLUIFontGeneralAttributes, _MXMLUIFontSpecificAttributes, _MXMLUIThumbSkinAttributes,
-						_MXMLUIHorizontalScrollPositionAttribute, _MXMLUIImmediateAttribute, _MXMLUILabelAttribute, 
+						_MXMLUIHorizontalScrollPositionAttribute, _MXMLUITextStyleAttributes, _MXMLUILabelAttribute, 
 						_MXMLUIPaddingHorizontalAttributes, _MXMLUIPaddingVerticalAttributes, _MXMLUIScrollAttribute, 
-						_MXMLUIScrollAttributes, _MXMLUIScrollBarAttributes, _MXMLUIIconAttribute, 
-						_MXMLUIShadowAttributes, _MXMLUITextStyleAttributes {
+						_MXMLUIScrollAttributes {
 	
 	public void encodeBegin(FacesContext context) throws IOException {
 		/*

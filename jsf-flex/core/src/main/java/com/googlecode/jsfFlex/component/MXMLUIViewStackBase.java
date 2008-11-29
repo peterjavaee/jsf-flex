@@ -28,9 +28,14 @@ import javax.faces.context.FacesContext;
  * component is to set the "creationPolicy" to "all", so that the Flex component will be accessible<br>
  * after it finished its loading.<br>
  * 
+ * @JSFComponent
+ *   type     = "com.googlecode.jsfFlex.MXMLUIViewStackBase"
+ *   family   = "javax.faces.MXMLUIViewStackBase"
+ *   desc	  = "Base component for MXMLInput components that contain selected attribute AND sets the creationPolicy to all [for setting the initial values]"
+ * 
  * @author Ji Hoon Kim
  */
-public abstract class MXMLUIViewStackBase extends MXMLUISelectedIndexBase {
+public abstract class MXMLUIViewStackBase extends com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase {
 	
 	public void encodeBegin(FacesContext context) throws IOException {
 		/*

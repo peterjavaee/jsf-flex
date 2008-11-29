@@ -39,7 +39,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIGapAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHistoryManagementAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIIconAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUILabelAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingHorizontalAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingVerticalAttributes;
@@ -47,9 +46,7 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIResizeToContentAttribu
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollBarAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIShadowAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextStyleAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIThumbSkinAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
@@ -63,7 +60,8 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   type     = "com.googlecode.jsfFlex.MXMLUITabNavigator"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUITabNavigatorTag"
  *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLTabNavigator"
+ *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLTabNavigator"
+ *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -137,17 +135,16 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
 public abstract class AbstractMXMLUITabNavigator 
 						extends MXMLUIViewStackBase 
 						implements _MXMLUIBaseAttributes, _MXMLUIResizeToContentAttribute, _MXMLUIContainerAttributes, 
-						_MXMLUITextAttribute, _MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundAttributes, 
+						_MXMLUITextStyleAttributes, _MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundAttributes, 
 						_MXMLUIBackgroundColorAttribute, _MXMLUIBackgroundDisabledColorAttribute, 
 						_MXMLUIBarColorAttribute, _MXMLUIBorderAttributes, _MXMLUIBorderColorAttribute, 
 						_MXMLUIBorderThicknessAttribute, _MXMLUIChangeAttribute, _MXMLUIColorAttribute, 
 						_MXMLUITrackAttributes, _MXMLUICornerRadiusAttribute, _MXMLUIDataChangeAttribute, 
 						_MXMLUIFontFamilyAttribute, _MXMLUIFontGeneralAttributes, _MXMLUIDisabledColorAttribute,  
-						_MXMLUIFontSpecificAttributes, _MXMLUIGapAttributes, _MXMLUISelectedIndexAttribute,
-						_MXMLUIHorizontalScrollPositionAttribute, _MXMLUIImmediateAttribute, _MXMLUILabelAttribute, 
+						_MXMLUIFontSpecificAttributes, _MXMLUIGapAttributes, _MXMLUIThumbSkinAttributes,
+						_MXMLUIHorizontalScrollPositionAttribute, _MXMLUIHistoryManagementAttribute, _MXMLUILabelAttribute, 
 						_MXMLUIPaddingHorizontalAttributes, _MXMLUIPaddingVerticalAttributes, _MXMLUIScrollAttribute, 
 						_MXMLUIScrollAttributes, _MXMLUIScrollBarAttributes, _MXMLUIIconAttribute, 
-						_MXMLUIShadowAttributes, _MXMLUITextStyleAttributes, _MXMLUIThumbSkinAttributes, 
-						_MXMLUIHistoryManagementAttribute {
+						_MXMLUIShadowAttributes {
 	
 }

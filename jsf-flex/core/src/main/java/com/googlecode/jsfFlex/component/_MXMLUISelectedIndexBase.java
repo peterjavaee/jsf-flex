@@ -18,41 +18,44 @@
  */
 package com.googlecode.jsfFlex.component;
 
-import javax.el.ValueExpression;
 import javax.faces.context.FacesContext;
-import javax.faces.convert.IntegerConverter;
-import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedIndexAttribute;
 
 /**
  * This class will process the needed actions of setting and retrieving of "selectedIndex" attribute<br>
  * within the Flex components.<br>
  * 
+ * @JSFComponent
+ * 	 class    = "com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase"
+ *   type     = "com.googlecode.jsfFlex.MXMLUISelectedIndexBase"
+ *   family   = "javax.faces.MXMLUISelectedIndexBase"
+ *   desc	  = "Base component for MXMLInput components that contain selectedIndex attribute"
+ *   template = "true"
+ * 
  * @author Ji Hoon Kim
  */
-public abstract class MXMLUISelectedIndexBase extends MXMLUIInputBase {
+public abstract class _MXMLUISelectedIndexBase 
+						extends MXMLUIInputBase 
+						implements _MXMLUISelectedIndexAttribute {
+
+	private final static org.apache.commons.logging.Log _log = org.apache.commons.logging.LogFactory.getLog(MXMLUISelectedIndexBase.class);
 	
-	private final static Log _log = LogFactory.getLog(MXMLUISelectedIndexBase.class);
-	
-	private static final IntegerConverter INTEGER_CONVERTER = new IntegerConverter();
+	private static final javax.faces.convert.IntegerConverter INTEGER_CONVERTER = new javax.faces.convert.IntegerConverter();
 	
 	private static final String SELECTED_INDEX_ID_APPENDED = "_selectedIndex";
 	private static final String SELECTED_INDEX_ATTR = "selectedIndex";
 	
-	private JSONObject initValue;
+	private org.json.JSONObject initValue;
 	
 	{
 		try{
-			initValue = new JSONObject();
+			initValue = new org.json.JSONObject();
 			initValue.put(ATTRIBUTE, SELECTED_INDEX_ATTR);
 			
 			_initValues.put(initValue);
 			
-		}catch(JSONException jsonException){
+		}catch(org.json.JSONException jsonException){
 			_log.info("Error while formatting to JSON content", jsonException);
 		}
 	}
@@ -62,7 +65,7 @@ public abstract class MXMLUISelectedIndexBase extends MXMLUIInputBase {
 			if(getSelectedIndex() != null){
 				initValue.put(VALUE, getSelectedIndex());
 			}
-		}catch(JSONException jsonException){
+		}catch(org.json.JSONException jsonException){
 			_log.info("Error while formatting to JSON content", jsonException);
 		}
 	}
@@ -70,7 +73,7 @@ public abstract class MXMLUISelectedIndexBase extends MXMLUIInputBase {
 	public void decode(FacesContext context) {
     	super.decode(context);
     	
-    	HttpServletRequest httpRequest = (HttpServletRequest) context.getExternalContext().getRequest();
+    	javax.servlet.http.HttpServletRequest httpRequest = (javax.servlet.http.HttpServletRequest) context.getExternalContext().getRequest();
     	
     	String selectedIndexId = getId() + SELECTED_INDEX_ID_APPENDED;
     	String selectedIndexUpdateVal = httpRequest.getParameter(selectedIndexId);
@@ -89,7 +92,7 @@ public abstract class MXMLUISelectedIndexBase extends MXMLUIInputBase {
     		return;
     	}
     	
-    	ValueExpression ve = getValueExpression(SELECTED_INDEX_ATTR);
+    	javax.el.ValueExpression ve = getValueExpression(SELECTED_INDEX_ATTR);
     	
     	if(ve != null && !ve.isReadOnly(context.getELContext())){
     		ve.setValue(context.getELContext(), getSelectedIndex());
@@ -105,9 +108,5 @@ public abstract class MXMLUISelectedIndexBase extends MXMLUIInputBase {
 		
 		return INTEGER_CONVERTER.getAsObject(context, this, (String) submittedValue);
 	}
-	
-	public abstract Integer getSelectedIndex();
-	
-	public abstract void setSelectedIndex(Integer selectedIndex);
-	
+
 }

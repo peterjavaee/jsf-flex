@@ -19,10 +19,6 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import com.googlecode.jsfFlex.component.MXMLUIHtmlTextInputBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIHtmlTextAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextBindingAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
@@ -32,7 +28,8 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   type     = "com.googlecode.jsfFlex.MXMLUITextInput"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUITextInputTag"
  *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLTextInput"
+ *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLTextInput"
+ *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -315,7 +312,6 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  */
 public abstract class AbstractMXMLUITextInput 
 						extends MXMLUIHtmlTextInputBase
-						implements _MXMLUIBaseAttributes, _MXMLUITextAttribute, _MXMLUIImmediateAttribute,  
-						_MXMLUIHtmlTextAttribute, _MXMLUITextBindingAttribute {
+						implements _MXMLUIBaseAttributes {
 	
 }

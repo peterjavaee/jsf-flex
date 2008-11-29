@@ -41,7 +41,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIIconFieldAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIItemClickAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIItemEventAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIItemInfoAttributes;
@@ -55,11 +54,9 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollBarAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectableAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedItemAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectionAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIShadowAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextEventColorAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextStyleAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIThumbSkinAttributes;
@@ -78,27 +75,27 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControl
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUITileListTag"
  *   family   = "javax.faces.MXMLInput"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLTileList"
+ *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
  *   
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUITileList 
 						extends MXMLUISelectedIndexBase
 						implements _MXMLUIListBaseAttributes, _MXMLUIScrollControlAttributes, _MXMLUIBaseAttributes, 
-						_MXMLUITextAttribute, _MXMLUIAllowMultipleSelectionAttribute, _MXMLUIBackgroundAlphaAttribute, 
+						_MXMLUITrackAttributes, _MXMLUIAllowMultipleSelectionAttribute, _MXMLUIBackgroundAlphaAttribute, 
 						_MXMLUIBackgroundAttributes, _MXMLUIBackgroundColorAttribute, _MXMLUIBorderAttributes, 
 						_MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, _MXMLUIChangeAttribute, 
 						_MXMLUIColorAttribute, _MXMLUIWordWrapAttribute, _MXMLUICornerRadiusAttribute, 
 						_MXMLUIDataChangeAttribute, _MXMLUIDataProviderAttribute, _MXMLUIDisabledColorAttribute, 
 						_MXMLUIDragAttributes, _MXMLUIDropDownEventColorAttributes, _MXMLUIFocusAlphaAttribute, 
 						_MXMLUIFocusRoundedCornersAttribute, _MXMLUIFontFamilyAttribute, _MXMLUIFontGeneralAttributes,  
-						_MXMLUIHorizontalScrollPositionAttribute, _MXMLUIIconFieldAttribute, _MXMLUIImmediateAttribute,  
+						_MXMLUIHorizontalScrollPositionAttribute, _MXMLUIIconFieldAttribute, _MXMLUIVerticalAlignAttribute,  
 						_MXMLUIItemClickAttribute, _MXMLUIItemEventAttributes, _MXMLUIItemInfoAttributes, 
 						_MXMLUILabelFieldAttribute, _MXMLUILabelFunctionAttribute, _MXMLUILeadingAttribute, 
 						_MXMLUIPaddingHorizontalAttributes, _MXMLUIPaddingVerticalAttributes, _MXMLUIRepeatAttributes,  
 						_MXMLUIScrollAttribute, _MXMLUIScrollAttributes, _MXMLUIScrollBarAttributes, _MXMLUISelectableAttribute,  
 						_MXMLUIColumnCountAttribute, _MXMLUISelectedItemAttribute, _MXMLUISelectionAttributes, 
 						_MXMLUIShadowAttributes, _MXMLUITextEventColorAttributes, _MXMLUITextStyleAttributes, 
-						_MXMLUIThumbSkinAttributes, _MXMLUITrackAttributes, _MXMLUIVerticalAlignAttribute, 
-						_MXMLUISelectedIndexAttribute {
+						_MXMLUIThumbSkinAttributes {
 	
 }

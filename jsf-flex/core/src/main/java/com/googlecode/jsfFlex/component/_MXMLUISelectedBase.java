@@ -18,41 +18,44 @@
  */
 package com.googlecode.jsfFlex.component;
 
-import javax.el.ValueExpression;
 import javax.faces.context.FacesContext;
-import javax.faces.convert.BooleanConverter;
-import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedAttribute;
 
 /**
  * This class will process the needed actions of setting and retrieving of "selected" attribute<br>
  * within the Flex components.<br>
  * 
+ * @JSFComponent
+ * 	 class    = "com.googlecode.jsfFlex.component.MXMLUISelectedBase"
+ *   type     = "com.googlecode.jsfFlex.MXMLUISelectedBase"
+ *   family   = "javax.faces.MXMLUISelectedBase"
+ *   desc	  = "Base component for MXMLInput components that contain selected attribute"
+ *   template = "true"
+ * 
  * @author Ji Hoon Kim
  */
-public abstract class MXMLUISelectedBase extends MXMLUIInputBase {
+public abstract class _MXMLUISelectedBase 
+							extends MXMLUIInputBase 
+							implements _MXMLUISelectedAttribute {
 	
-	private final static Log _log = LogFactory.getLog(MXMLUISelectedBase.class);
+	private final static org.apache.commons.logging.Log _log = org.apache.commons.logging.LogFactory.getLog(MXMLUISelectedBase.class);
 	
-	private static final BooleanConverter BOOLEAN_CONVERTER = new BooleanConverter();
+	private static final javax.faces.convert.BooleanConverter BOOLEAN_CONVERTER = new javax.faces.convert.BooleanConverter();
 	
 	private static final String SELECTED_ID_APPENDED = "_selected";
 	private static final String SELECTED_ATTR = "selected";
 	
-	private JSONObject initValue;
+	private org.json.JSONObject initValue;
 	
 	{
 		try{
-			initValue = new JSONObject();
+			initValue = new org.json.JSONObject();
 			initValue.put(ATTRIBUTE, SELECTED_ATTR);
 			
 			_initValues.put(initValue);
 			
-		}catch(JSONException jsonException){
+		}catch(org.json.JSONException jsonException){
 			_log.info("Error while formatting to JSON content", jsonException);
 		}
 	}
@@ -62,7 +65,7 @@ public abstract class MXMLUISelectedBase extends MXMLUIInputBase {
 			if(getSelected() != null){
 				initValue.put(VALUE, getSelected());
 			}
-		}catch(JSONException jsonException){
+		}catch(org.json.JSONException jsonException){
 			_log.info("Error while formatting to JSON content", jsonException);
 		}
 	}
@@ -70,7 +73,7 @@ public abstract class MXMLUISelectedBase extends MXMLUIInputBase {
 	public void decode(FacesContext context) {
     	super.decode(context);
     	
-    	HttpServletRequest httpRequest = (HttpServletRequest) context.getExternalContext().getRequest();
+    	javax.servlet.http.HttpServletRequest httpRequest = (javax.servlet.http.HttpServletRequest) context.getExternalContext().getRequest();
     	
     	String selectedId = getId() + SELECTED_ID_APPENDED;
     	String selectedUpdateVal = httpRequest.getParameter(selectedId);
@@ -89,7 +92,7 @@ public abstract class MXMLUISelectedBase extends MXMLUIInputBase {
     		return;
     	}
     	
-    	ValueExpression ve = getValueExpression(SELECTED_ATTR);
+    	javax.el.ValueExpression ve = getValueExpression(SELECTED_ATTR);
     	
     	if(ve != null && !ve.isReadOnly(context.getELContext())){
     		ve.setValue(context.getELContext(), getSelected());
@@ -105,9 +108,5 @@ public abstract class MXMLUISelectedBase extends MXMLUIInputBase {
 		
 		return BOOLEAN_CONVERTER.getAsObject(context, this, (String) submittedValue);
 	}
-	
-	public abstract Boolean getSelected();
-	
-	public abstract void setSelected(Boolean selected);
 	
 }

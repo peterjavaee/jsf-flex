@@ -35,9 +35,7 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontSpecificAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIHtmlTextAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIIconAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUILabelAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingHorizontalAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingVerticalAttributes;
@@ -45,9 +43,7 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollBarAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIShadowAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextBindingAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextStyleAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIThumbSkinAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
@@ -61,7 +57,8 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   type     = "com.googlecode.jsfFlex.MXMLUIRichTextEditor"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIRichTextEditorTag"
  *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLRichTextEditor"
+ *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLRichTextEditor"
+ *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
  *   
  * @JSFJspProperties
  * 		properties	=		
@@ -291,16 +288,14 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
 public abstract class AbstractMXMLUIRichTextEditor 
 						extends MXMLUIHtmlTextInputBase 
 						implements _MXMLUIContainerAttributes, _MXMLUIBaseAttributes, _MXMLUIShadowAttributes,
-						_MXMLUITextAttribute, _MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundAttributes, 
+						_MXMLUIScrollAttribute, _MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundAttributes, 
 						_MXMLUIBackgroundColorAttribute, _MXMLUIBackgroundDisabledColorAttribute, _MXMLUITextAttributes,
 						_MXMLUIBarColorAttribute, _MXMLUIBorderAttributes, _MXMLUIBorderColorAttribute, 
-						_MXMLUIBorderThicknessAttribute, _MXMLUITextBindingAttribute, _MXMLUIHtmlTextAttribute, 
+						_MXMLUIBorderThicknessAttribute, _MXMLUIPaddingVerticalAttributes, _MXMLUIScrollAttributes,  
 						_MXMLUIColorAttribute, _MXMLUICornerRadiusAttribute, _MXMLUITrackAttributes,
 						_MXMLUIDataChangeAttribute, _MXMLUIDisabledColorAttribute, _MXMLUIFontFamilyAttribute, 
 						_MXMLUIFontGeneralAttributes, _MXMLUIFontSpecificAttributes, _MXMLUIThumbSkinAttributes, 
-						_MXMLUIHorizontalScrollPositionAttribute, _MXMLUIImmediateAttribute, _MXMLUIIconAttribute,
-						_MXMLUILabelAttribute, _MXMLUIPaddingHorizontalAttributes, _MXMLUITextStyleAttributes, 
-						_MXMLUIPaddingVerticalAttributes, _MXMLUIScrollAttribute, _MXMLUIScrollAttributes, 
-						_MXMLUIScrollBarAttributes {
+						_MXMLUIHorizontalScrollPositionAttribute, _MXMLUIScrollBarAttributes, _MXMLUIIconAttribute,
+						_MXMLUILabelAttribute, _MXMLUIPaddingHorizontalAttributes, _MXMLUITextStyleAttributes {
 	
 }

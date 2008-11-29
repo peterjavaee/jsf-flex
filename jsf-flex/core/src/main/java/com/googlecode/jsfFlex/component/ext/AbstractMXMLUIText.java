@@ -18,7 +18,7 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.MXMLUIOutputBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataChangeAttribute;
@@ -40,13 +40,13 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIText"
  *   type     = "com.googlecode.jsfFlex.MXMLUIText"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUITextTag"
- *   family   = "javax.faces.MXMLSimple"
+ *   family   = "javax.faces.MXMLOutput"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLText"
  *   
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIText 
-						extends MXMLUISimpleBase 
+						extends MXMLUIOutputBase
 						implements _MXMLUITruncateToFitAttribute, _MXMLUIBaseAttributes, _MXMLUIColorAttribute, 
 						_MXMLUIDataAttributes, _MXMLUIDataChangeAttribute, _MXMLUIDisabledColorAttribute, 
 						_MXMLUIFontFamilyAttribute, _MXMLUIFontGeneralAttributes, _MXMLUIFontSpecificAttributes, 

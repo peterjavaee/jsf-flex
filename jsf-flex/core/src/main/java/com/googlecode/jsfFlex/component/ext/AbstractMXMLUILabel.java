@@ -18,7 +18,7 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.MXMLUIOutputBase;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUILabel"
  *   type     = "com.googlecode.jsfFlex.MXMLUILabel"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUILabelTag"
- *   family   = "javax.faces.MXMLSimple"
+ *   family   = "javax.faces.MXMLOutput"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLLabel"
  * 
  * @JSFJspProperties
@@ -178,7 +178,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUILabel 
-						extends MXMLUISimpleBase 
+						extends MXMLUIOutputBase 
 						implements _MXMLUIBaseAttributes {
 	
 }

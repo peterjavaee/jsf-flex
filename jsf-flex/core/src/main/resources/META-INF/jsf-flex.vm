@@ -43,13 +43,6 @@ $baseContent
       <body-content>JSP</body-content>
 #end
       <description><![CDATA[$component.longDescription]]></description>
-      <attribute>
-          <name>id</name>
-          <required>false</required>
-          <rtexprvalue>false</rtexprvalue>
-          <type>java.lang.String</type>
-          <description><![CDATA[id of the component]]></description>
-      </attribute>
       
 #set ($propertyList = ${component.propertyList})
 #foreach( $property in $propertyList )

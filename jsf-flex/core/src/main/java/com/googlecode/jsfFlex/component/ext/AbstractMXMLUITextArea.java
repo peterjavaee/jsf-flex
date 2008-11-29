@@ -31,16 +31,12 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIDisabledColorAttribute
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIHtmlTextAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUILeadingAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIRepeatAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollBarAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIShadowAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextBindingAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextStyleAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIThumbSkinAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
@@ -54,7 +50,8 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControl
  *   type     = "com.googlecode.jsfFlex.MXMLUITextArea"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUITextAreaTag"
  *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLTextArea"
+ *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLTextArea"
+ *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -163,14 +160,13 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControl
  */
 public abstract class AbstractMXMLUITextArea 
 						extends MXMLUIHtmlTextInputBase 
-						implements _MXMLUIScrollControlAttributes, _MXMLUIBaseAttributes, _MXMLUITextAttribute, 
+						implements _MXMLUIScrollControlAttributes, _MXMLUIBaseAttributes, _MXMLUIScrollAttributes, 
 						_MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundAttributes, _MXMLUIBackgroundColorAttribute, 
 						_MXMLUIBorderAttributes, _MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, 
 						_MXMLUIColorAttribute, _MXMLUITrackAttributes, _MXMLUICornerRadiusAttribute, 
 						_MXMLUIFontFamilyAttribute, _MXMLUIFontGeneralAttributes, _MXMLUIRepeatAttributes,  
-						_MXMLUIImmediateAttribute, _MXMLUILeadingAttribute, _MXMLUIThumbSkinAttributes, 
+						_MXMLUIDisabledColorAttribute, _MXMLUILeadingAttribute, _MXMLUIThumbSkinAttributes, 
 						_MXMLUIScrollAttribute, _MXMLUIScrollBarAttributes, _MXMLUIShadowAttributes,  
-						_MXMLUITextStyleAttributes,_MXMLUIHtmlTextAttribute, _MXMLUITextBindingAttribute, 
-						_MXMLUIScrollAttributes, _MXMLUIHorizontalScrollPositionAttribute, _MXMLUIDisabledColorAttribute {
+						_MXMLUITextStyleAttributes, _MXMLUIHorizontalScrollPositionAttribute {
 	
 }

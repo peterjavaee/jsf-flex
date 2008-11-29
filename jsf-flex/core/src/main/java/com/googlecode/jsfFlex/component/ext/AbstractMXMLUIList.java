@@ -41,7 +41,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIIconFieldAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIItemClickAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIItemEventAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIItemInfoAttributes;
@@ -55,11 +54,9 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollBarAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectableAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedItemAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectionAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIShadowAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextEventColorAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextStyleAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIThumbSkinAttributes;
@@ -77,7 +74,8 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControl
  *   type     = "com.googlecode.jsfFlex.MXMLUIList"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIListTag"
  *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLList"
+ *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLList"
+ *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -193,21 +191,20 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControl
 public abstract class AbstractMXMLUIList 
 						extends MXMLUISelectedIndexBase
 						implements _MXMLUIListBaseAttributes, _MXMLUIScrollControlAttributes, 
-						_MXMLUIAllowMultipleSelectionAttribute, _MXMLUIBaseAttributes, _MXMLUITextAttribute, 
+						_MXMLUIAllowMultipleSelectionAttribute, _MXMLUIBaseAttributes, _MXMLUITextEventColorAttributes, 
 						_MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundAttributes, _MXMLUIBackgroundColorAttribute, 
 						_MXMLUIBorderAttributes, _MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, 
-						_MXMLUIChangeAttribute, _MXMLUIColorAttribute, _MXMLUIWordWrapAttribute, 
+						_MXMLUIChangeAttribute, _MXMLUIColorAttribute, _MXMLUIWordWrapAttribute, _MXMLUIShadowAttributes,
 						_MXMLUICornerRadiusAttribute, _MXMLUIDataChangeAttribute, _MXMLUIDataProviderAttribute, 
 						_MXMLUIDisabledColorAttribute, _MXMLUIDragAttributes, _MXMLUIDropDownEventColorAttributes, 
 						_MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, _MXMLUITrackAttributes, 
 						_MXMLUIFontFamilyAttribute, _MXMLUIFontGeneralAttributes, _MXMLUIHorizontalScrollPositionAttribute,  
-						_MXMLUIIconFieldAttribute, _MXMLUIImmediateAttribute, _MXMLUISelectedIndexAttribute, 
+						_MXMLUIIconFieldAttribute, _MXMLUIThumbSkinAttributes, _MXMLUITextStyleAttributes, 
 						_MXMLUIItemClickAttribute, _MXMLUIItemEventAttributes, _MXMLUIVerticalAlignAttribute,
 						_MXMLUIItemInfoAttributes, _MXMLUILabelFieldAttribute, _MXMLUILabelFunctionAttribute, 
 						_MXMLUILeadingAttribute, _MXMLUIPaddingHorizontalAttributes, _MXMLUIPaddingVerticalAttributes,  
 						_MXMLUIRepeatAttributes, _MXMLUIScrollAttribute, _MXMLUIScrollAttributes, _MXMLUIScrollBarAttributes,  
 						_MXMLUISelectableAttribute, _MXMLUIColumnCountAttribute, _MXMLUISelectedItemAttribute, 
-						_MXMLUISelectionAttributes, _MXMLUIShadowAttributes, _MXMLUITextEventColorAttributes, 
-						_MXMLUITextStyleAttributes, _MXMLUIThumbSkinAttributes {
+						_MXMLUISelectionAttributes {
 	
 }

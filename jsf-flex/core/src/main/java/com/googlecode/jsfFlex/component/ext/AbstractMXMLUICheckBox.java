@@ -19,9 +19,6 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import com.googlecode.jsfFlex.component.MXMLUISelectedBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
@@ -31,7 +28,8 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   type     = "com.googlecode.jsfFlex.MXMLUICheckBox"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUICheckBoxTag"
  *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLCheckBox"
+ *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLCheckBox"
+ *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -386,7 +384,6 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  */
 public abstract class AbstractMXMLUICheckBox 
 						extends MXMLUISelectedBase 
-						implements _MXMLUIBaseAttributes, _MXMLUIImmediateAttribute, _MXMLUITextAttribute,
-						_MXMLUISelectedAttribute {
+						implements _MXMLUIBaseAttributes {
 	
 }

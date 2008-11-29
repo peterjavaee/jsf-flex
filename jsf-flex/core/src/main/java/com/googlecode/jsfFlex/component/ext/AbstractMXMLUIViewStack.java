@@ -36,16 +36,13 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFontSpecificAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIIconAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImmediateAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUILabelAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingHorizontalAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingVerticalAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollBarAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIShadowAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextStyleAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIThumbSkinAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
@@ -59,7 +56,8 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   type     = "com.googlecode.jsfFlex.MXMLUIViewStack"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIViewStackTag"
  *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLViewStack"
+ *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLViewStack"
+ *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
  * 
  * @JSFJspProperties
  * 		properties	=		
@@ -99,16 +97,15 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
 public abstract class AbstractMXMLUIViewStack 
 						extends MXMLUIViewStackBase
 						implements _MXMLUIContainerAttributes, _MXMLUIBaseAttributes, _MXMLUIThumbSkinAttributes, 
-						_MXMLUITextAttribute, _MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundAttributes, 
+						_MXMLUIShadowAttributes, _MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundAttributes, 
 						_MXMLUIBackgroundColorAttribute, _MXMLUIBackgroundDisabledColorAttribute, 
 						_MXMLUIBarColorAttribute, _MXMLUIBorderAttributes, _MXMLUIBorderColorAttribute, 
-						_MXMLUIBorderThicknessAttribute, _MXMLUIColorAttribute, _MXMLUISelectedIndexAttribute, 
+						_MXMLUIBorderThicknessAttribute, _MXMLUIColorAttribute, _MXMLUIIconAttribute, 
 						_MXMLUITrackAttributes, _MXMLUICornerRadiusAttribute, _MXMLUIDataChangeAttribute, 
 						_MXMLUIDisabledColorAttribute, _MXMLUIFontFamilyAttribute, _MXMLUIFontGeneralAttributes, 
 						_MXMLUIFontSpecificAttributes, _MXMLUIHorizontalScrollPositionAttribute,  
-						_MXMLUIImmediateAttribute, _MXMLUILabelAttribute, _MXMLUIPaddingHorizontalAttributes, 
+						_MXMLUITextStyleAttributes, _MXMLUILabelAttribute, _MXMLUIPaddingHorizontalAttributes, 
 						_MXMLUIPaddingVerticalAttributes, _MXMLUIScrollAttribute, _MXMLUIScrollAttributes, 
-						_MXMLUIScrollBarAttributes, _MXMLUIShadowAttributes, _MXMLUIIconAttribute, 
-						_MXMLUITextStyleAttributes {
+						_MXMLUIScrollBarAttributes {
 	
 }
