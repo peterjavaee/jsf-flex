@@ -167,12 +167,8 @@
 					    </jf:mxmlPanel>
 			    			
 			    		<jf:mxmlPanel label="Second Tab" width="100%" height="100%">
-					    	<jf:mxmlComboBox text="#{mxmlBean.comboBoxText}" selectedIndex="#{mxmlBean.comboBoxSelectedIndex}" >
-					    		<jf:mxmlDataProvider>
-                                    <jf:mxmlObject label="First" data="First" />
-                                    <jf:mxmlObject label="Second" data="Second" />
-                                </jf:mxmlDataProvider>
-					    	</jf:mxmlComboBox>
+					    	<jf:mxmlComboBox text="#{mxmlBean.comboBoxText}" selectedIndex="#{mxmlBean.comboBoxSelectedIndex}" 
+					    							dataProviderCollection="#{mxmlBean.comboBoxDisplayEntries}" />
 					    	<jf:mxmlRadioButton groupName="radioTest" label="First" value="First" 
 					    							selectedValue="#{mxmlBean.radioButtonSelectedValue}" selected="#{mxmlBean.radioButtonFirstSelected}"/>
 					       	<jf:mxmlRadioButton groupName="radioTest" label="Second" value="Second" selected="#{mxmlBean.radioButtonSecondSelected}"/>

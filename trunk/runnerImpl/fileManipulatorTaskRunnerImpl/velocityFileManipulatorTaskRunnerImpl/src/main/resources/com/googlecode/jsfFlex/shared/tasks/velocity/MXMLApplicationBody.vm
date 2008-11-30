@@ -27,7 +27,7 @@
 			}
 			
 		#foreach( $dataGridScriptContent in ${additionalApplicationScriptContent.getDataGridScriptContent()} )
-			#set( $dataGridVarRef = "${dataGridScriptContent.getDataGridId()}VarRef" )
+			#set( $dataGridVarRef = "${dataGridScriptContent.getDataGridId()}DataGridVarRef" )
 			var ${dataGridVarRef}:DataGridServiceRequest = new DataGridServiceRequest("${dataGridScriptContent.getDataGridId()}", ${dataGridScriptContent.getMaxDataGridColumnLength()}, this);
 			
 			#foreach( $dataGridColumn in ${dataGridScriptContent.getDataGridColumns()} )
@@ -35,6 +35,12 @@
 			#end
 			
 			${dataGridVarRef}.getDataGridColumnInfo();
+		#end
+		
+		#foreach( $simpleDataProviderSetter in ${additionalApplicationScriptContent.getSimpleDataProviderSetter()} )
+			#set( $simpleDataProviderSetterRef = "${simpleDataProviderSetter.getComponentId()}SimpleDataProviderSetterRef" )
+			var ${simpleDataProviderSetterRef}:ComboBox = this["${simpleDataProviderSetter.getComponentId()}"] as ComboBox;
+			${simpleDataProviderSetterRef}.dataProvider = ${simpleDataProviderSetter.getDataProviderContent()};
 		#end
 			
 		}
