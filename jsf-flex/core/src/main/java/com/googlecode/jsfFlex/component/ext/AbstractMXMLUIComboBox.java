@@ -18,18 +18,25 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import java.io.IOException;
+import java.util.Collection;
+import java.util.Iterator;
+
 import javax.el.ValueExpression;
 import javax.faces.context.FacesContext;
+import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIControlSkinAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderCollectionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIImeModeAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIRestrictAttribute;
@@ -37,6 +44,8 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedItemAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIComboBaseAttributes;
+import com.googlecode.jsfFlex.shared.beans.AdditionalApplicationScriptContent;
+import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
 /**
@@ -383,9 +392,15 @@ public abstract class AbstractMXMLUIComboBox
 						extends MXMLUISelectedIndexBase
 						implements _MXMLUIComboBaseAttributes, _MXMLUIBaseAttributes, _MXMLUITextAttribute, 
 						_MXMLUIControlSkinAttributes, _MXMLUIDataProviderAttribute, _MXMLUIEditableAttribute, 
-						_MXMLUIImeModeAttribute, _MXMLUISelectedItemAttribute, _MXMLUIRestrictAttribute {
+						_MXMLUIImeModeAttribute, _MXMLUISelectedItemAttribute, _MXMLUIRestrictAttribute,
+						_MXMLUIDataProviderCollectionAttribute {
 	
 	private final static Log _log = LogFactory.getLog(AbstractMXMLUIComboBox.class);
+	
+	private static final String COMBO_BOX_UICOMPONENT_PACKAGE_IMPORT = "mx.controls.ComboBox";
+	
+	private static final String DATA_PROPERTY = "data";
+	private static final String LABEL_PROPERTY = "label";
 	
 	private static final String TEXT_ATTR = "text";
 	private static final String TEXT_ID_APPENDED = "_text";
@@ -412,6 +427,39 @@ public abstract class AbstractMXMLUIComboBox
 		}catch(JSONException jsonException){
 			_log.info("Error while formatting to JSON content", jsonException);
 		}
+	}
+	
+	public void encodeBegin(FacesContext context) throws IOException {
+		super.encodeBegin(context);
+		
+		Collection dataProviderCollection = getDataProviderCollection();
+		if(dataProviderCollection != null && dataProviderCollection.size() > 0){
+			//For AbstractMXMLUIComboBox, entries within the collection must be of type SelectItem
+			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+			AdditionalApplicationScriptContent additionalApplicationScriptContent = mxmlContext.getAdditionalAppScriptContent();
+			additionalApplicationScriptContent.addActionScriptImport(COMBO_BOX_UICOMPONENT_PACKAGE_IMPORT);
+			
+			JSONArray comboBoxContent = new JSONArray();
+			for(Iterator iterate = dataProviderCollection.iterator(); iterate.hasNext();){
+				SelectItem currSelectItem = (SelectItem) iterate.next();
+				
+				JSONObject comboBoxEntry = new JSONObject();
+				
+				try{
+					comboBoxEntry.put(DATA_PROPERTY, currSelectItem.getValue().toString());
+					comboBoxEntry.put(LABEL_PROPERTY, currSelectItem.getLabel());
+					comboBoxContent.put(comboBoxEntry);
+				}catch(JSONException jsonException){
+					_log.info("Error setting the following content for dataProviderCollection " + 
+											currSelectItem.getValue() + currSelectItem.getLabel(), jsonException);
+				}
+				
+			}
+			
+			additionalApplicationScriptContent.addSimpleDataProviderSetter(getId(), comboBoxContent.toString());
+			
+		}
+		
 	}
 	
 	public void decode(FacesContext context) {

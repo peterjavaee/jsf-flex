@@ -22,6 +22,8 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.faces.model.SelectItem;
+
 /**
  * A simple bean to demonstrate the binding of the fields.<br>
  * 
@@ -38,6 +40,7 @@ public class MXMLBean implements Serializable {
 	private String _textAreaText;
 	private String _dateFieldText;
 	private Boolean _checkBoxSelected;
+	private List _comboBoxDisplayEntries;
 	private Integer _comboBoxSelectedIndex;
 	private String _comboBoxText;
 	private Boolean _radioButtonFirstSelected;
@@ -64,6 +67,11 @@ public class MXMLBean implements Serializable {
 		_textAreaText = "";
 		_dateFieldText = "";
 		_checkBoxSelected = Boolean.valueOf(false);
+		_comboBoxDisplayEntries = new LinkedList();
+		_comboBoxDisplayEntries.add(new SelectItem("FirstValue", "FirstLabel"));
+		_comboBoxDisplayEntries.add(new SelectItem("SecondValue", "SecondLabel"));
+		_comboBoxDisplayEntries.add(new SelectItem("ThirdValue", "ThirdLabel"));
+		
 		_comboBoxSelectedIndex = new Integer(0);
 		_comboBoxText = "";
 		_radioButtonFirstSelected = Boolean.valueOf(false);
@@ -110,6 +118,12 @@ public class MXMLBean implements Serializable {
 	}
 	public void setColorPickerSelectedColor(String colorPickerSelectedColor) {
 		_colorPickerSelectedColor = colorPickerSelectedColor;
+	}
+	public List getComboBoxDisplayEntries() {
+		return _comboBoxDisplayEntries;
+	}
+	public void setComboBoxDisplayEntries(List comboBoxDisplayEntries) {
+		_comboBoxDisplayEntries = comboBoxDisplayEntries;
 	}
 	public Integer getComboBoxSelectedIndex() {
 		return _comboBoxSelectedIndex;

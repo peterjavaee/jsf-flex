@@ -19,10 +19,9 @@
 package com.googlecode.jsfFlex.shared.beans;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashSet;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -32,11 +31,13 @@ import java.util.Set;
 public final class AdditionalApplicationScriptContent {
 	
 	private final Set _actionScriptImports;
+	private final Set _simpleDataProviderSetter;
 	private final Map _dataGridScriptContent;
 	
 	public AdditionalApplicationScriptContent(){
 		super();
 		_actionScriptImports = new LinkedHashSet();
+		_simpleDataProviderSetter = new LinkedHashSet();
 		_dataGridScriptContent = new HashMap();
 	}
 	
@@ -44,13 +45,10 @@ public final class AdditionalApplicationScriptContent {
 		_actionScriptImports.add(actionScriptImport);
 	}
 	
-	public Set getActionScriptImports() {
-		return _actionScriptImports;
+	public void addSimpleDataProviderSetter(String componentId, String dataProviderContent){
+		_simpleDataProviderSetter.add(new SimpleDataProviderSetter(componentId, dataProviderContent));
 	}
-	public Map getDataGridScriptContent() {
-		return _dataGridScriptContent;
-	}
-
+	
 	public void addDataGridScriptContent(String dataGridId, int maxDataGridColumnLength){
 		_dataGridScriptContent.put(dataGridId, new DataGridScriptContent(dataGridId, maxDataGridColumnLength));
 	}
@@ -79,77 +77,14 @@ public final class AdditionalApplicationScriptContent {
 		}
 	}
 	
-	public static final class DataGridScriptContent {
-		
-		private final String _dataGridId;
-		private final Integer _maxDataGridColumnLength;
-		private final List _dataGridColumns;
-		
-		private DataGridScriptContent(String dataGridId, int maxDataGridColumnLength){
-			super();
-			_dataGridId = dataGridId;
-			_maxDataGridColumnLength = Integer.valueOf(maxDataGridColumnLength);
-			_dataGridColumns = new LinkedList();
-		}
-		
-		private void addDataGridColumnContent(String dataGridColumnId, String dataField){
-			_dataGridColumns.add(new DataGridColumnScriptContent(dataGridColumnId, dataField));
-		}
-		
-		public String getDataGridId() {
-			return _dataGridId;
-		}
-		public Integer getMaxDataGridColumnLength() {
-			return _maxDataGridColumnLength;
-		}
-		public List getDataGridColumns() {
-			return _dataGridColumns;
-		}
-		
-		public boolean equals(Object instance) {
-			if(!(instance instanceof DataGridScriptContent)){
-				return false;
-			}
-			
-			DataGridScriptContent dataGridScriptContentInstance = (DataGridScriptContent) instance; 
-			return this._dataGridId.equals(dataGridScriptContentInstance._dataGridId);
-		}
-		public int hashCode() {
-			return _dataGridId.hashCode();
-		}
-		
+	public Set getActionScriptImports() {
+		return new HashSet(_actionScriptImports);
 	}
-	
-	public static final class DataGridColumnScriptContent {
-		
-		private final String _dataGridColumnId;
-		private final String _dataField;
-		
-		private DataGridColumnScriptContent(String dataGridColumnId, String dataField){
-			super();
-			_dataGridColumnId = dataGridColumnId;
-			_dataField = dataField;
-		}
-		
-		public String getDataGridColumnId() {
-			return _dataGridColumnId;
-		}
-		public String getDataField() {
-			return _dataField;
-		}
-		
-		public boolean equals(Object instance) {
-			if(!(instance instanceof DataGridColumnScriptContent)){
-				return false;
-			}
-			
-			DataGridColumnScriptContent dataGridColumnScriptContentInstance = (DataGridColumnScriptContent) instance;
-			return this._dataGridColumnId.equals(dataGridColumnScriptContentInstance._dataGridColumnId);
-		}
-		public int hashCode() {
-			return _dataGridColumnId.hashCode();
-		}
-		
+	public Set getSimpleDataProviderSetter() {
+		return new HashSet(_simpleDataProviderSetter);
+	}
+	public Map getDataGridScriptContent() {
+		return new HashMap(_dataGridScriptContent);
 	}
 	
 }
