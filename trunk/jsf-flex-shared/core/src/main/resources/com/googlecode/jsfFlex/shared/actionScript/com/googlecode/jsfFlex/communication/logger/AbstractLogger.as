@@ -24,24 +24,48 @@
  */
 package com.googlecode.jsfFlex.communication.logger
 {
-	import flash.external.ExternalInterface;
-	import flash.utils.getQualifiedClassName;
+	import flash.errors.IllegalOperationError;
 	
-	internal class JavaScriptLogger extends AbstractLogger {
+	internal class AbstractLogger implements ILogger {
 		
-		private static const CLASS_NAME_DELIM:String = ":";
-		private static const JS_COMMUNICATION_LOG_FLASH_MESSAGE_FUNCTION:String = "com.googlecode.jsfFlex.communication.logger.logFlashMessage";
+		private static const LOG_MODE:int = logModeToken;
 		
-		private var CLASS_NAME:String = new String();
-		
-		public function JavaScriptLogger(logClass:Class) {
-			super(logClass);
-			CLASS_NAME = getQualifiedClassName(logClass);
+		public function AbstractLogger(logClass:Class) {
+			super();
 		}
 		
-		override public function logMessage(message:String, severity:int):void {
-			message = CLASS_NAME + " : " + message;
-			ExternalInterface.call(JS_COMMUNICATION_LOG_FLASH_MESSAGE_FUNCTION, message, severity);
+		public function log(errorMessage:String):void {
+			if(LOG_MODE < 2){
+				logMessage(errorMessage, 1);
+			}
+		}
+		
+		public function logDebug(errorMessage:String):void {
+			if(LOG_MODE < 3){
+				logMessage(errorMessage, 2);
+			}
+		}
+		
+		public function logInfo(errorMessage:String):void {
+			if(LOG_MODE < 4){
+				logMessage(errorMessage, 3);
+			}
+		}
+		
+		public function logWarn(errorMessage:String):void {
+			if(LOG_MODE < 5){
+				logMessage(errorMessage, 4);
+			}
+		}
+		
+		public function logError(errorMessage:String):void {
+			if(LOG_MODE < 6){
+				logMessage(errorMessage, 5);
+			}
+		}
+		
+		public function logMessage(message:String, severity:int):void {
+			throw new IllegalOperationError("logMessage must be implemented by the sub class");
 		}
 		
 	}

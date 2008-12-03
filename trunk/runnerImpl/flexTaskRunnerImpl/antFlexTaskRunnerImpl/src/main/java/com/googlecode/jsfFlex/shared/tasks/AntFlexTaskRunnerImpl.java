@@ -49,6 +49,11 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 	
 	private final static Log _log = LogFactory.getLog(AntFlexTaskRunnerImpl.class);
 	
+	private static final String ACTION_SCRIPT_DIR_NAME = "actionScript";
+	private static final String ABSTRACT_LOGGER_AS_FILE_NAME = "AbstractLogger.as";
+	private static final String LOG_MODE_TOKEN = "logModeToken";
+	
+	
 	AntFlexTaskRunnerImpl(){
 		super();
 	}
@@ -99,7 +104,7 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 			 * This is a pure HACK, implement it better later
 			 * The path of ActionScript files must be of com/googlecode/jsfFlex/util/shared/actionScript
 			 */
-			String pathToFile = currSystemSource.substring(currSystemSource.indexOf("actionScript") + 13);
+			String pathToFile = currSystemSource.substring(currSystemSource.indexOf(ACTION_SCRIPT_DIR_NAME) + 13);
 			if(pathToFile == null || pathToFile.length() == 0){
 				_log.debug("The source file [" + currSystemSource + "] is null or the length is zero");
 				continue;
@@ -115,6 +120,19 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 			String fileName = swcPath + path.toString() + currSplit[currSplit.length-1];
 			EchoTask curr = new EchoTask(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), currSystemSource), fileName); 
 			addTask(curr);
+			
+			if(fileName.indexOf(ABSTRACT_LOGGER_AS_FILE_NAME) > 0){
+				//means LoggerFactory, set the log mode
+				
+				MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+				String logMode = mxmlContext.isProductionEnv() ? "5" : "1";
+				ReplaceTextTask logModeSetter = new ReplaceTextTask(fileName);
+				logModeSetter.replaceRegExp(true);
+				logModeSetter.regMatch(LOG_MODE_TOKEN);
+				logModeSetter.regReplace(logMode);
+				
+				addTask(logModeSetter);
+			}
 		}
 		
 		//now flush out the swc config file
