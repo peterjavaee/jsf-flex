@@ -58,7 +58,7 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 	
 	private static final String ACTION_SCRIPT_DIR_NAME = "actionScript";
 	private static final String ABSTRACT_LOGGER_AS_FILE_NAME = "AbstractLogger.as";
-	private static final String LOG_MODE_TOKEN = "logModeToken";
+	private static final String LOG_MODE_TOKEN = "{logModeToken}";
 	private static final String PYTHON_HOME = "python.home";
 	
 	JythonFlexTaskRunnerImpl(){

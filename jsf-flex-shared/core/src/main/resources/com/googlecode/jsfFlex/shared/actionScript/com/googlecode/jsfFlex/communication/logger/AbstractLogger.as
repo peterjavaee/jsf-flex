@@ -28,7 +28,7 @@ package com.googlecode.jsfFlex.communication.logger
 	
 	internal class AbstractLogger implements ILogger {
 		
-		private static const LOG_MODE:int = logModeToken;
+		private static const LOG_MODE:int = {logModeToken};
 		
 		public function AbstractLogger(logClass:Class) {
 			super();

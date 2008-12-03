@@ -51,7 +51,7 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 	
 	private static final String ACTION_SCRIPT_DIR_NAME = "actionScript";
 	private static final String ABSTRACT_LOGGER_AS_FILE_NAME = "AbstractLogger.as";
-	private static final String LOG_MODE_TOKEN = "logModeToken";
+	private static final String LOG_MODE_TOKEN = "{logModeToken}";
 	
 	
 	AntFlexTaskRunnerImpl(){
@@ -127,9 +127,8 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 				MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 				String logMode = mxmlContext.isProductionEnv() ? "5" : "1";
 				ReplaceTextTask logModeSetter = new ReplaceTextTask(fileName);
-				logModeSetter.replaceRegExp(true);
-				logModeSetter.regMatch(LOG_MODE_TOKEN);
-				logModeSetter.regReplace(logMode);
+				logModeSetter.addTokenValue(LOG_MODE_TOKEN, logMode);
+				logModeSetter.multiLineReplace(true);
 				
 				addTask(logModeSetter);
 			}
