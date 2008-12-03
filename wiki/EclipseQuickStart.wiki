@@ -10,16 +10,20 @@ The Eclipse version used for this example is 3.4.0.
 ==Importing the generated WAR artifact==
 Follow the usual path of importing a WAR file.
 
+http://jsf-flex.googlecode.com/svn/wiki/importWar.jpg
 
 ==Importing the Jar artifacts for a Dynamic Web Project==
  # First create the Dynamic Web Project with the default Configuration for Tomcat 6.0 {technically can set it to JSF 1.2 here, but will go with this path}.
+   http://jsf-flex.googlecode.com/svn/wiki/createNewDynamicWebProject.jpg
  # Then configure the project with JSF 1.2 impl
   * Select the project and right click.
   * Select the Properties option.
   * Select Project Facets and click on {{{JavaServer}}} Faces with version 1.2.
   * Click on Futher configuration required.
   * Select the JSF Libraries {can choose the Mojarra 1.2 or {{{MyFaces}}} 1.2 impl}, for the example chose the Mojarra 1.2 impl as it is Sun's impl. For simplicity, took the jsf-api + jsf-impl from the "C:\jsfFlex\jsf-flex\examples\target\jsf-flex-examples\WEB-INF\lib" directory.
-  * Add additional URL Mapping Patterns for {{{FacesServlet}}} with /jsfFlexHttpServiceRequestListener/* and *.jsf.
+  * Add additional URL Mapping Patterns for {{{FacesServlet}}} with {{{/jsfFlexHttpServiceRequestListener/* and *.jsf}}}.
+    http://jsf-flex.googlecode.com/svn/wiki/projectFacets.jpg
+    http://jsf-flex.googlecode.com/svn/wiki/settingJsf12BaseProperties.jpg
  # Then modify web.xml by adding the following content :
 {{{
 <context-param>
@@ -49,4 +53,5 @@ Follow the usual path of importing a WAR file.
 </filter-mapping>
 }}}
  # Copy the contents from "C:\jsfFlex\jsf-flex\examples\target\jsf-flex-examples\WEB-INF\lib" minus the jsf api + jsf impl to the project's WEB-INF\lib directory.
+   http://jsf-flex.googlecode.com/svn/wiki/copyJarsToWebInfDir.jpg
  # Then you are done. Have fun!
