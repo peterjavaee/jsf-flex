@@ -23,7 +23,7 @@ import org.apache.commons.logging.LogFactory;
 
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.shared.beans.TokenValue;
+import com.googlecode.jsfFlex.shared.beans.tokenValue.PreMxmlTokenValue;
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 
 /**
@@ -61,7 +61,7 @@ public final class AnnotationDocletParser15Impl extends _AnnotationDocletParser 
 			}
 			
 			try{
-				TokenValue tokenValue = getMapper().mapField(currAttribute.attribute(), componentObj);
+				PreMxmlTokenValue tokenValue = getMapper().mapField(currAttribute.attribute(), componentObj);
 				if(tokenValue != null){
 					getTokenValueSet().add(tokenValue);
 				}

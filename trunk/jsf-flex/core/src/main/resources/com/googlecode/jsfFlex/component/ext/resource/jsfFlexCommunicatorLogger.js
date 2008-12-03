@@ -59,14 +59,21 @@ if(!com.googlecode.jsfFlex.communication.logger){
 		 * For simplicity, currently is supported for FireFox:FireBug only
 		 * TODO: Consider supporting other browsers in the future
 		 */
-		switch(_severity){
-			case 1 :	if(console) console.log(_logMessage); return;
-			case 2 :	if(console) console.debug(_logMessage); return;
-			case 3 :	if(console) console.info(_logMessage); return;
-			case 4 :	if(console) console.warn(_logMessage); return;
-			case 5 :	if(console) console.error(_logMessage); return;
-		}
 		
+		if(console){
+			switch(_severity){
+				case 1 :	console.log(_logMessage); return;
+				case 2 :	console.debug(_logMessage); return;
+				case 3 :	console.info(_logMessage); return;
+				case 4 :	console.warn(_logMessage); return;
+				case 5 :	console.error(_logMessage); return;
+			}
+		}else{
+			//at least throw an error for browsers without FireBug
+			if(_severity == 5){
+				throw new Error(_logMessage);
+			}
+		}
 	}
 	
 	//callers

@@ -105,17 +105,17 @@ com.googlecode.jsfFlex.communication.core = {
 				return _flashApp;
 			}
 		}else{
-			/* Must not have been added yet, so simply connect a function to com.googlecode.jsfFlex.communication.core.addFlashApp */
-			var _handle = dojo.connect(com.googlecode.jsfFlexcommunication.core, "addFlashApp", function(){
-											var _flashApp = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId.item( _readyAmI );
-											if(_flashApp){
-												if(_flashApp.arrayOfIds){
-													var _access = com.googlecode.jsfFlex.communication.core.getApplication( _readyAmI );
-													_access.populateInitValues( _flashApp );
-												}
-												dojo.disconnect(_handle);
-											}
-										});						
+			/* Must not have been added yet, so add a simple interval */
+			var _handle = window.setInterval( function(){
+													var _flashApp = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId.item( _readyAmI );
+													if(_flashApp){
+														if(_flashApp.arrayOfIds){
+															var _access = com.googlecode.jsfFlex.communication.core.getApplication( _readyAmI );
+															_access.populateInitValues( _flashApp );
+														}
+														window.clearInterval(_handle);
+													}
+												}, 500);
 		}
 	}
 	

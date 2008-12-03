@@ -32,7 +32,7 @@ import com.googlecode.jsfFlex.component.ext.AbstractMXMLUIDataGridColumn;
 import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.shared.beans.AdditionalApplicationScriptContent;
+import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 
