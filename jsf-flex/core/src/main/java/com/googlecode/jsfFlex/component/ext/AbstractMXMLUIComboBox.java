@@ -44,7 +44,7 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedItemAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIComboBaseAttributes;
-import com.googlecode.jsfFlex.shared.beans.AdditionalApplicationScriptContent;
+import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 

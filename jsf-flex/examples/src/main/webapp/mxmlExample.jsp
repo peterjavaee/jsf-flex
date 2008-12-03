@@ -60,11 +60,11 @@
         </div>
         <br>
         
-	    <jf:mxmlApplication mxmlPackageName="anotherSwf" height="5%" width="85%" verticalScrollPolicy="off" backgroundColor="0xCC6666">
+	    <jf:mxmlApplication mxmlPackageName="anotherSwf" height="5%" width="90%" verticalScrollPolicy="off" backgroundColor="0xCC6666">
 	    	<jf:mxmlLabel text="I simply am an another SWF file. DHan, DHAn, DHAN!!!" color="#FFFFFF" fontWeight="bold"/>
 	    </jf:mxmlApplication>
 	    
-	    <jf:mxmlApplication mxmlPackageName="initialPackage" height="80%" width="85%">
+	    <jf:mxmlApplication mxmlPackageName="initialPackage" height="85%" width="90%">
 	        <jf:mxmlScript>
 	        	import flash.events.Event;
 	        	
@@ -261,8 +261,6 @@
     
     </h:form>
 </f:view>
-
-<%@include file="inc/page_footer.jsp" %>
 
 </body>
 

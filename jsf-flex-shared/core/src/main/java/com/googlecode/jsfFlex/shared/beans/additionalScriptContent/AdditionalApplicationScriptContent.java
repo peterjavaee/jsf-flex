@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.shared.beans;
+package com.googlecode.jsfFlex.shared.beans.additionalScriptContent;
 
 import java.util.HashMap;
 import java.util.HashSet;

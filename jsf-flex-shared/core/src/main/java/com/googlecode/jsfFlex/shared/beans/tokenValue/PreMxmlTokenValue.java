@@ -16,23 +16,23 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.shared.beans;
+package com.googlecode.jsfFlex.shared.beans.tokenValue;
 
 /**
  * @author Ji Hoon Kim
  */
-public final class TokenValue {
+public final class PreMxmlTokenValue {
 	
 	private final String _token;
 	private final Object _value;
 	
-	private TokenValue(){
+	private PreMxmlTokenValue(){
 		super();
 		_token = null;
 		_value = null;
 	}
 	
-	public TokenValue(String token, Object value){
+	public PreMxmlTokenValue(String token, Object value){
 		super();
 		_token = token;
 		_value = value;
@@ -70,11 +70,11 @@ public final class TokenValue {
 	}
 	
 	public boolean equals(Object instance) {
-		if(!(instance instanceof TokenValue)){
+		if(!(instance instanceof PreMxmlTokenValue)){
 			return false;
 		}
 		
-		TokenValue tokenValueInstance = (TokenValue) instance;
+		PreMxmlTokenValue tokenValueInstance = (PreMxmlTokenValue) instance;
 		return this.getToken().equals(tokenValueInstance.getToken());
 	}
 	
