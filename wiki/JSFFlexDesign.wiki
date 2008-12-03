@@ -5,6 +5,7 @@ Navigational page for JSF Flex design
 = Details =
 
 ==Page Listings==
+ * [QuickStart] page contains info regarding importing the project to various IDE.
  * [JSFFlexComponentInfo] page contains info regarding JSF Flex components.
  * [JSFFlexRendererInfo] page contains info regarding JSF Flex renderers.
  * [JSFFlexProcess] page contains info regarding the process of JSF Flex project.
