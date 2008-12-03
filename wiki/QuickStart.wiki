@@ -5,4 +5,4 @@ Brief overview in importing the project to respective IDE.
 
 = Details =
 
-* [EclipseQuickStart] - Page containing brief overview for Eclipse IDE.
+ * [EclipseQuickStart] - Page containing brief overview for Eclipse IDE.
