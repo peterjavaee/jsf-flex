@@ -56,6 +56,9 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 	
 	private final static Log _log = LogFactory.getLog(JythonFlexTaskRunnerImpl.class);
 	
+	private static final String ACTION_SCRIPT_DIR_NAME = "actionScript";
+	private static final String ABSTRACT_LOGGER_AS_FILE_NAME = "AbstractLogger.as";
+	private static final String LOG_MODE_TOKEN = "logModeToken";
 	private static final String PYTHON_HOME = "python.home";
 	
 	JythonFlexTaskRunnerImpl(){
@@ -135,7 +138,7 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 			 * This is a pure HACK, implement it better later
 			 * The path of ActionScript files must be of com/googlecode/jsfFlex/util/shared/actionScript
 			 */
-			String pathToFile = currSystemSource.substring(currSystemSource.indexOf("actionScript") + 13);
+			String pathToFile = currSystemSource.substring(currSystemSource.indexOf(ACTION_SCRIPT_DIR_NAME) + 13);
 			if(pathToFile == null || pathToFile.length() == 0){
 				_log.debug("The source file [" + currSystemSource + "] is null or the length is zero");
 				continue;
@@ -153,6 +156,17 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 			toEcho.file(fileName);
 			toEcho.message(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), currSystemSource));
 			addTask(toEcho);
+			
+			if(fileName.indexOf(ABSTRACT_LOGGER_AS_FILE_NAME) > 0){
+				//means LoggerFactory, set the log mode
+				
+				MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+				String logMode = mxmlContext.isProductionEnv() ? "5" : "1";
+				ReplaceTextTask logModeSetter = new ReplaceTextTask(fileName);
+				logModeSetter.addTokenValue(LOG_MODE_TOKEN, logMode);
+				
+				addTask(logModeSetter);
+			}
 		}
 		
 		//now flush out the swc config file
