@@ -30,12 +30,12 @@ Currently the project supports most of the Flex standard components. Brief testi
  * Firefox 2.0
  * IE 6.0
  * Opera 9.25
-on application server {{{TomCat}}} 6.0.
+on application server {{{TomCat}}} 6.0 and {{{JBoss} 4.2.
 
 ====TODO====
  * Complete testing on remaining OS, browsers, and application servers must be performed, so to support every type of user. {For ALL}
 || *Operating System* || *Browser Tested*                 || *Application Server Tested*||
-|| Windows            || Firefox 2.0 , IE 6.0, Opera 9.25 || {{{TomCat}}} 6.0           ||
+|| Windows            || Firefox 2.0 , IE 6.0, Opera 9.25 || {{{TomCat}}} 6.0, {{{JBoss}}} 4.2           ||
 || Linux              || TODO                             || TODO                       ||
 || Mac OS X           || TODO                             || TODO                       ||
 
