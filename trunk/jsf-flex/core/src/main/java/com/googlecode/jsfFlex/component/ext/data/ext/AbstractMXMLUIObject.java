@@ -16,24 +16,46 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.component.ext.properties;
+package com.googlecode.jsfFlex.component.ext.data.ext;
 
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 
 /**
  * @JSFComponent
- *   name     = "jf:mxmlDataProvider"
- *   class    = "com.googlecode.jsfFlex.component.ext.properties.MXMLUIDataProvider"
- *   type     = "com.googlecode.jsfFlex.MXMLUIDataProvider"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.properties.MXMLUIDataProviderTag"
+ *   name     = "jf:mxmlObject"
+ *   class    = "com.googlecode.jsfFlex.component.ext.data.ext.MXMLUIObject"
+ *   type     = "com.googlecode.jsfFlex.MXMLUIObject"
+ *   tagClass = "com.googlecode.jsfFlex.taglib.ext.data.MXMLUIObjectTag"
  *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLDataProvider"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLObject"
  * 
+ * @JSFJspProperties
+ * 		properties	=		
+ *   						@JSFJspProperty
+ * 							 name		= "data"
+ *   						 returnType = "java.lang.String"
+ *   						 longDesc	= "The data for the object."
+ *   						,
+ *   						
+ *   						@JSFJspProperty
+ * 							 name		= "label"
+ *   						 returnType = "java.lang.String"
+ *   						 longDesc	= "Text to appear on the control."
+ *   						
  * @author Ji Hoon Kim
  */
-public abstract class AbstractMXMLUIDataProvider 
+public abstract class AbstractMXMLUIObject 
 						extends MXMLUISimpleBase {
 	
-	
+	/**
+	 * Id of the component.
+	 * 
+	 * @JSFProperty
+	 *     desc			= "Id of the component."
+	 *     inheritedTag	= true
+	 */
+	public String getId(){
+		return super.getId();
+	}
 	
 }

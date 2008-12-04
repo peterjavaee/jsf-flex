@@ -16,22 +16,22 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.component.ext.properties;
+package com.googlecode.jsfFlex.component.ext.properties.ext;
 
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 
 /**
  * @JSFComponent
- *   name     = "jf:mxmlColumns"
- *   class    = "com.googlecode.jsfFlex.component.ext.properties.MXMLUIColumns"
- *   type     = "com.googlecode.jsfFlex.MXMLUIColumns"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.properties.MXMLUIColumnsTag"
+ *   name     = "jf:mxmlDataProvider"
+ *   class    = "com.googlecode.jsfFlex.component.ext.properties.ext.MXMLUIDataProvider"
+ *   type     = "com.googlecode.jsfFlex.MXMLUIDataProvider"
+ *   tagClass = "com.googlecode.jsfFlex.taglib.ext.properties.MXMLUIDataProviderTag"
  *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLColumns"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLDataProvider"
  * 
  * @author Ji Hoon Kim
  */
-public abstract class AbstractMXMLUIColumns 
+public abstract class AbstractMXMLUIDataProvider 
 						extends MXMLUISimpleBase {
 	
 	

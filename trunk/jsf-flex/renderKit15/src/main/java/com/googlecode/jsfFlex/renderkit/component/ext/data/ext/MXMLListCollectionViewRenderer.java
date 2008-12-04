@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.renderkit.component.ext.data;
+package com.googlecode.jsfFlex.renderkit.component.ext.data.ext;
 
 import java.io.IOException;
 
@@ -25,9 +25,8 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
+import com.googlecode.jsfFlex.renderkit.component.ext.data.MXMLListCollectionViewTemplateRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
@@ -37,19 +36,15 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 @JSFRenderer(
 		renderKitId="MXML_BASIC",
 		family="javax.faces.MXMLSimple",
-		type="com.googlecode.jsfFlex.MXMLObject"
+		type="com.googlecode.jsfFlex.MXMLListCollectionView"
 )
 @JsfFlexAttributeProperties(
-		mxmlComponentName="Object",
+		mxmlComponentName="ListCollectionView",
 		mxmlComponentNodeAttributes={},
-		
-		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="id", byMethod=true),
-				@JsfFlexAttribute(attribute="label", byMethod=true),
-				@JsfFlexAttribute(attribute="data", byMethod=true)
-		}
+
+		jsfFlexAttributes={}
 )
-public final class MXMLObjectRenderer extends MXMLComponentBaseRenderer {
+public final class MXMLListCollectionViewRenderer extends MXMLListCollectionViewTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
@@ -58,8 +53,7 @@ public final class MXMLObjectRenderer extends MXMLComponentBaseRenderer {
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
-		writer.mapFields(MXMLObjectRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLObjectRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentMXML, MXMLListCollectionViewRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
 				null);
 		
 	}

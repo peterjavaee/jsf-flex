@@ -16,14 +16,14 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.renderkit.component.ext.properties;
+package com.googlecode.jsfFlex.renderkit.component.ext.data.ext;
 
 import java.io.IOException;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
+import com.googlecode.jsfFlex.renderkit.component.ext.data.MXMLListCollectionViewTemplateRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
@@ -31,13 +31,27 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * @JSFRenderer
  *  renderKitId = "MXML_BASIC" 
  *  family      = "javax.faces.MXMLSimple"
- *  type        = "com.googlecode.jsfFlex.MXMLDataProvider"
+ *  type        = "com.googlecode.jsfFlex.MXMLXMLListCollection"
  * 
+ * @JsfFlexAttributes
+ * 	filterFunction=false
+ * 	list=false
+ * 	sort=false
+ * 	source=false
+ * 	
  * @author Ji Hoon Kim
  */
-public final class MXMLDataProviderRenderer extends MXMLComponentBaseRenderer {
+public final class MXMLXMLListCollectionRenderer extends MXMLListCollectionViewTemplateRenderer {
 	
-	private static final String MXML_COMPONENT_NAME = "dataProvider";
+	private static final String MXML_XML_LIST_COLLECTION_REPLACE_MAPPING;
+	private static final String MXML_COMPONENT_NAME = "XMLListCollection";
+	
+	static{
+		//TODO : find a better method to implement the below tasks
+		String packageName = MXMLXMLListCollectionRenderer.class.getPackage().getName();
+		packageName = packageName.replace('.', '/');
+		MXML_XML_LIST_COLLECTION_REPLACE_MAPPING = packageName + "/replaceMapping/MXMLXMLListCollectionRendererReplaceMapping.xml";
+	}
 	
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
@@ -45,6 +59,7 @@ public final class MXMLDataProviderRenderer extends MXMLComponentBaseRenderer {
 		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
+		writer.mapFields(MXMLXMLListCollectionRenderer.class, componentObj, MXML_XML_LIST_COLLECTION_REPLACE_MAPPING);
 		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
 		
 	}
