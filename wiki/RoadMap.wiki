@@ -1,6 +1,6 @@
 ==Work to be done==
 ------
-{{{JavaServer}}} Faces Flex's goal is to allow users in creating dynamic Flex applications with simply their knowledge of JSF. In order to provide quality product for the users, the project must support :
+JSF Flex goal is to provide users capability in creating standard Flex components as JSF components. In order to provide quality product for the users, the project must support :
  * various operating systems 
    * Windows
    * Linux
@@ -13,7 +13,6 @@
  * various application servers
    * {{{TomCat}}}
    * {{{JBoss}}}
-   * {{{WAS}}}
 For the 1.0 release, plan is to support all the Flex standard components, which have been open sourced through MPL license.
 
 
@@ -30,7 +29,7 @@ Currently the project supports most of the Flex standard components. Brief testi
  * Firefox 2.0
  * IE 6.0
  * Opera 9.25
-on application server {{{TomCat}}} 6.0 and {{{JBoss} 4.2.
+on application server {{{TomCat}}} 6.0 and {{{JBoss}}} 4.2.
 
 ====TODO====
  * Complete testing on remaining OS, browsers, and application servers must be performed, so to support every type of user. {For ALL}
