@@ -12,8 +12,8 @@
    * Safari
  * various application servers
    * {{{TomCat}}}
-   * JBoss
-   * WAS
+   * {{{JBoss}}}
+   * {{{WAS}}}
 For the 1.0 release, plan is to support all the Flex standard components, which have been open sourced through MPL license.
 
 
