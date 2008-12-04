@@ -6,4 +6,5 @@ Brief overview in importing the project to Eclipse IDE.
 = Details =
 
 The Eclipse version used for this demonstration is 3.4.0.
- * [EclipseTomCatQuickStart TomCat6.0] : this page contains info regarding importing the example WAR/adding the generated Jar artifacts to a new Dynamic Web Project.
+ * [EclipseTomCatQuickStart TomCat6.0] : this page contains info regarding importing the example WAR and adding the generated Jar artifacts to a new Dynamic Web Project.
+ * [EclipseJBossQuickStart JBoss4.2] : this page contains info regarding importing the example WAR and adding the generated Jar artifacts to a new Dynamic Web Project.
