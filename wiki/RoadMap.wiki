@@ -4,7 +4,7 @@ JSF Flex goal is to provide users capability in creating standard Flex component
  * various operating systems 
    * Windows
    * Linux
-   * Mac OS X
+   * Mac
  * various browsers
    * Firefox
    * IE
@@ -36,6 +36,6 @@ on application server {{{TomCat}}} 6.0 and {{{JBoss}}} 4.2.
 || *Operating System* || *Browser Tested*                 || *Application Server Tested*||
 || Windows            || Firefox 2.0 , IE 6.0, Opera 9.25 || {{{TomCat}}} 6.0, {{{JBoss}}} 4.2           ||
 || Linux              || TODO                             || TODO                       ||
-|| Mac OS X           || TODO                             || TODO                       ||
+|| Mac                || TODO                             || TODO                       ||
 
  * Supporting Facelets. {Hazem Saleh}
