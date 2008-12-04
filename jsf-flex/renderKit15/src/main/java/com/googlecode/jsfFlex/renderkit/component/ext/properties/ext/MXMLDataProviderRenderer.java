@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.renderkit.component.ext.properties;
+package com.googlecode.jsfFlex.renderkit.component.ext.properties.ext;
 
 import java.io.IOException;
 
