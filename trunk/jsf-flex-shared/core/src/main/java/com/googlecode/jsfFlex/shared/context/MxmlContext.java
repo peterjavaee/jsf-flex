@@ -54,8 +54,6 @@ public abstract class MxmlContext {
 	
 	public abstract String getCurrMxml();
 	
-	public abstract void setCurrMxml(String currMxml);
-	
 	public abstract String getFlexSDKPath();
 	
 	public abstract void setFlexSDKPath(String flexSDKPath);

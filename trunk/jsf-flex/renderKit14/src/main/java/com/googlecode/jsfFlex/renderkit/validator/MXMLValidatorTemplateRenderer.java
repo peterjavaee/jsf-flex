@@ -25,6 +25,8 @@ import javax.faces.context.FacesContext;
 
 import com.googlecode.jsfFlex.renderkit.component.MXMLComponentRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
+import com.googlecode.jsfFlex.shared.context.MxmlContext;
 
 /**
  * @JsfFlexAttributes
@@ -43,6 +45,8 @@ public class MXMLValidatorTemplateRenderer extends MXMLComponentRenderer {
 	
 	private static final String MXML_VALIDATOR_TEMPLATE_REPLACE_MAPPING;
 	
+	private static final String VALIDATION_MANAGER_IMPORT = "com.googlecode.jsfFlex.communication.validator.ValidationManager";
+	
 	static{
 		//TODO : find a better method to implement the below tasks
 		String packageName = MXMLValidatorTemplateRenderer.class.getPackage().getName();
@@ -55,6 +59,12 @@ public class MXMLValidatorTemplateRenderer extends MXMLComponentRenderer {
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLValidatorTemplateRenderer.class, componentObj, MXML_VALIDATOR_TEMPLATE_REPLACE_MAPPING);
+		
+		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		AdditionalApplicationScriptContent additionalAppScriptContent = mxmlContext.getAdditionalAppScriptContent();
+		additionalAppScriptContent.addValidationManagerValidatorId(componentObj.getId());
+		
+		additionalAppScriptContent.addActionScriptImport(VALIDATION_MANAGER_IMPORT);
 		
 	}
 	

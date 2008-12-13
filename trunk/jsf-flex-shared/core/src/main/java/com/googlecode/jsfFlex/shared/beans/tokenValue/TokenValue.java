@@ -21,18 +21,18 @@ package com.googlecode.jsfFlex.shared.beans.tokenValue;
 /**
  * @author Ji Hoon Kim
  */
-public final class PreMxmlTokenValue {
+public final class TokenValue {
 	
 	private final String _token;
 	private final Object _value;
 	
-	private PreMxmlTokenValue(){
+	private TokenValue(){
 		super();
 		_token = null;
 		_value = null;
 	}
 	
-	public PreMxmlTokenValue(String token, Object value){
+	public TokenValue(String token, Object value){
 		super();
 		_token = token;
 		_value = value;
@@ -70,16 +70,16 @@ public final class PreMxmlTokenValue {
 	}
 	
 	public boolean equals(Object instance) {
-		if(!(instance instanceof PreMxmlTokenValue)){
+		if(!(instance instanceof TokenValue)){
 			return false;
 		}
 		
-		PreMxmlTokenValue tokenValueInstance = (PreMxmlTokenValue) instance;
-		return this.getToken().equals(tokenValueInstance.getToken());
+		TokenValue tokenValueInstance = (TokenValue) instance;
+		return _token.equals(tokenValueInstance._token);
 	}
 	
 	public int hashCode() {
-		return getToken().hashCode();
+		return _token.hashCode();
 	}
 	
 }

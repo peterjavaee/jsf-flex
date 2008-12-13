@@ -32,12 +32,12 @@ import os
 
 class MkdirTask(_JythonTaskPerformer):
 	def __init__(self, directory):
-		self.__directory = directory
+		self.directory = directory
 		
 	def performTask(self):
-		os.makedirs(self.__directory)
+		os.makedirs(self.directory)
 		
 	def __str__(self):
-		print self.__directory
+		print self.directory
 	def __retr__(self):
 		self.__str__(self)

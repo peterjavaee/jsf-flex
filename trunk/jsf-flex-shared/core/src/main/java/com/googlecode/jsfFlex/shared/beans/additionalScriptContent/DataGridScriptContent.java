@@ -57,7 +57,7 @@ public final class DataGridScriptContent {
 		}
 		
 		DataGridScriptContent dataGridScriptContentInstance = (DataGridScriptContent) instance; 
-		return this._dataGridId.equals(dataGridScriptContentInstance._dataGridId);
+		return _dataGridId.equals(dataGridScriptContentInstance._dataGridId);
 	}
 	public int hashCode() {
 		return _dataGridId.hashCode();
@@ -87,7 +87,7 @@ public final class DataGridScriptContent {
 			}
 			
 			DataGridColumnScriptContent dataGridColumnScriptContentInstance = (DataGridColumnScriptContent) instance;
-			return this._dataGridColumnId.equals(dataGridColumnScriptContentInstance._dataGridColumnId);
+			return _dataGridColumnId.equals(dataGridColumnScriptContentInstance._dataGridColumnId);
 		}
 		public int hashCode() {
 			return _dataGridColumnId.hashCode();

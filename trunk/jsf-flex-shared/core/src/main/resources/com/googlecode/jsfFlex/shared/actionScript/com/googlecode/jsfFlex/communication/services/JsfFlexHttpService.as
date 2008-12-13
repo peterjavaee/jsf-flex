@@ -60,12 +60,12 @@ package com.googlecode.jsfFlex.communication.services
 			super();
 		}
 		
-		public function sendHttpRequest(serviceUrl:String, parameters:Object, thisObject:Object, callBack:Function, method:String, 
-													resultFormatMethod:String, rootUrl:String):void {
+		public function sendHttpRequest(serviceUrl:String, thisObject:Object, callBack:Function, parameters:Object = null, method:String = GET_METHOD, 
+													resultFormatMethod:String = XML_RESULT_FORMAT, rootUrl:String = null):void {
 			//NOTE : rootUrl is only to specify absolute URL, if not specified the path to SWF is used
 			var httpRequest:HTTPService = rootUrl == null ? new HTTPService() : new HTTPService(rootUrl);
 			httpRequest.url = serviceUrl;
-			httpRequest.method = method == null ? GET_METHOD : method;
+			httpRequest.method = method;
 			
 			var servletResultFormat:String;
 			switch(resultFormatMethod){

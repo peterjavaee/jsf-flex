@@ -25,6 +25,8 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
+import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -33,12 +35,14 @@ public final class AdditionalApplicationScriptContent {
 	private final Set _actionScriptImports;
 	private final Set _simpleDataProviderSetter;
 	private final Map _dataGridScriptContent;
+	private final ValidationManagerScriptContent _validationManagerScriptContent;
 	
-	public AdditionalApplicationScriptContent(){
+	public AdditionalApplicationScriptContent(String currMxml, _MXMLApplicationContract currApplicationContract){
 		super();
 		_actionScriptImports = new LinkedHashSet();
 		_simpleDataProviderSetter = new LinkedHashSet();
 		_dataGridScriptContent = new HashMap();
+		_validationManagerScriptContent = new ValidationManagerScriptContent(currMxml, currApplicationContract);
 	}
 	
 	public void addActionScriptImport(String actionScriptImport){
@@ -77,6 +81,10 @@ public final class AdditionalApplicationScriptContent {
 		}
 	}
 	
+	public void addValidationManagerValidatorId(String validatorId){
+		_validationManagerScriptContent.addValidationManagerValidatorId(validatorId);
+	}
+	
 	public Set getActionScriptImports() {
 		return new HashSet(_actionScriptImports);
 	}
@@ -85,6 +93,9 @@ public final class AdditionalApplicationScriptContent {
 	}
 	public Map getDataGridScriptContent() {
 		return new HashMap(_dataGridScriptContent);
+	}
+	public ValidationManagerScriptContent getValidationManagerScriptContent() {
+		return _validationManagerScriptContent;
 	}
 	
 }

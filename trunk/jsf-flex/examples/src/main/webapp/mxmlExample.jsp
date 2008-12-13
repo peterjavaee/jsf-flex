@@ -64,7 +64,7 @@
 	    	<jf:mxmlLabel text="I simply am an another SWF file. DHan, DHAn, DHAN!!!" color="#FFFFFF" fontWeight="bold"/>
 	    </jf:mxmlApplication>
 	    
-	    <jf:mxmlApplication mxmlPackageName="initialPackage" height="85%" width="90%">
+	    <jf:mxmlApplication mxmlPackageName="initialPackage" height="85%" width="90%" errorColor="#B80000" errorFontSize="13">
 	        <jf:mxmlScript>
 	        	import flash.events.Event;
 	        	

@@ -45,7 +45,7 @@ public final class SimpleDataProviderSetter {
 		}
 		
 		SimpleDataProviderSetter simpleDataProviderSetter = (SimpleDataProviderSetter) instance;
-		return this._componentId.equals(simpleDataProviderSetter._componentId);
+		return _componentId.equals(simpleDataProviderSetter._componentId);
 	}
 	public int hashCode() {
 		return _componentId.hashCode();

@@ -30,16 +30,16 @@ from com.googlecode.jsfFlex.shared.tasks.jython import _JythonTaskPerformer
 
 class EchoTask(_JythonTaskPerformer):
 	def __init__(self, message, file):
-		self.__message = message
-		self.__file = file
+		self.message = message
+		self.file = file
 		
 	def performTask(self):
-		fileObj = open(self.__file, 'w')
-		fileObj.write(self.__message)
+		fileObj = open(self.file, 'w')
+		fileObj.write(self.message)
 		fileObj.flush()
 		fileObj.close()
 		
 	def __str__(self):
-		print self.__message, self.__file
+		print self.message, self.file
 	def __retr__(self):
 		self.__str__(self)

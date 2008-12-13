@@ -60,107 +60,102 @@ com.googlecode.jsfFlex.communication.core = {
 					flashAppsKeyAppId: new dojox.collections.Dictionary() 
 				},
 	
-	addFlashApp: function(_flashApp){
-					var _namingContainerPrefixList = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyNamingContainer.item(_flashApp.namingContainerPrefix);
-					if(_namingContainerPrefixList == null){
-						_namingContainerPrefixList = new Array();
-						com.googlecode.jsfFlex.communication.core.data.flashAppsKeyNamingContainer.add( _flashApp.namingContainerPrefix, _namingContainerPrefixList );
+	addFlashApp: function(flashApp){
+					var namingContainerPrefixList = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyNamingContainer.item(flashApp.namingContainerPrefix);
+					if(namingContainerPrefixList == null){
+						namingContainerPrefixList = new Array();
+						com.googlecode.jsfFlex.communication.core.data.flashAppsKeyNamingContainer.add( flashApp.namingContainerPrefix, namingContainerPrefixList );
 					}
-					com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId.add( _flashApp.appId, _flashApp );
-					_namingContainerPrefixList.push(_flashApp);
+					com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId.add( flashApp.appId, flashApp );
+					namingContainerPrefixList.push(flashApp);
 				 },
-	getApplication:	function(_appId){
+	getApplication:	function(appId){
 						if (navigator.appName.indexOf("Microsoft") != -1) {
-							return document.getElementById(_appId);
+							return document.getElementById(appId);
 						}else{
-							return document[_appId];
+							return document[appId];
 						}
 					},
-	getCompValue:	function(_appId, _objectId){
-						var _access = com.googlecode.jsfFlex.communication.core.getApplication(_appId);
-						if(_access == null){
-							throw new Error("appId [" + _appId + "] returned a null value during lookup");
+	getCompValue:	function(appId, objectId){
+						var access = com.googlecode.jsfFlex.communication.core.getApplication(appId);
+						if(access == null){
+							throw new Error("appId [" + appId + "] returned a null value during lookup");
 						}
-						var _value;
+						var value = null;
 						try{
-							_value = _access.getCompValue(_objectId);
+							value = access.getCompValue(objectId);
 						}catch(error){
-							throw new Error("Error while invoking getCompValue for appId, objectId [" + _appId + ", " + _objectId + "]");
+							com.googlecode.jsfFlex.communication.logger.logMessage("Error while invoking getCompValue for appId, objectId [" + appId + ", " + objectId + "] : " + error, 5);
 						}
-						return _value;
+						return value;
 					}
 };
 
 //private namespace
 (function() {
-	var checkInterval = null;
-    var formSubmit = null;
-    var flashAppsToUpdateCount = 0;
-	var currUnloaded = 0;
+	var VALIDATION_ERROR_RESULT = "validationErrorResult";
+	var JSON_RESULT = "jsonResult";
 	
-	function amReady(_readyAmI){
-		var _flashApp = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId.item( _readyAmI );
-		if(_flashApp){
-			if(_flashApp.arrayOfIds){
-				return _flashApp;
+	var formSubmit = null;
+    
+    var jsonResult = new Array();
+    
+    function amReady(readyAmI){
+		var flashApp = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId.item( readyAmI );
+		if(flashApp){
+			if(flashApp.arrayOfIds){
+				return flashApp;
 			}
 		}else{
 			/* Must not have been added yet, so add a simple interval */
-			var _handle = window.setInterval( function(){
-													var _flashApp = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId.item( _readyAmI );
-													if(_flashApp){
-														if(_flashApp.arrayOfIds){
-															var _access = com.googlecode.jsfFlex.communication.core.getApplication( _readyAmI );
-															_access.populateInitValues( _flashApp );
+			var handle = window.setInterval( function(){
+													var flashApp = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId.item( readyAmI );
+													if(flashApp){
+														if(flashApp.arrayOfIds){
+															var access = com.googlecode.jsfFlex.communication.core.getApplication( readyAmI );
+															access.populateInitValues( flashApp );
 														}
-														window.clearInterval(_handle);
+														window.clearInterval(handle);
 													}
 												}, 500);
 		}
 	}
 	
-	function appendElement(_jsonNodes){
-		var _htmlType;
-		var _attributeArray;
-		var _ele;
-		var _attr;
-		for(var i=0; i < _jsonNodes.length; i++){
-			_htmlType = _jsonNodes[i].htmlType;
-			_attributeArray = _jsonNodes[i].attributeArray;
-			if(_htmlType != null && _htmlType != "null"){
-				_ele = document.createElement(_htmlType);
-				for(var j=0; j < _attributeArray.length; j++){
-					_attr = document.createAttribute(_attributeArray[j].attribute);
-					_attr.nodeValue = _attributeArray[j].value;
-					_ele.setAttributeNode(_attr);
+	function appendElement(jsonNodes){
+		var htmlType;
+		var attributeArray;
+		var ele;
+		var attr;
+		for(var i=0; i < jsonNodes.length; i++){
+			htmlType = jsonNodes[i].htmlType;
+			attributeArray = jsonNodes[i].attributeArray;
+			if(htmlType != null && htmlType != "null"){
+				ele = document.createElement(htmlType);
+				for(var j=0; j < attributeArray.length; j++){
+					attr = document.createAttribute(attributeArray[j].attribute);
+					attr.nodeValue = attributeArray[j].value;
+					ele.setAttributeNode(attr);
 				}
-				formSubmit.appendChild(_ele);
+				formSubmit.appendChild(ele);
 			}
 		}
 	}
 	
-	function checkUnLoadStatus(){
-		if(flashAppsToUpdateCount == currUnloaded){
-			window.clearInterval(checkInterval);
-			formSubmit.submit();
-		}
+	function getEvent(event){
+		return (window.event) ? window.event : event;
 	}
 	
-	function getEvent(_event){
-		return (window.event) ? window.event : _event;
-	}
-	
-	function getSrcElement(_event){
-		return (_event.target) ? _event.target : _event.srcElement;
+	function getSrcElement(event){
+		return (event.target) ? event.target : event.srcElement;
 	}
 	
 	function pageLoad(){
 		for(var i=0; i < document.forms.length; i++){
-			dojo.connect(document.forms[i], "onsubmit", pageUnload);
+			dojo.connect(document.forms[i], "onsubmit", null, pageUnload);
 		}
 	}
 	
-	function pageUnload(_event){
+	function pageUnload(event){
 		/*
 		 * during the page creation :
 		 * 	JSON with =>
@@ -174,50 +169,71 @@ com.googlecode.jsfFlex.communication.core = {
 		 *	  
 		 *  will be created
 		 */
-		var _src = getSrcElement( getEvent(_event) );
-		formSubmit = dojo.byId(_src.id);
+		var src = getSrcElement( getEvent(event) );
+		formSubmit = dojo.byId(src.id);
 		
-		var _namingContainerPrefixList = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyNamingContainer.item(_src.id);
-		flashAppsToUpdateCount = _namingContainerPrefixList.length;
-		var _access;
-		for(var i=0; i < _namingContainerPrefixList.length; i++){
+		var namingContainerPrefixList = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyNamingContainer.item(src.id);
+		var access;
+		
+		var validationError = false;
+		jsonResult = new Array();
+		for(var i=0; i < namingContainerPrefixList.length; i++){
 			/** If there does not exist any value to retrieve of, simply continue */
-			if(!_namingContainerPrefixList[i].arrayOfIds){
-				currUnloaded++;
+			if(!namingContainerPrefixList[i].arrayOfIds){
 				continue;
 			}
-			_access = com.googlecode.jsfFlex.communication.core.getApplication(_namingContainerPrefixList[i].appId);
+			access = com.googlecode.jsfFlex.communication.core.getApplication(namingContainerPrefixList[i].appId);
 			try{
-				_access.pageUnloading(_namingContainerPrefixList[i]);
+				var processedResult = access.pageUnloading(namingContainerPrefixList[i]);
+				
+				/*
+				 * will be an Object with :
+				 *		type 	: [validationErrorResult | jsonResult]
+				 *		result	: [nothing | jsonResult]
+				 * 
+				 * For jsonResult :
+				 * 		will have an array of array =>
+				 *	 		array	: that will contain array as elements
+				 *				arrayElement :	will contain htmlType to create and an array of attributes
+				 *					htmlType		:	htmlType to create of [node]
+				 *					attributeArray	:	an array of attributes
+				 *					attribute	:	attribute to create of
+				 *					value		:	value to set to
+				 *	
+				 */
+				
+				if(processedResult.type == VALIDATION_ERROR_RESULT){
+					validationError = true;
+				}else if(processedResult.type == JSON_RESULT){
+					jsonResult.push(processedResult.result);
+				}
+				
 			}catch(error){
-				throw new Error("During the pageUnloading process, an error occurred while invoking pageUnloading for appId [" + 
-									_namingContainerPrefixList[i].appId + "]");
+				validationError = true;
+				com.googlecode.jsfFlex.communication.logger.logMessage("During the pageUnloading process, an error occurred while invoking pageUnloading for appId [" + 
+																		namingContainerPrefixList[i].appId + "] : " + error, 5);
 			}
 		}
-		checkInterval = window.setInterval(checkUnLoadStatus, 1000);
-		return false;
-	}
-	
-	function updateValues(_jsonObjects){
-		/*
-		 * will have an array of array =>
-		 *	 array	: that will contain array as elements
-		 *		arrayElement :	will contain htmlType to create and an array of attributes
-		 *			htmlType		:	htmlType to create of [node]
-		 *			attributeArray	:	an array of attributes
-		 *				attribute	:	attribute to create of
-		 *				value		:	value to set to
-		 *	
-		 */
-		for(var i=0; i < _jsonObjects.length; i++){
-			appendElement(_jsonObjects[i]);
+		
+		var returnValue = true;
+		
+		if(validationError){
+			dojo.stopEvent(event);
+			returnValue = false;
+			event.returnValue = false;
+		}else{
+			//means all inputs passed validation
+			for(var i=0; i < jsonResult.length; i++){
+				for(var j=0; j < jsonResult[i].length; j++){
+					appendElement(jsonResult[i][j]);
+				}
+			}
 		}
-		currUnloaded++;
+		return returnValue;
 	}
 	
 	//callers
 	com.googlecode.jsfFlex.communication.core.amReady = amReady;
 	com.googlecode.jsfFlex.communication.core.pageLoad = pageLoad;
-    com.googlecode.jsfFlex.communication.core.updateValues = updateValues;
     
 })();

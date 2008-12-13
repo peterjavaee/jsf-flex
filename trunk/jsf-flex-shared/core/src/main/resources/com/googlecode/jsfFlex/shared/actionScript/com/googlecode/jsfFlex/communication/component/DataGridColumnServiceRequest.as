@@ -60,8 +60,8 @@ package com.googlecode.jsfFlex.communication.component
 			dataRequestParameters.componentId = _columnId;
 			dataRequestParameters.methodToInvoke = GET_FORMATED_COLUMN_DATA;
 			
-			_jsfFlexHttpServiceRequest.sendHttpRequest(JSF_FLEX_HTTP_SERVICE_REQUEST_LISTENER_URL, dataRequestParameters, 
-														this, function (lastResult:Object, event:ResultEvent):void {
+			_jsfFlexHttpServiceRequest.sendHttpRequest(JSF_FLEX_HTTP_SERVICE_REQUEST_LISTENER_URL, this,
+															function (lastResult:Object, event:ResultEvent):void {
 																_log.logInfo("Returned from service request : " + JSF_FLEX_HTTP_SERVICE_REQUEST_LISTENER_URL);
 																_log.logInfo("Data returned from servlet : " + lastResult);
 																_columnEntries = new XMLList(lastResult).VALUE;
@@ -73,7 +73,7 @@ package com.googlecode.jsfFlex.communication.component
 																	currObject[_dataField] = currValue.toString();
 																}
 																
-															}, JsfFlexHttpService.GET_METHOD, JsfFlexHttpService.E4X_RESULT_FORMAT, null);
+															}, dataRequestParameters, JsfFlexHttpService.GET_METHOD, JsfFlexHttpService.E4X_RESULT_FORMAT, null);
 			
 		}
 		

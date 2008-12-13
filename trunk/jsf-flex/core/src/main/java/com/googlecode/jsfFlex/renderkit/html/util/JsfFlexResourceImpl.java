@@ -169,9 +169,8 @@ class JsfFlexResourceImpl extends JsfFlexResource {
 			}
 			JsfFlexResourceElement jsfFlexResourceElementInstance = (JsfFlexResourceElement) instance;
 			
-			return this._jsfFlexComponent.getPackage().getName().equals( jsfFlexResourceElementInstance._jsfFlexComponent.getPackage().getName() ) &&
-					this._jsfFlexComponent.getName().equals( jsfFlexResourceElementInstance._jsfFlexComponent.getName() ) && 
-					this._resourceName.equals( jsfFlexResourceElementInstance._resourceName );
+			return _jsfFlexComponent.getPackage().getName().equals( jsfFlexResourceElementInstance._jsfFlexComponent.getPackage().getName() ) &&
+					_resourceName.equals( jsfFlexResourceElementInstance._resourceName );
 		}
 		
 		public int hashCode() {

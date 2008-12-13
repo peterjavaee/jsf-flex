@@ -37,17 +37,17 @@ import shutil
 
 class FileCopyTask(_JythonTaskPerformer):
 	def __init__(self, copyFile, copyDirParameters, copyTo):
-		self.__copyFile = copyFile
-		self.__copyDirParameters = copyDirParameters
-		self.__copyTo = copyTo
+		self.copyFile = copyFile
+		self.copyDirParameters = copyDirParameters
+		self.copyTo = copyTo
 		
 	def performTask(self):
-		if self.__copyFile:
-			shutil.copy2(self.__copyFile, self.__copyTo)
-		elif self.__copyDirParameters and self.__copyDirParameters.__len__() > 0:
-			shutil.copytree(self.__copyDirParameters[0], self.__copyTo)
+		if self.copyFile:
+			shutil.copy2(self.copyFile, self.copyTo)
+		elif self.copyDirParameters and self.copyDirParameters.__len__() > 0:
+			shutil.copytree(self.copyDirParameters[0], self.copyTo)
 			
 	def __str__(self):
-		print self.__copyFile, self.__copyDirParameters.__str__(), self.__copyTo
+		print self.copyFile, self.copyDirParameters.__str__(), self.copyTo
 	def __retr__(self):
 		self.__str__(self)

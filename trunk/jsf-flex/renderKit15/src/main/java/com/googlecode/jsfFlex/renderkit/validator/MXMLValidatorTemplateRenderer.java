@@ -27,6 +27,8 @@ import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.component.MXMLComponentRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
+import com.googlecode.jsfFlex.shared.context.MxmlContext;
 
 /**
  * @author Ji Hoon Kim
@@ -47,12 +49,20 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 )
 public class MXMLValidatorTemplateRenderer extends MXMLComponentRenderer {
 	
+	private static final String VALIDATION_MANAGER_IMPORT = "com.googlecode.jsfFlex.communication.validator.ValidationManager";
+	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLValidatorTemplateRenderer.class, componentObj, null);
+		
+		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		AdditionalApplicationScriptContent additionalAppScriptContent = mxmlContext.getAdditionalAppScriptContent();
+		additionalAppScriptContent.addValidationManagerValidatorId(componentObj.getId());
+		
+		additionalAppScriptContent.addActionScriptImport(VALIDATION_MANAGER_IMPORT);
 		
 	}
 	

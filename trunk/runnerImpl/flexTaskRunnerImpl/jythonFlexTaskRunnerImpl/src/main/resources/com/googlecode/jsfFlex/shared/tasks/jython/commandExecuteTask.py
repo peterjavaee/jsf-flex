@@ -35,11 +35,11 @@ import time
 
 class CommandExecuteTask(_JythonTaskPerformer):
 	def __init__(self, command, arguments):
-		self.__commandExecute = arguments if arguments else []
-		self.__commandExecute.insert(0, command)
+		self.commandExecute = arguments if arguments else []
+		self.commandExecute.insert(0, command)
 		
 	def performTask(self):
-		execute = Popen(self.__commandExecute)
+		execute = Popen(self.commandExecute)
 		executeThread = Thread(target=CommandExecuteTask.tillCompletion, args=(execute,))
 		executeThread.start()
 		executeThread.join()
@@ -50,7 +50,7 @@ class CommandExecuteTask(_JythonTaskPerformer):
 			time.sleep(300)
 	
 	def __str__(self):
-		print self.__commandExecute.__str__()
+		print self.commandExecute.__str__()
 	def __retr__(self):
 		self.__str__(self)
 	

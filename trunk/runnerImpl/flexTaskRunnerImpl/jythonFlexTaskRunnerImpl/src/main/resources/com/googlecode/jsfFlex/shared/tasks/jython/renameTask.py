@@ -33,18 +33,18 @@ import os.path
 
 class RenameTask(_JythonTaskPerformer):
 	def __init__(self, sourceFile, destFile, overWrite):
-		self.__sourceFile = sourceFile
-		self.__destFile = destFile
-		self.__overWrite = overWrite
+		self.sourceFile = sourceFile
+		self.destFile = destFile
+		self.overWrite = overWrite
 		
 	def performTask(self):
-		if self.__overWrite:
-			if os.path.exists(self.__destFile) :
-				os.remove(self.__destFile)
+		if self.overWrite:
+			if os.path.exists(self.destFile) :
+				os.remove(self.destFile)
 		
-		os.rename(self.__sourceFile, self.__destFile)
+		os.rename(self.sourceFile, self.destFile)
 	
 	def __str__(self):
-		print self.__sourceFile, self.__destFile, self.__overWrite
+		print self.sourceFile, self.destFile, self.overWrite
 	def __retr__(self):
 		self.__str__(self)

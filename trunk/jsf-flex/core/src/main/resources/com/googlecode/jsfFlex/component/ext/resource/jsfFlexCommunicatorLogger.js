@@ -54,28 +54,28 @@ if(!com.googlecode.jsfFlex.communication.logger){
 
 //private namespace
 (function() {
-	function logFlashMessage(_logMessage, _severity){
+	function logMessage(message, severity){
 		/*
 		 * For simplicity, currently is supported for FireFox:FireBug only
 		 * TODO: Consider supporting other browsers in the future
 		 */
 		
 		if(console){
-			switch(_severity){
-				case 1 :	console.log(_logMessage); return;
-				case 2 :	console.debug(_logMessage); return;
-				case 3 :	console.info(_logMessage); return;
-				case 4 :	console.warn(_logMessage); return;
-				case 5 :	console.error(_logMessage); return;
+			switch(severity){
+				case 1 :	console.log(message); return;
+				case 2 :	console.debug(message); return;
+				case 3 :	console.info(message); return;
+				case 4 :	console.warn(message); return;
+				case 5 :	console.error(message); return;
 			}
 		}else{
 			//at least throw an error for browsers without FireBug
-			if(_severity == 5){
-				throw new Error(_logMessage);
+			if(severity == 5){
+				throw new Error(message);
 			}
 		}
 	}
 	
 	//callers
-	com.googlecode.jsfFlex.communication.logger.logFlashMessage = logFlashMessage;
+	com.googlecode.jsfFlex.communication.logger.logMessage = logMessage;
 })();

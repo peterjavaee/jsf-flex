@@ -32,16 +32,16 @@ import os
 
 class DeleteTask(_JythonTaskPerformer):
 	def __init__(self, deleteResource, isDirectory):
-		self.__deleteResource = deleteResource
-		self.__isDirectory = isDirectory
+		self.deleteResource = deleteResource
+		self.isDirectory = isDirectory
 		
 	def performTask(self):
-		if self.__isDirectory:
-			os.rmdir(self.__deleteResource)
+		if self.isDirectory:
+			os.rmdir(self.deleteResource)
 		else:
-			os.remove(self.__deleteResource)
+			os.remove(self.deleteResource)
 			
 	def __str__(self):
-		print self.__deleteResource, self.__isDirectory
+		print self.deleteResource, self.isDirectory
 	def __retr__(self):
 		self.__str__(self)
