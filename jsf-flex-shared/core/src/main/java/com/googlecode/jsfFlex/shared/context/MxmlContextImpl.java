@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
 import com.googlecode.jsfFlex.shared.tasks._CommonTaskRunner;
 import com.googlecode.jsfFlex.shared.tasks._FileManipulatorTaskRunner;
@@ -43,14 +44,19 @@ import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
  */
 public class MxmlContextImpl extends MxmlContext {
 	
+	private final Map _preMxmlCompMap;
+	private final AdditionalApplicationScriptContent _additionalAppScriptContent;
+	private final List _applicationInitValueList;
+	
+	private final String _currMxml;
+	
+	private final _RunnerFactory _runnerFactoryInstance;
+	private final _FileManipulatorTaskRunner _fileManipulatorRunner;
+	private final _FlexTaskRunner _flexRunner;
+	private final _CommonTaskRunner _commonRunner;
+	
 	private boolean _productionEnv;
 	private boolean _simplySWF;
-	
-	private Map _preMxmlCompMap;
-	private AdditionalApplicationScriptContent _additionalAppScriptContent;
-	private List _applicationInitValueList;
-	
-	private String _currMxml;
 	
 	private String _mxmlPath;
 	private String _preMxmlPath;
@@ -60,16 +66,11 @@ public class MxmlContextImpl extends MxmlContext {
 	private String _swfBasePath;
 	private String _flexSDKPath;
 	
-	private _RunnerFactory _runnerFactoryInstance;
-	private _FileManipulatorTaskRunner _fileManipulatorRunner;
-	private _FlexTaskRunner _flexRunner;
-	private _CommonTaskRunner _commonRunner;
-	
-	public MxmlContextImpl(String currMxml){
+	public MxmlContextImpl(String currMxml, _MXMLApplicationContract currApplicationContract){
 		super();
 		_currMxml = currMxml;
 		_preMxmlCompMap = new TreeMap();
-		_additionalAppScriptContent = new AdditionalApplicationScriptContent();
+		_additionalAppScriptContent = new AdditionalApplicationScriptContent(_currMxml, currApplicationContract);
 		_applicationInitValueList = new LinkedList();
 		_runnerFactoryInstance = _RunnerFactory.getInstance();
 		_flexRunner = _runnerFactoryInstance.getFlexTaskRunnerImpl();
@@ -98,9 +99,6 @@ public class MxmlContextImpl extends MxmlContext {
 	}
 	public String getCurrMxml() {
 		return _currMxml;
-	}
-	public void setCurrMxml(String currMxml) {
-		_currMxml = currMxml;
 	}
 	public String getFlexSDKPath() {
 		return _flexSDKPath;

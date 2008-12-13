@@ -30,7 +30,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import com.googlecode.jsfFlex.shared.beans.tokenValue.PreMxmlTokenValue;
+import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 
 /**
@@ -89,7 +89,7 @@ public final class AnnotationDocletParser14Impl extends _AnnotationDocletParser 
 						}
 						
 						try{
-							PreMxmlTokenValue tokenValue = getMapper().mapField(replaceToken, componentObj);
+							TokenValue tokenValue = getMapper().mapField(replaceToken, componentObj);
 							if(tokenValue != null){
 								getTokenValueSet().add(tokenValue);
 							}

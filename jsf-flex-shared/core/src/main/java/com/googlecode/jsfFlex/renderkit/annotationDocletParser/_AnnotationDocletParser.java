@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.shared.beans.tokenValue.PreMxmlTokenValue;
+import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 
 /**
@@ -71,19 +71,19 @@ public abstract class _AnnotationDocletParser {
 	
 	abstract class _MXMLMapper {
 		
-		abstract PreMxmlTokenValue mapField(String tokenName, Object componentObj);
+		abstract TokenValue mapField(String tokenName, Object componentObj);
 		
 	}
 	
 	final _MXMLMapper MXML_ATTRIBUTE_MAPPER = new _MXMLMapper(){
-		PreMxmlTokenValue mapField(String tokenName, Object componentObj) {
+		TokenValue mapField(String tokenName, Object componentObj) {
 			//this class must have Object passed in as a MXMLContract
 			_MXMLContract comp = (_MXMLContract) componentObj;
 			Map attributeMap = comp.getAttributes();
 			Object obj;
 			
 			if(attributeMap != null && (obj = attributeMap.get(tokenName)) != null){
-				return new PreMxmlTokenValue(tokenName, obj.toString());
+				return new TokenValue(tokenName, obj.toString());
 			}
 			
 			return null;
@@ -91,7 +91,7 @@ public abstract class _AnnotationDocletParser {
 	};
 	
 	final _MXMLMapper MXML_METHOD_MAPPER = new _MXMLMapper(){
-		PreMxmlTokenValue mapField(String tokenName, Object componentObj) {
+		TokenValue mapField(String tokenName, Object componentObj) {
 			
 			try{
 				String searchMethodName = "get" + String.valueOf(tokenName.charAt(0)).toUpperCase() + tokenName.substring(1);
@@ -99,7 +99,7 @@ public abstract class _AnnotationDocletParser {
 				Object obj = method.invoke(componentObj, null);
 				
 				if(obj != null){
-					return new PreMxmlTokenValue(tokenName, obj);
+					return new TokenValue(tokenName, obj);
 				}
 				
 				return null;

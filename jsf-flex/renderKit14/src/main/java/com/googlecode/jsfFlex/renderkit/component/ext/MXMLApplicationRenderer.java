@@ -41,7 +41,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
-import com.googlecode.jsfFlex.shared.beans.tokenValue.PreMxmlTokenValue;
+import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.shared.util.MXMLAttributeConstants;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
@@ -133,7 +133,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		 * In Flex, id attribute is not allowed on the root tag of a component
 		 */
 		
-		componentMXML.getAnnotationDocletParserInstance().getTokenValueSet().remove(new PreMxmlTokenValue("id", null));
+		componentMXML.getAnnotationDocletParserInstance().getTokenValueSet().remove(new TokenValue("id", null));
 		writer.mapFields(MXMLApplicationRenderer.class, componentObj, MXML_APPLICATION_REPLACE_MAPPING);
 		
 		/*
@@ -141,7 +141,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		 * Because of the colon, the detection of qdox is giving issues. So for the time
 		 * being until a better solution is found, manually pull and push the info.
 		 */
-		componentMXML.getAnnotationDocletParserInstance().getTokenValueSet().add(new PreMxmlTokenValue(MX_KEY, componentMXML.getAttributes().get(MX_KEY).toString()));
+		componentMXML.getAnnotationDocletParserInstance().getTokenValueSet().add(new TokenValue(MX_KEY, componentMXML.getAttributes().get(MX_KEY).toString()));
 		
 	}
 	

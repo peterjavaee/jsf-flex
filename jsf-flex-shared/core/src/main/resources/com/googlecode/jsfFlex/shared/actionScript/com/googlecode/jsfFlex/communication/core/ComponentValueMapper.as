@@ -37,6 +37,8 @@ package com.googlecode.jsfFlex.communication.core
 	
 	public class ComponentValueMapper {
 		
+		private static const JSON_RESULT:String = "jsonResult";
+		
 		private static const LINE_FEED:String = "\n";
 		private static const LINE_FEED_ESCAPER:RegExp = /LINE_FEED/g;
 		
@@ -251,7 +253,7 @@ package com.googlecode.jsfFlex.communication.core
 			return {id: attributeId, value: attributeValue};
 		}
 		
-		public function getJSON(appInfo:Object):Array {
+		public function getJSON(appInfo:Object):Object {
 			var retVal:Array = new Array();
 			var objectCollection:ArrayCollection = new ArrayCollection(appInfo.arrayOfIds);
 			var inspectedObject:Object;
@@ -262,7 +264,7 @@ package com.googlecode.jsfFlex.communication.core
 					retVal.push(inspectedObject);
 				}
 			}
-			return retVal;
+			return {type: JSON_RESULT, result: retVal};
 		}
 		
 		private function objectInfo(_appId:String, objectToGet:String):Object {

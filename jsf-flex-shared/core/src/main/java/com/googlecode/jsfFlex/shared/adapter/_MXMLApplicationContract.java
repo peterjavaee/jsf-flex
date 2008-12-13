@@ -53,4 +53,35 @@ public interface _MXMLApplicationContract extends _MXMLContract {
 	
 	boolean isAccessible();
 	
+	/*
+	 * Error attributes for ValidationManagerScriptContent.java
+	 */
+	String getErrorColor();
+	
+	String getErrorFontAntiAliasType();
+	
+	String getErrorFontFamily();
+	
+	String getErrorFontGridFitType();
+	
+	String getErrorFontSharpness();
+	
+	String getErrorFontSize();
+	
+	String getErrorFontStyle();
+	
+	String getErrorFontThickness();
+	
+	String getErrorFontWeight();
+	
+	String getErrorPaddingLeft();
+	
+	String getErrorPaddingRight();
+	
+	String getErrorTextAlign();
+	
+	String getErrorTextDecoration();
+	
+	String getErrorTextIndent();
+	
 }

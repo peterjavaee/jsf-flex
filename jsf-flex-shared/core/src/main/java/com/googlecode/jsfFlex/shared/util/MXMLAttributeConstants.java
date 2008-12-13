@@ -36,6 +36,20 @@ public final class MXMLAttributeConstants {
 	/** Style Attributes */
 	public static final String HEIGHT_ATTR = "height";
 	public static final String WIDTH_ATTR = "width";
+	public static final String COLOR_ATTR = "color";
+	public static final String FONT_ANTI_ALIAS_TYPE_ATTR = "fontAntiAliasType";
+	public static final String FONT_FAMILY_ATTR = "fontFamily";
+	public static final String FONT_GRID_FIT_TYPE_ATTR = "fontGridFitType";
+	public static final String FONT_SHARPNESS_ATTR = "fontSharpness";
+	public static final String FONT_SIZE_ATTR = "fontSize";
+	public static final String FONT_STYLE_ATTR = "fontStyle";
+	public static final String FONT_THICKNESS_ATTR = "fontThickness";
+	public static final String FONT_WEIGHT_ATTR = "fontWeight";
+	public static final String PADDING_LEFT_ATTR = "paddingLeft";
+	public static final String PADDING_RIGHT_ATTR = "paddingRight";
+	public static final String TEXT_ALIGN_ATTR = "textAlign";
+	public static final String TEXT_DECORATION_ATTR = "textDecoration";
+	public static final String TEXT_INDENT_ATTR = "textIndent";
 	
 	/** Specific Attributes that should be centralized */
 	public static final String SRC_ATTR = "src";

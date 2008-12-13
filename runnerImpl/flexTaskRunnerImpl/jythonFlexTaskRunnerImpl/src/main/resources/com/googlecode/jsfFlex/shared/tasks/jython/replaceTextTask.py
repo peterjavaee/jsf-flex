@@ -33,37 +33,37 @@ from renameTask import RenameTask
 
 class ReplaceTextTask(_JythonTaskPerformer):
 	def __init__(self, fileName, replaceDictionary, replaceAllOccurrence):
-		self.__file = fileName
-		self.__replaceDictionary = replaceDictionary
-		self.__replaceAllOccurrence = replaceAllOccurrence
+		self.fileName = fileName
+		self.replaceDictionary = replaceDictionary
+		self.replaceAllOccurrence = replaceAllOccurrence
 	
 	"""
 	TODO: Must implement it better in the future
 	"""	
 	def performTask(self):
-		_replaceFileName = self.__file.split(".");
-		_replaceFileName = ( _replaceFileName[0] + '.tmp' 
-								if _replaceFileName and _replaceFileName.__len__() > 0 else _self.__file + 'tmp')
+		replaceFileName = self.fileName.split(".");
+		replaceFileName = ( replaceFileName[0] + '.tmp' 
+								if replaceFileName and replaceFileName.__len__() > 0 else self.fileName + 'tmp')
 		
-		__tempFile = open(_replaceFileName, 'w')
-		fileReaderIter = ( self.__processInfo(lineContent) for lineContent in open(self.__file) )
+		tempFile = open(replaceFileName, 'w')
+		fileReaderIter = ( self.__processInfo(lineContent) for lineContent in open(self.fileName) )
 		
 		for content in fileReaderIter
-			_tempFile.write(content)
+			tempFile.write(content)
 		
-		__tempFile.flush()
-		__tempFile.close()
-		_toRename = RenameTask(_replaceFileName, self.__file, 1)
-		_toRename.performTask()
+		tempFile.flush()
+		tempFile.close()
+		toRename = RenameTask(replaceFileName, self.fileName, 1)
+		toRename.performTask()
 		
 	def __processInfo(self, lineContent):
-		for key in self.__replaceDictionary:
+		for key in self.replaceDictionary:
 			if key:
-				lineContent = re.sub(key, self.__replaceDictionary[key], lineContent, self.__replaceAllOccurrence)
+				lineContent = re.sub(key, self.replaceDictionary[key], lineContent, self.replaceAllOccurrence)
 		
 		return lineContent
 		
 	def __str__(self):
-		print self.__file, self.__replaceDictionary.__str__(), self.__replaceAllOccurrence.__str__()
+		print self.fileName, self.replaceDictionary.__str__(), self.replaceAllOccurrence.__str__()
 	def __retr__(self):
 		self.__str__(self)

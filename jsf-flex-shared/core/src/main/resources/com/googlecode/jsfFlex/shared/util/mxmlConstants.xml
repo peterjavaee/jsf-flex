@@ -19,6 +19,7 @@
       <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/logger/JavaScriptLogger.as</source-file>
       <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/logger/LoggerFactory.as</source-file>
       <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/services/JsfFlexHttpService.as</source-file>
+      <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/validator/ValidationManager.as</source-file>
     </swc-source-files>
     <swf-source-files>
       <source-file>com/googlecode/jsfFlex/shared/swfSourceFiles/componentValueMapper.xml</source-file>

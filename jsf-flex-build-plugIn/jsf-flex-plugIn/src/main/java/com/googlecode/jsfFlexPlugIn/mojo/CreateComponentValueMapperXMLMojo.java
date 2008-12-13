@@ -150,7 +150,7 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 			}
 			
 			ClassInfo classInfoInstance = (ClassInfo) instance;
-			return this._fullClassName.equals(classInfoInstance._fullClassName);
+			return _fullClassName.equals(classInfoInstance._fullClassName);
 		}
 		
 		@Override

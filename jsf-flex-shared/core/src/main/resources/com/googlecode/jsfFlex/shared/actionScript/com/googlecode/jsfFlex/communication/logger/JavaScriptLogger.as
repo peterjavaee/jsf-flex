@@ -30,7 +30,7 @@ package com.googlecode.jsfFlex.communication.logger
 	internal class JavaScriptLogger extends AbstractLogger {
 		
 		private static const CLASS_NAME_DELIM:String = ":";
-		private static const JS_COMMUNICATION_LOG_FLASH_MESSAGE_FUNCTION:String = "com.googlecode.jsfFlex.communication.logger.logFlashMessage";
+		private static const JS_COMMUNICATION_LOG_MESSAGE_FUNCTION:String = "com.googlecode.jsfFlex.communication.logger.logMessage";
 		
 		private var CLASS_NAME:String = new String();
 		
@@ -41,7 +41,7 @@ package com.googlecode.jsfFlex.communication.logger
 		
 		override public function logMessage(message:String, severity:int):void {
 			message = CLASS_NAME + " : " + message;
-			ExternalInterface.call(JS_COMMUNICATION_LOG_FLASH_MESSAGE_FUNCTION, message, severity);
+			ExternalInterface.call(JS_COMMUNICATION_LOG_MESSAGE_FUNCTION, message, severity);
 		}
 		
 	}
