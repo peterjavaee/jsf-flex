@@ -37,7 +37,7 @@ http://jsf-flex.googlecode.com/svn/wiki/importWarEclipseTomCat60.jpg
   <filter-class>com.googlecode.jsfFlex.filter.JsfFlexResourceFilter</filter-class>
 </filter>
 	
-<!-- The below filter-mapping is to generate a standard <script> html elements within the html head, so to have jsfFlex/* filter-mapping generate those resources  -->
+<!-- The below filter-mapping is to generate a standard <script> html elements within the html head, so to have /jsfFlexResourceRequest/* filter-mapping generate those resources  -->
 <filter-mapping>
   <filter-name>jsfFlexResourceFilter</filter-name>
   <url-pattern>*.jsf</url-pattern>
