@@ -41,7 +41,7 @@ This page contains brief overview in importing the project into Eclipse 3.4.0 fo
 
 <!--
   The below filter-mapping is to generate a standard <script> html
-  elements within the html head, so to have jsfFlex/* filter-mapping
+  elements within the html head, so to have /jsfFlexResourceRequest/* filter-mapping
   generate those resources
 -->
 <filter-mapping>
