@@ -37,5 +37,3 @@ on application server {{{TomCat}}} 6.0 and {{{JBoss}}} 4.2.
 || Windows XP         || Firefox 2.0 , IE 6.0, Opera 9.25 || {{{TomCat}}} 6.0, {{{JBoss}}} 4.2           ||
 || Linux              || TODO                             || TODO                       ||
 || Mac                || TODO                             || TODO                       ||
-
- * Supporting Facelets. {Hazem Saleh}
