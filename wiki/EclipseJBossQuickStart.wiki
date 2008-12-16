@@ -26,6 +26,17 @@ This page contains brief overview in importing the project into Eclipse 3.4.0 fo
  # Then modify web.xml by adding the following content :
 {{{
 <context-param>
+  <description>
+    For JSF Flex Flash To JavaScript Log Level, possible values are (Log, Debug, Info, 
+    Warn, Error)  If the field is not provided, it will make a decision based on 
+    com.googlecode.jsfFlex.MODE with production being Error and non-production being Log
+  </description>
+  <param-name>com.googlecode.jsfFlex.FlashToJavaScriptLogLevel</param-name>
+  <param-value>Info</param-value>
+</context-param>
+
+
+<context-param>
   <description> 
     For JSF Flex build mode, possible values are (debugMode,
     simplySwfMode, productionMode [default])
