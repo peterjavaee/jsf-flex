@@ -62,6 +62,7 @@ import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDoclet
 import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexDojoResource;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.shared.beans.others.JsfFlexFlashApplicationConfiguration;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.shared.context.MxmlContextImpl;
 import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
@@ -272,15 +273,15 @@ public abstract class AbstractMXMLUIApplication
 		
 		MxmlContext mxmlContext = new MxmlContextImpl(getMxmlPackageName(), this);
 		
-		Object mode = context.getExternalContext().getInitParameter(MXMLConstants.CONFIG_MODE_NAME);
+		String mode = context.getExternalContext().getInitParameter(MXMLConstants.CONFIG_MODE_NAME);
 		
 		boolean isSimplySwf = false;
 		boolean isProduction = true;
 		
 		if(mode != null){
 			
-			isSimplySwf = mode.toString().equals(MXMLConstants.SIMPLY_SWF_MODE);
-			isProduction = mode.toString().equals(MXMLConstants.PRODUCTION_MODE);
+			isSimplySwf = mode.equals(MXMLConstants.SIMPLY_SWF_MODE);
+			isProduction = mode.equals(MXMLConstants.PRODUCTION_MODE);
 			
 		}
 		
@@ -327,6 +328,31 @@ public abstract class AbstractMXMLUIApplication
 			mxmlContext.setSwfPath(swfPath);
 			mxmlContext.setSwfBasePath(swfBasePath);
 			mxmlContext.setSwcPath(swcPath);
+			
+			//set the attributes for jsfFlexFlashApplicationConfiguration
+			JsfFlexFlashApplicationConfiguration jsfFlexFlashApplicationConfiguration = mxmlContext.getJsfFlexFlashApplicationConfiguration();
+			String flashToJavaScriptLogLevel = context.getExternalContext().getInitParameter(MXMLConstants.FLASH_TO_JAVASCRIPT_LOG_LEVEL_NAME);
+			if(flashToJavaScriptLogLevel == null){
+				
+				flashToJavaScriptLogLevel = context.getExternalContext().getInitParameter(MXMLConstants.CONFIG_MODE_NAME);
+				if(flashToJavaScriptLogLevel.equals(MXMLConstants.PRODUCTION_MODE)){
+					flashToJavaScriptLogLevel = MXMLConstants.FLASH_TO_JAVASCRIPT_LOG_WARN_LEVEL;
+				}else{
+					flashToJavaScriptLogLevel = MXMLConstants.FLASH_TO_JAVASCRIPT_LOG_LOG_LEVEL;
+				}
+			}
+			
+			if(flashToJavaScriptLogLevel.equals(MXMLConstants.FLASH_TO_JAVASCRIPT_LOG_LOG_LEVEL)){
+				jsfFlexFlashApplicationConfiguration.setFlashToJavaScriptLogMode("1");
+			}else if(flashToJavaScriptLogLevel.equals(MXMLConstants.FLASH_TO_JAVASCRIPT_LOG_DEBUG_LEVEL)){
+				jsfFlexFlashApplicationConfiguration.setFlashToJavaScriptLogMode("2");
+			}else if(flashToJavaScriptLogLevel.equals(MXMLConstants.FLASH_TO_JAVASCRIPT_LOG_INFO_LEVEL)){
+				jsfFlexFlashApplicationConfiguration.setFlashToJavaScriptLogMode("3");
+			}else if(flashToJavaScriptLogLevel.equals(MXMLConstants.FLASH_TO_JAVASCRIPT_LOG_WARN_LEVEL)){
+				jsfFlexFlashApplicationConfiguration.setFlashToJavaScriptLogMode("4");
+			}else {
+				jsfFlexFlashApplicationConfiguration.setFlashToJavaScriptLogMode("5");
+			}
 			
 			if(isSimplySwf){
 				//do not need to create preMXML files

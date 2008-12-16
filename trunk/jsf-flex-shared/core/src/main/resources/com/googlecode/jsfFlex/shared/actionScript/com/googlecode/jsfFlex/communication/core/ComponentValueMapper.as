@@ -65,7 +65,6 @@ package com.googlecode.jsfFlex.communication.core
 			_loader = new URLLoader();
 			
 			_loader.addEventListener(Event.COMPLETE, function (event:Event):void {
-										var _loader:URLLoader = URLLoader(event.target);
 										_loader.removeEventListener(Event.COMPLETE, arguments.callee, false);
 										_compValueMapper = new XML(_loader.data);
 									});

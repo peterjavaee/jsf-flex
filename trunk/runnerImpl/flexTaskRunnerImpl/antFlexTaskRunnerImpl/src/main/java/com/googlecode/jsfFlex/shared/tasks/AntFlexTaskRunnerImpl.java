@@ -50,9 +50,6 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 	private final static Log _log = LogFactory.getLog(AntFlexTaskRunnerImpl.class);
 	
 	private static final String ACTION_SCRIPT_DIR_NAME = "actionScript";
-	private static final String ABSTRACT_LOGGER_AS_FILE_NAME = "AbstractLogger.as";
-	private static final String LOG_MODE_TOKEN = "{logModeToken}";
-	
 	
 	AntFlexTaskRunnerImpl(){
 		super();
@@ -121,17 +118,6 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 			EchoTask curr = new EchoTask(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), currSystemSource), fileName); 
 			addTask(curr);
 			
-			if(fileName.indexOf(ABSTRACT_LOGGER_AS_FILE_NAME) > 0){
-				//means LoggerFactory, set the log mode
-				
-				MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-				String logMode = mxmlContext.isProductionEnv() ? "5" : "1";
-				ReplaceTextTask logModeSetter = new ReplaceTextTask(fileName);
-				logModeSetter.addTokenValue(LOG_MODE_TOKEN, logMode);
-				logModeSetter.multiLineReplace(true);
-				
-				addTask(logModeSetter);
-			}
 		}
 		
 		//now flush out the swc config file

@@ -25,6 +25,7 @@ import java.util.TreeMap;
 
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
+import com.googlecode.jsfFlex.shared.beans.others.JsfFlexFlashApplicationConfiguration;
 import com.googlecode.jsfFlex.shared.tasks._CommonTaskRunner;
 import com.googlecode.jsfFlex.shared.tasks._FileManipulatorTaskRunner;
 import com.googlecode.jsfFlex.shared.tasks._FlexTaskRunner;
@@ -46,6 +47,7 @@ public class MxmlContextImpl extends MxmlContext {
 	
 	private final Map _preMxmlCompMap;
 	private final AdditionalApplicationScriptContent _additionalAppScriptContent;
+	private final JsfFlexFlashApplicationConfiguration _jsfFlexFlashApplicationConfiguration;
 	private final List _applicationInitValueList;
 	
 	private final String _currMxml;
@@ -71,6 +73,7 @@ public class MxmlContextImpl extends MxmlContext {
 		_currMxml = currMxml;
 		_preMxmlCompMap = new TreeMap();
 		_additionalAppScriptContent = new AdditionalApplicationScriptContent(_currMxml, currApplicationContract);
+		_jsfFlexFlashApplicationConfiguration = new JsfFlexFlashApplicationConfiguration();
 		_applicationInitValueList = new LinkedList();
 		_runnerFactoryInstance = _RunnerFactory.getInstance();
 		_flexRunner = _runnerFactoryInstance.getFlexTaskRunnerImpl();
@@ -105,6 +108,9 @@ public class MxmlContextImpl extends MxmlContext {
 	}
 	public void setFlexSDKPath(String flexSDKPath) {
 		_flexSDKPath = flexSDKPath;
+	}
+	public JsfFlexFlashApplicationConfiguration getJsfFlexFlashApplicationConfiguration() {
+		return _jsfFlexFlashApplicationConfiguration;
 	}
 	public String getMxmlPath() {
 		return _mxmlPath;
