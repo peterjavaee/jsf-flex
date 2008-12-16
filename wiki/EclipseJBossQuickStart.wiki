@@ -35,7 +35,6 @@ This page contains brief overview in importing the project into Eclipse 3.4.0 fo
   <param-value>Info</param-value>
 </context-param>
 
-
 <context-param>
   <description> 
     For JSF Flex build mode, possible values are (debugMode,
