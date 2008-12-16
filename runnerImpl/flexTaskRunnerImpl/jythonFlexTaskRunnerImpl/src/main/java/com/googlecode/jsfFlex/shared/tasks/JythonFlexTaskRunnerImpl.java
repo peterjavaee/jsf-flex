@@ -57,13 +57,7 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 	private final static Log _log = LogFactory.getLog(JythonFlexTaskRunnerImpl.class);
 	
 	private static final String ACTION_SCRIPT_DIR_NAME = "actionScript";
-	private static final String ABSTRACT_LOGGER_AS_FILE_NAME = "AbstractLogger.as";
-	private static final String LOG_MODE_TOKEN = "{logModeToken}";
 	private static final String PYTHON_HOME = "python.home";
-	
-	JythonFlexTaskRunnerImpl(){
-		super();
-	}
 	
 	static{
 		
@@ -93,6 +87,10 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 			throw new RuntimeException(jythonInitializationException);
 		}
 		
+	}
+	
+	JythonFlexTaskRunnerImpl(){
+		super();
 	}
 	
 	public void copyFile(String fileToCopy, String fileToCopyTo) {
@@ -157,16 +155,6 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 			toEcho.message(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), currSystemSource));
 			addTask(toEcho);
 			
-			if(fileName.indexOf(ABSTRACT_LOGGER_AS_FILE_NAME) > 0){
-				//means LoggerFactory, set the log mode
-				
-				MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-				String logMode = mxmlContext.isProductionEnv() ? "5" : "1";
-				ReplaceTextTask logModeSetter = new ReplaceTextTask(fileName);
-				logModeSetter.addTokenValue(LOG_MODE_TOKEN, logMode);
-				
-				addTask(logModeSetter);
-			}
 		}
 		
 		//now flush out the swc config file

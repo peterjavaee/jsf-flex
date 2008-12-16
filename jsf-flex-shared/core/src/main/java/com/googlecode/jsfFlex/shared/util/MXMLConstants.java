@@ -39,6 +39,13 @@ import org.xml.sax.helpers.DefaultHandler;
  */
 public final class MXMLConstants {
 	
+	public static final String FLASH_TO_JAVASCRIPT_LOG_LEVEL_NAME = "com.googlecode.jsfFlex.FlashToJavaScriptLogLevel";
+	public static final String FLASH_TO_JAVASCRIPT_LOG_LOG_LEVEL = "Log";
+	public static final String FLASH_TO_JAVASCRIPT_LOG_DEBUG_LEVEL = "Debug";
+	public static final String FLASH_TO_JAVASCRIPT_LOG_INFO_LEVEL = "Info";
+	public static final String FLASH_TO_JAVASCRIPT_LOG_WARN_LEVEL = "Warn";
+	public static final String FLASH_TO_JAVASCRIPT_LOG_ERROR_LEVEL = "Error";
+	
 	public static final String CONFIG_MODE_NAME = "com.googlecode.jsfFlex.MODE";
 	public static final String SIMPLY_SWF_MODE = "simplySwfMode";
 	public static final String PRODUCTION_MODE = "productionMode";
