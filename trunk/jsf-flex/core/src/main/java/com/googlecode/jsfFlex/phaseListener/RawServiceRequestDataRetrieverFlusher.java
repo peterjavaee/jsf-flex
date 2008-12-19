@@ -51,14 +51,16 @@ final class RawServiceRequestDataRetrieverFlusher extends _ServiceRequestDataRet
 		HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();
 		response.setContentType(PLAIN_CONTENT_TYPE);
 		
-		Writer writer = response.getWriter();
-		
-		for(Iterator iterate = objectCollection.iterator(); iterate.hasNext();){
-			Object currObj = iterate.next();
-			writer.write(currObj.toString());
+		if(objectCollection != null){
+			Writer writer = response.getWriter();
+			
+			for(Iterator iterate = objectCollection.iterator(); iterate.hasNext();){
+				Object currObj = iterate.next();
+				writer.write(currObj.toString());
+			}
+			
+			writer.flush();
 		}
-		
-		writer.flush();
 		
 	}
 	

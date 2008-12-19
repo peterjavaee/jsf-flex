@@ -18,7 +18,7 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import java.util.Collection;
+import java.util.List;
 
 /**
  * @author Ji Hoon Kim
@@ -33,8 +33,8 @@ public interface _MXMLUIColumnData {
 	 *    rtexprvalue     = false
 	 *    desc            = "Collection of column data that will be provided as a service."
 	 */
-	Collection getColumnData();
+	List getColumnData();
 	
-	Collection getFormatedColumnData();
+	List getFormatedColumnData();
 	
 }

@@ -19,10 +19,19 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import java.io.IOException;
-import java.util.Collection;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIColumnData;
@@ -296,9 +305,22 @@ public abstract class AbstractMXMLUIDataGridColumn
 						extends MXMLUISimpleBase 
 						implements _MXMLUIColumnData, _MXMLUIDataFieldAttribute {
 	
+	private final static Log _log = LogFactory.getLog(AbstractMXMLUIDataGridColumn.class);
+	
+	private static final String REQUEST_KEYS_KEY = "requestKeys";
+	private static final String RESULT_CODE_KEY = "resultCode";
+	
+	private Set _modifiedDataFieldSet;
+	
+	public List getFormatedColumnData(){
+		// for more complicated Grids, the return data might consist of XML entries
+		return getColumnData();
+	}
+	
 	public void encodeEnd(FacesContext context) throws IOException {
 		super.encodeEnd(context);
 		
+		_modifiedDataFieldSet = new LinkedHashSet();
 		/*
 		 * adding the component to the map for future asynchronous request reference by
 		 * DataGridColumnServiceRequest.as
@@ -310,14 +332,78 @@ public abstract class AbstractMXMLUIDataGridColumn
 	public void decode(FacesContext context) {
 		super.decode(context);
 		
-		//No longer needed, so remove the content
+		/*
+		 * No longer needed, so remove the content.
+		 * Below is a pure HACK : Figure out why new instance is created rather than restoring the view.
+		 */
 		Map sessionMap = context.getExternalContext().getSessionMap();
-		sessionMap.remove(getId());
+		AbstractMXMLUIDataGridColumn instance = (AbstractMXMLUIDataGridColumn) sessionMap.remove(getId());
+		_modifiedDataFieldSet = instance._modifiedDataFieldSet;
+		
+		List columnData = getColumnData();
+		
+		//Set modifiedDataFieldSet
+		for(Iterator keyIterator = _modifiedDataFieldSet.iterator(); keyIterator.hasNext();){
+			ModifiedDataField currModifiedDataField = (ModifiedDataField) keyIterator.next();
+			columnData.set(currModifiedDataField._rowIndex, currModifiedDataField._modifiedValue);
+		}
+		
 	}
 	
-	public Collection getFormatedColumnData(){
-		// for more complicated Grids, the return data might consist of XML entries
-		return getColumnData();
+	public Map updateModifiedDataField(){
+		Map updateResult = new LinkedHashMap();
+		boolean success = true;
+		FacesContext context = FacesContext.getCurrentInstance();
+		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+		String requestKey = (String) request.getParameter(REQUEST_KEYS_KEY);
+		List requestKeyList = Arrays.asList(requestKey.split(","));
+		
+		for(Iterator keyIterator = requestKeyList.iterator(); keyIterator.hasNext();){
+			String actualCurrKey = (String) keyIterator.next();
+			String currValue = (String) request.getParameter(actualCurrKey);
+			
+			int rowIndex;
+			
+			try{
+				rowIndex = Integer.parseInt(actualCurrKey);
+			}catch(NumberFormatException parsingException){
+				_log.info("Error parsing of " + actualCurrKey + " to an int", parsingException);
+				continue;
+			}
+			
+			ModifiedDataField currModifiedDataField = new ModifiedDataField(rowIndex, currValue);
+			synchronized(_modifiedDataFieldSet){
+				_modifiedDataFieldSet.add(currModifiedDataField);
+			}
+		}
+		
+		updateResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
+		return updateResult;
+	}
+	
+	private static class ModifiedDataField {
+		
+		private final int _rowIndex;
+		private final String _modifiedValue;
+		
+		private ModifiedDataField(int rowIndex, String modifiedValue){
+			super();
+			_rowIndex = rowIndex;
+			_modifiedValue = modifiedValue;
+		}
+		
+		public boolean equals(Object instance) {
+			if(!(instance instanceof ModifiedDataField)){
+				return false;
+			}
+			
+			ModifiedDataField modifiedDataFieldInstance = (ModifiedDataField) instance;
+			return _rowIndex == modifiedDataFieldInstance._rowIndex;
+		}
+		public int hashCode() {
+			return _rowIndex;
+		}
+		
 	}
 	
 }

@@ -62,11 +62,13 @@ final class XMLServiceRequestDataRetrieverFlusher extends _ServiceRequestDataRet
 		writer.write(XML_HEAD);
 		
 		writer.write(XML_RESULT_ROOT_START_TAG);
-		for(Iterator iterate = objectCollection.iterator(); iterate.hasNext();){
-			Object currObj = iterate.next();
-			writer.write(XML_VALUE_START_TAG);
-			writer.write(currObj.toString());
-			writer.write(XML_VALUE_END_TAG);
+		if(objectCollection != null){
+			for(Iterator iterate = objectCollection.iterator(); iterate.hasNext();){
+				Object currObj = iterate.next();
+				writer.write(XML_VALUE_START_TAG);
+				writer.write(currObj.toString());
+				writer.write(XML_VALUE_END_TAG);
+			}
 		}
 		writer.write(XML_RESULT_ROOT_END_TAG);
 		

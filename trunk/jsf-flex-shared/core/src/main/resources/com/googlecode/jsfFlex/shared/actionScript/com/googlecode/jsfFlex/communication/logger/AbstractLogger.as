@@ -47,9 +47,10 @@ package com.googlecode.jsfFlex.communication.logger
 			_loader = new URLLoader();
 			
 			_loader.addEventListener(Event.COMPLETE, function (event:Event):void {
-										_loader.removeEventListener(Event.COMPLETE, arguments.callee, false);
+										_loader.removeEventListener(Event.COMPLETE, arguments.callee);
 										var jsfFlexFlashApplicationConfig:XML = new XML(_loader.data);
 										_logMode = int(jsfFlexFlashApplicationConfig.flash_to_javascript_log_level.toString());
+										_loader = null;
 										clearInterval(_clearIntervalRef);
 										logPreLogModeSettingMessages();
 									});

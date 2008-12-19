@@ -53,16 +53,18 @@ final class NameValueServiceRequestDataRetrieverFlusher extends _ServiceRequestD
 		HttpServletResponse response = (HttpServletResponse) context.getExternalContext().getResponse();
 		response.setContentType(PLAIN_CONTENT_TYPE);
 		
-		Writer writer = response.getWriter();
-		
-		for(Iterator iterate = objectMap.keySet().iterator(); iterate.hasNext();){
-			Object currKey = iterate.next();
-			Object currValue = objectMap.get(currKey);
-			String statementToWrite = currKey.toString() + EQUAL_CHAR + currValue.toString();
-			writer.write(statementToWrite);
+		if(objectMap != null){
+			Writer writer = response.getWriter();
+			
+			for(Iterator iterate = objectMap.keySet().iterator(); iterate.hasNext();){
+				Object currKey = iterate.next();
+				Object currValue = objectMap.get(currKey);
+				String statementToWrite = currKey.toString() + EQUAL_CHAR + currValue.toString();
+				writer.write(statementToWrite);
+			}
+			
+			writer.flush();
 		}
-		
-		writer.flush();
 		
 	}
 	

@@ -29,7 +29,6 @@ package com.googlecode.jsfFlex.communication.core
 	import flash.net.URLRequest;
 	import flash.utils.getQualifiedClassName;
 	
-	import mx.collections.ArrayCollection;
 	import mx.core.UIComponent;
 	
 	import com.googlecode.jsfFlex.communication.logger.ILogger;
@@ -65,8 +64,9 @@ package com.googlecode.jsfFlex.communication.core
 			_loader = new URLLoader();
 			
 			_loader.addEventListener(Event.COMPLETE, function (event:Event):void {
-										_loader.removeEventListener(Event.COMPLETE, arguments.callee, false);
+										_loader.removeEventListener(Event.COMPLETE, arguments.callee);
 										_compValueMapper = new XML(_loader.data);
+										_loader = null;
 									});
 			
 			try{
@@ -94,33 +94,29 @@ package com.googlecode.jsfFlex.communication.core
 		}
 		
 		public function populateInitValues(appInfo:Object):void {
-			var objectCollection:ArrayCollection = new ArrayCollection(appInfo.arrayOfIds);
-			var attributeCollection:ArrayCollection;
+			var initValueObjects:Array = appInfo.initValueObjects;
 			
-			var currId:String;
-			var currAttr:String;
-			var currValue:Object;
-			var currValueString:String;
-			var objectRef:Object;
-			
-			for each (var currObject:Object in objectCollection){
+			for each (var currInitValueObject:Object in initValueObjects){
 				
-				if(currObject.id == null || currObject.initValues == null){
+				if(currInitValueObject.id == null || currInitValueObject.initValues == null){
 					continue;
 				}
 				
-				currId = currObject.id as String;
-				attributeCollection = new ArrayCollection(currObject.initValues);
-				for each (var currAttrObject:Object in attributeCollection){
+				var currId:String = currInitValueObject.id as String;
+				var initValues:Array = currInitValueObject.initValues;
+				for each (var currInitValue:Object in initValues){
 					
-					if(currAttrObject.attribute != null && (currValue = currAttrObject.value) != null && currAttrObject.attribute is String){
+					var currValue:Object;
+					if(currInitValue.attribute != null && (currValue = currInitValue.value) != null && currInitValue.attribute is String){
 						
-						currAttr = currAttrObject.attribute as String;
+						var currAttr:String = currInitValue.attribute as String;
 						
 						if(currValue != null){
+							var objectRef:Object;
+							
 							if(currValue is String){
 								
-								currValueString = currValue as String;
+								var currValueString:String = currValue as String;
 								if(currValueString != NULL_STRING){
 									objectRef = _refApp[currId];
 									currValueString = unEscapeCharacters(currValueString);
@@ -170,17 +166,15 @@ package com.googlecode.jsfFlex.communication.core
 				return null;
 			}
 			
-			var attributeValueObject:Object;
 			var valueToReturn:Array = new Array();
-			var classInfoNodeAttributes:XMLList;
 			
 			for each (var classInfoNode:XML in classInfoNodes){
-				classInfoNodeAttributes = classInfoNode.attribute_list.attribute;
+				var classInfoNodeAttributes:XMLList = classInfoNode.attribute_list.attribute;
 				
 				for each (var attribute:XML in classInfoNodeAttributes){
 					if(attribute.name.toString() == VALUE_ATTR){
 						
-						attributeValueObject = getAttributeValue(attribute, objectRef);
+						var attributeValueObject:Object = getAttributeValue(attribute, objectRef);
 						
 						if(attributeValueObject.value == null){
 							continue;
@@ -196,23 +190,16 @@ package com.googlecode.jsfFlex.communication.core
 		
 		private function getAttributeValue(attribute:XML, objectRef:Object):Object {
 			
-			var attributeValue:String;
-			var attributeId:String;
-			
-			var toAppend:String;
-			var isDynamic:Boolean;
-			var isNested:Boolean;
-			
-			var attributeCheck:XMLList;
-			var nestedObjects:XMLList;
-			
-			attributeCheck = attribute.value.(hasOwnProperty(APPEND_E4X_ATTR));
-			toAppend = (attributeCheck != null && attributeCheck.length() > 0) ? attribute.value.@append.toString() : new String();
+			var attributeCheck:XMLList = attribute.value.(hasOwnProperty(APPEND_E4X_ATTR));
+			var toAppend:String = (attributeCheck != null && attributeCheck.length() > 0) ? attribute.value.@append.toString() : new String();
 			
 			attributeCheck = attribute.value.(hasOwnProperty(NESTED_E4X_ATTR));
-			isNested = (attributeCheck != null && attributeCheck.length() > 0 && attribute.value.@nested.toString() == "true");
+			var isNested:Boolean = (attributeCheck != null && attributeCheck.length() > 0 && attribute.value.@nested.toString() == "true");
 			attributeCheck = attribute.value.(hasOwnProperty(DYNAMIC_E4X_ATTR));
-			isDynamic = (attributeCheck != null && attributeCheck.length() > 0 && attribute.value.@dynamic.toString() == "true");
+			var isDynamic:Boolean = (attributeCheck != null && attributeCheck.length() > 0 && attribute.value.@dynamic.toString() == "true");
+			
+			var attributeValue:String;
+			var attributeId:String;
 			
 			if(isNested){
 				/*
@@ -221,7 +208,7 @@ package com.googlecode.jsfFlex.communication.core
 				 * to get relevant information. The nested XML element symbolizes the object/property and the
 				 * last element will represent the relevant value that one desires for.
 				 */
-				nestedObjects = attribute.value.nested;
+				var nestedObjects:XMLList = attribute.value.nested;
 				for(var k:uint=0; k < nestedObjects.length(); k++){
 					if( k == (nestedObjects.length() - 1) ){
 						//now set the attribute
@@ -254,11 +241,10 @@ package com.googlecode.jsfFlex.communication.core
 		
 		public function getJSON(appInfo:Object):Object {
 			var retVal:Array = new Array();
-			var objectCollection:ArrayCollection = new ArrayCollection(appInfo.arrayOfIds);
-			var inspectedObject:Object;
+			var initValueObjects:Array = appInfo.initValueObjects;
 			
-			for each (var currObject:Object in objectCollection){
-				inspectedObject = objectInfo(appInfo.appId, currObject.id as String);
+			for each (var currInitValueObject:Object in initValueObjects){
+				var inspectedObject:Object = objectInfo(appInfo.appId, currInitValueObject.id as String);
 				if(inspectedObject != null){
 					retVal.push(inspectedObject);
 				}
@@ -288,21 +274,18 @@ package com.googlecode.jsfFlex.communication.core
 			}
 			
 			var nodes:Array = new Array();
-			var attributes:Array;
-			var classInfoNodeAttributes:XMLList;
-			var attributeValueObject:Object;
 			
 			for each (var classInfoNode:XML in classInfoNodes){
-				classInfoNodeAttributes = classInfoNode.attribute_list.attribute;
+				var classInfoNodeAttributes:XMLList = classInfoNode.attribute_list.attribute;
 				if(classInfoNodeAttributes == null){
 					continue;
 				}
 				
-				attributes = new Array();
+				var attributes:Array = new Array();
 				
 				for each (var classInfoNodeAttribute:XML in classInfoNodeAttributes){
 					
-					attributeValueObject = getAttributeValue(classInfoNodeAttribute, objectRef);
+					var attributeValueObject:Object = getAttributeValue(classInfoNodeAttribute, objectRef);
 					
 					if(attributeValueObject.value == null){
 						continue;

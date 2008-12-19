@@ -47,7 +47,6 @@ public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLC
 	private _AnnotationDocletParser _annotationDocletParserInstance;
 	
 	private String _absolutePathToPreMxmlFile;
-	
 	private String _preMxmlIdentifier;
 	private String _parentPreMxmlIdentifier;
 	/*

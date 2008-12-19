@@ -217,7 +217,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		
 		private static final String APP_ID = "appId";
 		private static final String NAMING_CONTAINER_PREFIX = "namingContainerPrefix";
-		private static final String ARRAY_OF_IDS = "arrayOfIds";
+		private static final String INIT_VALUE_OBJECTS = "initValueObjects";
 		
 		private static final String JS_COMMUNICATION_CORE_NS = "com.googlecode.jsfFlex.communication.core";
 		private static final String JS_COMMUNICATION_CORE_PAGE_LOAD_NS = "com.googlecode.jsfFlex.communication.core.pageLoad";
@@ -311,12 +311,12 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 				
 				if(applicationInitValueList.size() > 0){
 					
-					JSONArray arrayOfIds = new JSONArray();
-					flashAppObject.put(ARRAY_OF_IDS, arrayOfIds);
+					JSONArray initValueObjects = new JSONArray();
+					flashAppObject.put(INIT_VALUE_OBJECTS, initValueObjects);
 					
 					for(Iterator iterate = applicationInitValueList.iterator(); iterate.hasNext();){
 						JSONObject currComponentObject = (JSONObject) iterate.next();
-						arrayOfIds.put(currComponentObject);
+						initValueObjects.put(currComponentObject);
 					}
 					
 				}
