@@ -103,7 +103,7 @@ com.googlecode.jsfFlex.communication.core = {
     function amReady(readyAmI){
 		var flashApp = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId.item( readyAmI );
 		if(flashApp){
-			if(flashApp.arrayOfIds){
+			if(flashApp.initValueObjects){
 				return flashApp;
 			}
 		}else{
@@ -111,7 +111,7 @@ com.googlecode.jsfFlex.communication.core = {
 			var handle = window.setInterval( function(){
 													var flashApp = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId.item( readyAmI );
 													if(flashApp){
-														if(flashApp.arrayOfIds){
+														if(flashApp.initValueObjects){
 															var access = com.googlecode.jsfFlex.communication.core.getApplication( readyAmI );
 															access.populateInitValues( flashApp );
 														}
@@ -161,7 +161,7 @@ com.googlecode.jsfFlex.communication.core = {
 		 * 	JSON with =>
 		 *	  appId 					: applicationId specifying the flash app
 		 *    namingContainerPrefix		: namingContainerPrefix [i.e. form that this flashApp is affiliated with]
-		 *	  arrayOfIds 				: an array of...
+		 *	  initValueObjects 			: an array of...
 		 *									id			:	id of the component
 		 *									initValues	:	an array of...
 		 *													attribute	:	attribute to set for the initValue
@@ -179,7 +179,7 @@ com.googlecode.jsfFlex.communication.core = {
 		jsonResult = new Array();
 		for(var i=0; i < namingContainerPrefixList.length; i++){
 			/** If there does not exist any value to retrieve of, simply continue */
-			if(!namingContainerPrefixList[i].arrayOfIds){
+			if(!namingContainerPrefixList[i].initValueObjects){
 				continue;
 			}
 			access = com.googlecode.jsfFlex.communication.core.getApplication(namingContainerPrefixList[i].appId);

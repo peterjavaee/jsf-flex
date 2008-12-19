@@ -12,6 +12,11 @@
 		private static const JS_COMMUNICATION_CORE_AM_READY_FUNCTION:String = "com.googlecode.jsfFlex.communication.core.amReady";
 		
 		private var compValMapper:ComponentValueMapper;
+	#foreach( $dataGridScriptContent in ${additionalApplicationScriptContent.getDataGridScriptContent()} )
+		#set( $dataGridVarRef = "${dataGridScriptContent.getDataGridId()}DataGridVarRef" )
+		private var ${dataGridVarRef}:DataGridServiceRequest;
+	#end
+	
 	#set( $validationManagerScriptContent = ${additionalApplicationScriptContent.getValidationManagerScriptContent()} )
 	
 	#if ( ${validationManagerScriptContent.getValidationManagerValidatorIds().size()} > 0 )
@@ -33,7 +38,7 @@
 			
 		#foreach( $dataGridScriptContent in ${additionalApplicationScriptContent.getDataGridScriptContent()} )
 			#set( $dataGridVarRef = "${dataGridScriptContent.getDataGridId()}DataGridVarRef" )
-			var ${dataGridVarRef}:DataGridServiceRequest = new DataGridServiceRequest("${dataGridScriptContent.getDataGridId()}", ${dataGridScriptContent.getMaxDataGridColumnLength()}, this);
+			${dataGridVarRef} = new DataGridServiceRequest("${dataGridScriptContent.getDataGridId()}", ${dataGridScriptContent.getMaxDataGridColumnLength()}, this);
 			
 			#foreach( $dataGridColumn in ${dataGridScriptContent.getDataGridColumns()} )
 				${dataGridVarRef}.addDataGridColumServiceRequest("${dataGridColumn.getDataGridColumnId()}", "${dataGridColumn.getDataField()}");
@@ -72,6 +77,14 @@
 				return processResult;
 			}
 			#end
+			
+			#if ( ${additionalApplicationScriptContent.getDataGridScriptContent().size()} > 0 )
+			    #foreach( $dataGridScriptContent in ${additionalApplicationScriptContent.getDataGridScriptContent()} )
+			    #set( $dataGridVarRef = "${dataGridScriptContent.getDataGridId()}DataGridVarRef" )
+			${dataGridVarRef}.flushCacheChanges();
+			    #end
+			#end
+			
 			processResult = compValMapper.getJSON(idObject);
 			return processResult;
 		}

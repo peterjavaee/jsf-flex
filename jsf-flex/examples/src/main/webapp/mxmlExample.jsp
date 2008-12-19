@@ -154,7 +154,7 @@
 						    	</jf:mxmlBox>
 						    	
 						    	<jf:mxmlBox width="60%" height="100%">
-						    		<jf:mxmlDataGrid width="100%" rowCount="4" rowHeight="110" resizableColumns="true">
+						    		<jf:mxmlDataGrid width="100%" rowCount="4" rowHeight="110" resizableColumns="true" editable="true">
 						    			<jf:mxmlColumns>
 						    				<jf:mxmlDataGridColumn dataField="name" headerText="Name" columnData="#{mxmlBean.nameColumnData}" />
 						    				<jf:mxmlDataGridColumn wordWrap="true" dataField="quote" headerText="Quote" columnData="#{mxmlBean.quoteColumnData}" />
