@@ -19,6 +19,7 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -312,6 +313,10 @@ public abstract class AbstractMXMLUIDataGridColumn
 	
 	private Set _modifiedDataFieldSet;
 	
+	{
+		_modifiedDataFieldSet = new LinkedHashSet();
+	}
+	
 	public List getFormatedColumnData(){
 		// for more complicated Grids, the return data might consist of XML entries
 		return getColumnData();
@@ -320,7 +325,6 @@ public abstract class AbstractMXMLUIDataGridColumn
 	public void encodeEnd(FacesContext context) throws IOException {
 		super.encodeEnd(context);
 		
-		_modifiedDataFieldSet = new LinkedHashSet();
 		/*
 		 * adding the component to the map for future asynchronous request reference by
 		 * DataGridColumnServiceRequest.as
@@ -334,7 +338,8 @@ public abstract class AbstractMXMLUIDataGridColumn
 		
 		/*
 		 * No longer needed, so remove the content.
-		 * Below is a pure HACK : Figure out why new instance is created rather than restoring the view.
+		 * Below is a pure HACK till JSF 2.0.
+		 * Also saveState + restoreState has been implemented for future JSF impl.
 		 */
 		Map sessionMap = context.getExternalContext().getSessionMap();
 		AbstractMXMLUIDataGridColumn instance = (AbstractMXMLUIDataGridColumn) sessionMap.remove(getId());
@@ -348,6 +353,20 @@ public abstract class AbstractMXMLUIDataGridColumn
 			columnData.set(currModifiedDataField._rowIndex, currModifiedDataField._modifiedValue);
 		}
 		
+	}
+	
+	public Object saveState(FacesContext context) {
+		Object[] values = new Object[2];
+		values[0] = super.saveState(context);
+		values[1] = _modifiedDataFieldSet;
+		
+		return values;
+	}
+	
+	public void restoreState(FacesContext context, Object state) {
+		Object[] values = (Object[]) state;
+		super.restoreState(context, values[0]);
+		_modifiedDataFieldSet = (Set) values[1];
 	}
 	
 	public Map updateModifiedDataField(){
@@ -381,7 +400,9 @@ public abstract class AbstractMXMLUIDataGridColumn
 		return updateResult;
 	}
 	
-	private static class ModifiedDataField {
+	private static class ModifiedDataField implements Serializable {
+		
+		private static final long serialVersionUID = -9043196776952660308L;
 		
 		private final int _rowIndex;
 		private final String _modifiedValue;

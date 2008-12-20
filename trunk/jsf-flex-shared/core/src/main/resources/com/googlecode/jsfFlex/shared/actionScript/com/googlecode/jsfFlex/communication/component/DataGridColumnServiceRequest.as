@@ -87,6 +87,20 @@ package com.googlecode.jsfFlex.communication.component
 			
 		}
 		
+		internal function flushCacheChanges():void {
+			_log.logInfo("Was informed to flushCacheChanges explicitly with unflushed cache changes of length : " + _modifiedDataFieldObjectArray.length);
+			clearInterval(_clearIntervalRef);
+			requestCacheChangeFlush();
+		}
+		
+		internal function addModifiedDataField(modifiedDataFieldObject:Object):void {
+			_modifiedDataFieldObjectArray.push(modifiedDataFieldObject);
+		}
+		
+		internal function get columnId():String {
+			return _columnId;
+		}
+		
 		private function requestCacheChangeFlush():void {
 			if(_modifiedDataFieldObjectArray.length == 0){
 				return;
@@ -110,20 +124,6 @@ package com.googlecode.jsfFlex.communication.component
 																var resultCode:String = lastResult.resultCode;
 																_log.logInfo("Result Code for " + UPDATE_MODIFIED_DATA_FIELD + " is : " + resultCode);
 															}, dataRequestParameters, JsfFlexHttpService.POST_METHOD, JsfFlexHttpService.FLASH_VARS_RESULT_FORMAT, null);
-		}
-		
-		internal function flushCacheChanges():void {
-			_log.logInfo("Was informed to flushCacheChanges explicitly with unflushed cache changes of length : " + _modifiedDataFieldObjectArray.length);
-			clearInterval(_clearIntervalRef);
-			requestCacheChangeFlush();
-		}
-		
-		internal function addModifiedDataField(modifiedDataFieldObject:Object):void {
-			_modifiedDataFieldObjectArray.push(modifiedDataFieldObject);
-		}
-		
-		internal function get columnId():String {
-			return _columnId;
 		}
 		
 	}

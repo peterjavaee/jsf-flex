@@ -39,10 +39,8 @@ package com.googlecode.jsfFlex.communication.services
 		public static const TEXT_RESULT_FORMAT:String = "text";
 		public static const XML_RESULT_FORMAT:String = "xml";
 		
-		public static const DELETE_METHOD:String = "DELETE";
 		public static const GET_METHOD:String = "GET";
 		public static const POST_METHOD:String = "POST";
-		public static const PUT_METHOD:String = "PUT";
 		
 		private static const SERVLET_NAME_VALUE_RESULT_FORMAT:String = "nameValue";
 		private static const SERVLET_RAW_RESULT_FORMAT:String = "raw";
