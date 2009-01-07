@@ -64,7 +64,6 @@ public final class MXMLConstants {
 	public static final String JSF_FLEX_MAIN_SWC_CONFIGURATIONFILE = "jsfFlexMainSwcConfigurationFile.xml";
 	public static final String JSF_FLEX_MAIN_SWC_DIRECTORY_NAME = "jsfFlexMainSwcFileSystem";
 	public static final String JSF_FLEX_MAIN_SWC_ARCHIVE_NAME = "jsfFlexMainSwc";
-	public static final String JSF_FLEX_MAIN_SWC_WEB_PATH = "swf/" + JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + SWF_FILE_EXT;
 	
 	public static final String CHILD_REPLACE_TOKEN = "<!-- Child Component -->";
 	public static final String SIBLING_REPLACE_TOKEN = "<!-- Sibling Component -->";

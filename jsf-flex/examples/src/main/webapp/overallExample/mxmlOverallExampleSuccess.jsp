@@ -71,7 +71,7 @@
 			    			Accordion Selected Index :
 			    		</td>
 			    		<td class="fieldValue">
-			    			<h:outputText value="#{mxmlBean.accordionSelectedIndex}"></h:outputText>
+			    			<h:outputText value="#{mxmlOverallBean.accordionSelectedIndex}"></h:outputText>
 			    		</td>
 			    	</tr>
 					<tr>
@@ -79,7 +79,7 @@
 							Tab Navigator Selected Index :
 						</td>
 						<td class="fieldValue">
-							<h:outputText value="#{mxmlBean.tabNavigatorSelectedIndex}"></h:outputText>
+							<h:outputText value="#{mxmlOverallBean.tabNavigatorSelectedIndex}"></h:outputText>
 						</td>
 					</tr>
 					<tr>
@@ -87,7 +87,7 @@
 						    TextInput Text :
 						</td>
 						<td class="fieldValue">
-							<h:outputText value="#{mxmlBean.textInputText}"></h:outputText>
+							<h:outputText value="#{mxmlOverallBean.textInputText}"></h:outputText>
 						</td>
 					</tr>
 					<tr>
@@ -95,7 +95,7 @@
 							RichTextEditorHtmlText :
 						</td>
 						<td class="fieldValue">
-							<h:outputText value="#{mxmlBean.richTextEditorHtmlText}"></h:outputText>
+							<h:outputText value="#{mxmlOverallBean.richTextEditorHtmlText}"></h:outputText>
 						</td>
 					</tr>
 					<tr>
@@ -103,7 +103,7 @@
 							TextArea Text :
 						</td>
 						<td class="fieldValue">
-							<h:outputText value="#{mxmlBean.textAreaText}"></h:outputText>
+							<h:outputText value="#{mxmlOverallBean.textAreaText}"></h:outputText>
 						</td>
 					</tr>
 					<tr>
@@ -111,7 +111,7 @@
 							DateField Text :
 						</td>
 						<td class="fieldValue">
-							<h:outputText value="#{mxmlBean.dateFieldText}"></h:outputText>
+							<h:outputText value="#{mxmlOverallBean.dateFieldText}"></h:outputText>
 						</td>
 					</tr>
 					<tr>
@@ -119,7 +119,7 @@
 							CheckBox Selected :
 						</td>
 						<td class="fieldValue">
-							<h:outputText value="#{mxmlBean.checkBoxSelected}"></h:outputText>
+							<h:outputText value="#{mxmlOverallBean.checkBoxSelected}"></h:outputText>
 						</td>
 					</tr>
 					<tr>
@@ -127,7 +127,7 @@
 				    		ComboBox Text :
 				    	</td>
 				    	<td class="fieldValue">
-				    		<h:outputText value="#{mxmlBean.comboBoxText}"></h:outputText>
+				    		<h:outputText value="#{mxmlOverallBean.comboBoxText}"></h:outputText>
 				    	</td>
 				    </tr>
 				    <tr>
@@ -135,7 +135,7 @@
 				    		ComboBox Selected Index :
 				    	</td>
 				    	<td class="fieldValue">
-				    		<h:outputText value="#{mxmlBean.comboBoxSelectedIndex}"></h:outputText>
+				    		<h:outputText value="#{mxmlOverallBean.comboBoxSelectedIndex}"></h:outputText>
 				    	</td>
 				    </tr>
 				    <tr>
@@ -143,7 +143,7 @@
 				    		RadioButtonSelected Value :
 				    	</td>
 				    	<td class="fieldValue">
-				    		<h:outputText value="#{mxmlBean.radioButtonSelectedValue}"></h:outputText>
+				    		<h:outputText value="#{mxmlOverallBean.radioButtonSelectedValue}"></h:outputText>
 				    	</td>
 				    </tr>
 				    <tr>
@@ -151,7 +151,7 @@
 				    		RadioButton First Selected :
 				    	</td>
 				    	<td class="fieldValue">
-				    		<h:outputText value="#{mxmlBean.radioButtonFirstSelected}"></h:outputText>
+				    		<h:outputText value="#{mxmlOverallBean.radioButtonFirstSelected}"></h:outputText>
 				    	</td>
 				    </tr>
 				    <tr>
@@ -159,7 +159,7 @@
 				    		RadioButton Second Selected :
 				    	</td>
 				    	<td class="fieldValue">
-				    		<h:outputText value="#{mxmlBean.radioButtonSecondSelected}"></h:outputText>
+				    		<h:outputText value="#{mxmlOverallBean.radioButtonSecondSelected}"></h:outputText>
 				    	</td>
 				    </tr>
 				    <tr>
@@ -167,7 +167,7 @@
 			    			NumericStepper Value :
 			    		</td>
 			    		<td class="fieldValue">
-			    			<h:outputText value="#{mxmlBean.numericStepperValue}"></h:outputText>
+			    			<h:outputText value="#{mxmlOverallBean.numericStepperValue}"></h:outputText>
 			    		</td>
 			    	</tr>
 			    	<tr>
@@ -175,7 +175,7 @@
 			    			ColorPicker SelectedColor :
 			    		</td>
 			    		<td class="fieldValue">
-			    			<h:outputText value="#{mxmlBean.colorPickerSelectedColor}"></h:outputText>
+			    			<h:outputText value="#{mxmlOverallBean.colorPickerSelectedColor}"></h:outputText>
 			    		</td>
 			    	</tr>
 			    	<tr>
@@ -183,7 +183,7 @@
 			    			List SelectedIndex :
 			    		</td>
 			    		<td class="fieldValue">
-			    			<h:outputText value="#{mxmlBean.listSelectedIndex}"></h:outputText>
+			    			<h:outputText value="#{mxmlOverallBean.listSelectedIndex}"></h:outputText>
 			    		</td>
 			    	</tr>
 			    	<tr>
@@ -191,7 +191,7 @@
 					    	Tree SelectedIndex :
 					    </td>
 					    <td class="fieldValue">
-					    	<h:outputText value="#{mxmlBean.treeSelectedIndex}"></h:outputText>
+					    	<h:outputText value="#{mxmlOverallBean.treeSelectedIndex}"></h:outputText>
 					    </td>
 					</tr>
 					<tr>
@@ -199,7 +199,7 @@
 			    			HorizontalSlider Value :
 			    		</td>
 			    		<td class="fieldValue">
-			    			<h:outputText value="#{mxmlBean.horizontalSliderValue}"></h:outputText>
+			    			<h:outputText value="#{mxmlOverallBean.horizontalSliderValue}"></h:outputText>
 			    		</td>
 			    	</tr>
 			    	<tr>
@@ -207,7 +207,7 @@
 			    			VerticalSlider Value :
 			    		</td>
 			    		<td class="fieldValue">
-			    			<h:outputText value="#{mxmlBean.verticalSliderValue}"></h:outputText>
+			    			<h:outputText value="#{mxmlOverallBean.verticalSliderValue}"></h:outputText>
 			    		</td>
 			    	</tr>
 			    	<tr>
@@ -215,7 +215,7 @@
 			    			ProgressBar Value :
 			    		</td>
 			    		<td class="fieldValue">
-			    			<h:outputText value="#{mxmlBean.progressBarValue}"></h:outputText>
+			    			<h:outputText value="#{mxmlOverallBean.progressBarValue}"></h:outputText>
 			    		</td>
 			    	</tr>
 			    </table>

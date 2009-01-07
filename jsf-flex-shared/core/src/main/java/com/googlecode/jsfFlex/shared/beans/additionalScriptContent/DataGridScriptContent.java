@@ -27,28 +27,39 @@ import java.util.List;
 public final class DataGridScriptContent {
 	
 	private final String _dataGridId;
-	private final Integer _maxDataGridColumnLength;
 	private final List _dataGridColumns;
 	
-	DataGridScriptContent(String dataGridId, int maxDataGridColumnLength){
+	private Integer _batchColumnDataRetrievalSize;
+	private Integer _maxDataPartitionIndex;
+	
+	DataGridScriptContent(String dataGridId){
 		super();
 		_dataGridId = dataGridId;
-		_maxDataGridColumnLength = Integer.valueOf(maxDataGridColumnLength);
 		_dataGridColumns = new LinkedList();
 	}
 	
-	void addDataGridColumnContent(String dataGridColumnId, String dataField){
-		_dataGridColumns.add(new DataGridColumnScriptContent(dataGridColumnId, dataField));
+	void addDataGridColumnContent(String dataGridColumnId, String dataField, Boolean columnEditable){
+		_dataGridColumns.add(new DataGridColumnScriptContent(dataGridColumnId, dataField, columnEditable));
 	}
 	
 	public String getDataGridId() {
 		return _dataGridId;
 	}
-	public Integer getMaxDataGridColumnLength() {
-		return _maxDataGridColumnLength;
+	public Integer getBatchColumnDataRetrievalSize() {
+		return _batchColumnDataRetrievalSize;
 	}
 	public List getDataGridColumns() {
-		return _dataGridColumns;
+		return new LinkedList(_dataGridColumns);
+	}
+	public Integer getMaxDataPartitionIndex() {
+		return _maxDataPartitionIndex;
+	}
+	
+	void setBatchColumnDataRetrievalSize(Integer batchColumnDataRetrievalSize) {
+		_batchColumnDataRetrievalSize = batchColumnDataRetrievalSize;
+	}
+	void setMaxDataPartitionIndex(Integer maxDataPartitionIndex) {
+		_maxDataPartitionIndex = maxDataPartitionIndex;
 	}
 	
 	public boolean equals(Object instance) {
@@ -67,11 +78,13 @@ public final class DataGridScriptContent {
 		
 		private final String _dataGridColumnId;
 		private final String _dataField;
+		private final Boolean _columnEditable;
 		
-		private DataGridColumnScriptContent(String dataGridColumnId, String dataField){
+		private DataGridColumnScriptContent(String dataGridColumnId, String dataField, Boolean columnEditable){
 			super();
 			_dataGridColumnId = dataGridColumnId;
 			_dataField = dataField;
+			_columnEditable = columnEditable;
 		}
 		
 		public String getDataGridColumnId() {
@@ -79,6 +92,9 @@ public final class DataGridScriptContent {
 		}
 		public String getDataField() {
 			return _dataField;
+		}
+		public Boolean getColumnEditable() {
+			return _columnEditable;
 		}
 		
 		public boolean equals(Object instance) {

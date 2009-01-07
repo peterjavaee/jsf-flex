@@ -20,9 +20,7 @@ package com.googlecode.jsfFlex.renderkit.component.ext.properties.ext;
 
 import java.io.IOException;
 import java.util.Iterator;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -82,28 +80,46 @@ public final class MXMLColumnsRenderer extends MXMLComponentBaseRenderer {
 			throw new ComponentBuildException(INVALID_PARENT_COMPONENT);
 		}
 		
-		List childrenList = componentObj.getChildren();
-		Map<String, String> childrenMapInfo = new LinkedHashMap<String, String>();
+		AbstractMXMLUIDataGrid dataGrid = (AbstractMXMLUIDataGrid) dataGridComponent;
+		Integer batchColumnDataRetrievalSize = Integer.valueOf(dataGrid.getBatchColumnDataRetrievalSize());
+		String rowCount = dataGrid.getRowCount();
 		
-		int maxDataGridColumnLength = -1;
-		for(Iterator iterate = childrenList.iterator(); iterate.hasNext();){
-			UIComponent currChild = (UIComponent) iterate.next();
-			if(!(currChild instanceof AbstractMXMLUIDataGridColumn)){
-				throw new ComponentBuildException(INVALID_CHILD_COMPONENT);
+		if(rowCount != null){
+			int parsedRowCount = Integer.parseInt(rowCount);
+			if(parsedRowCount > batchColumnDataRetrievalSize){
+				batchColumnDataRetrievalSize = parsedRowCount;
 			}
-			
-			AbstractMXMLUIDataGridColumn currChildInstance = (AbstractMXMLUIDataGridColumn) currChild;
-			maxDataGridColumnLength = Math.max(maxDataGridColumnLength, currChildInstance.getColumnData().size());
-			childrenMapInfo.put(currChildInstance.getId(), currChildInstance.getDataField());
 		}
 		
-		if(childrenMapInfo.size() > 0){
+		List childrenList = componentObj.getChildren();
+		
+		if(childrenList.size() > 0){
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 			AdditionalApplicationScriptContent additionalAppScriptContent = mxmlContext.getAdditionalAppScriptContent();
 			
-			additionalAppScriptContent.addDataGridColumnToDataGridScriptContent(dataGridComponentId, maxDataGridColumnLength, childrenMapInfo);
-			
+			additionalAppScriptContent.addDataGridScriptContent(dataGridComponentId);
 			additionalAppScriptContent.addActionScriptImport(DATA_GRID_SERVICE_REQUEST_IMPORT);
+			
+			int maxColumnDataSize = 0;
+			for(Iterator iterate = childrenList.iterator(); iterate.hasNext();){
+				UIComponent currChild = (UIComponent) iterate.next();
+				if(!(currChild instanceof AbstractMXMLUIDataGridColumn)){
+					throw new ComponentBuildException(INVALID_CHILD_COMPONENT);
+				}
+				
+				AbstractMXMLUIDataGridColumn currChildInstance = (AbstractMXMLUIDataGridColumn) currChild;
+				maxColumnDataSize = Math.max(maxColumnDataSize, currChildInstance.getColumnData().size());
+				additionalAppScriptContent.addDataGridColumnToDataGridScriptContent(dataGridComponentId, currChildInstance.getId(), 
+														currChildInstance.getDataField(), Boolean.valueOf(currChildInstance.getEditable()));
+			}
+			
+			if(maxColumnDataSize < batchColumnDataRetrievalSize){
+				batchColumnDataRetrievalSize = maxColumnDataSize;
+			}
+			
+			Integer maxDataPartitionIndex = (int) Math.ceil( maxColumnDataSize / batchColumnDataRetrievalSize.intValue() );
+			additionalAppScriptContent.setDataGridScriptContentProperties(dataGridComponentId, batchColumnDataRetrievalSize, maxDataPartitionIndex);
+			
 		}
 		
 	}

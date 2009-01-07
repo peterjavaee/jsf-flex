@@ -23,10 +23,10 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeSet;
 
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
@@ -37,6 +37,7 @@ import org.apache.commons.logging.LogFactory;
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIColumnData;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataFieldAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
 
 /**
  * @JSFComponent
@@ -61,12 +62,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIDataFieldAttribute;
  *   						 longDesc	= "Specifies a callback function to run on each item of the data provider to determine its dataTip."
  *   						,
  *   
- *							@JSFJspProperty
- *   						 name		= "editable"
- *   						 returnType = "java.lang.String"
- *   						 longDesc	= "A flag that indicates whether the items in the column are editable."
- *   						,
- *   						
  *							@JSFJspProperty
  *   						 name		= "editorDataField"
  *   						 returnType	= "java.lang.String"
@@ -304,9 +299,12 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIDataFieldAttribute;
  */
 public abstract class AbstractMXMLUIDataGridColumn 
 						extends MXMLUISimpleBase 
-						implements _MXMLUIColumnData, _MXMLUIDataFieldAttribute {
+						implements _MXMLUIColumnData, _MXMLUIDataFieldAttribute, _MXMLUIEditableAttribute {
 	
 	private final static Log _log = LogFactory.getLog(AbstractMXMLUIDataGridColumn.class);
+	
+	private static final String DATA_START_INDEX_KEY = "dataStartIndex";
+	private static final String DATA_END_INDEX_KEY = "dataEndIndex";
 	
 	private static final String REQUEST_KEYS_KEY = "requestKeys";
 	private static final String RESULT_CODE_KEY = "resultCode";
@@ -314,12 +312,46 @@ public abstract class AbstractMXMLUIDataGridColumn
 	private Set _modifiedDataFieldSet;
 	
 	{
-		_modifiedDataFieldSet = new LinkedHashSet();
+		_modifiedDataFieldSet = new TreeSet();
 	}
 	
 	public List getFormatedColumnData(){
 		// for more complicated Grids, the return data might consist of XML entries
-		return getColumnData();
+		FacesContext context = FacesContext.getCurrentInstance();
+		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+		
+		String dataStartIndex = (String) request.getParameter(DATA_START_INDEX_KEY);
+		String dataEndIndex = (String) request.getParameter(DATA_END_INDEX_KEY);
+		
+		_log.info("Within getFormatedColumnData with dataStartIndex : " + dataStartIndex + " , dataEndIndex " + dataEndIndex);
+		
+		int parsedStartIndex = -1;
+		int parsedEndIndex = -1;
+		
+		try{
+			parsedStartIndex = Integer.parseInt(dataStartIndex);
+			parsedEndIndex = Integer.parseInt(dataEndIndex);
+		}catch(NumberFormatException parsingException){
+			_log.warn("Error parsing of following values [" + dataStartIndex + ", " + dataEndIndex + "] to an int", parsingException);
+			return null;
+		}
+		
+		int columnDataSize = getColumnData().size();
+		parsedEndIndex = parsedEndIndex < columnDataSize ? parsedEndIndex : columnDataSize;
+		
+		List formatedColumnData = getColumnData().subList(parsedStartIndex, parsedEndIndex);
+		
+		synchronized(_modifiedDataFieldSet){
+			for(Iterator keyIterator = _modifiedDataFieldSet.iterator(); keyIterator.hasNext();){
+				ModifiedDataField currModifiedDataField = (ModifiedDataField) keyIterator.next();
+				if(currModifiedDataField._rowIndex >= parsedStartIndex && 
+						currModifiedDataField._rowIndex < parsedEndIndex){
+					formatedColumnData.set((currModifiedDataField._rowIndex - parsedStartIndex), currModifiedDataField._modifiedValue);
+				}
+			}
+		}
+		
+		return formatedColumnData;
 	}
 	
 	public void encodeEnd(FacesContext context) throws IOException {
@@ -377,16 +409,18 @@ public abstract class AbstractMXMLUIDataGridColumn
 		String requestKey = (String) request.getParameter(REQUEST_KEYS_KEY);
 		List requestKeyList = Arrays.asList(requestKey.split(","));
 		
+		_log.info("Within updateModifiedDataField with requestKey : " + requestKey);
+		
 		for(Iterator keyIterator = requestKeyList.iterator(); keyIterator.hasNext();){
-			String actualCurrKey = (String) keyIterator.next();
-			String currValue = (String) request.getParameter(actualCurrKey);
+			String currKey = (String) keyIterator.next();
+			String currValue = (String) request.getParameter(currKey);
 			
 			int rowIndex;
 			
 			try{
-				rowIndex = Integer.parseInt(actualCurrKey);
+				rowIndex = Integer.parseInt(currKey);
 			}catch(NumberFormatException parsingException){
-				_log.info("Error parsing of " + actualCurrKey + " to an int", parsingException);
+				_log.warn("Error parsing of " + currKey + " to an int", parsingException);
 				continue;
 			}
 			
@@ -400,7 +434,7 @@ public abstract class AbstractMXMLUIDataGridColumn
 		return updateResult;
 	}
 	
-	private static class ModifiedDataField implements Serializable {
+	private static class ModifiedDataField implements Serializable, Comparable {
 		
 		private static final long serialVersionUID = -9043196776952660308L;
 		
@@ -423,6 +457,15 @@ public abstract class AbstractMXMLUIDataGridColumn
 		}
 		public int hashCode() {
 			return _rowIndex;
+		}
+		
+		public int compareTo(Object instance) {
+			if(!(instance instanceof ModifiedDataField)){
+				return -1;
+			}
+			
+			ModifiedDataField modifiedDataFieldInstance = (ModifiedDataField) instance;
+			return _rowIndex == modifiedDataFieldInstance._rowIndex ? 0 : _rowIndex < modifiedDataFieldInstance._rowIndex ? -1 : 1;
 		}
 		
 	}

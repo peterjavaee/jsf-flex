@@ -87,6 +87,10 @@ public abstract class MxmlContext {
 	
 	public abstract void setSwfWebPath(String swfWebPath);
 	
+	public abstract String getWebContextPath();
+	
+	public abstract void setWebContextPath(String webContextPath);
+	
 	public abstract _CommonTaskRunner getCommonRunner();
 	
 	public abstract _FlexTaskRunner getFlexRunner();

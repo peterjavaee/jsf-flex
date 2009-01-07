@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.examples.mxml;
+package com.googlecode.jsfFlex.examples.mxml.overallExample;
 
 import java.io.Serializable;
 import java.util.LinkedList;
@@ -25,13 +25,11 @@ import java.util.List;
 import javax.faces.model.SelectItem;
 
 /**
- * A simple bean to demonstrate the binding of the fields.<br>
- * 
  * @author Ji Hoon Kim
  */
-public class MXMLBean implements Serializable {
+public class MXMLOverallExampleBean implements Serializable {
 	
-	private static final long serialVersionUID = -6445125288869734960L;
+	private static final long serialVersionUID = 6694836447144771325L;
 	
 	private Integer _accordionSelectedIndex;
 	private Integer _tabNavigatorSelectedIndex;
@@ -58,7 +56,7 @@ public class MXMLBean implements Serializable {
 	private List _quoteColumnData;
 	private List _emailColumnData;
 	
-	public MXMLBean(){
+	public MXMLOverallExampleBean(){
 		super();
 		_accordionSelectedIndex = new Integer(0);
 		_tabNavigatorSelectedIndex = new Integer(0);

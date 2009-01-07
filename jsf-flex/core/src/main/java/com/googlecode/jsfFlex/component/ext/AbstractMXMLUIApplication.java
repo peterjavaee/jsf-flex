@@ -24,6 +24,7 @@ import java.io.IOException;
 import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.json.JSONObject;
 
@@ -288,8 +289,11 @@ public abstract class AbstractMXMLUIApplication
 		mxmlContext.setProductionEnv(isProduction);
 		mxmlContext.setSimplySWF(isSimplySwf);
 		
-		String swfWebPath = MXMLConstants.SWF_DIRECTORY_NAME + "/" + getMxmlPackageName() + "/";
+		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+		String webContextPath = request.getContextPath();
+		String swfWebPath = webContextPath + "/" + MXMLConstants.SWF_DIRECTORY_NAME + "/" + getMxmlPackageName() + "/";
 		mxmlContext.setSwfWebPath(swfWebPath);
+		mxmlContext.setWebContextPath(webContextPath);
 		
 		//setting or appending scripts to execute upon application initialization
 		String init = (String) getAttributes().get(INITIALIZE_ATTR);
@@ -321,7 +325,8 @@ public abstract class AbstractMXMLUIApplication
 			setExternalLibraryPath(swcFileAbsolutePath);
 			
 			//runtimeSharedLibrary has to be relative to the Web root path file
-			setRuntimeSharedLibraries(MXMLConstants.JSF_FLEX_MAIN_SWC_WEB_PATH);
+			String jsfFlexMainSwcWebpath = webContextPath + "/swf/" + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWF_FILE_EXT;
+			setRuntimeSharedLibraries(jsfFlexMainSwcWebpath);
 			
 			mxmlContext.setFlexSDKPath(flexSDKPath);
 			mxmlContext.setMxmlPath(mxmlPath);

@@ -24,15 +24,16 @@ package com.googlecode.jsfFlex.communication.core
 {
 	import flash.external.ExternalInterface;
 	import flash.events.Event;
-	import flash.net.URLVariables;
 	import flash.net.URLLoader;
 	import flash.net.URLRequest;
+	import flash.net.URLVariables;
 	import flash.utils.getQualifiedClassName;
 	
 	import mx.core.UIComponent;
 	
 	import com.googlecode.jsfFlex.communication.logger.ILogger;
-	import com.googlecode.jsfFlex.communication.logger.LoggerFactory
+	import com.googlecode.jsfFlex.communication.logger.LoggerFactory;
+	import com.googlecode.jsfFlex.communication.utils.WebConstants;
 	
 	public class ComponentValueMapper {
 		
@@ -46,15 +47,15 @@ package com.googlecode.jsfFlex.communication.core
 		private static const DYNAMIC_E4X_ATTR:String = "@dynamic";
 		
 		private static const AS_GET_COMP_VALUE_FUNCTION:String = "getCompValue";
-		private static const COMP_VALUE_MAPPER:String = "swf/componentValueMapper.xml";
+		private static const COMP_VALUE_MAPPER:String = WebConstants.WEB_CONTEXT_PATH + "/swf/componentValueMapper.xml";
 		private static const NULL_STRING:String = "null";
 		private static const VALUE_ASSIGNMENT_STATEMENT:String = "value=";
 		private static const VALUE_ATTR:String = "VALUE";
 		
 		private static var _compValueMapper:XML;
+		private static var _loader:URLLoader;
 		
 		private static var _log:ILogger;
-		private static var _loader:URLLoader;
 		
 		private var _refApp:UIComponent;
 		
@@ -73,7 +74,7 @@ package com.googlecode.jsfFlex.communication.core
 				_loader.load(new URLRequest(COMP_VALUE_MAPPER));
 			}catch(loadingError:Error){
 				trace("Failure in loading of the componentValueMapper.xml file");
-				_log.logInfo("Failure in loading of the componentValueMapper.xml file");
+				_log.logError("Failure in loading of the componentValueMapper.xml file");
 			}
 		}
 		
@@ -88,7 +89,7 @@ package com.googlecode.jsfFlex.communication.core
 				ExternalInterface.addCallback(AS_GET_COMP_VALUE_FUNCTION, this.getCompValue);
 			}catch(callBackError:Error){
 				trace("Failure in setting up of getCompValue callBack");
-				_log.logInfo("Failure in setting up of getCompValue callBack");
+				_log.logError("Failure in setting up of getCompValue callBack");
 			}
 			_log.logInfo("Finished with the initialization of " + _refApp["id"]);
 		}
@@ -224,7 +225,7 @@ package com.googlecode.jsfFlex.communication.core
 						attributeId = null;
 						attributeValue = null;
 						trace("Failure in getting access to reference " + nestedObjects[k].toString());
-						_log.logInfo("Failure in getting access to reference " + nestedObjects[k].toString());
+						_log.logWarn("Failure in getting access to reference " + nestedObjects[k].toString());
 						break;
 					}
 				}

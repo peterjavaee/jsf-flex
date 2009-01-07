@@ -136,45 +136,45 @@
 			    					lowerThanMinError="The number provided is lower than min value [10]." maxValue="60" minValue="10" 
 			    					required="true" source="{textInputRef}" />
 			
-			<jf:mxmlAccordion width="100%" height="100%" selectedIndex="#{mxmlBean.accordionSelectedIndex}">
+			<jf:mxmlAccordion width="100%" height="100%" selectedIndex="#{mxmlOverallBean.accordionSelectedIndex}">
 			    
-				<jf:mxmlTabNavigator width="100%" height="100%" selectedIndex="#{mxmlBean.tabNavigatorSelectedIndex}">
+				<jf:mxmlTabNavigator width="100%" height="100%" selectedIndex="#{mxmlOverallBean.tabNavigatorSelectedIndex}">
 						
 			    		<jf:mxmlPanel label="First Tab" width="100%" height="100%">
 			    			<jf:mxmlDividedBox direction="horizontal" width="100%" height="100%">
 			    			
 				    			<jf:mxmlBox width="40%" height="100%">
-					    			<jf:mxmlTextInput id="textInputRef" text="#{mxmlBean.textInputText}" >
+					    			<jf:mxmlTextInput id="textInputRef" text="#{mxmlOverallBean.textInputText}" >
 					    				<f:validateLongRange minimum="10" maximum="60" />
 					    			</jf:mxmlTextInput>
-					    			<jf:mxmlRichTextEditor textBinding="htmlText" htmlText="#{mxmlBean.richTextEditorHtmlText}" />
-							    	<jf:mxmlTextArea text="#{mxmlBean.textAreaText}" />
-							    	<jf:mxmlDateField text="#{mxmlBean.dateFieldText}" />
-							    	<jf:mxmlCheckBox label="CheckBox am I [\^$.|?*+(){}" selected="#{mxmlBean.checkBoxSelected}" />
+					    			<jf:mxmlRichTextEditor textBinding="htmlText" htmlText="#{mxmlOverallBean.richTextEditorHtmlText}" />
+							    	<jf:mxmlTextArea text="#{mxmlOverallBean.textAreaText}" />
+							    	<jf:mxmlDateField text="#{mxmlOverallBean.dateFieldText}" />
+							    	<jf:mxmlCheckBox label="CheckBox am I [\^$.|?*+(){}" selected="#{mxmlOverallBean.checkBoxSelected}" />
 						    	</jf:mxmlBox>
 						    	
 						    	<jf:mxmlBox width="60%" height="100%">
-						    		<jf:mxmlDataGrid width="100%" rowCount="4" rowHeight="110" resizableColumns="true" editable="true">
-						    			<jf:mxmlColumns>
-						    				<jf:mxmlDataGridColumn dataField="name" headerText="Name" columnData="#{mxmlBean.nameColumnData}" />
-						    				<jf:mxmlDataGridColumn wordWrap="true" dataField="quote" headerText="Quote" columnData="#{mxmlBean.quoteColumnData}" />
-						    				<jf:mxmlDataGridColumn dataField="email" headerText="Email" columnData="#{mxmlBean.emailColumnData}" />
-						    			</jf:mxmlColumns>
-						    		</jf:mxmlDataGrid>
-						    	</jf:mxmlBox>
+						    		<jf:mxmlDataGrid width="100%" rowCount="3" resizableColumns="true" editable="true" >
+								    	<jf:mxmlColumns>
+								    		<jf:mxmlDataGridColumn dataField="name" headerText="Name" columnData="#{mxmlOverallBean.nameColumnData}" />
+								    		<jf:mxmlDataGridColumn wordWrap="true" dataField="quote" headerText="Quote" columnData="#{mxmlOverallBean.quoteColumnData}" />
+								    		<jf:mxmlDataGridColumn dataField="email" headerText="Email" columnData="#{mxmlOverallBean.emailColumnData}" />
+								    	</jf:mxmlColumns>
+								    </jf:mxmlDataGrid>
+							   </jf:mxmlBox>
 					    	
 					    	</jf:mxmlDividedBox>
 					    </jf:mxmlPanel>
 			    			
 			    		<jf:mxmlPanel label="Second Tab" width="100%" height="100%">
-					    	<jf:mxmlComboBox text="#{mxmlBean.comboBoxText}" selectedIndex="#{mxmlBean.comboBoxSelectedIndex}" 
-					    							dataProviderCollection="#{mxmlBean.comboBoxDisplayEntries}" />
+					    	<jf:mxmlComboBox text="#{mxmlOverallBean.comboBoxText}" selectedIndex="#{mxmlOverallBean.comboBoxSelectedIndex}" 
+					    							dataProviderCollection="#{mxmlOverallBean.comboBoxDisplayEntries}" />
 					    	<jf:mxmlRadioButton groupName="radioTest" label="First" value="First" 
-					    							selectedValue="#{mxmlBean.radioButtonSelectedValue}" selected="#{mxmlBean.radioButtonFirstSelected}"/>
-					       	<jf:mxmlRadioButton groupName="radioTest" label="Second" value="Second" selected="#{mxmlBean.radioButtonSecondSelected}"/>
+					    							selectedValue="#{mxmlOverallBean.radioButtonSelectedValue}" selected="#{mxmlOverallBean.radioButtonFirstSelected}"/>
+					       	<jf:mxmlRadioButton groupName="radioTest" label="Second" value="Second" selected="#{mxmlOverallBean.radioButtonSecondSelected}"/>
 					       	
-					       	<jf:mxmlNumericStepper minimum="0" maximum="10" value="#{mxmlBean.numericStepperValue}" />
-					       	<jf:mxmlColorPicker labelField="ColorPicker am I" selectedColor="#{mxmlBean.colorPickerSelectedColor}" />
+					       	<jf:mxmlNumericStepper minimum="0" maximum="10" value="#{mxmlOverallBean.numericStepperValue}" />
+					       	<jf:mxmlColorPicker labelField="ColorPicker am I" selectedColor="#{mxmlOverallBean.colorPickerSelectedColor}" />
 			    		</jf:mxmlPanel>
 	
 			    </jf:mxmlTabNavigator>
@@ -187,8 +187,8 @@
 				    			<jf:mxmlLinkButton label="To Link to something" />
 				        		<jf:mxmlButton label="Click Me for a nice message" buttonDown="alertMe();"/>
 				        		<jf:mxmlLabel text="Simple List" />
-				        		<jf:mxmlList width="100" dataProvider="{reallySimpleArray}" selectedIndex="#{mxmlBean.listSelectedIndex}" />
-				        		<jf:mxmlTree width="100" dataProvider="{complexStructCollection}" labelField="@label" selectedIndex="#{mxmlBean.treeSelectedIndex}"/>
+				        		<jf:mxmlList width="100" dataProvider="{reallySimpleArray}" selectedIndex="#{mxmlOverallBean.listSelectedIndex}" />
+				        		<jf:mxmlTree width="100" dataProvider="{complexStructCollection}" labelField="@label" selectedIndex="#{mxmlOverallBean.treeSelectedIndex}"/>
 				        	</jf:mxmlBox>
 				        	
 			        		<jf:mxmlBox width="50%" height="100%">
@@ -228,11 +228,11 @@
 				        <jf:mxmlSpacer height="20" />
 					    
 						<jf:mxmlLabel text="Simple HSlider" />
-						<jf:mxmlHSlider value="#{mxmlBean.horizontalSliderValue}" />
+						<jf:mxmlHSlider value="#{mxmlOverallBean.horizontalSliderValue}" />
 						<jf:mxmlSpacer height="10" />
 							
 						<jf:mxmlLabel text="Simple VSlider" />
-						<jf:mxmlVSlider value="#{mxmlBean.verticalSliderValue}" />
+						<jf:mxmlVSlider value="#{mxmlOverallBean.verticalSliderValue}" />
 						
 					</jf:mxmlBox>
 					
@@ -243,7 +243,7 @@
 					        <jf:mxmlButton label="Decrease Progress Bar" buttonDown="decreaseProgressBar();" />
 					    </jf:mxmlTile>
 					    
-					    <jf:mxmlProgressBar id="progressBarRef" mode="manual" minimum="0" maximum="100"	value="#{mxmlBean.progressBarValue}" />
+					    <jf:mxmlProgressBar id="progressBarRef" mode="manual" minimum="0" maximum="100"	value="#{mxmlOverallBean.progressBarValue}" />
 					    
 					</jf:mxmlTitleWindow>
 					

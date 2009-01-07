@@ -50,6 +50,8 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 	private final static Log _log = LogFactory.getLog(AntFlexTaskRunnerImpl.class);
 	
 	private static final String ACTION_SCRIPT_DIR_NAME = "actionScript";
+	private static final String WEB_CONSTANTS_AS_FILE_NAME = File.separatorChar + "WebConstants.as";
+	private static final String WEB_CONTEXT_PATH_TOKEN = "{webContextPath}";
 	
 	AntFlexTaskRunnerImpl(){
 		super();
@@ -84,7 +86,7 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 		addTask(swfCreator);
 	}
 	
-	public void createSwcSourceFiles(String swcPath, List systemSourceFiles, String jsfFlexMainSwcConfigFile) {
+	public void createSwcSourceFiles(String swcPath, List systemSourceFiles, String jsfFlexMainSwcConfigFile, String webContextPath) {
 		//Echo the sourceFiles to the SWC path
 		
 		/*
@@ -117,6 +119,17 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 			String fileName = swcPath + path.toString() + currSplit[currSplit.length-1];
 			EchoTask curr = new EchoTask(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), currSystemSource), fileName); 
 			addTask(curr);
+			
+			/*
+			 * Need to replace WEB_CONTEXT_PATH_TOKEN with the correct value.
+			 * TODO : implement this better later
+			 */
+			if(fileName.indexOf(WEB_CONSTANTS_AS_FILE_NAME) > 0){
+				ReplaceTextTask replaceWebContextPath = new ReplaceTextTask(fileName);
+				replaceWebContextPath.addTokenValue(WEB_CONTEXT_PATH_TOKEN, webContextPath);
+				replaceWebContextPath.multiLineReplace(true);
+				addTask(replaceWebContextPath);
+			}
 			
 		}
 		

@@ -60,13 +60,14 @@ public class MxmlContextImpl extends MxmlContext {
 	private boolean _productionEnv;
 	private boolean _simplySWF;
 	
+	private String _flexSDKPath;
 	private String _mxmlPath;
 	private String _preMxmlPath;
 	private String _swcPath;
 	private String _swfPath;
 	private String _swfWebPath;
 	private String _swfBasePath;
-	private String _flexSDKPath;
+	private String _webContextPath;
 	
 	public MxmlContextImpl(String currMxml, _MXMLApplicationContract currApplicationContract){
 		super();
@@ -150,6 +151,12 @@ public class MxmlContextImpl extends MxmlContext {
 	}
 	public void setSwfWebPath(String swfWebPath) {
 		_swfWebPath = swfWebPath;
+	}
+	public String getWebContextPath(){
+		return _webContextPath;
+	}
+	public void setWebContextPath(String webContextPath){
+		_webContextPath = webContextPath;
 	}
 	public _CommonTaskRunner getCommonRunner() {
 		return _commonRunner;

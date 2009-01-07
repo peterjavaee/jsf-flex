@@ -159,7 +159,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 			
 			//copy the necessary ActionScript files over for SWF generation 
 			createSwcSourceFiles(mxmlContext.getSwcPath(), MXMLConstants.getSwcSourceFiles(), 
-										MXMLConstants.JSF_FLEX_MAIN_SWC_CONFIG_FILE);
+										MXMLConstants.JSF_FLEX_MAIN_SWC_CONFIG_FILE, mxmlContext.getWebContextPath());
 			
 			//create the SWC file
 			String loadConfigAbsolutePath = mxmlContext.getSwcPath() + MXMLConstants.JSF_FLEX_MAIN_SWC_CONFIGURATIONFILE;
@@ -249,8 +249,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param _systemSourceFiles
 	 * @param jsfFlexMainSwcConfigFile
 	 */
-	public final void createSwcSourceFiles(String swcPath, List systemSourceFiles, String jsfFlexMainSwcConfigFile) {
-		getFlexTaskRunner().createSwcSourceFiles(swcPath, systemSourceFiles, jsfFlexMainSwcConfigFile);
+	public final void createSwcSourceFiles(String swcPath, List systemSourceFiles, String jsfFlexMainSwcConfigFile, String webContextPath) {
+		getFlexTaskRunner().createSwcSourceFiles(swcPath, systemSourceFiles, jsfFlexMainSwcConfigFile, webContextPath);
 	}
 	
 	/**
