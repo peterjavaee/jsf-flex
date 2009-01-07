@@ -153,29 +153,33 @@ public final class JsfFlexResourceFilter implements Filter {
 			}else{
 				
 				Matcher bodyMatcher = BODY_PATTERN.matcher( jsfFlexResponseWrapper.toString() ); 
-				bodyMatcher.find();
+				boolean bodyMatched = bodyMatcher.find();
 				
-				int bodyMatchIndex = bodyMatcher.start();
-				
-				actualWriter.write( jsfFlexResponseWrapper.toString().substring(0, bodyMatchIndex) );
-				
-				actualWriter.write(HEAD_START_TAG);
-				
-				if(isDebugMode){
-					actualWriter.write(META_HTTP_EQUIV_EXPIRE);
-					actualWriter.write(META_HTTP_EQUIV_PRAGMA_NO_CACHE);
-					actualWriter.write(META_HTTP_EQUIV_CACHE_CONTROL_NO_CACHE);
+				if(bodyMatched){
+					int bodyMatchIndex = bodyMatcher.start();
+					
+					actualWriter.write( jsfFlexResponseWrapper.toString().substring(0, bodyMatchIndex) );
+					
+					actualWriter.write(HEAD_START_TAG);
+					
+					if(isDebugMode){
+						actualWriter.write(META_HTTP_EQUIV_EXPIRE);
+						actualWriter.write(META_HTTP_EQUIV_PRAGMA_NO_CACHE);
+						actualWriter.write(META_HTTP_EQUIV_CACHE_CONTROL_NO_CACHE);
+					}
+					
+					Collection resourceCollection = jsfFlexDojoResource.getResources();
+					String resourceConvertedToScriptElements = constructResourceToScriptTags(resourceCollection, requestURISplitted);
+					
+					actualWriter.write(resourceConvertedToScriptElements);
+					
+					actualWriter.write(HEAD_END_TAG);
+					
+					actualWriter.write( jsfFlexResponseWrapper.toString().substring(bodyMatchIndex) );
+				}else{
+					//Must not be for mxml components, so flush
+					actualWriter.write( jsfFlexResponseWrapper.toString() );
 				}
-				
-				Collection resourceCollection = jsfFlexDojoResource.getResources();
-				String resourceConvertedToScriptElements = constructResourceToScriptTags(resourceCollection, requestURISplitted);
-				
-				actualWriter.write(resourceConvertedToScriptElements);
-				
-				actualWriter.write(HEAD_END_TAG);
-				
-				actualWriter.write( jsfFlexResponseWrapper.toString().substring(bodyMatchIndex) );
-				
 			}
 			
 			actualWriter.flush();

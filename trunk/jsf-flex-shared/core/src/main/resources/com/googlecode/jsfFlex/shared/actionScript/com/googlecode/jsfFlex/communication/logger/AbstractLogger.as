@@ -33,14 +33,22 @@ package com.googlecode.jsfFlex.communication.logger
 	import flash.utils.clearInterval;
 	import flash.utils.setInterval;
 	
+	import com.googlecode.jsfFlex.communication.utils.WebConstants;
+	
 	internal class AbstractLogger implements ILogger {
 		
-		private static const JSF_FLEX_FLASH_APPLICATION_CONFIG:String = "swf/jsfFlexFlashApplicationConfig.xml";
+		private static const JSF_FLEX_FLASH_APPLICATION_CONFIG:String = WebConstants.WEB_CONTEXT_PATH + "/swf/jsfFlexFlashApplicationConfig.xml";
 		private static const PRIOR_TO_LOG_MODE_SETTING_MESSAGES:Array = new Array();
 		
 		private static var _clearIntervalRef:uint;
-		private static var _logMode:int = -1;
 		private static var _loader:URLLoader;
+		private static var _logModeLoaded:Boolean;
+		
+		private static var _isLog:Boolean;
+		private static var _isDebug:Boolean;
+		private static var _isInfo:Boolean;
+		private static var _isWarn:Boolean;
+		private static var _isError:Boolean;
 		
 		{
 			_clearIntervalRef = setInterval( logPreLogModeSettingMessages, 500);
@@ -49,8 +57,18 @@ package com.googlecode.jsfFlex.communication.logger
 			_loader.addEventListener(Event.COMPLETE, function (event:Event):void {
 										_loader.removeEventListener(Event.COMPLETE, arguments.callee);
 										var jsfFlexFlashApplicationConfig:XML = new XML(_loader.data);
-										_logMode = int(jsfFlexFlashApplicationConfig.flash_to_javascript_log_level.toString());
+										var _logMode:uint = int(jsfFlexFlashApplicationConfig.flash_to_javascript_log_level.toString());
+										
+										switch(_logMode){
+											case 1 : _isLog = true;
+											case 2 : _isDebug = true;
+											case 3 : _isInfo = true;
+											case 4 : _isWarn = true;
+											case 5 : _isError = true;
+										}
+										
 										_loader = null;
+										_logModeLoaded = true;
 										clearInterval(_clearIntervalRef);
 										logPreLogModeSettingMessages();
 									});
@@ -64,15 +82,25 @@ package com.googlecode.jsfFlex.communication.logger
 		
 		public static function logPreLogModeSettingMessages():void {
 			
-			if(_logMode < 0){
+			if(!_logModeLoaded){
 				return;
 			}
 			
 			for each(var messageObject:Object in PRIOR_TO_LOG_MODE_SETTING_MESSAGES){
 				var currSeverity:int = messageObject.severity;
 				var currFunction:Function = messageObject.method;
-				if(_logMode < currSeverity){
-					currFunction.call(messageObject.instanceRef, messageObject.message, (currSeverity - 1));
+				var okayLogLevel:Boolean = false;
+				
+				switch(currSeverity){
+					case 1 : if(_isLog) okayLogLevel = true; break;
+					case 2 : if(_isDebug) okayLogLevel = true; break;
+					case 3 : if(_isInfo) okayLogLevel = true; break;
+					case 4 : if(_isWarn) okayLogLevel = true; break;
+					case 5 : if(_isError) okayLogLevel = true; break;
+				}
+				
+				if(okayLogLevel){
+					currFunction.call(messageObject.instanceRef, messageObject.message, currSeverity);
 				}
 			}
 			
@@ -83,51 +111,51 @@ package com.googlecode.jsfFlex.communication.logger
 		}
 		
 		public function log(errorMessage:String):void {
-			if(_logMode == -1){
-				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: errorMessage, severity: 2});
+			if(!_logModeLoaded){
+				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: errorMessage, severity: 1});
 				return;
 			}
-			if(_logMode < 2){
+			if(_isLog){
 				logMessage(errorMessage, 1);
 			}
 		}
 		
 		public function logDebug(errorMessage:String):void {
-			if(_logMode == -1){
-				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: errorMessage, severity: 3});
+			if(!_logModeLoaded){
+				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: errorMessage, severity: 2});
 				return;
 			}
-			if(_logMode < 3){
+			if(_isDebug){
 				logMessage(errorMessage, 2);
 			}
 		}
 		
 		public function logInfo(errorMessage:String):void {
-			if(_logMode == -1){
-				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: errorMessage, severity: 4});
+			if(!_logModeLoaded){
+				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: errorMessage, severity: 3});
 				return;
 			}
-			if(_logMode < 4){
+			if(_isInfo){
 				logMessage(errorMessage, 3);
 			}
 		}
 		
 		public function logWarn(errorMessage:String):void {
-			if(_logMode == -1){
-				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: errorMessage, severity: 5});
+			if(!_logModeLoaded){
+				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: errorMessage, severity: 4});
 				return;
 			}
-			if(_logMode < 5){
+			if(_isWarn){
 				logMessage(errorMessage, 4);
 			}
 		}
 		
 		public function logError(errorMessage:String):void {
-			if(_logMode == -1){
-				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: errorMessage, severity: 6});
+			if(!_logModeLoaded){
+				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: errorMessage, severity: 5});
 				return;
 			}
-			if(_logMode < 6){
+			if(_isError){
 				logMessage(errorMessage, 5);
 			}
 		}

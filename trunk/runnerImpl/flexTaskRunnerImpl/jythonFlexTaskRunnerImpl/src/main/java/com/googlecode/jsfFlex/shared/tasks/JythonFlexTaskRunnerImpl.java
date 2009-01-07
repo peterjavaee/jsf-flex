@@ -57,6 +57,8 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 	private final static Log _log = LogFactory.getLog(JythonFlexTaskRunnerImpl.class);
 	
 	private static final String ACTION_SCRIPT_DIR_NAME = "actionScript";
+	private static final String WEB_CONSTANTS_AS_FILE_NAME = File.separatorChar + "WebConstants.as";
+	private static final String WEB_CONTEXT_PATH_TOKEN = "{webContextPath}";
 	private static final String PYTHON_HOME = "python.home";
 	
 	static{
@@ -120,7 +122,7 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 		addTask(swfCreator);
 	}
 	
-	public void createSwcSourceFiles(String swcPath, List systemSourceFiles, String jsfFlexMainSwcConfigFile) {
+	public void createSwcSourceFiles(String swcPath, List systemSourceFiles, String jsfFlexMainSwcConfigFile, String webContextPath) {
 		//Echo the sourceFiles to the SWC path
 		
 		/*
@@ -154,6 +156,16 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 			toEcho.file(fileName);
 			toEcho.message(getFileManipulatorTaskRunner().getComponentTemplate(getClass().getClassLoader(), currSystemSource));
 			addTask(toEcho);
+			
+			/*
+			 * Need to replace WEB_CONTEXT_PATH_TOKEN with the correct value.
+			 * TODO : implement this better later
+			 */
+			if(fileName.indexOf(WEB_CONSTANTS_AS_FILE_NAME) > 0){
+				ReplaceTextTask replaceWebContextPath = new ReplaceTextTask(fileName);
+				replaceWebContextPath.addTokenValue(WEB_CONTEXT_PATH_TOKEN, webContextPath);
+				addTask(replaceWebContextPath);
+			}
 			
 		}
 		

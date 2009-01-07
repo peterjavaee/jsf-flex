@@ -23,6 +23,7 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIAllowMultipleSelection
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundColorAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIBatchColumnDataRetrievalSize;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderThicknessAttribute;
@@ -267,6 +268,6 @@ public abstract class AbstractMXMLUIDataGrid
 						_MXMLUIBorderThicknessAttribute, _MXMLUIColorAttribute, _MXMLUICornerRadiusAttribute, 
 						_MXMLUIDisabledColorAttribute, _MXMLUIShadowAttributes, _MXMLUIFontFamilyAttribute, 
 						_MXMLUIFontGeneralAttributes, _MXMLUIScrollBarAttributes, _MXMLUILeadingAttribute, 
-						_MXMLUIRepeatAttributes, _MXMLUIBaseAttributes {
+						_MXMLUIRepeatAttributes, _MXMLUIBatchColumnDataRetrievalSize, _MXMLUIBaseAttributes {
 	
 }

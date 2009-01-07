@@ -20,7 +20,6 @@ package com.googlecode.jsfFlex.shared.beans.additionalScriptContent;
 
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
@@ -53,32 +52,29 @@ public final class AdditionalApplicationScriptContent {
 		_simpleDataProviderSetter.add(new SimpleDataProviderSetter(componentId, dataProviderContent));
 	}
 	
-	public void addDataGridScriptContent(String dataGridId, int maxDataGridColumnLength){
-		_dataGridScriptContent.put(dataGridId, new DataGridScriptContent(dataGridId, maxDataGridColumnLength));
+	public void addDataGridScriptContent(String dataGridId){
+		_dataGridScriptContent.put(dataGridId, new DataGridScriptContent(dataGridId));
 	}
 	
-	public void addDataGridColumnToDataGridScriptContent(String dataGridId, int maxDataGridColumnLength, String dataGridColumnId, String dataField){
+	public void addDataGridColumnToDataGridScriptContent(String dataGridId, String dataGridColumnId, String dataField, Boolean columnEditable){
 		DataGridScriptContent dataGridScriptContentInstance;
 		if((dataGridScriptContentInstance = (DataGridScriptContent) _dataGridScriptContent.get(dataGridId)) == null){
-			dataGridScriptContentInstance = new DataGridScriptContent(dataGridId, maxDataGridColumnLength);
-			_dataGridScriptContent.put(dataGridId, dataGridScriptContentInstance);
+			throw new IllegalStateException("DataGridScriptContent doesn't exist for " + dataGridId + 
+												" : addDataGridScriptContent should be invoked prior to this method call");							
 		}
 		
-		dataGridScriptContentInstance.addDataGridColumnContent(dataGridColumnId, dataField);
+		dataGridScriptContentInstance.addDataGridColumnContent(dataGridColumnId, dataField, columnEditable);
 	}
 	
-	public void addDataGridColumnToDataGridScriptContent(String dataGridId, int maxDataGridColumnLength, Map dataGridColumnIdMap){
+	public void setDataGridScriptContentProperties(String dataGridId, Integer batchColumnDataRetrievalSize, Integer maxDataPartitionIndex){
 		DataGridScriptContent dataGridScriptContentInstance;
 		if((dataGridScriptContentInstance = (DataGridScriptContent) _dataGridScriptContent.get(dataGridId)) == null){
-			dataGridScriptContentInstance = new DataGridScriptContent(dataGridId, maxDataGridColumnLength);
-			_dataGridScriptContent.put(dataGridId, dataGridScriptContentInstance);
+			throw new IllegalStateException("DataGridScriptContent doesn't exist for " + dataGridId + 
+												" : addDataGridScriptContent should be invoked prior to this method call");							
 		}
 		
-		for(Iterator iterate = dataGridColumnIdMap.keySet().iterator(); iterate.hasNext();){
-			String dataGridColumnId = (String) iterate.next();
-			String dataField = (String) dataGridColumnIdMap.get(dataGridColumnId);
-			dataGridScriptContentInstance.addDataGridColumnContent(dataGridColumnId, dataField);
-		}
+		dataGridScriptContentInstance.setBatchColumnDataRetrievalSize(batchColumnDataRetrievalSize);
+		dataGridScriptContentInstance.setMaxDataPartitionIndex(maxDataPartitionIndex);
 	}
 	
 	public void addValidationManagerValidatorId(String validatorId){

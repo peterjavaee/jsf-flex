@@ -37,7 +37,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * 	dataField=true
  * 	dataTipField=false
  * 	dataTipFunction=false
- * 	editable=false
+ * 	editable=true
  * 	editorDataField=false
  * 	editorHeightOffset=false
  * 	editorUsesEnterKey=false

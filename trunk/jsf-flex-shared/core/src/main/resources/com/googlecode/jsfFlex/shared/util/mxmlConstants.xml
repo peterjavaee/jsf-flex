@@ -14,11 +14,13 @@
       <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/component/DataGridColumnServiceRequest.as</source-file>
       <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/component/DataGridServiceRequest.as</source-file>
       <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/core/ComponentValueMapper.as</source-file>
+      <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/event/helper/ScrollEventHelper.as</source-file>
       <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/logger/AbstractLogger.as</source-file>
       <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/logger/ILogger.as</source-file>
       <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/logger/JavaScriptLogger.as</source-file>
       <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/logger/LoggerFactory.as</source-file>
       <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/services/JsfFlexHttpService.as</source-file>
+      <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/utils/WebConstants.as</source-file>
       <source-file>com/googlecode/jsfFlex/shared/actionScript/com/googlecode/jsfFlex/communication/validator/ValidationManager.as</source-file>
     </swc-source-files>
     <swf-source-files>

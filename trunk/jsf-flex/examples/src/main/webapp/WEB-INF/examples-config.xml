@@ -9,39 +9,55 @@
   
   <!-- managed bean for mxml -->
   <managed-bean>
-    <managed-bean-name>mxmlBean</managed-bean-name>
-    <managed-bean-class>com.googlecode.jsfFlex.examples.mxml.MXMLBean</managed-bean-class>
+    <managed-bean-name>mxmlOverallBean</managed-bean-name>
+    <managed-bean-class>com.googlecode.jsfFlex.examples.mxml.overallExample.MXMLOverallExampleBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  
+  <managed-bean>
+    <managed-bean-name>multipleRequestDataGridExample</managed-bean-name>
+    <managed-bean-class>com.googlecode.jsfFlex.examples.mxml.multipleRequestDataGridExample.MXMLMultipleRequestDataGridExampleBean</managed-bean-class>
     <managed-bean-scope>session</managed-bean-scope>
   </managed-bean>
   
   <!-- navigational rules for mxmlSimple -->
   <navigation-rule>
-    <from-view-id>/mxmlSimple.jsp</from-view-id>
+    <from-view-id>/mxmlSimple/mxmlSimple.jsp</from-view-id>
     <navigation-case>
       <from-outcome>success</from-outcome>
-      <to-view-id>/mxmlSimple.jsp</to-view-id>
+      <to-view-id>/mxmlSimple/mxmlSimple.jsp</to-view-id>
     </navigation-case>
   </navigation-rule>
   <!-- navigational rules for mxmlSimple end -->
   
-  <!-- navigational rules for mxmlExample -->
+  <!-- navigational rules for mxmlOverallExample -->
   <navigation-rule>
-    <from-view-id>/mxmlExample.jsp</from-view-id>
+    <from-view-id>/overallExample/mxmlOverallExample.jsp</from-view-id>
     <navigation-case>
       <from-outcome>success</from-outcome>
-      <to-view-id>/mxmlExampleSuccess.jsp</to-view-id>
+      <to-view-id>/overallExample/mxmlOverallExampleSuccess.jsp</to-view-id>
     </navigation-case>
   </navigation-rule>
-  <!-- navigational rules for mxmlExample end -->
+  <!-- navigational rules for mxmlOverallExample end -->
   
-  <!-- navigational rules for mxmlExampleSuccess -->
+  <!-- navigational rules for mxmlOverallExampleSuccess -->
   <navigation-rule>
-    <from-view-id>/mxmlExampleSuccess.jsp</from-view-id>
+    <from-view-id>/overallExample/mxmlOverallExampleSuccess.jsp</from-view-id>
     <navigation-case>
       <from-outcome>back</from-outcome>
-      <to-view-id>/mxmlExample.jsp</to-view-id>
+      <to-view-id>/overallExample/mxmlOverallExample.jsp</to-view-id>
     </navigation-case>
   </navigation-rule>
-  <!-- navigational rules for mxmlExampleSuccess end -->
+  <!-- navigational rules for mxmlOverallExampleSuccess end -->
   
+  <!-- navigational rules for mxmlMultipleRequestDataGridExample -->
+  <navigation-rule>
+    <from-view-id>/multipleRequestDataGridExample/mxmlMultipleRequestDataGridExample.jsp</from-view-id>
+    <navigation-case>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/multipleRequestDataGridExample/mxmlMultipleRequestDataGridExample.jsp</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <!-- navigational rules for mxmlMultipleRequestDataGridExample end -->
+    
 </faces-config>

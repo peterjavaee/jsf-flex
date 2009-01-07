@@ -16,27 +16,25 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- 
+package com.googlecode.jsfFlex.component.attributes;
+
 /**
- * This class is a factory for creating different impl of Loggers
- * [i.e. JavaScriptLogger for communicating log messages FireFox:FireBug]
+ * One thing to note is that if rowCount of the DataGrid component is greater<br>
+ * than batchColumnDataRetrievalSize, latter will be set to former.
+ * 
  * @author Ji Hoon Kim
  */
-package com.googlecode.jsfFlex.communication.logger
-{
-	import flash.errors.IllegalOperationError;
+public interface _MXMLUIBatchColumnDataRetrievalSize {
 	
-	public class LoggerFactory {
-		
-		public function LoggerFactory(){
-			throw new IllegalOperationError("LoggerFactory should be used as a factory");
-		}
-		
-		public static function newJSLoggerInstance(actionScriptClass:Class):ILogger {
-			var log:JavaScriptLogger = new JavaScriptLogger(actionScriptClass);
-			return log;
-		}
-		
-	}
+	/**
+	 * Size denoting how many elements to retrieve by http service. If not defined will default to 50.
+	 * 
+	 *@JSFProperty
+	 *    required        = false
+	 *    rtexprvalue     = false
+	 *    defaultValue	  = "50"
+	 *    desc            = "Size denoting how many elements to retrieve by http service. If not defined will default to 50."
+	 */
+	String getBatchColumnDataRetrievalSize();
 	
 }

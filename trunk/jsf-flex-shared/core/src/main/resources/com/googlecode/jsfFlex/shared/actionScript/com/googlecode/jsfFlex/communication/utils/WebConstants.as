@@ -18,23 +18,23 @@
  */
  
 /**
- * This class is a factory for creating different impl of Loggers
- * [i.e. JavaScriptLogger for communicating log messages FireFox:FireBug]
+ * This class will represent the constants needed for the web project
+ * such as the contextPath that the swf rests within. Technically one can
+ * evalute this value using communication to Javascript, but gets a bit messy
+ * and can possibly cause unexpected issues depending on how the user sets up
+ * the web app [sanity sake].
  * @author Ji Hoon Kim
  */
-package com.googlecode.jsfFlex.communication.logger
+package com.googlecode.jsfFlex.communication.utils
 {
 	import flash.errors.IllegalOperationError;
 	
-	public class LoggerFactory {
+	public class WebConstants {
 		
-		public function LoggerFactory(){
-			throw new IllegalOperationError("LoggerFactory should be used as a factory");
-		}
+		public static const WEB_CONTEXT_PATH:String = "{webContextPath}";
 		
-		public static function newJSLoggerInstance(actionScriptClass:Class):ILogger {
-			var log:JavaScriptLogger = new JavaScriptLogger(actionScriptClass);
-			return log;
+		public function WebConstants(){
+			throw new IllegalOperationError("WebConstants should be used statically");
 		}
 		
 	}

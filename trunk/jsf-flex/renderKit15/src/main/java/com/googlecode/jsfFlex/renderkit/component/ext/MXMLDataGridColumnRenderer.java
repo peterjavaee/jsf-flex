@@ -47,7 +47,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 				@JsfFlexAttribute(attribute="dataField", byMethod=true),
 				@JsfFlexAttribute(attribute="dataTipField", byMethod=false),
 				@JsfFlexAttribute(attribute="dataTipFunction", byMethod=false),
-				@JsfFlexAttribute(attribute="editable", byMethod=false),
+				@JsfFlexAttribute(attribute="editable", byMethod=true),
 				@JsfFlexAttribute(attribute="editorDataField", byMethod=false),
 				@JsfFlexAttribute(attribute="editorHeightOffset", byMethod=false),
 				@JsfFlexAttribute(attribute="editorUsesEnterKey", byMethod=false),
