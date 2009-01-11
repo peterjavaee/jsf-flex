@@ -18,7 +18,16 @@
  */
 package com.googlecode.jsfFlex.component.ext.properties.ext;
 
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+
+import javax.faces.context.FacesContext;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.ext.AbstractMXMLUIDataGrid;
+import com.googlecode.jsfFlex.component.ext.AbstractMXMLUIDataGridColumn;
 
 /**
  * @JSFComponent
@@ -34,6 +43,18 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 public abstract class AbstractMXMLUIColumns 
 						extends MXMLUISimpleBase {
 	
-	
+	public void encodeEnd(FacesContext context) throws IOException {
+		super.encodeEnd(context);
+		
+		AbstractMXMLUIDataGrid dataGridComponent = (AbstractMXMLUIDataGrid) getParent();
+		Map dataGridColumnComponentMapping = dataGridComponent.getDataGridColumnComponentMapping();
+		
+		List dataGridColumnComponents = getChildren();
+		for(Iterator iterate = dataGridColumnComponents.iterator(); iterate.hasNext();){
+			AbstractMXMLUIDataGridColumn currDataGridColumnComponent = (AbstractMXMLUIDataGridColumn) iterate.next();
+			dataGridColumnComponentMapping.put(currDataGridColumnComponent.getId(), currDataGridColumnComponent);
+		}
+		
+	}
 	
 }

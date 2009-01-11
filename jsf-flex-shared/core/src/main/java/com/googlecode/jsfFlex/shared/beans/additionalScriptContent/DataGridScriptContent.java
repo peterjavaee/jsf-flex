@@ -27,14 +27,15 @@ import java.util.List;
 public final class DataGridScriptContent {
 	
 	private final String _dataGridId;
+	private final Integer _batchColumnDataRetrievalSize;
+	private final Integer _maxDataPartitionIndex;
 	private final List _dataGridColumns;
 	
-	private Integer _batchColumnDataRetrievalSize;
-	private Integer _maxDataPartitionIndex;
-	
-	DataGridScriptContent(String dataGridId){
+	DataGridScriptContent(String dataGridId, Integer batchColumnDataRetrievalSize, Integer maxDataPartitionIndex){
 		super();
 		_dataGridId = dataGridId;
+		_batchColumnDataRetrievalSize = batchColumnDataRetrievalSize;
+		_maxDataPartitionIndex = maxDataPartitionIndex;
 		_dataGridColumns = new LinkedList();
 	}
 	
@@ -53,13 +54,6 @@ public final class DataGridScriptContent {
 	}
 	public Integer getMaxDataPartitionIndex() {
 		return _maxDataPartitionIndex;
-	}
-	
-	void setBatchColumnDataRetrievalSize(Integer batchColumnDataRetrievalSize) {
-		_batchColumnDataRetrievalSize = batchColumnDataRetrievalSize;
-	}
-	void setMaxDataPartitionIndex(Integer maxDataPartitionIndex) {
-		_maxDataPartitionIndex = maxDataPartitionIndex;
 	}
 	
 	public boolean equals(Object instance) {

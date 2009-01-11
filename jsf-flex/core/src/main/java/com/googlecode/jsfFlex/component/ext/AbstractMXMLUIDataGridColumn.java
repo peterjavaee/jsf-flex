@@ -18,24 +18,20 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import java.io.IOException;
-import java.io.Serializable;
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-import java.util.TreeSet;
 
-import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIColumnData;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataFieldAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
 
@@ -299,113 +295,38 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
  */
 public abstract class AbstractMXMLUIDataGridColumn 
 						extends MXMLUISimpleBase 
-						implements _MXMLUIColumnData, _MXMLUIDataFieldAttribute, _MXMLUIEditableAttribute {
+						implements _MXMLUIDataFieldAttribute, _MXMLUIEditableAttribute {
 	
 	private final static Log _log = LogFactory.getLog(AbstractMXMLUIDataGridColumn.class);
-	
-	private static final String DATA_START_INDEX_KEY = "dataStartIndex";
-	private static final String DATA_END_INDEX_KEY = "dataEndIndex";
+	private static final Class[] UPDATE_DATA_VALUE_PARAMETER_TYPES = new Class[]{ String.class };
 	
 	private static final String REQUEST_KEYS_KEY = "requestKeys";
 	private static final String RESULT_CODE_KEY = "resultCode";
 	
-	private Set _modifiedDataFieldSet;
-	
-	{
-		_modifiedDataFieldSet = new TreeSet();
-	}
-	
-	public List getFormatedColumnData(){
-		// for more complicated Grids, the return data might consist of XML entries
-		FacesContext context = FacesContext.getCurrentInstance();
-		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+	public List getFormatedColumnData(List dataGridEntries, int dataStartIndex, int dataEndIndex) {
 		
-		String dataStartIndex = (String) request.getParameter(DATA_START_INDEX_KEY);
-		String dataEndIndex = (String) request.getParameter(DATA_END_INDEX_KEY);
+		final String GET_DATA_FIELD_METHOD = "get" + getDataField().substring(0, 1).toUpperCase() + getDataField().substring(1);
 		
-		_log.info("Within getFormatedColumnData with dataStartIndex : " + dataStartIndex + " , dataEndIndex " + dataEndIndex);
+		//for more complicated Grids, the return data might consist of XML entries
+		List formatedColumnData = new LinkedList();
 		
-		int parsedStartIndex = -1;
-		int parsedEndIndex = -1;
-		
-		try{
-			parsedStartIndex = Integer.parseInt(dataStartIndex);
-			parsedEndIndex = Integer.parseInt(dataEndIndex);
-		}catch(NumberFormatException parsingException){
-			_log.warn("Error parsing of following values [" + dataStartIndex + ", " + dataEndIndex + "] to an int", parsingException);
-			return null;
-		}
-		
-		int columnDataSize = getColumnData().size();
-		parsedEndIndex = parsedEndIndex < columnDataSize ? parsedEndIndex : columnDataSize;
-		
-		List formatedColumnData = getColumnData().subList(parsedStartIndex, parsedEndIndex);
-		
-		synchronized(_modifiedDataFieldSet){
-			for(Iterator keyIterator = _modifiedDataFieldSet.iterator(); keyIterator.hasNext();){
-				ModifiedDataField currModifiedDataField = (ModifiedDataField) keyIterator.next();
-				if(currModifiedDataField._rowIndex >= parsedStartIndex && 
-						currModifiedDataField._rowIndex < parsedEndIndex){
-					formatedColumnData.set((currModifiedDataField._rowIndex - parsedStartIndex), currModifiedDataField._modifiedValue);
-				}
-			}
+		for(int i = dataStartIndex; i < dataEndIndex; i++){
+			Object currDataEntry = dataGridEntries.get(i);
+			String currDataValue = getDataValue(currDataEntry, GET_DATA_FIELD_METHOD);
+			
+			formatedColumnData.add(currDataValue);
 		}
 		
 		return formatedColumnData;
 	}
 	
-	public void encodeEnd(FacesContext context) throws IOException {
-		super.encodeEnd(context);
+	public Map updateModifiedDataField(HttpServletRequest request, List dataGridEntries) {
 		
-		/*
-		 * adding the component to the map for future asynchronous request reference by
-		 * DataGridColumnServiceRequest.as
-		 */
-		Map sessionMap = context.getExternalContext().getSessionMap();
-		sessionMap.put(getId(), this);
-	}
-	
-	public void decode(FacesContext context) {
-		super.decode(context);
+		final String SET_DATA_FIELD_METHOD = "set" + getDataField().substring(0, 1).toUpperCase() + getDataField().substring(1);
 		
-		/*
-		 * No longer needed, so remove the content.
-		 * Below is a pure HACK till JSF 2.0.
-		 * Also saveState + restoreState has been implemented for future JSF impl.
-		 */
-		Map sessionMap = context.getExternalContext().getSessionMap();
-		AbstractMXMLUIDataGridColumn instance = (AbstractMXMLUIDataGridColumn) sessionMap.remove(getId());
-		_modifiedDataFieldSet = instance._modifiedDataFieldSet;
-		
-		List columnData = getColumnData();
-		
-		//Set modifiedDataFieldSet
-		for(Iterator keyIterator = _modifiedDataFieldSet.iterator(); keyIterator.hasNext();){
-			ModifiedDataField currModifiedDataField = (ModifiedDataField) keyIterator.next();
-			columnData.set(currModifiedDataField._rowIndex, currModifiedDataField._modifiedValue);
-		}
-		
-	}
-	
-	public Object saveState(FacesContext context) {
-		Object[] values = new Object[2];
-		values[0] = super.saveState(context);
-		values[1] = _modifiedDataFieldSet;
-		
-		return values;
-	}
-	
-	public void restoreState(FacesContext context, Object state) {
-		Object[] values = (Object[]) state;
-		super.restoreState(context, values[0]);
-		_modifiedDataFieldSet = (Set) values[1];
-	}
-	
-	public Map updateModifiedDataField(){
 		Map updateResult = new LinkedHashMap();
 		boolean success = true;
-		FacesContext context = FacesContext.getCurrentInstance();
-		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+		
 		String requestKey = (String) request.getParameter(REQUEST_KEYS_KEY);
 		List requestKeyList = Arrays.asList(requestKey.split(","));
 		
@@ -424,48 +345,51 @@ public abstract class AbstractMXMLUIDataGridColumn
 				continue;
 			}
 			
-			ModifiedDataField currModifiedDataField = new ModifiedDataField(rowIndex, currValue);
-			synchronized(_modifiedDataFieldSet){
-				_modifiedDataFieldSet.add(currModifiedDataField);
-			}
+			Object currDataEntry = dataGridEntries.get(rowIndex);
+			updateDataValue(currDataEntry, SET_DATA_FIELD_METHOD, currValue);
 		}
 		
 		updateResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
 		return updateResult;
 	}
 	
-	private static class ModifiedDataField implements Serializable, Comparable {
+	private String getDataValue(Object currentDataEntry, String methodToInvoke) {
 		
-		private static final long serialVersionUID = -9043196776952660308L;
+		Object obj = null;
 		
-		private final int _rowIndex;
-		private final String _modifiedValue;
-		
-		private ModifiedDataField(int rowIndex, String modifiedValue){
-			super();
-			_rowIndex = rowIndex;
-			_modifiedValue = modifiedValue;
+		try{
+			Method method = currentDataEntry.getClass().getMethod(methodToInvoke, null);
+			obj = method.invoke(currentDataEntry, null);
+		}catch(NoSuchMethodException noSuchMethodException){
+			StringBuffer errorMessage = new StringBuffer();
+			errorMessage.append("NoSuchMethodException was thrown while invoking method : ");
+			errorMessage.append(methodToInvoke);
+			throw new RuntimeException(errorMessage.toString(), noSuchMethodException);
+		}catch(Exception additionalAccessException){
+			StringBuffer errorMessage = new StringBuffer();
+			errorMessage.append("Other exception aside from NoSuchMethodException was thrown while invoking method : ");
+			errorMessage.append(methodToInvoke);
+			throw new RuntimeException(errorMessage.toString(), additionalAccessException);
 		}
 		
-		public boolean equals(Object instance) {
-			if(!(instance instanceof ModifiedDataField)){
-				return false;
-			}
-			
-			ModifiedDataField modifiedDataFieldInstance = (ModifiedDataField) instance;
-			return _rowIndex == modifiedDataFieldInstance._rowIndex;
-		}
-		public int hashCode() {
-			return _rowIndex;
-		}
+		return obj.toString();
+	}
+	
+	private void updateDataValue(Object currentDataEntry, String methodToInvoke, String modifiedValue) {
 		
-		public int compareTo(Object instance) {
-			if(!(instance instanceof ModifiedDataField)){
-				return -1;
-			}
-			
-			ModifiedDataField modifiedDataFieldInstance = (ModifiedDataField) instance;
-			return _rowIndex == modifiedDataFieldInstance._rowIndex ? 0 : _rowIndex < modifiedDataFieldInstance._rowIndex ? -1 : 1;
+		try{
+			Method method = currentDataEntry.getClass().getMethod(methodToInvoke, UPDATE_DATA_VALUE_PARAMETER_TYPES);
+			method.invoke(currentDataEntry, new Object[]{ modifiedValue });
+		}catch(NoSuchMethodException noSuchMethodException){
+			StringBuffer errorMessage = new StringBuffer();
+			errorMessage.append("NoSuchMethodException was thrown while invoking method : ");
+			errorMessage.append(methodToInvoke);
+			throw new RuntimeException(errorMessage.toString(), noSuchMethodException);
+		}catch(Exception additionalAccessException){
+			StringBuffer errorMessage = new StringBuffer();
+			errorMessage.append("Other exception aside from NoSuchMethodException was thrown while invoking method : ");
+			errorMessage.append(methodToInvoke);
+			throw new RuntimeException(errorMessage.toString(), additionalAccessException);
 		}
 		
 	}

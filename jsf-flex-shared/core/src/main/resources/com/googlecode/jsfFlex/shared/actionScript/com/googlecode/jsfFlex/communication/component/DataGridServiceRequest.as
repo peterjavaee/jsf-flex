@@ -231,6 +231,10 @@ package com.googlecode.jsfFlex.communication.component
 		    return _dataGridDataProvider;
 		}
 		
+		internal function get dataGridId():String {
+			return _dataGridComp.id
+		}
+		
 		internal function notifyRetrievalOfColumnData():void {
 			
 			_numberOfWaitingColumnDataInfo--;

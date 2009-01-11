@@ -22,41 +22,78 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+
 /**
  * @author Ji Hoon Kim
  */
 public class MXMLMultipleRequestDataGridExampleBean implements Serializable {
 	
 	private static final long serialVersionUID = 1501524398537830947L;
-	
+
 	private static final String LARGE_DATA_STRING_DISPLAY_MESSAGE = "Displaying column data for ";
 	
-	private List _largeFirstColumnData;
-	private List _largeSecondColumnData;
+	private List _largeDataEntries;
 	
 	public MXMLMultipleRequestDataGridExampleBean(){
 		super();
 		
-		_largeFirstColumnData = new LinkedList();
-		_largeSecondColumnData = new LinkedList();
+		_largeDataEntries = new LinkedList();
 		
-		for(int i=0; i < 500; i ++){
-			_largeFirstColumnData.add(LARGE_DATA_STRING_DISPLAY_MESSAGE + i);
-			_largeSecondColumnData.add(Integer.valueOf(i));
+		for(int i=0; i < 500; i++){
+			_largeDataEntries.add(new LargeDataEntry(LARGE_DATA_STRING_DISPLAY_MESSAGE + i, String.valueOf(i)));
 		}
 	}
 	
-	public List getLargeFirstColumnData() {
-		return _largeFirstColumnData;
+	public List getLargeDataEntries() {
+		return _largeDataEntries;
 	}
-	public void setLargeFirstColumnData(List largeFirstColumnData) {
-		_largeFirstColumnData = largeFirstColumnData;
+	public void setLargeDataEntries(List largeDataEntries) {
+		_largeDataEntries = largeDataEntries;
 	}
-	public List getLargeSecondColumnData() {
-		return _largeSecondColumnData;
-	}
-	public void setLargeSecondColumnData(List largeSecondColumnData) {
-		_largeSecondColumnData = largeSecondColumnData;
+	
+	public static class LargeDataEntry implements Serializable {
+		
+		private static final long serialVersionUID = 8426305474249836025L;
+		
+		private String _firstColumnEntry;
+		private String _secondColumnEntry;
+		
+		private LargeDataEntry(String firstColumnEntry, String secondColumnEntry){
+			super();
+			_firstColumnEntry = firstColumnEntry;
+			_secondColumnEntry = secondColumnEntry;
+		}
+
+		public String getFirstColumnEntry() {
+			return _firstColumnEntry;
+		}
+		public void setFirstColumnEntry(String firstColumnEntry) {
+			_firstColumnEntry = firstColumnEntry;
+		}
+		public String getSecondColumnEntry() {
+			return _secondColumnEntry;
+		}
+		public void setSecondColumnEntry(String secondColumnEntry) {
+			_secondColumnEntry = secondColumnEntry;
+		}
+		
+		public boolean equals(Object instance) {
+			if(!(instance instanceof LargeDataEntry)){
+				return false;
+			}
+			
+			LargeDataEntry largeDataEntryInstance = (LargeDataEntry) instance;
+			return _firstColumnEntry.equals(largeDataEntryInstance._firstColumnEntry) 
+						&& _secondColumnEntry.equals(largeDataEntryInstance._secondColumnEntry);
+		}
+		public int hashCode() {
+			int hashCodeVal = MXMLConstants.HASH_CODE_INIT_VALUE;
+			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _firstColumnEntry.hashCode();
+			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _secondColumnEntry.hashCode();
+			return hashCodeVal;
+		}
+		
 	}
 	
 }

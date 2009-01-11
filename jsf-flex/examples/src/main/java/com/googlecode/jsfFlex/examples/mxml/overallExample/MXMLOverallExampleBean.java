@@ -24,6 +24,8 @@ import java.util.List;
 
 import javax.faces.model.SelectItem;
 
+import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -52,9 +54,7 @@ public class MXMLOverallExampleBean implements Serializable {
 	private String _verticalSliderValue;
 	private String _progressBarValue;
 	
-	private List _nameColumnData;
-	private List _quoteColumnData;
-	private List _emailColumnData;
+	private List _wisePeopleEntries;
 	
 	public MXMLOverallExampleBean(){
 		super();
@@ -82,20 +82,13 @@ public class MXMLOverallExampleBean implements Serializable {
 		_verticalSliderValue = "";
 		_progressBarValue = "";
 		
-		_nameColumnData = new LinkedList();
-		_nameColumnData.add("Issac Newton");
-		_nameColumnData.add("James Clark Maxwell");
-		_nameColumnData.add("Blaise Pascal");
-		
-		_quoteColumnData = new LinkedList();
-		_quoteColumnData.add("This most beautiful system [The Universe] could only proceed from the dominion of an intelligent and powerful Being.");
-		_quoteColumnData.add("At quite uncertain times and places. The atoms left their heavenly path, And by fortuitous embraces, Engendered all that being hath.");
-		_quoteColumnData.add("Belief is a wise wager. Granted that faith cannot be proved, what harm will come to you if you gamble on its truth and it proves false? If you gain, you gain all; if you lose, you lose nothing. Wager, then, without hesitation, that He exists.");
-		
-		_emailColumnData = new LinkedList();
-		_emailColumnData.add("fatherOfPhysicsCalculusDude@wiseHumble.com");
-		_emailColumnData.add("electroMagneticDude@wiseHumble.com");
-		_emailColumnData.add("probabilityTheoryDude@wiseHumble.com");
+		_wisePeopleEntries = new LinkedList();
+		_wisePeopleEntries.add(new WisePeopleEntry("Issac Newton", "This most beautiful system [The Universe] could only proceed from the dominion of an intelligent and powerful Being.", 
+													"fatherOfPhysicsCalculusDude@wiseHumble.com"));
+		_wisePeopleEntries.add(new WisePeopleEntry("James Clark Maxwell", "At quite uncertain times and places. The atoms left their heavenly path, And by fortuitous embraces, Engendered all that being hath.", 
+													"electroMagneticDude@wiseHumble.com"));
+		_wisePeopleEntries.add(new WisePeopleEntry("Blaise Pascal", "Belief is a wise wager. Granted that faith cannot be proved, what harm will come to you if you gamble on its truth and it proves false? If you gain, you gain all; if you lose, you lose nothing. Wager, then, without hesitation, that He exists.", 
+													"probabilityTheoryDude@wiseHumble.com"));
 		
 	}
 	
@@ -141,12 +134,6 @@ public class MXMLOverallExampleBean implements Serializable {
 	public void setDateFieldText(String dateFieldText) {
 		_dateFieldText = dateFieldText;
 	}
-	public List getEmailColumnData() {
-		return _emailColumnData;
-	}
-	public void setEmailColumnData(List emailColumnData) {
-		_emailColumnData = emailColumnData;
-	}
 	public String getHorizontalSliderValue() {
 		return _horizontalSliderValue;
 	}
@@ -159,12 +146,6 @@ public class MXMLOverallExampleBean implements Serializable {
 	public void setListSelectedIndex(Integer listSelectedIndex) {
 		_listSelectedIndex = listSelectedIndex;
 	}
-	public List getNameColumnData() {
-		return _nameColumnData;
-	}
-	public void setNameColumnData(List nameColumnData) {
-		_nameColumnData = nameColumnData;
-	}
 	public String getNumericStepperValue() {
 		return _numericStepperValue;
 	}
@@ -176,12 +157,6 @@ public class MXMLOverallExampleBean implements Serializable {
 	}
 	public void setProgressBarValue(String progressBarValue) {
 		_progressBarValue = progressBarValue;
-	}
-	public List getQuoteColumnData() {
-		return _quoteColumnData;
-	}
-	public void setQuoteColumnData(List quoteColumnData) {
-		_quoteColumnData = quoteColumnData;
 	}
 	public Boolean getRadioButtonFirstSelected() {
 		return _radioButtonFirstSelected;
@@ -236,6 +211,66 @@ public class MXMLOverallExampleBean implements Serializable {
 	}
 	public void setVerticalSliderValue(String verticalSliderValue) {
 		_verticalSliderValue = verticalSliderValue;
+	}
+	public List getWisePeopleEntries() {
+		return _wisePeopleEntries;
+	}
+	public void setWisePeopleEntries(List wisePeopleEntries) {
+		_wisePeopleEntries = wisePeopleEntries;
+	}
+	
+	public static class WisePeopleEntry implements Serializable {
+		
+		private static final long serialVersionUID = -4974974584395025727L;
+		
+		private String _name;
+		private String _quote;
+		private String _email;
+		
+		private WisePeopleEntry(String name, String quote, String email){
+			super();
+			_name = name;
+			_quote = quote;
+			_email = email;
+		}
+
+		public String getEmail() {
+			return _email;
+		}
+		public void setEmail(String email) {
+			_email = email;
+		}
+		public String getName() {
+			return _name;
+		}
+		public void setName(String name) {
+			_name = name;
+		}
+		public String getQuote() {
+			return _quote;
+		}
+		public void setQuote(String quote) {
+			_quote = quote;
+		}
+		
+		public boolean equals(Object instance) {
+			if(!(instance instanceof WisePeopleEntry)){
+				return false;
+			}
+			
+			WisePeopleEntry wisePeopleEntryInstance = (WisePeopleEntry) instance;
+			return _name.equals(wisePeopleEntryInstance._name) && _quote.equals(wisePeopleEntryInstance._quote)
+						&& _email.equals(wisePeopleEntryInstance._email);
+		}
+		
+		public int hashCode() {
+			int hashCodeVal = MXMLConstants.HASH_CODE_INIT_VALUE;
+			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _name.hashCode();
+			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _quote.hashCode();
+			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _email.hashCode();
+			return hashCodeVal;
+		}
+		
 	}
 	
 }
