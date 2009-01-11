@@ -18,6 +18,17 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIAllowMultipleSelectionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
@@ -30,6 +41,7 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderThicknessAttribu
 import com.googlecode.jsfFlex.component.attributes._MXMLUIColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIColumnCountAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUICornerRadiusAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIDataGridCollectionBeanAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDisabledColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDragAttributes;
@@ -268,6 +280,105 @@ public abstract class AbstractMXMLUIDataGrid
 						_MXMLUIBorderThicknessAttribute, _MXMLUIColorAttribute, _MXMLUICornerRadiusAttribute, 
 						_MXMLUIDisabledColorAttribute, _MXMLUIShadowAttributes, _MXMLUIFontFamilyAttribute, 
 						_MXMLUIFontGeneralAttributes, _MXMLUIScrollBarAttributes, _MXMLUILeadingAttribute, 
-						_MXMLUIRepeatAttributes, _MXMLUIBatchColumnDataRetrievalSize, _MXMLUIBaseAttributes {
+						_MXMLUIRepeatAttributes, _MXMLUIBatchColumnDataRetrievalSize, _MXMLUIDataGridCollectionBeanAttribute, 
+						_MXMLUIBaseAttributes {
+	
+	private final static Log _log = LogFactory.getLog(AbstractMXMLUIDataGrid.class);
+	
+	private static final String COLUMN_ID_KEY = "columnId";
+	
+	private static final String DATA_START_INDEX_KEY = "dataStartIndex";
+	private static final String DATA_END_INDEX_KEY = "dataEndIndex";
+	
+	private Map _dataGridColumnComponentMapping;
+	
+	{
+		_dataGridColumnComponentMapping = new HashMap();
+	}
+	
+	public List getFormatedColumnData() {
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+		
+		String columnId = (String) request.getParameter(COLUMN_ID_KEY);
+		String dataStartIndex = (String) request.getParameter(DATA_START_INDEX_KEY);
+		String dataEndIndex = (String) request.getParameter(DATA_END_INDEX_KEY);
+		
+		_log.info("Within getFormatedColumnData with dataStartIndex : " + dataStartIndex + 
+						" , dataEndIndex " + dataEndIndex + " for " + columnId);
+		
+		int parsedStartIndex = -1;
+		int parsedEndIndex = -1;
+		
+		try{
+			parsedStartIndex = Integer.parseInt(dataStartIndex);
+			parsedEndIndex = Integer.parseInt(dataEndIndex);
+		}catch(NumberFormatException parsingException){
+			_log.warn("Error parsing of following values [" + dataStartIndex + ", " + dataEndIndex + "] to an int", parsingException);
+			return null;
+		}
+		
+		int dataSize = getDataGridCollectionBean().size();
+		parsedEndIndex = parsedEndIndex < dataSize ? parsedEndIndex : dataSize;
+		
+		AbstractMXMLUIDataGridColumn dataGridColumnComponent = (AbstractMXMLUIDataGridColumn) _dataGridColumnComponentMapping.get(columnId);
+		
+		List formatedColumnData;
+		
+		synchronized(getDataGridCollectionBean()){
+			formatedColumnData = dataGridColumnComponent.getFormatedColumnData(getDataGridCollectionBean(), parsedStartIndex, parsedEndIndex);
+		}
+		
+		return formatedColumnData;
+	}
+	
+	public Map updateModifiedDataField() {
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+		
+		String columnId = (String) request.getParameter(COLUMN_ID_KEY);
+		AbstractMXMLUIDataGridColumn dataGridColumnComponent = (AbstractMXMLUIDataGridColumn) _dataGridColumnComponentMapping.get(columnId);
+		
+		Map updateResult;
+		
+		synchronized(getDataGridCollectionBean()){
+			updateResult = dataGridColumnComponent.updateModifiedDataField(request, getDataGridCollectionBean());
+		}
+		
+		return updateResult;
+	}
+	
+	public void encodeEnd(FacesContext context) throws IOException {
+		super.encodeEnd(context);
+		
+		/*
+		 * adding the component to the map for future asynchronous request by
+		 * DataGridColumnServiceRequest.as 
+		 * 
+		 * instances of AbstractMXMLUIDataGridColumn to _dataGridColumnComponents Map
+		 * will be added by AbstractMXMLUIColumns
+		 */
+		Map sessionMap = context.getExternalContext().getSessionMap();
+		sessionMap.put(getId(), this);
+		
+	}
+	
+	public void decode(FacesContext context) {
+		super.decode(context);
+		
+		/*
+		 * No longer needed, so remove the content.
+		 * Below is a pure HACK till JSF 2.0.
+		 */
+		Map sessionMap = context.getExternalContext().getSessionMap();
+		sessionMap.remove(getId());
+		
+	}
+	
+	public Map getDataGridColumnComponentMapping(){
+		return _dataGridColumnComponentMapping;
+	}
 	
 }

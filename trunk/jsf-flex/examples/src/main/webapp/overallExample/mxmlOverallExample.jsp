@@ -154,11 +154,12 @@
 						    	</jf:mxmlBox>
 						    	
 						    	<jf:mxmlBox width="60%" height="100%">
-						    		<jf:mxmlDataGrid width="100%" rowCount="3" resizableColumns="true" editable="true" >
+						    		<jf:mxmlDataGrid dataGridCollectionBean="#{mxmlOverallBean.wisePeopleEntries}" width="100%" 
+						    							rowCount="3" resizableColumns="true" editable="true" >
 								    	<jf:mxmlColumns>
-								    		<jf:mxmlDataGridColumn dataField="name" headerText="Name" columnData="#{mxmlOverallBean.nameColumnData}" />
-								    		<jf:mxmlDataGridColumn wordWrap="true" dataField="quote" headerText="Quote" columnData="#{mxmlOverallBean.quoteColumnData}" />
-								    		<jf:mxmlDataGridColumn dataField="email" headerText="Email" columnData="#{mxmlOverallBean.emailColumnData}" />
+								    		<jf:mxmlDataGridColumn dataField="name" headerText="Name" />
+								    		<jf:mxmlDataGridColumn wordWrap="true" dataField="quote" headerText="Quote" />
+								    		<jf:mxmlDataGridColumn dataField="email" headerText="Email" />
 								    	</jf:mxmlColumns>
 								    </jf:mxmlDataGrid>
 							   </jf:mxmlBox>

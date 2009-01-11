@@ -76,7 +76,8 @@ package com.googlecode.jsfFlex.communication.component
 		
 		internal function getDataColumnInfo(dataStartIndex:uint, dataEndIndex:uint, populateCacheStartIndex:uint):void {
 			var dataRequestParameters:Object = new Object();
-			dataRequestParameters.componentId = _columnId;
+			dataRequestParameters.componentId = _dataGridServiceRequest.dataGridId;
+			dataRequestParameters.columnId = _columnId;
 			dataRequestParameters.methodToInvoke = GET_FORMATED_COLUMN_DATA;
 			dataRequestParameters.dataStartIndex = dataStartIndex;
 			dataRequestParameters.dataEndIndex = dataEndIndex;
@@ -142,7 +143,8 @@ package com.googlecode.jsfFlex.communication.component
 			}
 			_log.logDebug("Implicit timed flushCacheChanges invocation with unflushed cache changes of length : " + _modifiedDataFieldObjectArray.length);
 			var dataRequestParameters:Object = new Object();
-			dataRequestParameters.componentId = _columnId;
+			dataRequestParameters.componentId = _dataGridServiceRequest.dataGridId;
+			dataRequestParameters.columnId = _columnId;
 			dataRequestParameters.methodToInvoke = UPDATE_MODIFIED_DATA_FIELD;
 			
 			var requestKeys:String = "";

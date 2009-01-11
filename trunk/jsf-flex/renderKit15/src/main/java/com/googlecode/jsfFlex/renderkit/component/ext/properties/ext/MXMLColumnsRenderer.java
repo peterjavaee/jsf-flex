@@ -91,16 +91,21 @@ public final class MXMLColumnsRenderer extends MXMLComponentBaseRenderer {
 			}
 		}
 		
+		int dataEntrySize = dataGrid.getDataGridCollectionBean().size();
+		if(dataEntrySize < batchColumnDataRetrievalSize){
+			batchColumnDataRetrievalSize = dataEntrySize;
+		}
+		
+		Integer maxDataPartitionIndex = (int) Math.ceil( dataEntrySize / batchColumnDataRetrievalSize.intValue() );
+		
 		List childrenList = componentObj.getChildren();
 		
 		if(childrenList.size() > 0){
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 			AdditionalApplicationScriptContent additionalAppScriptContent = mxmlContext.getAdditionalAppScriptContent();
-			
-			additionalAppScriptContent.addDataGridScriptContent(dataGridComponentId);
+			additionalAppScriptContent.addDataGridScriptContent(dataGridComponentId, batchColumnDataRetrievalSize, maxDataPartitionIndex);
 			additionalAppScriptContent.addActionScriptImport(DATA_GRID_SERVICE_REQUEST_IMPORT);
 			
-			int maxColumnDataSize = 0;
 			for(Iterator iterate = childrenList.iterator(); iterate.hasNext();){
 				UIComponent currChild = (UIComponent) iterate.next();
 				if(!(currChild instanceof AbstractMXMLUIDataGridColumn)){
@@ -108,17 +113,9 @@ public final class MXMLColumnsRenderer extends MXMLComponentBaseRenderer {
 				}
 				
 				AbstractMXMLUIDataGridColumn currChildInstance = (AbstractMXMLUIDataGridColumn) currChild;
-				maxColumnDataSize = Math.max(maxColumnDataSize, currChildInstance.getColumnData().size());
 				additionalAppScriptContent.addDataGridColumnToDataGridScriptContent(dataGridComponentId, currChildInstance.getId(), 
 														currChildInstance.getDataField(), Boolean.valueOf(currChildInstance.getEditable()));
 			}
-			
-			if(maxColumnDataSize < batchColumnDataRetrievalSize){
-				batchColumnDataRetrievalSize = maxColumnDataSize;
-			}
-			
-			Integer maxDataPartitionIndex = (int) Math.ceil( maxColumnDataSize / batchColumnDataRetrievalSize.intValue() );
-			additionalAppScriptContent.setDataGridScriptContentProperties(dataGridComponentId, batchColumnDataRetrievalSize, maxDataPartitionIndex);
 			
 		}
 		

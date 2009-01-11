@@ -23,17 +23,17 @@ import java.util.List;
 /**
  * @author Ji Hoon Kim
  */
-public interface _MXMLUIColumnData {
+public interface _MXMLUIDataGridCollectionBeanAttribute {
 	
 	/**
-	 * Collection of column data that will be provided as a service.
+	 * Collection of beans for data binding to the DataGrid component.
 	 * 
 	 *@JSFProperty
 	 *    required        = false
 	 *    rtexprvalue     = false
-	 *    desc            = "Collection of column data that will be provided as a service."
+	 *    desc            = "Collection of beans for data binding to the DataGrid component."
 	 */
-	List getColumnData();
+	List getDataGridCollectionBean();
 	
 	List getFormatedColumnData();
 	

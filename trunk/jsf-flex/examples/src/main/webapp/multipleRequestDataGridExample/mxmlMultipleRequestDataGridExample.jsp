@@ -56,12 +56,11 @@
         
 	    <jf:mxmlApplication mxmlPackageName="multipleRequestDataGrid" height="35%" width="90%" errorColor="#B80000" errorFontSize="13">
 			
-			<jf:mxmlDataGrid width="100%" rowCount="10" resizableColumns="true" editable="true" >
+			<jf:mxmlDataGrid dataGridCollectionBean="#{multipleRequestDataGridExample.largeDataEntries}" width="100%" rowCount="10" 
+								resizableColumns="true" editable="true">
 				<jf:mxmlColumns>
-					<jf:mxmlDataGridColumn dataField="largeFirstColumnData" headerText="Large First Data" 
-											columnData="#{multipleRequestDataGridExample.largeFirstColumnData}" />
-					<jf:mxmlDataGridColumn dataField="largeSecondColumnData" headerText="Large Second Data" 
-											columnData="#{multipleRequestDataGridExample.largeSecondColumnData}" />
+					<jf:mxmlDataGridColumn dataField="firstColumnEntry" headerText="First Column Entry" />
+					<jf:mxmlDataGridColumn dataField="secondColumnEntry" headerText="Second Column Entry" />
 				</jf:mxmlColumns>
 			</jf:mxmlDataGrid>
 			

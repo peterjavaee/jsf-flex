@@ -52,8 +52,8 @@ public final class AdditionalApplicationScriptContent {
 		_simpleDataProviderSetter.add(new SimpleDataProviderSetter(componentId, dataProviderContent));
 	}
 	
-	public void addDataGridScriptContent(String dataGridId){
-		_dataGridScriptContent.put(dataGridId, new DataGridScriptContent(dataGridId));
+	public void addDataGridScriptContent(String dataGridId, Integer batchColumnDataRetrievalSize, Integer maxDataPartitionIndex){
+		_dataGridScriptContent.put(dataGridId, new DataGridScriptContent(dataGridId, batchColumnDataRetrievalSize, maxDataPartitionIndex));
 	}
 	
 	public void addDataGridColumnToDataGridScriptContent(String dataGridId, String dataGridColumnId, String dataField, Boolean columnEditable){
@@ -64,17 +64,6 @@ public final class AdditionalApplicationScriptContent {
 		}
 		
 		dataGridScriptContentInstance.addDataGridColumnContent(dataGridColumnId, dataField, columnEditable);
-	}
-	
-	public void setDataGridScriptContentProperties(String dataGridId, Integer batchColumnDataRetrievalSize, Integer maxDataPartitionIndex){
-		DataGridScriptContent dataGridScriptContentInstance;
-		if((dataGridScriptContentInstance = (DataGridScriptContent) _dataGridScriptContent.get(dataGridId)) == null){
-			throw new IllegalStateException("DataGridScriptContent doesn't exist for " + dataGridId + 
-												" : addDataGridScriptContent should be invoked prior to this method call");							
-		}
-		
-		dataGridScriptContentInstance.setBatchColumnDataRetrievalSize(batchColumnDataRetrievalSize);
-		dataGridScriptContentInstance.setMaxDataPartitionIndex(maxDataPartitionIndex);
 	}
 	
 	public void addValidationManagerValidatorId(String validatorId){
