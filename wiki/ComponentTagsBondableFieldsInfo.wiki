@@ -17,8 +17,8 @@ This page will contain brief overview regarding bondable fields of JSF Flex comp
     # text _String_ : contains the comboxBox's text that the user has selected
     # selectedIndex _Integer_ : contains the comboxBox that the user has selected {in order to preserve the correct selection, this field must be mapped within the managed beans}.
  
- * mxmlDataGridColumn
-    # columnData _Collection_ : the Column's data, must have dataField set
+ * mxmlDataGrid
+    # dataGridCollectionBean _Collection_ : Collection of beans for asynchronous retrieval and update of data. The bean should have corresponding get + set methods for each mxmlDataGridColumn's dataField attributes.
  
  * mxmlDateField
     # text _String_ : contains the date selected by the user.
