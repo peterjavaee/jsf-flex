@@ -120,7 +120,7 @@ package com.googlecode.jsfFlex.communication.logger
 			}
 		}
 		
-		public function logDebug(errorMessage:String):void {
+		public function debug(errorMessage:String):void {
 			if(!_logModeLoaded){
 				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: errorMessage, severity: 2});
 				return;
@@ -130,7 +130,7 @@ package com.googlecode.jsfFlex.communication.logger
 			}
 		}
 		
-		public function logInfo(errorMessage:String):void {
+		public function info(errorMessage:String):void {
 			if(!_logModeLoaded){
 				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: errorMessage, severity: 3});
 				return;
@@ -140,7 +140,7 @@ package com.googlecode.jsfFlex.communication.logger
 			}
 		}
 		
-		public function logWarn(errorMessage:String):void {
+		public function warn(errorMessage:String):void {
 			if(!_logModeLoaded){
 				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: errorMessage, severity: 4});
 				return;
@@ -150,7 +150,7 @@ package com.googlecode.jsfFlex.communication.logger
 			}
 		}
 		
-		public function logError(errorMessage:String):void {
+		public function error(errorMessage:String):void {
 			if(!_logModeLoaded){
 				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: errorMessage, severity: 5});
 				return;

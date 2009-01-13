@@ -29,13 +29,13 @@ package com.googlecode.jsfFlex.communication.logger
 		
 		function log(errorMessage:String):void;
 		
-		function logDebug(errorMessage:String):void;
+		function debug(errorMessage:String):void;
 		
-		function logInfo(errorMessage:String):void;
+		function info(errorMessage:String):void;
 		
-		function logWarn(errorMessage:String):void;
+		function warn(errorMessage:String):void;
 		
-		function logError(errorMessage:String):void;
+		function error(errorMessage:String):void;
 		
 	}
 	

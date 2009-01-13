@@ -74,7 +74,7 @@ package com.googlecode.jsfFlex.communication.core
 				_loader.load(new URLRequest(COMP_VALUE_MAPPER));
 			}catch(loadingError:Error){
 				trace("Failure in loading of the componentValueMapper.xml file");
-				_log.logError("Failure in loading of the componentValueMapper.xml file");
+				_log.error("Failure in loading of the componentValueMapper.xml file");
 			}
 		}
 		
@@ -89,9 +89,9 @@ package com.googlecode.jsfFlex.communication.core
 				ExternalInterface.addCallback(AS_GET_COMP_VALUE_FUNCTION, this.getCompValue);
 			}catch(callBackError:Error){
 				trace("Failure in setting up of getCompValue callBack");
-				_log.logError("Failure in setting up of getCompValue callBack");
+				_log.error("Failure in setting up of getCompValue callBack");
 			}
-			_log.logInfo("Finished with the initialization of " + _refApp["id"]);
+			_log.info("Finished with the initialization of " + _refApp["id"]);
 		}
 		
 		public function populateInitValues(appInfo:Object):void {
@@ -225,7 +225,7 @@ package com.googlecode.jsfFlex.communication.core
 						attributeId = null;
 						attributeValue = null;
 						trace("Failure in getting access to reference " + nestedObjects[k].toString());
-						_log.logWarn("Failure in getting access to reference " + nestedObjects[k].toString());
+						_log.warn("Failure in getting access to reference " + nestedObjects[k].toString());
 						break;
 					}
 				}

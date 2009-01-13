@@ -19,6 +19,8 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import java.io.IOException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -290,6 +292,10 @@ public abstract class AbstractMXMLUIDataGrid
 	private static final String DATA_START_INDEX_KEY = "dataStartIndex";
 	private static final String DATA_END_INDEX_KEY = "dataEndIndex";
 	
+	private static final String COLUMN_ID_TO_SORT_BY_KEY = "columnIdToSortBy";
+	private static final String RESULT_CODE_KEY = "resultCode";
+	private static final String SORT_ASCENDING_KEY = "sortAscending";
+	
 	private Map _dataGridColumnComponentMapping;
 	
 	{
@@ -305,7 +311,7 @@ public abstract class AbstractMXMLUIDataGrid
 		String dataStartIndex = (String) request.getParameter(DATA_START_INDEX_KEY);
 		String dataEndIndex = (String) request.getParameter(DATA_END_INDEX_KEY);
 		
-		_log.info("Within getFormatedColumnData with dataStartIndex : " + dataStartIndex + 
+		_log.info("Requested additional data with dataStartIndex : " + dataStartIndex + 
 						" , dataEndIndex " + dataEndIndex + " for " + columnId);
 		
 		int parsedStartIndex = -1;
@@ -348,6 +354,31 @@ public abstract class AbstractMXMLUIDataGrid
 		}
 		
 		return updateResult;
+	}
+	
+	public Map sortDataEntry() {
+		
+		Map sortResult = new HashMap();
+		boolean success = true;
+		
+		FacesContext context = FacesContext.getCurrentInstance();
+		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+		
+		String columnIdToSortBy = (String) request.getParameter(COLUMN_ID_TO_SORT_BY_KEY);
+		boolean sortAscending = Boolean.valueOf(request.getParameter(SORT_ASCENDING_KEY)).booleanValue();
+		
+		_log.info("Requested sort of data entries with columnIdToSortBy " + columnIdToSortBy + " sortAscending " + sortAscending);
+		
+		AbstractMXMLUIDataGridColumn dataGridColumnComponent = (AbstractMXMLUIDataGridColumn) _dataGridColumnComponentMapping.get(columnIdToSortBy);
+		Comparator dataFieldComparator = sortAscending ? dataGridColumnComponent.getAscendingComparator() : 
+																		dataGridColumnComponent.getDescendingComparator();
+		
+		synchronized(getDataGridCollectionBean()){
+			Collections.sort(getDataGridCollectionBean(), dataFieldComparator);
+		}
+		
+		sortResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
+		return sortResult;
 	}
 	
 	public void encodeEnd(FacesContext context) throws IOException {
