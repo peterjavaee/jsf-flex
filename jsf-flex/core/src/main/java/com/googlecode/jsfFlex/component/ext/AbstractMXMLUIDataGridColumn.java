@@ -18,8 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import java.lang.reflect.Method;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -34,6 +34,7 @@ import org.apache.commons.logging.LogFactory;
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataFieldAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
+import com.googlecode.jsfFlex.util.ReflectionHelperUtil;
 
 /**
  * @JSFComponent
@@ -298,25 +299,44 @@ public abstract class AbstractMXMLUIDataGridColumn
 						implements _MXMLUIDataFieldAttribute, _MXMLUIEditableAttribute {
 	
 	private final static Log _log = LogFactory.getLog(AbstractMXMLUIDataGridColumn.class);
+	
 	private static final Class[] UPDATE_DATA_VALUE_PARAMETER_TYPES = new Class[]{ String.class };
 	
 	private static final String REQUEST_KEYS_KEY = "requestKeys";
 	private static final String RESULT_CODE_KEY = "resultCode";
 	
+	private Comparator ascendingComparator;
+	private Comparator descendingComparator;
+	
 	public List getFormatedColumnData(List dataGridEntries, int dataStartIndex, int dataEndIndex) {
-		
-		final String GET_DATA_FIELD_METHOD = "get" + getDataField().substring(0, 1).toUpperCase() + getDataField().substring(1);
 		
 		//for more complicated Grids, the return data might consist of XML entries
 		List formatedColumnData = new LinkedList();
 		
 		for(int i = dataStartIndex; i < dataEndIndex; i++){
 			Object currDataEntry = dataGridEntries.get(i);
-			String currDataValue = getDataValue(currDataEntry, GET_DATA_FIELD_METHOD);
+			Object currDataValue;
 			
-			formatedColumnData.add(currDataValue);
+			try{
+				currDataValue = ReflectionHelperUtil.getValue(currDataEntry, getDataFieldMethodName());
+			}catch(NoSuchMethodException noSuchMethodException){
+				StringBuffer errorMessage = new StringBuffer();
+				errorMessage.append("NoSuchMethodException was thrown while invoking method : ");
+				errorMessage.append(getDataFieldMethodName());
+				throw new RuntimeException(errorMessage.toString(), noSuchMethodException);
+			}catch(Exception additionalAccessException){
+				StringBuffer errorMessage = new StringBuffer();
+				errorMessage.append("Other exception aside from NoSuchMethodException was thrown while invoking method : ");
+				errorMessage.append(getDataFieldMethodName());
+				throw new RuntimeException(errorMessage.toString(), additionalAccessException);
+			}
+			
+			String currValue = currDataValue == null ? "" : currDataValue.toString();
+			
+			formatedColumnData.add(currValue);
 		}
 		
+		_log.info("Returning list of size " + formatedColumnData.size() + " for dataField " + getDataField());
 		return formatedColumnData;
 	}
 	
@@ -330,7 +350,7 @@ public abstract class AbstractMXMLUIDataGridColumn
 		String requestKey = (String) request.getParameter(REQUEST_KEYS_KEY);
 		List requestKeyList = Arrays.asList(requestKey.split(","));
 		
-		_log.info("Within updateModifiedDataField with requestKey : " + requestKey);
+		_log.info("Requested update of data with requestKey : " + requestKey + " for dataField " + getDataField());
 		
 		for(Iterator keyIterator = requestKeyList.iterator(); keyIterator.hasNext();){
 			String currKey = (String) keyIterator.next();
@@ -346,52 +366,93 @@ public abstract class AbstractMXMLUIDataGridColumn
 			}
 			
 			Object currDataEntry = dataGridEntries.get(rowIndex);
-			updateDataValue(currDataEntry, SET_DATA_FIELD_METHOD, currValue);
+			
+			try{
+				ReflectionHelperUtil.invokeMethod(currDataEntry, SET_DATA_FIELD_METHOD, UPDATE_DATA_VALUE_PARAMETER_TYPES, new Object[]{ currValue });
+			}catch(NoSuchMethodException noSuchMethodException){
+				StringBuffer errorMessage = new StringBuffer();
+				errorMessage.append("NoSuchMethodException was thrown while invoking method : ");
+				errorMessage.append(SET_DATA_FIELD_METHOD);
+				throw new RuntimeException(errorMessage.toString(), noSuchMethodException);
+			}catch(Exception additionalAccessException){
+				StringBuffer errorMessage = new StringBuffer();
+				errorMessage.append("Other exception aside from NoSuchMethodException was thrown while invoking method : ");
+				errorMessage.append(SET_DATA_FIELD_METHOD);
+				throw new RuntimeException(errorMessage.toString(), additionalAccessException);
+			}
+			
 		}
 		
 		updateResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
 		return updateResult;
 	}
 	
-	private String getDataValue(Object currentDataEntry, String methodToInvoke) {
+	public synchronized String getDataFieldMethodName(){
+		final String GET_DATA_FIELD_METHOD = "get" + getDataField().substring(0, 1).toUpperCase() + getDataField().substring(1);
 		
-		Object obj = null;
-		
-		try{
-			Method method = currentDataEntry.getClass().getMethod(methodToInvoke, null);
-			obj = method.invoke(currentDataEntry, null);
-		}catch(NoSuchMethodException noSuchMethodException){
-			StringBuffer errorMessage = new StringBuffer();
-			errorMessage.append("NoSuchMethodException was thrown while invoking method : ");
-			errorMessage.append(methodToInvoke);
-			throw new RuntimeException(errorMessage.toString(), noSuchMethodException);
-		}catch(Exception additionalAccessException){
-			StringBuffer errorMessage = new StringBuffer();
-			errorMessage.append("Other exception aside from NoSuchMethodException was thrown while invoking method : ");
-			errorMessage.append(methodToInvoke);
-			throw new RuntimeException(errorMessage.toString(), additionalAccessException);
-		}
-		
-		return obj.toString();
+		return GET_DATA_FIELD_METHOD;
 	}
 	
-	private void updateDataValue(Object currentDataEntry, String methodToInvoke, String modifiedValue) {
-		
-		try{
-			Method method = currentDataEntry.getClass().getMethod(methodToInvoke, UPDATE_DATA_VALUE_PARAMETER_TYPES);
-			method.invoke(currentDataEntry, new Object[]{ modifiedValue });
-		}catch(NoSuchMethodException noSuchMethodException){
-			StringBuffer errorMessage = new StringBuffer();
-			errorMessage.append("NoSuchMethodException was thrown while invoking method : ");
-			errorMessage.append(methodToInvoke);
-			throw new RuntimeException(errorMessage.toString(), noSuchMethodException);
-		}catch(Exception additionalAccessException){
-			StringBuffer errorMessage = new StringBuffer();
-			errorMessage.append("Other exception aside from NoSuchMethodException was thrown while invoking method : ");
-			errorMessage.append(methodToInvoke);
-			throw new RuntimeException(errorMessage.toString(), additionalAccessException);
+	public synchronized Comparator getAscendingComparator() {
+		if(ascendingComparator == null){
+			ascendingComparator = new Comparator(){
+				
+				public int compare(Object obj1, Object obj2) {
+					
+					try{
+						Comparable act1 = (Comparable) ReflectionHelperUtil.getValue(obj1, getDataFieldMethodName());
+						Comparable act2 = (Comparable) ReflectionHelperUtil.getValue(obj2, getDataFieldMethodName());
+						
+						return act1.compareTo(act2);
+					}catch(NoSuchMethodException noSuchMethodException){
+						StringBuffer errorMessage = new StringBuffer();
+						errorMessage.append("NoSuchMethodException was thrown while invoking method : ");
+						errorMessage.append(getDataFieldMethodName());
+						throw new RuntimeException(errorMessage.toString(), noSuchMethodException);
+					}catch(Exception additionalAccessException){
+						StringBuffer errorMessage = new StringBuffer();
+						errorMessage.append("Other exception aside from NoSuchMethodException was thrown while invoking method : ");
+						errorMessage.append(getDataFieldMethodName());
+						throw new RuntimeException(errorMessage.toString(), additionalAccessException);
+					}
+					
+				}
+				
+			};
 		}
 		
+		return ascendingComparator;
+	}
+	
+	public synchronized Comparator getDescendingComparator() {
+		if(descendingComparator == null){
+			descendingComparator = new Comparator(){
+				
+				public int compare(Object obj1, Object obj2) {
+					
+					try{
+						Comparable act1 = (Comparable) ReflectionHelperUtil.getValue(obj1, getDataFieldMethodName());
+						Comparable act2 = (Comparable) ReflectionHelperUtil.getValue(obj2, getDataFieldMethodName());
+						
+						return (act1.compareTo(act2) * -1);
+					}catch(NoSuchMethodException noSuchMethodException){
+						StringBuffer errorMessage = new StringBuffer();
+						errorMessage.append("NoSuchMethodException was thrown while invoking method : ");
+						errorMessage.append(getDataFieldMethodName());
+						throw new RuntimeException(errorMessage.toString(), noSuchMethodException);
+					}catch(Exception additionalAccessException){
+						StringBuffer errorMessage = new StringBuffer();
+						errorMessage.append("Other exception aside from NoSuchMethodException was thrown while invoking method : ");
+						errorMessage.append(getDataFieldMethodName());
+						throw new RuntimeException(errorMessage.toString(), additionalAccessException);
+					}
+					
+				}
+				
+			};
+		}
+		
+		return descendingComparator;
 	}
 	
 }

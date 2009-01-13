@@ -84,8 +84,8 @@ package com.googlecode.jsfFlex.communication.component
 			
 			_jsfFlexHttpServiceRequest.sendHttpRequest(GET_FORMATED_COLUMN_DATA_SERVICE_REQUEST_URL, this,
 															function (lastResult:Object, event:ResultEvent):void {
-																_log.logInfo("Returned from service request : " + GET_FORMATED_COLUMN_DATA_SERVICE_REQUEST_URL);
-																_log.logDebug("Data returned from servlet : " + lastResult);
+																_log.info("Returned from service request : " + GET_FORMATED_COLUMN_DATA_SERVICE_REQUEST_URL);
+																_log.debug("Data returned from servlet : " + lastResult);
 																_cachedColumnEntries = new XMLListCollection(new XMLList(lastResult).VALUE);
 																
 																updateColumnDisplayEntries(populateCacheStartIndex);
@@ -99,10 +99,9 @@ package com.googlecode.jsfFlex.communication.component
 			var dataGridDataProvider:ArrayCollection = _dataGridServiceRequest.dataGridDataProvider;
 			
 			var k:uint = 0;
-			for(; k < _cachedColumnEntries.length; k++){
+			for(; k < _cachedColumnEntries.length; k++, populateCacheStartIndex++){
 				var currObject:Object = dataGridDataProvider.getItemAt(populateCacheStartIndex);
 				currObject[_dataField] = _cachedColumnEntries.getItemAt(k).toString();
-				populateCacheStartIndex++;
 			}
 			
 			/*
@@ -116,7 +115,7 @@ package com.googlecode.jsfFlex.communication.component
 		}
 		
 		internal function flushCacheChanges():void {
-			_log.logDebug("Was informed to flushCacheChanges explicitly with unflushed cache changes of length : " + _modifiedDataFieldObjectArray.length);
+			_log.debug("Was informed to flushCacheChanges explicitly with unflushed cache changes of length : " + _modifiedDataFieldObjectArray.length);
 			clearInterval(_clearIntervalRef);
 			requestCacheChangeFlush();
 		}
@@ -141,7 +140,7 @@ package com.googlecode.jsfFlex.communication.component
 			if(_modifiedDataFieldObjectArray.length == 0){
 				return;
 			}
-			_log.logDebug("Implicit timed flushCacheChanges invocation with unflushed cache changes of length : " + _modifiedDataFieldObjectArray.length);
+			_log.debug("Implicit timed flushCacheChanges invocation with unflushed cache changes of length : " + _modifiedDataFieldObjectArray.length);
 			var dataRequestParameters:Object = new Object();
 			dataRequestParameters.componentId = _dataGridServiceRequest.dataGridId;
 			dataRequestParameters.columnId = _columnId;
@@ -157,9 +156,9 @@ package com.googlecode.jsfFlex.communication.component
 			
 			_jsfFlexHttpServiceRequest.sendHttpRequest(UPDATE_MODIFIED_DATA_FIELD_SERVICE_REQUEST_URL, this,
 															function (lastResult:Object, event:ResultEvent):void {
-																_log.logInfo("Returned from service request : " + UPDATE_MODIFIED_DATA_FIELD_SERVICE_REQUEST_URL);
+																_log.info("Returned from service request : " + UPDATE_MODIFIED_DATA_FIELD_SERVICE_REQUEST_URL);
 																var resultCode:String = lastResult.resultCode;
-																_log.logDebug("Result Code for " + UPDATE_MODIFIED_DATA_FIELD + " is : " + resultCode);
+																_log.debug("Result Code for " + UPDATE_MODIFIED_DATA_FIELD + " is : " + resultCode);
 															}, dataRequestParameters, JsfFlexHttpService.POST_METHOD, JsfFlexHttpService.FLASH_VARS_RESULT_FORMAT, null);
 		}
 		
