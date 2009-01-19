@@ -19,7 +19,6 @@
  
 /**
  * TODO : Implement better later
- * Unfortunately ActionScript currently doesn't implement inner classes, so implemented so
  * @author Ji Hoon Kim
  */
 package com.googlecode.jsfFlex.communication.component
@@ -27,9 +26,14 @@ package com.googlecode.jsfFlex.communication.component
 	import flash.utils.Dictionary;
 	
 	import mx.collections.ArrayCollection;
+	import mx.collections.ListCollectionView;
+	import mx.collections.Sort;
+	import mx.collections.SortField;
 	import mx.controls.DataGrid;
 	import mx.controls.dataGridClasses.DataGridColumn;
 	import mx.core.UIComponent;
+	import mx.events.CollectionEvent;
+	import mx.events.CollectionEventKind;
 	import mx.events.DataGridEvent;
 	import mx.rpc.events.ResultEvent;
 	
@@ -85,7 +89,7 @@ package com.googlecode.jsfFlex.communication.component
 		private var _dataFieldToDataGridColumnEntriesDictionary:Dictionary;
 		private var _dataGridComp:DataGrid;
 		private var _dataGridCompEditable:Boolean;
-		private var _dataGridDataProvider:ArrayCollection;
+		private var _dataGridDataProvider:ListCollectionView;
 		
 		{
 			_log = LoggerFactory.newJSLoggerInstance(DataGridServiceRequest);
@@ -117,6 +121,7 @@ package com.googlecode.jsfFlex.communication.component
 				_dataGridDataProvider.addItem({_hiddenOriginalRowIndex : i});
 			}
 			_dataGridComp.dataProvider = _dataGridDataProvider;
+			_dataGridComp.invalidateList();
 		}
 		
 		/*
@@ -163,7 +168,6 @@ package com.googlecode.jsfFlex.communication.component
 			 * decremented and when it reaches 0 the instance will start listening for 
 			 * possible modification and possible scrolling for additional data.
 			 */
-			
 			_numberOfWaitingColumnDataInfo += _dataGridComp.columns.length;
 			
 			var dataStartIndex:uint = dataFetchPartitionIndex * _batchColumnDataRetrievalSize;
@@ -250,7 +254,7 @@ package com.googlecode.jsfFlex.communication.component
 			return _batchColumnDataRetrievalSize;
 		}
 		
-		internal function get dataGridDataProvider():ArrayCollection {
+		internal function get dataGridDataProvider():ListCollectionView {
 		    return _dataGridDataProvider;
 		}
 		
@@ -267,6 +271,7 @@ package com.googlecode.jsfFlex.communication.component
 				
 				if(_dataPartitioned){
 					_scrollEventHelper.resetState(_dataGridComp.verticalScrollPosition);
+					
 				}
 				
 				activateListener();
@@ -277,9 +282,10 @@ package com.googlecode.jsfFlex.communication.component
 					dataGridColumnEntry.dataGridColumn.editable = dataGridColumnEntry.dataGridColumnServiceRequest.dataGridColumnEditable;
 				}
 				
-				_dataGridComp.invalidateList();
 				var dataHeightStartIndex:uint = _dataGridComp.verticalScrollPosition;
 				_dataGridComp.height = _dataGridComp.measureHeightOfItems(dataHeightStartIndex, (_dataGridComp.rowCount - 1)) + _dataGridComp.headerHeight;
+				
+				_dataGridComp.invalidateList();
 			}
 			
 		}
@@ -362,14 +368,23 @@ package com.googlecode.jsfFlex.communication.component
 			 * remove all the entries within dataProvider and add empty objects with hidden row index
 			 */
 			_dataGridDataProvider = new ArrayCollection();
+			
+			/*
+			 * HACK to display the sort arrow
+			 */
+			_dataGridDataProvider.sort = new Sort();
+			_dataGridDataProvider.sort.fields = [new SortField(_currColumnSortedDataField, false, _currColumnSortedAscending)];
+			var refreshEvent:CollectionEvent = new CollectionEvent(CollectionEvent.COLLECTION_CHANGE);
+            refreshEvent.kind = CollectionEventKind.REFRESH;
+            _dataGridDataProvider.dispatchEvent(refreshEvent);
+			
 			var hiddenOriginalRowIndex:uint = _currentInitialHalfDataPartitionIndex * _batchColumnDataRetrievalSize;
 			
 			for(var i:uint=0; i < _cacheSize; i++, hiddenOriginalRowIndex++){
 				_dataGridDataProvider.addItem({_hiddenOriginalRowIndex : hiddenOriginalRowIndex});
 			}
+			
 			_dataGridComp.dataProvider = _dataGridDataProvider;
-			_dataGridComp.scrollToIndex(scrollPosition);
-			_scrollEventHelper.resetState(scrollPosition);
 			
 			var sortRequestParameters:Object = new Object();
 			sortRequestParameters.componentId = _dataGridComp.id;

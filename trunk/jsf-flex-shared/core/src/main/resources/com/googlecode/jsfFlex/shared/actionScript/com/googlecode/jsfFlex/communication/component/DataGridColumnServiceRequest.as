@@ -25,7 +25,7 @@ package com.googlecode.jsfFlex.communication.component
 	import flash.utils.clearInterval;
 	import flash.utils.setInterval;
 	
-	import mx.collections.ArrayCollection;
+	import mx.collections.ListCollectionView;
 	import mx.collections.XMLListCollection;
 	import mx.rpc.events.ResultEvent;
 	
@@ -49,7 +49,7 @@ package com.googlecode.jsfFlex.communication.component
 		private var _dataField:String;
 		private var _dataGridColumnEditable:Boolean;
 		
-		private var _cachedColumnEntries:XMLListCollection;
+		private var _cachedColumnEntries:ListCollectionView;
 		private var _modifiedDataFieldObjectArray:Array;
 		
 		private var _dataGridServiceRequest:DataGridServiceRequest;
@@ -96,7 +96,7 @@ package com.googlecode.jsfFlex.communication.component
 		}
 		
 		internal function updateColumnDisplayEntries(populateCacheStartIndex:uint):void {
-			var dataGridDataProvider:ArrayCollection = _dataGridServiceRequest.dataGridDataProvider;
+			var dataGridDataProvider:ListCollectionView = _dataGridServiceRequest.dataGridDataProvider;
 			
 			var k:uint = 0;
 			for(; k < _cachedColumnEntries.length; k++, populateCacheStartIndex++){
