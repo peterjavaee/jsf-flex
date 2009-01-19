@@ -387,7 +387,7 @@ public abstract class AbstractMXMLUIDataGridColumn
 		return updateResult;
 	}
 	
-	public synchronized String getDataFieldMethodName(){
+	private synchronized String getDataFieldMethodName(){
 		final String GET_DATA_FIELD_METHOD = "get" + getDataField().substring(0, 1).toUpperCase() + getDataField().substring(1);
 		
 		return GET_DATA_FIELD_METHOD;
@@ -403,7 +403,7 @@ public abstract class AbstractMXMLUIDataGridColumn
 						Comparable act1 = (Comparable) ReflectionHelperUtil.getValue(obj1, getDataFieldMethodName());
 						Comparable act2 = (Comparable) ReflectionHelperUtil.getValue(obj2, getDataFieldMethodName());
 						
-						return act1.compareTo(act2);
+						return (act1.compareTo(act2) * -1);
 					}catch(NoSuchMethodException noSuchMethodException){
 						StringBuffer errorMessage = new StringBuffer();
 						errorMessage.append("NoSuchMethodException was thrown while invoking method : ");
@@ -434,7 +434,7 @@ public abstract class AbstractMXMLUIDataGridColumn
 						Comparable act1 = (Comparable) ReflectionHelperUtil.getValue(obj1, getDataFieldMethodName());
 						Comparable act2 = (Comparable) ReflectionHelperUtil.getValue(obj2, getDataFieldMethodName());
 						
-						return (act1.compareTo(act2) * -1);
+						return act1.compareTo(act2);
 					}catch(NoSuchMethodException noSuchMethodException){
 						StringBuffer errorMessage = new StringBuffer();
 						errorMessage.append("NoSuchMethodException was thrown while invoking method : ");
