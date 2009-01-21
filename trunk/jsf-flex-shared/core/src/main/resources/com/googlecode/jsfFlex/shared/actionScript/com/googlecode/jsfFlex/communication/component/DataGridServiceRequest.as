@@ -121,7 +121,6 @@ package com.googlecode.jsfFlex.communication.component
 				_dataGridDataProvider.addItem({_hiddenOriginalRowIndex : i});
 			}
 			_dataGridComp.dataProvider = _dataGridDataProvider;
-			_dataGridComp.invalidateList();
 		}
 		
 		/*
@@ -369,6 +368,16 @@ package com.googlecode.jsfFlex.communication.component
 			 */
 			_dataGridDataProvider = new ArrayCollection();
 			
+			var hiddenOriginalRowIndex:uint = _currentInitialHalfDataPartitionIndex * _batchColumnDataRetrievalSize;
+			
+			for(var i:uint=0; i < _cacheSize; i++, hiddenOriginalRowIndex++){
+				_dataGridDataProvider.addItem({_hiddenOriginalRowIndex : hiddenOriginalRowIndex});
+			}
+			
+			_dataGridComp.dataProvider = _dataGridDataProvider;
+			_dataGridComp.scrollToIndex(scrollPosition);
+			_scrollEventHelper.resetState(scrollPosition);
+			
 			/*
 			 * HACK to display the sort arrow
 			 */
@@ -377,14 +386,6 @@ package com.googlecode.jsfFlex.communication.component
 			var refreshEvent:CollectionEvent = new CollectionEvent(CollectionEvent.COLLECTION_CHANGE);
             refreshEvent.kind = CollectionEventKind.REFRESH;
             _dataGridDataProvider.dispatchEvent(refreshEvent);
-			
-			var hiddenOriginalRowIndex:uint = _currentInitialHalfDataPartitionIndex * _batchColumnDataRetrievalSize;
-			
-			for(var i:uint=0; i < _cacheSize; i++, hiddenOriginalRowIndex++){
-				_dataGridDataProvider.addItem({_hiddenOriginalRowIndex : hiddenOriginalRowIndex});
-			}
-			
-			_dataGridComp.dataProvider = _dataGridDataProvider;
 			
 			var sortRequestParameters:Object = new Object();
 			sortRequestParameters.componentId = _dataGridComp.id;
