@@ -54,9 +54,9 @@
         <div class="descriptionStyle">
             Note that the client validation for the component with id textInputRef [namely mxmlNumberValidator] is not a child tag
             of the mxmlTextInput tag. However the regular validation tag [validateLongRange] is a child tag which performs the validation
-            on the server side. In future it is thought to prevent submission of data if there exists errors.
+            on the server side.
             <br>
-            <h:message for="textInputRef" errorClass="errorStyle" />
+            <h:message for="textAreaRef" errorClass="errorStyle" />
         </div>
         <br>
         
@@ -144,11 +144,11 @@
 			    			<jf:mxmlDividedBox direction="horizontal" width="100%" height="100%">
 			    			
 				    			<jf:mxmlBox width="40%" height="100%">
-					    			<jf:mxmlTextInput id="textInputRef" text="#{mxmlOverallBean.textInputText}" >
-					    				<f:validateLongRange minimum="10" maximum="60" />
-					    			</jf:mxmlTextInput>
+					    			<jf:mxmlTextInput id="textInputRef" text="#{mxmlOverallBean.textInputText}" />
 					    			<jf:mxmlRichTextEditor textBinding="htmlText" htmlText="#{mxmlOverallBean.richTextEditorHtmlText}" />
-							    	<jf:mxmlTextArea text="#{mxmlOverallBean.textAreaText}" />
+							    	<jf:mxmlTextArea id="textAreaRef" text="#{mxmlOverallBean.textAreaText}" >
+							    		<f:validateLongRange minimum="10" maximum="60" />
+							    	</jf:mxmlTextArea>
 							    	<jf:mxmlDateField text="#{mxmlOverallBean.dateFieldText}" />
 							    	<jf:mxmlCheckBox label="CheckBox am I [\^$.|?*+(){}" selected="#{mxmlOverallBean.checkBoxSelected}" />
 						    	</jf:mxmlBox>
