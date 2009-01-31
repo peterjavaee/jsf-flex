@@ -31,14 +31,13 @@
 <f:view renderKitId="MXML_BASIC">
     
     <h:form>
-    	<br>
-    	This page is a simple test to ensure that the base framework is working [creation of preMxml, Mxml, and etcetera].<br>
-    	<h:commandButton value="SimpleTest" action="success" />
-    	<br>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlSimple">
-    		<jf:mxmlLabel text="I simply am a SWF file. DHan, DHAn, DHAN!!!" />
+    	<jf:mxmlApplication mxmlPackageName="mxmlSpacer" height="50%" width="50%">
+    		<jf:mxmlLabel text="First label for mxmlSpacer example." />
+    		<jf:mxmlSpacer height="10" width="10" />
+    		<jf:mxmlLabel text="Follow up label." />
     	</jf:mxmlApplication>
+    	
     </h:form>
     
 </f:view>

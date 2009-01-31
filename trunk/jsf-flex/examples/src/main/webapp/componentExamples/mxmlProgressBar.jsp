@@ -31,13 +31,22 @@
 <f:view renderKitId="MXML_BASIC">
     
     <h:form>
-    	<br>
-    	This page is a simple test to ensure that the base framework is working [creation of preMxml, Mxml, and etcetera].<br>
-    	<h:commandButton value="SimpleTest" action="success" />
-    	<br>
-    	
-    	<jf:mxmlApplication mxmlPackageName="mxmlSimple">
-    		<jf:mxmlLabel text="I simply am a SWF file. DHan, DHAn, DHAN!!!" />
+    	<jf:mxmlApplication mxmlPackageName="mxmlProgressBar" height="50%" width="50%">
+    		
+    		<jf:mxmlScript>
+	        	
+		    	private function increaseProgressBar():void{
+					progressBarRef.setProgress((progressBarRef.value + 10) % 110, 100);
+				}
+				
+				private function decreaseProgressBar():void{
+					progressBarRef.setProgress(progressBarRef.value == 0 ? 0 : progressBarRef.value - 10, 100);
+				}
+				
+		    </jf:mxmlScript>
+    		<jf:mxmlButton label="Increase Progress Bar" buttonDown="increaseProgressBar();"/>
+	        <jf:mxmlButton label="Decrease Progress Bar" buttonDown="decreaseProgressBar();" />
+    		<jf:mxmlProgressBar id="progressBarRef" mode="manual" minimum="0" maximum="100"	value="#{mxmlOverallBean.progressBarValue}" />
     	</jf:mxmlApplication>
     </h:form>
     

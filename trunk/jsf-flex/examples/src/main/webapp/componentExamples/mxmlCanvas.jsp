@@ -31,14 +31,13 @@
 <f:view renderKitId="MXML_BASIC">
     
     <h:form>
-    	<br>
-    	This page is a simple test to ensure that the base framework is working [creation of preMxml, Mxml, and etcetera].<br>
-    	<h:commandButton value="SimpleTest" action="success" />
-    	<br>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlSimple">
-    		<jf:mxmlLabel text="I simply am a SWF file. DHan, DHAn, DHAN!!!" />
+    	<jf:mxmlApplication mxmlPackageName="mxmlCanvas" height="50%" width="50%">
+    		<jf:mxmlCanvas>
+    			<jf:mxmlLabel text="Canvas allows absolute positioning of components, refer to Adobe site for better example" x="100" y="100" />
+    		</jf:mxmlCanvas>
     	</jf:mxmlApplication>
+    	
     </h:form>
     
 </f:view>

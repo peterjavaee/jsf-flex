@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 /**
  * @author Ji Hoon Kim
  */
-public class MXMLMultipleRequestDataGridExampleBean implements Serializable {
+public final class MXMLMultipleRequestDataGridExampleBean implements Serializable {
 	
 	private static final long serialVersionUID = 1501524398537830947L;
 
@@ -52,7 +52,7 @@ public class MXMLMultipleRequestDataGridExampleBean implements Serializable {
 		_largeDataEntries = largeDataEntries;
 	}
 	
-	public static class LargeDataEntry implements Serializable {
+	public final static class LargeDataEntry implements Serializable {
 		
 		private static final long serialVersionUID = 8426305474249836025L;
 		

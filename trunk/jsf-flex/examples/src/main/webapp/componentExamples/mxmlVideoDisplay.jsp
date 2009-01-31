@@ -31,14 +31,11 @@
 <f:view renderKitId="MXML_BASIC">
     
     <h:form>
-    	<br>
-    	This page is a simple test to ensure that the base framework is working [creation of preMxml, Mxml, and etcetera].<br>
-    	<h:commandButton value="SimpleTest" action="success" />
-    	<br>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlSimple">
-    		<jf:mxmlLabel text="I simply am a SWF file. DHan, DHAn, DHAN!!!" />
+    	<jf:mxmlApplication mxmlPackageName="mxmlVideoDisplay" height="50%" width="50%">
+    		<jf:mxmlLabel text="Due to lack of swf file for loading, please refer to Adobe's example. Maybe later." />
     	</jf:mxmlApplication>
+    	
     </h:form>
     
 </f:view>

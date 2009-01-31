@@ -29,7 +29,7 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 /**
  * @author Ji Hoon Kim
  */
-public class MXMLOverallExampleBean implements Serializable {
+public final class MXMLOverallExampleBean implements Serializable {
 	
 	private static final long serialVersionUID = 6694836447144771325L;
 	
@@ -219,7 +219,7 @@ public class MXMLOverallExampleBean implements Serializable {
 		_wisePeopleEntries = wisePeopleEntries;
 	}
 	
-	public static class WisePeopleEntry implements Serializable {
+	public final static class WisePeopleEntry implements Serializable {
 		
 		private static final long serialVersionUID = -4974974584395025727L;
 		

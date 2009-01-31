@@ -31,14 +31,17 @@
 <f:view renderKitId="MXML_BASIC">
     
     <h:form>
-    	<br>
-    	This page is a simple test to ensure that the base framework is working [creation of preMxml, Mxml, and etcetera].<br>
-    	<h:commandButton value="SimpleTest" action="success" />
-    	<br>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlSimple">
-    		<jf:mxmlLabel text="I simply am a SWF file. DHan, DHAn, DHAN!!!" />
+    	<jf:mxmlApplication mxmlPackageName="mxmlList" height="50%" width="50%">
+    		<jf:mxmlScript>
+	        	
+		    	[Bindable]
+				public var reallySimpleArray:Array = ["First", "Second", "Third"];
+				
+		    </jf:mxmlScript>
+    		<jf:mxmlList width="100" dataProvider="{reallySimpleArray}" selectedIndex="#{mxmlOverallBean.listSelectedIndex}" />
     	</jf:mxmlApplication>
+    	
     </h:form>
     
 </f:view>
