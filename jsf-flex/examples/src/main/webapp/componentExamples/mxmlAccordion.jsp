@@ -31,14 +31,18 @@
 <f:view renderKitId="MXML_BASIC">
     
     <h:form>
-    	<br>
-    	This page is a simple test to ensure that the base framework is working [creation of preMxml, Mxml, and etcetera].<br>
-    	<h:commandButton value="SimpleTest" action="success" />
-    	<br>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlSimple">
-    		<jf:mxmlLabel text="I simply am a SWF file. DHan, DHAn, DHAN!!!" />
+    	<jf:mxmlApplication mxmlPackageName="mxmlAccordion" height="50%" width="50%">
+    		<jf:mxmlAccordion width="100%" height="100%" selectedIndex="#{mxmlOverallBean.accordionSelectedIndex}">
+    			<jf:mxmlBox>
+    				<jf:mxmlLabel text="First container within mxmlAccordion" />
+    			</jf:mxmlBox>
+    			<jf:mxmlBox>
+    				<jf:mxmlLabel text="Second container within mxmlAccordion" />
+    			</jf:mxmlBox>
+    		</jf:mxmlAccordion>
     	</jf:mxmlApplication>
+    	
     </h:form>
     
 </f:view>

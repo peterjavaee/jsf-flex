@@ -31,14 +31,19 @@
 <f:view renderKitId="MXML_BASIC">
     
     <h:form>
-    	<br>
-    	This page is a simple test to ensure that the base framework is working [creation of preMxml, Mxml, and etcetera].<br>
-    	<h:commandButton value="SimpleTest" action="success" />
-    	<br>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlSimple">
-    		<jf:mxmlLabel text="I simply am a SWF file. DHan, DHAn, DHAN!!!" />
+    	<jf:mxmlApplication mxmlPackageName="mxmlButtonScript" height="50%" width="50%">
+    		<jf:mxmlScript>
+	        	import mx.controls.Alert;
+		    	
+		    	private function buttonMe():void {
+		    		Alert.show("I have been buttoned");
+		    	}
+		    	
+		    </jf:mxmlScript>
+    		<jf:mxmlButton label="Button example" buttonDown="buttonMe();"/>
     	</jf:mxmlApplication>
+    	
     </h:form>
     
 </f:view>

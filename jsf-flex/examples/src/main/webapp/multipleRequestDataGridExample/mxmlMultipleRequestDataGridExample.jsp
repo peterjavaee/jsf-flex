@@ -54,7 +54,7 @@
         </div>
         <br>
         
-	    <jf:mxmlApplication mxmlPackageName="multipleRequestDataGrid" height="35%" width="90%" errorColor="#B80000" errorFontSize="13">
+	    <jf:mxmlApplication mxmlPackageName="mxmlMultipleRequestDataGridExample" height="35%" width="90%" errorColor="#B80000" errorFontSize="13">
 			
 			<jf:mxmlDataGrid dataGridCollectionBean="#{multipleRequestDataGridExample.largeDataEntries}" width="100%" rowCount="10" 
 								resizableColumns="true" editable="true">
