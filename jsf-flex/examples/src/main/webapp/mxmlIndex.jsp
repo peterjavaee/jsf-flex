@@ -57,7 +57,7 @@
 	<div class="sectionDescription">
 		Welcome to JSF Flex Project
 	</div>
-	<br>
+	<br />
 	
 	<div class="subSectionDescription">
 		<span class="descriptionHeading">
@@ -79,7 +79,7 @@
 		</h:outputLink>
 	</h:panelGrid>
 	
-	<br>
+	<br />
 	<div class="subSectionDescription">
 		<span class="descriptionHeading">
 			Specific component examples

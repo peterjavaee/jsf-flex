@@ -50,15 +50,15 @@
     	The button on the right is to test out the decode process and make sure that the information is mapped correctly
     	
     	<h:commandButton value="DecodeTester" action="success" />
-        <br>
+        <br />
         <div class="descriptionStyle">
             Note that the client validation for the component with id textInputRef [namely mxmlNumberValidator] is not a child tag
             of the mxmlTextInput tag. However the regular validation tag [validateLongRange] is a child tag which performs the validation
             on the server side.
-            <br>
+            <br />
             <h:message for="textAreaRef" errorClass="errorStyle" />
         </div>
-        <br>
+        <br />
         
 	    <jf:mxmlApplication mxmlPackageName="anotherSwf" height="5%" width="90%" verticalScrollPolicy="off" backgroundColor="0xCC6666">
 	    	<jf:mxmlLabel text="I simply am an another SWF file. DHan, DHAn, DHAN!!!" color="#FFFFFF" fontWeight="bold"/>
@@ -102,7 +102,7 @@
 		    	[Bindable]
 				public var reallySimpleArray:Array = ["First", "Second", "Third"];
 				
-				public var complexStruct:XMLList = <>
+				public var complexStruct:XMLList = <root>
 														<menuitem label="Menu1">
 									                        <menuitem label="MenuItem 1-A" data="1A"/>
 									                        <menuitem label="MenuItem 1-B" data="1B"/>
@@ -117,7 +117,7 @@
 									                                groupName="one" data="3B"/>
 									                        </menuitem>
 									                    </menuitem>
-													</>;
+													</root>.menuitem;
 				[Bindable]
 				public var complexStructCollection:XMLListCollection = new XMLListCollection(complexStruct);
 				

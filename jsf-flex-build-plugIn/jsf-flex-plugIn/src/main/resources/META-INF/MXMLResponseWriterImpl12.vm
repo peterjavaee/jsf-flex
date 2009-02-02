@@ -69,7 +69,8 @@ class MXMLResponseWriterImpl extends AbstractMXMLResponseWriter {
 	}
 	
 	public ResponseWriter cloneWithWriter(Writer writer) {
-		return _mxmlResponseWriterBaseImplementor.cloneWithWriter(writer);
+		
+		return new MXMLResponseWriterImpl(writer, getContentType(), getCharacterEncoding());
 	}
 	
 	public void endDocument() throws IOException {

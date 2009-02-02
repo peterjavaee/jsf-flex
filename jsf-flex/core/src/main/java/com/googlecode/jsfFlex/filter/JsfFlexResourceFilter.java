@@ -57,9 +57,9 @@ public final class JsfFlexResourceFilter implements Filter {
 	
 	private static final Log _log = LogFactory.getLog(JsfFlexResourceFilter.class);
 	
-	private static final String META_HTTP_EQUIV_EXPIRE = "<META HTTP-EQUIV='Expires' CONTENT='0'>";
-	private static final String META_HTTP_EQUIV_PRAGMA_NO_CACHE = "<META HTTP-EQUIV='PRAGMA' CONTENT='NO-CACHE'>";
-	private static final String META_HTTP_EQUIV_CACHE_CONTROL_NO_CACHE = "<META HTTP-EQUIV='CACHE-CONTROL' CONTENT='NO-CACHE'>";
+	private static final String META_HTTP_EQUIV_EXPIRE = "<META HTTP-EQUIV='Expires' CONTENT='0' />";
+	private static final String META_HTTP_EQUIV_PRAGMA_NO_CACHE = "<META HTTP-EQUIV='PRAGMA' CONTENT='NO-CACHE' />";
+	private static final String META_HTTP_EQUIV_CACHE_CONTROL_NO_CACHE = "<META HTTP-EQUIV='CACHE-CONTROL' CONTENT='NO-CACHE' />";
 	
 	private static final String REQUEST_FOR_RESOURCE_SEARCH_PATTERN = "%2F" + JsfFlexResource.JSF_FLEX_SCRIPT_RESOURCE_REQUEST_PREFIX + "%2F";
 	
