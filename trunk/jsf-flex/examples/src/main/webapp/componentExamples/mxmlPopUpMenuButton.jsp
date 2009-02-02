@@ -36,7 +36,7 @@
     		<jf:mxmlScript>
 	        	import mx.collections.XMLListCollection;
 		    	
-				public var complexStruct:XMLList = <>
+				public var complexStruct:XMLList = <root>
 														<menuitem label="Menu1">
 									                        <menuitem label="MenuItem 1-A" data="1A"/>
 									                        <menuitem label="MenuItem 1-B" data="1B"/>
@@ -51,7 +51,7 @@
 									                                groupName="one" data="3B"/>
 									                        </menuitem>
 									                    </menuitem>
-													</>;
+													</root>.menuitem;
 				[Bindable]
 				public var complexStructCollection:XMLListCollection = new XMLListCollection(complexStruct);
 				

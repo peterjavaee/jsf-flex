@@ -44,15 +44,15 @@
     	The button on the right is to test out the decode process and make sure that the information is mapped correctly
     	
     	<h:commandButton value="DecodeTester" action="success" />
-        <br>
+        <br />
         <div class="descriptionStyle">
             Currently if the data is large, it is broken into pieces of 50 with there being two batches, making
             the size of the cache 100 rows. When a limit is reached s.t. more information is required, one set will remain cached 
             with an another of batch of at most 50 being returned from the server. In the future it is thought to possibly provide 
             capability in setting these fields.
-            <br>
+            <br />
         </div>
-        <br>
+        <br />
         
 	    <jf:mxmlApplication mxmlPackageName="mxmlMultipleRequestDataGridExample" height="35%" width="90%" errorColor="#B80000" errorFontSize="13">
 			

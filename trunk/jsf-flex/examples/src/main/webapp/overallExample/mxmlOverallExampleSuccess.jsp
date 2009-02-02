@@ -226,7 +226,7 @@
     		<td style="width:30%">
     			<h:form>
     			    <div style="color:00CC33;font-family:Comic Sans MS;font-weight:700;">
-		    			To navigate back to mxmlExample click the below button<br><br>
+		    			To navigate back to mxmlExample click the below button<br /><br />
 		    			<h:commandButton value="Back to mxmlExample" action="back" />
 	    			</div>
     			</h:form>
