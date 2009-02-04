@@ -31,7 +31,7 @@
 <f:view renderKitId="MXML_BASIC">
     
     <h:form>
-    	<jf:mxmlApplication mxmlPackageName="mxmlProgressBar" height="50%" width="50%">
+    	<jf:mxmlApplication mxmlPackageName="mxmlProgressBar" height="500" width="800">
     		
     		<jf:mxmlScript>
 	        	

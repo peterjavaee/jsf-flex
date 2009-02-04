@@ -32,7 +32,7 @@
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlAccordion" height="50%" width="50%">
+    	<jf:mxmlApplication mxmlPackageName="mxmlAccordion" height="500" width="800">
     		<jf:mxmlAccordion width="100%" height="100%" selectedIndex="#{mxmlOverallBean.accordionSelectedIndex}">
     			<jf:mxmlBox>
     				<jf:mxmlLabel text="First container within mxmlAccordion" />

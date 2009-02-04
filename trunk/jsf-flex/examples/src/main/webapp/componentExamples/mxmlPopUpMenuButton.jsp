@@ -32,7 +32,7 @@
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlPopUpMenuButton" height="50%" width="50%">
+    	<jf:mxmlApplication mxmlPackageName="mxmlPopUpMenuButton" height="500" width="800">
     		<jf:mxmlScript>
 	        	import mx.collections.XMLListCollection;
 		    	

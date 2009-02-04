@@ -31,7 +31,7 @@
 <f:view renderKitId="MXML_BASIC">
     
     <h:form>
-    	<jf:mxmlApplication mxmlPackageName="mxmlHRule" height="50%" width="50%">
+    	<jf:mxmlApplication mxmlPackageName="mxmlHRule" height="500" width="800">
     		<jf:mxmlHRule width="100%" />
     	</jf:mxmlApplication>
     </h:form>

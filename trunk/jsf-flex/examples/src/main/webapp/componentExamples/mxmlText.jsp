@@ -32,7 +32,7 @@
     
     <h:form>
     	
-		<jf:mxmlApplication mxmlPackageName="mxmlText" height="50%" width="50%">
+		<jf:mxmlApplication mxmlPackageName="mxmlText" height="500" width="800">
     		<jf:mxmlText text="Random text for show." />
     	</jf:mxmlApplication>
     	

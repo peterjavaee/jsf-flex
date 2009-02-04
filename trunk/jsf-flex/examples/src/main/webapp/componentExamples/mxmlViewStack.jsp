@@ -32,7 +32,7 @@
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlViewStack" height="50%" width="50%">
+    	<jf:mxmlApplication mxmlPackageName="mxmlViewStack" height="500" width="800">
     		<jf:mxmlViewStack borderStyle="solid" width="100%" height="80%">
     			<jf:mxmlCanvas backgroundColor="#FFFFCC" label="Search" width="100%" height="100%">
 	                <jf:mxmlLabel text="Search Screen" color="#000000"/>

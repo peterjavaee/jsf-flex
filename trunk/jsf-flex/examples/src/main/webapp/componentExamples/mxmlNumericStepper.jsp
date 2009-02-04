@@ -32,7 +32,7 @@
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlNumericStepper" height="50%" width="50%">
+    	<jf:mxmlApplication mxmlPackageName="mxmlNumericStepper" height="500" width="800">
     		<jf:mxmlNumericStepper minimum="0" maximum="10" value="#{mxmlOverallBean.numericStepperValue}" />
     	</jf:mxmlApplication>
     	
