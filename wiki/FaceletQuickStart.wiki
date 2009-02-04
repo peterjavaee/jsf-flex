@@ -4,9 +4,9 @@ This page contains a brief overview in changing web.xml and faces-config.xml fil
 
 = Details =
 
- # First modify web.xml file to include .xhtml extension as facelet's view mapping :
+ # First modify web.xml file to include .xhtml extension as Facelet's view mapping :
    {{{
-     <context-param>
+    <context-param>
       <param-name>facelets.VIEW_MAPPINGS</param-name>
       <param-value>*.xhtml</param-value>
     </context-param>
@@ -34,10 +34,11 @@ This page contains a brief overview in changing web.xml and faces-config.xml fil
    }}}
 
 That is it and here are examples for referring to .jsp with the default JSP view handler and .xhtml with the Facelet view handler :
- * JSP : http://localhost:8081/jsf-flex-examples/mxmlIndex.jsf
- * XHTML : http://localhost:8081/jsf-flex-examples/faces/mxmlIndex.xhtml
+||View Handler||Sample URL||
+||JSP||{{{http://localhost:8081/jsf-flex-examples/mxmlIndex.jsf}}}||
+||Facelet using XHTML||{{{http://localhost:8081/jsf-flex-examples/faces/mxmlIndex.xhtml}}}||
 
-For ease, hereis the content for the complete web.xml file :
+For ease, here is the content for the complete web.xml file :
   {{{
 <web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4">
    
