@@ -21,6 +21,12 @@
 
 <web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" version="2.4">
 	
+	<!-- Below is for Facelet support with the example pages ending in standard .xhtml extension -->
+    <context-param>
+      <param-name>facelets.VIEW_MAPPINGS</param-name>
+      <param-value>*.xhtml</param-value>
+    </context-param>
+	
 	<context-param>
       <description>Comma separated list of URIs of (additional) faces config files.
               (e.g. /WEB-INF/my-config.xml)
@@ -72,6 +78,12 @@
       <url-pattern>/jsfFlexResourceRequest/*</url-pattern>
     </filter-mapping>
     
+    <!-- The below filter-mapping is used for Facelet support -->
+    <filter-mapping>
+      <filter-name>jsfFlexResourceFilter</filter-name>
+      <url-pattern>/faces/*</url-pattern>
+    </filter-mapping>
+    
     <!-- Faces Servlet -->
     <servlet>
       <servlet-name>Faces Servlet</servlet-name>
@@ -91,6 +103,12 @@
     <servlet-mapping>
       <servlet-name>Faces Servlet</servlet-name>
       <url-pattern>/jsfFlexHttpServiceRequestListener/*</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Below mapping is for Facelet support -->
+    <servlet-mapping>
+      <servlet-name>Faces Servlet</servlet-name>
+      <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
     
 </web-app>

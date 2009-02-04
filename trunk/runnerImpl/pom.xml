@@ -4,13 +4,13 @@
   <parent>
     <groupId>com.googlecode.jsf-flex</groupId>
     <artifactId>jsf-flex-build-project</artifactId>
-    <version>0.0.5-SNAPSHOT</version>
+    <version>0.7-SNAPSHOT</version>
   </parent>
   
   <groupId>com.googlecode.jsf-flex.runner-impl-project</groupId>
   <artifactId>runner-impl-main-project</artifactId>
   <packaging>pom</packaging>
-  <version>0.0.5-SNAPSHOT</version>
+  <version>0.7-SNAPSHOT</version>
   <name>JSF Flex Runner Impl Project</name>
   
   <scm>
@@ -41,7 +41,7 @@
   </dependencyManagement>
   
   <properties>
-    <jsf.flex.shared.version>0.0.5-SNAPSHOT</jsf.flex.shared.version>
+    <jsf.flex.shared.version>0.7-SNAPSHOT</jsf.flex.shared.version>
   </properties>
   
 </project>

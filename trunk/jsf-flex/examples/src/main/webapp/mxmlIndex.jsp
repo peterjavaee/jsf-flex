@@ -65,8 +65,8 @@
 		</span>
 		<span class="descriptionText">
 			<ul>
-				<li> mxmlSimple representing the bare skeleton of creating a mxmlApplication
-				<li> mxmlOverallExample representing overall example of the components
+				<li> mxmlSimple representing the bare skeleton of creating a mxmlApplication </li>
+				<li> mxmlOverallExample representing overall example of the components </li>
 			</ul>
 		</span>
 	</div>
