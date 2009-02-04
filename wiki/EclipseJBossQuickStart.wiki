@@ -88,3 +88,5 @@ This page contains brief overview in importing the project into Eclipse 3.4.0 fo
  # Copy the contents from "C:\jsfFlex\jsf-flex\examples\target\jsf-flex-examples\WEB-INF\lib" minus the jsf api + jsf impl to the project's WEB-INF\lib directory.
    http://jsf-flex.googlecode.com/svn/wiki/copyJarsToWebInfDirEclipseJBoss42.jpg
  # Then you are done. Have fun!
+
+If you wish to use Facelet for JSF Flex components, please refer to the following Wiki page in modifying web.xml and faces-config.xml files : [FaceletQuickStart]. Note that Facelet support is being started from 0.7 version onwards, so it may have some quirks within this version.
