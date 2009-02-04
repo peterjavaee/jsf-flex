@@ -32,7 +32,7 @@
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlVScrollBar" height="50%" width="50%">
+    	<jf:mxmlApplication mxmlPackageName="mxmlVScrollBar" height="500" width="800">
     		<jf:mxmlVScrollBar lineScrollSize="50" pageScrollSize="100" />
     	</jf:mxmlApplication>
     	

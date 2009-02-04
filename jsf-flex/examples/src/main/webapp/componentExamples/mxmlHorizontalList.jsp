@@ -32,7 +32,7 @@
     
     <h:form>
         
-        <jf:mxmlApplication mxmlPackageName="mxmlHorizontalList" height="50%" width="50%">
+        <jf:mxmlApplication mxmlPackageName="mxmlHorizontalList" height="500" width="800">
             <jf:mxmlHorizontalList columnCount="2" columnWidth="100">
                 <jf:mxmlDataProvider>
                     <jf:mxmlObject label="First" />

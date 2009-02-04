@@ -32,7 +32,7 @@
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlCanvas" height="50%" width="50%">
+    	<jf:mxmlApplication mxmlPackageName="mxmlCanvas" height="500" width="800">
     		<jf:mxmlCanvas>
     			<jf:mxmlLabel text="Canvas allows absolute positioning of components, refer to Adobe site for better example" x="100" y="100" />
     		</jf:mxmlCanvas>

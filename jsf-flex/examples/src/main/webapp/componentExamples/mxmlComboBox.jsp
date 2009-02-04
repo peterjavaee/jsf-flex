@@ -32,7 +32,7 @@
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlComboBox" height="50%" width="50%">
+    	<jf:mxmlApplication mxmlPackageName="mxmlComboBox" height="500" width="800">
     		<jf:mxmlComboBox text="#{mxmlOverallBean.comboBoxText}" selectedIndex="#{mxmlOverallBean.comboBoxSelectedIndex}" 
     							dataProviderCollection="#{mxmlOverallBean.comboBoxDisplayEntries}" />
     	</jf:mxmlApplication>

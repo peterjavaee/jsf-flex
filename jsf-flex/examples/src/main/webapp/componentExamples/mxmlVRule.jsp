@@ -32,7 +32,7 @@
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlVRule" height="50%" width="50%">
+    	<jf:mxmlApplication mxmlPackageName="mxmlVRule" height="500" width="800">
     		<jf:mxmlVRule strokeWidth="1" strokeColor="red" />
     	</jf:mxmlApplication>
     	

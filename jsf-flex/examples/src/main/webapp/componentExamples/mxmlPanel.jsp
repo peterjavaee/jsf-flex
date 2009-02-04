@@ -32,7 +32,7 @@
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlPanel" height="50%" width="50%">
+    	<jf:mxmlApplication mxmlPackageName="mxmlPanel" height="500" width="800">
     		<jf:mxmlPanel label="Panel example" width="100%" height="100%">
     			<jf:mxmlLabel text="Label for panel example" />
     		</jf:mxmlPanel>

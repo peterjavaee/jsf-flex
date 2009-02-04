@@ -36,9 +36,10 @@
     	<h:commandButton value="SimpleTest" action="success" />
     	<br />
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlSimple">
+    	<jf:mxmlApplication mxmlPackageName="mxmlSimple" height="500" width="800">
     		<jf:mxmlLabel text="I simply am a SWF file. DHan, DHAn, DHAN!!!" />
     	</jf:mxmlApplication>
+    	
     </h:form>
     
 </f:view>

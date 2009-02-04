@@ -32,7 +32,7 @@
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlApplicationControlBar" height="50%" width="50%">
+    	<jf:mxmlApplication mxmlPackageName="mxmlApplicationControlBar" height="500" width="800">
     		<jf:mxmlApplicationControlBar dock="true">
     			<jf:mxmlLabel text="Simple Application Control Bar" />
     		</jf:mxmlApplicationControlBar>
