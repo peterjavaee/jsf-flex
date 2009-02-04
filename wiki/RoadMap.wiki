@@ -19,10 +19,10 @@ For the 1.0 release, plan is to support all the Flex standard components, which 
 ==Milestones==
 ------
 
-===Release 0.5===
+===Release 0.7 SNAPSHOT===
 
 ====Release Date====
-N/A
+Prior to major release 1.0, this page will be modified with the SNAPSHOT versions. So release date and etcetera will be managed in an informal manner.
 
 ====Accomplished====
 Currently the project supports most of the Flex standard components. Brief testing has been done on Windows XP operating system with the following list of browsers :
@@ -32,7 +32,7 @@ Currently the project supports most of the Flex standard components. Brief testi
 on application server {{{TomCat}}} 6.0 and {{{JBoss}}} 4.2.
 
 ====TODO====
- * Currently in the process of making changes for Facelet.
+ * Allow better binding of data, so to make it easy for Facelet.
  * Complete testing on remaining OS, browsers, and application servers must be performed, so to support every type of user. {For ALL}
 || *Operating System* || *Browser Tested*                 || *Application Server Tested*||
 || Windows XP         || Firefox 2.0 , IE 6.0, Opera 9.25 || {{{TomCat}}} 6.0, {{{JBoss}}} 4.2           ||
