@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.googlecode.jsf-flex</groupId>
     <artifactId>jsf-flex-project</artifactId>
-    <version>0.0.5-SNAPSHOT</version>
+    <version>0.7-SNAPSHOT</version>
   </parent>
   
   <modelVersion>4.0.0</modelVersion>
@@ -94,15 +94,6 @@
           <scope>provided</scope>
         </dependency>
       </dependencies>
-      
-      <repositories>
-        <repository>
-          <id>dev.java.net</id>
-          <name>dev.java.net Maven Repository</name>
-          <url>https://maven-repository.dev.java.net/repository/</url>
-          <layout>legacy</layout>
-        </repository>
-      </repositories>
       
     </profile>
     
@@ -248,7 +239,12 @@
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
-    </dependency>    
+    </dependency>
+    <dependency>
+      <groupId>com.sun.facelets</groupId>
+      <artifactId>jsf-facelets</artifactId>
+      <version>1.1.14</version>
+    </dependency> 
   </dependencies>
   
   <build>
@@ -271,9 +267,18 @@
     </plugins>
   </build>
   
+  <repositories>
+    <repository>
+      <id>dev.java.net</id>
+      <name>dev.java.net Maven Repository</name>
+      <url>https://maven-repository.dev.java.net/repository/</url>
+      <layout>legacy</layout>
+    </repository>
+  </repositories>
+  
   <properties>
-    <jsf.flex.runner.version>0.0.5-SNAPSHOT</jsf.flex.runner.version>
-    <jsf.flex.annotations.version>0.0.5-SNAPSHOT</jsf.flex.annotations.version>
+    <jsf.flex.runner.version>0.7-SNAPSHOT</jsf.flex.runner.version>
+    <jsf.flex.annotations.version>0.7-SNAPSHOT</jsf.flex.annotations.version>
   </properties>
   
 </project>
