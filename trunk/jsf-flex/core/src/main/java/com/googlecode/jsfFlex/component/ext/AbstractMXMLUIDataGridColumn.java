@@ -342,7 +342,7 @@ public abstract class AbstractMXMLUIDataGridColumn
 	
 	public Map updateModifiedDataField(HttpServletRequest request, List dataGridEntries) {
 		
-		final String SET_DATA_FIELD_METHOD = "set" + getDataField().substring(0, 1).toUpperCase() + getDataField().substring(1);
+		final String SET_DATA_FIELD_METHOD_NAME = "set" + getDataField().substring(0, 1).toUpperCase() + getDataField().substring(1);
 		
 		Map updateResult = new LinkedHashMap();
 		boolean success = true;
@@ -368,16 +368,16 @@ public abstract class AbstractMXMLUIDataGridColumn
 			Object currDataEntry = dataGridEntries.get(rowIndex);
 			
 			try{
-				ReflectionHelperUtil.invokeMethod(currDataEntry, SET_DATA_FIELD_METHOD, UPDATE_DATA_VALUE_PARAMETER_TYPES, new Object[]{ currValue });
+				ReflectionHelperUtil.invokeMethod(currDataEntry, SET_DATA_FIELD_METHOD_NAME, UPDATE_DATA_VALUE_PARAMETER_TYPES, new Object[]{ currValue });
 			}catch(NoSuchMethodException noSuchMethodException){
 				StringBuffer errorMessage = new StringBuffer();
 				errorMessage.append("NoSuchMethodException was thrown while invoking method : ");
-				errorMessage.append(SET_DATA_FIELD_METHOD);
+				errorMessage.append(SET_DATA_FIELD_METHOD_NAME);
 				throw new RuntimeException(errorMessage.toString(), noSuchMethodException);
 			}catch(Exception additionalAccessException){
 				StringBuffer errorMessage = new StringBuffer();
 				errorMessage.append("Other exception aside from NoSuchMethodException was thrown while invoking method : ");
-				errorMessage.append(SET_DATA_FIELD_METHOD);
+				errorMessage.append(SET_DATA_FIELD_METHOD_NAME);
 				throw new RuntimeException(errorMessage.toString(), additionalAccessException);
 			}
 			
@@ -388,9 +388,9 @@ public abstract class AbstractMXMLUIDataGridColumn
 	}
 	
 	private synchronized String getDataFieldMethodName(){
-		final String GET_DATA_FIELD_METHOD = "get" + getDataField().substring(0, 1).toUpperCase() + getDataField().substring(1);
+		final String GET_DATA_FIELD_METHOD_NAME = "get" + getDataField().substring(0, 1).toUpperCase() + getDataField().substring(1);
 		
-		return GET_DATA_FIELD_METHOD;
+		return GET_DATA_FIELD_METHOD_NAME;
 	}
 	
 	public synchronized Comparator getAscendingComparator() {

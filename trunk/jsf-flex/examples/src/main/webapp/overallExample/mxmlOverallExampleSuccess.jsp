@@ -55,6 +55,7 @@
 <body>
 
 <f:view>
+	
 	<table>
 		<tr>
 			<td style="width:70%">

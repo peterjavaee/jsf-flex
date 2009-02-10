@@ -154,7 +154,7 @@
 						    	</jf:mxmlBox>
 						    	
 						    	<jf:mxmlBox width="60%" height="100%">
-						    		<jf:mxmlDataGrid dataGridCollectionBean="#{mxmlOverallBean.wisePeopleEntries}" width="100%" 
+						    		<jf:mxmlDataGrid bindingBeanList="#{mxmlOverallBean.wisePeopleEntries}" width="100%" 
 						    							rowCount="3" resizableColumns="true" editable="true" >
 								    	<jf:mxmlColumns>
 								    		<jf:mxmlDataGridColumn dataField="name" headerText="Name" />
@@ -196,8 +196,12 @@
 				        		<jf:mxmlLabel text="Simple ButtonBar" />
 				        		<jf:mxmlButtonBar>
 				        			<jf:mxmlDataProvider>
-	                                    <jf:mxmlObject label="First Nesting" />
-	                                    <jf:mxmlObject label="Second Nesting" />
+	                                    <jf:mxmlObject>
+	                                    	<jf:mxmlObjectProperty propertyName="label" propertyValue="First Nesting" />
+	                                    </jf:mxmlObject>
+	                                    <jf:mxmlObject>
+	                                    	<jf:mxmlObjectProperty propertyName="label" propertyValue="Second Nesting" />
+	                                    </jf:mxmlObject>
 	                                </jf:mxmlDataProvider>
 				        		</jf:mxmlButtonBar>
 				        		<jf:mxmlLabel text="Simple ToggleButtonBar" />

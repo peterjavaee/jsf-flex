@@ -19,7 +19,9 @@
 package com.googlecode.jsfFlex.renderkit.mxml;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.Writer;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,6 +34,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.beans.others.JsfFlexFlashApplicationConfiguration;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
+import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.tasks._CommonTaskRunner;
 import com.googlecode.jsfFlex.shared.tasks._FileManipulatorTaskRunner;
 import com.googlecode.jsfFlex.shared.tasks._FlexTaskRunner;
@@ -407,6 +410,22 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	public final String readFileContent(String fileName) {
 		
 		return getFileManipulatorTaskRunner().readFileContent(fileName);
+	}
+	
+	/**
+	 * Convenient method to write content to the passed in Writer instance. Convenient meaning it will throw a ComponentBuildException<br>
+	 * which extends RuntimeException when an exception was triggered.<br>
+	 * 
+	 * @param writer
+	 * @param toWrite
+	 */
+	public final void writeToWriter(Writer writer, String toWrite){
+		
+		try{
+			writer.write(toWrite);
+		}catch(IOException exceptionWriting){
+			throw new ComponentBuildException("Exception while writing " + toWrite, exceptionWriting);
+		}
 	}
 	
 	/**

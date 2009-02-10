@@ -35,8 +35,12 @@
     	<jf:mxmlApplication mxmlPackageName="mxmlButtonBar" height="500" width="800">
     		<jf:mxmlButtonBar>
        			<jf:mxmlDataProvider>
-					<jf:mxmlObject label="First Nesting" />
-					<jf:mxmlObject label="Second Nesting" />
+					<jf:mxmlObject>
+						<jf:mxmlObjectProperty propertyName="label" propertyValue="First Nesting" />
+					</jf:mxmlObject>
+					<jf:mxmlObject>
+						<jf:mxmlObjectProperty propertyName="label" propertyValue="Second Nesting" />
+					</jf:mxmlObject>
 				</jf:mxmlDataProvider>
 			</jf:mxmlButtonBar>
     	</jf:mxmlApplication>

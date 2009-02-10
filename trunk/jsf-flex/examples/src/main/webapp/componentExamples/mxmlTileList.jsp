@@ -35,8 +35,12 @@
         <jf:mxmlApplication mxmlPackageName="mxmlTileList" height="500" width="800">
             <jf:mxmlTileList columnCount="2" columnWidth="100">
                 <jf:mxmlDataProvider>
-                    <jf:mxmlObject label="First" />
-                    <jf:mxmlObject label="Second" />
+                    <jf:mxmlObject>
+                    	<jf:mxmlObjectProperty propertyName="label" propertyValue="First" />
+                    </jf:mxmlObject>
+                    <jf:mxmlObject>
+                    	<jf:mxmlObjectProperty propertyName="label" propertyValue="Second" />
+                    </jf:mxmlObject>
                 </jf:mxmlDataProvider>
             </jf:mxmlTileList>
         </jf:mxmlApplication>

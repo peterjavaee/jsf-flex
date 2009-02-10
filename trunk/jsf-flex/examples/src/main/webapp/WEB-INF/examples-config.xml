@@ -22,10 +22,60 @@
   </managed-bean>
   
   <managed-bean>
+    <managed-bean-name>mxmlFaceletOverallBean</managed-bean-name>
+    <managed-bean-class>com.googlecode.jsfFlex.examples.mxml.overallExample.MXMLFaceletOverallExampleBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  
+  <managed-bean>
     <managed-bean-name>multipleRequestDataGridExample</managed-bean-name>
     <managed-bean-class>com.googlecode.jsfFlex.examples.mxml.multipleRequestDataGridExample.MXMLMultipleRequestDataGridExampleBean</managed-bean-class>
     <managed-bean-scope>session</managed-bean-scope>
   </managed-bean>
+  
+  <!-- navigational rules for Facelet mxmlSimple -->
+  <navigation-rule>
+    <from-view-id>/faces/mxmlSimple/mxmlSimple.xhtml</from-view-id>
+    <navigation-case>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/faces/mxmlSimple/mxmlSimple.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <!-- navigational rules for Facelet mxmlSimple end -->
+  
+  <!-- navigational rules for Facelet mxmlOverallExample -->
+  <navigation-rule>
+    <from-view-id>/faces/overallExample/mxmlOverallExample.xhtml</from-view-id>
+    <navigation-case>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/faces/overallExample/mxmlOverallExampleSuccess.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <!-- navigational rules for Facelet mxmlOverallExample end -->
+  
+  <!-- navigational rules for Facelet mxmlOverallExampleSuccess -->
+  <navigation-rule>
+    <from-view-id>/faces/overallExample/mxmlOverallExampleSuccess.xhtml</from-view-id>
+    <navigation-case>
+      <from-outcome>back</from-outcome>
+      <to-view-id>/faces/overallExample/mxmlOverallExample.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <!-- navigational rules for Facelet mxmlOverallExampleSuccess end -->
+  
+  <!-- navigational rules for Facelet mxmlMultipleRequestDataGridExample -->
+  <navigation-rule>
+    <from-view-id>/faces/multipleRequestDataGridExample/mxmlMultipleRequestDataGridExample.xhtml</from-view-id>
+    <navigation-case>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/faces/multipleRequestDataGridExample/mxmlMultipleRequestDataGridExample.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <!-- navigational rules for Facelet mxmlMultipleRequestDataGridExample end -->
+  
+  
+  
+  
   
   <!-- navigational rules for mxmlSimple -->
   <navigation-rule>

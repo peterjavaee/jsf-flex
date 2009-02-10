@@ -81,7 +81,7 @@ public final class MXMLColumnsRenderer extends MXMLComponentBaseRenderer {
 			}
 		}
 		
-		int dataEntrySize = dataGrid.getDataGridCollectionBean().size();
+		int dataEntrySize = dataGrid.getBindingBeanList().size();
 		if(dataEntrySize < batchColumnDataRetrievalSize.intValue()){
 			batchColumnDataRetrievalSize = Integer.valueOf(dataEntrySize);
 		}

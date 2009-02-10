@@ -19,7 +19,7 @@
 package com.googlecode.jsfFlex.examples.mxml.multipleRequestDataGridExample;
 
 import java.io.Serializable;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
@@ -38,7 +38,7 @@ public final class MXMLMultipleRequestDataGridExampleBean implements Serializabl
 	public MXMLMultipleRequestDataGridExampleBean(){
 		super();
 		
-		_largeDataEntries = new LinkedList();
+		_largeDataEntries = new ArrayList();
 		
 		for(int i=0; i < 500; i++){
 			_largeDataEntries.add(new LargeDataEntry(LARGE_DATA_STRING_DISPLAY_MESSAGE + i, Integer.valueOf(i)));
