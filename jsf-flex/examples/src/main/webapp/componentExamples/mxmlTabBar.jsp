@@ -35,9 +35,15 @@
     	<jf:mxmlApplication mxmlPackageName="mxmlTabBar" height="500" width="800">
     		<jf:mxmlTabBar>
     			<jf:mxmlDataProvider>
-    				<jf:mxmlObject label="First" />
-    				<jf:mxmlObject label="Second" />
-    				<jf:mxmlObject label="Third" />
+    				<jf:mxmlObject>
+    					<jf:mxmlObjectProperty propertyName="label" propertyValue="First" />
+    				</jf:mxmlObject>
+    				<jf:mxmlObject>
+    					<jf:mxmlObjectProperty propertyName="label" propertyValue="Second" />
+    				</jf:mxmlObject>
+    				<jf:mxmlObject>
+    					<jf:mxmlObjectProperty propertyName="label" propertyValue="Third" />
+    				</jf:mxmlObject>
     			</jf:mxmlDataProvider>
     		</jf:mxmlTabBar>
     	</jf:mxmlApplication>

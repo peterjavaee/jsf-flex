@@ -95,6 +95,7 @@
 				mxmlOverallExample page demonstrates preservation of values during postBack phase, these example 
 				pages do not contain any success pages. Of course this may change when free time can be allocated 
 				in creating these success pages.</li>
+				<li> for creating static xml data and xml data through dataBinding, look to example such as mxmlTree.xhtml </li>
 				<li> for complex Flex examples and how some of these components should be used, please refer to Adobe's page.</li>
 			</ul>
 		</span>

@@ -18,6 +18,7 @@
  */
 package com.googlecode.jsfFlex.shared.context;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -45,17 +46,18 @@ import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
  */
 public class MxmlContextImpl extends MxmlContext {
 	
-	private final Map _preMxmlCompMap;
-	private final AdditionalApplicationScriptContent _additionalAppScriptContent;
-	private final JsfFlexFlashApplicationConfiguration _jsfFlexFlashApplicationConfiguration;
-	private final List _applicationInitValueList;
-	
 	private final String _currMxml;
 	
+	private final List _applicationInitValueList;
+	private final Map _preMxmlCompMap;
+	private final Map _temporaryResourceMap;
+	private final AdditionalApplicationScriptContent _additionalAppScriptContent;
+	private final JsfFlexFlashApplicationConfiguration _jsfFlexFlashApplicationConfiguration;
+	
 	private final _RunnerFactory _runnerFactoryInstance;
+	private final _CommonTaskRunner _commonRunner;
 	private final _FileManipulatorTaskRunner _fileManipulatorRunner;
 	private final _FlexTaskRunner _flexRunner;
-	private final _CommonTaskRunner _commonRunner;
 	
 	private boolean _productionEnv;
 	private boolean _simplySWF;
@@ -64,23 +66,57 @@ public class MxmlContextImpl extends MxmlContext {
 	private String _mxmlPath;
 	private String _preMxmlPath;
 	private String _swcPath;
+	private String _swfBasePath;
 	private String _swfPath;
 	private String _swfWebPath;
-	private String _swfBasePath;
 	private String _webContextPath;
 	
 	public MxmlContextImpl(String currMxml, _MXMLApplicationContract currApplicationContract){
 		super();
 		_currMxml = currMxml;
+		_applicationInitValueList = new LinkedList();
 		_preMxmlCompMap = new TreeMap();
+		_temporaryResourceMap = new HashMap();
 		_additionalAppScriptContent = new AdditionalApplicationScriptContent(_currMxml, currApplicationContract);
 		_jsfFlexFlashApplicationConfiguration = new JsfFlexFlashApplicationConfiguration();
-		_applicationInitValueList = new LinkedList();
+		
 		_runnerFactoryInstance = _RunnerFactory.getInstance();
-		_flexRunner = _runnerFactoryInstance.getFlexTaskRunnerImpl();
 		_commonRunner = _runnerFactoryInstance.getCommonTaskRunnerImpl();
 		_fileManipulatorRunner = _runnerFactoryInstance.getFileManipulatorTaskRunnerImpl();
+		_flexRunner = _runnerFactoryInstance.getFlexTaskRunnerImpl();
+		
 		MxmlContext.setCurrentInstance(this);
+	}
+	
+	public String getCurrMxml() {
+		return _currMxml;
+	}
+	public List getApplicationInitValueList() {
+		return _applicationInitValueList;
+	}
+	public Map getPreMxmlCompMap() {
+		return _preMxmlCompMap;
+	}
+	public Map getTemporaryResourceMap() {
+		return _temporaryResourceMap;
+	}
+	public AdditionalApplicationScriptContent getAdditionalAppScriptContent() {
+		return _additionalAppScriptContent;
+	}
+	public JsfFlexFlashApplicationConfiguration getJsfFlexFlashApplicationConfiguration() {
+		return _jsfFlexFlashApplicationConfiguration;
+	}
+	public _RunnerFactory getRunnerFactoryInstance() {
+		return _runnerFactoryInstance;
+	}
+	public _CommonTaskRunner getCommonRunner() {
+		return _commonRunner;
+	}
+	public _FileManipulatorTaskRunner getFileManipulatorRunner() {
+		return _fileManipulatorRunner;
+	}
+	public _FlexTaskRunner getFlexRunner() {
+		return _flexRunner;
 	}
 	
 	public boolean isProductionEnv() {
@@ -95,23 +131,11 @@ public class MxmlContextImpl extends MxmlContext {
 	public void setSimplySWF(boolean simplySWF) {
 		_simplySWF = simplySWF;
 	}
-	public AdditionalApplicationScriptContent getAdditionalAppScriptContent() {
-		return _additionalAppScriptContent;
-	}
-	public List getApplicationInitValueList() {
-		return _applicationInitValueList;
-	}
-	public String getCurrMxml() {
-		return _currMxml;
-	}
 	public String getFlexSDKPath() {
 		return _flexSDKPath;
 	}
 	public void setFlexSDKPath(String flexSDKPath) {
 		_flexSDKPath = flexSDKPath;
-	}
-	public JsfFlexFlashApplicationConfiguration getJsfFlexFlashApplicationConfiguration() {
-		return _jsfFlexFlashApplicationConfiguration;
 	}
 	public String getMxmlPath() {
 		return _mxmlPath;
@@ -125,20 +149,17 @@ public class MxmlContextImpl extends MxmlContext {
 	public void setPreMxmlPath(String preMxmlPath) {
 		_preMxmlPath = preMxmlPath;
 	}
-	public Map getPreMxmlCompMap() {
-		return _preMxmlCompMap;
+	public String getSwcPath() {
+		return _swcPath;
+	}
+	public void setSwcPath(String swcPath) {
+		_swcPath = swcPath;
 	}
 	public String getSwfBasePath() {
 		return _swfBasePath;
 	}
 	public void setSwfBasePath(String swfBasePath) {
 		_swfBasePath = swfBasePath;
-	}
-	public String getSwcPath() {
-		return _swcPath;
-	}
-	public void setSwcPath(String swcPath) {
-		_swcPath = swcPath;
 	}
 	public String getSwfPath() {
 		return _swfPath;
@@ -157,18 +178,6 @@ public class MxmlContextImpl extends MxmlContext {
 	}
 	public void setWebContextPath(String webContextPath){
 		_webContextPath = webContextPath;
-	}
-	public _CommonTaskRunner getCommonRunner() {
-		return _commonRunner;
-	}
-	public _FlexTaskRunner getFlexRunner() {
-		return _flexRunner;
-	}
-	public _FileManipulatorTaskRunner getFileManipulatorRunner() {
-		return _fileManipulatorRunner;
-	}
-	public _RunnerFactory getRunnerFactoryInstance() {
-		return _runnerFactoryInstance;
 	}
 	
 }

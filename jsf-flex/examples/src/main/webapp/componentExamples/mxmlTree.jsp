@@ -57,7 +57,7 @@
 				public var complexStructCollection:XMLListCollection = new XMLListCollection(complexStruct);
 				
 		    </jf:mxmlScript>
-    		<jf:mxmlTree width="100" dataProvider="{complexStructCollection}" labelField="@label" 
+    		<jf:mxmlTree width="500" dataProvider="{complexStructCollection}" labelField="@label" 
     						selectedIndex="#{mxmlOverallBean.treeSelectedIndex}"/>
     	</jf:mxmlApplication>
     	

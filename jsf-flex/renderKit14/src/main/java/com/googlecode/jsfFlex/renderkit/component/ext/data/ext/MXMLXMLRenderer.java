@@ -19,59 +19,66 @@
 package com.googlecode.jsfFlex.renderkit.component.ext.data.ext;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.io.Writer;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.AbstractMXMLUIObjectProperty;
+import com.googlecode.jsfFlex.component.ext.data.ext.AbstractMXMLUIXML;
 import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
 
 /**
  * @JSFRenderer
  *  renderKitId = "MXML_BASIC" 
  *  family      = "javax.faces.MXMLSimple"
- *  type        = "com.googlecode.jsfFlex.MXMLObject"
+ *  type        = "com.googlecode.jsfFlex.MXMLXML"
  * 
  * @JsfFlexAttributes
  *  id=true
  * 	
  * @author Ji Hoon Kim
  */
-public final class MXMLObjectRenderer extends MXMLComponentBaseRenderer {
+public final class MXMLXMLRenderer extends MXMLComponentBaseRenderer {
 	
-	private static final String MXML_OBJECT_REPLACE_MAPPING;
-	private static final String MXML_COMPONENT_NAME = "Object";
+	private static final String MXML_XML_REPLACE_MAPPING;
+	private static final String MXML_COMPONENT_NAME = "XML";
 	
 	static{
 		//TODO : find a better method to implement the below tasks
-		String packageName = MXMLObjectRenderer.class.getPackage().getName();
+		String packageName = MXMLXMLRenderer.class.getPackage().getName();
 		packageName = packageName.replace('.', '/');
-		MXML_OBJECT_REPLACE_MAPPING = packageName + "/replaceMapping/MXMLObjectRendererReplaceMapping.xml";
+		MXML_XML_REPLACE_MAPPING = packageName + "/replaceMapping/MXMLXMLRendererReplaceMapping.xml";
 	}
 	
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
-		writer.mapFields(MXMLObjectRenderer.class, componentObj, MXML_OBJECT_REPLACE_MAPPING);
+		writer.mapFields(MXMLXMLRenderer.class, componentObj, MXML_XML_REPLACE_MAPPING);
+	
+	}
+	
+	public void encodeEnd(FacesContext context, UIComponent componentObj) throws IOException {
 		
-		Set tokenValueSet = componentMXML.getAnnotationDocletParserInstance().getTokenValueSet();
-		List children = componentObj.getChildren();
-		for(Iterator iterate = children.iterator(); iterate.hasNext();){
-			AbstractMXMLUIObjectProperty currObjectProperty = (AbstractMXMLUIObjectProperty) iterate.next();
-			tokenValueSet.add(new TokenValue(currObjectProperty.getPropertyName(), currObjectProperty.getPropertyValue()));
+		AbstractMXMLUIXML componentMXML = (AbstractMXMLUIXML) componentObj;
+		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
+		
+		String currBodyContentFilePath = componentMXML.getCurrBodyContentFilePath();
+		String bodyContent = null;
+		
+		if(currBodyContentFilePath != null){
+			Writer bodyContentWriter = componentMXML.getCurrBodyContentBufferedWriter();
+			
+			bodyContentWriter.flush();
+			bodyContentWriter.close();
+			bodyContent = writer.readFileContent(componentMXML.getCurrBodyContentFilePath());
+			
 		}
 		
-		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, bodyContent);
 		
+		super.encodeEnd(context, componentObj);
 	}
 	
 }

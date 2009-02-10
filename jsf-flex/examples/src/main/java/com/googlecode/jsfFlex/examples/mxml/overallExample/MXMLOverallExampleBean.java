@@ -19,6 +19,7 @@
 package com.googlecode.jsfFlex.examples.mxml.overallExample;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -29,7 +30,7 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 /**
  * @author Ji Hoon Kim
  */
-public final class MXMLOverallExampleBean implements Serializable {
+public class MXMLOverallExampleBean implements Serializable {
 	
 	private static final long serialVersionUID = 6694836447144771325L;
 	
@@ -82,7 +83,7 @@ public final class MXMLOverallExampleBean implements Serializable {
 		_verticalSliderValue = "";
 		_progressBarValue = "";
 		
-		_wisePeopleEntries = new LinkedList();
+		_wisePeopleEntries = new ArrayList();
 		_wisePeopleEntries.add(new WisePeopleEntry("Issac Newton", "This most beautiful system [The Universe] could only proceed from the dominion of an intelligent and powerful Being.", 
 													"fatherOfPhysicsCalculusDude@wiseHumble.com"));
 		_wisePeopleEntries.add(new WisePeopleEntry("James Clark Maxwell", "At quite uncertain times and places. The atoms left their heavenly path, And by fortuitous embraces, Engendered all that being hath.", 

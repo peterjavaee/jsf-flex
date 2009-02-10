@@ -19,22 +19,18 @@
 package com.googlecode.jsfFlex.renderkit.component.ext.data.ext;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.io.Writer;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.AbstractMXMLUIObjectProperty;
+import com.googlecode.jsfFlex.component.ext.data.ext.AbstractMXMLUIXMLList;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
 
 /**
  * @author Ji Hoon Kim
@@ -42,37 +38,49 @@ import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
 @JSFRenderer(
 		renderKitId="MXML_BASIC",
 		family="javax.faces.MXMLSimple",
-		type="com.googlecode.jsfFlex.MXMLObject"
+		type="com.googlecode.jsfFlex.MXMLXMLList"
 )
 @JsfFlexAttributeProperties(
-		mxmlComponentName="Object",
+		mxmlComponentName="XMLList",
 		mxmlComponentNodeAttributes={},
 		
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="id", byMethod=true)
 		}
 )
-public final class MXMLObjectRenderer extends MXMLComponentBaseRenderer {
+public final class MXMLXMLListRenderer extends MXMLComponentBaseRenderer {
 	
-	@SuppressWarnings("unchecked")
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
-		writer.mapFields(MXMLObjectRenderer.class, componentObj, null);
+		writer.mapFields(MXMLXMLListRenderer.class, componentObj, null);
 		
-		Set tokenValueSet = componentMXML.getAnnotationDocletParserInstance().getTokenValueSet();
-		List children = componentObj.getChildren();
-		for(Iterator iterate = children.iterator(); iterate.hasNext();){
-			AbstractMXMLUIObjectProperty currObjectProperty = (AbstractMXMLUIObjectProperty) iterate.next();
-			tokenValueSet.add(new TokenValue(currObjectProperty.getPropertyName(), currObjectProperty.getPropertyValue()));
+	}
+	
+	@Override
+	public void encodeEnd(FacesContext context, UIComponent componentObj) throws IOException {
+		
+		AbstractMXMLUIXMLList componentMXML = (AbstractMXMLUIXMLList) componentObj;
+		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
+		
+		String currBodyContentFilePath = componentMXML.getCurrBodyContentFilePath();
+		String bodyContent = null;
+		
+		if(currBodyContentFilePath != null){
+			Writer bodyContentWriter = componentMXML.getCurrBodyContentBufferedWriter();
+			
+			bodyContentWriter.flush();
+			bodyContentWriter.close();
+			bodyContent = writer.readFileContent(componentMXML.getCurrBodyContentFilePath());
+			
 		}
 		
-		writer.createPreMxml(componentMXML, MXMLObjectRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
-				null);
+		writer.createPreMxml(componentMXML, MXMLXMLListRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+				bodyContent);
 		
+		super.encodeEnd(context, componentObj);
 	}
 	
 }

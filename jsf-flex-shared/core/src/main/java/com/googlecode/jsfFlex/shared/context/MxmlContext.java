@@ -41,6 +41,27 @@ public abstract class MxmlContext {
 		super();
 	}
 	
+	public abstract String getCurrMxml();
+	
+	public abstract List getApplicationInitValueList();
+	
+	public abstract Map getPreMxmlCompMap();
+	
+	public abstract Map getTemporaryResourceMap();
+	
+	public abstract AdditionalApplicationScriptContent getAdditionalAppScriptContent();
+	
+	public abstract JsfFlexFlashApplicationConfiguration getJsfFlexFlashApplicationConfiguration();
+	
+	public abstract _RunnerFactory getRunnerFactoryInstance();
+	
+	public abstract _CommonTaskRunner getCommonRunner();
+	
+	public abstract _FileManipulatorTaskRunner getFileManipulatorRunner();
+	
+	public abstract _FlexTaskRunner getFlexRunner();
+	
+	
 	public abstract boolean isProductionEnv();
 	
 	public abstract void setProductionEnv(boolean productionEnv);
@@ -49,17 +70,9 @@ public abstract class MxmlContext {
 	
 	public abstract void setSimplySWF(boolean simplySWF);
 	
-	public abstract AdditionalApplicationScriptContent getAdditionalAppScriptContent();
-	
-	public abstract List getApplicationInitValueList();
-	
-	public abstract String getCurrMxml();
-	
 	public abstract String getFlexSDKPath();
 	
 	public abstract void setFlexSDKPath(String flexSDKPath);
-	
-	public abstract JsfFlexFlashApplicationConfiguration getJsfFlexFlashApplicationConfiguration();
 	
 	public abstract String getMxmlPath();
 	
@@ -69,15 +82,13 @@ public abstract class MxmlContext {
 	
 	public abstract void setPreMxmlPath(String preMxmlPath);
 	
-	public abstract Map getPreMxmlCompMap();
+	public abstract String getSwcPath();
+	
+	public abstract void setSwcPath(String swcPath);
 	
 	public abstract String getSwfBasePath();
 	
 	public abstract void setSwfBasePath(String swfBasePath);
-	
-	public abstract String getSwcPath();
-	
-	public abstract void setSwcPath(String swcPath);
 	
 	public abstract String getSwfPath();
 	
@@ -90,14 +101,6 @@ public abstract class MxmlContext {
 	public abstract String getWebContextPath();
 	
 	public abstract void setWebContextPath(String webContextPath);
-	
-	public abstract _CommonTaskRunner getCommonRunner();
-	
-	public abstract _FlexTaskRunner getFlexRunner();
-	
-	public abstract _FileManipulatorTaskRunner getFileManipulatorRunner();
-	
-	public abstract _RunnerFactory getRunnerFactoryInstance();
 	
 	private static ThreadLocal _currentInstance = new ThreadLocal()
     {

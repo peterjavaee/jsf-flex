@@ -37,13 +37,13 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribu
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBatchColumnDataRetrievalSize;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIBindingBeanListAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderThicknessAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIColumnCountAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUICornerRadiusAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataGridCollectionBeanAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDisabledColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDragAttributes;
@@ -282,7 +282,7 @@ public abstract class AbstractMXMLUIDataGrid
 						_MXMLUIBorderThicknessAttribute, _MXMLUIColorAttribute, _MXMLUICornerRadiusAttribute, 
 						_MXMLUIDisabledColorAttribute, _MXMLUIShadowAttributes, _MXMLUIFontFamilyAttribute, 
 						_MXMLUIFontGeneralAttributes, _MXMLUIScrollBarAttributes, _MXMLUILeadingAttribute, 
-						_MXMLUIRepeatAttributes, _MXMLUIBatchColumnDataRetrievalSize, _MXMLUIDataGridCollectionBeanAttribute, 
+						_MXMLUIRepeatAttributes, _MXMLUIBatchColumnDataRetrievalSize, _MXMLUIBindingBeanListAttribute, 
 						_MXMLUIBaseAttributes {
 	
 	private final static Log _log = LogFactory.getLog(AbstractMXMLUIDataGrid.class);
@@ -325,15 +325,15 @@ public abstract class AbstractMXMLUIDataGrid
 			return null;
 		}
 		
-		int dataSize = getDataGridCollectionBean().size();
+		int dataSize = getBindingBeanList().size();
 		parsedEndIndex = parsedEndIndex < dataSize ? parsedEndIndex : dataSize;
 		
 		AbstractMXMLUIDataGridColumn dataGridColumnComponent = (AbstractMXMLUIDataGridColumn) _dataGridColumnComponentMapping.get(columnId);
 		
 		List formatedColumnData;
 		
-		synchronized(getDataGridCollectionBean()){
-			formatedColumnData = dataGridColumnComponent.getFormatedColumnData(getDataGridCollectionBean(), parsedStartIndex, parsedEndIndex);
+		synchronized(getBindingBeanList()){
+			formatedColumnData = dataGridColumnComponent.getFormatedColumnData(getBindingBeanList(), parsedStartIndex, parsedEndIndex);
 		}
 		
 		return formatedColumnData;
@@ -349,8 +349,8 @@ public abstract class AbstractMXMLUIDataGrid
 		
 		Map updateResult;
 		
-		synchronized(getDataGridCollectionBean()){
-			updateResult = dataGridColumnComponent.updateModifiedDataField(request, getDataGridCollectionBean());
+		synchronized(getBindingBeanList()){
+			updateResult = dataGridColumnComponent.updateModifiedDataField(request, getBindingBeanList());
 		}
 		
 		return updateResult;
@@ -373,8 +373,8 @@ public abstract class AbstractMXMLUIDataGrid
 		Comparator dataFieldComparator = sortAscending ? dataGridColumnComponent.getAscendingComparator() : 
 																		dataGridColumnComponent.getDescendingComparator();
 		
-		synchronized(getDataGridCollectionBean()){
-			Collections.sort(getDataGridCollectionBean(), dataFieldComparator);
+		synchronized(getBindingBeanList()){
+			Collections.sort(getBindingBeanList(), dataFieldComparator);
 		}
 		
 		sortResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));

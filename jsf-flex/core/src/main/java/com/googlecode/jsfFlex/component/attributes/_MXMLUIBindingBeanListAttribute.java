@@ -1,11 +1,3 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:ui="http://java.sun.com/jsf/facelets"
-        xmlns:h="http://java.sun.com/jsf/html"
-        xmlns:f="http://java.sun.com/jsf/core"
-        xmlns:jf="http://jsf-flex.googlecode.com">
-<!--
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -24,22 +16,23 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-//-->
+package com.googlecode.jsfFlex.component.attributes;
 
-<body>
+import java.util.List;
 
-<f:view renderKitId="MXML_BASIC">
-    
-    <h:form>
-    	
-    	<jf:mxmlApplication mxmlPackageName="mxmlRichTextEditor" height="500" width="800">
-	    	<jf:mxmlRichTextEditor textBinding="htmlText" htmlText="#{mxmlFaceletOverallBean.richTextEditorHtmlText}" />
-	    </jf:mxmlApplication>
-    	
-    </h:form>
-    
-</f:view>
-
-</body>
-
-</html>
+/**
+ * @author Ji Hoon Kim
+ */
+public interface _MXMLUIBindingBeanListAttribute {
+	
+	/**
+	 * List of beans for data binding to the component.
+	 * 
+	 *@JSFProperty
+	 *    required        = false
+	 *    rtexprvalue     = false
+	 *    desc            = "List of beans for data binding to the component."
+	 */
+	List getBindingBeanList();
+	
+}

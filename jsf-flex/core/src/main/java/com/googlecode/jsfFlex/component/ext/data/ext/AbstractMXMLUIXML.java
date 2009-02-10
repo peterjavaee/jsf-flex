@@ -16,25 +16,28 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.component.attributes;
+package com.googlecode.jsfFlex.component.ext.data.ext;
 
-import java.util.List;
+import com.googlecode.jsfFlex.component.ext.data.MXMLUIXMLContainerBase;
 
 /**
+ * @JSFComponent
+ *   name     = "jf:mxmlXML"
+ *   class    = "com.googlecode.jsfFlex.component.ext.data.ext.MXMLUIXML"
+ *   type     = "com.googlecode.jsfFlex.MXMLUIXML"
+ *   tagClass = "com.googlecode.jsfFlex.taglib.ext.data.MXMLUIXMLTag"
+ *   family   = "javax.faces.MXMLSimple"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLXML"
+ * 
+ * <ul>
+ * This component can have as its direct children components of :
+ * 		<li> AbstractMXMLUIXMLListEntries </li>
+ * 		<li> AbstractMXMLUIXMLStaticElement </li>
+ * </ul>
+ * 
  * @author Ji Hoon Kim
  */
-public interface _MXMLUIDataGridCollectionBeanAttribute {
-	
-	/**
-	 * Collection of beans for data binding to the DataGrid component.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Collection of beans for data binding to the DataGrid component."
-	 */
-	List getDataGridCollectionBean();
-	
-	List getFormatedColumnData();
+public abstract class AbstractMXMLUIXML 
+						extends MXMLUIXMLContainerBase {
 	
 }

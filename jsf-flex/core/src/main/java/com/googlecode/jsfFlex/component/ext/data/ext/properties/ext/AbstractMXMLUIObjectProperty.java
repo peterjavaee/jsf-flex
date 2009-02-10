@@ -16,33 +16,41 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.component.ext.data.ext;
+package com.googlecode.jsfFlex.component.ext.data.ext.properties.ext;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import javax.faces.component.UIComponentBase;
 
 /**
  * @JSFComponent
- *   name     = "jf:mxmlObject"
- *   class    = "com.googlecode.jsfFlex.component.ext.data.ext.MXMLUIObject"
- *   type     = "com.googlecode.jsfFlex.MXMLUIObject"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.data.MXMLUIObjectTag"
+ *   name     = "jf:mxmlObjectProperty"
+ *   class    = "com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.MXMLUIObjectProperty"
+ *   type     = "com.googlecode.jsfFlex.MXMLUIObjectProperty"
+ *   tagClass = "com.googlecode.jsfFlex.taglib.ext.data.properties.MXMLUIObjectPropertyTag"
  *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLObject"
- * 
+ *   
  * @author Ji Hoon Kim
  */
-public abstract class AbstractMXMLUIObject 
-						extends MXMLUISimpleBase {
+public abstract class AbstractMXMLUIObjectProperty 
+							extends UIComponentBase {
 	
 	/**
-	 * Id of the component.
+	 * Name of object property.
 	 * 
-	 * @JSFProperty
-	 *     desc			= "Id of the component."
-	 *     inheritedTag	= true
+	 *@JSFProperty
+	 *    required        = true
+	 *    rtexprvalue     = true
+	 *    desc            = "Name of object property."
 	 */
-	public String getId(){
-		return super.getId();
-	}
+	public abstract String getPropertyName();
+	
+	/**
+	 * Value of object property.
+	 * 
+	 *@JSFProperty
+	 *    required        = true
+	 *    rtexprvalue     = true
+	 *    desc            = "Value of object property."
+	 */
+	public abstract String getPropertyValue();
 	
 }
