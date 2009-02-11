@@ -19,6 +19,7 @@
 package com.googlecode.jsfFlex.renderkit.component.ext.data.ext;
 
 import java.io.IOException;
+import java.io.Writer;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -26,7 +27,8 @@ import java.util.Set;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.AbstractMXMLUIObjectProperty;
+import com.googlecode.jsfFlex.component.ext.data.ext.AbstractMXMLUIObject;
+import com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.AbstractMXMLUIObjectStaticProperty;
 import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
@@ -66,11 +68,32 @@ public final class MXMLObjectRenderer extends MXMLComponentBaseRenderer {
 		Set tokenValueSet = componentMXML.getAnnotationDocletParserInstance().getTokenValueSet();
 		List children = componentObj.getChildren();
 		for(Iterator iterate = children.iterator(); iterate.hasNext();){
-			AbstractMXMLUIObjectProperty currObjectProperty = (AbstractMXMLUIObjectProperty) iterate.next();
-			tokenValueSet.add(new TokenValue(currObjectProperty.getPropertyName(), currObjectProperty.getPropertyValue()));
+			AbstractMXMLUIObjectStaticProperty currObjectProperty = (AbstractMXMLUIObjectStaticProperty) iterate.next();
+			tokenValueSet.add(new TokenValue(currObjectProperty.getStaticPropertyName(), currObjectProperty.getStaticPropertyValue()));
 		}
 		
-		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, null);
+	}
+	
+	public void encodeEnd(FacesContext context, UIComponent componentObj) throws IOException {
+		
+		AbstractMXMLUIObject componentMXML = (AbstractMXMLUIObject) componentObj;
+		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
+		
+		String currBodyContentFilePath = componentMXML.getCurrBodyContentFilePath();
+		String bodyContent = null;
+		
+		if(currBodyContentFilePath != null){
+			Writer bodyContentWriter = componentMXML.getCurrBodyContentBufferedWriter();
+			
+			bodyContentWriter.flush();
+			bodyContentWriter.close();
+			bodyContent = writer.readFileContent(componentMXML.getCurrBodyContentFilePath());
+			
+		}
+		
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, bodyContent);
+		
+		super.encodeEnd(context, componentObj);
 		
 	}
 	

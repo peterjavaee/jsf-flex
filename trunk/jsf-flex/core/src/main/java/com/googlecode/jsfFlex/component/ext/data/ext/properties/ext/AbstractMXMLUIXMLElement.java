@@ -35,12 +35,12 @@ import com.googlecode.jsfFlex.util.ReflectionHelperUtil;
  *   class    = "com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.MXMLUIXMLElement"
  *   type     = "com.googlecode.jsfFlex.MXMLUIXMLElement"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.data.properties.MXMLUIXMLElementTag"
- *   family   = "javax.faces.MXMLSimple"
+ *   family   = "javax.faces.MXMLProperty"
  *   
  * Since this component is out of the norm in relation to writing MXML content, it will perform <br>
  * the write of MXML content within the component rather than within a Renderer [meaning Renderer does <br>
  * not exist for this component]. Also when stated that it is writing MXML content, it technically is <br>
- * writing to AbstractMXMLUIXMLList's BufferedWriter. <br>
+ * writing to MXMLUIDataContainerBase's BufferedWriter. <br>
  * 
  * <ul>
  * This component can have following type of children :
@@ -89,7 +89,7 @@ public abstract class AbstractMXMLUIXMLElement
 			xmlElementStartTagBuffer.append("<");
 			xmlElementStartTagBuffer.append(nodeName);
 			
-			xmlElementStartTagBuffer.append( processXMLTagAttributes() );
+			xmlElementStartTagBuffer.append( processDataObjectProperties() );
 			
 			xmlElementStartTagBuffer.append(">");
 			

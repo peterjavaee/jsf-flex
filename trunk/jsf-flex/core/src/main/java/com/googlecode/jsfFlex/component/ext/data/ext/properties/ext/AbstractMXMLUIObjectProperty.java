@@ -18,7 +18,7 @@
  */
 package com.googlecode.jsfFlex.component.ext.data.ext.properties.ext;
 
-import javax.faces.component.UIComponentBase;
+import com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIDynamicPropertyBase;
 
 /**
  * @JSFComponent
@@ -26,31 +26,13 @@ import javax.faces.component.UIComponentBase;
  *   class    = "com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.MXMLUIObjectProperty"
  *   type     = "com.googlecode.jsfFlex.MXMLUIObjectProperty"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.data.properties.MXMLUIObjectPropertyTag"
- *   family   = "javax.faces.MXMLSimple"
+ *   family   = "javax.faces.MXMLProperty"
  *   
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIObjectProperty 
-							extends UIComponentBase {
+						extends MXMLUIDynamicPropertyBase {
 	
-	/**
-	 * Name of object property.
-	 * 
-	 *@JSFProperty
-	 *    required        = true
-	 *    rtexprvalue     = true
-	 *    desc            = "Name of object property."
-	 */
-	public abstract String getPropertyName();
 	
-	/**
-	 * Value of object property.
-	 * 
-	 *@JSFProperty
-	 *    required        = true
-	 *    rtexprvalue     = true
-	 *    desc            = "Value of object property."
-	 */
-	public abstract String getPropertyValue();
 	
 }

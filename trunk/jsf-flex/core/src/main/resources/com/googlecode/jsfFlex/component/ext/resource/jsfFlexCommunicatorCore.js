@@ -212,6 +212,9 @@ com.googlecode.jsfFlex.communication.core = {
 				validationError = true;
 				com.googlecode.jsfFlex.communication.logger.logMessage("During the pageUnloading process, an error occurred while invoking pageUnloading for appId [" + 
 																		namingContainerPrefixList[i].appId + "] : " + error, 5);
+				dojo.stopEvent(event);
+				event.returnValue = false;
+				return false;
 			}
 		}
 		

@@ -18,31 +18,39 @@
  */
 package com.googlecode.jsfFlex.component.ext.data.ext.properties;
 
-import java.io.IOException;
-import java.util.Map;
-
-import javax.faces.context.FacesContext;
-
-import com.googlecode.jsfFlex.component.ext.data.MXMLUIXMLContainerBase;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
+import javax.faces.component.UIComponentBase;
 
 /**
+ * @JSFComponent
+ * 	 class    = "com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIStaticPropertyBase"
+ *   type     = "com.googlecode.jsfFlex.MXMLUIStaticPropertyBase"
+ *   family   = "javax.faces.MXMLProperty"
+ *   desc	  = "Base component for static MXMLProperty component"
+ *   template = "true"
+ *   
  * @author Ji Hoon Kim
  */
-public abstract class MXMLUIXMLElementBase 
-						extends MXMLUIDataObjectBase {
+public abstract class _MXMLUIStaticPropertyBase 
+						extends UIComponentBase {
 	
-	protected String _xmlElementEndTag;
+	/**
+	 * Static name of the property.
+	 * 
+	 *@JSFProperty
+	 *    required        = true
+	 *    rtexprvalue     = false
+	 *    desc            = "Static name of the property."
+	 */
+	public abstract String getStaticPropertyName();
 	
-	public void encodeEnd(FacesContext context) throws IOException {
-		super.encodeEnd(context);
-		
-		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-		Map temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
-		MXMLUIXMLContainerBase currXMLContainerRef = (MXMLUIXMLContainerBase) temporaryResourceMap.get(MXMLUIXMLContainerBase.CURR_MXML_UI_XML_CONTAINER_KEY);
-		
-		currXMLContainerRef.getCurrBodyContentBufferedWriter().write(_xmlElementEndTag);
-		
-	}
+	/**
+	 * Static value of the property.
+	 * 
+	 *@JSFProperty
+	 *    required        = true
+	 *    rtexprvalue     = false
+	 *    desc            = "Static value of the property."
+	 */
+	public abstract String getStaticPropertyValue();
 	
 }

@@ -18,67 +18,16 @@
  */
 package com.googlecode.jsfFlex.component.ext.data;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Map;
-
-import javax.faces.context.FacesContext;
-
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
-
 /**
  * @author Ji Hoon Kim
  */
 public abstract class MXMLUIXMLContainerBase 
-						extends MXMLUISimpleBase {
+						extends MXMLUIDataContainerBase {
 	
 	public static final String CURR_MXML_UI_XML_CONTAINER_KEY = "currMXMLUIXMLContainerKey";
 	
-	private static final String TO_BE_CREATED_BODY_CONTENT_FILE_SUFFIX = "BodyContent.tmp";
-	
-	private String _currBodyContentFilePath;
-	private BufferedWriter _currBodyContentBufferedWriter;
-	
-	public void encodeChildren(FacesContext context) throws IOException {
-		
-		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-		
-		_currBodyContentFilePath = mxmlContext.getPreMxmlPath() + getClass().getSimpleName() + getId() + 
-										TO_BE_CREATED_BODY_CONTENT_FILE_SUFFIX;
-		_currBodyContentBufferedWriter = new BufferedWriter(new FileWriter(new File(_currBodyContentFilePath)));
-		
-		Map temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
-		temporaryResourceMap.put(CURR_MXML_UI_XML_CONTAINER_KEY, this);
-		
-		super.encodeChildren(context);
-		
-		temporaryResourceMap.remove(CURR_MXML_UI_XML_CONTAINER_KEY);
+	protected String getTemporaryMapDataContainerKey(){
+		return CURR_MXML_UI_XML_CONTAINER_KEY;
 	}
-	
-	public boolean getRendersChildren() {
-		return true;
-	}
-	
-	/**
-	 * Id of the component.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Id of the component."
-	 *     inheritedTag	= true
-	 */
-	public String getId(){
-		return super.getId();
-	}
-	
-	public String getCurrBodyContentFilePath() {
-		return _currBodyContentFilePath;
-	}
-	public BufferedWriter getCurrBodyContentBufferedWriter() {
-		return _currBodyContentBufferedWriter;
-	}
-	
 	
 }

@@ -36,13 +36,13 @@
     		<jf:mxmlTabBar>
     			<jf:mxmlDataProvider>
     				<jf:mxmlObject>
-    					<jf:mxmlObjectProperty propertyName="label" propertyValue="First" />
+    					<jf:mxmlObjectStaticProperty staticPropertyName="label" staticPropertyValue="First" />
     				</jf:mxmlObject>
     				<jf:mxmlObject>
-    					<jf:mxmlObjectProperty propertyName="label" propertyValue="Second" />
+    					<jf:mxmlObjectStaticProperty staticPropertyName="label" staticPropertyValue="Second" />
     				</jf:mxmlObject>
     				<jf:mxmlObject>
-    					<jf:mxmlObjectProperty propertyName="label" propertyValue="Third" />
+    					<jf:mxmlObjectStaticProperty staticPropertyName="label" staticPropertyValue="Third" />
     				</jf:mxmlObject>
     			</jf:mxmlDataProvider>
     		</jf:mxmlTabBar>

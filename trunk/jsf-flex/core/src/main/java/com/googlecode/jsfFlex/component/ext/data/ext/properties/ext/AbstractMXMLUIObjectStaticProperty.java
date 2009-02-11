@@ -18,20 +18,20 @@
  */
 package com.googlecode.jsfFlex.component.ext.data.ext.properties.ext;
 
-import com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIDynamicPropertyBase;
+import com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIStaticPropertyBase;
 
 /**
  * @JSFComponent
- *   name     = "jf:mxmlXMLAttribute"
- *   class    = "com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.MXMLUIXMLAttribute"
- *   type     = "com.googlecode.jsfFlex.MXMLUIXMLAttribute"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.data.properties.MXMLUIXMLAttributeTag"
+ *   name     = "jf:mxmlObjectStaticProperty"
+ *   class    = "com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.MXMLUIObjectStaticProperty"
+ *   type     = "com.googlecode.jsfFlex.MXMLUIObjectStaticProperty"
+ *   tagClass = "com.googlecode.jsfFlex.taglib.ext.data.properties.MXMLUIObjectStaticPropertyTag"
  *   family   = "javax.faces.MXMLProperty"
  *   
  * @author Ji Hoon Kim
  */
-public abstract class AbstractMXMLUIXMLAttribute 
-						extends MXMLUIDynamicPropertyBase {
+public abstract class AbstractMXMLUIObjectStaticProperty 
+						extends MXMLUIStaticPropertyBase {
 	
 	
 	
