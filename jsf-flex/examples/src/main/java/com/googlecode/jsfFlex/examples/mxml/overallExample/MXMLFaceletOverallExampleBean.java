@@ -31,10 +31,16 @@ public final class MXMLFaceletOverallExampleBean extends MXMLOverallExampleBean 
 	
 	private static final long serialVersionUID = 1940801309822597786L;
 	
+	private List _reallySimpleArray;
 	private List _xmlBeanEntries;
 	
 	public MXMLFaceletOverallExampleBean(){
 		super();
+		
+		_reallySimpleArray = new LinkedList();
+		_reallySimpleArray.add(new LabelBeanEntry("First"));
+		_reallySimpleArray.add(new LabelBeanEntry("Second"));
+		_reallySimpleArray.add(new LabelBeanEntry("Third"));
 		
 		_xmlBeanEntries = new LinkedList();
 		_xmlBeanEntries.add(new XMLBeanEntry("menuitem", "SubMenuItem 3-A", "radio", "one", "3A"));
@@ -42,11 +48,52 @@ public final class MXMLFaceletOverallExampleBean extends MXMLOverallExampleBean 
 		
 	}
 	
+	public List getReallySimpleArray() {
+		return _reallySimpleArray;
+	}
+	public void setReallySimpleArray(List reallySimpleArray) {
+		_reallySimpleArray = reallySimpleArray;
+	}
 	public List getXmlBeanEntries() {
 		return _xmlBeanEntries;
 	}
 	public void setXmlBeanEntries(List xmlBeanEntries) {
 		_xmlBeanEntries = xmlBeanEntries;
+	}
+	
+	public final static class LabelBeanEntry implements Serializable {
+		
+		private static final long serialVersionUID = 6328489430684572894L;
+		
+		private String _label;
+		
+		public LabelBeanEntry(String label){
+			super();
+			
+			_label = label;
+			
+		}
+		
+		public String getLabel() {
+			return _label;
+		}
+		public void setLabel(String label) {
+			_label = label;
+		}
+		
+		public boolean equals(Object instance) {
+			
+			if(!(instance instanceof LabelBeanEntry)){
+				return false;
+			}
+			
+			LabelBeanEntry labelBeanEntryInstance = (LabelBeanEntry) instance;
+			return _label.equals(labelBeanEntryInstance._label);
+		}
+		public int hashCode() {
+			return _label.hashCode();
+		}
+		
 	}
 	
 	public final static class XMLBeanEntry implements Serializable {

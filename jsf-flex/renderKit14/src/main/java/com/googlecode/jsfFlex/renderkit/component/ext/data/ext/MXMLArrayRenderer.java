@@ -20,64 +20,48 @@ package com.googlecode.jsfFlex.renderkit.component.ext.data.ext;
 
 import java.io.IOException;
 import java.io.Writer;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
-
-import com.googlecode.jsfFlex.component.ext.data.ext.AbstractMXMLUIObject;
-import com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.AbstractMXMLUIObjectStaticProperty;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.component.ext.data.ext.AbstractMXMLUIArray;
 import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
 
 /**
+ * @JSFRenderer
+ *  renderKitId = "MXML_BASIC" 
+ *  family      = "javax.faces.MXMLSimple"
+ *  type        = "com.googlecode.jsfFlex.MXMLArray"
+ * 
+ * @JsfFlexAttributes
+ *  id=true
+ * 	
  * @author Ji Hoon Kim
  */
-@JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLSimple",
-		type="com.googlecode.jsfFlex.MXMLObject"
-)
-@JsfFlexAttributeProperties(
-		mxmlComponentName="Object",
-		mxmlComponentNodeAttributes={},
-		
-		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="id", byMethod=true)
-		}
-)
-public final class MXMLObjectRenderer extends MXMLComponentBaseRenderer {
+public final class MXMLArrayRenderer extends MXMLComponentBaseRenderer {
 	
-	@SuppressWarnings("unchecked")
-	@Override
+	private static final String MXML_ARRAY_REPLACE_MAPPING;
+	private static final String MXML_COMPONENT_NAME = "Array";
+	
+	static{
+		//TODO : find a better method to implement the below tasks
+		String packageName = MXMLArrayRenderer.class.getPackage().getName();
+		packageName = packageName.replace('.', '/');
+		MXML_ARRAY_REPLACE_MAPPING = packageName + "/replaceMapping/MXMLArrayRendererReplaceMapping.xml";
+	}
+	
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = (_MXMLContract) componentObj;
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
-		writer.mapFields(MXMLObjectRenderer.class, componentObj, null);
-		
-		Set tokenValueSet = componentMXML.getAnnotationDocletParserInstance().getTokenValueSet();
-		List children = componentObj.getChildren();
-		for(Iterator iterate = children.iterator(); iterate.hasNext();){
-			AbstractMXMLUIObjectStaticProperty currObjectProperty = (AbstractMXMLUIObjectStaticProperty) iterate.next();
-			tokenValueSet.add(new TokenValue(currObjectProperty.getStaticPropertyName(), currObjectProperty.getStaticPropertyValue()));
-		}
+		writer.mapFields(MXMLArrayRenderer.class, componentObj, MXML_ARRAY_REPLACE_MAPPING);
 		
 	}
 	
-	@Override
 	public void encodeEnd(FacesContext context, UIComponent componentObj) throws IOException {
 		
-		AbstractMXMLUIObject componentMXML = (AbstractMXMLUIObject) componentObj;
+		AbstractMXMLUIArray componentMXML = (AbstractMXMLUIArray) componentObj;
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		
 		String currBodyContentFilePath = componentMXML.getCurrBodyContentFilePath();
@@ -92,8 +76,7 @@ public final class MXMLObjectRenderer extends MXMLComponentBaseRenderer {
 			
 		}
 		
-		writer.createPreMxml(componentMXML, MXMLObjectRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
-				bodyContent);
+		writer.createPreMxml(componentMXML, MXML_COMPONENT_NAME, bodyContent);
 		
 		super.encodeEnd(context, componentObj);
 		

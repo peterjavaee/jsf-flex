@@ -36,10 +36,10 @@
             <jf:mxmlTileList columnCount="2" columnWidth="100">
                 <jf:mxmlDataProvider>
                     <jf:mxmlObject>
-                    	<jf:mxmlObjectProperty propertyName="label" propertyValue="First" />
+                    	<jf:mxmlObjectStaticProperty staticPropertyName="label" staticPropertyValue="First" />
                     </jf:mxmlObject>
                     <jf:mxmlObject>
-                    	<jf:mxmlObjectProperty propertyName="label" propertyValue="Second" />
+                    	<jf:mxmlObjectStaticProperty staticPropertyName="label" staticPropertyValue="Second" />
                     </jf:mxmlObject>
                 </jf:mxmlDataProvider>
             </jf:mxmlTileList>

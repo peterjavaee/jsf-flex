@@ -18,16 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.ext.data.ext;
 
-import com.googlecode.jsfFlex.component.ext.data.MXMLUIDataContainerBase;
-
 /**
  * @JSFComponent
- *   name     = "jf:mxmlObject"
- *   class    = "com.googlecode.jsfFlex.component.ext.data.ext.MXMLUIObject"
- *   type     = "com.googlecode.jsfFlex.MXMLUIObject"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.data.MXMLUIObjectTag"
+ *   name     = "jf:mxmlArray"
+ *   class    = "com.googlecode.jsfFlex.component.ext.data.ext.MXMLUIArray"
+ *   type     = "com.googlecode.jsfFlex.MXMLUIArray"
+ *   tagClass = "com.googlecode.jsfFlex.taglib.ext.data.MXMLUIArrayTag"
  *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLObject"
+ *   defaultRendererType= "com.googlecode.jsfFlex.MXMLArray"
  * 
  * <ul>
  * This component can have as its direct children components of :
@@ -41,13 +39,9 @@ import com.googlecode.jsfFlex.component.ext.data.MXMLUIDataContainerBase;
  * 
  * @author Ji Hoon Kim
  */
-public abstract class AbstractMXMLUIObject 
-						extends MXMLUIDataContainerBase {
+public abstract class AbstractMXMLUIArray 
+						extends AbstractMXMLUIObject {
 	
-	public static final String CURR_MXML_UI_OBJECT_CONTAINER_KEY = "currMXMLUIObjectContainerKey";
 	
-	protected String getTemporaryMapDataContainerKey(){
-		return CURR_MXML_UI_OBJECT_CONTAINER_KEY;
-	}
 	
 }

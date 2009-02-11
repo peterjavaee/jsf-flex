@@ -18,7 +18,7 @@
  */
 package com.googlecode.jsfFlex.component.ext.data.ext.properties.ext;
 
-import javax.faces.component.UIComponentBase;
+import com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIStaticPropertyBase;
 
 /**
  * @JSFComponent
@@ -26,31 +26,13 @@ import javax.faces.component.UIComponentBase;
  *   class    = "com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.MXMLUIXMLStaticAttribute"
  *   type     = "com.googlecode.jsfFlex.MXMLUIXMLStaticAttribute"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.data.properties.MXMLUIXMLStaticAttributeTag"
- *   family   = "javax.faces.MXMLSimple"
+ *   family   = "javax.faces.MXMLProperty"
  *   
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIXMLStaticAttribute 
-						extends UIComponentBase {
+						extends MXMLUIStaticPropertyBase {
 	
-	/**
-	 * Static name of the attribute.
-	 * 
-	 *@JSFProperty
-	 *    required        = true
-	 *    rtexprvalue     = false
-	 *    desc            = "Static name of the attribute."
-	 */
-	public abstract String getStaticAttributeName();
 	
-	/**
-	 * Static value of the attribute.
-	 * 
-	 *@JSFProperty
-	 *    required        = true
-	 *    rtexprvalue     = false
-	 *    desc            = "Static value of the attribute."
-	 */
-	public abstract String getStaticAttributeValue();
 	
 }

@@ -38,40 +38,40 @@
     				<jf:mxmlXMLList>
     					<!-- can provide statically -->
     					<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    						<jf:mxmlXMLStaticAttribute staticAttributeName="label" staticAttributeValue="Menu1" />
+    						<jf:mxmlXMLStaticAttribute staticPropertyName="label" staticPropertyValue="Menu1" />
     						<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    							<jf:mxmlXMLStaticAttribute staticAttributeName="label" staticAttributeValue="MenuItem 1-A" />
-    							<jf:mxmlXMLStaticAttribute staticAttributeName="data" staticAttributeValue="1A" />
+    							<jf:mxmlXMLStaticAttribute staticPropertyName="label" staticPropertyValue="MenuItem 1-A" />
+    							<jf:mxmlXMLStaticAttribute staticPropertyName="data" staticPropertyValue="1A" />
     						</jf:mxmlXMLStaticElement>
     						<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    							<jf:mxmlXMLStaticAttribute staticAttributeName="label" staticAttributeValue="MenuItem 1-B" />
-    							<jf:mxmlXMLStaticAttribute staticAttributeName="data" staticAttributeValue="1B" />
+    							<jf:mxmlXMLStaticAttribute staticPropertyName="label" staticPropertyValue="MenuItem 1-B" />
+    							<jf:mxmlXMLStaticAttribute staticPropertyName="data" staticPropertyValue="1B" />
     						</jf:mxmlXMLStaticElement>
     					</jf:mxmlXMLStaticElement>
     					
     					<!-- can provide dynamically as xmlListEntries -->
     					<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    						<jf:mxmlXMLStaticAttribute staticAttributeName="label" staticAttributeValue="Menu2" />
+    						<jf:mxmlXMLStaticAttribute staticPropertyName="label" staticPropertyValue="Menu2" />
     						<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    							<jf:mxmlXMLStaticAttribute staticAttributeName="label" staticAttributeValue="MenuItem 2-A" />
-    							<jf:mxmlXMLStaticAttribute staticAttributeName="type" staticAttributeValue="check" />
-    							<jf:mxmlXMLStaticAttribute staticAttributeName="data" staticAttributeValue="2A" />
+    							<jf:mxmlXMLStaticAttribute staticPropertyName="label" staticPropertyValue="MenuItem 2-A" />
+    							<jf:mxmlXMLStaticAttribute staticPropertyName="type" staticPropertyValue="check" />
+    							<jf:mxmlXMLStaticAttribute staticPropertyName="data" staticPropertyValue="2A" />
     						</jf:mxmlXMLStaticElement>
     						<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    							<jf:mxmlXMLStaticAttribute staticAttributeName="type" staticAttributeValue="Separator" />
+    							<jf:mxmlXMLStaticAttribute staticPropertyName="type" staticPropertyValue="Separator" />
     						</jf:mxmlXMLStaticElement>
     						
     						<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    							<jf:mxmlXMLStaticAttribute staticAttributeName="label" staticAttributeValue="MenuItem 2-B" />
+    							<jf:mxmlXMLStaticAttribute staticPropertyName="label" staticPropertyValue="MenuItem 2-B" />
     							
     							<!-- below is sample a for binding to bean using xmlListEntries -->
     							<jf:mxmlXMLListEntries bindingBeanList="#{mxmlFaceletOverallBean.xmlBeanEntries}">
     								
     								<jf:mxmlXMLElement nodeName="nodeName">
-    									<jf:mxmlXMLAttribute attribute="label" />
-    									<jf:mxmlXMLAttribute attribute="type" />
-    									<jf:mxmlXMLAttribute attribute="groupName" />
-    									<jf:mxmlXMLAttribute attribute="data" />
+    									<jf:mxmlXMLAttribute property="label" />
+    									<jf:mxmlXMLAttribute property="type" />
+    									<jf:mxmlXMLAttribute property="groupName" />
+    									<jf:mxmlXMLAttribute property="data" />
     								</jf:mxmlXMLElement>
     								
     							</jf:mxmlXMLListEntries>

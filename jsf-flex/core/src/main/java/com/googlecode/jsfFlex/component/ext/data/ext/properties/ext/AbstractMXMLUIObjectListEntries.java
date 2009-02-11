@@ -25,27 +25,21 @@ import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBindingBeanListAttribute;
-import com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIXMLElementBase;
 
 /**
  * @JSFComponent
- *   name     = "jf:mxmlXMLListEntries"
- *   class    = "com.googlecode.jsfFlex.component.ext.data.ext.MXMLUIXMLListEntries"
- *   type     = "com.googlecode.jsfFlex.MXMLUIXMLListEntries"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.data.MXMLUIXMLListEntriesTag"
+ *   name     = "jf:mxmlObjectListEntries"
+ *   class    = "com.googlecode.jsfFlex.component.ext.data.ext.MXMLUIObjectListEntries"
+ *   type     = "com.googlecode.jsfFlex.MXMLUIObjectListEntries"
+ *   tagClass = "com.googlecode.jsfFlex.taglib.ext.data.MXMLUIObjectListEntriesTag"
  *   family   = "javax.faces.MXMLProperty"
  * 
- * <ul>
- * This should be a child component of :
- * 		<li> AbstractMXMLUIXMLList </li>
- * 		<li> AbstractMXMLUIXML </li>
- * 		<li> AbstractMXMLUIXMLStaticElement <li>
- * 
- * and should have MXMLUIXMLElementBase as its children.
+ * This should be a child component of AbstractMXMLUIObject or AbstractMXMLUIObjectElement <br>
+ * and should have AbstractMXMLUIObjectElement as its children.
  *
  * @author Ji Hoon Kim
  */
-public abstract class AbstractMXMLUIXMLListEntries 
+public abstract class AbstractMXMLUIObjectListEntries 
 						extends UIComponentBase 
 						implements _MXMLUIBindingBeanListAttribute {
 	
@@ -57,7 +51,7 @@ public abstract class AbstractMXMLUIXMLListEntries
 				Object _currBeanRef = iterate.next();
 				
 				for(Iterator childrenIterate = getChildren().iterator(); childrenIterate.hasNext();){
-					MXMLUIXMLElementBase currComponent = (MXMLUIXMLElementBase) childrenIterate.next();
+					AbstractMXMLUIObjectElement currComponent = (AbstractMXMLUIObjectElement) childrenIterate.next();
 					
 					currComponent.setCurrBeanRef(_currBeanRef);
 					currComponent.encodeBegin(context);
