@@ -68,6 +68,7 @@ package com.googlecode.jsfFlex.communication.core
 										_loader.removeEventListener(Event.COMPLETE, arguments.callee);
 										_compValueMapper = new XML(_loader.data);
 										_loader = null;
+										_log.info("Have loaded componentValueMapper.xml");
 									});
 			
 			try{

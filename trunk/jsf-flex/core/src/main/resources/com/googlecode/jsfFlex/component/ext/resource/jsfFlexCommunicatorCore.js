@@ -73,7 +73,8 @@ com.googlecode.jsfFlex.communication.core = {
 						if (navigator.appName.indexOf("Microsoft") != -1) {
 							return document.getElementById(appId);
 						}else{
-							return document[appId];
+							var initialAttempt = document[appId];
+							return initialAttempt ? initialAttempt : document.getElementsByName(appId)[0];
 						}
 					},
 	getCompValue:	function(appId, objectId){
@@ -169,10 +170,9 @@ com.googlecode.jsfFlex.communication.core = {
 		 *	  
 		 *  will be created
 		 */
-		var src = getSrcElement( getEvent(event) );
-		formSubmit = dojo.byId(src.id);
+		formSubmit = getSrcElement( getEvent(event) );
 		
-		var namingContainerPrefixList = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyNamingContainer.item(src.id);
+		var namingContainerPrefixList = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyNamingContainer.item(formSubmit.id);
 		var access;
 		
 		var validationError = false;
