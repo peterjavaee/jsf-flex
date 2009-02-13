@@ -26,7 +26,6 @@ import java.util.List;
 import java.util.Map;
 
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -305,11 +304,11 @@ public abstract class AbstractMXMLUIDataGrid
 	public List getFormatedColumnData() {
 		
 		FacesContext context = FacesContext.getCurrentInstance();
-		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+		Map requestMap = context.getExternalContext().getRequestParameterMap();
 		
-		String columnId = (String) request.getParameter(COLUMN_ID_KEY);
-		String dataStartIndex = (String) request.getParameter(DATA_START_INDEX_KEY);
-		String dataEndIndex = (String) request.getParameter(DATA_END_INDEX_KEY);
+		String columnId = (String) requestMap.get(COLUMN_ID_KEY);
+		String dataStartIndex = (String) requestMap.get(DATA_START_INDEX_KEY);
+		String dataEndIndex = (String) requestMap.get(DATA_END_INDEX_KEY);
 		
 		_log.info("Requested additional data with dataStartIndex : " + dataStartIndex + 
 						" , dataEndIndex " + dataEndIndex + " for " + columnId);
@@ -342,15 +341,15 @@ public abstract class AbstractMXMLUIDataGrid
 	public Map updateModifiedDataField() {
 		
 		FacesContext context = FacesContext.getCurrentInstance();
-		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+		Map requestMap = context.getExternalContext().getRequestParameterMap();
 		
-		String columnId = (String) request.getParameter(COLUMN_ID_KEY);
+		String columnId = (String) requestMap.get(COLUMN_ID_KEY);
 		AbstractMXMLUIDataGridColumn dataGridColumnComponent = (AbstractMXMLUIDataGridColumn) _dataGridColumnComponentMapping.get(columnId);
 		
 		Map updateResult;
 		
 		synchronized(getBindingBeanList()){
-			updateResult = dataGridColumnComponent.updateModifiedDataField(request, getBindingBeanList());
+			updateResult = dataGridColumnComponent.updateModifiedDataField(requestMap, getBindingBeanList());
 		}
 		
 		return updateResult;
@@ -362,10 +361,10 @@ public abstract class AbstractMXMLUIDataGrid
 		boolean success = true;
 		
 		FacesContext context = FacesContext.getCurrentInstance();
-		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
+		Map requestMap = context.getExternalContext().getRequestParameterMap();
 		
-		String columnIdToSortBy = (String) request.getParameter(COLUMN_ID_TO_SORT_BY_KEY);
-		boolean sortAscending = Boolean.valueOf(request.getParameter(SORT_ASCENDING_KEY)).booleanValue();
+		String columnIdToSortBy = (String) requestMap.get(COLUMN_ID_TO_SORT_BY_KEY);
+		boolean sortAscending = Boolean.valueOf((String) requestMap.get(SORT_ASCENDING_KEY)).booleanValue();
 		
 		_log.info("Requested sort of data entries with columnIdToSortBy " + columnIdToSortBy + " sortAscending " + sortAscending);
 		

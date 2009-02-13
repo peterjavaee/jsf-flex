@@ -73,10 +73,10 @@ public abstract class _MXMLUISelectedBase
 	public void decode(FacesContext context) {
     	super.decode(context);
     	
-    	javax.servlet.http.HttpServletRequest httpRequest = (javax.servlet.http.HttpServletRequest) context.getExternalContext().getRequest();
+    	java.util.Map requestMap = context.getExternalContext().getRequestParameterMap();
     	
     	String selectedId = getId() + SELECTED_ID_APPENDED;
-    	String selectedUpdateVal = httpRequest.getParameter(selectedId);
+    	String selectedUpdateVal = (String) requestMap.get(selectedId);
     	
     	if(selectedUpdateVal != null){
     		setSelected(Boolean.valueOf(selectedUpdateVal));

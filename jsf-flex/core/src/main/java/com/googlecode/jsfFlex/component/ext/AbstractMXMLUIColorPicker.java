@@ -18,9 +18,10 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import java.util.Map;
+
 import javax.el.ValueExpression;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -401,10 +402,10 @@ public abstract class AbstractMXMLUIColorPicker
 	public void decode(FacesContext context) {
     	super.decode(context);
     	
-    	HttpServletRequest httpRequest = (HttpServletRequest) context.getExternalContext().getRequest();
+    	Map requestMap = context.getExternalContext().getRequestParameterMap();
     	
     	String selectedColorId = getId() + SELECTED_COLOR_ID_APPENDED;
-    	String selectedColorUpdateVal = httpRequest.getParameter(selectedColorId);
+    	String selectedColorUpdateVal = (String) requestMap.get(selectedColorId);
     	
     	if(selectedColorUpdateVal != null){
     		setSelectedColor(selectedColorUpdateVal);

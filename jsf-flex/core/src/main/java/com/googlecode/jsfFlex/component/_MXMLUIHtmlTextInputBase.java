@@ -75,14 +75,14 @@ public abstract class _MXMLUIHtmlTextInputBase
     public void decode(FacesContext context) {
     	super.decode(context);
     	
-    	javax.servlet.http.HttpServletRequest httpRequest = (javax.servlet.http.HttpServletRequest) context.getExternalContext().getRequest();
+    	java.util.Map requestMap = context.getExternalContext().getRequestParameterMap();
     	/*
     	 * since there exists two possible returned values [text and htmlText],
     	 * the attribute will be appended to the id [i.e. id_text and id_htmlText]
     	 */
     	
     	String htmlTextId = getId() + HTML_TEXT_ID_APPENDED;
-    	String htmlTextUpdateVal = httpRequest.getParameter(htmlTextId);
+    	String htmlTextUpdateVal = (String) requestMap.get(htmlTextId);
     	
     	if(htmlTextUpdateVal != null){
     		setHtmlText(htmlTextUpdateVal);
