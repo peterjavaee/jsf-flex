@@ -18,9 +18,10 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import java.util.Map;
+
 import javax.el.ValueExpression;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
 
 import com.googlecode.jsfFlex.component.MXMLUISelectedBase;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
@@ -396,7 +397,7 @@ public abstract class AbstractMXMLUIRadioButton
 	public void decode(FacesContext context) {
     	super.decode(context);
     	
-    	HttpServletRequest httpRequest = (HttpServletRequest) context.getExternalContext().getRequest();
+    	Map requestMap = context.getExternalContext().getRequestParameterMap();
     	
     	/*
     	 *	So to make it easy for databinding, will utilize groupName + _selectedValue
@@ -406,7 +407,7 @@ public abstract class AbstractMXMLUIRadioButton
     	 */
     	
     	String selectedValueId = getGroupName() + SELECTED_VALUE_ID_APPENDED;
-    	String selectedValueUpdateVal = httpRequest.getParameter(selectedValueId);
+    	String selectedValueUpdateVal = (String) requestMap.get(selectedValueId);
     	if(selectedValueUpdateVal != null){
     		setSelectedValue(selectedValueUpdateVal);
     		setSubmittedValue(selectedValueUpdateVal);

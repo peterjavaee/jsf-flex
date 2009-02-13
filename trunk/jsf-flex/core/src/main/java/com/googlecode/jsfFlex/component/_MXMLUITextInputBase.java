@@ -67,14 +67,14 @@ public abstract class _MXMLUITextInputBase
 			_log.info("Error while formatting to JSON content", jsonException);
 		}
 	}
-    
+	
     public void decode(FacesContext context) {
     	super.decode(context);
     	
-    	javax.servlet.http.HttpServletRequest httpRequest = (javax.servlet.http.HttpServletRequest) context.getExternalContext().getRequest();
+    	java.util.Map requestMap = context.getExternalContext().getRequestParameterMap();
     	
     	String textId = getId() + TEXT_ID_APPENDED;
-    	String textUpdateVal = httpRequest.getParameter(textId);
+    	String textUpdateVal = (String) requestMap.get(textId);
     	
     	if(textUpdateVal != null){
     		setText(textUpdateVal);

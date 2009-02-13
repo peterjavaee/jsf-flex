@@ -21,11 +21,11 @@ package com.googlecode.jsfFlex.component.ext;
 import java.io.IOException;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.Map;
 
 import javax.el.ValueExpression;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -465,10 +465,10 @@ public abstract class AbstractMXMLUIComboBox
 	public void decode(FacesContext context) {
     	super.decode(context);
     	
-    	HttpServletRequest httpRequest = (HttpServletRequest) context.getExternalContext().getRequest();
+    	Map requestMap = context.getExternalContext().getRequestParameterMap();
     	
     	String textId = getId() + TEXT_ID_APPENDED;
-    	String textUpdateVal = httpRequest.getParameter(textId);
+    	String textUpdateVal = (String) requestMap.get(textId);
     	
     	if(textUpdateVal != null){
     		setText(textUpdateVal);

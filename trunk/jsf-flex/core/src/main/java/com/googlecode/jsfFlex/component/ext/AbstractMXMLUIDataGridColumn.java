@@ -26,8 +26,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -340,21 +338,21 @@ public abstract class AbstractMXMLUIDataGridColumn
 		return formatedColumnData;
 	}
 	
-	public Map updateModifiedDataField(HttpServletRequest request, List dataGridEntries) {
+	public Map updateModifiedDataField(Map requestMap, List dataGridEntries) {
 		
 		final String SET_DATA_FIELD_METHOD_NAME = "set" + getDataField().substring(0, 1).toUpperCase() + getDataField().substring(1);
 		
 		Map updateResult = new LinkedHashMap();
 		boolean success = true;
 		
-		String requestKey = (String) request.getParameter(REQUEST_KEYS_KEY);
+		String requestKey = (String) requestMap.get(REQUEST_KEYS_KEY);
 		List requestKeyList = Arrays.asList(requestKey.split(","));
 		
 		_log.info("Requested update of data with requestKey : " + requestKey + " for dataField " + getDataField());
 		
 		for(Iterator keyIterator = requestKeyList.iterator(); keyIterator.hasNext();){
 			String currKey = (String) keyIterator.next();
-			String currValue = (String) request.getParameter(currKey);
+			String currValue = (String) requestMap.get(currKey);
 			
 			int rowIndex;
 			

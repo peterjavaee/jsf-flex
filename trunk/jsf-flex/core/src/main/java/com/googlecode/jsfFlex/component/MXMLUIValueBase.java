@@ -18,9 +18,10 @@
  */
 package com.googlecode.jsfFlex.component;
 
+import java.util.Map;
+
 import javax.el.ValueExpression;
 import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -72,10 +73,10 @@ public abstract class MXMLUIValueBase extends MXMLUIInputBase {
 	public void decode(FacesContext context) {
     	super.decode(context);
     	
-    	HttpServletRequest httpRequest = (HttpServletRequest) context.getExternalContext().getRequest();
+    	Map requestMap = context.getExternalContext().getRequestParameterMap();
     	
     	String valueId = getId() + VALUE_ID_APPENDED;
-    	String valueUpdateVal = httpRequest.getParameter(valueId);
+    	String valueUpdateVal = (String) requestMap.get(valueId);
     	
     	if(valueUpdateVal != null){
     		setValue(valueUpdateVal);
