@@ -27,6 +27,11 @@
       <param-value>*.xhtml</param-value>
     </context-param>
 	
+    <context-param>
+      <param-name>facelets.DEVELOPMENT</param-name>
+      <param-value>true</param-value>
+    </context-param>
+	
 	<context-param>
       <description>Comma separated list of URIs of (additional) faces config files.
               (e.g. /WEB-INF/my-config.xml)
