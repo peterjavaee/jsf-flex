@@ -86,8 +86,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  mxmlComponentName=TextInput
  *  
  * @FlexComponentNodeAttribute
- *  htmlType=INPUT
- *  typeAttributeValue=HIDDEN
+ *  htmlType=input
+ *  typeAttributeValue=hidden
  *  valueAttributeValue=text
  *  valueDynamic=true
  *  valueNested=false
@@ -96,8 +96,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  nameAppend=_text
  * 
  * @FlexComponentNodeAttribute
- *  htmlType=INPUT
- *  typeAttributeValue=HIDDEN
+ *  htmlType=input
+ *  typeAttributeValue=hidden
  *  valueAttributeValue=htmlText
  *  valueDynamic=true
  *  valueNested=false

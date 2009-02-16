@@ -45,8 +45,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentPackage="mx.containers",
 		mxmlComponentNodeAttributes={
 				@FlexComponentNodeAttribute(
-						htmlType="INPUT",
-						typeAttributeValue="HIDDEN",
+						htmlType="input",
+						typeAttributeValue="hidden",
 						valueAttributeValue="selectedIndex",
 						isValueDynamic=true,
 						isValueNested=false,

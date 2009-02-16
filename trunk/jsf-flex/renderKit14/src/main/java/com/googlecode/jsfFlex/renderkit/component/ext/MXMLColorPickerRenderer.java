@@ -92,8 +92,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  mxmlComponentName=ColorPicker
  *  
  * @FlexComponentNodeAttribute
- *  htmlType=INPUT
- *  typeAttributeValue=HIDDEN
+ *  htmlType=input
+ *  typeAttributeValue=hidden
  *  valueAttributeValue=selectedColor
  *  valueDynamic=true
  *  valueNested=false
