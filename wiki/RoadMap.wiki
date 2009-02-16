@@ -19,10 +19,14 @@ For the 1.0 release, plan is to support all the Flex standard components, which 
 ==Milestones==
 ------
 
-===Release 0.7 SNAPSHOT===
+===Release 0.8 SNAPSHOT===
 
 ====Release Date====
 Prior to major release 1.0, this page will be modified with the SNAPSHOT versions. So release date and etcetera will be managed in an informal manner.
+
+Latest changes for 0.8 SNAPSHOT include the following :
+ * better support for creating XMLList and its associated data for Facelet using dataBinding + static XML data
+ * possible creation of Array + list of Objects using dataBinding to beans {similar implementation as for XMLList + XML}
 
 ====Accomplished====
 Currently the project supports most of the Flex standard components. Brief testing has been done on Windows XP operating system with the following list of browsers :
