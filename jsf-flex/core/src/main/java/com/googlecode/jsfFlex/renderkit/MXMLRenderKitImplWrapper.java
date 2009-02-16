@@ -25,6 +25,9 @@ import java.util.List;
 import javax.faces.render.RenderKit;
 import javax.faces.render.Renderer;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 /**
  * @JSFRenderKit
  *   renderKitId = "MXML_BASIC"
@@ -32,6 +35,8 @@ import javax.faces.render.Renderer;
  * @author Ji Hoon Kim
  */
 public class MXMLRenderKitImplWrapper extends MXMLRenderKitImpl {
+	
+	private final static Log _log = LogFactory.getLog(MXMLRenderKitImplWrapper.class);
 	
 	private final List _additionalRenderKits;
 	
@@ -52,6 +57,7 @@ public class MXMLRenderKitImplWrapper extends MXMLRenderKitImpl {
 				renderer = currRenderKit.getRenderer(family, rendererType);
 				
 				if(renderer != null){
+					_log.info("Found Renderer of family [ " + family + " ], rendererType [ " + rendererType + " ] within RenderKit " + currRenderKit.getClass().getSimpleName());
 					break;
 				}
 			}

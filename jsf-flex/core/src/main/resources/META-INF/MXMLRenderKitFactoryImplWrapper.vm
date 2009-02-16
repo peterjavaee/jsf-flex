@@ -23,11 +23,16 @@ import java.util.List;
 
 import javax.faces.render.RenderKit;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 /**
  * @author Ji Hoon Kim
  */
 public class MXMLRenderKitFactoryImplWrapper extends ${mxmlRenderKitFactoryImplWrapperBaseImpl} {
-
+	
+	private final static Log _log = LogFactory.getLog(MXMLRenderKitFactoryImplWrapper.class);
+	
 	private static final String MXML_RENDER_KIT_ID = "MXML_BASIC";
 	
 	private static final List _additionalRenderKitList = new LinkedList();
@@ -53,6 +58,8 @@ public class MXMLRenderKitFactoryImplWrapper extends ${mxmlRenderKitFactoryImplW
 			_mxmlRenderKit.addRenderKitList(_additionalRenderKitList);
 			_additionalRenderKitList.clear();
 		}else{
+			
+			_log.info("Adding renderKitId [ " + renderKitId + " ] as additional search renderKits for " + MXML_RENDER_KIT_ID);
 			
 			if(_mxmlRenderKit != null){
 				_mxmlRenderKit.addRenderKit(renderKit);
