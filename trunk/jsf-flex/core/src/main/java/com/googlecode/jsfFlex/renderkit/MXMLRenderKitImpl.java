@@ -90,7 +90,7 @@ class MXMLRenderKitImpl extends RenderKit {
 		Renderer renderer = null;
 		Map rendererTypeMap = (Map) _renderers.get(family);
 		if(rendererTypeMap == null){
-			_log.info("Empty entry within getRenderes for family [ " + family + " ] rendererType [ " + rendererType + " ] ");
+			_log.info("Empty entry within getRenderes as MXML component for family [ " + family + " ] rendererType [ " + rendererType + " ], will look in other RenderKits ");
 		}else{
 			renderer = (Renderer) rendererTypeMap.get(rendererType); 
 		}
