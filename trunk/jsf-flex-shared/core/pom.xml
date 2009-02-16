@@ -4,7 +4,7 @@
   <parent>
     <groupId>com.googlecode.jsf-flex</groupId>
     <artifactId>jsf-flex-shared-project</artifactId>
-    <version>0.7-SNAPSHOT</version>
+    <version>0.8-SNAPSHOT</version>
   </parent>
   
   <groupId>com.googlecode.jsf-flex.jsf-flex-shared-project</groupId>

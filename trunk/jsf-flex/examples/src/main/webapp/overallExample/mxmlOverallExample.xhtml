@@ -69,51 +69,7 @@
 	    <jf:mxmlApplication mxmlPackageName="mxmlOverallExample" height="730" width="90%" errorColor="#B80000" errorFontSize="13">
 	    	
 	    	<jf:mxmlXMLListCollection id="complexStructCollection">
-	    		<jf:mxmlXMLList>
-    				<!-- can provide statically -->
-    				<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    					<jf:mxmlXMLStaticAttribute staticPropertyName="label" staticPropertyValue="Menu1" />
-    					<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    						<jf:mxmlXMLStaticAttribute staticPropertyName="label" staticPropertyValue="MenuItem 1-A" />
-    						<jf:mxmlXMLStaticAttribute staticPropertyName="data" staticPropertyValue="1A" />
-    					</jf:mxmlXMLStaticElement>
-    					<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    						<jf:mxmlXMLStaticAttribute staticPropertyName="label" staticPropertyValue="MenuItem 1-B" />
-    						<jf:mxmlXMLStaticAttribute staticPropertyName="data" staticPropertyValue="1B" />
-    					</jf:mxmlXMLStaticElement>
-    				</jf:mxmlXMLStaticElement>
-    				
-    				<!-- can provide dynamically as xmlListEntries -->
-    				<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    					<jf:mxmlXMLStaticAttribute staticPropertyName="label" staticPropertyValue="Menu2" />
-    					<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    						<jf:mxmlXMLStaticAttribute staticPropertyName="label" staticPropertyValue="MenuItem 2-A" />
-    						<jf:mxmlXMLStaticAttribute staticPropertyName="type" staticPropertyValue="check" />
-    						<jf:mxmlXMLStaticAttribute staticPropertyName="data" staticPropertyValue="2A" />
-    					</jf:mxmlXMLStaticElement>
-    					<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    						<jf:mxmlXMLStaticAttribute staticPropertyName="type" staticPropertyValue="Separator" />
-    					</jf:mxmlXMLStaticElement>
-    					
-    					<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    						<jf:mxmlXMLStaticAttribute staticPropertyName="label" staticPropertyValue="MenuItem 2-B" />
-    						
-    						<!-- below is sample a for binding to bean using xmlListEntries -->
-    						<jf:mxmlXMLListEntries bindingBeanList="#{mxmlFaceletOverallBean.xmlBeanEntries}">
-    							
-    							<jf:mxmlXMLElement nodeName="nodeName">
-    								<jf:mxmlXMLAttribute property="label" />
-    								<jf:mxmlXMLAttribute property="type" />
-    								<jf:mxmlXMLAttribute property="groupName" />
-    								<jf:mxmlXMLAttribute property="data" />
-    							</jf:mxmlXMLElement>
-    							
-    						</jf:mxmlXMLListEntries>
-    					</jf:mxmlXMLStaticElement>
-    					
-    				</jf:mxmlXMLStaticElement>
-    				
-    			</jf:mxmlXMLList>
+	    		<ui:include src="../faceletFiles/mxmlXMLListExample.xhtml" />
 	    	</jf:mxmlXMLListCollection>
 	    	
 	    	<jf:mxmlArray id="reallySimpleArray">
