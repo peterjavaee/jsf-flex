@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.googlecode.jsf-flex</groupId>
     <artifactId>jsf-flex-build-project</artifactId>
-    <version>0.7-SNAPSHOT</version>
+    <version>0.8-SNAPSHOT</version>
   </parent>
   
   <groupId>com.googlecode.jsf-flex</groupId>
@@ -11,7 +11,7 @@
   <packaging>pom</packaging>
   <name>JSF-Flex JSF Component Project</name>
   <url>http://code.google.com/p/jsf-flex/</url>
-  <version>0.7-SNAPSHOT</version>
+  <version>0.8-SNAPSHOT</version>
   <description>
     JSF Flex goal is to provide users capability in creating Flex components as JSF components. So users would 
     create the components as normal JSF components and the contribution will create the necessary SWF files and 
@@ -87,7 +87,7 @@
         </property>
       </activation>
       <properties>
-        <jsf.flex.renderKit.version>0.7-SNAPSHOT</jsf.flex.renderKit.version>
+        <jsf.flex.renderKit.version>0.8-SNAPSHOT</jsf.flex.renderKit.version>
       </properties>
     </profile>
     <profile>
@@ -98,15 +98,15 @@
         </property>
       </activation>
       <properties>
-        <jsf.flex.shared.version>0.7-SNAPSHOT</jsf.flex.shared.version>
+        <jsf.flex.shared.version>0.8-SNAPSHOT</jsf.flex.shared.version>
       </properties>
     </profile>
     
   </profiles>
   
   <properties>
-    <jsf.flex.version>0.7-SNAPSHOT</jsf.flex.version>
-    <jsf.flex.plugIn.version>0.7-SNAPSHOT</jsf.flex.plugIn.version>
+    <jsf.flex.version>0.8-SNAPSHOT</jsf.flex.version>
+    <jsf.flex.plugIn.version>0.8-SNAPSHOT</jsf.flex.plugIn.version>
     <myfaces.buildtools.version>1.0.2</myfaces.buildtools.version>
   </properties>
 
