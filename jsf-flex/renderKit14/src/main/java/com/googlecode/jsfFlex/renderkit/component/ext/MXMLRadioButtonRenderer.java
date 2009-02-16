@@ -42,8 +42,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  mxmlComponentName=RadioButton
  *  
  * @FlexComponentNodeAttribute
- *  htmlType=INPUT
- *  typeAttributeValue=HIDDEN
+ *  htmlType=input
+ *  typeAttributeValue=hidden
  *  valueDynamic=true
  *  valueNested=true
  *  valueNestedValues=group_selectedValue
@@ -52,8 +52,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  nameAppend=_selectedValue
  * 
  * @FlexComponentNodeAttribute
- *  htmlType=INPUT
- *  typeAttributeValue=HIDDEN
+ *  htmlType=input
+ *  typeAttributeValue=hidden
  *  valueAttributeValue=selected
  *  valueDynamic=true
  *  valueNested=false

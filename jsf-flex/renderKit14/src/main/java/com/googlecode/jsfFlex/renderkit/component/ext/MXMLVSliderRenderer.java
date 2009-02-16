@@ -38,8 +38,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  mxmlComponentName=VSlider
  *  
  * @FlexComponentNodeAttribute
- *  htmlType=INPUT
- *  typeAttributeValue=HIDDEN
+ *  htmlType=input
+ *  typeAttributeValue=hidden
  *  valueAttributeValue=value
  *  valueDynamic=true
  *  valueNested=false

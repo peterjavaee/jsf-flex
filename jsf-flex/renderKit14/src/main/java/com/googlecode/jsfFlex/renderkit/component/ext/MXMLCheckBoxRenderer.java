@@ -38,8 +38,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  *  mxmlComponentName=CheckBox
  *  
  * @FlexComponentNodeAttribute
- *  htmlType=INPUT
- *  typeAttributeValue=HIDDEN
+ *  htmlType=input
+ *  typeAttributeValue=hidden
  *  valueAttributeValue=selected
  *  valueDynamic=true
  *  valueNested=false

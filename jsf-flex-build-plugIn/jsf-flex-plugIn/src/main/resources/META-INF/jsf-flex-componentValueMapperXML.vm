@@ -9,11 +9,11 @@
               <html_type>${nodeInfo.getHtmlType()}</html_type>
               <attribute_list>
                   <attribute>
-                      <name>TYPE</name>
+                      <name>type</name>
                       <value>${nodeInfo.getTypeAttributeValue()}</value>
                   </attribute>
                   <attribute>
-                      <name>VALUE</name>
+                      <name>value</name>
                       #if ( ${nodeInfo.isValueNested()} )
                           <value dynamic="${nodeInfo.isValueDynamic()}" nested="true">
                           #foreach( $nestedValue in ${nodeInfo.getNestedList()} )
@@ -25,7 +25,7 @@
                       #end
                   </attribute>
                   <attribute>
-                      <name>NAME</name>
+                      <name>name</name>
                       <value dynamic="${nodeInfo.isNameDynamic()}" append="${nodeInfo.getNameAppend()}">${nodeInfo.getNameAttributeValue()}</value>
                   </attribute>
               </attribute_list>

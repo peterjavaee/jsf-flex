@@ -45,8 +45,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentName="Accordion",
 		mxmlComponentNodeAttributes={
 				@FlexComponentNodeAttribute(
-						htmlType="INPUT", 
-						typeAttributeValue="HIDDEN", 
+						htmlType="input", 
+						typeAttributeValue="hidden", 
 						valueAttributeValue="selectedIndex",
 						isValueDynamic=true,
 						isValueNested=false,
