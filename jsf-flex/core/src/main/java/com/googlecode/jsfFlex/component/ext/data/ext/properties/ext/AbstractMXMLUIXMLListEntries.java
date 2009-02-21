@@ -18,15 +18,6 @@
  */
 package com.googlecode.jsfFlex.component.ext.data.ext.properties.ext;
 
-import java.io.IOException;
-import java.util.Iterator;
-
-import javax.faces.component.UIComponentBase;
-import javax.faces.context.FacesContext;
-
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBindingBeanListAttribute;
-import com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIXMLElementBase;
-
 /**
  * @JSFComponent
  *   name     = "jf:mxmlXMLListEntries"
@@ -46,34 +37,8 @@ import com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIXMLElement
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIXMLListEntries 
-						extends UIComponentBase 
-						implements _MXMLUIBindingBeanListAttribute {
+						extends com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIDataListEntriesBase {
 	
-	public void encodeChildren(FacesContext context) throws IOException {
-		
-		if(getBindingBeanList().size() > 0){
-		
-			for(Iterator iterate = getBindingBeanList().iterator(); iterate.hasNext();){
-				Object _currBeanRef = iterate.next();
-				
-				for(Iterator childrenIterate = getChildren().iterator(); childrenIterate.hasNext();){
-					MXMLUIXMLElementBase currComponent = (MXMLUIXMLElementBase) childrenIterate.next();
-					
-					currComponent.setCurrBeanRef(_currBeanRef);
-					currComponent.encodeBegin(context);
-					currComponent.encodeChildren(context);
-					currComponent.encodeEnd(context);
-					
-				}
-				
-			}
-			
-		}
-		
-	}
 	
-	public boolean getRendersChildren() {
-		return true;
-	}
 	
 }
