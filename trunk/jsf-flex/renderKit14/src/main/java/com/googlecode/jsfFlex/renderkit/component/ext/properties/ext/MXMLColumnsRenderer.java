@@ -71,6 +71,10 @@ public final class MXMLColumnsRenderer extends MXMLComponentBaseRenderer {
 		}
 		
 		AbstractMXMLUIDataGrid dataGrid = (AbstractMXMLUIDataGrid) dataGridComponent;
+		if(dataGrid.getBindingBeanList() == null){
+			return;
+		}
+		
 		Integer batchColumnDataRetrievalSize = Integer.valueOf(dataGrid.getBatchColumnDataRetrievalSize());
 		String rowCount = dataGrid.getRowCount();
 		
