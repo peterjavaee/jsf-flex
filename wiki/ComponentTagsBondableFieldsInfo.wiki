@@ -18,7 +18,7 @@ This page will contain brief overview regarding bondable fields of JSF Flex comp
     # selectedIndex _Integer_ : contains the comboxBox that the user has selected {in order to preserve the correct selection, this field must be mapped within the managed beans}.
  
  * mxmlDataGrid
-    # dataGridCollectionBean _Collection_ : Collection of beans for asynchronous retrieval and update of data. The bean should have corresponding get + set methods for each mxmlDataGridColumn's dataField attributes.
+    # bindingBeanList _List_ : List of beans for asynchronous retrieval and update of data. The bean should have corresponding get + set methods for each mxmlDataGridColumn's dataField attributes and the data should implement the _Comparable_ interface for sorting.
  
  * mxmlDateField
     # text _String_ : contains the date selected by the user.
@@ -35,8 +35,11 @@ This page will contain brief overview regarding bondable fields of JSF Flex comp
  * mxmlNumericStepper
     # value _String_ : contains the value of the numericStepper
  
+ * mxmlObjectListEntries 
+    # bindingBeanList _List_ : List of beans to be used for mxmlObjectElement + mxmlObjectProperty childrens, with the field of mxmlObjectProperty's property being fetched via reflection.
+ 
  * mxmlProgressBar
-    # value _String_ : the progressBar value. Note that this field will not be set upon loading of the app, since it's read-only.
+    # value _String_ : the progressBar value. *Note that this field will not be set upon loading of the app, since it's read-only.*
  
  * mxmlRadioButton
     # selectedValue _String_ : contains the value selected within the same groupName radioButtons.
@@ -67,3 +70,5 @@ This page will contain brief overview regarding bondable fields of JSF Flex comp
  * mxmlVSlider
     # value _String_ : contains the slider's value.
  
+ * mxmlXMLListEntries
+    # bindingBeanList _List_ : List of beans to be used for mxmlXMLElement + mxmlXMLAttribute childrens, which will fetch the fields via reflection. {note that these values will be static meaning the values during debugMode will be the values during productionMode even if the beans change}.
