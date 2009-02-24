@@ -108,17 +108,21 @@ public final class SWCTask extends _JythonBaseTask {
 		return content.toString();
 	}
 	
-	public void loadConfig(String loadConfig) {
+	public SWCTask loadConfig(String loadConfig) {
 		_loadConfig = loadConfig;
+		return this;
 	}
-	public void outPut(String outPut) {
+	public SWCTask outPut(String outPut) {
 		_outPut = outPut;
+		return this;
 	}
-	public void sourcePath(String sourcePath) {
+	public SWCTask sourcePath(String sourcePath) {
 		_sourcePath = sourcePath;
+		return this;
 	}
-	public void flexSDKRootPath(String flexSDKRootPath) {
+	public SWCTask flexSDKRootPath(String flexSDKRootPath) {
 		_flexSDKRootPath = flexSDKRootPath;
+		return this;
 	}
 	
 }

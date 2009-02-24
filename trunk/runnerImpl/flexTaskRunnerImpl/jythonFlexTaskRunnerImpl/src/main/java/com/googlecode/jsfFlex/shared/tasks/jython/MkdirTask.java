@@ -62,8 +62,9 @@ public final class MkdirTask extends _JythonBaseTask {
 		return content.toString();
 	}
 	
-	public void directory(String directory) {
+	public MkdirTask directory(String directory) {
 		_directory = directory;
+		return this;
 	}
 	
 }

@@ -23,6 +23,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.Writer;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
@@ -147,14 +149,12 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * One can consider this method to be somewhat of a facade in creating application SWF file.<br>
 	 * 
 	 * @param componentMXML
-	 * @param mxmlFile
 	 */
-	public final void processCreateSwf(_MXMLApplicationContract componentMXML, String mxmlFile) {
+	public final void processCreateSwf(String mxmlFile, _MXMLApplicationContract componentMXML, Map multiLingualSupportMap) {
 		
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-		String copyTo = mxmlContext.getMxmlPath() + mxmlContext.getCurrMxml() + MXMLConstants.MXML_FILE_EXT;
 		//now create the MXML file
-		createMXML(componentMXML.getAbsolutePathToPreMxmlFile(), copyTo);
+		createMXML(componentMXML.getAbsolutePathToPreMxmlFile(), mxmlFile);
 		
 		if(!new File(mxmlContext.getFlexSDKPath()).exists()){
 			makeDirectory(mxmlContext.getFlexSDKPath());
@@ -195,8 +195,45 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 		createJsfFlexFlashApplicationConfigurationFile();
 		
 		//finally the SWF file
-		createSWF(componentMXML, mxmlFile, mxmlContext.getSwfPath(), mxmlContext.getFlexSDKPath());
+		createSWF(mxmlFile, componentMXML, mxmlContext.getFlexSDKPath(), multiLingualSupportMap, mxmlContext.getLocaleWebContextPath());
 		
+	}
+	
+	/**
+	 * Returns the multiLingualSupport Map for this web application.<br>
+	 * 
+	 * @param componentMXML
+	 * @return
+	 */
+	public final Map getMultiLingualSupportMap(){
+		Map multiLingualSupportMap = new LinkedHashMap();
+		
+		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		String localeWebContextPath = mxmlContext.getLocaleWebContextPath();
+		
+		if(localeWebContextPath != null){
+			String swfBaseName = mxmlContext.getCurrMxml();
+			String swfFileNameBasePath = mxmlContext.getSwfBasePath() + swfBaseName + File.separatorChar;
+			
+			File localeWebContextDirectory = new File(localeWebContextPath);
+			if(localeWebContextDirectory.isDirectory()){
+				String[] directoryChildren = localeWebContextDirectory.list();
+				for(int i=0; i < directoryChildren.length; i++){
+					File currentChild = new File(localeWebContextPath + directoryChildren[i]);
+					if(currentChild.isDirectory()){
+						//a locale
+						String locale = currentChild.getName();
+						multiLingualSupportMap.put(locale, swfFileNameBasePath + swfBaseName + MXMLConstants.SWF_FILE_NAME_LOCALE_SEPARATOR 
+																+ locale + MXMLConstants.SWF_FILE_EXT);
+					}
+				}
+			}
+			
+		}
+		
+		//Always include Default Locale in case unsupported Locale is requested
+		multiLingualSupportMap.put(MXMLConstants.DEFAULT_LOCALE, mxmlContext.getSwfPath());
+		return multiLingualSupportMap;
 	}
 	
 	/**
@@ -241,8 +278,23 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 * @param swfPath
 	 * @param flexSDKRootPath
 	 */
-	public final void createSWF(_MXMLApplicationContract componentMXML, String mxmlFile, String swfPath, String flexSDKRootPath) {
-		getFlexTaskRunner().createSWF(componentMXML, mxmlFile, swfPath, flexSDKRootPath);
+	public final void createSWF(String mxmlFile, _MXMLApplicationContract componentMXML, String flexSDKRootPath, Map multiLingualSupportMap, String localeWebContextPath) {
+		
+		for(Iterator iterate = multiLingualSupportMap.keySet().iterator(); iterate.hasNext();){
+			String currLocale = (String) iterate.next();
+			String currLocaleFileName = (String) multiLingualSupportMap.get(currLocale);
+			String currLocaleSourcePath = null;
+			
+			if(currLocale.equals(MXMLConstants.DEFAULT_LOCALE)){
+				currLocale = null;
+				currLocaleSourcePath = null;
+			}else{
+				currLocaleSourcePath = localeWebContextPath + currLocale + File.separatorChar;
+			}
+			
+			getFlexTaskRunner().createSWF(mxmlFile, currLocaleFileName, componentMXML, flexSDKRootPath, currLocale, currLocaleSourcePath);
+		}
+		
 	}
 	
 	/**

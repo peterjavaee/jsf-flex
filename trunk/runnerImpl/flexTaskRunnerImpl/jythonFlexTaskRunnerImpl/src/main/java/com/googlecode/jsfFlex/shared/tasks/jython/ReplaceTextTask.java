@@ -48,10 +48,10 @@ public final class ReplaceTextTask extends _JythonBaseTask {
 	public static final String CLEAN_REG_EXP_MATCH = "\\s{2,}";
 	public static final String CLEAN_REG_EXP_REPLACE_WITH = System.getProperty("line.separator");
 	
+	private final Map _replaceDictionary;
+	
 	private String _file;
 	private boolean _replaceAllOccurrence;
-	
-	private Map _replaceDictionary;
 	
 	public ReplaceTextTask(){
 		super();
@@ -100,11 +100,13 @@ public final class ReplaceTextTask extends _JythonBaseTask {
 		return content.toString();
 	}
 	
-	public void file(String file) {
+	public ReplaceTextTask file(String file) {
 		_file = file;
+		return this;
 	}
-	public void replaceAllOccurrence(boolean replaceAllOccurrence) {
+	public ReplaceTextTask replaceAllOccurrence(boolean replaceAllOccurrence) {
 		_replaceAllOccurrence = replaceAllOccurrence;
+		return this;
 	}
 	
 }

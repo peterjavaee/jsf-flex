@@ -42,17 +42,13 @@ public final class SWCTask extends AntBaseTask {
 	
 	private static final String SWC_TARGET = "swc_compile";
 	
-	private ExecTask _swcTask;
-	private Target _swcTarget;
+	private final ExecTask _swcTask;
+	private final Target _swcTarget;
 	
-	private String _sourcePath;
-	private String _outPut;
-	private String _loadConfig;
-	private String _flexSDKRootPath;
-	
-	public SWCTask(){
-		super();
-	}
+	private final String _sourcePath;
+	private final String _outPut;
+	private final String _loadConfig;
+	private final String _flexSDKRootPath;
 	
 	public SWCTask(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath){
 		super();
@@ -60,9 +56,7 @@ public final class SWCTask extends AntBaseTask {
 		_outPut = outPut;
 		_loadConfig = loadConfigFilePath;
 		_flexSDKRootPath = flexSDKRootPath;
-	}
-	
-	{
+		
 		_swcTarget = new Target();
 		_swcTarget.setName(SWC_TARGET);
 		_swcTarget.setProject(_taskProject);
@@ -130,20 +124,6 @@ public final class SWCTask extends AntBaseTask {
 		content.append(_flexSDKRootPath);
 		content.append(" ] ");
 		return content.toString();
-	}
-	
-	
-	public void loadConfig(String loadConfig) {
-		_loadConfig = loadConfig;
-	}
-	public void outPut(String outPut) {
-		_outPut = outPut;
-	}
-	public void sourcePath(String sourcePath) {
-		_sourcePath = sourcePath;
-	}
-	public void flexSDKRootPath(String flexSDKRootPath) {
-		_flexSDKRootPath = flexSDKRootPath;
 	}
 	
 }

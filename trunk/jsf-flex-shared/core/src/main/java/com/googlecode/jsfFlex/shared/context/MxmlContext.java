@@ -74,6 +74,10 @@ public abstract class MxmlContext {
 	
 	public abstract void setFlexSDKPath(String flexSDKPath);
 	
+	public abstract String getLocaleWebContextPath();
+	
+	public abstract void setLocaleWebContextPath(String localeWebContextPath);
+	
 	public abstract String getMxmlPath();
 	
 	public abstract void setMxmlPath(String mxmlPath);

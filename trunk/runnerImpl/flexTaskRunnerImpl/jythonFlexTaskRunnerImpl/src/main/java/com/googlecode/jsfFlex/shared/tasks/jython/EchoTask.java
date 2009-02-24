@@ -67,11 +67,13 @@ public final class EchoTask extends _JythonBaseTask {
 		return content.toString();
 	}
 	
-	public void file(String file) {
+	public EchoTask file(String file) {
 		_file = file;
+		return this;
 	}
-	public void message(String message) {
+	public EchoTask message(String message) {
 		_message = message;
+		return this;
 	}
 	
 }

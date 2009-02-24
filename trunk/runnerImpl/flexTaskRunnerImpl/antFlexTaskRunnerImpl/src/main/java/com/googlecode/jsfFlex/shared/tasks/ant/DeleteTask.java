@@ -33,8 +33,8 @@ public final class DeleteTask extends AntBaseTask {
 	
 	private static final String DELETE_TARGET = "delete";
 	
-	private Delete _deleteTask;
-	private Target _deleteTarget;
+	private final Delete _deleteTask;
+	private final Target _deleteTarget;
 	
 	private String _deleteResource;
 	private boolean _isDirectory;
@@ -99,11 +99,13 @@ public final class DeleteTask extends AntBaseTask {
 		return content.toString();
 	}
 	
-	public void deleteResource(String deleteResource) {
+	public DeleteTask deleteResource(String deleteResource) {
 		_deleteResource = deleteResource;
+		return this;
 	}
-	public void directory(boolean isDirectory) {
+	public DeleteTask directory(boolean isDirectory) {
 		_isDirectory = isDirectory;
+		return this;
 	}
 	
 }
