@@ -39,6 +39,10 @@ import org.xml.sax.helpers.DefaultHandler;
  */
 public final class MXMLConstants {
 	
+	public static final String LOCALE_WEB_CONTEXT_RELATIVE_PATH = "com.googlecode.jsfFlex.LocaleWebContextRelativePath";
+	public static final String DEFAULT_LOCALE = "DefaultLocale";
+	public static final char SWF_FILE_NAME_LOCALE_SEPARATOR = '-';
+	
 	public static final String FLASH_TO_JAVASCRIPT_LOG_LEVEL_NAME = "com.googlecode.jsfFlex.FlashToJavaScriptLogLevel";
 	public static final String FLASH_TO_JAVASCRIPT_LOG_LOG_LEVEL = "Log";
 	public static final String FLASH_TO_JAVASCRIPT_LOG_DEBUG_LEVEL = "Debug";

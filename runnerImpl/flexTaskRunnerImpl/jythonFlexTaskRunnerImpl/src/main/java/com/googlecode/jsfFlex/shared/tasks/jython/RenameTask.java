@@ -75,14 +75,17 @@ public final class RenameTask extends _JythonBaseTask {
 		return content.toString();
 	}
 	
-	public void destFile(String destFile) {
+	public RenameTask destFile(String destFile) {
 		_destFile = destFile;
+		return this;
 	}
-	public void overwrite(boolean overwrite) {
+	public RenameTask overwrite(boolean overwrite) {
 		_overwrite = overwrite;
+		return this;
 	}
-	public void sourceFile(String sourceFile) {
+	public RenameTask sourceFile(String sourceFile) {
 		_sourceFile = sourceFile;
+		return this;
 	}
 	
 }

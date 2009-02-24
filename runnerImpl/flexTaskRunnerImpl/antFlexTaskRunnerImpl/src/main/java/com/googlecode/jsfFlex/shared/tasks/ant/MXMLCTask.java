@@ -40,6 +40,7 @@ public final class MXMLCTask extends AntBaseTask {
 	private static final String MXMLC_TARGET = "mxmlc_compile";
 	
 	private static final String ACCESSIBLE = " -accessible=";
+	private static final String LOCALE = " -locale ";
 	private static final String RUNTIME_SHARED_LIBRARIES = " -runtime-shared-libraries=";
 	private static final String EXTERNAL_LIBRARY_PATH = " -external-library-path=";
 	private static final String FILE_PROPERTY = "-file-specs ";
@@ -56,26 +57,23 @@ public final class MXMLCTask extends AntBaseTask {
 	private static final String LANGUAGE_ARG_SYNTAX = " -language ";
 	private static final String DATE_ARG_SYNTAX = " -date ";
 	
-	private ExecTask _mxmlcTask;
-	private Target _mxmlcTarget;
-	private _MXMLApplicationContract _componentMXML;
+	private final ExecTask _mxmlcTask;
+	private final Target _mxmlcTarget;
 	
-	private String _file;
-	private String _outputPath;
-	private String _flexSDKRootPath;
+	private final String _file;
+	private final String _outputPath;
+	private final _MXMLApplicationContract _componentMXML;
+	private final String _flexSDKRootPath;
 	
-	public MXMLCTask(){
-		super();
-	}
+	private String _locale;
+	private String _localePath;
 	
 	public MXMLCTask(String file, String outputPath, _MXMLApplicationContract componentMXML, String flexSDKRootPath){
 		_file = file;
 		_outputPath = outputPath;
 		_componentMXML = componentMXML;
 		_flexSDKRootPath = flexSDKRootPath;
-	}
-	
-	{
+		
 		_mxmlcTarget = new Target();
 		_mxmlcTarget.setName(MXMLC_TARGET);
 		_mxmlcTarget.setProject(_taskProject);
@@ -112,15 +110,31 @@ public final class MXMLCTask extends AntBaseTask {
 			arg.setLine(ACCESSIBLE + "true");
 		}
 		
-		if(_componentMXML.getSourcePath() != null){
-			String[] sourcePath = _componentMXML.getSourcePath().split(" ");
+		if(_locale != null){
+			arg = _mxmlcTask.createArg();
+			arg.setLine(LOCALE + _locale);
+		}
+		
+		if(_componentMXML.getSourcePath() != null || _localePath != null){
 			StringBuffer sourcePathVal = new StringBuffer();
-			for(int i=0; i < sourcePath.length; i++){
-				sourcePathVal.append(MXMLConstants.STRING_QUOTE);
-				sourcePathVal.append(sourcePath[i]);
-				sourcePathVal.append(MXMLConstants.STRING_QUOTE);
-				sourcePathVal.append(" ");
+			
+			if(_componentMXML.getSourcePath() != null){
+				String[] sourcePath = _componentMXML.getSourcePath().split(" ");
+				
+				for(int i=0; i < sourcePath.length; i++){
+					sourcePathVal.append(MXMLConstants.STRING_QUOTE);
+					sourcePathVal.append(sourcePath[i]);
+					sourcePathVal.append(MXMLConstants.STRING_QUOTE);
+					sourcePathVal.append(" ");
+				}
 			}
+			
+			if(_localePath != null){
+				sourcePathVal.append(MXMLConstants.STRING_QUOTE);
+				sourcePathVal.append(_localePath);
+				sourcePathVal.append(MXMLConstants.STRING_QUOTE);
+			}
+			
 			arg = _mxmlcTask.createArg();
 			arg.setLine(SOURCE_PATH_ARG_SYNTAX + sourcePathVal.toString());
 		}
@@ -223,6 +237,15 @@ public final class MXMLCTask extends AntBaseTask {
 		content.append("outputPath [ ");
 		content.append(_outputPath);
 		content.append(" ] ");
+		content.append("flexSDKRootPath [ ");
+		content.append(_flexSDKRootPath);
+		content.append(" ] ");
+		content.append("locale [ ");
+		content.append(_locale);
+		content.append(" ] ");
+		content.append("localePath [ ");
+		content.append(_localePath);
+		content.append(" ] ");
 		content.append("accessible [ ");
 		content.append(_componentMXML.isAccessible());
 		content.append(" ] ");
@@ -277,14 +300,13 @@ public final class MXMLCTask extends AntBaseTask {
 		return content.toString();
 	}
 
-	public void file(String file) {
-		_file = file;
+	public MXMLCTask locale(String locale){
+		_locale = locale;
+		return this;
 	}
-	public void outputPath(String outputPath) {
-		_outputPath = outputPath;
-	}
-	public void flexSDKRootPath(String flexSDKRootPath) {
-		_flexSDKRootPath = flexSDKRootPath;
+	public MXMLCTask localePath(String localePath){
+		_localePath = localePath;
+		return this;
 	}
 	
 }

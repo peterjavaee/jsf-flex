@@ -26,7 +26,7 @@ import org.python.util.PythonInterpreter;
 /**
  * @author Ji Hoon Kim
  */
-public class DeleteTask extends _JythonBaseTask {
+public final class DeleteTask extends _JythonBaseTask {
 	
 	private static final String PYTHON_EXECUTION_FILE = "deleteTask.py";
 	
@@ -69,11 +69,13 @@ public class DeleteTask extends _JythonBaseTask {
 		return content.toString();
 	}
 	
-	public void deleteResource(String deleteResource) {
+	public DeleteTask deleteResource(String deleteResource) {
 		_deleteResource = deleteResource;
+		return this;
 	}
-	public void directory(boolean isDirectory) {
+	public DeleteTask directory(boolean isDirectory) {
 		_isDirectory = isDirectory;
+		return this;
 	}
 	
 }

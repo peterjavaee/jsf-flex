@@ -33,8 +33,8 @@ public final class MkdirTask extends AntBaseTask {
 	
 	private static final String MKDIR_TARGET = "mkdir";
 	
-	private Mkdir _mkdirTask;
-	private Target _mkdirTarget;
+	private final Mkdir _mkdirTask;
+	private final Target _mkdirTarget;
 	
 	private String _file;
 	
@@ -88,8 +88,9 @@ public final class MkdirTask extends AntBaseTask {
 		return content.toString();
 	}
 	
-	public void file(String file) {
+	public MkdirTask file(String file) {
 		_file = file;
+		return this;
 	}
 
 }

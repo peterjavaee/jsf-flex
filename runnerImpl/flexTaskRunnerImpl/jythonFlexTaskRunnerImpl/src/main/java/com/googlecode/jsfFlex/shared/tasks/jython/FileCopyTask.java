@@ -104,20 +104,25 @@ public final class FileCopyTask extends _JythonBaseTask {
 		return content.toString();
 	}
 	
-	public void copyFile(String copyFile) {
+	public FileCopyTask copyFile(String copyFile) {
 		_copyFile = copyFile;
+		return this;
 	}
-	public void copyDir(String copyDir) {
+	public FileCopyTask copyDir(String copyDir) {
 		_copyDir = copyDir;
+		return this;
 	}
-	public void copyExclude(List copyExclude) {
+	public FileCopyTask copyExclude(List copyExclude) {
 		_copyExclude = copyExclude;
+		return this;
 	}
-	public void copyInclude(List copyInclude) {
+	public FileCopyTask copyInclude(List copyInclude) {
 		_copyInclude = copyInclude;
+		return this;
 	}
-	public void copyTo(String copyTo) {
+	public FileCopyTask copyTo(String copyTo) {
 		_copyTo = copyTo;
+		return this;
 	}
 	
 }

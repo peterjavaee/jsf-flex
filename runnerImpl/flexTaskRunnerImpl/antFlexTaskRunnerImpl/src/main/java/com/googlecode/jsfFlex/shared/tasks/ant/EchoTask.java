@@ -34,17 +34,14 @@ public final class EchoTask extends AntBaseTask {
 	
 	private static final String ECHO_TARGET = "echo";
 	
-	private Echo _echoTask;
-	private Target _echoTarget;
+	private final Echo _echoTask;
+	private final Target _echoTarget;
 	
-	private String _message;
-	private String _file;
+	private final String _message;
+	private final String _file;
+	
 	private String _level;
 	private boolean _append;
-	
-	public EchoTask(){
-		super();
-	}
 	
 	public EchoTask(String message, String file){
 		_message = message;
@@ -112,17 +109,13 @@ public final class EchoTask extends AntBaseTask {
 		return content.toString();
 	}
 	
-	public void append(boolean append) {
+	public EchoTask append(boolean append) {
 		_append = append;
+		return this;
 	}
-	public void file(String file) {
-		_file = file;
-	}
-	public void level(String level) {
+	public EchoTask level(String level) {
 		_level = level;
+		return this;
 	}
-	public void message(String message) {
-		_message = message;
-	}
-
+	
 }

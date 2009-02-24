@@ -48,6 +48,7 @@ public final class MXMLCTask extends _JythonBaseTask {
 	private static final String NON_WINDOWS_SHELL = "bin" + File.separatorChar + "mxmlc.sh";
 	
 	private static final String ACCESSIBLE = " -accessible=";
+	private static final String LOCALE = " -locale ";
 	private static final String RUNTIME_SHARED_LIBRARIES = " -runtime-shared-libraries=";
 	private static final String EXTERNAL_LIBRARY_PATH = " -external-library-path=";
 	private static final String FILE_PROPERTY = "-file-specs ";
@@ -64,19 +65,21 @@ public final class MXMLCTask extends _JythonBaseTask {
 	private static final String LANGUAGE_ARG_SYNTAX = " -language ";
 	private static final String DATE_ARG_SYNTAX = " -date ";
 	
-	private _MXMLApplicationContract _componentMXML;
-	
 	private String _file;
 	private String _outputPath;
+	private _MXMLApplicationContract _componentMXML;
 	private String _flexSDKRootPath;
+	
+	private String _locale;
+	private String _localePath;
 	
 	public MXMLCTask(){
 		super();
 	}
 	
-	public MXMLCTask(String file, String output_path, _MXMLApplicationContract componentMXML, String flexSDKRootPath){
+	public MXMLCTask(String file, String outputpath, _MXMLApplicationContract componentMXML, String flexSDKRootPath){
 		_file = file;
-		_outputPath = output_path;
+		_outputPath = outputpath;
 		_componentMXML = componentMXML;
 		_flexSDKRootPath = flexSDKRootPath;
 	}
@@ -105,15 +108,29 @@ public final class MXMLCTask extends _JythonBaseTask {
 			commandArguments.add(ACCESSIBLE + "true");
 		}
 		
-		if(_componentMXML.getSourcePath() != null){
-			String[] sourcePath = _componentMXML.getSourcePath().split(" ");
+		if(_locale != null){
+			commandArguments.add(LOCALE + _locale);
+		}
+		
+		if(_componentMXML.getSourcePath() != null || _localePath != null){
 			StringBuffer sourcePathVal = new StringBuffer();
-			for(int i=0; i < sourcePath.length; i++){
-				sourcePathVal.append(MXMLConstants.STRING_QUOTE);
-				sourcePathVal.append(sourcePath[i]);
-				sourcePathVal.append(MXMLConstants.STRING_QUOTE);
-				sourcePathVal.append(" ");
+			
+			if(_componentMXML.getSourcePath() != null){
+				String[] sourcePath = _componentMXML.getSourcePath().split(" ");
+				for(int i=0; i < sourcePath.length; i++){
+					sourcePathVal.append(MXMLConstants.STRING_QUOTE);
+					sourcePathVal.append(sourcePath[i]);
+					sourcePathVal.append(MXMLConstants.STRING_QUOTE);
+					sourcePathVal.append(" ");
+				}
 			}
+			
+			if(_localePath != null){
+				sourcePathVal.append(MXMLConstants.STRING_QUOTE);
+				sourcePathVal.append(_localePath);
+				sourcePathVal.append(MXMLConstants.STRING_QUOTE);
+			}
+			
 			commandArguments.add(SOURCE_PATH_ARG_SYNTAX + sourcePathVal.toString());
 		}
 		
@@ -189,6 +206,12 @@ public final class MXMLCTask extends _JythonBaseTask {
 		content.append("flexSDKRootPath [ ");
 		content.append(_flexSDKRootPath);
 		content.append(" ] ");
+		content.append("locale [ ");
+		content.append(_locale);
+		content.append(" ] ");
+		content.append("localePath [ ");
+		content.append(_localePath);
+		content.append(" ] ");
 		content.append("accessible [ ");
 		content.append(_componentMXML.isAccessible());
 		content.append(" ] ");
@@ -243,14 +266,13 @@ public final class MXMLCTask extends _JythonBaseTask {
 		return content.toString();
 	}
 
-	public void file(String file) {
-		_file = file;
+	public MXMLCTask locale(String locale){
+		_locale = locale;
+		return this;
 	}
-	public void outputPath(String outputPath) {
-		_outputPath = outputPath;
-	}
-	public void flexSDKRootPath(String flexSDKRootPath) {
-		_flexSDKRootPath = flexSDKRootPath;
+	public MXMLCTask localePath(String localePath){
+		_localePath = localePath;
+		return this;
 	}
 	
 }

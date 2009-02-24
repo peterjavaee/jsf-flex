@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
@@ -152,7 +153,9 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-		String mxmlFile = mxmlContext.getMxmlPath() + mxmlContext.getCurrMxml() + MXMLConstants.MXML_FILE_EXT;;
+		String mxmlFile = mxmlContext.getMxmlPath() + mxmlContext.getCurrMxml() + MXMLConstants.MXML_FILE_EXT;
+		String localeWebContextPath = mxmlContext.getLocaleWebContextPath();
+		Map multiLingualSupportMap = writer.getMultiLingualSupportMap();
 		
 		//check if simplySWF boolean flag is set and if so, create the SWF file and exit
 		if(mxmlContext.isSimplySWF()){
@@ -160,7 +163,9 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 				writer.makeDirectory(mxmlContext.getFlexSDKPath());
 				writer.unZipArchiveRelative(MXMLConstants.FLEX_SDK_ZIP, mxmlContext.getFlexSDKPath());
 			}
-			writer.createSWF(componentMXML, mxmlFile, mxmlContext.getSwfPath(), mxmlContext.getFlexSDKPath());
+			
+			writer.createSWF(mxmlFile, componentMXML, mxmlContext.getFlexSDKPath(), multiLingualSupportMap, localeWebContextPath);
+			
 		}else if(!mxmlContext.isProductionEnv()){
 			//means it is of debugMode, so must create mxml and etcetera
 			
@@ -204,13 +209,13 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 					
 				}
 				
-				writer.processCreateSwf(componentMXML, mxmlFile);
+				writer.processCreateSwf(mxmlFile, componentMXML, multiLingualSupportMap);
 				
 			}
 		
 		}
 		
-		_mxmlApplicationHtmlRenderer.renderHtmlContent(context, componentObj);
+		_mxmlApplicationHtmlRenderer.renderHtmlContent(context, componentObj, multiLingualSupportMap);
 		
 	}
 	
@@ -223,7 +228,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		private static final String JS_COMMUNICATION_CORE_NS = "com.googlecode.jsfFlex.communication.core";
 		private static final String JS_COMMUNICATION_CORE_PAGE_LOAD_NS = "com.googlecode.jsfFlex.communication.core.pageLoad";
 		
-		private void renderHtmlContent(FacesContext context, UIComponent component) throws IOException {
+		private void renderHtmlContent(FacesContext context, UIComponent component, Map multiLingualSupportMap) throws IOException {
 			
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 			com.googlecode.jsfFlex.component.ext.MXMLUIApplication appComponent = 
@@ -255,19 +260,66 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			writer.write(toWrite.toString());
 			writer.endElement(MXMLAttributeConstants.SCRIPT_ELEM);
 			
-			writeHTMLSWF(writer, appComponent, mxmlContext.getSwfWebPath());
+			String swfFile = getLocaleSwfFile(mxmlContext, context, appComponent, multiLingualSupportMap);
+			
+			writeHTMLSWF(writer, appComponent, swfFile);
 			
 		}
 		
+		private String getLocaleSwfFile(MxmlContext mxmlContext, FacesContext context, 
+											com.googlecode.jsfFlex.component.ext.MXMLUIApplication appComponent, Map multiLingualSupportMap){
+			
+			String localeWebContextPath = mxmlContext.getLocaleWebContextPath();
+			String swfFile = null;
+			String defaultLocale = mxmlContext.getSwfWebPath() + appComponent.getMxmlPackageName() + MXMLConstants.SWF_FILE_EXT;
+			if(localeWebContextPath == null){
+				swfFile = defaultLocale;
+			}else{
+				
+				Locale preferredLocale = context.getExternalContext().getRequestLocale();
+				
+				String languageMatch = preferredLocale.getLanguage();
+				languageMatch = languageMatch == null ? "" : languageMatch.toUpperCase().trim();
+				
+				String countryMatch = preferredLocale.getCountry();
+				countryMatch = countryMatch == null ? "" : countryMatch.toUpperCase().trim();
+				int countryMatchLength = countryMatch.length();
+				
+				String closestMatch = null;
+				for(Iterator iterate = multiLingualSupportMap.keySet().iterator(); iterate.hasNext();){
+					String currCountryLocale = (String) iterate.next();
+					String currCountryLocaleMatch = currCountryLocale.toUpperCase().trim();
+					
+					if(currCountryLocaleMatch.indexOf(languageMatch) == 0){
+						closestMatch = mxmlContext.getSwfWebPath() + appComponent.getMxmlPackageName() + 
+											MXMLConstants.SWF_FILE_NAME_LOCALE_SEPARATOR + currCountryLocale + MXMLConstants.SWF_FILE_EXT;
+						
+						int matchIndex = currCountryLocaleMatch.indexOf(countryMatch);
+						if((matchIndex > -1 && (matchIndex + countryMatchLength) == currCountryLocaleMatch.length())){
+							swfFile = closestMatch;
+							break;
+						}
+					}
+					
+				}
+				
+				if(swfFile == null){
+					swfFile = closestMatch != null ? closestMatch : defaultLocale;
+				}
+			
+			}
+			
+			return swfFile;
+		}
+		
 		private void writeHTMLSWF(ResponseWriter writer, com.googlecode.jsfFlex.component.ext.MXMLUIApplication appComponent, 
-									String swfPath) throws IOException{
+									String swfFile) throws IOException{
 			
 			Object heightO = appComponent.getAttributes().get(MXMLAttributeConstants.HEIGHT_ATTR);
 			Object widthO = appComponent.getAttributes().get(MXMLAttributeConstants.WIDTH_ATTR);
 			
 			String height = (heightO == null) ? "100%" : (String) heightO;
 			String width = (widthO == null) ? "100%" : (String) widthO;
-			String swfFile = swfPath + appComponent.getMxmlPackageName() + MXMLConstants.SWF_FILE_EXT;
 			
 			writer.startElement("object", appComponent);
 			
@@ -299,7 +351,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			writer.endElement("object");
 			
 		}
-	
+		
 		private String getComponentInitValues(FacesContext context, UIComponent component) {
 			
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();

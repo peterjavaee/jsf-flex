@@ -45,13 +45,15 @@ public final class ReplaceTextTask extends AntBaseTask {
 	private static final String REPLACE_TEXT_TARGET = "replace_text";
 	private static final String REPLACE_REG_EXP_TARGET = "replace_reg_exp";
 	
-	private Target _replaceMultiLineTarget;
-	private Target _replaceTextTarget;
-	private Target _replaceRegExpTarget;
+	private final Target _replaceMultiLineTarget;
+	private final Target _replaceTextTarget;
+	private final Target _replaceRegExpTarget;
 	
-	private Replace _replaceMultiLineTask;
-	private Replace _replaceTextTask;
-	private ReplaceRegExp _replaceRegExpTask;
+	private final Replace _replaceMultiLineTask;
+	private final Replace _replaceTextTask;
+	private final ReplaceRegExp _replaceRegExpTask;
+	
+	private final Map _replaceMap;
 	
 	private boolean _multiLineReplace;
 	private boolean _replaceText;
@@ -61,8 +63,6 @@ public final class ReplaceTextTask extends AntBaseTask {
 	private String _regMatch;
 	private String _regReplace;
 	private String _flags;
-	
-	private Map _replaceMap;
 	
 	public ReplaceTextTask(){
 		super();
@@ -211,32 +211,39 @@ public final class ReplaceTextTask extends AntBaseTask {
 		return content.toString();
 	}
 
-	public void file(String file) {
+	public ReplaceTextTask file(String file) {
 		_file = file;
+		return this;
 	}
-	public void multiLineReplace(boolean multiLineReplace) {
+	public ReplaceTextTask multiLineReplace(boolean multiLineReplace) {
 		_multiLineReplace = multiLineReplace;
 		_replaceText = false;
 		_replaceRegExp = false;
+		return this;
 	}
-	public void replaceRegExp(boolean replaceRegExp) {
+	public ReplaceTextTask replaceRegExp(boolean replaceRegExp) {
 		_replaceRegExp = replaceRegExp;
 		_multiLineReplace = false;
 		_replaceText = false;
+		return this;
 	}
-	public void replaceText(boolean replaceText) {
+	public ReplaceTextTask replaceText(boolean replaceText) {
 		_replaceText = replaceText;
 		_multiLineReplace = false;
 		_replaceRegExp = false;
+		return this;
 	}
-	public void flags(String flags) {
+	public ReplaceTextTask flags(String flags) {
 		_flags = flags;
+		return this;
 	}
-	public void regMatch(String regMatch) {
+	public ReplaceTextTask regMatch(String regMatch) {
 		_regMatch = regMatch;
+		return this;
 	}
-	public void regReplace(String regReplace) {
+	public ReplaceTextTask regReplace(String regReplace) {
 		_regReplace = regReplace;
+		return this;
 	}
 	
 }

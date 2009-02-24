@@ -63,6 +63,7 @@ public class MxmlContextImpl extends MxmlContext {
 	private boolean _simplySWF;
 	
 	private String _flexSDKPath;
+	private String _localeWebContextPath;
 	private String _mxmlPath;
 	private String _preMxmlPath;
 	private String _swcPath;
@@ -136,6 +137,12 @@ public class MxmlContextImpl extends MxmlContext {
 	}
 	public void setFlexSDKPath(String flexSDKPath) {
 		_flexSDKPath = flexSDKPath;
+	}
+	public String getLocaleWebContextPath() {
+		return _localeWebContextPath;
+	}
+	public void setLocaleWebContextPath(String localeWebContextPath) {
+		_localeWebContextPath = localeWebContextPath;
 	}
 	public String getMxmlPath() {
 		return _mxmlPath;

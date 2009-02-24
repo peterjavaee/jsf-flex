@@ -24,7 +24,6 @@ import java.io.IOException;
 import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 
 import org.json.JSONObject;
 
@@ -289,8 +288,7 @@ public abstract class AbstractMXMLUIApplication
 		mxmlContext.setProductionEnv(isProduction);
 		mxmlContext.setSimplySWF(isSimplySwf);
 		
-		HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
-		String webContextPath = request.getContextPath();
+		String webContextPath = context.getExternalContext().getRequestContextPath();
 		String swfWebPath = webContextPath + "/" + MXMLConstants.SWF_DIRECTORY_NAME + "/" + getMxmlPackageName() + "/";
 		mxmlContext.setSwfWebPath(swfWebPath);
 		mxmlContext.setWebContextPath(webContextPath);
@@ -299,6 +297,11 @@ public abstract class AbstractMXMLUIApplication
 		String init = (String) getAttributes().get(INITIALIZE_ATTR);
 		init = (init == null) ? INITIALIZE_CALL : init + " " + INITIALIZE_CALL;
 		getAttributes().put(INITIALIZE_ATTR, init);
+		
+		String localeWebContextRelativePath = context.getExternalContext().getInitParameter(MXMLConstants.LOCALE_WEB_CONTEXT_RELATIVE_PATH);
+		if(localeWebContextRelativePath != null){
+			mxmlContext.setLocaleWebContextPath(_applicationPath + File.separatorChar + localeWebContextRelativePath + File.separatorChar);
+		}
 		
 		//to reflect the correct state when debugging
 		if(isProduction){

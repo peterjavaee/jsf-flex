@@ -37,28 +37,26 @@ public final class FileCopyTask extends AntBaseTask {
 	
 	private static final String COPY_TARGET = "copy";
 	
-	private Copy _copyTask;
-	private Target _copyTarget;
+	private final Copy _copyTask;
+	private final Target _copyTarget;
 	
 	private String _copyFile;
+	private String _copyToFile;
 	
 	private String _copyDir;
 	private List _copyInclude;
 	private List _copyExclude;
-	
 	private String _copyTo;
-	private String _copyToFile;
-	
 	private FileSet _dirCopyFileSet;
 	
 	public FileCopyTask(){
 		super();
 	}
 	
-	public FileCopyTask(String copyFile, String copyTo){
+	public FileCopyTask(String copyFile, String copyToFile){
 		super();
 		_copyFile = copyFile;
-		_copyToFile = copyTo;
+		_copyToFile = copyToFile;
 	}
 	
 	public FileCopyTask(String copyDir, List copyInclude, List copyExclude,
@@ -167,23 +165,29 @@ public final class FileCopyTask extends AntBaseTask {
 		return content.toString();
 	}
 	
-	public void copyFile(String copyFile) {
+	public FileCopyTask copyFile(String copyFile) {
 		_copyFile = copyFile;
+		return this;
 	}
-	public void copyDir(String copyDir) {
+	public FileCopyTask copyDir(String copyDir) {
 		_copyDir = copyDir;
+		return this;
 	}
-	public void copyExclude(List copyExclude) {
+	public FileCopyTask copyExclude(List copyExclude) {
 		_copyExclude = copyExclude;
+		return this;
 	}
-	public void copyInclude(List copyInclude) {
+	public FileCopyTask copyInclude(List copyInclude) {
 		_copyInclude = copyInclude;
+		return this;
 	}
-	public void copyTo(String copyTo) {
+	public FileCopyTask copyTo(String copyTo) {
 		_copyTo = copyTo;
+		return this;
 	}
-	public void copyToFile(String copyToFile) {
+	public FileCopyTask copyToFile(String copyToFile) {
 		_copyToFile = copyToFile;
+		return this;
 	}
 	
 }
