@@ -271,9 +271,9 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			
 			String localeWebContextPath = mxmlContext.getLocaleWebContextPath();
 			String swfFile = null;
-			String defaultLocale = mxmlContext.getSwfWebPath() + appComponent.getMxmlPackageName() + MXMLConstants.SWF_FILE_EXT;
+			
 			if(localeWebContextPath == null){
-				swfFile = defaultLocale;
+				swfFile = mxmlContext.getSwfWebPath() + appComponent.getMxmlPackageName() + MXMLConstants.SWF_FILE_EXT;
 			}else{
 				
 				Locale preferredLocale = context.getExternalContext().getRequestLocale();
@@ -286,10 +286,13 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 				int countryMatchLength = countryMatch.length();
 				
 				String closestMatch = null;
+				String lastEntry = null;
 				for(Iterator iterate = multiLingualSupportMap.keySet().iterator(); iterate.hasNext();){
 					String currCountryLocale = (String) iterate.next();
 					String currCountryLocaleMatch = currCountryLocale.toUpperCase().trim();
 					
+					lastEntry = mxmlContext.getSwfWebPath() + appComponent.getMxmlPackageName() + 
+										MXMLConstants.SWF_FILE_NAME_LOCALE_SEPARATOR + currCountryLocale + MXMLConstants.SWF_FILE_EXT;
 					if(currCountryLocaleMatch.indexOf(languageMatch) == 0){
 						closestMatch = mxmlContext.getSwfWebPath() + appComponent.getMxmlPackageName() + 
 											MXMLConstants.SWF_FILE_NAME_LOCALE_SEPARATOR + currCountryLocale + MXMLConstants.SWF_FILE_EXT;
@@ -304,7 +307,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 				}
 				
 				if(swfFile == null){
-					swfFile = closestMatch != null ? closestMatch : defaultLocale;
+					swfFile = closestMatch != null ? closestMatch : lastEntry != null ? lastEntry : "";
 				}
 			
 			}

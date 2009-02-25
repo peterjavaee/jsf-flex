@@ -211,7 +211,9 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 		String localeWebContextPath = mxmlContext.getLocaleWebContextPath();
 		
-		if(localeWebContextPath != null){
+		if(localeWebContextPath == null){
+			multiLingualSupportMap.put(MXMLConstants.DEFAULT_LOCALE, mxmlContext.getSwfPath());
+		}else{
 			String swfBaseName = mxmlContext.getCurrMxml();
 			String swfFileNameBasePath = mxmlContext.getSwfBasePath() + swfBaseName + File.separatorChar;
 			
@@ -231,8 +233,6 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 			
 		}
 		
-		//Always include Default Locale in case unsupported Locale is requested
-		multiLingualSupportMap.put(MXMLConstants.DEFAULT_LOCALE, mxmlContext.getSwfPath());
 		return multiLingualSupportMap;
 	}
 	
@@ -280,21 +280,19 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 */
 	public final void createSWF(String mxmlFile, _MXMLApplicationContract componentMXML, String flexSDKRootPath, Map multiLingualSupportMap, String localeWebContextPath) {
 		
-		for(Iterator iterate = multiLingualSupportMap.keySet().iterator(); iterate.hasNext();){
-			String currLocale = (String) iterate.next();
-			String currLocaleFileName = (String) multiLingualSupportMap.get(currLocale);
-			String currLocaleSourcePath = null;
-			
-			if(currLocale.equals(MXMLConstants.DEFAULT_LOCALE)){
-				currLocale = null;
-				currLocaleSourcePath = null;
-			}else{
-				currLocaleSourcePath = localeWebContextPath + currLocale + File.separatorChar;
-			}
-			
-			getFlexTaskRunner().createSWF(mxmlFile, currLocaleFileName, componentMXML, flexSDKRootPath, currLocale, currLocaleSourcePath);
-		}
+		String defaultLocale = (String) multiLingualSupportMap.get(MXMLConstants.DEFAULT_LOCALE);
 		
+		if(defaultLocale != null){
+			getFlexTaskRunner().createSWF(mxmlFile, defaultLocale, componentMXML, flexSDKRootPath, null, null);
+		}else{
+			for(Iterator iterate = multiLingualSupportMap.keySet().iterator(); iterate.hasNext();){
+				String currLocale = (String) iterate.next();
+				String currLocaleFileName = (String) multiLingualSupportMap.get(currLocale);
+				String currLocaleSourcePath = localeWebContextPath + currLocale + File.separatorChar;
+				
+				getFlexTaskRunner().createSWF(mxmlFile, currLocaleFileName, componentMXML, flexSDKRootPath, currLocale, currLocaleSourcePath);
+			}
+		}
 	}
 	
 	/**
