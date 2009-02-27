@@ -169,6 +169,9 @@
 		<h:outputLink value="componentExamples/mxmlList.jsf">
 			<f:verbatim>An example for List component</f:verbatim>
 		</h:outputLink>
+		<h:outputLink value="componentExamples/mxmlLocale.jsf">
+			<f:verbatim>An example for Locale component</f:verbatim>
+		</h:outputLink>
 		<h:outputLink value="componentExamples/mxmlMenuBar.jsf">
 			<f:verbatim>An example for MenuBar component</f:verbatim>
 		</h:outputLink>

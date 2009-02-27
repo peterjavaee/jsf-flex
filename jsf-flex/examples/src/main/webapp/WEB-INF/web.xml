@@ -59,6 +59,14 @@
     
     <context-param>
       <description>
+      	The default locale
+      </description>
+      <param-name>com.googlecode.jsfFlex.DefaultLocale</param-name>
+      <param-value>en_US</param-value>
+    </context-param>
+    
+    <context-param>
+      <description>
       	For JSF Flex Flash To JavaScript Log Level, possible values are (Log, Debug, Info, Warn, Error)
       	If the field is not provided, it will make a decision based on com.googlecode.jsfFlex.MODE with production
       	being Error and non-production being Log
