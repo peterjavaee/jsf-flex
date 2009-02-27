@@ -60,11 +60,12 @@
         </div>
         <br />
         
-	    <jf:mxmlApplication mxmlPackageName="anotherSwf" height="5%" width="90%" verticalScrollPolicy="off" backgroundColor="0xCC6666">
-	    	<jf:mxmlLabel text="I simply am an another SWF file. DHan, DHAn, DHAN!!!" color="#FFFFFF" fontWeight="bold"/>
+	    <jf:mxmlApplication mxmlPackageName="anotherSwf" height="10%" width="90%" verticalScrollPolicy="off" backgroundColor="0xCC6666">
+	    	<jf:mxmlLabel text="Following label contains korean text to demonstrate locale [if browser's language is set to korean]" color="#FFFFFF" fontWeight="bold"/>
+	    	<jf:mxmlLabel text="@Resource(bundle='LocaleExample', key='greeting')" color="#FFFFFF" fontWeight="bold" fontSize="14"/>
 	    </jf:mxmlApplication>
 	    
-	    <jf:mxmlApplication mxmlPackageName="mxmlOverallExample" height="85%" width="90%" errorColor="#B80000" errorFontSize="13">
+	    <jf:mxmlApplication mxmlPackageName="mxmlOverallExample" height="80%" width="90%" errorColor="#B80000" errorFontSize="13">
 	        <jf:mxmlScript>
 	        	import flash.events.Event;
 	        	
@@ -143,7 +144,7 @@
 			    		<jf:mxmlPanel label="First Tab" width="100%" height="100%">
 			    			<jf:mxmlDividedBox direction="horizontal" width="100%" height="100%">
 			    			
-				    			<jf:mxmlBox width="40%" height="100%">
+				    			<jf:mxmlBox width="30%" height="100%">
 					    			<jf:mxmlTextInput id="textInputRef" text="#{mxmlOverallBean.textInputText}" />
 					    			<jf:mxmlRichTextEditor textBinding="htmlText" htmlText="#{mxmlOverallBean.richTextEditorHtmlText}" />
 							    	<jf:mxmlTextArea id="textAreaRef" text="#{mxmlOverallBean.textAreaText}" >
@@ -153,12 +154,12 @@
 							    	<jf:mxmlCheckBox label="CheckBox am I [\^$.|?*+(){}" selected="#{mxmlOverallBean.checkBoxSelected}" />
 						    	</jf:mxmlBox>
 						    	
-						    	<jf:mxmlBox width="60%" height="100%">
+						    	<jf:mxmlBox width="70%" height="100%">
 						    		<jf:mxmlDataGrid bindingBeanList="#{mxmlOverallBean.wisePeopleEntries}" width="100%" 
-						    							rowCount="3" resizableColumns="true" editable="true" >
+						    							rowCount="4" resizableColumns="true" editable="true" height="100%">
 								    	<jf:mxmlColumns>
 								    		<jf:mxmlDataGridColumn dataField="name" headerText="Name" />
-								    		<jf:mxmlDataGridColumn wordWrap="true" dataField="quote" headerText="Quote" />
+								    		<jf:mxmlDataGridColumn wordWrap="true" dataField="quote" headerText="Quote" minWidth="170" />
 								    		<jf:mxmlDataGridColumn dataField="email" headerText="Email" />
 								    	</jf:mxmlColumns>
 								    </jf:mxmlDataGrid>

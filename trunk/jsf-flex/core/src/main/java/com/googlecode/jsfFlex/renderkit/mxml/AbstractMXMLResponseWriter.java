@@ -212,7 +212,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 		String localeWebContextPath = mxmlContext.getLocaleWebContextPath();
 		
 		if(localeWebContextPath == null){
-			multiLingualSupportMap.put(MXMLConstants.DEFAULT_LOCALE, mxmlContext.getSwfPath());
+			multiLingualSupportMap.put(MXMLConstants.DEFAULT_LOCALE_SWF_PATH_KEY, mxmlContext.getSwfPath());
 		}else{
 			String swfBaseName = mxmlContext.getCurrMxml();
 			String swfFileNameBasePath = mxmlContext.getSwfBasePath() + swfBaseName + File.separatorChar;
@@ -280,7 +280,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	 */
 	public final void createSWF(String mxmlFile, _MXMLApplicationContract componentMXML, String flexSDKRootPath, Map multiLingualSupportMap, String localeWebContextPath) {
 		
-		String defaultLocale = (String) multiLingualSupportMap.get(MXMLConstants.DEFAULT_LOCALE);
+		String defaultLocale = (String) multiLingualSupportMap.get(MXMLConstants.DEFAULT_LOCALE_SWF_PATH_KEY);
 		
 		if(defaultLocale != null){
 			getFlexTaskRunner().createSWF(mxmlFile, defaultLocale, componentMXML, flexSDKRootPath, null, null);

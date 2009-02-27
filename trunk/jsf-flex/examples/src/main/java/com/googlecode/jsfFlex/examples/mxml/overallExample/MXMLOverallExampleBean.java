@@ -85,11 +85,15 @@ public class MXMLOverallExampleBean implements Serializable {
 		
 		_wisePeopleEntries = new ArrayList();
 		_wisePeopleEntries.add(new WisePeopleEntry("Issac Newton", "This most beautiful system [The Universe] could only proceed from the dominion of an intelligent and powerful Being.", 
-													"fatherOfPhysicsCalculusDude@wiseHumble.com"));
+													"fatherOfPhysicsCalculus@wiseHumble.com"));
 		_wisePeopleEntries.add(new WisePeopleEntry("James Clark Maxwell", "At quite uncertain times and places. The atoms left their heavenly path, And by fortuitous embraces, Engendered all that being hath.", 
-													"electroMagneticDude@wiseHumble.com"));
+													"electroMagnetic@wiseHumble.com"));
 		_wisePeopleEntries.add(new WisePeopleEntry("Blaise Pascal", "Belief is a wise wager. Granted that faith cannot be proved, what harm will come to you if you gamble on its truth and it proves false? If you gain, you gain all; if you lose, you lose nothing. Wager, then, without hesitation, that He exists.", 
-													"probabilityTheoryDude@wiseHumble.com"));
+													"probabilityTheory@wiseHumble.com"));
+		_wisePeopleEntries.add(new WisePeopleEntry("Socrates", "It is not living that matters, but living rightly. I know that I am intelligent, because I know that I know nothing. The end of life is to be like God, and the soul following God will be like Him.", 
+													"philosopher@wiseHumble.com"));
+		_wisePeopleEntries.add(new WisePeopleEntry("Marcus Tullius Cicero", "A man of courage is also full of faith. Knowledge which is divorced from justice, may be called cunning rather than wisdom.",
+													"philosopher@wiseHumble.com"));
 		
 	}
 	
