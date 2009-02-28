@@ -4,7 +4,7 @@
   <groupId>com.googlecode.jsf-flex</groupId>
   <artifactId>jsf-flex-build-project</artifactId>
   <packaging>pom</packaging>
-  <version>0.8-SNAPSHOT</version>
+  <version>0.9-SNAPSHOT</version>
   <name>JSF-Flex Main Build Project</name>
   <url>http://code.google.com/p/jsf-flex/</url>
   
@@ -136,7 +136,7 @@
         </property>
       </activation>
       <properties>
-        <jsf.flex.renderKit.version>0.8-SNAPSHOT</jsf.flex.renderKit.version>
+        <jsf.flex.renderKit.version>0.9-SNAPSHOT</jsf.flex.renderKit.version>
       </properties>
     </profile>
     <profile>
@@ -147,7 +147,7 @@
         </property>
       </activation>
       <properties>
-        <jsf.flex.shared.version>0.8-SNAPSHOT</jsf.flex.shared.version>
+        <jsf.flex.shared.version>0.9-SNAPSHOT</jsf.flex.shared.version>
       </properties>
     </profile>
     
