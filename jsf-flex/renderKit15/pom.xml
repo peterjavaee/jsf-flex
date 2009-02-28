@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.googlecode.jsf-flex</groupId>
     <artifactId>jsf-flex-project</artifactId>
-    <version>0.8-SNAPSHOT</version>
+    <version>0.9-SNAPSHOT</version>
   </parent>
   
   <modelVersion>4.0.0</modelVersion>
@@ -166,7 +166,7 @@
   </profiles>
   
   <properties>
-    <jsf.flex.annotations.version>0.8-SNAPSHOT</jsf.flex.annotations.version>
+    <jsf.flex.annotations.version>0.9-SNAPSHOT</jsf.flex.annotations.version>
   </properties>
   
 </project>
