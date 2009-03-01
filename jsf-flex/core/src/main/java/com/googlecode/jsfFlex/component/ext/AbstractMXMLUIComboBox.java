@@ -420,6 +420,8 @@ public abstract class AbstractMXMLUIComboBox
 	}
 	
 	protected void populateComponentInitValues(){
+		super.populateComponentInitValues();
+		
 		try{
 			if(getText() != null){
 				initValue.put(VALUE, MXMLJsfUtil.escapeCharacters( getText() ));

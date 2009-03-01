@@ -61,11 +61,12 @@ public abstract class _MXMLUIHtmlTextInputBase
 	}
 	
 	protected void populateComponentInitValues(){
-		super.populateComponentInitValues();
 		
 		try{
 			if(getTextBinding().equals(HTML_TEXT_ATTR) && getHtmlText() != null){
 				initValue.put(VALUE, com.googlecode.jsfFlex.util.MXMLJsfUtil.escapeCharacters( getHtmlText() ));
+			}else{
+				super.populateComponentInitValues();
 			}
 		}catch(org.json.JSONException jsonException){
 			_log.info("Error while formatting to JSON content", jsonException);
