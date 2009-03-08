@@ -30,7 +30,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 /**
  * @JSFRenderer
  *  renderKitId = "MXML_BASIC" 
- *  family      = "javax.faces.MXMLSimple"
+ *  family      = "javax.faces.MXMLInput"
  *  type        = "com.googlecode.jsfFlex.MXMLDataGridColumn"
  * 
  * @JsfFlexAttributes

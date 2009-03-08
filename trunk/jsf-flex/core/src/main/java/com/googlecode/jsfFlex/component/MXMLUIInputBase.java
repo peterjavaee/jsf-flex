@@ -108,7 +108,9 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 		
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 		List applicationInitValueList = mxmlContext.getApplicationInitValueList();
-    	applicationInitValueList.add(getComponentInitValues());
+		if(getComponentInitValues() != null){
+			applicationInitValueList.add(getComponentInitValues());
+		}
 		
     	if(mxmlContext.isSimplySWF() || mxmlContext.isProductionEnv()){
 			//means no need to create preMxml files
