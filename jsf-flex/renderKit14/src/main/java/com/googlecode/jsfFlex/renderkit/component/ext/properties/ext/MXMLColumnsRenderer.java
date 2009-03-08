@@ -75,29 +75,12 @@ public final class MXMLColumnsRenderer extends MXMLComponentBaseRenderer {
 			return;
 		}
 		
-		Integer batchColumnDataRetrievalSize = Integer.valueOf(dataGrid.getBatchColumnDataRetrievalSize());
-		String rowCount = dataGrid.getRowCount();
-		
-		if(rowCount != null){
-			int parsedRowCount = Integer.parseInt(rowCount);
-			if(parsedRowCount > batchColumnDataRetrievalSize.intValue()){
-				batchColumnDataRetrievalSize = Integer.valueOf(parsedRowCount);
-			}
-		}
-		
-		int dataEntrySize = dataGrid.getBindingBeanList().size();
-		if(dataEntrySize < batchColumnDataRetrievalSize.intValue()){
-			batchColumnDataRetrievalSize = Integer.valueOf(dataEntrySize);
-		}
-		
-		Integer maxDataPartitionIndex = Integer.valueOf((int) Math.ceil( dataEntrySize / batchColumnDataRetrievalSize.intValue() ));
-		
 		List childrenList = componentObj.getChildren();
 		
 		if(childrenList.size() > 0){
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 			AdditionalApplicationScriptContent additionalAppScriptContent = mxmlContext.getAdditionalAppScriptContent();
-			additionalAppScriptContent.addDataGridScriptContent(dataGridComponentId, batchColumnDataRetrievalSize, maxDataPartitionIndex);
+			additionalAppScriptContent.addDataGridScriptContent(dataGridComponentId, dataGrid.computeBatchColumnDataRetrievalSize(), dataGrid.computeMaxDataPartitionIndex());
 			additionalAppScriptContent.addActionScriptImport(DATA_GRID_SERVICE_REQUEST_IMPORT);
 			
 			for(Iterator iterate = childrenList.iterator(); iterate.hasNext();){

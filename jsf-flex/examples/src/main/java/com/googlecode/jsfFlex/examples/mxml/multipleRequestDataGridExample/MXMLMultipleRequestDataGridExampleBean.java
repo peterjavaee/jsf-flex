@@ -41,7 +41,7 @@ public final class MXMLMultipleRequestDataGridExampleBean implements Serializabl
 		_largeDataEntries = new ArrayList();
 		
 		for(int i=0; i < 500; i++){
-			_largeDataEntries.add(new LargeDataEntry(LARGE_DATA_STRING_DISPLAY_MESSAGE + i, Integer.valueOf(i)));
+			_largeDataEntries.add(new LargeDataEntry(LARGE_DATA_STRING_DISPLAY_MESSAGE + i, Long.valueOf(i)));
 		}
 	}
 	
@@ -57,9 +57,9 @@ public final class MXMLMultipleRequestDataGridExampleBean implements Serializabl
 		private static final long serialVersionUID = 8426305474249836025L;
 		
 		private String _firstColumnEntry;
-		private Integer _secondColumnEntry;
+		private Long _secondColumnEntry;
 		
-		private LargeDataEntry(String firstColumnEntry, Integer secondColumnEntry){
+		private LargeDataEntry(String firstColumnEntry, Long secondColumnEntry){
 			super();
 			_firstColumnEntry = firstColumnEntry;
 			_secondColumnEntry = secondColumnEntry;
@@ -71,10 +71,10 @@ public final class MXMLMultipleRequestDataGridExampleBean implements Serializabl
 		public void setFirstColumnEntry(String firstColumnEntry) {
 			_firstColumnEntry = firstColumnEntry;
 		}
-		public Integer getSecondColumnEntry() {
+		public Long getSecondColumnEntry() {
 			return _secondColumnEntry;
 		}
-		public void setSecondColumnEntry(Integer secondColumnEntry) {
+		public void setSecondColumnEntry(Long secondColumnEntry) {
 			_secondColumnEntry = secondColumnEntry;
 		}
 		

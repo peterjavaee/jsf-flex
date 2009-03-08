@@ -26,10 +26,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import javax.faces.context.FacesContext;
+
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.MXMLUIInputBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataFieldAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
 import com.googlecode.jsfFlex.util.ReflectionHelperUtil;
@@ -40,7 +43,7 @@ import com.googlecode.jsfFlex.util.ReflectionHelperUtil;
  *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIDataGridColumn"
  *   type     = "com.googlecode.jsfFlex.MXMLUIDataGridColumn"
  *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIDataGridColumnTag"
- *   family   = "javax.faces.MXMLSimple"
+ *   family   = "javax.faces.MXMLInput"
  *   defaultRendererType= "com.googlecode.jsfFlex.MXMLDataGridColumn"
  *   
  * @JSFJspProperties
@@ -293,18 +296,24 @@ import com.googlecode.jsfFlex.util.ReflectionHelperUtil;
  * @author Ji Hoon Kim
  */
 public abstract class AbstractMXMLUIDataGridColumn 
-						extends MXMLUISimpleBase 
+						extends MXMLUIInputBase 
 						implements _MXMLUIDataFieldAttribute, _MXMLUIEditableAttribute {
 	
 	private final static Log _log = LogFactory.getLog(AbstractMXMLUIDataGridColumn.class);
-	
-	private static final Class[] UPDATE_DATA_VALUE_PARAMETER_TYPES = new Class[]{ String.class };
 	
 	private static final String REQUEST_KEYS_KEY = "requestKeys";
 	private static final String RESULT_CODE_KEY = "resultCode";
 	
 	private Comparator ascendingComparator;
 	private Comparator descendingComparator;
+	
+	public JSONObject getComponentInitValues(){
+		return null;
+    }
+	
+	protected void populateComponentInitValues(){
+		
+	}
 	
 	public List getFormatedColumnData(List dataGridEntries, int dataStartIndex, int dataEndIndex) {
 		
@@ -313,7 +322,7 @@ public abstract class AbstractMXMLUIDataGridColumn
 		
 		for(int i = dataStartIndex; i < dataEndIndex; i++){
 			Object currDataEntry = dataGridEntries.get(i);
-			Object currDataValue;
+			Object currDataValue = null;
 			
 			try{
 				currDataValue = ReflectionHelperUtil.getValue(currDataEntry, getDataFieldMethodName());
@@ -321,12 +330,14 @@ public abstract class AbstractMXMLUIDataGridColumn
 				StringBuffer errorMessage = new StringBuffer();
 				errorMessage.append("NoSuchMethodException was thrown while invoking method : ");
 				errorMessage.append(getDataFieldMethodName());
-				throw new RuntimeException(errorMessage.toString(), noSuchMethodException);
+				_log.error(errorMessage.toString(), noSuchMethodException);
+				return new LinkedList();
 			}catch(Exception additionalAccessException){
 				StringBuffer errorMessage = new StringBuffer();
 				errorMessage.append("Other exception aside from NoSuchMethodException was thrown while invoking method : ");
 				errorMessage.append(getDataFieldMethodName());
-				throw new RuntimeException(errorMessage.toString(), additionalAccessException);
+				_log.error(errorMessage.toString(), additionalAccessException);
+				return new LinkedList();
 			}
 			
 			String currValue = currDataValue == null ? "" : currDataValue.toString();
@@ -338,9 +349,7 @@ public abstract class AbstractMXMLUIDataGridColumn
 		return formatedColumnData;
 	}
 	
-	public Map updateModifiedDataField(Map requestMap, List dataGridEntries) {
-		
-		final String SET_DATA_FIELD_METHOD_NAME = "set" + getDataField().substring(0, 1).toUpperCase() + getDataField().substring(1);
+	public Map updateModifiedDataField(FacesContext context, Map requestMap, List dataGridEntries) {
 		
 		Map updateResult = new LinkedHashMap();
 		boolean success = true;
@@ -352,37 +361,56 @@ public abstract class AbstractMXMLUIDataGridColumn
 		
 		for(Iterator keyIterator = requestKeyList.iterator(); keyIterator.hasNext();){
 			String currKey = (String) keyIterator.next();
-			String currValue = (String) requestMap.get(currKey);
+			Object currValue = requestMap.get(currKey);
 			
 			int rowIndex;
 			
 			try{
 				rowIndex = Integer.parseInt(currKey);
 			}catch(NumberFormatException parsingException){
-				_log.warn("Error parsing of " + currKey + " to an int", parsingException);
-				continue;
+				_log.error("Error parsing of " + currKey + " to an int", parsingException);
+				success = false;
+				break;
 			}
 			
 			Object currDataEntry = dataGridEntries.get(rowIndex);
+			success = setDataField(context, currDataEntry, currValue);
 			
-			try{
-				ReflectionHelperUtil.invokeMethod(currDataEntry, SET_DATA_FIELD_METHOD_NAME, UPDATE_DATA_VALUE_PARAMETER_TYPES, new Object[]{ currValue });
-			}catch(NoSuchMethodException noSuchMethodException){
-				StringBuffer errorMessage = new StringBuffer();
-				errorMessage.append("NoSuchMethodException was thrown while invoking method : ");
-				errorMessage.append(SET_DATA_FIELD_METHOD_NAME);
-				throw new RuntimeException(errorMessage.toString(), noSuchMethodException);
-			}catch(Exception additionalAccessException){
-				StringBuffer errorMessage = new StringBuffer();
-				errorMessage.append("Other exception aside from NoSuchMethodException was thrown while invoking method : ");
-				errorMessage.append(SET_DATA_FIELD_METHOD_NAME);
-				throw new RuntimeException(errorMessage.toString(), additionalAccessException);
+			if(!success){
+				break;
 			}
 			
 		}
 		
 		updateResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
 		return updateResult;
+	}
+	
+	public boolean setDataField(FacesContext context, Object currDataEntry, Object currValue){
+		
+		final String SET_DATA_FIELD_METHOD_NAME = "set" + getDataField().substring(0, 1).toUpperCase() + getDataField().substring(1);
+		
+		boolean success = true;
+		
+		currValue = getConvertedValue(context, currValue);
+		
+		try{
+			ReflectionHelperUtil.invokeMethod(currDataEntry, SET_DATA_FIELD_METHOD_NAME, new Class[]{ currValue.getClass() }, new Object[]{ currValue });
+		}catch(NoSuchMethodException noSuchMethodException){
+			StringBuffer errorMessage = new StringBuffer();
+			errorMessage.append("NoSuchMethodException was thrown while invoking method : ");
+			errorMessage.append(SET_DATA_FIELD_METHOD_NAME);
+			success = false;
+			_log.error(errorMessage.toString(), noSuchMethodException);
+		}catch(Exception additionalAccessException){
+			StringBuffer errorMessage = new StringBuffer();
+			errorMessage.append("Other exception aside from NoSuchMethodException was thrown while invoking method : ");
+			errorMessage.append(SET_DATA_FIELD_METHOD_NAME);
+			success = false;
+			_log.error(errorMessage.toString(), additionalAccessException);
+		}
+		
+		return success;
 	}
 	
 	private synchronized String getDataFieldMethodName(){

@@ -31,10 +31,13 @@ package com.googlecode.jsfFlex.communication.component
 	import mx.collections.SortField;
 	import mx.controls.DataGrid;
 	import mx.controls.dataGridClasses.DataGridColumn;
+	import mx.core.DragSource;
 	import mx.core.UIComponent;
 	import mx.events.CollectionEvent;
 	import mx.events.CollectionEventKind;
 	import mx.events.DataGridEvent;
+	import mx.events.DragEvent;
+	import mx.managers.DragManager;
 	import mx.rpc.events.ResultEvent;
 	
 	import com.googlecode.jsfFlex.communication.event.helper.ScrollEventHelper;
@@ -45,10 +48,19 @@ package com.googlecode.jsfFlex.communication.component
 	
 	public class DataGridServiceRequest {
 		
+		private static const ADD_DATA_ENTRY_SERVICE_REQUEST_URL:String = WebConstants.WEB_CONTEXT_PATH 
+																			+ "/jsfFlexHttpServiceRequestListener/addDataEntryServiceRequest";
+		private static const REMOVE_DATA_ENTRY_SERVICE_REQUEST_URL:String = WebConstants.WEB_CONTEXT_PATH 
+																			+ "/jsfFlexHttpServiceRequestListener/removeDataEntryServiceRequest";
 		private static const SORT_DATA_ENTRY_SERVICE_REQUEST_URL:String = WebConstants.WEB_CONTEXT_PATH 
 																						+ "/jsfFlexHttpServiceRequestListener/sortDataEntryServiceRequest";
 		
+		private static const ADD_DATA_ENTRY:String = "addDataEntry";
+		private static const REMOVE_DATA_ENTRY:String = "removeDataEntry";
 		private static const SORT_DATA_ENTRY:String = "sortDataEntry";
+		
+		private static const ADD_DATA_ENTRY_DELIM:String = "_";
+		private static const DRAG_SOURCE_DATA:String = "items";
 		
 		private static var _log:ILogger;
 		
@@ -298,6 +310,14 @@ package com.googlecode.jsfFlex.communication.component
 				_dataGridComp.addEventListener(DataGridEvent.HEADER_RELEASE, columnSortListener, false, -10);
 			}
 			
+			if(_dataGridComp.dragEnabled){
+				_dataGridComp.removeEventListener(DragEvent.DRAG_COMPLETE, dragSourceDragCompleteListener);
+			}
+			
+			if(_dataGridComp.dropEnabled){
+				_dataGridComp.addEventListener(DragEvent.DRAG_DROP, dragSourceDragDropListener);
+			}
+			
 			_dataGridComp.addEventListener(DataGridEvent.ITEM_EDIT_END, initialValueListener);
 			_dataGridComp.addEventListener(DataGridEvent.ITEM_EDIT_END, possiblyModifiedValueListener, false, -60);
 			
@@ -309,6 +329,14 @@ package com.googlecode.jsfFlex.communication.component
 				_scrollEventHelper.deActivateListener();
 				
 				_dataGridComp.removeEventListener(DataGridEvent.HEADER_RELEASE, columnSortListener);
+			}
+			
+			if(_dataGridComp.dragEnabled){
+				_dataGridComp.removeEventListener(DragEvent.DRAG_COMPLETE, dragSourceDragCompleteListener);
+			}
+			
+			if(_dataGridComp.dropEnabled){
+				_dataGridComp.removeEventListener(DragEvent.DRAG_DROP, dragSourceDragDropListener);
 			}
 			
 			_dataGridComp.removeEventListener(DataGridEvent.ITEM_EDIT_END, initialValueListener);
@@ -352,10 +380,12 @@ package com.googlecode.jsfFlex.communication.component
 			_scrollEventHelper.resetState(viewScrollPosition);
 		}
 		
-		private function columnSortListener(event:DataGridEvent):void{
+		private function columnSortListener(event:DataGridEvent):void {
 			
 			event.preventDefault();
 			deActivateListener();
+			
+			flushCacheChanges();
 			
 			var sortColumnDataField:String = event.dataField;
 			var scrollPosition:uint = _dataGridComp.verticalScrollPosition;
@@ -363,18 +393,8 @@ package com.googlecode.jsfFlex.communication.component
 			_currColumnSortedAscending = sortColumnDataField == _currColumnSortedDataField ? !_currColumnSortedAscending : _currColumnSortedAscending;
 			_currColumnSortedDataField = sortColumnDataField;
 			
-			/*
-			 * remove all the entries within dataProvider and add empty objects with hidden row index
-			 */
-			_dataGridDataProvider = new ArrayCollection();
+			clearDataGridDataProvider();
 			
-			var hiddenOriginalRowIndex:uint = _currentInitialHalfDataPartitionIndex * _batchColumnDataRetrievalSize;
-			
-			for(var i:uint=0; i < _cacheSize; i++, hiddenOriginalRowIndex++){
-				_dataGridDataProvider.addItem({_hiddenOriginalRowIndex : hiddenOriginalRowIndex});
-			}
-			
-			_dataGridComp.dataProvider = _dataGridDataProvider;
 			_dataGridComp.scrollToIndex(scrollPosition);
 			_scrollEventHelper.resetState(scrollPosition);
 			
@@ -390,7 +410,7 @@ package com.googlecode.jsfFlex.communication.component
 			var sortRequestParameters:Object = new Object();
 			sortRequestParameters.componentId = _dataGridComp.id;
 			sortRequestParameters.methodToInvoke = SORT_DATA_ENTRY;
-			sortRequestParameters.columnIdToSortBy = _dataFieldToDataGridColumnEntriesDictionary[_currColumnSortedDataField].dataGridColumnServiceRequest.columnId;
+			sortRequestParameters.columnDataFieldToSortBy = _currColumnSortedDataField;
 			sortRequestParameters.sortAscending = _currColumnSortedAscending;
 			
 			_jsfFlexHttpServiceRequest.sendHttpRequest(SORT_DATA_ENTRY_SERVICE_REQUEST_URL, this,
@@ -409,7 +429,122 @@ package com.googlecode.jsfFlex.communication.component
 			
 		}
 		
-		private function initialValueListener(event:DataGridEvent):void{
+		private function clearDataGridDataProvider():void {
+			
+			/*
+			 * remove all the entries within dataProvider and add empty objects with hidden row index
+			 */
+			_dataGridDataProvider = new ArrayCollection();
+			
+			var hiddenOriginalRowIndex:uint = _currentInitialHalfDataPartitionIndex * _batchColumnDataRetrievalSize;
+			
+			for(var i:uint=0; i < _cacheSize; i++, hiddenOriginalRowIndex++){
+				_dataGridDataProvider.addItem({_hiddenOriginalRowIndex : hiddenOriginalRowIndex});
+			}
+			
+			_dataGridComp.dataProvider = _dataGridDataProvider;
+			
+		}
+		
+		private function dragSourceDragDropListener(event:DragEvent):void {
+			
+			if(event.action == DragManager.COPY || event.action == DragManager.MOVE){
+				
+				var targetObj:DataGrid = event.currentTarget as DataGrid;
+				
+				flushCacheChanges();
+				
+				var dragSource:DragSource = event.dragSource;
+				var dragSourceEntries:Array = dragSource.dataForFormat(DRAG_SOURCE_DATA) as Array;
+				var dropIndex:int = _dataGridComp.calculateDropIndex(event);
+				
+				/*
+				 * Have the dropIndex, so send the request to add the entries to the backEnd
+				 * [note that one needs to sort the entries before returning]
+				 */
+				var addEntryStartIndex:int = _dataGridDataProvider.getItemAt(dropIndex)._hiddenOriginalRowIndex;
+				var addEntryEndIndex:int = addEntryStartIndex + dragSourceEntries.length;
+				
+				var addDataRequestParameters:Object = new Object();
+				addDataRequestParameters.componentId = _dataGridComp.id;
+				addDataRequestParameters.methodToInvoke = ADD_DATA_ENTRY;
+				addDataRequestParameters.addEntryStartIndex = addEntryStartIndex;
+				addDataRequestParameters.addEntryEndIndex = addEntryEndIndex;
+				addDataRequestParameters.columnDataFieldToSortBy = _currColumnSortedDataField;
+				addDataRequestParameters.sortAscending = _currColumnSortedAscending;
+				
+				for each(var dragSourceEntry:Object in dragSourceEntries){
+					
+					var index:uint = 0;
+					for each(var dataGridColumnEntry:Object in _dataFieldToDataGridColumnEntriesDictionary){
+						
+						addDataRequestParameters[String(dataGridColumnEntry.dataGridColumn.dataField) + ADD_DATA_ENTRY_DELIM + index] = 
+									dragSourceEntry[dataGridColumnEntry.dataGridColumn.dataField];
+					}
+					index++;
+				}
+				
+				_jsfFlexHttpServiceRequest.sendHttpRequest(ADD_DATA_ENTRY_SERVICE_REQUEST_URL, this,
+																function (lastResult:Object, event:ResultEvent):void {
+																	_log.info("Returned from service request : " + ADD_DATA_ENTRY_SERVICE_REQUEST_URL);
+																	var resultCode:String = lastResult.resultCode;
+																	
+																	_log.debug("Result Code for " + ADD_DATA_ENTRY_SERVICE_REQUEST_URL + " is : " + resultCode);
+																	if(resultCode == "true"){
+																		_maxDataPartitionIndex = parseInt(lastResult.maxDataPartitionIndex);
+																		
+																		//now fetch the new data
+																		getDataGridColumnInfo(_currentInitialHalfDataPartitionIndex, 0);
+																		getDataGridColumnInfo((_currentInitialHalfDataPartitionIndex + 1), _batchColumnDataRetrievalSize);
+																	}
+																	
+																}, addDataRequestParameters, JsfFlexHttpService.POST_METHOD, JsfFlexHttpService.FLASH_VARS_RESULT_FORMAT, null);
+				
+			}
+			
+		}
+		
+		private function dragSourceDragCompleteListener(event:DragEvent):void {
+			
+			if(event.action == DragManager.MOVE){
+				
+				var targetObj:DataGrid = event.currentTarget as DataGrid;
+				var selectedIndices:Array = targetObj.selectedIndices;
+				
+				/*
+				 * Moved the entries, so send the request to remove them from the backEnd
+				 */
+				var removeDataRequestParameters:Object = new Object();
+				removeDataRequestParameters.componentId = _dataGridComp.id;
+				removeDataRequestParameters.methodToInvoke = REMOVE_DATA_ENTRY;
+				
+				var deleteIndices:String = "";
+				for(var i:uint=0; i < selectedIndices.length; i++){
+					deleteIndices += _dataGridDataProvider.getItemAt(i)._hiddenOriginalRowIndex + ",";
+				}
+				
+				removeDataRequestParameters.deleteIndices = deleteIndices;
+				
+				_jsfFlexHttpServiceRequest.sendHttpRequest(REMOVE_DATA_ENTRY_SERVICE_REQUEST_URL, this,
+																function (lastResult:Object, event:ResultEvent):void {
+																	_log.info("Returned from service request : " + REMOVE_DATA_ENTRY_SERVICE_REQUEST_URL);
+																	var resultCode:String = lastResult.resultCode;
+																	
+																	_log.debug("Result Code for " + REMOVE_DATA_ENTRY_SERVICE_REQUEST_URL + " is : " + resultCode);
+																	if(resultCode == "true"){
+																		_maxDataPartitionIndex = parseInt(lastResult.maxDataPartitionIndex);
+																		
+																		//now fetch the new data
+																		getDataGridColumnInfo(_currentInitialHalfDataPartitionIndex, 0);
+																		getDataGridColumnInfo((_currentInitialHalfDataPartitionIndex + 1), _batchColumnDataRetrievalSize);
+																	}
+																	
+																}, removeDataRequestParameters, JsfFlexHttpService.POST_METHOD, JsfFlexHttpService.FLASH_VARS_RESULT_FORMAT, null);
+			}
+			
+		}
+		
+		private function initialValueListener(event:DataGridEvent):void {
 			_currDataFieldWithFocus = _dataGridComp.selectedItem[event.dataField];
 		}
 		

@@ -52,7 +52,7 @@ public abstract class AbstractMXMLUIColumns
 		List dataGridColumnComponents = getChildren();
 		for(Iterator iterate = dataGridColumnComponents.iterator(); iterate.hasNext();){
 			AbstractMXMLUIDataGridColumn currDataGridColumnComponent = (AbstractMXMLUIDataGridColumn) iterate.next();
-			dataGridColumnComponentMapping.put(currDataGridColumnComponent.getId(), currDataGridColumnComponent);
+			dataGridColumnComponentMapping.put(currDataGridColumnComponent.getDataField(), currDataGridColumnComponent);
 		}
 		
 	}
