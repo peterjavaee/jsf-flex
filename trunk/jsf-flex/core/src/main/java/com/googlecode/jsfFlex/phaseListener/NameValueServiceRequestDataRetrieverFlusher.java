@@ -35,6 +35,7 @@ final class NameValueServiceRequestDataRetrieverFlusher extends _ServiceRequestD
 	private static final String PLAIN_CONTENT_TYPE = "text/plain";
 	
 	private static final char EQUAL_CHAR = '=';
+	private static final char SEPARATOR_CHAR = '&';
 	
 	NameValueServiceRequestDataRetrieverFlusher(){
 		super();
@@ -59,7 +60,7 @@ final class NameValueServiceRequestDataRetrieverFlusher extends _ServiceRequestD
 			for(Iterator iterate = objectMap.keySet().iterator(); iterate.hasNext();){
 				Object currKey = iterate.next();
 				Object currValue = objectMap.get(currKey);
-				String statementToWrite = currKey.toString() + EQUAL_CHAR + currValue.toString();
+				String statementToWrite = currKey.toString() + EQUAL_CHAR + currValue.toString() + SEPARATOR_CHAR;
 				writer.write(statementToWrite);
 			}
 			

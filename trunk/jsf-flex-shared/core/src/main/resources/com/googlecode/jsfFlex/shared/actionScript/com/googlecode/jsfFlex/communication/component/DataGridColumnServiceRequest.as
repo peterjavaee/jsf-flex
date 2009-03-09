@@ -158,7 +158,7 @@ package com.googlecode.jsfFlex.communication.component
 															function (lastResult:Object, event:ResultEvent):void {
 																_log.info("Returned from service request : " + UPDATE_MODIFIED_DATA_FIELD_SERVICE_REQUEST_URL);
 																var resultCode:String = lastResult.resultCode;
-																_log.debug("Result Code for " + UPDATE_MODIFIED_DATA_FIELD + " is : " + resultCode);
+																_log.info("Result Code for " + UPDATE_MODIFIED_DATA_FIELD + " is : " + resultCode);
 															}, dataRequestParameters, JsfFlexHttpService.POST_METHOD, JsfFlexHttpService.FLASH_VARS_RESULT_FORMAT, null);
 		}
 		

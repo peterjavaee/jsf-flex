@@ -301,6 +301,7 @@ public abstract class AbstractMXMLUIDataGrid
 	private static final String COLUMN_DATA_FIELD_TO_SORT_BY_KEY = "columnDataFieldToSortBy";
 	private static final String SORT_ASCENDING_KEY = "sortAscending";
 	
+	private static final String BATCH_COLUMN_DATA_RETRIEVAL_SIZE = "batchColumnDataRetrievalSize";
 	private static final String MAX_DATA_PARTITION_INDEX = "maxDataPartitionIndex";
 	
 	private static final String ADD_DATA_ENTRY_DELIM = "_";
@@ -440,8 +441,9 @@ public abstract class AbstractMXMLUIDataGrid
 			success = false;
 		}
 		
-		addDataResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
+		addDataResult.put(BATCH_COLUMN_DATA_RETRIEVAL_SIZE, computeBatchColumnDataRetrievalSize());
 		addDataResult.put(MAX_DATA_PARTITION_INDEX, computeMaxDataPartitionIndex());
+		addDataResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
 		return addDataResult;
 	}
 	
@@ -479,8 +481,9 @@ public abstract class AbstractMXMLUIDataGrid
 			
 		}
 		
-		removeDataResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
+		removeDataResult.put(BATCH_COLUMN_DATA_RETRIEVAL_SIZE, computeBatchColumnDataRetrievalSize());
 		removeDataResult.put(MAX_DATA_PARTITION_INDEX, computeMaxDataPartitionIndex());
+		removeDataResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
 		return removeDataResult;
 	}
 	

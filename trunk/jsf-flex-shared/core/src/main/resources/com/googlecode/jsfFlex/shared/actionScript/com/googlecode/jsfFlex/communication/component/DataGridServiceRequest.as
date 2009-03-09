@@ -163,9 +163,11 @@ package com.googlecode.jsfFlex.communication.component
 			
 		}
 		
-		private function resetDataPartitionParameters(maxDataPartitionIndex:uint):void {
+		private function resetDataPartitionParameters(maxDataPartitionIndex:uint, batchColumnDataRetrievalSize:uint):void {
 			
 			_maxDataPartitionIndex = maxDataPartitionIndex;
+			_batchColumnDataRetrievalSize = batchColumnDataRetrievalSize;
+			
 			_dataPartitioned = (_maxDataPartitionIndex > 1);
 			_cacheSize = _dataPartitioned ? (_batchColumnDataRetrievalSize * 2) : _batchColumnDataRetrievalSize;
 			
@@ -408,7 +410,10 @@ package com.googlecode.jsfFlex.communication.component
 			clearDataGridDataProvider();
 			
 			_dataGridComp.scrollToIndex(scrollPosition);
-			_scrollEventHelper.resetState(scrollPosition);
+			
+			if(_dataPartitioned){
+				_scrollEventHelper.resetState(scrollPosition);
+			}
 			
 			/*
 			 * HACK to display the sort arrow
@@ -430,7 +435,7 @@ package com.googlecode.jsfFlex.communication.component
 																_log.info("Returned from service request : " + SORT_DATA_ENTRY_SERVICE_REQUEST_URL);
 																var resultCode:String = lastResult.resultCode;
 																
-																_log.debug("Result Code for " + SORT_DATA_ENTRY_SERVICE_REQUEST_URL + " is : " + resultCode);
+																_log.info("Result Code for " + SORT_DATA_ENTRY_SERVICE_REQUEST_URL + " is : " + resultCode);
 																if(resultCode == "true"){
 																	//now fetch the new data
 																	getDataGridColumnInfo(_currentInitialHalfDataPartitionIndex, 0);
@@ -503,10 +508,11 @@ package com.googlecode.jsfFlex.communication.component
 																	_log.info("Returned from service request : " + ADD_DATA_ENTRY_SERVICE_REQUEST_URL);
 																	var resultCode:String = lastResult.resultCode;
 																	
-																	_log.debug("Result Code for " + ADD_DATA_ENTRY_SERVICE_REQUEST_URL + " is : " + resultCode);
+																	_log.info("Result Code for " + ADD_DATA_ENTRY_SERVICE_REQUEST_URL + " is : " + resultCode);
 																	if(resultCode == "true"){
-																		resetDataPartitionParameters(parseInt(lastResult.maxDataPartitionIndex));
-																		
+																		resetDataPartitionParameters(parseInt(lastResult.maxDataPartitionIndex), 
+																										parseInt(lastResult.batchColumnDataRetrievalSize));
+																		_log.debug("Have reset dataPartition with " + lastResult.maxDataPartitionIndex);
 																		//now fetch the new data
 																		getDataGridColumnInfo(_currentInitialHalfDataPartitionIndex, 0);
 																		
@@ -547,10 +553,12 @@ package com.googlecode.jsfFlex.communication.component
 																	_log.info("Returned from service request : " + REMOVE_DATA_ENTRY_SERVICE_REQUEST_URL);
 																	var resultCode:String = lastResult.resultCode;
 																	
-																	_log.debug("Result Code for " + REMOVE_DATA_ENTRY_SERVICE_REQUEST_URL + " is : " + resultCode);
+																	_log.info("Result Code for " + REMOVE_DATA_ENTRY_SERVICE_REQUEST_URL + " is : " + resultCode);
 																	if(resultCode == "true"){
-																		resetDataPartitionParameters(parseInt(lastResult.maxDataPartitionIndex));
+																		resetDataPartitionParameters(parseInt(lastResult.maxDataPartitionIndex), 
+																										parseInt(lastResult.batchColumnDataRetrievalSize));
 																		
+																		_log.debug("Have reset dataPartition with " + lastResult.maxDataPartitionIndex);
 																		//now fetch the new data
 																		getDataGridColumnInfo(_currentInitialHalfDataPartitionIndex, 0);
 																		
