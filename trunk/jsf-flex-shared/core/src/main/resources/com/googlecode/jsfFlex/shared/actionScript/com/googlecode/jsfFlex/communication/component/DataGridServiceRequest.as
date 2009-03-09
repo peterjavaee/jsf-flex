@@ -147,19 +147,32 @@ package com.googlecode.jsfFlex.communication.component
 				currDataGridColumnEntry.dataGridColumn = dataGridColumn;
 			}
 			
+			_currColumnSortedAscending = true;
+			_currColumnSortedDataField = _dataGridComp.columns[0].dataField;
+			_jsfFlexHttpServiceRequest = new JsfFlexHttpService();
+			
 			getDataGridColumnInfo(_currentInitialHalfDataPartitionIndex, 0);
 			
 			if(_dataPartitioned){
 				
 				//get the second half as well
 				getDataGridColumnInfo((_currentInitialHalfDataPartitionIndex + 1), _batchColumnDataRetrievalSize);
-				
 				_scrollEventHelper = new ScrollEventHelper(_dataGridComp, this, scrollAdditionalDataRetrievalCheck);
 				
-				_currColumnSortedAscending = true;
-				_currColumnSortedDataField = _dataGridComp.columns[0].dataField;
-				_jsfFlexHttpServiceRequest = new JsfFlexHttpService();
 			}
+			
+		}
+		
+		private function resetDataPartitionParameters(maxDataPartitionIndex:uint):void {
+			
+			_maxDataPartitionIndex = maxDataPartitionIndex;
+			_dataPartitioned = (_maxDataPartitionIndex > 1);
+			_cacheSize = _dataPartitioned ? (_batchColumnDataRetrievalSize * 2) : _batchColumnDataRetrievalSize;
+			
+			if(_dataPartitioned && _scrollEventHelper == null){
+				_scrollEventHelper = new ScrollEventHelper(_dataGridComp, this, scrollAdditionalDataRetrievalCheck);
+			}
+			
 		}
 		
 		public function addDataGridColumServiceRequest(dataGridColumnId:String, dataField:String, columnEditable:Boolean):void {
@@ -282,7 +295,6 @@ package com.googlecode.jsfFlex.communication.component
 				
 				if(_dataPartitioned){
 					_scrollEventHelper.resetState(_dataGridComp.verticalScrollPosition);
-					
 				}
 				
 				activateListener();
@@ -306,17 +318,17 @@ package com.googlecode.jsfFlex.communication.component
 			if(_dataPartitioned){
 				_scrollEventHelper.unLockScrollParameters();
 				_scrollEventHelper.activateListener();
-				
-				_dataGridComp.addEventListener(DataGridEvent.HEADER_RELEASE, columnSortListener, false, -10);
 			}
 			
 			if(_dataGridComp.dragEnabled){
-				_dataGridComp.removeEventListener(DragEvent.DRAG_COMPLETE, dragSourceDragCompleteListener);
+				_dataGridComp.addEventListener(DragEvent.DRAG_COMPLETE, dragSourceDragCompleteListener);
 			}
 			
 			if(_dataGridComp.dropEnabled){
 				_dataGridComp.addEventListener(DragEvent.DRAG_DROP, dragSourceDragDropListener);
 			}
+			
+			_dataGridComp.addEventListener(DataGridEvent.HEADER_RELEASE, columnSortListener, false, -10);
 			
 			_dataGridComp.addEventListener(DataGridEvent.ITEM_EDIT_END, initialValueListener);
 			_dataGridComp.addEventListener(DataGridEvent.ITEM_EDIT_END, possiblyModifiedValueListener, false, -60);
@@ -327,8 +339,6 @@ package com.googlecode.jsfFlex.communication.component
 			
 			if(_dataPartitioned){
 				_scrollEventHelper.deActivateListener();
-				
-				_dataGridComp.removeEventListener(DataGridEvent.HEADER_RELEASE, columnSortListener);
 			}
 			
 			if(_dataGridComp.dragEnabled){
@@ -338,6 +348,8 @@ package com.googlecode.jsfFlex.communication.component
 			if(_dataGridComp.dropEnabled){
 				_dataGridComp.removeEventListener(DragEvent.DRAG_DROP, dragSourceDragDropListener);
 			}
+			
+			_dataGridComp.removeEventListener(DataGridEvent.HEADER_RELEASE, columnSortListener);
 			
 			_dataGridComp.removeEventListener(DataGridEvent.ITEM_EDIT_END, initialValueListener);
 			_dataGridComp.removeEventListener(DataGridEvent.ITEM_EDIT_END, possiblyModifiedValueListener);
@@ -422,7 +434,10 @@ package com.googlecode.jsfFlex.communication.component
 																if(resultCode == "true"){
 																	//now fetch the new data
 																	getDataGridColumnInfo(_currentInitialHalfDataPartitionIndex, 0);
-																	getDataGridColumnInfo((_currentInitialHalfDataPartitionIndex + 1), _batchColumnDataRetrievalSize);
+																	
+																	if(_dataPartitioned){
+																		getDataGridColumnInfo((_currentInitialHalfDataPartitionIndex + 1), _batchColumnDataRetrievalSize);
+																	}
 																}
 																
 															}, sortRequestParameters, JsfFlexHttpService.GET_METHOD, JsfFlexHttpService.FLASH_VARS_RESULT_FORMAT, null);
@@ -449,7 +464,6 @@ package com.googlecode.jsfFlex.communication.component
 		private function dragSourceDragDropListener(event:DragEvent):void {
 			
 			if(event.action == DragManager.COPY || event.action == DragManager.MOVE){
-				
 				var targetObj:DataGrid = event.currentTarget as DataGrid;
 				
 				flushCacheChanges();
@@ -462,7 +476,7 @@ package com.googlecode.jsfFlex.communication.component
 				 * Have the dropIndex, so send the request to add the entries to the backEnd
 				 * [note that one needs to sort the entries before returning]
 				 */
-				var addEntryStartIndex:int = _dataGridDataProvider.getItemAt(dropIndex)._hiddenOriginalRowIndex;
+				var addEntryStartIndex:int = _dataGridDataProvider.length > dropIndex ? _dataGridDataProvider.getItemAt(dropIndex)._hiddenOriginalRowIndex : 0;
 				var addEntryEndIndex:int = addEntryStartIndex + dragSourceEntries.length;
 				
 				var addDataRequestParameters:Object = new Object();
@@ -473,9 +487,9 @@ package com.googlecode.jsfFlex.communication.component
 				addDataRequestParameters.columnDataFieldToSortBy = _currColumnSortedDataField;
 				addDataRequestParameters.sortAscending = _currColumnSortedAscending;
 				
+				var index:uint = 0;
 				for each(var dragSourceEntry:Object in dragSourceEntries){
 					
-					var index:uint = 0;
 					for each(var dataGridColumnEntry:Object in _dataFieldToDataGridColumnEntriesDictionary){
 						
 						addDataRequestParameters[String(dataGridColumnEntry.dataGridColumn.dataField) + ADD_DATA_ENTRY_DELIM + index] = 
@@ -491,11 +505,14 @@ package com.googlecode.jsfFlex.communication.component
 																	
 																	_log.debug("Result Code for " + ADD_DATA_ENTRY_SERVICE_REQUEST_URL + " is : " + resultCode);
 																	if(resultCode == "true"){
-																		_maxDataPartitionIndex = parseInt(lastResult.maxDataPartitionIndex);
+																		resetDataPartitionParameters(parseInt(lastResult.maxDataPartitionIndex));
 																		
 																		//now fetch the new data
 																		getDataGridColumnInfo(_currentInitialHalfDataPartitionIndex, 0);
-																		getDataGridColumnInfo((_currentInitialHalfDataPartitionIndex + 1), _batchColumnDataRetrievalSize);
+																		
+																		if(_dataPartitioned){
+																			getDataGridColumnInfo((_currentInitialHalfDataPartitionIndex + 1), _batchColumnDataRetrievalSize);
+																		}
 																	}
 																	
 																}, addDataRequestParameters, JsfFlexHttpService.POST_METHOD, JsfFlexHttpService.FLASH_VARS_RESULT_FORMAT, null);
@@ -532,11 +549,14 @@ package com.googlecode.jsfFlex.communication.component
 																	
 																	_log.debug("Result Code for " + REMOVE_DATA_ENTRY_SERVICE_REQUEST_URL + " is : " + resultCode);
 																	if(resultCode == "true"){
-																		_maxDataPartitionIndex = parseInt(lastResult.maxDataPartitionIndex);
+																		resetDataPartitionParameters(parseInt(lastResult.maxDataPartitionIndex));
 																		
 																		//now fetch the new data
 																		getDataGridColumnInfo(_currentInitialHalfDataPartitionIndex, 0);
-																		getDataGridColumnInfo((_currentInitialHalfDataPartitionIndex + 1), _batchColumnDataRetrievalSize);
+																		
+																		if(_dataPartitioned){
+																			getDataGridColumnInfo((_currentInitialHalfDataPartitionIndex + 1), _batchColumnDataRetrievalSize);
+																		}
 																	}
 																	
 																}, removeDataRequestParameters, JsfFlexHttpService.POST_METHOD, JsfFlexHttpService.FLASH_VARS_RESULT_FORMAT, null);
