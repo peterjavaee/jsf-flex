@@ -290,6 +290,8 @@ public abstract class AbstractMXMLUIDataGrid
 	
 	private final static Log _log = LogFactory.getLog(AbstractMXMLUIDataGrid.class);
 	
+	private static final Integer ZERO_BATCH_COLUMN_DATA_RETRIEVAL_SIZE = Integer.valueOf(0);
+	
 	private static final String COLUMN_DATA_FIELD_KEY = "columnDataField";
 	private static final String RESULT_CODE_KEY = "resultCode";
 	
@@ -408,6 +410,8 @@ public abstract class AbstractMXMLUIDataGrid
 					
 					Object currDataFieldValue = requestMap.get(currDataFieldKey);
 					
+					_log.info("Setting for dataField " + currDataGridColumnDataField + " with value : " + currDataFieldValue + 
+									" in add for class " + beanEntryInstance.getClass().getName());
 					AbstractMXMLUIDataGridColumn currDataGridColumnComponent = (AbstractMXMLUIDataGridColumn) _dataGridColumnComponentMapping.get(currDataGridColumnDataField);
 					currDataGridColumnComponent.setDataField(context, beanEntryInstance, currDataFieldValue);
 					
@@ -534,7 +538,7 @@ public abstract class AbstractMXMLUIDataGrid
 	
 	public Integer computeBatchColumnDataRetrievalSize(){
 		
-		Integer batchColumnDataRetrievalSize = Integer.valueOf(getBatchColumnDataRetrievalSize());
+		Integer batchColumnDataRetrievalSize = getBatchColumnDataRetrievalSize() != null ? Integer.valueOf(getBatchColumnDataRetrievalSize()) : ZERO_BATCH_COLUMN_DATA_RETRIEVAL_SIZE;
 		String rowCount = getRowCount();
 		
 		if(rowCount != null){
@@ -557,7 +561,13 @@ public abstract class AbstractMXMLUIDataGrid
 		int dataEntrySize = getBindingBeanList().size();
 		Integer batchColumnDataRetrievalSize = computeBatchColumnDataRetrievalSize();
 		
-		Integer maxDataPartitionIndex = Integer.valueOf((int) Math.ceil( dataEntrySize / batchColumnDataRetrievalSize.intValue() ));
+		Integer maxDataPartitionIndex = null;
+		
+		if(batchColumnDataRetrievalSize.intValue() > 0){
+			maxDataPartitionIndex = Integer.valueOf((int) Math.ceil( dataEntrySize / batchColumnDataRetrievalSize.intValue() ));
+		}else{
+			maxDataPartitionIndex = ZERO_BATCH_COLUMN_DATA_RETRIEVAL_SIZE;
+		}
 		
 		return maxDataPartitionIndex;
 	}

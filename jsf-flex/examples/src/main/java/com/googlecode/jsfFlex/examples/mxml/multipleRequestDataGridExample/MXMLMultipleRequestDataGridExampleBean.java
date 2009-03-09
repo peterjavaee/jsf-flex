@@ -34,15 +34,18 @@ public final class MXMLMultipleRequestDataGridExampleBean implements Serializabl
 	private static final String LARGE_DATA_STRING_DISPLAY_MESSAGE = "Displaying column data for ";
 	
 	private List _largeDataEntries;
+	private List _largeSecondDataEntries;
 	
 	public MXMLMultipleRequestDataGridExampleBean(){
 		super();
 		
 		_largeDataEntries = new ArrayList();
+		_largeSecondDataEntries = new ArrayList();
 		
 		for(int i=0; i < 500; i++){
 			_largeDataEntries.add(new LargeDataEntry(LARGE_DATA_STRING_DISPLAY_MESSAGE + i, Long.valueOf(i)));
 		}
+		
 	}
 	
 	public List getLargeDataEntries() {
@@ -51,6 +54,12 @@ public final class MXMLMultipleRequestDataGridExampleBean implements Serializabl
 	public void setLargeDataEntries(List largeDataEntries) {
 		_largeDataEntries = largeDataEntries;
 	}
+	public List getLargeSecondDataEntries() {
+		return _largeSecondDataEntries;
+	}
+	public void setLargeSecondDataEntries(List largeSecondDataEntries) {
+		_largeSecondDataEntries = largeSecondDataEntries;
+	}
 	
 	public final static class LargeDataEntry implements Serializable {
 		
@@ -58,6 +67,15 @@ public final class MXMLMultipleRequestDataGridExampleBean implements Serializabl
 		
 		private String _firstColumnEntry;
 		private Long _secondColumnEntry;
+		
+		/**
+		 * Need to have public modifier, so that it can be instantiated by 
+		 * AbstractMXMLUIDataGrid when data from one DataGrid component is 
+		 * added to an another.
+		 */
+		public LargeDataEntry(){
+			super();
+		}
 		
 		private LargeDataEntry(String firstColumnEntry, Long secondColumnEntry){
 			super();
