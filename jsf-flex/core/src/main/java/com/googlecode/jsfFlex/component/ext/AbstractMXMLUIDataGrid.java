@@ -325,8 +325,7 @@ public abstract class AbstractMXMLUIDataGrid
 		String dataStartIndex = (String) requestMap.get(DATA_START_INDEX_KEY);
 		String dataEndIndex = (String) requestMap.get(DATA_END_INDEX_KEY);
 		
-		_log.info("Requested additional data with dataStartIndex : " + dataStartIndex + 
-						" , dataEndIndex " + dataEndIndex + " for " + columnDataField);
+		_log.info("Requested additional data with dataStartIndex : " + dataStartIndex + " , dataEndIndex : " + dataEndIndex + " for dataField : " + columnDataField);
 		
 		int parsedStartIndex = -1;
 		int parsedEndIndex = -1;
@@ -339,9 +338,11 @@ public abstract class AbstractMXMLUIDataGrid
 			return new LinkedList();
 		}
 		
-		int dataSize = getBindingBeanList().size();
+        int dataSize = getBindingBeanList().size();
 		parsedEndIndex = parsedEndIndex < dataSize ? parsedEndIndex : dataSize;
 		
+        _log.debug("Parsed start + end index are [ " + parsedStartIndex + ", " + parsedEndIndex + " ] with dataSize : " + dataSize);
+        
 		AbstractMXMLUIDataGridColumn dataGridColumnComponent = (AbstractMXMLUIDataGridColumn) _dataGridColumnComponentMapping.get(columnDataField);
 		
 		List formatedColumnData;
@@ -361,13 +362,15 @@ public abstract class AbstractMXMLUIDataGrid
 		String columnDataField = (String) requestMap.get(COLUMN_DATA_FIELD_KEY);
 		AbstractMXMLUIDataGridColumn dataGridColumnComponent = (AbstractMXMLUIDataGridColumn) _dataGridColumnComponentMapping.get(columnDataField);
 		
+        _log.info("Update requested for dataField : " + columnDataField);
+        
 		Map updateResult;
 		
 		synchronized(getBindingBeanList()){
 			updateResult = dataGridColumnComponent.updateModifiedDataField(context, requestMap, getBindingBeanList());
 		}
 		
-		return updateResult;
+        return updateResult;
 	}
 	
 	public Map addDataEntry(){
@@ -396,6 +399,8 @@ public abstract class AbstractMXMLUIDataGrid
 			return addDataResult;
 		}
 		
+        _log.info("Parsed add entry start + end index are [ " + parsedAddEntryStartIndex + ", " + parsedAddEntryEndIndex + " ]");
+        
 		try{
 			Class beanEntryClass = Class.forName(BEAN_ENTRY_CLASS_NAME);
 			Object beanEntryInstance;
@@ -411,8 +416,8 @@ public abstract class AbstractMXMLUIDataGrid
 					
 					Object currDataFieldValue = requestMap.get(currDataFieldKey);
 					
-					_log.info("Setting for dataField " + currDataGridColumnDataField + " with value : " + currDataFieldValue + 
-									" in add for class " + beanEntryInstance.getClass().getName());
+					_log.debug("Setting dataField : " + currDataGridColumnDataField + " with value : " + currDataFieldValue + 
+									" for class : " + beanEntryInstance.getClass().getName());
 					AbstractMXMLUIDataGridColumn currDataGridColumnComponent = (AbstractMXMLUIDataGridColumn) _dataGridColumnComponentMapping.get(currDataGridColumnDataField);
 					currDataGridColumnComponent.setDataField(context, beanEntryInstance, currDataFieldValue);
 					
@@ -435,14 +440,22 @@ public abstract class AbstractMXMLUIDataGrid
 			success = false;
 		}
 		
+        _log.info("Success result code after adding the entries to bindingBeanList is : " + success);
+        
 		Map sortDataResult = sortDataEntry();
 		Boolean sortResult = (Boolean) sortDataResult.get(RESULT_CODE_KEY);
 		if(!sortResult.booleanValue()){
 			success = false;
 		}
 		
-		addDataResult.put(BATCH_COLUMN_DATA_RETRIEVAL_SIZE, computeBatchColumnDataRetrievalSize());
-		addDataResult.put(MAX_DATA_PARTITION_INDEX, computeMaxDataPartitionIndex());
+        Integer batchColumnDataRetrievalSize = computeBatchColumnDataRetrievalSize();
+        Integer maxDataPartitionIndex = computeMaxDataPartitionIndex();
+        
+        _log.info("Returning reset values of batchColumnDataRetrievalSize + maxDataPartitionIndex are [ " + 
+                        batchColumnDataRetrievalSize + ", " + maxDataPartitionIndex + "]");
+        
+        addDataResult.put(BATCH_COLUMN_DATA_RETRIEVAL_SIZE, batchColumnDataRetrievalSize);
+		addDataResult.put(MAX_DATA_PARTITION_INDEX, maxDataPartitionIndex);
 		addDataResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
 		return addDataResult;
 	}
@@ -456,8 +469,10 @@ public abstract class AbstractMXMLUIDataGrid
 		Map requestMap = context.getExternalContext().getRequestParameterMap();
 		
 		String deleteIndices = (String) requestMap.get(DELETE_INDICES_KEY);
-		List deleteIndicesList = Arrays.asList(deleteIndices.split(","));
+        List deleteIndicesList = Arrays.asList(deleteIndices.split(","));
 		
+        _log.info("Requested deleteIndices are : " + deleteIndices);
+        
 		synchronized(getBindingBeanList()){
 			
 			for(Iterator iterate = deleteIndicesList.iterator(); iterate.hasNext();){
@@ -476,13 +491,19 @@ public abstract class AbstractMXMLUIDataGrid
 				
 				getBindingBeanList().remove(parsedDeleteIndex);
 				
-				_log.info("Have removed element at " + currDeleteIndex + " for " + getId());
+				_log.debug("Have removed element at : " + currDeleteIndex + " for component : " + getId());
 			}
 			
 		}
 		
-		removeDataResult.put(BATCH_COLUMN_DATA_RETRIEVAL_SIZE, computeBatchColumnDataRetrievalSize());
-		removeDataResult.put(MAX_DATA_PARTITION_INDEX, computeMaxDataPartitionIndex());
+        Integer batchColumnDataRetrievalSize = computeBatchColumnDataRetrievalSize();
+        Integer maxDataPartitionIndex = computeMaxDataPartitionIndex();
+        
+        _log.info("Returning reset values of batchColumnDataRetrievalSize + maxDataPartitionIndex are [ " + 
+                        batchColumnDataRetrievalSize + ", " + maxDataPartitionIndex + "]");
+        
+		removeDataResult.put(BATCH_COLUMN_DATA_RETRIEVAL_SIZE, batchColumnDataRetrievalSize);
+		removeDataResult.put(MAX_DATA_PARTITION_INDEX, maxDataPartitionIndex);
 		removeDataResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
 		return removeDataResult;
 	}
@@ -498,7 +519,7 @@ public abstract class AbstractMXMLUIDataGrid
 		String columnDataFieldToSortBy = (String) requestMap.get(COLUMN_DATA_FIELD_TO_SORT_BY_KEY);
 		boolean sortAscending = Boolean.valueOf((String) requestMap.get(SORT_ASCENDING_KEY)).booleanValue();
 		
-		_log.info("Requested sort of data entries with columnDataFieldToSortBy " + columnDataFieldToSortBy + " sortAscending " + sortAscending);
+		_log.info("Requested sort of data entries with columnDataFieldToSortBy : " + columnDataFieldToSortBy + " sortAscending : " + sortAscending);
 		
 		AbstractMXMLUIDataGridColumn dataGridColumnComponent = (AbstractMXMLUIDataGridColumn) _dataGridColumnComponentMapping.get(columnDataFieldToSortBy);
 		Comparator dataFieldComparator = sortAscending ? dataGridColumnComponent.getAscendingComparator() : 
@@ -508,6 +529,8 @@ public abstract class AbstractMXMLUIDataGrid
 			Collections.sort(getBindingBeanList(), dataFieldComparator);
 		}
 		
+        _log.info("Success result code for sorting is : " + success);
+        
 		sortResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
 		return sortResult;
 	}

@@ -342,10 +342,12 @@ public abstract class AbstractMXMLUIDataGridColumn
 			
 			String currValue = currDataValue == null ? "" : currDataValue.toString();
 			
+			_log.debug("Adding value : " + currValue + " to the to be returned getFormatedColumnData List");
+			
 			formatedColumnData.add(currValue);
 		}
 		
-		_log.info("Returning list of size " + formatedColumnData.size() + " for dataField " + getDataField());
+		_log.info("Returning list of size : " + formatedColumnData.size() + " for dataField : " + getDataField());
 		return formatedColumnData;
 	}
 	
@@ -357,7 +359,7 @@ public abstract class AbstractMXMLUIDataGridColumn
 		String requestKey = (String) requestMap.get(REQUEST_KEYS_KEY);
 		List requestKeyList = Arrays.asList(requestKey.split(","));
 		
-		_log.info("Requested update of data with requestKey : " + requestKey + " for dataField " + getDataField());
+		_log.info("Requested update of data with requestKey : " + requestKey + " for dataField : " + getDataField());
 		
 		for(Iterator keyIterator = requestKeyList.iterator(); keyIterator.hasNext();){
 			String currKey = (String) keyIterator.next();
@@ -376,12 +378,16 @@ public abstract class AbstractMXMLUIDataGridColumn
 			Object currDataEntry = dataGridEntries.get(rowIndex);
 			success = setDataField(context, currDataEntry, currValue);
 			
+			_log.debug("Success result code of : " + success + " when setting value of : " + currValue + " to an instance of : " + currDataEntry.getClass().getName());
+			
 			if(!success){
 				break;
 			}
 			
 		}
 		
+        _log.info("Returning success code of : " + success + " during updateModifiedDataField of : " + getDataField());
+        
 		updateResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
 		return updateResult;
 	}
@@ -393,7 +399,8 @@ public abstract class AbstractMXMLUIDataGridColumn
 		boolean success = true;
 		
 		currValue = getConvertedValue(context, currValue);
-		
+		_log.debug("Converted value's type prior to setting to an instance bean is : " + currValue.getClass().getName());
+        
 		try{
 			ReflectionHelperUtil.invokeMethod(currDataEntry, SET_DATA_FIELD_METHOD_NAME, new Class[]{ currValue.getClass() }, new Object[]{ currValue });
 		}catch(NoSuchMethodException noSuchMethodException){
