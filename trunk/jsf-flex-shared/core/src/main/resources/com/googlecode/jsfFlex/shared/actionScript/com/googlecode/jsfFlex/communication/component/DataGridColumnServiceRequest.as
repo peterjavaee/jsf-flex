@@ -53,7 +53,6 @@ package com.googlecode.jsfFlex.communication.component
 		private var _modifiedDataFieldObjectArray:Array;
 		
 		private var _dataGridServiceRequest:DataGridServiceRequest;
-		private var _jsfFlexHttpServiceRequest:JsfFlexHttpService;
 		private var _clearIntervalRef:uint;
 		
 		{
@@ -70,7 +69,6 @@ package com.googlecode.jsfFlex.communication.component
 			_modifiedDataFieldObjectArray = new Array();
 			
 			_dataGridServiceRequest = dataGridServiceRequest;
-			_jsfFlexHttpServiceRequest = new JsfFlexHttpService();
 			_clearIntervalRef = setInterval( requestCacheChangeFlush, 8000);
 		}
 		
@@ -82,10 +80,14 @@ package com.googlecode.jsfFlex.communication.component
 			dataRequestParameters.dataStartIndex = dataStartIndex;
 			dataRequestParameters.dataEndIndex = dataEndIndex;
 			
-			_jsfFlexHttpServiceRequest.sendHttpRequest(GET_FORMATED_COLUMN_DATA_SERVICE_REQUEST_URL, this,
+			_log.debug("Getting dataColumnInfo for " + _dataGridServiceRequest.dataGridId + " with dataStartIndex : " + dataStartIndex + 
+						", with dataEndIndex : " + dataEndIndex + ", and with populateCacheStartIndex " + populateCacheStartIndex);
+			var jsfFlexHttpServiceRequest:JsfFlexHttpService = new JsfFlexHttpService();
+			jsfFlexHttpServiceRequest.sendHttpRequest(GET_FORMATED_COLUMN_DATA_SERVICE_REQUEST_URL, this,
 															function (lastResult:Object, event:ResultEvent):void {
-																_log.info("Returned from service request : " + GET_FORMATED_COLUMN_DATA_SERVICE_REQUEST_URL);
-																_log.debug("Data returned from servlet : " + lastResult);
+																_log.info("Returned from service request : " + GET_FORMATED_COLUMN_DATA_SERVICE_REQUEST_URL + 
+																			" of " + _dataGridServiceRequest.dataGridId);
+																_log.debug("Data returned from servlet : " + lastResult + " of " + _dataGridServiceRequest.dataGridId);
 																_cachedColumnEntries = new XMLListCollection(new XMLList(lastResult).VALUE);
 																
 																updateColumnDisplayEntries(populateCacheStartIndex);
@@ -154,11 +156,14 @@ package com.googlecode.jsfFlex.communication.component
 			}
 			dataRequestParameters.requestKeys = requestKeys;
 			
-			_jsfFlexHttpServiceRequest.sendHttpRequest(UPDATE_MODIFIED_DATA_FIELD_SERVICE_REQUEST_URL, this,
+			var jsfFlexHttpServiceRequest:JsfFlexHttpService = new JsfFlexHttpService();
+			jsfFlexHttpServiceRequest.sendHttpRequest(UPDATE_MODIFIED_DATA_FIELD_SERVICE_REQUEST_URL, this,
 															function (lastResult:Object, event:ResultEvent):void {
-																_log.info("Returned from service request : " + UPDATE_MODIFIED_DATA_FIELD_SERVICE_REQUEST_URL);
+																_log.info("Returned from service request : " + UPDATE_MODIFIED_DATA_FIELD_SERVICE_REQUEST_URL + 
+																			" of " + _dataGridServiceRequest.dataGridId);
 																var resultCode:String = lastResult.resultCode;
-																_log.info("Result Code for " + UPDATE_MODIFIED_DATA_FIELD + " is : " + resultCode);
+																_log.info("Result Code for " + UPDATE_MODIFIED_DATA_FIELD + " is : " + resultCode + 
+																			" of " + _dataGridServiceRequest.dataGridId);
 															}, dataRequestParameters, JsfFlexHttpService.POST_METHOD, JsfFlexHttpService.FLASH_VARS_RESULT_FORMAT, null);
 		}
 		
