@@ -74,6 +74,7 @@ package com.googlecode.jsfFlex.communication.component
 		 * additional data from the server side if _dataPartitioned is set to true
 		 */
 		private var _checkingScrollState:Boolean;
+		private var _scrollEnabled:Boolean;
 		private var _scrollEventHelper:ScrollEventHelper;
 		
 		/*
@@ -113,22 +114,12 @@ package com.googlecode.jsfFlex.communication.component
 			_dataGridComp.variableRowHeight = true;
 			_dataGridCompEditable = _dataGridComp.editable;
 			
+			_dataFieldToDataGridColumnEntriesDictionary = new Dictionary();
+			
 			/*
 			 * Internal setting of the fields for possible dataPartitioning 
 			 */
 			resetDataPartitionParameters(maxDataPartitionIndex, batchColumnDataRetrievalSize);
-			
-			/*
-			 * Internal properties needed by DataGridServiceRequest
-			 */
-			
-			_dataFieldToDataGridColumnEntriesDictionary = new Dictionary();
-			
-			_dataGridDataProvider = new ArrayCollection();
-			for(var i:uint = 0; i < _cacheSize; i++){
-				_dataGridDataProvider.addItem({_hiddenOriginalRowIndex : i});
-			}
-			_dataGridComp.dataProvider = _dataGridDataProvider;
 		}
 		
 		/*
@@ -160,12 +151,32 @@ package com.googlecode.jsfFlex.communication.component
 			_maxDataPartitionIndex = maxDataPartitionIndex;
 			_batchColumnDataRetrievalSize = batchColumnDataRetrievalSize;
 			
-			_dataPartitioned = (_maxDataPartitionIndex > 1);
+			_dataPartitioned = _maxDataPartitionIndex > 0;
 			_cacheSize = _dataPartitioned ? (_batchColumnDataRetrievalSize * 2) : _batchColumnDataRetrievalSize;
 			
-			if(_dataPartitioned && _scrollEventHelper == null){
+			_scrollEnabled = _maxDataPartitionIndex > 1;
+			if(_scrollEnabled && _scrollEventHelper == null){
 				_scrollEventHelper = new ScrollEventHelper(_dataGridComp, this, scrollAdditionalDataRetrievalCheck);
+				_log.debug("Have instantiated ScrollEventHelper");
 			}
+			
+			clearDataGridDataProvider();
+		}
+		
+		private function clearDataGridDataProvider():void {
+			
+			/*
+			 * remove all the entries within dataProvider and add empty objects with hidden row index
+			 */
+			_dataGridDataProvider = new ArrayCollection();
+			
+			var hiddenOriginalRowIndex:uint = _currentInitialHalfDataPartitionIndex * _batchColumnDataRetrievalSize;
+			
+			for(var i:uint=0; i < _cacheSize; i++, hiddenOriginalRowIndex++){
+				_dataGridDataProvider.addItem({_hiddenOriginalRowIndex : hiddenOriginalRowIndex});
+			}
+			
+			_dataGridComp.dataProvider = _dataGridDataProvider;
 			
 		}
 		
@@ -291,7 +302,8 @@ package com.googlecode.jsfFlex.communication.component
 			if(_numberOfWaitingColumnDataInfo == 0){
 				//start listening for changes if editable
 				
-				if(_dataPartitioned){
+				_log.info("All data request returned so activating listener for " + _dataGridComp.id);
+				if(_scrollEnabled){
 					_scrollEventHelper.resetState(_dataGridComp.verticalScrollPosition);
 				}
 				
@@ -313,7 +325,7 @@ package com.googlecode.jsfFlex.communication.component
 		
 		private function activateListener():void {
 			
-			if(_dataPartitioned){
+			if(_scrollEnabled){
 				_scrollEventHelper.unLockScrollParameters();
 				_scrollEventHelper.activateListener();
 			}
@@ -335,7 +347,7 @@ package com.googlecode.jsfFlex.communication.component
 		
 		private function deActivateListener():void {
 			
-			if(_dataPartitioned){
+			if(_scrollEnabled){
 				_scrollEventHelper.deActivateListener();
 			}
 			
@@ -407,7 +419,7 @@ package com.googlecode.jsfFlex.communication.component
 			
 			_dataGridComp.scrollToIndex(scrollPosition);
 			
-			if(_dataPartitioned){
+			if(_scrollEnabled){
 				_scrollEventHelper.resetState(scrollPosition);
 			}
 			
@@ -449,26 +461,16 @@ package com.googlecode.jsfFlex.communication.component
 			
 		}
 		
-		private function clearDataGridDataProvider():void {
-			
-			/*
-			 * remove all the entries within dataProvider and add empty objects with hidden row index
-			 */
-			_dataGridDataProvider = new ArrayCollection();
-			
-			var hiddenOriginalRowIndex:uint = _currentInitialHalfDataPartitionIndex * _batchColumnDataRetrievalSize;
-			
-			for(var i:uint=0; i < _cacheSize; i++, hiddenOriginalRowIndex++){
-				_dataGridDataProvider.addItem({_hiddenOriginalRowIndex : hiddenOriginalRowIndex});
-			}
-			
-			_dataGridComp.dataProvider = _dataGridDataProvider;
-			
-		}
-		
 		private function dragSourceDragDropListener(event:DragEvent):void {
 			
 			if(event.action == DragManager.COPY || event.action == DragManager.MOVE){
+				event.preventDefault();
+				
+				switch(event.action){
+					case DragManager.MOVE : DragManager.showFeedback(DragManager.MOVE); break;
+					case DragManager.COPY : DragManager.showFeedback(DragManager.COPY); break;
+				}
+				
 				var targetObj:DataGrid = event.currentTarget as DataGrid;
 				
 				flushCacheChanges();
@@ -517,8 +519,8 @@ package com.googlecode.jsfFlex.communication.component
 																	if(resultCode == "true"){
 																		resetDataPartitionParameters(parseInt(lastResult.maxDataPartitionIndex), 
 																										parseInt(lastResult.batchColumnDataRetrievalSize));
-																		_log.debug("Have reset dataPartition with maxDataPartitionIndex : " + lastResult.maxDataPartitionIndex + 
-																					" of " + _dataGridComp.id);
+																		_log.debug("Have reset maxDataPartitionIndex : " + _maxDataPartitionIndex + " _batchColumnDataRetrievalSize : " +
+																					_batchColumnDataRetrievalSize + " of " + _dataGridComp.id);
 																		//now fetch the new data
 																		getDataGridColumnInfo(_currentInitialHalfDataPartitionIndex, 0);
 																		
@@ -536,6 +538,9 @@ package com.googlecode.jsfFlex.communication.component
 		private function dragSourceDragCompleteListener(event:DragEvent):void {
 			
 			if(event.action == DragManager.MOVE){
+				event.preventDefault();
+				
+				DragManager.showFeedback(DragManager.MOVE);
 				
 				var targetObj:DataGrid = event.currentTarget as DataGrid;
 				var selectedIndices:Array = targetObj.selectedIndices;
@@ -568,8 +573,8 @@ package com.googlecode.jsfFlex.communication.component
 																		resetDataPartitionParameters(parseInt(lastResult.maxDataPartitionIndex), 
 																										parseInt(lastResult.batchColumnDataRetrievalSize));
 																		
-																		_log.debug("Have reset dataPartition with maxDataPartitionIndex : " + lastResult.maxDataPartitionIndex + 
-																					" of " + _dataGridComp.id);
+																		_log.debug("Have reset maxDataPartitionIndex : " + _maxDataPartitionIndex + " _batchColumnDataRetrievalSize : " +
+																					_batchColumnDataRetrievalSize + " of " + _dataGridComp.id);
 																		//now fetch the new data
 																		getDataGridColumnInfo(_currentInitialHalfDataPartitionIndex, 0);
 																		
