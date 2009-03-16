@@ -49,7 +49,6 @@ package com.googlecode.jsfFlex.communication.component
 		private var _dataField:String;
 		private var _dataGridColumnEditable:Boolean;
 		
-		private var _cachedColumnEntries:ListCollectionView;
 		private var _modifiedDataFieldObjectArray:Array;
 		
 		private var _dataGridServiceRequest:DataGridServiceRequest;
@@ -80,7 +79,7 @@ package com.googlecode.jsfFlex.communication.component
 			dataRequestParameters.dataStartIndex = dataStartIndex;
 			dataRequestParameters.dataEndIndex = dataEndIndex;
 			
-			_log.debug("Getting dataColumnInfo for " + _dataGridServiceRequest.dataGridId + " with dataStartIndex : " + dataStartIndex + 
+			_log.info("Getting dataColumnInfo for " + _dataGridServiceRequest.dataGridId + " with dataStartIndex : " + dataStartIndex + 
 						", with dataEndIndex : " + dataEndIndex + ", and with populateCacheStartIndex " + populateCacheStartIndex);
 			var jsfFlexHttpServiceRequest:JsfFlexHttpService = new JsfFlexHttpService();
 			jsfFlexHttpServiceRequest.sendHttpRequest(GET_FORMATED_COLUMN_DATA_SERVICE_REQUEST_URL, this,
@@ -88,32 +87,31 @@ package com.googlecode.jsfFlex.communication.component
 																_log.info("Returned from service request : " + GET_FORMATED_COLUMN_DATA_SERVICE_REQUEST_URL + 
 																			" of " + _dataGridServiceRequest.dataGridId);
 																_log.debug("Data returned from servlet : " + lastResult + " of " + _dataGridServiceRequest.dataGridId);
-																_cachedColumnEntries = new XMLListCollection(new XMLList(lastResult).VALUE);
 																
-																updateColumnDisplayEntries(populateCacheStartIndex);
+																updateColumnDisplayEntries(new XMLListCollection(new XMLList(lastResult).VALUE), populateCacheStartIndex);
 																
 																_dataGridServiceRequest.notifyRetrievalOfColumnData();
 															}, dataRequestParameters, JsfFlexHttpService.GET_METHOD, JsfFlexHttpService.E4X_RESULT_FORMAT, null);
 			
 		}
 		
-		internal function updateColumnDisplayEntries(populateCacheStartIndex:uint):void {
+		internal function updateColumnDisplayEntries(columnEntries:ListCollectionView, populateCacheStartIndex:uint):void {
 			var dataGridDataProvider:ListCollectionView = _dataGridServiceRequest.dataGridDataProvider;
 			
 			var k:uint = 0;
-			for(; k < _cachedColumnEntries.length; k++, populateCacheStartIndex++){
+			for(; k < columnEntries.length; k++, populateCacheStartIndex++){
 				var currObject:Object = dataGridDataProvider.getItemAt(populateCacheStartIndex);
-				currObject[_dataField] = _cachedColumnEntries.getItemAt(k).toString();
+				currObject[_dataField] = columnEntries.getItemAt(k).toString();
 			}
 			
 			/*
-			 * if _cachedColumnEntries length < batchColumnDataRetrievalSize,
+			 * if columnEntries length < batchColumnDataRetrievalSize,
 			 * must populate the remaining entries with empty data
 			 */
 			for(; k < _dataGridServiceRequest.batchColumnDataRetrievalSize; k++){
 				dataGridDataProvider.setItemAt(new Object(), k);
 			}
-			_cachedColumnEntries = null;
+			
 		}
 		
 		internal function flushCacheChanges():void {

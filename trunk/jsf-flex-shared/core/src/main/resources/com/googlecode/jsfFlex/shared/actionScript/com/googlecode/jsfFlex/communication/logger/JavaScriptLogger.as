@@ -36,7 +36,9 @@ package com.googlecode.jsfFlex.communication.logger
 		
 		public function JavaScriptLogger(logClass:Class) {
 			super(logClass);
-			CLASS_NAME = getQualifiedClassName(logClass);
+			var packageClassName:String = getQualifiedClassName(logClass);
+			var splittedPackageClassName:Array = packageClassName.split(CLASS_NAME_DELIM);
+			CLASS_NAME = splittedPackageClassName != null && splittedPackageClassName.length > 0 ? splittedPackageClassName[splittedPackageClassName.length - 1] : packageClassName;
 		}
 		
 		override public function logMessage(message:String, severity:int):void {
