@@ -187,8 +187,8 @@ package com.googlecode.jsfFlex.communication.component
 																					dataGridColumnEditable, this);
 			
 			_dataFieldToDataGridColumnEntriesDictionary[dataField] = {dataGridColumnServiceRequest: dataGridColumnServiceRequest, dataGridColumn: null };
-			_log.log("Added dataGridColumnId : " + dataGridColumnId + " for dataField : " + dataField + 
-						" with columnEditable : " + columnEditable + " to DataGridServiceRequest");
+			_log.debug("Added dataGridColumnId : " + dataGridColumnId + " for dataField : " + dataField + " with columnEditable : " + 
+						columnEditable + " to DataGridServiceRequest");
 		}
 		
 		public function getDataGridColumnInfo(dataFetchPartitionIndex:uint, populateCacheStartIndex:uint):void {
@@ -272,8 +272,7 @@ package com.googlecode.jsfFlex.communication.component
 				deActivateListener();
 				alterPropertiesForScrollServiceRequest(dataFetchPartitionIndex, viewScrollPosition);
 				var populateCacheStartIndex:uint = !_scrollEventHelper.scrolledDown ? 0 : _batchColumnDataRetrievalSize;
-				_log.debug("Fetching additional data due to scroll with dataFetchPartitionIndex : " + dataFetchPartitionIndex + 
-								" and populateCacheStartIndex : " + populateCacheStartIndex);
+				_log.debug("Fetching additional data due to scroll with dataFetchPartitionIndex : " + dataFetchPartitionIndex + " and populateCacheStartIndex : " + populateCacheStartIndex);
 				getDataGridColumnInfo(dataFetchPartitionIndex, populateCacheStartIndex);
 			}else{
 				_scrollEventHelper.unLockScrollParameters();
@@ -302,7 +301,7 @@ package com.googlecode.jsfFlex.communication.component
 			if(_numberOfWaitingColumnDataInfo == 0){
 				//start listening for changes if editable
 				
-				_log.info("All data request returned so activating listener for " + _dataGridComp.id);
+				_log.debug("All data request returned so activating listener for " + _dataGridComp.id);
 				if(_scrollEnabled){
 					_scrollEventHelper.resetState(_dataGridComp.verticalScrollPosition);
 				}
@@ -442,12 +441,11 @@ package com.googlecode.jsfFlex.communication.component
 			var jsfFlexHttpServiceRequest:JsfFlexHttpService = new JsfFlexHttpService();
 			jsfFlexHttpServiceRequest.sendHttpRequest(SORT_DATA_ENTRY_SERVICE_REQUEST_URL, this,
 															function (lastResult:Object, event:ResultEvent):void {
-																_log.info("Returned from service request : " + SORT_DATA_ENTRY_SERVICE_REQUEST_URL + 
-																			" of " + _dataGridComp.id);
+																
 																var resultCode:String = lastResult.resultCode;
 																
-																_log.info("Result Code for " + SORT_DATA_ENTRY_SERVICE_REQUEST_URL + " is : " + resultCode + 
-																			" of " + _dataGridComp.id);
+																_log.info("Returned from service request : " + SORT_DATA_ENTRY_SERVICE_REQUEST_URL + 
+																			" of " + _dataGridComp.id + " with resultCode : " + resultCode);
 																if(resultCode == "true"){
 																	//now fetch the new data
 																	getDataGridColumnInfo(_currentInitialHalfDataPartitionIndex, 0);
@@ -466,12 +464,8 @@ package com.googlecode.jsfFlex.communication.component
 			if(event.action == DragManager.COPY || event.action == DragManager.MOVE){
 				event.preventDefault();
 				
-				switch(event.action){
-					case DragManager.MOVE : DragManager.showFeedback(DragManager.MOVE); break;
-					case DragManager.COPY : DragManager.showFeedback(DragManager.COPY); break;
-				}
-				
 				var targetObj:DataGrid = event.currentTarget as DataGrid;
+				targetObj.hideDropFeedback(event);
 				
 				flushCacheChanges();
 				
@@ -505,17 +499,15 @@ package com.googlecode.jsfFlex.communication.component
 					index++;
 				}
 				
-				_log.debug("Requesting of addition of data of length : " + dragSourceEntries.length + " at position : " + 
-								addEntryStartIndex + " due to drag + drop event");
+				_log.debug("Requesting of addition of data of length : " + dragSourceEntries.length + " at position : " + addEntryStartIndex + " due to drag + drop event");
 				var jsfFlexHttpServiceRequest:JsfFlexHttpService = new JsfFlexHttpService();
 				jsfFlexHttpServiceRequest.sendHttpRequest(ADD_DATA_ENTRY_SERVICE_REQUEST_URL, this,
 																function (lastResult:Object, event:ResultEvent):void {
-																	_log.info("Returned from service request : " + ADD_DATA_ENTRY_SERVICE_REQUEST_URL + 
-																				" of " + _dataGridComp.id);
+																	
 																	var resultCode:String = lastResult.resultCode;
 																	
-																	_log.info("Result Code for " + ADD_DATA_ENTRY_SERVICE_REQUEST_URL + " is : " + resultCode + 
-																				" of " + _dataGridComp.id);
+																	_log.info("Returned from service request : " + ADD_DATA_ENTRY_SERVICE_REQUEST_URL + 
+																				" of " + _dataGridComp.id + " with resultCode : " + resultCode);
 																	if(resultCode == "true"){
 																		resetDataPartitionParameters(parseInt(lastResult.maxDataPartitionIndex), 
 																										parseInt(lastResult.batchColumnDataRetrievalSize));
@@ -563,12 +555,11 @@ package com.googlecode.jsfFlex.communication.component
 				var jsfFlexHttpServiceRequest:JsfFlexHttpService = new JsfFlexHttpService();
 				jsfFlexHttpServiceRequest.sendHttpRequest(REMOVE_DATA_ENTRY_SERVICE_REQUEST_URL, this,
 																function (lastResult:Object, event:ResultEvent):void {
-																	_log.info("Returned from service request : " + REMOVE_DATA_ENTRY_SERVICE_REQUEST_URL + 
-																				" of " + _dataGridComp.id);
+																	
 																	var resultCode:String = lastResult.resultCode;
 																	
-																	_log.info("Result Code for " + REMOVE_DATA_ENTRY_SERVICE_REQUEST_URL + 
-																				" is : " + resultCode + " of " + _dataGridComp.id);
+																	_log.info("Returned from service request : " + REMOVE_DATA_ENTRY_SERVICE_REQUEST_URL + 
+																				" of " + _dataGridComp.id + " with resultCode : " + resultCode);
 																	if(resultCode == "true"){
 																		resetDataPartitionParameters(parseInt(lastResult.maxDataPartitionIndex), 
 																										parseInt(lastResult.batchColumnDataRetrievalSize));

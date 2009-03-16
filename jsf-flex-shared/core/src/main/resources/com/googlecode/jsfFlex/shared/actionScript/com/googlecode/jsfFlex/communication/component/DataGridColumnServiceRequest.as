@@ -79,14 +79,14 @@ package com.googlecode.jsfFlex.communication.component
 			dataRequestParameters.dataStartIndex = dataStartIndex;
 			dataRequestParameters.dataEndIndex = dataEndIndex;
 			
-			_log.info("Getting dataColumnInfo for " + _dataGridServiceRequest.dataGridId + " with dataStartIndex : " + dataStartIndex + 
+			_log.debug("Getting dataColumnInfo for " + _dataGridServiceRequest.dataGridId + " with dataStartIndex : " + dataStartIndex + 
 						", with dataEndIndex : " + dataEndIndex + ", and with populateCacheStartIndex " + populateCacheStartIndex);
 			var jsfFlexHttpServiceRequest:JsfFlexHttpService = new JsfFlexHttpService();
 			jsfFlexHttpServiceRequest.sendHttpRequest(GET_FORMATED_COLUMN_DATA_SERVICE_REQUEST_URL, this,
 															function (lastResult:Object, event:ResultEvent):void {
 																_log.info("Returned from service request : " + GET_FORMATED_COLUMN_DATA_SERVICE_REQUEST_URL + 
 																			" of " + _dataGridServiceRequest.dataGridId);
-																_log.debug("Data returned from servlet : " + lastResult + " of " + _dataGridServiceRequest.dataGridId);
+																_log.log("Data returned from servlet : " + lastResult + " of " + _dataGridServiceRequest.dataGridId);
 																
 																updateColumnDisplayEntries(new XMLListCollection(new XMLList(lastResult).VALUE), populateCacheStartIndex);
 																
@@ -108,8 +108,8 @@ package com.googlecode.jsfFlex.communication.component
 			 * if columnEntries length < batchColumnDataRetrievalSize,
 			 * must populate the remaining entries with empty data
 			 */
-			for(; k < _dataGridServiceRequest.batchColumnDataRetrievalSize; k++){
-				dataGridDataProvider.setItemAt(new Object(), k);
+			for(; k < _dataGridServiceRequest.batchColumnDataRetrievalSize; k++, populateCacheStartIndex++){
+				dataGridDataProvider.setItemAt(new Object(), populateCacheStartIndex);
 			}
 			
 		}
@@ -157,11 +157,10 @@ package com.googlecode.jsfFlex.communication.component
 			var jsfFlexHttpServiceRequest:JsfFlexHttpService = new JsfFlexHttpService();
 			jsfFlexHttpServiceRequest.sendHttpRequest(UPDATE_MODIFIED_DATA_FIELD_SERVICE_REQUEST_URL, this,
 															function (lastResult:Object, event:ResultEvent):void {
-																_log.info("Returned from service request : " + UPDATE_MODIFIED_DATA_FIELD_SERVICE_REQUEST_URL + 
-																			" of " + _dataGridServiceRequest.dataGridId);
+																
 																var resultCode:String = lastResult.resultCode;
-																_log.info("Result Code for " + UPDATE_MODIFIED_DATA_FIELD + " is : " + resultCode + 
-																			" of " + _dataGridServiceRequest.dataGridId);
+																_log.info("Returned from service request : " + UPDATE_MODIFIED_DATA_FIELD_SERVICE_REQUEST_URL + 
+																			" of " + _dataGridServiceRequest.dataGridId + " with resultCode : " + resultCode);
 															}, dataRequestParameters, JsfFlexHttpService.POST_METHOD, JsfFlexHttpService.FLASH_VARS_RESULT_FORMAT, null);
 		}
 		
