@@ -72,7 +72,7 @@
       	being Error and non-production being Log
       </description>
       <param-name>com.googlecode.jsfFlex.FlashToJavaScriptLogLevel</param-name>
-      <param-value>Info</param-value>
+      <param-value>Debug</param-value>
     </context-param>
     
     <context-param>

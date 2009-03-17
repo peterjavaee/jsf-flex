@@ -68,6 +68,7 @@ package com.googlecode.jsfFlex.communication.component
 		 * Field for tracking modification of values within dataProvider
 		 */
 		private var _currDataFieldWithFocus:String;
+		private var _disableEditPosition:int;
 		
 		/*
 		 * Fields for tracking scroll event, meaning whether to request for 
@@ -201,6 +202,8 @@ package com.googlecode.jsfFlex.communication.component
 			 */
 			_numberOfWaitingColumnDataInfo += _dataGridComp.columns.length;
 			
+			_disableEditPosition = _cacheSize;
+			
 			var dataStartIndex:uint = dataFetchPartitionIndex * _batchColumnDataRetrievalSize;
 			var dataEndIndex:uint = dataStartIndex + _batchColumnDataRetrievalSize;
 			
@@ -223,7 +226,12 @@ package com.googlecode.jsfFlex.communication.component
 			
 			_scrollEventHelper.lockScrollParameters();
 			
-			if(_numberOfWaitingColumnDataInfo > 0 || _checkingScrollState){
+			if(_numberOfWaitingColumnDataInfo > 0 || _checkingScrollState || _dataGridComp.selectedIndices.length > 1){
+				/*
+				 * There will be a condition where additional information will NOT be fetched if selectedIndices is
+				 * greater than 1.  This is because if the user desires drag + drop action, currently selected selectedIndices 
+				 * will be cleared out when fetching for additional data.
+				 */
 				_scrollEventHelper.unLockScrollParameters();
 				return;
 			}
@@ -294,6 +302,10 @@ package com.googlecode.jsfFlex.communication.component
 			return _dataGridComp.id;
 		}
 		
+		internal function set disableEditPosition(disableEditPosition:int):void {
+			_disableEditPosition = disableEditPosition;
+		}
+		
 		internal function notifyRetrievalOfColumnData():void {
 			
 			_numberOfWaitingColumnDataInfo--;
@@ -339,8 +351,13 @@ package com.googlecode.jsfFlex.communication.component
 			
 			_dataGridComp.addEventListener(DataGridEvent.HEADER_RELEASE, columnSortListener, false, -10);
 			
+			_dataGridComp.addEventListener(DataGridEvent.ITEM_EDIT_BEGINNING, itemEditBeginListener);
 			_dataGridComp.addEventListener(DataGridEvent.ITEM_EDIT_END, initialValueListener);
 			_dataGridComp.addEventListener(DataGridEvent.ITEM_EDIT_END, possiblyModifiedValueListener, false, -60);
+			
+			for each(var dataGridColumnEntry:Object in _dataFieldToDataGridColumnEntriesDictionary){
+				dataGridColumnEntry.dataGridColumnServiceRequest.activateRequestCacheChangeFlushListener();
+			}
 			
 		}
 		
@@ -360,8 +377,13 @@ package com.googlecode.jsfFlex.communication.component
 			
 			_dataGridComp.removeEventListener(DataGridEvent.HEADER_RELEASE, columnSortListener);
 			
+			_dataGridComp.removeEventListener(DataGridEvent.ITEM_EDIT_BEGINNING, itemEditBeginListener);
 			_dataGridComp.removeEventListener(DataGridEvent.ITEM_EDIT_END, initialValueListener);
 			_dataGridComp.removeEventListener(DataGridEvent.ITEM_EDIT_END, possiblyModifiedValueListener);
+			
+			for each(var dataGridColumnEntry:Object in _dataFieldToDataGridColumnEntriesDictionary){
+				dataGridColumnEntry.dataGridColumnServiceRequest.deActivateRequestCacheChangeFlushListener();
+			}
 			
 		}
 		
@@ -577,6 +599,13 @@ package com.googlecode.jsfFlex.communication.component
 																}, removeDataRequestParameters, JsfFlexHttpService.POST_METHOD, JsfFlexHttpService.FLASH_VARS_RESULT_FORMAT, null);
 			}
 			
+		}
+		
+		private function itemEditBeginListener(event:DataGridEvent):void {
+			_log.debug("Edit rowIndex is : " + event.rowIndex + " with disableEditPosition : " + _disableEditPosition);
+			if(event.rowIndex >= _disableEditPosition){
+				event.preventDefault();
+			}
 		}
 		
 		private function initialValueListener(event:DataGridEvent):void {
