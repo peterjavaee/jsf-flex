@@ -52,7 +52,7 @@ package com.googlecode.jsfFlex.communication.component
 		private var _modifiedDataFieldObjectArray:Array;
 		
 		private var _dataGridServiceRequest:DataGridServiceRequest;
-		private var _clearIntervalRef:uint;
+		private var _clearIntervalRef:int;
 		
 		{
 			_log = LoggerFactory.newJSLoggerInstance(DataGridColumnServiceRequest);
@@ -68,7 +68,7 @@ package com.googlecode.jsfFlex.communication.component
 			_modifiedDataFieldObjectArray = new Array();
 			
 			_dataGridServiceRequest = dataGridServiceRequest;
-			_clearIntervalRef = setInterval( requestCacheChangeFlush, 8000);
+			_clearIntervalRef = -1;
 		}
 		
 		internal function getDataColumnInfo(dataStartIndex:uint, dataEndIndex:uint, populateCacheStartIndex:uint):void {
@@ -106,17 +106,31 @@ package com.googlecode.jsfFlex.communication.component
 			
 			/*
 			 * if columnEntries length < batchColumnDataRetrievalSize,
-			 * must populate the remaining entries with empty data
+			 * must populate the remaining entries with empty data and 
+			 * set the disableEditPosition for DataGridServiceRequest, so user 
+			 * won't be able to modify the values from thereforth.
 			 */
-			for(; k < _dataGridServiceRequest.batchColumnDataRetrievalSize; k++, populateCacheStartIndex++){
-				dataGridDataProvider.setItemAt(new Object(), populateCacheStartIndex);
+			if(k < _dataGridServiceRequest.batchColumnDataRetrievalSize){
+				_dataGridServiceRequest.disableEditPosition = populateCacheStartIndex;
+				for(; k < _dataGridServiceRequest.batchColumnDataRetrievalSize; k++, populateCacheStartIndex++){
+					dataGridDataProvider.setItemAt(new Object(), populateCacheStartIndex);
+				}
 			}
-			
+		}
+		
+		internal function activateRequestCacheChangeFlushListener():void {
+			if(_clearIntervalRef == -1){
+				_clearIntervalRef = setInterval( requestCacheChangeFlush, 8000);
+			}
+		}
+		
+		internal function deActivateRequestCacheChangeFlushListener():void {
+			clearInterval(_clearIntervalRef);
+			_clearIntervalRef = -1;
 		}
 		
 		internal function flushCacheChanges():void {
 			_log.debug("Was informed to flushCacheChanges explicitly with unflushed cache changes of length : " + _modifiedDataFieldObjectArray.length);
-			clearInterval(_clearIntervalRef);
 			requestCacheChangeFlush();
 		}
 		
