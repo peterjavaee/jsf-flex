@@ -41,8 +41,6 @@ public abstract class _MXMLUISelectedBase
 	
 	private final static org.apache.commons.logging.Log _log = org.apache.commons.logging.LogFactory.getLog(MXMLUISelectedBase.class);
 	
-	private static final javax.faces.convert.BooleanConverter BOOLEAN_CONVERTER = new javax.faces.convert.BooleanConverter();
-	
 	private static final String SELECTED_ID_APPENDED = "_selected";
 	private static final String SELECTED_ATTR = "selected";
 	
@@ -100,13 +98,5 @@ public abstract class _MXMLUISelectedBase
     	}
     	
     }
-	
-	protected Object getConvertedValue(FacesContext context, Object submittedValue) {
-		if(!(submittedValue instanceof String)){
-			return submittedValue;
-		}
-		
-		return BOOLEAN_CONVERTER.getAsObject(context, this, (String) submittedValue);
-	}
 	
 }

@@ -133,7 +133,7 @@
 			<f:verbatim>An example for ControlBar component</f:verbatim>
 		</h:outputLink>
 		<h:outputLink
-			value="dataGridDragDropExample/mxmlMultipleRequestDataGridExample.jsf">
+			value="multipleRequestDataGridExample/mxmlMultipleRequestDataGridExample.jsf">
 			<f:verbatim>An example demonstrating a data grid that performs multiple request for large data that is fetched asynchronously</f:verbatim>
 		</h:outputLink>
 		<h:outputLink value="componentExamples/mxmlDateField.jsf">
@@ -142,7 +142,7 @@
 		<h:outputLink value="componentExamples/mxmlDividedBox.jsf">
 			<f:verbatim>An example for DividedBox component</f:verbatim>
 		</h:outputLink>
-		<h:outputLink value="multipleRequestDataGridExample/mxmlDataGridDragDropExample.jsf">
+		<h:outputLink value="dataGridDragDropExample/mxmlDataGridDragDropExample.jsf">
 			<f:verbatim>An example for Drag + Drop of DataGrid component</f:verbatim>
 		</h:outputLink>
 		<h:outputLink value="componentExamples/mxmlHorizontalList.jsf">

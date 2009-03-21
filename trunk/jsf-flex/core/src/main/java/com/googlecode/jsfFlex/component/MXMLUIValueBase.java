@@ -20,7 +20,6 @@ package com.googlecode.jsfFlex.component;
 
 import java.util.Map;
 
-import javax.el.ValueExpression;
 import javax.faces.context.FacesContext;
 
 import org.apache.commons.logging.Log;
@@ -84,22 +83,6 @@ public abstract class MXMLUIValueBase extends MXMLUIInputBase {
     	}
     	
     }
-	
-	public void processUpdates(FacesContext context) {
-		super.processUpdates(context);
-		
-		if (!isRendered() || !isValid()){
-    		return;
-    	}
-		
-		ValueExpression ve = getValueExpression(VALUE_ATTR);
-		
-		if(ve != null && !ve.isReadOnly(context.getELContext())){
-			ve.setValue(context.getELContext(), getValue());
-			setValue(null);
-		}
-    	
-	}
 	
 	/**
 	 * Current value.
