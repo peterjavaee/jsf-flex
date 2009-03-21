@@ -41,8 +41,6 @@ public abstract class _MXMLUISelectedIndexBase
 
 	private final static org.apache.commons.logging.Log _log = org.apache.commons.logging.LogFactory.getLog(MXMLUISelectedIndexBase.class);
 	
-	private static final javax.faces.convert.IntegerConverter INTEGER_CONVERTER = new javax.faces.convert.IntegerConverter();
-	
 	private static final String SELECTED_INDEX_ID_APPENDED = "_selectedIndex";
 	private static final String SELECTED_INDEX_ATTR = "selectedIndex";
 	
@@ -101,12 +99,4 @@ public abstract class _MXMLUISelectedIndexBase
     	
     }
 	
-	protected Object getConvertedValue(FacesContext context, Object submittedValue) {
-		if(!(submittedValue instanceof String)){
-			return submittedValue;
-		}
-		
-		return INTEGER_CONVERTER.getAsObject(context, this, (String) submittedValue);
-	}
-
 }

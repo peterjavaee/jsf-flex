@@ -6,7 +6,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
   <artifactId>jsf-flex-build-plugIn-main</artifactId>
-  <version>0.9-SNAPSHOT</version>
+  <version>0.9.5-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>JSF-Flex Builder Main Project</name>
   <url>http://code.google.com/p/jsf-flex/</url>
