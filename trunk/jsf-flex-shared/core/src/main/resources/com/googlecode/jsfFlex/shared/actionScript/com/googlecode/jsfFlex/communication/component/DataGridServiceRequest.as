@@ -240,6 +240,7 @@ package com.googlecode.jsfFlex.communication.component
 			
 			var fetchData:Boolean;
 			var dataFetchPartitionIndex:uint;
+			var selectedIndex:int;
 			var viewScrollPosition:int;
 			
 			var cacheIndex:uint = Math.floor( (_scrollEventHelper.verticalScrollPosition / _batchColumnDataRetrievalSize) );
@@ -254,6 +255,7 @@ package com.googlecode.jsfFlex.communication.component
 					_currentInitialHalfDataPartitionIndex++;
 					dataFetchPartitionIndex = currentDataPartitionIndex + 1;
 					
+					selectedIndex = _dataGridComp.selectedIndex - _batchColumnDataRetrievalSize;
 					viewScrollPosition = _dataGridComp.verticalScrollPosition - _batchColumnDataRetrievalSize;
 					fetchData = true;
 				}
@@ -267,6 +269,7 @@ package com.googlecode.jsfFlex.communication.component
 					_currentInitialHalfDataPartitionIndex--;
 					dataFetchPartitionIndex = currentDataPartitionIndex - 1;
 					
+					selectedIndex = _dataGridComp.selectedIndex + _batchColumnDataRetrievalSize;
 					viewScrollPosition = _dataGridComp.verticalScrollPosition + _batchColumnDataRetrievalSize;
 					fetchData = true;
 				}
@@ -278,7 +281,7 @@ package com.googlecode.jsfFlex.communication.component
 				 * be fetched with the other .5 remaining for better user experience
 				 */
 				deActivateListener();
-				alterPropertiesForScrollServiceRequest(dataFetchPartitionIndex, viewScrollPosition);
+				alterPropertiesForScrollServiceRequest(dataFetchPartitionIndex, viewScrollPosition, selectedIndex);
 				var populateCacheStartIndex:uint = !_scrollEventHelper.scrolledDown ? 0 : _batchColumnDataRetrievalSize;
 				_log.debug("Fetching additional data due to scroll with dataFetchPartitionIndex : " + dataFetchPartitionIndex + " and populateCacheStartIndex : " + populateCacheStartIndex);
 				getDataGridColumnInfo(dataFetchPartitionIndex, populateCacheStartIndex);
@@ -314,9 +317,6 @@ package com.googlecode.jsfFlex.communication.component
 				//start listening for changes if editable
 				
 				_log.debug("All data request returned so activating listener for " + _dataGridComp.id);
-				if(_scrollEnabled){
-					_scrollEventHelper.resetState(_dataGridComp.verticalScrollPosition);
-				}
 				
 				activateListener();
 				
@@ -387,7 +387,7 @@ package com.googlecode.jsfFlex.communication.component
 			
 		}
 		
-		private function alterPropertiesForScrollServiceRequest(dataFetchPartitionIndex:uint, viewScrollPosition:int):void {
+		private function alterPropertiesForScrollServiceRequest(dataFetchPartitionIndex:uint, viewScrollPosition:int, selectedIndex:int):void {
 			
 			//disable editing for the DataGrid component
 			_dataGridComp.editable = false;
@@ -421,6 +421,14 @@ package com.googlecode.jsfFlex.communication.component
 			viewScrollPosition = viewScrollPosition < 0 ? 0 : viewScrollPosition;
 			_dataGridComp.scrollToIndex(viewScrollPosition);
 			_scrollEventHelper.resetState(viewScrollPosition);
+			
+			/*
+			 * HACK:
+			 * since need to change the selectedIndex, change to a value that is one less
+			 */
+			selectedIndex--;
+			_dataGridComp.selectedIndex = selectedIndex < 0 ? 0 : selectedIndex;
+			
 		}
 		
 		private function columnSortListener(event:DataGridEvent):void {
