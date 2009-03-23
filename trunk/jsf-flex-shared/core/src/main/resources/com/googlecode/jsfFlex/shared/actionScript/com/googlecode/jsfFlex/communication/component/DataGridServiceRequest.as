@@ -174,14 +174,16 @@ package com.googlecode.jsfFlex.communication.component
 			 */
 			_dataGridDataProvider = new ArrayCollection();
 			
-			var hiddenOriginalRowIndex:uint = _currentInitialHalfDataPartitionIndex * _batchColumnDataRetrievalSize;
-			
-			for(var i:uint=0; i < _cacheSize; i++, hiddenOriginalRowIndex++){
-				_dataGridDataProvider.addItem({_hiddenOriginalRowIndex : hiddenOriginalRowIndex});
+			for(var i:uint=0; i < _cacheSize; i++){
+				_dataGridDataProvider.addItem(new Object());
 			}
 			
 			_dataGridComp.dataProvider = _dataGridDataProvider;
 			
+		}
+		
+		private function computeActualCacheStartIndex():uint {
+			return _currentInitialHalfDataPartitionIndex * _batchColumnDataRetrievalSize;
 		}
 		
 		public function addDataGridColumServiceRequest(dataGridColumnId:String, dataField:String, columnEditable:Boolean):void {
@@ -412,17 +414,15 @@ package com.googlecode.jsfFlex.communication.component
 			/*
 			 * Now add empty elements
 			 */
-			var cacheIndex:uint = dataFetchPartitionIndex * _batchColumnDataRetrievalSize;
-			
 			if(_scrollEventHelper.scrolledDown){
 				
-				for(var i:uint = 0; i < _batchColumnDataRetrievalSize; i++, cacheIndex++){
-					_dataGridDataProvider.addItem({_hiddenOriginalRowIndex : cacheIndex});
+				for(var i:uint = 0; i < _batchColumnDataRetrievalSize; i++){
+					_dataGridDataProvider.addItem(new Object());
 				}
 			}else{
 				
-				for(var k:uint = 0; k < _batchColumnDataRetrievalSize; k++, cacheIndex++){
-					_dataGridDataProvider.addItemAt({_hiddenOriginalRowIndex : cacheIndex}, k);
+				for(var k:uint = 0; k < _batchColumnDataRetrievalSize; k++){
+					_dataGridDataProvider.addItemAt(new Object(), k);
 				}
 			}
 			
@@ -481,7 +481,7 @@ package com.googlecode.jsfFlex.communication.component
 																
 																var resultCode:String = lastResult.resultCode;
 																
-																_log.info("Returned from service request : " + SORT_DATA_ENTRY_SERVICE_REQUEST_URL + 
+																_log.info("Returned from : " + SORT_DATA_ENTRY_SERVICE_REQUEST_URL + 
 																			" of " + _dataGridComp.id + " with resultCode : " + resultCode);
 																if(resultCode == "true"){
 																	//now fetch the new data
@@ -514,7 +514,8 @@ package com.googlecode.jsfFlex.communication.component
 				 * Have the dropIndex, so send the request to add the entries to the backEnd
 				 * [note that one needs to sort the entries before returning]
 				 */
-				var addEntryStartIndex:int = _dataGridDataProvider.length > dropIndex ? _dataGridDataProvider.getItemAt(dropIndex)._hiddenOriginalRowIndex : 0;
+				var currentActualCacheStartIndex:uint = computeActualCacheStartIndex();
+				var addEntryStartIndex:int = _dataGridDataProvider.length > dropIndex ? currentActualCacheStartIndex + dropIndex : 0;
 				var addEntryEndIndex:int = addEntryStartIndex + dragSourceEntries.length;
 				
 				var addDataRequestParameters:Object = new Object();
@@ -543,7 +544,7 @@ package com.googlecode.jsfFlex.communication.component
 																	
 																	var resultCode:String = lastResult.resultCode;
 																	
-																	_log.info("Returned from service request : " + ADD_DATA_ENTRY_SERVICE_REQUEST_URL + 
+																	_log.info("Returned from : " + ADD_DATA_ENTRY_SERVICE_REQUEST_URL + 
 																				" of " + _dataGridComp.id + " with resultCode : " + resultCode);
 																	if(resultCode == "true"){
 																		resetDataPartitionParameters(parseInt(lastResult.maxDataPartitionIndex), 
@@ -581,9 +582,10 @@ package com.googlecode.jsfFlex.communication.component
 				removeDataRequestParameters.componentId = _dataGridComp.id;
 				removeDataRequestParameters.methodToInvoke = REMOVE_DATA_ENTRY;
 				
+				var currentActualCacheStartIndex:uint = computeActualCacheStartIndex();
 				var deleteIndices:String = "";
 				for(var i:uint=0; i < selectedIndices.length; i++){
-					deleteIndices += _dataGridDataProvider.getItemAt(i)._hiddenOriginalRowIndex + ",";
+					deleteIndices += (currentActualCacheStartIndex + i) + ",";
 				}
 				
 				removeDataRequestParameters.deleteIndices = deleteIndices;
@@ -595,7 +597,7 @@ package com.googlecode.jsfFlex.communication.component
 																	
 																	var resultCode:String = lastResult.resultCode;
 																	
-																	_log.info("Returned from service request : " + REMOVE_DATA_ENTRY_SERVICE_REQUEST_URL + 
+																	_log.info("Returned from : " + REMOVE_DATA_ENTRY_SERVICE_REQUEST_URL + 
 																				" of " + _dataGridComp.id + " with resultCode : " + resultCode);
 																	if(resultCode == "true"){
 																		resetDataPartitionParameters(parseInt(lastResult.maxDataPartitionIndex), 
@@ -635,10 +637,10 @@ package com.googlecode.jsfFlex.communication.component
 			}
 			
 			var dataGridColumnServiceRequest:DataGridColumnServiceRequest = _dataFieldToDataGridColumnEntriesDictionary[currDataField].dataGridColumnServiceRequest;
-			var hiddenOriginalRowIndex:uint = _dataGridDataProvider.getItemAt(event.rowIndex)._hiddenOriginalRowIndex;
-			
-			dataGridColumnServiceRequest.addModifiedDataField({originalRowIndex: hiddenOriginalRowIndex, modifiedValue: possiblyUpdatedValue});
-			_log.debug("Added the modified dataField " + possiblyUpdatedValue + " to " + dataGridColumnServiceRequest.columnId);
+			var currentActualCacheStartIndex:uint = computeActualCacheStartIndex();
+			var actualRowIndex = currentActualCacheStartIndex + event.rowIndex;
+			dataGridColumnServiceRequest.addModifiedDataField({actualRowIndex: actualRowIndex, modifiedValue: possiblyUpdatedValue});
+			_log.debug("Added the modified dataField " + possiblyUpdatedValue + "at " + actualRowIndex + " to " + dataGridColumnServiceRequest.columnId);
 		}
 		
 	}
