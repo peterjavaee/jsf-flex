@@ -638,7 +638,7 @@ package com.googlecode.jsfFlex.communication.component
 			
 			var dataGridColumnServiceRequest:DataGridColumnServiceRequest = _dataFieldToDataGridColumnEntriesDictionary[currDataField].dataGridColumnServiceRequest;
 			var currentActualCacheStartIndex:uint = computeActualCacheStartIndex();
-			var actualRowIndex = currentActualCacheStartIndex + event.rowIndex;
+			var actualRowIndex:int = currentActualCacheStartIndex + event.rowIndex;
 			dataGridColumnServiceRequest.addModifiedDataField({actualRowIndex: actualRowIndex, modifiedValue: possiblyUpdatedValue});
 			_log.debug("Added the modified dataField " + possiblyUpdatedValue + "at " + actualRowIndex + " to " + dataGridColumnServiceRequest.columnId);
 		}
