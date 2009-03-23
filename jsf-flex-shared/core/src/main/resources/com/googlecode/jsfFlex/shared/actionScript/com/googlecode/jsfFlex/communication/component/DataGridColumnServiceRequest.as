@@ -84,7 +84,7 @@ package com.googlecode.jsfFlex.communication.component
 			var jsfFlexHttpServiceRequest:JsfFlexHttpService = new JsfFlexHttpService();
 			jsfFlexHttpServiceRequest.sendHttpRequest(GET_FORMATED_COLUMN_DATA_SERVICE_REQUEST_URL, this,
 															function (lastResult:Object, event:ResultEvent):void {
-																_log.info("Returned from service request : " + GET_FORMATED_COLUMN_DATA_SERVICE_REQUEST_URL + 
+																_log.info("Returned from : " + GET_FORMATED_COLUMN_DATA_SERVICE_REQUEST_URL + 
 																			" of " + _dataGridServiceRequest.dataGridId);
 																_log.log("Data returned from servlet : " + lastResult + " of " + _dataGridServiceRequest.dataGridId);
 																
@@ -163,8 +163,8 @@ package com.googlecode.jsfFlex.communication.component
 			var requestKeys:String = "";
 			while(_modifiedDataFieldObjectArray.length > 0){
 				var currModifiedDataFieldObject:Object = _modifiedDataFieldObjectArray.pop();
-				requestKeys += currModifiedDataFieldObject.originalRowIndex + ",";
-				dataRequestParameters[String(currModifiedDataFieldObject.originalRowIndex)] = currModifiedDataFieldObject.modifiedValue;
+				requestKeys += currModifiedDataFieldObject.actualRowIndex + ",";
+				dataRequestParameters[String(currModifiedDataFieldObject.actualRowIndex)] = currModifiedDataFieldObject.modifiedValue;
 			}
 			dataRequestParameters.requestKeys = requestKeys;
 			
@@ -173,7 +173,7 @@ package com.googlecode.jsfFlex.communication.component
 															function (lastResult:Object, event:ResultEvent):void {
 																
 																var resultCode:String = lastResult.resultCode;
-																_log.info("Returned from service request : " + UPDATE_MODIFIED_DATA_FIELD_SERVICE_REQUEST_URL + 
+																_log.info("Returned from : " + UPDATE_MODIFIED_DATA_FIELD_SERVICE_REQUEST_URL + 
 																			" of " + _dataGridServiceRequest.dataGridId + " with resultCode : " + resultCode);
 															}, dataRequestParameters, JsfFlexHttpService.POST_METHOD, JsfFlexHttpService.FLASH_VARS_RESULT_FORMAT, null);
 		}
