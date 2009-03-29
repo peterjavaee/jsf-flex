@@ -51,6 +51,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 	private final static String TO_CREATE_JSF_FLEX_FLASH_APPLICATION_CONFIG_FILE_NAME = "jsfFlexFlashApplicationConfig.xml";
 	private final static String JSF_FLEX_FLASH_APPLICATION_CONFIG_TOKEN = "jsfFlexFlashApplicationConfig";
 	
+    private final static Object lock = new Object();
+    
 	AbstractMXMLResponseWriter(){
 		super();
 	}
@@ -156,43 +158,46 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
 		//now create the MXML file
 		createMXML(componentMXML.getAbsolutePathToPreMxmlFile(), mxmlFile);
 		
-		if(!new File(mxmlContext.getFlexSDKPath()).exists()){
-			makeDirectory(mxmlContext.getFlexSDKPath());
-			unZipArchiveRelative(MXMLConstants.FLEX_SDK_ZIP, mxmlContext.getFlexSDKPath());
-			
-			//copy the necessary ActionScript files over for SWF generation 
-			createSwcSourceFiles(mxmlContext.getSwcPath(), MXMLConstants.getSwcSourceFiles(), 
-										MXMLConstants.JSF_FLEX_MAIN_SWC_CONFIG_FILE, mxmlContext.getWebContextPath());
-			
-			//create the SWC file
-			String loadConfigAbsolutePath = mxmlContext.getSwcPath() + MXMLConstants.JSF_FLEX_MAIN_SWC_CONFIGURATIONFILE;
-			String swcFileLocationPath = mxmlContext.getSwcPath() + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWC_FILE_EXT;
-			createSystemSWCFile(mxmlContext.getSwcPath(), swcFileLocationPath, mxmlContext.getFlexSDKPath(), loadConfigAbsolutePath);
-			
-			/*
-			 * 	copy the necessary swf source files to swfBasePath
-			 * 	these are files such as xml[s] which are used by the system's/above ActionScripts
-			 */
-			createSwfSourceFiles(mxmlContext.getSwfBasePath(), MXMLConstants.getSwfSourceFiles());
-			
-			/*
-			 * unzip the swc's library.swf file and copy it to the swf file for linking with the swf file
-			 */
-			unZipArchiveAbsolute(new File(swcFileLocationPath), mxmlContext.getSwcPath());
-			
-			//copy the library.swf file to swc directory
-			copyFileSet(mxmlContext.getSwcPath(), "**/*.swf", null, mxmlContext.getSwfBasePath());
-			
-			//rename the file from library.swf to jsfFlexMainSwc.swf file
-			String sourceFile = mxmlContext.getSwcPath() + MXMLConstants.DEFAULT_SWC_LIBRARY_SWF_NAME;
-			String destFile = mxmlContext.getSwfBasePath() + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWF_FILE_EXT;
-			
-			renameFile(sourceFile, destFile, true);
-			
-			deleteResources(sourceFile, false);
-		}
-		
-		createJsfFlexFlashApplicationConfigurationFile();
+        synchronized(lock){
+            
+    		if(!new File(mxmlContext.getFlexSDKPath()).exists()){
+    			makeDirectory(mxmlContext.getFlexSDKPath());
+    			unZipArchiveRelative(MXMLConstants.FLEX_SDK_ZIP, mxmlContext.getFlexSDKPath());
+    			
+    			//copy the necessary ActionScript files over for SWF generation 
+    			createSwcSourceFiles(mxmlContext.getSwcPath(), MXMLConstants.getSwcSourceFiles(), 
+    										MXMLConstants.JSF_FLEX_MAIN_SWC_CONFIG_FILE, mxmlContext.getWebContextPath());
+    			
+    			//create the SWC file
+    			String loadConfigAbsolutePath = mxmlContext.getSwcPath() + MXMLConstants.JSF_FLEX_MAIN_SWC_CONFIGURATIONFILE;
+    			String swcFileLocationPath = mxmlContext.getSwcPath() + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWC_FILE_EXT;
+    			createSystemSWCFile(mxmlContext.getSwcPath(), swcFileLocationPath, mxmlContext.getFlexSDKPath(), loadConfigAbsolutePath);
+    			
+    			/*
+    			 * 	copy the necessary swf source files to swfBasePath
+    			 * 	these are files such as xml[s] which are used by the system's/above ActionScripts
+    			 */
+    			createSwfSourceFiles(mxmlContext.getSwfBasePath(), MXMLConstants.getSwfSourceFiles());
+    			
+    			/*
+    			 * unzip the swc's library.swf file and copy it to the swf file for linking with the swf file
+    			 */
+    			unZipArchiveAbsolute(new File(swcFileLocationPath), mxmlContext.getSwcPath());
+    			
+    			//copy the library.swf file to swc directory
+    			copyFileSet(mxmlContext.getSwcPath(), "**/*.swf", null, mxmlContext.getSwfBasePath());
+    			
+    			//rename the file from library.swf to jsfFlexMainSwc.swf file
+    			String sourceFile = mxmlContext.getSwcPath() + MXMLConstants.DEFAULT_SWC_LIBRARY_SWF_NAME;
+    			String destFile = mxmlContext.getSwfBasePath() + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWF_FILE_EXT;
+    			
+    			renameFile(sourceFile, destFile, true);
+    			
+    			deleteResources(sourceFile, false);
+    		}
+            
+            createJsfFlexFlashApplicationConfigurationFile();
+        }
 		
 		//finally the SWF file
 		createSWF(mxmlFile, componentMXML, mxmlContext.getFlexSDKPath(), multiLingualSupportMap, mxmlContext.getLocaleWebContextPath());
