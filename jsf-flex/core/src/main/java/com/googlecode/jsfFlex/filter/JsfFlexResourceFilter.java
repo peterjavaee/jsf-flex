@@ -60,6 +60,8 @@ public final class JsfFlexResourceFilter implements Filter {
 	private static final String META_HTTP_EQUIV_EXPIRE = "<META HTTP-EQUIV='Expires' CONTENT='0' />";
 	private static final String META_HTTP_EQUIV_PRAGMA_NO_CACHE = "<META HTTP-EQUIV='PRAGMA' CONTENT='NO-CACHE' />";
 	private static final String META_HTTP_EQUIV_CACHE_CONTROL_NO_CACHE = "<META HTTP-EQUIV='CACHE-CONTROL' CONTENT='NO-CACHE' />";
+    
+    private static final String DOJO_DJ_CONFIG_IS_DEBUG = "<script type='text/javascript'>var djConfig = {isDebug: true, popup:true };</script>";
 	
 	private static final String REQUEST_FOR_RESOURCE_SEARCH_PATTERN = "%2F" + JsfFlexResource.JSF_FLEX_SCRIPT_RESOURCE_REQUEST_PREFIX + "%2F";
 	
@@ -84,7 +86,7 @@ public final class JsfFlexResourceFilter implements Filter {
 		_filterConfig = filterConfig;
 		Object mode = _filterConfig.getServletContext().getInitParameter(MXMLConstants.CONFIG_MODE_NAME);
 		
-		if(!(mode == null || mode.toString().equals(MXMLConstants.SIMPLY_SWF_MODE) || mode.toString().equals(MXMLConstants.PRODUCTION_MODE))){
+		if(!(mode == null || mode.toString().equals(MXMLConstants.PRODUCTION_MODE))){
 			isDebugMode = true;
 		}
 	}
@@ -141,6 +143,7 @@ public final class JsfFlexResourceFilter implements Filter {
 					actualWriter.write(META_HTTP_EQUIV_EXPIRE);
 					actualWriter.write(META_HTTP_EQUIV_PRAGMA_NO_CACHE);
 					actualWriter.write(META_HTTP_EQUIV_CACHE_CONTROL_NO_CACHE);
+                    actualWriter.write(DOJO_DJ_CONFIG_IS_DEBUG);
 				}
 				
 				Collection resourceCollection = jsfFlexDojoResource.getResources();
@@ -166,6 +169,7 @@ public final class JsfFlexResourceFilter implements Filter {
 						actualWriter.write(META_HTTP_EQUIV_EXPIRE);
 						actualWriter.write(META_HTTP_EQUIV_PRAGMA_NO_CACHE);
 						actualWriter.write(META_HTTP_EQUIV_CACHE_CONTROL_NO_CACHE);
+                        actualWriter.write(DOJO_DJ_CONFIG_IS_DEBUG);
 					}
 					
 					Collection resourceCollection = jsfFlexDojoResource.getResources();

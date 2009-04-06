@@ -55,11 +55,6 @@ if(!com.googlecode.jsfFlex.communication.logger){
 //private namespace
 (function() {
 	function logMessage(message, severity){
-		/*
-		 * For simplicity, currently is supported for FireFox:FireBug only
-		 * TODO: Consider supporting other browsers in the future
-		 */
-		
 		if(console){
 			switch(severity){
 				case 1 :	console.log(message); return;
@@ -69,7 +64,6 @@ if(!com.googlecode.jsfFlex.communication.logger){
 				case 5 :	console.error(message); return;
 			}
 		}else{
-			//at least throw an error for browsers without FireBug
 			if(severity == 5){
 				throw new Error(message);
 			}
