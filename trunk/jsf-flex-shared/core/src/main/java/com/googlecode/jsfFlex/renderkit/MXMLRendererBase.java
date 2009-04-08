@@ -30,6 +30,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.render.Renderer;
 
+import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
@@ -91,7 +92,7 @@ public class MXMLRendererBase extends Renderer {
 				return;
 			}
 			
-			if(parent instanceof _MXMLContract && !(component instanceof com.googlecode.jsfFlex.component.ext.MXMLUIApplication)){
+			if(parent instanceof _MXMLContract && !(component instanceof _MXMLApplicationContract)){
 	    		_MXMLContract mxmlInstance = (_MXMLContract) parent;
 	    		int tempInt = mxmlInstance.getMajorLevel();
 	    		mxmlUIComp.setMajorLevel(++tempInt);
@@ -115,7 +116,7 @@ public class MXMLRendererBase extends Renderer {
 	        	mxmlUIComp.setMinorLevel(counter);
 	        	setPreMxmlIdentifiers(mxmlInstance, mxmlUIComp);
 	    		
-	    	}else if(component instanceof com.googlecode.jsfFlex.component.ext.MXMLUIApplication){
+	    	}else if(component instanceof _MXMLApplicationContract){
 	    		//means that it is not of MXML component, so set the major and minor level to 0
 	    		mxmlUIComp.setMajorLevel(0);
 	    		mxmlUIComp.setMinorLevel(0);
@@ -174,7 +175,7 @@ public class MXMLRendererBase extends Renderer {
 			_MXMLContract mxmlUIComp = (_MXMLContract) component;
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 			
-			if(!(component instanceof com.googlecode.jsfFlex.component.ext.MXMLUIApplication)){
+			if(!(component instanceof _MXMLApplicationContract)){
 				/*
 				 * Ignore the addition of MXMLUIApplication, because MXMLApplication is responsible
 				 * for traversing through the Set and creating the mxml and swf files.

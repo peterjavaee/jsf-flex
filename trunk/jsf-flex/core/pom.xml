@@ -10,7 +10,25 @@
   <artifactId>jsf-flex</artifactId>
   <packaging>jar</packaging>
   <name>JSF-Flex Core</name>
-
+  <description>JSF Flex Core project containing the core JSF components, filters, phaseListeners, and etcetera</description>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+    <license>
+      <name>Mozilla Public License, Version 1.1</name>
+      <url>http://www.mozilla.org/MPL/MPL-1.1.html</url>
+      <distribution>repo</distribution>
+    </license>
+    <license>
+      <name>The "New" BSD License</name>
+      <url>http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L13</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  
   <scm>
     <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/jsf-flex/core</connection>
     <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/jsf-flex/core</developerConnection>
@@ -24,7 +42,13 @@
       <artifactId>jsf-flex-shared</artifactId>
       <scope>compile</scope>
     </dependency>
-        
+    
+    <!-- Just use MyFaces API for dependency -->
+    <dependency>
+      <groupId>org.apache.myfaces.core</groupId>
+      <artifactId>myfaces-api</artifactId>
+    </dependency>
+    
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
@@ -190,76 +214,10 @@
         </executions>
       </plugin>
       
-      
-      <plugin>
-        <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
-        <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
-        <version>${jsf.flex.plugIn.version}</version>
-        <executions>
-          <execution>
-            <id>createMXMLRenderKitFactoryImplWrapperJavaFile</id>
-            <configuration>
-              <mxmlRenderKitFactoryImplWrapperBaseImpl>${mxmlRenderKitFactoryImplWrapperBaseImpl}</mxmlRenderKitFactoryImplWrapperBaseImpl>
-            </configuration>
-            <goals>
-              <goal>createMXMLRenderKitFactoryImplWrapperJavaFile</goal>
-            </goals>
-          </execution>
-          
-          <!-- The below two generated files differ from the above in that they use composition design pattern rather than
-               extending the HTML/Default impl.
-          -->
-          <execution>
-            <id>createMXMLResponseStateManagerImplJavaFile</id>
-            <configuration>
-              <implVersion>${implVersion}</implVersion>
-            </configuration>
-            <goals>
-              <goal>createMXMLResponseStateManagerImplJavaFile</goal>
-            </goals>
-          </execution>
-          <execution>
-            <id>createMXMLResponseWriterImplJavaFile</id>
-            <configuration>
-              <implVersion>${implVersion}</implVersion>
-            </configuration>
-            <goals>
-              <goal>createMXMLResponseWriterImplJavaFile</goal>
-            </goals>
-          </execution>
-        </executions>
-        <dependencies>
-          <dependency>
-            <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
-            <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
-            <version>${jsf.flex.plugIn.version}</version>
-          </dependency>
-        </dependencies>
-      </plugin>
-      
-      <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>build-helper-maven-plugin</artifactId>
-        <version>1.1</version>
-        <executions>
-          <execution>
-            <id>add-source</id>
-            <phase>process-sources</phase>
-            <goals>
-              <goal>add-source</goal>
-            </goals>
-            <configuration>
-              <sources>
-                <source>${basedir}/target/jsfFlex-builder-plugin</source>
-              </sources>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.0</version>
         <executions>
           <execution>
             <id>unpack dojo</id>
@@ -282,39 +240,19 @@
         </executions>
       </plugin>
       
-      <!-- Need Dojo + Dojox [latter mainly for Dictionary, hopefully it will be moved to Dojo soon. 
-           Since the size of War becomes gt 20GiB with all three packages, will remove Dijit which
-           is not needed for now and all the other components of Dojox except for collections. 
-           This is rather VERY ugly, consider implementing this differently later. -->
       <plugin>
         <artifactId>maven-antrun-plugin</artifactId>
           <configuration>
             <tasks>
-              <delete dir="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/dijit"/>
-              
-              <!-- First move dojox/collections to a different location -->
-              <move file="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/dojox/collections" 
-                         todir="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/" />
-              
-              <move file="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/dojox/collections.js" 
-                         todir="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/" />
-              
-              <!-- Now delete all the content under dojox -->
-              <delete dir="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/dojox"/>
-              
-              <!-- Finally move dojox/collections back to its proper location -->
-              <move file="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/collections" 
-                         todir="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/dojox" />
-              
-              <move file="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/collections.js" 
-                         todir="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/dojox" />
-                            
+              <delete includeemptydirs="true">
+                <fileset dir="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/" includes="**/tests/" />
+              </delete>
             </tasks>
           </configuration>
         <executions>
           <execution>
-            <id>removeDijit</id>
-            <phase>process-resources</phase>
+            <id>post-classes</id>
+            <phase>process-classes</phase>
             <goals>
               <goal>run</goal>
             </goals>
@@ -335,77 +273,6 @@
     </plugins>
       
   </build>
-  
-  <profiles>
-    <profile>
-      <id>myfaces-1.2</id>
-      <activation>
-        <property>
-          <name>!jsf</name>
-        </property>
-      </activation>
-      <dependencies>
-        <dependency>
-          <groupId>org.apache.myfaces.core</groupId>
-          <artifactId>myfaces-api</artifactId>
-        </dependency>
-        
-        <dependency>
-          <groupId>org.apache.myfaces.core</groupId>
-          <artifactId>myfaces-impl</artifactId>
-        </dependency>
-        
-        <dependency>
-          <groupId>org.apache.myfaces.shared</groupId>
-          <artifactId>myfaces-shared-impl</artifactId>
-        </dependency>
-      </dependencies>
-      <properties>
-        <mxmlResponseWriterBaseImpl>org.apache.myfaces.shared_impl.renderkit.html.HtmlResponseWriterImpl</mxmlResponseWriterBaseImpl>
-        <mxmlResponseStateManagerBaseImpl>org.apache.myfaces.renderkit.html.HtmlResponseStateManager</mxmlResponseStateManagerBaseImpl>
-        <mxmlRenderKitFactoryImplWrapperBaseImpl>org.apache.myfaces.renderkit.RenderKitFactoryImpl</mxmlRenderKitFactoryImplWrapperBaseImpl>
-        <implVersion>1.2</implVersion>
-      </properties>
-    </profile>
-    
-    <profile>
-      <id>mojarra-1.2</id>
-      <activation>
-        <property>
-          <name>jsf</name>
-          <value>mojarra12</value>
-        </property>
-      </activation>
-      <dependencies>
-        <dependency>
-          <groupId>javax.faces</groupId>
-          <artifactId>jsf-api</artifactId>
-        </dependency> 
-        
-        <dependency>
-          <groupId>javax.faces</groupId>
-          <artifactId>jsf-impl</artifactId>
-        </dependency>
-      </dependencies>      
-      
-      <repositories>
-        <repository>
-          <id>dev.java.net</id>
-          <name>dev.java.net Maven Repository</name>
-          <url>https://maven-repository.dev.java.net/repository/</url>
-          <layout>legacy</layout>
-        </repository>
-      </repositories>
-      
-      <properties>
-        <mxmlResponseWriterBaseImpl>com.sun.faces.renderkit.html_basic.HtmlResponseWriter</mxmlResponseWriterBaseImpl>
-        <mxmlResponseStateManagerBaseImpl>com.sun.faces.renderkit.ResponseStateManagerImpl</mxmlResponseStateManagerBaseImpl>
-        <mxmlRenderKitFactoryImplWrapperBaseImpl>com.sun.faces.renderkit.RenderKitFactoryImpl</mxmlRenderKitFactoryImplWrapperBaseImpl>
-        <implVersion>1.2</implVersion>
-      </properties>
-    </profile>
-    
-  </profiles>
   
   <properties>
     <dojo.version>1.2.0</dojo.version>

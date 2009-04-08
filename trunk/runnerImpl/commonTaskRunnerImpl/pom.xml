@@ -11,6 +11,14 @@
   <artifactId>common-main-runner-project</artifactId>
   <packaging>pom</packaging>
   <name>JSF-Flex Common Task Runner Impl Project</name>
+  <description>JSF Flex Common Task Runner Impl Project contains Java SDK standard common task runner impl project</description>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
   
   <scm>
     <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/runnerImpl/commonTaskRunnerImpl</connection>

@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.renderkit;
+package com.googlecode.jsfFlex.renderkit.mxml;
 
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -40,7 +40,7 @@ public class MXMLRenderKitImplWrapper extends MXMLRenderKitImpl {
 	
 	private final List _additionalRenderKits;
 	
-	public MXMLRenderKitImplWrapper(){
+    public MXMLRenderKitImplWrapper(){
 		super();
 		_additionalRenderKits = new LinkedList();
 	}

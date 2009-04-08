@@ -10,7 +10,15 @@
   <packaging>pom</packaging>
   <name>JSF-Flex Builder Main Project</name>
   <url>http://code.google.com/p/jsf-flex/</url>
-
+  <description>JSF Flex Builder Main Project that contains mojos to create XML for mapping Flex fields to JSF Java components for renderKit14 project and to create componentValueMapper.xml for ComponentValueMapper.as file</description>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  
   <scm>
     <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/jsf-flex-build-plugIn</connection>
     <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/jsf-flex-build-plugIn</developerConnection>

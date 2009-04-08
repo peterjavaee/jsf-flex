@@ -17,7 +17,24 @@
     create the components as normal JSF components and the contribution will create the necessary SWF files and 
     etcetera and link the values of the components back to the managed beans using JSON+Javascript and Actionscript.
   </description>
-
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+    <license>
+      <name>Mozilla Public License, Version 1.1</name>
+      <url>http://www.mozilla.org/MPL/MPL-1.1.html</url>
+      <distribution>repo</distribution>
+    </license>
+    <license>
+      <name>The "New" BSD License</name>
+      <url>http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L13</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  
   <scm>
     <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/jsf-flex</connection>
     <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/jsf-flex</developerConnection>
@@ -47,6 +64,8 @@
   <modules>
     <module>annotations</module>
     <module>core</module>
+    <module>core-myFaces-impl</module>
+    <module>core-mojarra-impl</module>
     <module>examples</module>
     <module>renderKit14</module>
     <module>renderKit15</module>
@@ -67,15 +86,6 @@
       </plugin>    
     </plugins>
   </build>
-  
-  <repositories>
-    <repository>
-      <id>Maven2 Repo1</id>
-      <name>Maven2 Repo1</name>
-      <url>http://repo1.maven.org/maven2</url>
-      <layout>legacy</layout>
-    </repository>
-  </repositories>
   
   <profiles>
     
