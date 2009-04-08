@@ -11,6 +11,24 @@
   <artifactId>jsf-flex-examples</artifactId>
   <packaging>war</packaging>
   <name>JSF-Flex Examples</name>
+  <description>JSF Flex Example WAR project</description>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+    <license>
+      <name>Mozilla Public License, Version 1.1</name>
+      <url>http://www.mozilla.org/MPL/MPL-1.1.html</url>
+      <distribution>repo</distribution>
+    </license>
+    <license>
+      <name>The "New" BSD License</name>
+      <url>http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L13</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
   
   <scm>
     <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/jsf-flex/examples</connection>
@@ -26,6 +44,14 @@
         </property>
       </activation>
       <dependencies>
+        
+        <dependency>
+          <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
+          <artifactId>jsf-flex-myFaces-impl</artifactId>
+          <version>${version}</version>
+          <scope>runtime</scope>
+        </dependency>
+        
         <dependency>
           <groupId>org.apache.myfaces.core</groupId>
           <artifactId>myfaces-api</artifactId>
@@ -71,6 +97,13 @@
         </property>
       </activation>
       <dependencies>
+        <dependency>
+          <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
+          <artifactId>jsf-flex-mojarra-impl</artifactId>
+          <version>${version}</version>
+          <scope>runtime</scope>
+        </dependency>
+        
         <dependency>
           <groupId>javax.faces</groupId>
           <artifactId>jsf-api</artifactId>
@@ -223,9 +256,9 @@
     <dependency>
       <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
       <artifactId>jsf-flex</artifactId>
-      <version>${version}</version>
       <scope>runtime</scope>
     </dependency>
+        
     <dependency>
       <groupId>commons-logging</groupId>
       <artifactId>commons-logging</artifactId>
@@ -243,7 +276,7 @@
     <dependency>
       <groupId>com.sun.facelets</groupId>
       <artifactId>jsf-facelets</artifactId>
-      <version>1.1.14</version>
+      <version>1.1.11</version>
     </dependency> 
   </dependencies>
   
@@ -266,15 +299,6 @@
       </plugin>
     </plugins>
   </build>
-  
-  <repositories>
-    <repository>
-      <id>dev.java.net</id>
-      <name>dev.java.net Maven Repository</name>
-      <url>https://maven-repository.dev.java.net/repository/</url>
-      <layout>legacy</layout>
-    </repository>
-  </repositories>
   
   <properties>
     <jsf.flex.runner.version>0.9.5-SNAPSHOT</jsf.flex.runner.version>

@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.renderkit;
+package com.googlecode.jsfFlex.renderkit.mxml;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -38,7 +38,8 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.renderkit.mxml.MXMLJsfFactory;
+import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseStateManagerImpl;
+import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
 
 /**
  * @author Ji Hoon Kim
@@ -55,7 +56,7 @@ class MXMLRenderKitImpl extends RenderKit {
 	MXMLRenderKitImpl(){
 		super();
 		_renderers = new HashMap();
-		_responseStateManager = MXMLJsfFactory.getMXMLResponseStateManagerImpl();
+		_responseStateManager = new MXMLResponseStateManagerImpl();
 	}
 	
 	public void addRenderer(String family, String rendererType, Renderer renderer) {
@@ -132,7 +133,7 @@ class MXMLRenderKitImpl extends RenderKit {
             characterEncoding = DEFAULT_CHAR_ENCODING;
         }
         
-        AbstractMXMLResponseWriter mxmlResponseWriter = MXMLJsfFactory.getMXMLResponseWriterImpl(writer, selectedContentType, characterEncoding);
+        AbstractMXMLResponseWriter mxmlResponseWriter = new MXMLResponseWriterImpl(writer, selectedContentType, characterEncoding);
         
         return mxmlResponseWriter;
 	}
@@ -202,5 +203,4 @@ class MXMLRenderKitImpl extends RenderKit {
 		
 	}
 	
-
 }

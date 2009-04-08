@@ -11,6 +11,16 @@
   <artifactId>jsf-flex-shared</artifactId>
   <packaging>jar</packaging>
   <name>JSF-FlexShared Core</name>
+  <description>
+    JSF-FlexShared Core provides shared resource for jsf-flex subprojects. Also contains AbstractMXMLResponseStateManager.java, AbstractMXMLResponseWriter.java, and MXMLRendererBase.java due to difference in MyFaces + Mojarra JSF implementation.
+  </description>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
   
   <scm>
     <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/jsf-flex-shared/core</connection>
@@ -18,6 +28,11 @@
   </scm>
 
   <dependencies>
+    <!-- Just use MyFaces API for dependency -->
+    <dependency>
+      <groupId>org.apache.myfaces.core</groupId>
+      <artifactId>myfaces-api</artifactId>
+    </dependency>
     
     <dependency>
       <groupId>org.json</groupId>

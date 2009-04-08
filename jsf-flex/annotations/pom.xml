@@ -11,6 +11,14 @@
   <artifactId>jsf-flex-annotations</artifactId>
   <packaging>jar</packaging>
   <name>JSF Flex Annotations</name>
+  <description>JSF Flex Annotations if using renderkit15 project</description>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
   
   <scm>
     <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/jsf-flex/annotations</connection>
