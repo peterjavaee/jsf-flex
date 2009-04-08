@@ -15,7 +15,7 @@ Contains code pertinent to JSF components. Since the project uses myfaces plug-i
 
 
 ==jsf-flex/core-mojarra-impl==
-Contains following list of classes specific to Mojarra impl as MXML_BASIC renderkit needs to wrap HTML_BASIC renderKit {in order to allow usage mixing of MXML + HTML components}, but there exists a difference in how Mojarra + {{{MyFaces}}} impl adds HTML_BASIC renderkit to the factory :
+Contains following list of classes specific to Mojarra impl as MXML_BASIC renderkit needs to wrap HTML_BASIC renderKit {in order to allow mixing of MXML + HTML components}, but there exists a difference in how Mojarra + {{{MyFaces}}} impl adds HTML_BASIC renderkit to the factory :
  * MXMLRenderKitFactoryImplWrapper.java
  * MXMLRenderKitImpl.java
  * MXMLRenderKitImplWrapper.java
@@ -24,7 +24,7 @@ Contains following list of classes specific to Mojarra impl as MXML_BASIC render
 
 
 ==jsf-flex/core-myFaces-impl==
-Contains following list of classes specific to {{{MyFaces}}} impl as MXML_BASIC renderkit needs to wrap HTML_BASIC renderKit {in order to allow usage mixing of MXML + HTML components}, but there exists a difference in how Mojarra + {{{MyFaces}}} impl adds HTML_BASIC renderkit to the factory :
+Contains following list of classes specific to {{{MyFaces}}} impl as MXML_BASIC renderkit needs to wrap HTML_BASIC renderKit {in order to allow mixing of MXML + HTML components}, but there exists a difference in how Mojarra + {{{MyFaces}}} impl adds HTML_BASIC renderkit to the factory :
  * MXMLRenderKitFactoryImplWrapper.java
  * MXMLRenderKitImpl.java
  * MXMLRenderKitImplWrapper.java
