@@ -20,8 +20,6 @@
 /**
  * @author Ji Hoon Kim
  */
-dojo.require("dojox.collections.Dictionary");
-
 var com;
 
 if(!com){
@@ -55,41 +53,97 @@ if(!com.googlecode.jsfFlex.communication.core){
 }
 
 com.googlecode.jsfFlex.communication.core = {
-	data :		{ 
-					flashAppsKeyNamingContainer: new dojox.collections.Dictionary(),
-					flashAppsKeyAppId: new dojox.collections.Dictionary() 
-				},
-	
-	addFlashApp: function(flashApp){
-					var namingContainerPrefixList = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyNamingContainer.item(flashApp.namingContainerPrefix);
-					if(namingContainerPrefixList == null){
-						namingContainerPrefixList = new Array();
-						com.googlecode.jsfFlex.communication.core.data.flashAppsKeyNamingContainer.add( flashApp.namingContainerPrefix, namingContainerPrefixList );
-					}
-					com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId.add( flashApp.appId, flashApp );
-					namingContainerPrefixList.push(flashApp);
-				 },
-	getApplication:	function(appId){
-						if (navigator.appName.indexOf("Microsoft") != -1) {
-							return document.getElementById(appId);
-						}else{
-							var initialAttempt = document[appId];
-							return initialAttempt ? initialAttempt : document.getElementsByName(appId)[0];
+	data 			:	{ 
+							flashAppsKeyNamingContainer: new Object(),
+							flashAppsKeyAppId: new Object()
+						},
+	addFlashApp		: 	function(flashApp){
+							var namingContainerPrefixList = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyNamingContainer[flashApp.namingContainerPrefix];
+							if(namingContainerPrefixList == null){
+								namingContainerPrefixList = new Array();
+								com.googlecode.jsfFlex.communication.core.data.flashAppsKeyNamingContainer[flashApp.namingContainerPrefix] = namingContainerPrefixList;
+							}
+							com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId[flashApp.appId] = flashApp;
+							namingContainerPrefixList.push(flashApp);
+				 		},
+	getApplication	:	function(appId){
+							if (navigator.appName.indexOf("Microsoft") != -1) {
+								return document.getElementById(appId);
+							}else{
+								var initialAttempt = document[appId];
+								return initialAttempt ? initialAttempt : document.getElementsByName(appId)[0];
+							}
+						},
+	getCompValue	:	function(appId, objectId){
+							var access = com.googlecode.jsfFlex.communication.core.getApplication(appId);
+							if(access == null){
+								throw new Error("appId [" + appId + "] returned a null value during lookup");
+							}
+							var value = null;
+							try{
+								value = access.getCompValue(objectId);
+							}catch(error){
+								com.googlecode.jsfFlex.communication.logger.logMessage("Error while invoking getCompValue for appId, objectId [" + appId + ", " + objectId + "] : " + error, 5);
+							}
+							return value;
 						}
-					},
-	getCompValue:	function(appId, objectId){
-						var access = com.googlecode.jsfFlex.communication.core.getApplication(appId);
-						if(access == null){
-							throw new Error("appId [" + appId + "] returned a null value during lookup");
-						}
-						var value = null;
-						try{
-							value = access.getCompValue(objectId);
-						}catch(error){
-							com.googlecode.jsfFlex.communication.logger.logMessage("Error while invoking getCompValue for appId, objectId [" + appId + ", " + objectId + "] : " + error, 5);
-						}
-						return value;
-					}
+};
+
+if(!com.googlecode.jsfFlex.communication.core.domHelpers){
+    com.googlecode.jsfFlex.communication.core.domHelpers = {};
+}else if(typeof com.googlecode.jsfFlex.communication.core.domHelpers != "object"){
+	throw new Error("com.googlecode.jsfFlex.communication.core.domHelpers exists but is not of type object");
+}
+
+com.googlecode.jsfFlex.communication.core.domHelpers = {
+	addEventListener	:	function(element, eventName, objectInstance, functionListener, arguments, capturing){
+								element = element == null ? window : element;
+								
+								var index = eventName.toUpperCase().indexOf("ON");
+								eventName = index == 0 ? eventName.substring(2) : eventName;
+								
+								var ieEventName = "on" + eventName;
+								if(window.addEventListener){
+									element.addEventListener(eventName, function(event){
+																			functionListener.call(objectInstance, event, arguments);
+																		}, capturing == null ? false : capturing);
+								}else if(window.attachEvent){
+									element.attachEvent(ieEventName, function(event){
+																			functionListener.call(objectInstance, event, arguments);
+																		});
+								}else{
+									if(window.event){
+										var previousIEFunction = element[ieEventName];
+										element[ieEventName] = function(event){
+															functionListener.call(objectInstance, event, arguments);
+															previousIEFunction();
+														};
+									}else{
+										var previousFunction = element[eventName];
+										element[eventName] = function(event){
+																functionListener.call(objectInstance, event, arguments);
+																previousFunction();
+															};
+									}
+								}
+							},
+	getEvent			:	function(event){
+								return (window.event) ? window.event : event;
+							},
+	getSrcElement		:	function(event){
+								return (event.target) ? event.target : event.srcElement;
+							},
+	stopEvent			:	function(event){
+								if(event.stopPropagation){
+									event.stopPropagation();
+									if(event.preventDefault){
+										event.preventDefault();
+									}
+								}else{
+									event.cancelBubble = true;
+									event.returnValue = false;
+								}
+							}
 };
 
 //private namespace
@@ -102,7 +156,7 @@ com.googlecode.jsfFlex.communication.core = {
     var jsonResult = new Array();
     
     function amReady(readyAmI){
-		var flashApp = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId.item( readyAmI );
+		var flashApp = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId[readyAmI];
 		if(flashApp){
 			if(flashApp.initValueObjects){
 				return flashApp;
@@ -110,7 +164,7 @@ com.googlecode.jsfFlex.communication.core = {
 		}else{
 			/* Must not have been added yet, so add a simple interval */
 			var handle = window.setInterval( function(){
-													var flashApp = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId.item( readyAmI );
+													var flashApp = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyAppId[readyAmI];
 													if(flashApp){
 														if(flashApp.initValueObjects){
 															var access = com.googlecode.jsfFlex.communication.core.getApplication( readyAmI );
@@ -142,17 +196,9 @@ com.googlecode.jsfFlex.communication.core = {
 		}
 	}
 	
-	function getEvent(event){
-		return (window.event) ? window.event : event;
-	}
-	
-	function getSrcElement(event){
-		return (event.target) ? event.target : event.srcElement;
-	}
-	
 	function pageLoad(){
 		for(var i=0; i < document.forms.length; i++){
-			dojo.connect(document.forms[i], "onsubmit", null, pageUnload);
+			com.googlecode.jsfFlex.communication.core.domHelpers.addEventListener(document.forms[i], "submit", null, pageUnload, null, false);
 		}
 	}
 	
@@ -170,9 +216,9 @@ com.googlecode.jsfFlex.communication.core = {
 		 *	  
 		 *  will be created
 		 */
-		formSubmit = getSrcElement( getEvent(event) );
+		formSubmit = com.googlecode.jsfFlex.communication.core.domHelpers.getSrcElement( com.googlecode.jsfFlex.communication.core.domHelpers.getEvent(event) );
 		
-		var namingContainerPrefixList = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyNamingContainer.item(formSubmit.id);
+		var namingContainerPrefixList = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyNamingContainer[formSubmit.id];
 		var access;
 		
 		var validationError = false;
@@ -212,8 +258,7 @@ com.googlecode.jsfFlex.communication.core = {
 				validationError = true;
 				com.googlecode.jsfFlex.communication.logger.logMessage("During the pageUnloading process, an error occurred while invoking pageUnloading for appId [" + 
 																		namingContainerPrefixList[i].appId + "] : " + error, 5);
-				dojo.stopEvent(event);
-				event.returnValue = false;
+				com.googlecode.jsfFlex.communication.core.domHelpers.stopEvent(event);
 				return false;
 			}
 		}
@@ -221,9 +266,8 @@ com.googlecode.jsfFlex.communication.core = {
 		var returnValue = true;
 		
 		if(validationError){
-			dojo.stopEvent(event);
+			com.googlecode.jsfFlex.communication.core.domHelpers.stopEvent(event);
 			returnValue = false;
-			event.returnValue = false;
 		}else{
 			//means all inputs passed validation
 			for(var i=0; i < jsonResult.length; i++){

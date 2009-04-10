@@ -224,6 +224,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		private static final String NAMING_CONTAINER_PREFIX = "namingContainerPrefix";
 		private static final String INIT_VALUE_OBJECTS = "initValueObjects";
 		
+        private static final String JS_ADD_EVENT_LISTENER = "com.googlecode.jsfFlex.communication.core.domHelpers.addEventListener";
 		private static final String JS_COMMUNICATION_CORE_NS = "com.googlecode.jsfFlex.communication.core";
 		private static final String JS_COMMUNICATION_CORE_PAGE_LOAD_NS = "com.googlecode.jsfFlex.communication.core.pageLoad";
 		
@@ -244,18 +245,20 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			//print out the JSON objects here
 			StringBuffer toWrite = new StringBuffer();
 			
-			toWrite.append("dojo.addOnLoad(function(){");
-			toWrite.append(JS_COMMUNICATION_CORE_NS);
-			toWrite.append(".addFlashApp(");
-			
-			toWrite.append(getComponentInitValues(context, component));
-			
-			toWrite.append(");");
-			toWrite.append("});");
-			
-			toWrite.append("dojo.addOnLoad(");
-			toWrite.append(JS_COMMUNICATION_CORE_PAGE_LOAD_NS);
-			toWrite.append(");");
+            toWrite.append(JS_ADD_EVENT_LISTENER);
+            toWrite.append("(window, 'load', null, function(){");
+            toWrite.append(JS_COMMUNICATION_CORE_NS);
+            toWrite.append(".addFlashApp(");
+            
+            toWrite.append(getComponentInitValues(context, component));
+            
+            toWrite.append(");");
+            toWrite.append("}, null, false);");
+            
+            toWrite.append(JS_ADD_EVENT_LISTENER);
+            toWrite.append("(window, 'load', null, ");
+            toWrite.append(JS_COMMUNICATION_CORE_PAGE_LOAD_NS);
+            toWrite.append(", null, false);");
 			writer.write(toWrite.toString());
 			writer.endElement(MXMLAttributeConstants.SCRIPT_ELEM);
 			
