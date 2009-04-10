@@ -236,7 +236,6 @@ package com.googlecode.jsfFlex.communication.component
 				 * greater than 1.  This is because if the user desires drag + drop action, currently selected selectedIndices 
 				 * will be cleared out when fetching for additional data.
 				 */
-				_scrollEventHelper.resetState(_dataGridComp.verticalScrollPosition);
 				_scrollEventHelper.unLockScrollParameters();
 				return;
 			}
