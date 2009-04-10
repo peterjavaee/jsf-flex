@@ -69,7 +69,8 @@
       <description>
       	For JSF Flex Flash To JavaScript Log Level, possible values are (Log, Debug, Info, Warn, Error)
       	If the field is not provided, it will make a decision based on com.googlecode.jsfFlex.MODE with production
-      	being Error and non-production being Log
+      	being Error and non-production being Log. Specifically it is only allowed for Firebug unless the user
+      	uses Firebug Lite or has Dojo with debug set to true.
       </description>
       <param-name>com.googlecode.jsfFlex.FlashToJavaScriptLogLevel</param-name>
       <param-value>Debug</param-value>

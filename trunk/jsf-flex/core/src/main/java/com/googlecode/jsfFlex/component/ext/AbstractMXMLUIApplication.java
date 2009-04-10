@@ -59,7 +59,7 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttributes;
 import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
-import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexDojoResource;
+import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexResource;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.beans.others.JsfFlexFlashApplicationConfiguration;
@@ -382,10 +382,9 @@ public abstract class AbstractMXMLUIApplication
 	
 	public void encodeEnd(FacesContext context) throws IOException {
 		
-		JsfFlexDojoResource jsfFlexDojoResource = JsfFlexDojoResource.getDojoInstance();
-		jsfFlexDojoResource.addDojoMain();
-		jsfFlexDojoResource.addResource(getClass(), JSF_FLEX_COMMUNICATOR_CORE_JS);
-		jsfFlexDojoResource.addResource(getClass(), JSF_FLEX_COMMUNICATOR_LOGGER_JS);
+		JsfFlexResource jsfFlexResource = JsfFlexResource.getInstance();
+		jsfFlexResource.addResource(getClass(), JSF_FLEX_COMMUNICATOR_CORE_JS);
+		jsfFlexResource.addResource(getClass(), JSF_FLEX_COMMUNICATOR_LOGGER_JS);
 		
 		super.encodeEnd(context);
 	}

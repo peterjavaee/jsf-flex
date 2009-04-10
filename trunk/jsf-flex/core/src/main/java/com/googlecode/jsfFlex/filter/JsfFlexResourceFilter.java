@@ -45,7 +45,6 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.xml.sax.InputSource;
 
-import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexDojoResource;
 import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexResource;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
@@ -61,9 +60,7 @@ public final class JsfFlexResourceFilter implements Filter {
 	private static final String META_HTTP_EQUIV_PRAGMA_NO_CACHE = "<META HTTP-EQUIV='PRAGMA' CONTENT='NO-CACHE' />";
 	private static final String META_HTTP_EQUIV_CACHE_CONTROL_NO_CACHE = "<META HTTP-EQUIV='CACHE-CONTROL' CONTENT='NO-CACHE' />";
     
-    private static final String DOJO_DJ_CONFIG_IS_DEBUG = "<script type='text/javascript'>var djConfig = {isDebug: true, popup:true };</script>";
-	
-	private static final String REQUEST_FOR_RESOURCE_SEARCH_PATTERN = "%2F" + JsfFlexResource.JSF_FLEX_SCRIPT_RESOURCE_REQUEST_PREFIX + "%2F";
+    private static final String REQUEST_FOR_RESOURCE_SEARCH_PATTERN = "%2F" + JsfFlexResource.JSF_FLEX_SCRIPT_RESOURCE_REQUEST_PREFIX + "%2F";
 	
 	private static final String HEAD_SEARCH_PATTERN = "<head";
 	private static final String BODY_SEARCH_PATTERN = "<body";
@@ -98,7 +95,7 @@ public final class JsfFlexResourceFilter implements Filter {
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 		
 		JsfFlexResponseWrapper jsfFlexResponseWrapper = new JsfFlexResponseWrapper((HttpServletResponse) response);
-		JsfFlexDojoResource jsfFlexDojoResource = JsfFlexDojoResource.getDojoInstance();
+		JsfFlexResource jsfFlexResource = JsfFlexResource.getInstance();
 		
 		HttpServletRequest httpRequest = (HttpServletRequest) request;
 		HttpServletResponse httpResponse = (HttpServletResponse) response;
@@ -108,7 +105,7 @@ public final class JsfFlexResourceFilter implements Filter {
 		
 		if(isRequestForResource(requestURI)){
 			/** If request is of resource, process it and return */
-			jsfFlexDojoResource.processRequestResource(httpResponse, requestURISplitted);
+			jsfFlexResource.processRequestResource(httpResponse, requestURISplitted);
 			return;
 		}
 		
@@ -143,10 +140,9 @@ public final class JsfFlexResourceFilter implements Filter {
 					actualWriter.write(META_HTTP_EQUIV_EXPIRE);
 					actualWriter.write(META_HTTP_EQUIV_PRAGMA_NO_CACHE);
 					actualWriter.write(META_HTTP_EQUIV_CACHE_CONTROL_NO_CACHE);
-                    actualWriter.write(DOJO_DJ_CONFIG_IS_DEBUG);
-				}
+                }
 				
-				Collection resourceCollection = jsfFlexDojoResource.getResources();
+				Collection resourceCollection = jsfFlexResource.getResources();
 				String resourceConvertedToScriptElements = constructResourceToScriptTags(resourceCollection, requestURISplitted);
 				
 				actualWriter.write(resourceConvertedToScriptElements);
@@ -169,10 +165,9 @@ public final class JsfFlexResourceFilter implements Filter {
 						actualWriter.write(META_HTTP_EQUIV_EXPIRE);
 						actualWriter.write(META_HTTP_EQUIV_PRAGMA_NO_CACHE);
 						actualWriter.write(META_HTTP_EQUIV_CACHE_CONTROL_NO_CACHE);
-                        actualWriter.write(DOJO_DJ_CONFIG_IS_DEBUG);
-					}
+                    }
 					
-					Collection resourceCollection = jsfFlexDojoResource.getResources();
+					Collection resourceCollection = jsfFlexResource.getResources();
 					String resourceConvertedToScriptElements = constructResourceToScriptTags(resourceCollection, requestURISplitted);
 					
 					actualWriter.write(resourceConvertedToScriptElements);

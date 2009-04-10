@@ -19,11 +19,6 @@
       <distribution>repo</distribution>
     </license>
     <license>
-      <name>The "New" BSD License</name>
-      <url>http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L13</url>
-      <distribution>repo</distribution>
-    </license>
-    <license>
       <name>Jython License</name>
       <url>http://www.jython.org/Project/license.html</url>
       <distribution>repo</distribution>

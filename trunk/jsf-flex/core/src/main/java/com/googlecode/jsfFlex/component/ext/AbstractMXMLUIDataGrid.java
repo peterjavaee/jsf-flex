@@ -443,11 +443,6 @@ public abstract class AbstractMXMLUIDataGrid
 		
         _log.info("Success result code after adding the entries to bindingBeanList is : " + success + " for component : " + getId());
         _log.info("New size of bindingBeanList is : " + getBindingBeanList().size() + " for component : " + getId());
-		Map sortDataResult = sortDataEntry();
-		Boolean sortResult = (Boolean) sortDataResult.get(RESULT_CODE_KEY);
-		if(!sortResult.booleanValue()){
-			success = false;
-		}
 		
         Integer batchColumnDataRetrievalSize = computeBatchColumnDataRetrievalSize();
         Integer maxDataPartitionIndex = computeMaxDataPartitionIndex();
@@ -579,23 +574,25 @@ public abstract class AbstractMXMLUIDataGrid
 		if(dataEntrySize < batchColumnDataRetrievalSize.intValue()){
 			batchColumnDataRetrievalSize = Integer.valueOf(dataEntrySize);
 		}
-		
 		return batchColumnDataRetrievalSize;
 	}
 	
 	public Integer computeMaxDataPartitionIndex(){
 		
-		int dataEntrySize = getBindingBeanList().size();
-		Integer batchColumnDataRetrievalSize = computeBatchColumnDataRetrievalSize();
-		
+		double dataEntrySize = getBindingBeanList().size();
+        Integer batchColumnDataRetrievalSize = computeBatchColumnDataRetrievalSize();
 		Integer maxDataPartitionIndex = null;
 		
 		if(batchColumnDataRetrievalSize.intValue() > 0){
-			maxDataPartitionIndex = Integer.valueOf((int) Math.ceil( dataEntrySize / batchColumnDataRetrievalSize.intValue() ));
+            maxDataPartitionIndex = Integer.valueOf((int) Math.ceil( dataEntrySize / batchColumnDataRetrievalSize.intValue() ));
 		}else{
 			maxDataPartitionIndex = ZERO_BATCH_COLUMN_DATA_RETRIEVAL_SIZE;
 		}
 		
+        //since index of partition begins with zero, decrement by 1
+        if(maxDataPartitionIndex.intValue() > 0){
+            maxDataPartitionIndex = Integer.valueOf(maxDataPartitionIndex.intValue() - 1);
+        }
 		return maxDataPartitionIndex;
 	}
 	

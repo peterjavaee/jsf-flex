@@ -22,11 +22,6 @@
       <url>http://www.mozilla.org/MPL/MPL-1.1.html</url>
       <distribution>repo</distribution>
     </license>
-    <license>
-      <name>The "New" BSD License</name>
-      <url>http://trac.dojotoolkit.org/browser/dojo/trunk/LICENSE#L13</url>
-      <distribution>repo</distribution>
-    </license>
   </licenses>
   
   <scm>
@@ -97,23 +92,6 @@
     
   </dependencies>
   
-  <repositories>
-    <repository>
-      <id>dojo</id>
-      <name>Dojo Maven2 Repository</name>
-      <url>http://download.dojotoolkit.org/maven2</url>
-      <releases>
-        <enabled>true</enabled>
-        <updatePolicy>daily</updatePolicy>
-        <checksumPolicy>fail</checksumPolicy>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-      <layout>default</layout>
-    </repository>
-  </repositories>
-
   <build>
     
     <resources>
@@ -216,52 +194,6 @@
       
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-dependency-plugin</artifactId>
-        <version>2.0</version>
-        <executions>
-          <execution>
-            <id>unpack dojo</id>
-            <phase>generate-resources</phase>
-            <goals>
-              <goal>unpack</goal>
-            </goals>
-            <configuration>
-              <artifactItems>
-                <artifactItem>
-                  <groupId>org.dojotoolkit</groupId>
-                  <artifactId>dojo</artifactId>
-                  <version>${dojo.version}</version>
-                  <type>zip</type>
-                </artifactItem>
-              </artifactItems>
-              <outputDirectory>${project.build.directory}/${dojo.component.path}</outputDirectory>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
-      
-      <plugin>
-        <artifactId>maven-antrun-plugin</artifactId>
-          <configuration>
-            <tasks>
-              <delete includeemptydirs="true">
-                <fileset dir="${project.build.directory}/${dojo.component.path}/dojo-${dojo.version}/" includes="**/tests/" />
-              </delete>
-            </tasks>
-          </configuration>
-        <executions>
-          <execution>
-            <id>post-classes</id>
-            <phase>process-classes</phase>
-            <goals>
-              <goal>run</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <configuration>
           <source>1.4</source>
@@ -274,9 +206,4 @@
       
   </build>
   
-  <properties>
-    <dojo.version>1.2.0</dojo.version>
-    <dojo.component.path>classes/com/googlecode/jsfFlex/renderkit/html/util/resource/</dojo.component.path>
-  </properties>
-
 </project>
