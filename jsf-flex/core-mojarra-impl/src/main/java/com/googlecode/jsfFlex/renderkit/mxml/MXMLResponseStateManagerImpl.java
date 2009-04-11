@@ -18,63 +18,15 @@
  */
 package com.googlecode.jsfFlex.renderkit.mxml;
 
-import java.io.IOException;
-
-import javax.faces.application.StateManager.SerializedView;
-import javax.faces.context.FacesContext;
-import javax.faces.render.ResponseStateManager;
+import com.sun.faces.renderkit.ResponseStateManagerImpl;
 
 /**
  * @author Ji Hoon Kim
  */
-class MXMLResponseStateManagerImpl extends AbstractMXMLResponseStateManager {
-    
-    private static final String MXML_RESPONSE_STATE_MANAGER_BASE_IMPL = "com.sun.faces.renderkit.ResponseStateManagerImpl";
-    private static final Class MXML_RESPONSE_STATE_MANAGER_BASE_IMPLEMENTOR_CLASS;
-    
-    private final ResponseStateManager _mxmlResponseStateManagerBaseImplementor;
-    
-    static{
-        try{
-            MXML_RESPONSE_STATE_MANAGER_BASE_IMPLEMENTOR_CLASS = Class.forName(MXML_RESPONSE_STATE_MANAGER_BASE_IMPL, false, Thread.currentThread().getContextClassLoader());
-        }catch(ClassNotFoundException classNotFound){
-            throw new RuntimeException("Failure in retrieving the class for " + MXML_RESPONSE_STATE_MANAGER_BASE_IMPL, classNotFound);
-        }
-    }
+class MXMLResponseStateManagerImpl extends ResponseStateManagerImpl {
     
     MXMLResponseStateManagerImpl(){
         super();
-        
-        try{
-            _mxmlResponseStateManagerBaseImplementor = (ResponseStateManager) MXML_RESPONSE_STATE_MANAGER_BASE_IMPLEMENTOR_CLASS.newInstance();
-        }catch(Exception instantiatingException){
-            throw new RuntimeException("Failure in instantiating a class for " + MXML_RESPONSE_STATE_MANAGER_BASE_IMPL, instantiatingException);
-        }
-        
-    }
-    
-    public Object getComponentStateToRestore(FacesContext context) {
-        return _mxmlResponseStateManagerBaseImplementor.getComponentStateToRestore(context);
-    }
-    
-    public Object getState(FacesContext context, String viewId) {
-        return _mxmlResponseStateManagerBaseImplementor.getState(context, viewId);
-    }
-    
-    public Object getTreeStructureToRestore(FacesContext context, String viewId) {
-        return _mxmlResponseStateManagerBaseImplementor.getTreeStructureToRestore(context, viewId);
-    }
-    
-    public boolean isPostback(FacesContext context) {
-        return _mxmlResponseStateManagerBaseImplementor.isPostback(context);
-    }
-    
-    public void writeState(FacesContext context, Object state) throws IOException {
-        _mxmlResponseStateManagerBaseImplementor.writeState(context, state);
-    }
-    
-    public void writeState(FacesContext context, SerializedView serializedView) throws IOException {
-        _mxmlResponseStateManagerBaseImplementor.writeState(context, serializedView);
     }
     
 }
