@@ -35,7 +35,6 @@
     <dependency>
       <groupId>com.googlecode.jsf-flex.jsf-flex-shared-project</groupId>
       <artifactId>jsf-flex-shared</artifactId>
-      <scope>compile</scope>
     </dependency>
     
     <!-- Just use MyFaces API for dependency -->
@@ -48,7 +47,7 @@
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>jstl</artifactId>
-      <scope>compile</scope>
+      <scope>provided</scope>
     </dependency>
     
     <dependency>
@@ -66,13 +65,11 @@
     <dependency>
       <groupId>commons-logging</groupId>
       <artifactId>commons-logging</artifactId>
-      <scope>compile</scope>
     </dependency>
     
     <dependency>
       <groupId>org.json</groupId>
       <artifactId>json</artifactId>
-      <scope>compile</scope>
     </dependency>
     
     <!-- test dependencies -->
