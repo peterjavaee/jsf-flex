@@ -522,8 +522,6 @@ package com.googlecode.jsfFlex.communication.component
 				addDataRequestParameters.methodToInvoke = ADD_DATA_ENTRY;
 				addDataRequestParameters.addEntryStartIndex = addEntryStartIndex;
 				addDataRequestParameters.addEntryEndIndex = addEntryEndIndex;
-				addDataRequestParameters.columnDataFieldToSortBy = _currColumnSortedDataField;
-				addDataRequestParameters.sortAscending = _currColumnSortedAscending;
 				
 				var index:uint = 0;
 				for each(var dragSourceEntry:Object in dragSourceEntries){
