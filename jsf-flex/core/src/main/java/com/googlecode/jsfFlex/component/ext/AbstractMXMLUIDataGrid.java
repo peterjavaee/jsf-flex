@@ -407,7 +407,7 @@ public abstract class AbstractMXMLUIDataGrid
 			Object beanEntryInstance;
 			
 			int loopLength = parsedAddEntryEndIndex - parsedAddEntryStartIndex;
-			for(int i=0; i < loopLength; i++, parsedAddEntryStartIndex++){
+			for(int i=0; i < loopLength; i++){
 				
 				beanEntryInstance = beanEntryClass.newInstance();
 				
