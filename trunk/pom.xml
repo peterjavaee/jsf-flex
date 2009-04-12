@@ -4,7 +4,7 @@
   <groupId>com.googlecode.jsf-flex</groupId>
   <artifactId>jsf-flex-build-project</artifactId>
   <packaging>pom</packaging>
-  <version>0.9.5-SNAPSHOT</version>
+  <version>1.0</version>
   <name>JSF-Flex Main Build Project</name>
   <url>http://code.google.com/p/jsf-flex/</url>
   <licenses>
@@ -92,35 +92,24 @@
         <artifactId>jsf-impl</artifactId>
         <version>${mojarra.jsf.version}</version>
       </dependency>
+      
+      <dependency>
+        <groupId>org.apache.myfaces.buildtools</groupId>
+        <artifactId>myfaces-builder-plugin</artifactId>
+        <version>${myfaces.buildtools.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.googlecode.jsf-flex.jsf-flex-shared-project</groupId>
+        <artifactId>jsf-flex-shared</artifactId>
+        <version>${jsf.flex.shared.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
+        <artifactId>jsf-flex</artifactId>
+        <version>${jsf.flex.version}</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
-  
-  <profiles>
-    
-    <profile>
-      <id>jsf_flex_renderKit-SNAPSHOT</id>
-      <activation>
-        <property>
-          <name>!jsf_flex_renderKit</name>
-        </property>
-      </activation>
-      <properties>
-        <jsf.flex.renderKit.version>0.9-SNAPSHOT</jsf.flex.renderKit.version>
-      </properties>
-    </profile>
-    <profile>
-      <id>jsf_flex_shared-SNAPSHOT</id>
-      <activation>
-        <property>
-          <name>!jsf_flex_shared</name>
-        </property>
-      </activation>
-      <properties>
-        <jsf.flex.shared.version>0.9.5-SNAPSHOT</jsf.flex.shared.version>
-      </properties>
-    </profile>
-    
-  </profiles>
   
   <modules>
     <module>jsf-flex-build-plugIn</module>
@@ -137,9 +126,14 @@
     <javax.servlet.jstl.version>1.1.2</javax.servlet.jstl.version>
     <javax.servlet.jsp.api.version>2.1</javax.servlet.jsp.api.version>
     <javax.servlet.api.version>2.5</javax.servlet.api.version>
+    <myfaces.buildtools.version>1.0.2</myfaces.buildtools.version>
     <myfaces.version>1.2.2</myfaces.version>
     <myfaces.shared.version>3.0.3</myfaces.shared.version>
     <mojarra.jsf.version>1.2-b19</mojarra.jsf.version>
+    <jsf.flex.shared.version>1.0</jsf.flex.shared.version>
+    <jsf.flex.renderKit.version>1.0</jsf.flex.renderKit.version>
+    <jsf.flex.version>1.0</jsf.flex.version>
+    <jsf.flex.plugIn.version>1.0</jsf.flex.plugIn.version>
   </properties>
   
 </project>
