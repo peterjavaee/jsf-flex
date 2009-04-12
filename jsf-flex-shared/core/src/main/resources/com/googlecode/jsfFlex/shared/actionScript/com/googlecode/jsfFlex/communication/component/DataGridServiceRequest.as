@@ -584,7 +584,7 @@ package com.googlecode.jsfFlex.communication.component
 				var currentActualCacheStartIndex:uint = computeActualCacheStartIndex();
 				var deleteIndices:String = "";
 				for(var i:uint=0; i < selectedIndices.length; i++){
-					deleteIndices += (currentActualCacheStartIndex + i) + ",";
+					deleteIndices += (currentActualCacheStartIndex + selectedIndices[i]) + ",";
 				}
 				
 				removeDataRequestParameters.deleteIndices = deleteIndices;
