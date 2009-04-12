@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.googlecode.jsf-flex</groupId>
     <artifactId>jsf-flex-build-project</artifactId>
-    <version>0.9.5-SNAPSHOT</version>
+    <version>1.0</version>
   </parent>
   
   <groupId>com.googlecode.jsf-flex</groupId>
@@ -11,7 +11,7 @@
   <packaging>pom</packaging>
   <name>JSF-FlexShared Project</name>
   <url>http://code.google.com/p/jsf-flex/</url>
-  <version>0.9.5-SNAPSHOT</version>
+  <version>1.0</version>
   <description>
     JSF-FlexShared goal is to provide shared resource for jsf-flex subprojects. Also contains AbstractMXMLResponseStateManager.java, AbstractMXMLResponseWriter.java, and MXMLRendererBase.java due to difference in MyFaces + Mojarra JSF implementation.
   </description>
@@ -28,16 +28,6 @@
     <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/jsf-flex-shared</developerConnection>
   </scm>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>commons-logging</groupId>
-        <artifactId>commons-logging</artifactId>
-        <version>1.1.1</version>
-      </dependency>      
-    </dependencies>
-  </dependencyManagement>
-  
   <modules>
     <module>core</module>
   </modules>
@@ -57,9 +47,5 @@
       </plugin>    
     </plugins>
   </build>
-  
-  <properties>
-    <jsf.flex.plugIn.version>0.9.5-SNAPSHOT</jsf.flex.plugIn.version>
-  </properties>
   
 </project>

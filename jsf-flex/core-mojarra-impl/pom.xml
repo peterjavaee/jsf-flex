@@ -2,7 +2,7 @@
   <parent>
     <groupId>com.googlecode.jsf-flex</groupId>
     <artifactId>jsf-flex-project</artifactId>
-    <version>0.9.5-SNAPSHOT</version>
+    <version>1.0</version>
   </parent>
   
   <modelVersion>4.0.0</modelVersion>

@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.googlecode.jsf-flex</groupId>
     <artifactId>jsf-flex-build-project</artifactId>
-    <version>0.9.5-SNAPSHOT</version>
+    <version>1.0</version>
   </parent>
   
   <groupId>com.googlecode.jsf-flex</groupId>
@@ -11,7 +11,7 @@
   <packaging>pom</packaging>
   <name>JSF-Flex JSF Component Project</name>
   <url>http://code.google.com/p/jsf-flex/</url>
-  <version>0.9.5-SNAPSHOT</version>
+  <version>1.0</version>
   <description>
     JSF Flex goal is to provide users capability in creating Flex components as JSF components. So users would 
     create the components as normal JSF components and the contribution will create the necessary SWF files and 
@@ -35,27 +35,6 @@
     <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/jsf-flex</developerConnection>
   </scm>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.apache.myfaces.buildtools</groupId>
-        <artifactId>myfaces-builder-plugin</artifactId>
-        <version>${myfaces.buildtools.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.googlecode.jsf-flex.jsf-flex-shared-project</groupId>
-        <artifactId>jsf-flex-shared</artifactId>
-        <version>${jsf.flex.shared.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
-        <artifactId>jsf-flex</artifactId>
-        <version>${jsf.flex.version}</version>
-      </dependency>
-    </dependencies>
-   
-  </dependencyManagement>
-  
   <modules>
     <module>annotations</module>
     <module>core</module>
@@ -82,37 +61,4 @@
     </plugins>
   </build>
   
-  <profiles>
-    
-    <profile>
-      <id>jsf_flex_renderKit-SNAPSHOT</id>
-      <activation>
-        <property>
-          <name>!jsf_flex_renderKit</name>
-        </property>
-      </activation>
-      <properties>
-        <jsf.flex.renderKit.version>0.9.5-SNAPSHOT</jsf.flex.renderKit.version>
-      </properties>
-    </profile>
-    <profile>
-      <id>jsf_flex_shared-SNAPSHOT</id>
-      <activation>
-        <property>
-          <name>!jsf_flex_shared</name>
-        </property>
-      </activation>
-      <properties>
-        <jsf.flex.shared.version>0.9.5-SNAPSHOT</jsf.flex.shared.version>
-      </properties>
-    </profile>
-    
-  </profiles>
-  
-  <properties>
-    <jsf.flex.version>0.9.5-SNAPSHOT</jsf.flex.version>
-    <jsf.flex.plugIn.version>0.9.5-SNAPSHOT</jsf.flex.plugIn.version>
-    <myfaces.buildtools.version>1.0.2</myfaces.buildtools.version>
-  </properties>
-
 </project>

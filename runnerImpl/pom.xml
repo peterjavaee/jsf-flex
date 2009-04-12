@@ -4,13 +4,13 @@
   <parent>
     <groupId>com.googlecode.jsf-flex</groupId>
     <artifactId>jsf-flex-build-project</artifactId>
-    <version>0.9.5-SNAPSHOT</version>
+    <version>1.0</version>
   </parent>
   
   <groupId>com.googlecode.jsf-flex.runner-impl-project</groupId>
   <artifactId>runner-impl-main-project</artifactId>
   <packaging>pom</packaging>
-  <version>0.9.5-SNAPSHOT</version>
+  <version>1.0</version>
   <name>JSF Flex Runner Impl Project</name>
   
   <description>JSF Flex Runner Impl project contains various runner impl project for JSF Flex project</description>
@@ -37,25 +37,5 @@
     <module>fileManipulatorTaskRunnerImpl</module>
     <module>flexTaskRunnerImpl</module>
   </modules>
-  
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>com.googlecode.jsf-flex.jsf-flex-shared-project</groupId>
-        <artifactId>jsf-flex-shared</artifactId>
-        <version>${jsf.flex.shared.version}</version>
-      </dependency>
-      <dependency>
-        <groupId>commons-logging</groupId>
-        <artifactId>commons-logging</artifactId>
-        <scope>compile</scope>
-        <version>1.1.1</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-  
-  <properties>
-    <jsf.flex.shared.version>0.9.5-SNAPSHOT</jsf.flex.shared.version>
-  </properties>
   
 </project>
