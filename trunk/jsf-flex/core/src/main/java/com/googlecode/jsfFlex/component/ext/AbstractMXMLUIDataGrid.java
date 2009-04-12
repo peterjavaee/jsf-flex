@@ -458,6 +458,16 @@ public abstract class AbstractMXMLUIDataGrid
 	
 	public Map removeDataEntry(){
 		
+        final Comparator DELETE_INDICES_COMPARATOR = new Comparator(){
+            
+            public int compare(Object firstInstance, Object secondInstance) {
+                Integer firstCompare = Integer.valueOf(firstInstance.toString());
+                Integer secondCompare = Integer.valueOf(secondInstance.toString());
+                return firstCompare.compareTo(secondCompare);
+            }
+            
+        };
+        
 		Map removeDataResult = new HashMap();
 		boolean success = true;
 		
@@ -466,15 +476,15 @@ public abstract class AbstractMXMLUIDataGrid
 		
 		String deleteIndices = (String) requestMap.get(DELETE_INDICES_KEY);
         List deleteIndicesList = Arrays.asList(deleteIndices.split(","));
-		
-        _log.info("Requested deleteIndices are : " + deleteIndices + " for component : " + getId());
+        Collections.sort(deleteIndicesList, DELETE_INDICES_COMPARATOR);
+        Collections.reverse(deleteIndicesList);
+		_log.info("Requested deleteIndices are : " + deleteIndices + " for component : " + getId());
         
 		synchronized(getBindingBeanList()){
 			
-			for(Iterator iterate = deleteIndicesList.iterator(); iterate.hasNext();){
+            for(Iterator iterate = deleteIndicesList.iterator(); iterate.hasNext();){
 				
 				String currDeleteIndex = (String) iterate.next();
-				
 				int parsedDeleteIndex = -1;
 				
 				try{
