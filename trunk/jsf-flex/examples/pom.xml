@@ -3,7 +3,7 @@
   <parent>
     <groupId>com.googlecode.jsf-flex</groupId>
     <artifactId>jsf-flex-project</artifactId>
-    <version>1.0</version>
+    <version>1.0b</version>
   </parent>
   
   <modelVersion>4.0.0</modelVersion>
@@ -312,8 +312,8 @@
   </repositories>
   
   <properties>
-    <jsf.flex.runner.version>1.0</jsf.flex.runner.version>
-    <jsf.flex.annotations.version>1.0</jsf.flex.annotations.version>
+    <jsf.flex.runner.version>1.0b</jsf.flex.runner.version>
+    <jsf.flex.annotations.version>1.0b</jsf.flex.annotations.version>
   </properties>
   
 </project>
