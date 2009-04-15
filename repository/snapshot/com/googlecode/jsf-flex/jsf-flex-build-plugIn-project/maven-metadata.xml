@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><metadata>
-  <plugins>
-    <plugin>
-      <name>JSF-Flex Build Plugin Project</name>
-      <prefix>jsf-flex-build-plugIn</prefix>
-      <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
-    </plugin>
-  </plugins>
-</metadata>
