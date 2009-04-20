@@ -88,6 +88,6 @@ Next one needs to insert the needed artifacts within Maven's pom.xml :
 
 }}}
 
-Note that one needs one dependency of either *jsf-flex-myFaces-impl* artifact or *jsf-flex-mojarra-impl* artifact. The reason is due to provide capability in using other renderKits such as HTML_BASIC when user is using MXML_BASIC, but there exists a difference in {{{MyFaces}}} + Mojarra implementation. If I remember correctly, the latter implementation adds the HTML_BASIC renderkit within the constructor, so must extend the class {there are other methods, but chose this option}.
+Note that one needs one dependency of either *jsf-flex-myFaces-impl* artifact or *jsf-flex-mojarra-impl* artifact. The reason is to provide capability in using other renderKits such as HTML_BASIC when user is using MXML_BASIC, but there exists a difference in {{{MyFaces}}} + Mojarra implementation. If I remember correctly, the latter implementation adds the HTML_BASIC renderkit within the constructor, so must extend the class {there are other methods, but chose this option}.
 
 That is it!!!
