@@ -197,44 +197,6 @@
       </dependencies>
     </profile>
 
-    <profile>
-      <id>jsf_flex_renderKit_runtime-1.4</id>
-      <activation>
-        <property>
-          <name>!jsf_flex_renderKit_runtime</name>
-        </property>
-      </activation>
-      <dependencies>
-        <dependency>
-          <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
-          <artifactId>jsf-flex-project-renderKit14</artifactId>
-          <version>${jsf.flex.renderKit.version}</version>
-        </dependency>
-      </dependencies>
-    </profile>
-
-    <profile>
-      <id>jsf_flex_renderKit_runtime-1.5</id>
-      <activation>
-        <property>
-          <name>jsf_flex_renderKit_runtime</name>
-          <value>15</value>
-        </property>
-      </activation>
-      <dependencies>
-        <dependency>
-          <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
-          <artifactId>jsf-flex-project-renderKit15</artifactId>
-          <version>${jsf.flex.renderKit.version}</version>
-        </dependency>
-        <dependency>
-           <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
-           <artifactId>jsf-flex-annotations</artifactId>
-           <version>${jsf.flex.annotations.version}</version>
-        </dependency>
-      </dependencies>
-    </profile>
-    
     <!-- Profile to run jetty, so the tomcat jars are included in the bundle. They are not included by default -->
     <profile>
       <id>jettyConfig</id>
@@ -258,6 +220,17 @@
     <dependency>
       <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
       <artifactId>jsf-flex</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
+      <artifactId>jsf-flex-project-renderKit15</artifactId>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
+      <artifactId>jsf-flex-annotations</artifactId>
+      <version>${jsf.flex.annotations.version}</version>
       <scope>runtime</scope>
     </dependency>
         

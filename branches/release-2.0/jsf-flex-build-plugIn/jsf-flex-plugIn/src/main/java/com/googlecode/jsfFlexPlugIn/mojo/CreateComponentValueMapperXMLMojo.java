@@ -40,7 +40,6 @@ import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
 import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectListener;
 import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectorBase;
-import com.googlecode.jsfFlexPlugIn.inspector.qdox.JsfFlexQdoxInspector;
 import com.googlecode.jsfFlexPlugIn.parser._JsfFlexParserListener;
 import com.googlecode.jsfFlexPlugIn.parser.velocity.JsfFlexVelocityParser;
 import com.googlecode.jsfFlexPlugIn.utils.tasks.ReplaceText;
@@ -55,14 +54,10 @@ import com.thoughtworks.qdox.model.JavaClass;
 public final class CreateComponentValueMapperXMLMojo extends AbstractMojo 
 											   implements _JsfFlexInspectListener, _JsfFlexParserListener {
 	
-	private static final String FLEX_COMPONENT_VALUE_CLASS_INFO_ATTRIBUTE = "FlexComponentValueClassInfo";
-	private static final String FLEX_COMPONENT_NODE_ATTRIBUTE = "FlexComponentNodeAttribute";
-	
 	private static final String JSF_FLEX_PROJECT = "jsf-flex";
 	private static final String JSF_FLEX_SHARED_PROJECT = "jsf-flex-shared";
 	
 	private static final String CORE_PROJECT_NAME = "core";
-	private static final String RENDERKIT_14_PROJECT_NAME = "renderKit14";
 	private static final String RENDERKIT_15_PROJECT_NAME = "renderKit15";
 	
 	private static final String JSF_FLEX_CLASS_SET_ATTRIBUTE = "classSet";
@@ -92,11 +87,6 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 	 * @parameter expression="${project}"
 	 */
 	private MavenProject _project;
-	
-	/**
-     * @parameter expression="${targetComponentProject}"
-     */
-	private String _targetComponentProject;
 	
 	/**
      * @parameter expression="${basedir}/target/classes/com/googlecode/jsfFlex/shared/swfSourceFiles"
@@ -242,14 +232,9 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 	
     public void execute() throws MojoExecutionException, MojoFailureException {
 		
-		//HACK for now, since QDOX seems to have issues reading Java files with annotations
-		_targetComponentProject = RENDERKIT_14_PROJECT_NAME;
-		
-		String currDirPath = (String) _project.getCompileSourceRoots().get(0);
+        String currDirPath = (String) _project.getCompileSourceRoots().get(0);
 		currDirPath = currDirPath.replace(JSF_FLEX_SHARED_PROJECT, JSF_FLEX_PROJECT);
-		currDirPath = (_targetComponentProject.equals(RENDERKIT_14_PROJECT_NAME)) ? 
-												currDirPath.replace(CORE_PROJECT_NAME, RENDERKIT_14_PROJECT_NAME) : 
-												currDirPath.replace(CORE_PROJECT_NAME, RENDERKIT_15_PROJECT_NAME);
+		currDirPath = currDirPath.replace(CORE_PROJECT_NAME, RENDERKIT_15_PROJECT_NAME);
 		
 		Properties velocityParserProperties = new Properties();
 		velocityParserProperties.put(FILE_RESOURCE_LOADER_PATH_KEY, _templateSourceDirectory.getPath());
@@ -258,95 +243,88 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 		_jsfFlexVelocityParser.init();
 		_jsfFlexVelocityParser.addParserListener(this);
 		
-		if(_targetComponentProject.equals(RENDERKIT_14_PROJECT_NAME)){
-			_jsfFlexInspector = new JsfFlexQdoxInspector(currDirPath, FLEX_COMPONENT_VALUE_CLASS_INFO_ATTRIBUTE, 
-															FLEX_COMPONENT_NODE_ATTRIBUTE);
-		}else{
-			
-			_jsfFlexInspector = new _JsfFlexInspectorBase(currDirPath){
-				public void inspectFiles(){
-					/*
-					 * In order to keep in synch with the QDox parsing, following is the 
-					 * format to be inserted into the LinkedList<Map<String, ? extends Object>> :
-					 * 		(1) Map containing 	CLASS_PACKAGE_KEY
-					 * 							CLASS_NAME_KEY
-					 * 
-					 * 		(2) Map containing 	HTML_TYPE_KEY
-					 * 							TYPE_ATTRIBUTE_VALUE_KEY
-					 * 							
-					 * 							VALUE_ATTRIBUTE_VALUE_KEY
-					 * 							VALUE_DYNAMIC_KEY
-					 * 							VALUE_NESTED_KEY
-					 * 							VALUE_NESTED_VALUES_KEY
-					 * 							
-					 * 							NAME_ATTRIBUTE_VALUE_KEY
-					 * 							NAME_DYNAMIC_KEY
-					 * 							NAME_APPEND_KEY
-					 * 							
-					 */
-					JavaDocBuilder builder = new JavaDocBuilder();
-					builder.addSourceTree(new File(getDirPath()));
-					JavaClass[] inspectableFiles = builder.getClasses();
+		_jsfFlexInspector = new _JsfFlexInspectorBase(currDirPath){
+			public void inspectFiles(){
+				/*
+				 * In order to keep in synch with the QDox parsing, following is the 
+				 * format to be inserted into the LinkedList<Map<String, ? extends Object>> :
+				 * 		(1) Map containing 	CLASS_PACKAGE_KEY
+				 * 							CLASS_NAME_KEY
+				 * 
+				 * 		(2) Map containing 	HTML_TYPE_KEY
+				 * 							TYPE_ATTRIBUTE_VALUE_KEY
+				 * 							
+				 * 							VALUE_ATTRIBUTE_VALUE_KEY
+				 * 							VALUE_DYNAMIC_KEY
+				 * 							VALUE_NESTED_KEY
+				 * 							VALUE_NESTED_VALUES_KEY
+				 * 							
+				 * 							NAME_ATTRIBUTE_VALUE_KEY
+				 * 							NAME_DYNAMIC_KEY
+				 * 							NAME_APPEND_KEY
+				 * 							
+				 */
+				JavaDocBuilder builder = new JavaDocBuilder();
+				builder.addSourceTree(new File(getDirPath()));
+				JavaClass[] inspectableFiles = builder.getClasses();
+				
+				for(JavaClass currClass : inspectableFiles){
+					JsfFlexAttributeProperties jsfFlexAttributeList = currClass.getClass().getAnnotation(JsfFlexAttributeProperties.class);
+					List<Map<String, ? extends Object>> inspectedList = new LinkedList<Map<String, ? extends Object>>();
+					Map<String, String> inspectedMap = new LinkedHashMap<String, String>();
 					
-					for(JavaClass currClass : inspectableFiles){
-						JsfFlexAttributeProperties jsfFlexAttributeList = currClass.getClass().getAnnotation(JsfFlexAttributeProperties.class);
-						List<Map<String, ? extends Object>> inspectedList = new LinkedList<Map<String, ? extends Object>>();
-						Map<String, String> inspectedMap = new LinkedHashMap<String, String>();
-						
-						if(jsfFlexAttributeList == null || jsfFlexAttributeList.mxmlComponentPackage() == null || 
-									jsfFlexAttributeList.mxmlComponentName().length() == 0){
-							continue;
-						}
-						
-						inspectedMap.put(MXML_COMPONENT_PACKAGE_KEY, jsfFlexAttributeList.mxmlComponentPackage());
-						inspectedMap.put(MXML_COMPONENT_NAME_KEY, jsfFlexAttributeList.mxmlComponentName());
-						
-						inspectedList.add(inspectedMap);
-						//have added Map info containing CLASS_* info
-						
-						for(FlexComponentNodeAttribute currComponentNodeInfo : jsfFlexAttributeList.mxmlComponentNodeAttributes()){
-							inspectedMap = new LinkedHashMap<String, String>();
-							
-							inspectedMap.put(HTML_TYPE_KEY, currComponentNodeInfo.htmlType());
-							inspectedMap.put(TYPE_ATTRIBUTE_VALUE_KEY, currComponentNodeInfo.typeAttributeValue());
-							
-							inspectedMap.put(VALUE_ATTRIBUTE_VALUE_KEY, currComponentNodeInfo.valueAttributeValue());
-							inspectedMap.put(VALUE_DYNAMIC_KEY, String.valueOf(currComponentNodeInfo.isValueDynamic()));
-							inspectedMap.put(VALUE_NESTED_KEY, String.valueOf(currComponentNodeInfo.isValueNested()));
-							
-							String builtString;
-							if(currComponentNodeInfo.isValueNested()){
-								StringBuilder toBuildString = new StringBuilder();
-								
-								for(String buildInto : currComponentNodeInfo.valueNestedValues()){
-									toBuildString.append(buildInto);
-									toBuildString.append("_");
-								}
-								
-								toBuildString.deleteCharAt(toBuildString.length()-1);
-								builtString = toBuildString.toString();
-							}else{
-								builtString = "";
-							}
-							
-							inspectedMap.put(VALUE_NESTED_VALUES_KEY, builtString);
-							
-							inspectedMap.put(NAME_ATTRIBUTE_VALUE_KEY, currComponentNodeInfo.nameAttributeValue());
-							inspectedMap.put(NAME_DYNAMIC_KEY, String.valueOf(currComponentNodeInfo.isNameDynamic()));
-							inspectedMap.put(NAME_APPEND_KEY, currComponentNodeInfo.nameAppend());
-							
-							inspectedList.add(inspectedMap);
-						}
-						
-						inspectFileFinished(inspectedList, currClass.getName(), currClass.getPackage());
+					if(jsfFlexAttributeList == null || jsfFlexAttributeList.mxmlComponentPackage() == null || 
+								jsfFlexAttributeList.mxmlComponentName().length() == 0){
+						continue;
 					}
 					
-					inspectionCompleted();
+					inspectedMap.put(MXML_COMPONENT_PACKAGE_KEY, jsfFlexAttributeList.mxmlComponentPackage());
+					inspectedMap.put(MXML_COMPONENT_NAME_KEY, jsfFlexAttributeList.mxmlComponentName());
+					
+					inspectedList.add(inspectedMap);
+					//have added Map info containing CLASS_* info
+					
+					for(FlexComponentNodeAttribute currComponentNodeInfo : jsfFlexAttributeList.mxmlComponentNodeAttributes()){
+						inspectedMap = new LinkedHashMap<String, String>();
+						
+						inspectedMap.put(HTML_TYPE_KEY, currComponentNodeInfo.htmlType());
+						inspectedMap.put(TYPE_ATTRIBUTE_VALUE_KEY, currComponentNodeInfo.typeAttributeValue());
+						
+						inspectedMap.put(VALUE_ATTRIBUTE_VALUE_KEY, currComponentNodeInfo.valueAttributeValue());
+						inspectedMap.put(VALUE_DYNAMIC_KEY, String.valueOf(currComponentNodeInfo.isValueDynamic()));
+						inspectedMap.put(VALUE_NESTED_KEY, String.valueOf(currComponentNodeInfo.isValueNested()));
+						
+						String builtString;
+						if(currComponentNodeInfo.isValueNested()){
+							StringBuilder toBuildString = new StringBuilder();
+							
+							for(String buildInto : currComponentNodeInfo.valueNestedValues()){
+								toBuildString.append(buildInto);
+								toBuildString.append("_");
+							}
+							
+							toBuildString.deleteCharAt(toBuildString.length()-1);
+							builtString = toBuildString.toString();
+						}else{
+							builtString = "";
+						}
+						
+						inspectedMap.put(VALUE_NESTED_VALUES_KEY, builtString);
+						
+						inspectedMap.put(NAME_ATTRIBUTE_VALUE_KEY, currComponentNodeInfo.nameAttributeValue());
+						inspectedMap.put(NAME_DYNAMIC_KEY, String.valueOf(currComponentNodeInfo.isNameDynamic()));
+						inspectedMap.put(NAME_APPEND_KEY, currComponentNodeInfo.nameAppend());
+						
+						inspectedList.add(inspectedMap);
+					}
+					
+					inspectFileFinished(inspectedList, currClass.getName(), currClass.getPackage().toString());
 				}
-			};
-			
-		}
-		
+				
+				inspectionCompleted();
+			}
+		};
+        
 		_jsfFlexInspector.addInspectListener(this);
 		
 		_jsfFlexInspector.inspectFiles();

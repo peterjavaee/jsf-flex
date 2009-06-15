@@ -41,7 +41,6 @@
     <module>core-myFaces-impl</module>
     <module>core-mojarra-impl</module>
     <module>examples</module>
-    <module>renderKit14</module>
     <module>renderKit15</module>
   </modules>
 
