@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes.compBase;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,72 +27,72 @@ public interface _MXMLUIScrollBarAttributes {
 	
 	/**
 	 * Amount to scroll when an arrow button is pressed, in pixels.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Amount to scroll when an arrow button is pressed, in pixels."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Amount to scroll when an arrow button is pressed, in pixels."
+    )
 	String getLineScrollSize();
 
 	/**
 	 * Number which represents the maximum scroll position.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Number which represents the maximum scroll position."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Number which represents the maximum scroll position."
+    )
 	String getMaxScrollPosition();
 
 	/**
 	 * Number that represents the minimum scroll position.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Number that represents the minimum scroll position."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Number that represents the minimum scroll position."
+    )
 	String getMinScrollPosition();
 
 	/**
 	 * Amount to move the scroll thumb when the scroll bar track is pressed, in pixels.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Amount to move the scroll thumb when the scroll bar track is pressed, in pixels."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Amount to move the scroll thumb when the scroll bar track is pressed, in pixels."
+    )
 	String getPageScrollSize();
 
 	/**
 	 * The number of lines equivalent to one page.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "The number of lines equivalent to one page."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "The number of lines equivalent to one page."
+    )
 	String getPageSize();
 
 	/**
 	 * Number that represents the current scroll position.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Number that represents the current scroll position."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Number that represents the current scroll position."
+    )
 	String getScrollPosition();
 
 	/**
 	 * Name of the class to use as the icon for the thumb of the scroll bar.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Name of the class to use as the icon for the thumb of the scroll bar."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Name of the class to use as the icon for the thumb of the scroll bar."
+    )
 	String getThumbIcon();
 	
 }

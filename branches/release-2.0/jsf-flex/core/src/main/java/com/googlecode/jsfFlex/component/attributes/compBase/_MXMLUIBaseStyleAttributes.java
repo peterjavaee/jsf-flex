@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes.compBase;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,90 +27,90 @@ public interface _MXMLUIBaseStyleAttributes {
 	
 	/**
 	 * The vertical distance in pixels from the lower edge of the component to the lower edge of its parent container.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "The vertical distance in pixels from the lower edge of the component to the lower edge of its parent container."
 	 */
+    @JSFProperty(
+            desc        =   "The vertical distance in pixels from the lower edge of the component to the lower edge of its parent container."
+    )
 	String getBottom();
 	
 	/**
 	 * Color of the component highlight when validation fails.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Color of the component highlight when validation fails."
 	 */
+    @JSFProperty(
+            desc        =   "Color of the component highlight when validation fails."
+    )
 	String getErrorColor();
 	
 	/**
 	 * Blend mode used by the focus rectangle.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Blend mode used by the focus rectangle."
 	 */
+    @JSFProperty(
+            desc        =   "Blend mode used by the focus rectangle."
+    )
 	String getFocusBlendMode();
 	
 	/**
 	 * Skin used to draw the focus rectangle.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Skin used to draw the focus rectangle.'
 	 */
+    @JSFProperty(
+            desc        =   "Skin used to draw the focus rectangle."
+    )
 	String getFocusSkin();
 	
 	/**
 	 * Thickness, in pixels, of the focus rectangle outline.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Thickness, in pixels, of the focus rectangle outline."
 	 */
+    @JSFProperty(
+            desc        =   "Thickness, in pixels, of the focus rectangle outline."
+    )
 	String getFocusThickness();
 	
 	/**
 	 * The horizontal distance in pixels from the center of the component's parent container to the center of the component.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "The horizontal distance in pixels from the center of the component's parent container to the center of the component."
 	 */
+    @JSFProperty(
+            desc        =   "The horizontal distance in pixels from the center of the component's parent container to the center of the component."
+    )
 	String getHorizontalCenter();
 	
 	/**
 	 * The horizontal distance in pixels from the left edge of the component's parent container to the left edge of the component.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "The horizontal distance in pixels from the left edge of the component's parent container to the left edge of the component."
 	 */
+    @JSFProperty(
+            desc        =   "The horizontal distance in pixels from the left edge of the component's parent container to the left edge of the component."
+    )
 	String getLeft();
 	
 	/**
 	 * The horizontal distance in pixels from the right edge of the component to the right edge of its parent container.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "The horizontal distance in pixels from the right edge of the component to the right edge of its parent container."
 	 */
+    @JSFProperty(
+            desc        =   "The horizontal distance in pixels from the right edge of the component to the right edge of its parent container."
+    )
 	String getRight();
 	
 	/**
 	 * Theme color of a component.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Theme color of a component."
 	 */
+    @JSFProperty(
+            desc        =   "Theme color of a component."
+    )
 	String getThemeColor();
 	
 	/**
 	 * The vertical distance in pixels from the top edge of the component's parent container to the top edge of the component.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "The vertical distance in pixels from the top edge of the component's parent container to the top edge of the component."
 	 */
+    @JSFProperty(
+            desc        =   "The vertical distance in pixels from the top edge of the component's parent container to the top edge of the component."
+    )
 	String getTop();
 	
 	/**
 	 * The vertical distance in pixels from the center of the component's parent container to the center of the component.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "The vertical distance in pixels from the center of the component's parent container to the center of the component."
 	 */
+    @JSFProperty(
+            desc        =   "The vertical distance in pixels from the center of the component's parent container to the center of the component."
+    )
 	String getVerticalCenter();
 	
 }

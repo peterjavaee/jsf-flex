@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes.compBase;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,106 +27,106 @@ public interface _MXMLUIBaseEffectsAttributes {
 	
 	/**
 	 * Played when the component is added as a child to a Container.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Played when the component is added as a child to a Container."
 	 */
+    @JSFProperty(
+            desc    =   "Played when the component is added as a child to a Container."
+    )
 	String getAddedEffect();
 	
 	/**
 	 * Played when the component is created.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Played when the component is created."
 	 */
+    @JSFProperty(
+            desc    =   "Played when the component is created."
+    )
 	String getCreationCompleteEffect();
 	
 	/**
 	 * Played when the component gains keyboard focus.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Played when the component gains keyboard focus."
 	 */
+    @JSFProperty(
+            desc    =   "Played when the component gains keyboard focus."
+    )
 	String getFocusInEffect();
 	
 	/**
 	 * Played when the component loses keyboard focus.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Played when the component loses keyboard focus."
 	 */
+    @JSFProperty(
+            desc    =   "Played when the component loses keyboard focus."
+    )
 	String getFocusOutEffect();
 	
 	/**
 	 * Played when the component becomes invisible.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Played when the component becomes invisible."
 	 */
+    @JSFProperty(
+            desc    =   "Played when the component becomes invisible."
+    )
 	String getHideEffect();
 	
 	/**
 	 * Played when the user presses the mouse button while over the component.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Played when the user presses the mouse button while over the component."
 	 */
+    @JSFProperty(
+            desc    =   "Played when the user presses the mouse button while over the component."
+    )
 	String getMouseDownEffect();
 	
 	/**
 	 * Played when the user releases the mouse button while over the component.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Played when the user releases the mouse button while over the component."
 	 */
+    @JSFProperty(
+            desc    =   "Played when the user releases the mouse button while over the component."
+    )
 	String getMouseUpEffect();
 	
 	/**
 	 * Played when the component is moved.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Played when the component is moved."
 	 */
+    @JSFProperty(
+            desc    =   "Played when the component is moved."
+    )
 	String getMoveEffect();
 	
 	/**
 	 * Played when the component is removed from a Container.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Played when the component is removed from a Container."
 	 */
+    @JSFProperty(
+            desc    =   "Played when the component is removed from a Container."
+    )
 	String getRemovedEffect();
 	
 	/**
 	 * Played when the component is resized.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Played when the component is resized."
 	 */
+    @JSFProperty(
+            desc    =   "Played when the component is resized."
+    )
 	String getResizeEffect();
 	
 	/**
 	 * Played when the user rolls the mouse so it is no longer over the component.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Played when the user rolls the mouse so it is no longer over the component."
 	 */
+    @JSFProperty(
+            desc    =   "Played when the user rolls the mouse so it is no longer over the component."
+    )
 	String getRollOutEffect();
 	
 	/**
 	 * Played when the user rolls the mouse over the component.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Played when the user rolls the mouse over the component."
 	 */
+    @JSFProperty(
+            desc    =   "Played when the user rolls the mouse over the component."
+    )
 	String getRollOverEffect();
 	
 	/**
 	 * Played when the component becomes visible.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Played when the component becomes visible."
 	 */
+    @JSFProperty(
+            desc    =   "Played when the component becomes visible."
+    )
 	String getShowEffect();
 	
 }

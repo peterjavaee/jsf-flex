@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes.compBase;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,59 +27,59 @@ public interface _MXMLUIBaseAttributes {
 	
 	/**
 	 * Id of the component.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Id of the component."
-	 *     inheritedTag	= true
 	 */
+    @JSFProperty(
+            inheritTag  =   true,
+            desc        =   "Id of the component."
+    )
 	String getId();
 	
 	/**
 	 * Number that specifies the height of the component, in pixels, in the parent's coordinates.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Number that specifies the height of the component, in pixels, in the parent's coordinates."
 	 */
+    @JSFProperty(
+            desc        =   "Number that specifies the height of the component, in pixels, in the parent's coordinates."
+    )
 	String getHeight();
 	
 	/**
 	 * The class style used by this component.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "The class style used by this component."
 	 */
+    @JSFProperty(
+            desc        =   "The class style used by this component."
+    )
 	String getStyleName();
 	
 	/**
 	 * Number that specifies the width of the component, in pixels, in the parent's coordinates.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Number that specifies the width of the component, in pixels, in the parent's coordinates."
 	 */
+    @JSFProperty(
+            desc        =   "Number that specifies the width of the component, in pixels, in the parent's coordinates."
+    )
 	String getWidth();
 	
 	/**
 	 * Number that specifies the component's horizontal position, in pixels, within its parent container.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Number that specifies the component's horizontal position, in pixels, within its parent container."
 	 */
+    @JSFProperty(
+            desc        =   "Number that specifies the component's horizontal position, in pixels, within its parent container."
+    )
 	String getX();
 	
 	/**
 	 * Number that specifies the component's vertical position, in pixels, within its parent container.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Number that specifies the component's vertical position, in pixels, within its parent container."
 	 */
+    @JSFProperty(
+            desc        =   "Number that specifies the component's vertical position, in pixels, within its parent container."
+    )
 	String getY();
 	
 	/**
 	 * Dispatched when the component has finished its construction, property processing, measuring, layout, and drawing.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Dispatched when the component has finished its construction, property processing, measuring, layout, and drawing."
 	 */
+    @JSFProperty(
+            desc        =   "Dispatched when the component has finished its construction, property processing, measuring, layout, and drawing."
+    )
 	String getCreationComplete();
 	
 }
