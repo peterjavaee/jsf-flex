@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,22 +27,22 @@ public interface _MXMLUIDropDownEventColorAttributes {
 	
 	/**
 	 * The rollOverColor of the drop-down list.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "The rollOverColor of the drop-down list."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "The rollOverColor of the drop-down list."
+    )
 	String getRollOverColor();
 
 	/**
 	 * The selectionColor of the drop-down list.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "The selectionColor of the drop-down list."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "The selectionColor of the drop-down list."
+    )
 	String getSelectionColor();
 	
 }

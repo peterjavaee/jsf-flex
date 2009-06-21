@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,12 +27,12 @@ public interface _MXMLUIBarColorAttribute {
 	
 	/**
 	 * Determines the color of a ProgressBar.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Determines the color of a ProgressBar."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Determines the color of a ProgressBar."
+    )
 	String getBarColor();
 	
 }

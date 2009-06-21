@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,12 +27,12 @@ public interface _MXMLUILeadingAttribute {
 	
 	/**
 	 * Additional vertical space between lines of text.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Additional vertical space between lines of text."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Additional vertical space between lines of text."
+    )
 	String getLeading();
 	
 }

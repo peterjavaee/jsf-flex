@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,32 +27,32 @@ public interface _MXMLUIThumbSkinAttributes {
 	
 	/**
 	 * Name of the class to use as the skin for the thumb of the scroll bar when you click the thumb.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Name of the class to use as the skin for the thumb of the scroll bar when you click the thumb."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Name of the class to use as the skin for the thumb of the scroll bar when you click the thumb."
+    )
 	String getThumbDownSkin();
 
 	/**
 	 * Name of the class to use as the skin for the thumb of the scroll bar when the mouse pointer is over the thumb.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Name of the class to use as the skin for the thumb of the scroll bar whenthe mouse pointer is over the thumb."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Name of the class to use as the skin for the thumb of the scroll bar whenthe mouse pointer is over the thumb."
+    )
 	String getThumbOverSkin();
 
 	/**
 	 * Name of the class to use as the skin for the thumb of the scroll bar.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Name of the class to use as the skin for the thumb of the scroll bar."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Name of the class to use as the skin for the thumb of the scroll bar."
+    )
 	String getThumbUpSkin();
 	
 }

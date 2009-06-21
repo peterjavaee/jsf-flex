@@ -23,6 +23,7 @@ import java.io.IOException;
 import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
@@ -35,13 +36,13 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
  * This component should be used as the base action of the component if the component<br>
  * does not require any preservation of values during the post-back phase [i.e. AbstractMXMLUIVideoDisplay].<br>
  * 
- * @JSFComponent
- *   type     = "com.googlecode.jsfFlex.MXMLUISimpleBase"
- *   family   = "javax.faces.MXMLUISimpleBase"
- *   desc	  = "Base component for MXMLSimple components"
- * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        type    =   "com.googlecode.jsfFlex.MXMLUISimpleBase",
+        family  =   "javax.faces.MXMLUISimpleBase",
+        desc    =   "Base component for MXMLSimple components"
+)
 public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLContract {
 	
 	private _AnnotationDocletParser _annotationDocletParserInstance;

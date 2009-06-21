@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,22 +27,22 @@ public interface _MXMLUIScrollBarAttributes {
 	
 	/**
 	 * The name of the horizontal scrollbar style.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "The name of the horizontal scrollbar style."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "The name of the horizontal scrollbar style."
+    )
 	String getHorizontalScrollBarStyleName();
 
 	/**
 	 * The name of the vertical scrollbar style.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "The name of the vertical scrollbar style."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "The name of the vertical scrollbar style."
+    )
 	String getVerticalScrollBarStyleName();
 	
 }

@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,12 +27,12 @@ public interface _MXMLUITextAttribute {
 	
 	/**
 	 * Plain text that appears in the control.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = true
-	 *    desc            = "Plain text that appears in the control."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   true,
+            desc            =   "Plain text that appears in the control."
+    )
     String getText();
     
     void setText(String text);

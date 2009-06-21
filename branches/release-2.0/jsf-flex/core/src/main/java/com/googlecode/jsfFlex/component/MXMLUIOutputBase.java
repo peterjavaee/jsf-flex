@@ -24,6 +24,8 @@ import javax.faces.component.UIOutput;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
@@ -37,13 +39,13 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
  * does not require any preservation of values during the post-back phase [i.e. AbstractMXMLUILabel], but<br>
  * require setting of fields of UIOutput [i.e. converter].<br>
  * 
- * @JSFComponent
- *   type     = "com.googlecode.jsfFlex.MXMLUIOutputBase"
- *   family   = "javax.faces.MXMLOutputBase"
- *   desc	  = "Base component for MXMLOutput components"
- * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        type    =   "com.googlecode.jsfFlex.MXMLUIOutputBase",
+        family  =   "javax.faces.MXMLOutputBase",
+        desc    =   "Base component for MXMLOutput components"
+)
 public abstract class MXMLUIOutputBase extends UIOutput implements _MXMLContract {
 	
 	private _AnnotationDocletParser _annotationDocletParserInstance;
@@ -135,10 +137,10 @@ public abstract class MXMLUIOutputBase extends UIOutput implements _MXMLContract
      * specified, an instance of the converter type registered with that id is used. When this is an
      * EL expression, the result of evaluating the expression must be an object that implements the
      * Converter interface.
-     * 
-     * @JSFProperty
-     *   inheritedTag	  = true
      */
+    @JSFProperty(
+            inheritTag      =   true
+    )
     public Converter getConverter(){
     	return super.getConverter();
     }

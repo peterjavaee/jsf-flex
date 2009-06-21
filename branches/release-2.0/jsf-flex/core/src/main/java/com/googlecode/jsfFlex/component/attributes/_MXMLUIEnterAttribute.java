@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,12 +27,12 @@ public interface _MXMLUIEnterAttribute {
 	
 	/**
 	 * Dispatched if the editable property is set to true and the user presses the Enter key while typing in the editable text field.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Dispatched if the editable property is set to true and the user presses the Enter key while typing in the editable text field."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Dispatched if the editable property is set to true and the user presses the Enter key while typing in the editable text field."
+    )
 	String getEnter();
 	
 }

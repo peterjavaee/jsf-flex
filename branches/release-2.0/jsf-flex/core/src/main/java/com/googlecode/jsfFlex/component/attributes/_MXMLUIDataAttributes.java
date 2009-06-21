@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,32 +27,32 @@ public interface _MXMLUIDataAttributes {
 	
 	/**
 	 * Lets you pass a value to the component when you use it in an item renderer or item editor.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Lets you pass a value to the component when you use it in an item renderer or item editor."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Lets you pass a value to the component when you use it in an item renderer or item editor."
+    )
 	String getData();
 
 	/**
 	 * When a component is used as a drop-in item renderer or drop-in item editor, Flex initializesthe listData property of the component with the appropriate data from the list control.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "When a component is used as a drop-in item renderer or drop-in item editor, Flex initializesthe listData property of the component with the appropriate data from the list control."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "When a component is used as a drop-in item renderer or drop-in item editor, Flex initializesthe listData property of the component with the appropriate data from the list control."
+    )
 	String getListData();
 
 	/**
 	 * Specifies whether extra white space (spaces, line breaks, and so on) should be removed in a control with HTML text.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Specifies whether extra white space (spaces, line breaks, and so on) should be removed in a control with HTML text."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Specifies whether extra white space (spaces, line breaks, and so on) should be removed in a control with HTML text."
+    )
 	String getCondenseWhite();
 	
 }

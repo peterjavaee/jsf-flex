@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,22 +27,22 @@ public interface _MXMLUIDragAttributes {
 	
 	/**
 	 * Specifies the disabled color of a list item.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Specifies the disabled color of a list item."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Specifies the disabled color of a list item."
+    )
 	String getSelectionDisabledColor();
 	
 	/**
 	 * Indicates that items can be moved instead of just copied from the Tree control as part of a drag-and-drop operation.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Indicates that items can be moved instead of just copied from the Tree control as part of a drag-and-drop operation."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Indicates that items can be moved instead of just copied from the Tree control as part of a drag-and-drop operation."
+    )
 	String getDragMoveEnabled();
 	
 }

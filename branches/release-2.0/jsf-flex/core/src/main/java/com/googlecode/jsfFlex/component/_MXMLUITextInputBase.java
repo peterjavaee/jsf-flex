@@ -20,21 +20,23 @@ package com.googlecode.jsfFlex.component;
 
 import javax.faces.context.FacesContext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 
 /**
  * This class will process the needed actions of setting and retrieving of "text" attribute<br>
  * within the Flex components.<br>
  * 
- * @JSFComponent
- * 	 class    = "com.googlecode.jsfFlex.component.MXMLUITextInputBase"
- *   type     = "com.googlecode.jsfFlex.MXMLUITextInputBase"
- *   family   = "javax.faces.MXMLUITextInputBase"
- *   desc	  = "Base component for MXMLInput components that contain text attribute"
- *   template = "true"
- * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        clazz       =   "com.googlecode.jsfFlex.component.MXMLUITextInputBase",
+        type        =   "com.googlecode.jsfFlex.MXMLUITextInputBase",
+        family      =   "javax.faces.MXMLUITextInputBase",
+        desc        =   "Base component for MXMLInput components that contain text attribute",
+        template    =   true
+)
 public abstract class _MXMLUITextInputBase 
 							extends MXMLUIInputBase 
 							implements _MXMLUITextAttribute {

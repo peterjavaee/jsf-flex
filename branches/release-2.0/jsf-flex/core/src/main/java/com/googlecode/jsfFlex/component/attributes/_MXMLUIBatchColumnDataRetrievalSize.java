@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * One thing to note is that if rowCount of the DataGrid component is greater<br>
  * than batchColumnDataRetrievalSize, latter will be set to former.
@@ -28,13 +30,13 @@ public interface _MXMLUIBatchColumnDataRetrievalSize {
 	
 	/**
 	 * Size denoting how many elements to retrieve by http service. If not defined will default to 50.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    defaultValue	  = "50"
-	 *    desc            = "Size denoting how many elements to retrieve by http service. If not defined will default to 50."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            defaultValue    =   "50",
+            desc            =   "Size denoting how many elements to retrieve by http service. If not defined will default to 50."
+    )
 	String getBatchColumnDataRetrievalSize();
 	
 }

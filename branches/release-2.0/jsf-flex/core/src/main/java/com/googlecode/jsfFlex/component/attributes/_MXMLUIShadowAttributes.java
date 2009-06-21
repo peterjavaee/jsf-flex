@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,32 +27,32 @@ public interface _MXMLUIShadowAttributes {
 	
 	/**
 	 * Boolean property that specifies whether the component has a visible drop shadow.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Boolean property that specifies whether the component has a visible drop shadow."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Boolean property that specifies whether the component has a visible drop shadow."
+    )
 	String getDropShadowEnabled();
 
 	/**
 	 * Direction of the drop shadow.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Direction of the drop shadow."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Direction of the drop shadow."
+    )
 	String getShadowDirection();
 
 	/**
 	 * Distance of the drop shadow.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Distance of the drop shadow."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Distance of the drop shadow."
+    )
 	String getShadowDistance();
 	
 }

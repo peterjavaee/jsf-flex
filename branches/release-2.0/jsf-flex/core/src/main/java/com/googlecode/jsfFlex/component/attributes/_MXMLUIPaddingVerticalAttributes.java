@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,22 +27,22 @@ public interface _MXMLUIPaddingVerticalAttributes {
 	
 	/**
 	 * Number of pixels between the container's bottom border and the bottom of its content area.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Number of pixels between the container's bottom border and the bottom of its content area."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Number of pixels between the container's bottom border and the bottom of its content area."
+    )
 	String getPaddingBottom();
 
 	/**
 	 * Number of pixels between the container's top border and the top of its content area.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Number of pixels between the container's top border and the top of its content area."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Number of pixels between the container's top border and the top of its content area."
+    )
 	String getPaddingTop();
 	
 }

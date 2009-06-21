@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,22 +27,22 @@ public interface _MXMLUIItemEventAttributes {
 	
 	/**
 	 * Dispatched when the user rolls the mouse over a drop-down list item.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Dispatched when the user rolls the mouse over a drop-down list item."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Dispatched when the user rolls the mouse over a drop-down list item."
+    )
 	String getItemRollOver();
 
 	/**
 	 * Dispatched when the user rolls the mouse over a drop-down list item.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Dispatched when the user rolls the mouse over a drop-down list item."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Dispatched when the user rolls the mouse over a drop-down list item."
+    )
 	String getItemRollOut();
 	
 }

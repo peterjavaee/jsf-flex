@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,12 +27,12 @@ public interface _MXMLUISelectedButtonTextStyleNameAttribute {
 	
 	/**
 	 * Name of CSS style declaration that specifies styles for the text of the selected button.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Name of CSS style declaration that specifies styles for the text of the selected button."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Name of CSS style declaration that specifies styles for the text of the selected button."
+    )
 	String getSelectedButtonTextStyleName();
 	
 }

@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,12 +27,12 @@ public interface _MXMLUITruncateToFitAttribute {
 	
 	/**
 	 * If this propery is true, and the Label control size is smaller than its text, the text of the Label control is truncated using a localizable string, such as "...".
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "If this propery is true, and the Label control size is smaller than its text, the text of the Label control is truncated using a localizable string, such as ...."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "If this propery is true, and the Label control size is smaller than its text, the text of the Label control is truncated using a localizable string, such as ...."
+    )
 	String getTruncateToFit();
 	
 }

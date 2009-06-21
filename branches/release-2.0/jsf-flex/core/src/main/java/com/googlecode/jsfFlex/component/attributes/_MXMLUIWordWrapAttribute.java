@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,12 +27,12 @@ public interface _MXMLUIWordWrapAttribute {
 	
 	/**
 	 * A flag that indicates whether text in the row should be word wrapped.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "A flag that indicates whether text in the row should be word wrapped."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "A flag that indicates whether text in the row should be word wrapped."
+    )
 	String getWordWrap();
 	
 }

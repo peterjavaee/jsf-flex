@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,32 +27,32 @@ public interface _MXMLUIFontGeneralAttributes {
 	
 	/**
 	 * Determines whether the text is italic font.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Determines whether the text is italic font."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Determines whether the text is italic font."
+    )
 	String getFontStyle();
 
 	/**
 	 * Determines whether the text is boldface.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Determines whether the text is boldface."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Determines whether the text is boldface."
+    )
 	String getFontWeight();
 
 	/**
 	 * Height of the text, in pixels.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Height of the text, in pixels."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Height of the text, in pixels."
+    )
 	String getFontSize();
 	
 }

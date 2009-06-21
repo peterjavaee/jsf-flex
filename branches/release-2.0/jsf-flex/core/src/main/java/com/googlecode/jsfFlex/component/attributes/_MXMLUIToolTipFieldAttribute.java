@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,12 +27,12 @@ public interface _MXMLUIToolTipFieldAttribute {
 	
 	/**
 	 * Name of the the field in the dataProvider object to display as the tooltip label.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Name of the the field in the dataProvider object to display as the tooltip label."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Name of the the field in the dataProvider object to display as the tooltip label."
+    )
 	String getToolTipField();
 	
 }

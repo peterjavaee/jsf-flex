@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,12 +27,12 @@ public interface _MXMLUIColumnCountAttribute {
 	
 	/**
 	 * The number of columns to be displayed in a TileList control or items in aHorizontalList control.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "The number of columns to be displayed in a TileList control or items in aHorizontalList control."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "The number of columns to be displayed in a TileList control or items in aHorizontalList control."
+    )
 	String getColumnCount();
 	
 }

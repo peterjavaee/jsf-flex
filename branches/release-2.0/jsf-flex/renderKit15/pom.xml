@@ -56,7 +56,6 @@
       <groupId>org.apache.myfaces.buildtools</groupId>
       <artifactId>myfaces-builder-annotations</artifactId>
       <scope>provided</scope>
-      <version>${myfaces.buildtools.version}</version>
     </dependency>
     
     <dependency>

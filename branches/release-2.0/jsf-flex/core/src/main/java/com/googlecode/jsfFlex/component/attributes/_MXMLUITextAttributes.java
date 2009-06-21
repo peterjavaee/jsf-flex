@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,32 +27,32 @@ public interface _MXMLUITextAttributes {
 	
 	/**
 	 * Indicates whether this control is used for entering passwords.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Indicates whether this control is used for entering passwords."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Indicates whether this control is used for entering passwords."
+    )
 	String getDisplayAsPassword();
 
 	/**
 	 * The zero-based index of the position after the last character in the current selection (equivalent to the one-based index of the last character).
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "The zero-based index of the position after the last character in the current selection(equivalent to the one-based index of the last character)."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "The zero-based index of the position after the last character in the current selection(equivalent to the one-based index of the last character)."
+    )
 	String getSelectionEndIndex();
 
 	/**
 	 * The zero-based character index value of the first character in the current selection.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "The zero-based character index value of the first character in the current selection."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "The zero-based character index value of the first character in the current selection."
+    )
 	String getSelectionBeginIndex();
 	
 }

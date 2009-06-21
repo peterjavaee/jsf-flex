@@ -20,6 +20,8 @@ package com.googlecode.jsfFlex.component;
 
 import javax.faces.context.FacesContext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.attributes._MXMLUIHtmlTextAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextBindingAttribute;
 
@@ -28,15 +30,15 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUITextBindingAttribute;
  * within the Flex components. Note that since this class invokes the super method of populateComponentInitValues<br>
  * it will also set and retrieve values of "text" attribute of the component [if it exists].<br>
  * 
- * @JSFComponent
- * 	 class    = "com.googlecode.jsfFlex.component.MXMLUIHtmlTextInputBase"
- *   type     = "com.googlecode.jsfFlex.MXMLUIHtmlTextInputBase"
- *   family   = "javax.faces.MXMLUIHtmlTextInputBase"
- *   desc	  = "Base component for MXMLInput components that contain htmlText attribute"
- *   template = "true"
- * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        clazz       =   "com.googlecode.jsfFlex.component.MXMLUIHtmlTextInputBase",
+        type        =   "com.googlecode.jsfFlex.MXMLUIHtmlTextInputBase",
+        family      =   "javax.faces.MXMLUIHtmlTextInputBase",
+        desc        =   "Base component for MXMLInput components that contain htmlText attribute",
+        template    =   true
+)
 public abstract class _MXMLUIHtmlTextInputBase 
 							extends com.googlecode.jsfFlex.component.MXMLUITextInputBase 
 							implements _MXMLUIHtmlTextAttribute, _MXMLUITextBindingAttribute {

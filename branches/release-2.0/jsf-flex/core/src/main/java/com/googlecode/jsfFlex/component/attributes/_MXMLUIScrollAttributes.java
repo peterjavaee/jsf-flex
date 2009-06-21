@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,32 +27,32 @@ public interface _MXMLUIScrollAttributes {
 	
 	/**
 	 * Specifies whether the vertical scroll bar is always present, always absent, or automatically added when needed.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Specifies whether the vertical scroll bar is always present, always absent, or automatically added when needed."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Specifies whether the vertical scroll bar is always present, always absent, or automatically added when needed."
+    )
 	String getVerticalScrollPolicy();
 
 	/**
 	 * The current position of the vertical scroll bar.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "The current position of the vertical scroll bar."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "The current position of the vertical scroll bar."
+    )
 	String getVerticalScrollPosition();
 
 	/**
 	 * Specifies whether the horizontal scroll bar is always present,always absent, or automatically added when needed.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Specifies whether the horizontal scroll bar is always present,always absent, or automatically added when needed."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Specifies whether the horizontal scroll bar is always present,always absent, or automatically added when needed."
+    )
 	String getHorizontalScrollPolicy();
 	
 }

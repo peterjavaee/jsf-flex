@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,12 +27,12 @@ public interface _MXMLUISelectedAttribute {
 	
 	/**
 	 * Indicates whether a toggle button is toggled on (true) or off (false).
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = true
-	 *    desc            = "Indicates whether a toggle button is toggled on (true) or off (false)."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   true,
+            desc            =   "Indicates whether a toggle button is toggled on (true) or off (false)."
+    )
 	Boolean getSelected();
 	
 	void setSelected(Boolean selected);

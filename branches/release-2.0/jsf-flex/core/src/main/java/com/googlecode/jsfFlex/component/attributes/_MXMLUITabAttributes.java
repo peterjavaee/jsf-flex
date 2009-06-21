@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,62 +27,62 @@ public interface _MXMLUITabAttributes {
 	
 	/**
 	 * Name of CSS style declaration that specifies styles for the first tab.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Name of CSS style declaration that specifies styles for the first tab."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Name of CSS style declaration that specifies styles for the first tab."
+    )
 	public abstract String getFirstTabStyleName();
 
 	/**
 	 * Name of CSS style declaration that specifies styles for the last tab.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Name of CSS style declaration that specifies styles for the last tab."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Name of CSS style declaration that specifies styles for the last tab."
+    )
 	public abstract String getLastTabStyleName();
 
 	/**
 	 * Name of CSS style declaration that specifies styles for the text of the selected tab.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Name of CSS style declaration that specifies styles for the text of the selected tab."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Name of CSS style declaration that specifies styles for the text of the selected tab."
+    )
 	public abstract String getSelectedTabTextStyleName();
 
 	/**
 	 * Height of each tab, in pixels.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Height of each tab, in pixels."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Height of each tab, in pixels."
+    )
 	public abstract String getTabHeight();
 
 	/**
 	 * Name of CSS style declaration that specifies styles for the tabs.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Name of CSS style declaration that specifies styles for the tabs."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Name of CSS style declaration that specifies styles for the tabs."
+    )
 	public abstract String getTabStyleName();
 
 	/**
 	 * Width of each tab, in pixels.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Width of each tab, in pixels."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Width of each tab, in pixels."
+    )
 	public abstract String getTabWidth();
 	
 }

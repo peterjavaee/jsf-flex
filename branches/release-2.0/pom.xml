@@ -82,6 +82,12 @@
       </dependency>
       
       <dependency>
+        <groupId>org.apache.myfaces.buildtools</groupId>
+        <artifactId>myfaces-builder-annotations</artifactId>
+        <version>${myfaces.buildtools.version}</version>
+      </dependency>
+      
+      <dependency>
         <groupId>javax.faces</groupId>
         <artifactId>jsf-api</artifactId>
         <version>${mojarra.jsf.version}</version>

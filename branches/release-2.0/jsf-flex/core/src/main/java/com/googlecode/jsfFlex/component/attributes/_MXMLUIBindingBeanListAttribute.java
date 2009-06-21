@@ -20,6 +20,8 @@ package com.googlecode.jsfFlex.component.attributes;
 
 import java.util.List;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -27,12 +29,12 @@ public interface _MXMLUIBindingBeanListAttribute {
 	
 	/**
 	 * List of beans for data binding to the component.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "List of beans for data binding to the component."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "List of beans for data binding to the component."
+    )
 	List getBindingBeanList();
 	
 }

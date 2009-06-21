@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,42 +27,42 @@ public interface _MXMLUIControlSkinAttributes {
 	
 	/**
 	 * Name of the class to use as the skin for the background and border whenthe mouse is not over the control.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Name of the class to use as the skin for the background and border whenthe mouse is not over the control."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Name of the class to use as the skin for the background and border whenthe mouse is not over the control."
+    )
 	String getUpSkin();
 
 	/**
 	 * Name of the class to use as the skin for the background and border when the control is disabled.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Name of the class to use as the skin for the background and border when the control is disabled."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Name of the class to use as the skin for the background and border when the control is disabled."
+    )
 	String getDisabledSkin();
 
 	/**
 	 * Name of the classto use as the skin for the background and border when the user holdsdown the mouse button.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Name of the classto use as the skin for the background and border when the user holdsdown the mouse button."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Name of the classto use as the skin for the background and border when the user holdsdown the mouse button."
+    )
 	String getDownSkin();
 
 	/**
 	 * Name of the class to use as the skin for the background and border when the mouse isover the control.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Name of the class to use as the skin for the background and border when the mouse isover the control."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Name of the class to use as the skin for the background and border when the mouse isover the control."
+    )
 	String getOverSkin();
 	
 }

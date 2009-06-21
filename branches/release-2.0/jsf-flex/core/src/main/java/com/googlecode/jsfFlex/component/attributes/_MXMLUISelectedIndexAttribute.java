@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,12 +27,12 @@ public interface _MXMLUISelectedIndexAttribute {
 	
 	/**
 	 * The index in the data provider of the selected item.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = true
-	 *    desc            = "The index in the data provider of the selected item."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   true,
+            desc            =   "The index in the data provider of the selected item."
+    )
 	Integer getSelectedIndex();
 	
 	void setSelectedIndex(Integer selectedIndex);

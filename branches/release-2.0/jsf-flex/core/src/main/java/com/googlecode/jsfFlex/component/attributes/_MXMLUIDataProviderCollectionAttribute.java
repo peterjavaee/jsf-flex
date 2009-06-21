@@ -20,6 +20,8 @@ package com.googlecode.jsfFlex.component.attributes;
 
 import java.util.Collection;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -27,12 +29,12 @@ public interface _MXMLUIDataProviderCollectionAttribute {
 	
 	/**
 	 * Property that allows providing java.util.Collection dataBinding for dataProvider attribute [i.e. ComboBox]
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Property that allows providing java.util.Collection dataBinding for dataProvider attribute [i.e. ComboBox]."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Property that allows providing java.util.Collection dataBinding for dataProvider attribute [i.e. ComboBox]."
+    )
 	Collection getDataProviderCollection();
 	
 }

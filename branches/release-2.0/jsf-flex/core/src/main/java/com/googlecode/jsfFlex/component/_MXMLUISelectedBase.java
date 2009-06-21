@@ -20,21 +20,23 @@ package com.googlecode.jsfFlex.component;
 
 import javax.faces.context.FacesContext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedAttribute;
 
 /**
  * This class will process the needed actions of setting and retrieving of "selected" attribute<br>
  * within the Flex components.<br>
  * 
- * @JSFComponent
- * 	 class    = "com.googlecode.jsfFlex.component.MXMLUISelectedBase"
- *   type     = "com.googlecode.jsfFlex.MXMLUISelectedBase"
- *   family   = "javax.faces.MXMLUISelectedBase"
- *   desc	  = "Base component for MXMLInput components that contain selected attribute"
- *   template = "true"
- * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        clazz       =   "com.googlecode.jsfFlex.component.MXMLUISelectedBase",
+        type        =   "com.googlecode.jsfFlex.MXMLUISelectedBase",
+        family      =   "javax.faces.MXMLUISelectedBase",
+        desc        =   "Base component for MXMLInput components that contain selected attribute",
+        template    =   true
+)
 public abstract class _MXMLUISelectedBase 
 							extends MXMLUIInputBase 
 							implements _MXMLUISelectedAttribute {

@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,32 +27,32 @@ public interface _MXMLUIBackgroundAttributes {
 	
 	/**
 	 * Background image of a component.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Background image of a component."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Background image of a component."
+    )
 	String getBackgroundImage();
 
 	/**
 	 * Scales the image specified by backgroundImage to different percentage sizes.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Scales the image specified by backgroundImage to different percentage sizes."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Scales the image specified by backgroundImage to different percentage sizes."
+    )
 	String getBackgroundSize();
 
 	/**
 	 * Color of the drop shadow.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Color of the drop shadow."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Color of the drop shadow."
+    )
 	String getDropShadowColor();
 	
 }

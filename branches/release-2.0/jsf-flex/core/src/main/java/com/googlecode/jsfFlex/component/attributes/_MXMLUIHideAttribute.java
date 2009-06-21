@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,10 +27,12 @@ public interface _MXMLUIHideAttribute {
 	
 	/**
 	 * Dispatched when an object's state changes from visible to invisible.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Dispatched when an object's state changes from visible to invisible."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Dispatched when an object's state changes from visible to invisible."
+    )
 	String getHide();
 	
 }

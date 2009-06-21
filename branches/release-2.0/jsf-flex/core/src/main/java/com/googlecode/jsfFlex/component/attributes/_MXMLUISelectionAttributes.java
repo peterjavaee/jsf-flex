@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,22 +27,22 @@ public interface _MXMLUISelectionAttributes {
 	
 	/**
 	 * The set of BackgroundColors for drop-down list rows in an alternating pattern.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "The set of BackgroundColors for drop-down list rows in an alternating pattern."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "The set of BackgroundColors for drop-down list rows in an alternating pattern."
+    )
 	String getAlternatingItemColors();
 
 	/**
 	 * The selectionEasingFunction of the drop-down list.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "The selectionEasingFunction of the drop-down list."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "The selectionEasingFunction of the drop-down list."
+    )
 	String getSelectionEasingFunction();
 	
 }

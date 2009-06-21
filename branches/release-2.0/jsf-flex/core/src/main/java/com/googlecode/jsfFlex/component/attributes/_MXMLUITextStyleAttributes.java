@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,32 +27,32 @@ public interface _MXMLUITextStyleAttributes {
 	
 	/**
 	 * Offset of first line of text from the left side of the container, in pixels.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Offset of first line of text from the left side of the container, in pixels."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Offset of first line of text from the left side of the container, in pixels."
+    )
 	String getTextIndent();
 
 	/**
 	 * Determines whether the text is underlined.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Determines whether the text is underlined."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Determines whether the text is underlined."
+    )
 	String getTextDecoration();
 
 	/**
 	 * Alignment of text within a container.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Alignment of text within a container."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Alignment of text within a container."
+    )
 	String getTextAlign();
 	
 }

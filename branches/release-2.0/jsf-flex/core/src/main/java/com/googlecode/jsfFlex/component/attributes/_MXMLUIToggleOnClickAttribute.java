@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,12 +27,12 @@ public interface _MXMLUIToggleOnClickAttribute {
 	
 	/**
 	 * Specifies whether the currently selected button can be deselected by the user.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Specifies whether the currently selected button can be deselected by the user."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Specifies whether the currently selected button can be deselected by the user."
+    )
 	String getToggleOnClick();
 	
 }

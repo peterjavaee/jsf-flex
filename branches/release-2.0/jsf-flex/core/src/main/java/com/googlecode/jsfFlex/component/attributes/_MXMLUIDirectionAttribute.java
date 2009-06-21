@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,12 +27,12 @@ public interface _MXMLUIDirectionAttribute {
 	
 	/**
 	 * Direction in which the fill of the ProgressBar expands toward completion.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Direction in which the fill of the ProgressBar expands toward completion."
 	 */
+    @JSFProperty(
+            required        =   false,
+            rtexprvalue     =   false,
+            desc            =   "Direction in which the fill of the ProgressBar expands toward completion."
+    )
 	String getDirection();
 	
 }
