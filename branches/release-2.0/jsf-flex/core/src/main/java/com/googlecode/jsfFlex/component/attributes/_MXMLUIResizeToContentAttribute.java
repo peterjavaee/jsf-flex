@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="resizeToContent", returnType="java.lang.String", longDesc="If true, the ViewStack container automatically resizes to the size of its current child.")
+@JSFComponent
 public interface _MXMLUIResizeToContentAttribute {
-	
-	/**
-	 * If true, the ViewStack container automatically resizes to the size of its current child.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "If true, the ViewStack container automatically resizes to the size of its current child."
-    )
-	String getResizeToContent();
 	
 }

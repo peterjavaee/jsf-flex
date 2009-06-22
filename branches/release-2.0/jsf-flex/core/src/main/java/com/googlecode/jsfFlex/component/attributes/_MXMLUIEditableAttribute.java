@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="editable", returnType="java.lang.String", longDesc="A flag that indicates whether the control is editable.")
+@JSFComponent
 public interface _MXMLUIEditableAttribute {
-	
-	/**
-	 * A flag that indicates whether the control is editable.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "A flag that indicates whether the control is editable."
-    )
-	String getEditable();
 	
 }

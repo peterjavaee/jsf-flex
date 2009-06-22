@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="cornerRadius", returnType="java.lang.String", longDesc="Radius of component corners.")
+@JSFComponent
 public interface _MXMLUICornerRadiusAttribute {
-	
-	/**
-	 * Radius of component corners.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Radius of component corners."
-    )
-	String getCornerRadius();
 	
 }

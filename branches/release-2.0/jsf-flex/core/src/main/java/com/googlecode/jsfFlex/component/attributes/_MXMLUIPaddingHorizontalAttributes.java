@@ -18,31 +18,20 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperties(
+        properties={
+                @JSFJspProperty(name="paddingLeft", returnType="java.lang.String", longDesc="Number of pixels between the container's left border and the left edge of its content area."),
+                @JSFJspProperty(name="paddingRight", returnType="java.lang.String", longDesc="Number of pixels between the container's right border and the right edge of its content area.")
+        }
+)
+@JSFComponent
 public interface _MXMLUIPaddingHorizontalAttributes {
-	
-	/**
-	 * Number of pixels between the container's left border and the left edge of its content area.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Number of pixels between the container's left border and the left edge of its content area."
-    )
-	String getPaddingLeft();
-
-	/**
-	 * Number of pixels between the container's right border and the right edge of its content area.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Number of pixels between the container's right border and the right edge of its content area."
-    )
-	String getPaddingRight();
 	
 }

@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="backgroundColor", returnType="java.lang.String", longDesc="Background color of a component.")
+@JSFComponent
 public interface _MXMLUIBackgroundColorAttribute {
-	
-	/**
-	 * Background color of a component.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Background color of a component."
-    )
-	String getBackgroundColor();
 	
 }

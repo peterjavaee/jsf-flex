@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="focusAlpha", returnType="java.lang.String", longDesc="Specifies the alpha transparency value of the focus skin.")
+@JSFComponent
 public interface _MXMLUIFocusAlphaAttribute {
-	
-	/**
-	 * Specifies the alpha transparency value of the focus skin.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Specifies the alpha transparency value of the focus skin."
-    )
-	String getFocusAlpha();
 	
 }

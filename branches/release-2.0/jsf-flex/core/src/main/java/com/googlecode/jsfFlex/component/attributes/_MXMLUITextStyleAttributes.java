@@ -18,41 +18,21 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperties(
+        properties={
+                @JSFJspProperty(name="textIndent", returnType="java.lang.String", longDesc="Offset of first line of text from the left side of the container, in pixels."),
+                @JSFJspProperty(name="textDecoration", returnType="java.lang.String", longDesc="Determines whether the text is underlined."),
+                @JSFJspProperty(name="textAlign", returnType="java.lang.String", longDesc="Alignment of text within a container.")
+        }
+)
+@JSFComponent
 public interface _MXMLUITextStyleAttributes {
-	
-	/**
-	 * Offset of first line of text from the left side of the container, in pixels.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Offset of first line of text from the left side of the container, in pixels."
-    )
-	String getTextIndent();
-
-	/**
-	 * Determines whether the text is underlined.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Determines whether the text is underlined."
-    )
-	String getTextDecoration();
-
-	/**
-	 * Alignment of text within a container.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Alignment of text within a container."
-    )
-	String getTextAlign();
 	
 }

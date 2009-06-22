@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="labelFunction", returnType="java.lang.String", longDesc="User-supplied function to run on each item to determine its label.")
+@JSFComponent
 public interface _MXMLUILabelFunctionAttribute {
-	
-	/**
-	 * User-supplied function to run on each item to determine its label.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "User-supplied function to run on each item to determine its label."
-    )
-	String getLabelFunction();
 	
 }

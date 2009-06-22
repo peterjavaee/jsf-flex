@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="backgroundAlpha", returnType="java.lang.String", longDesc="Alpha level of the color defined by the backgroundColor property.")
+@JSFComponent
 public interface _MXMLUIBackgroundAlphaAttribute {
-	
-	/**
-	 * Alpha level of the color defined by the backgroundColor property.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Alpha level of the color defined by the backgroundColor property."
-    )
-	String getBackgroundAlpha();
 	
 }

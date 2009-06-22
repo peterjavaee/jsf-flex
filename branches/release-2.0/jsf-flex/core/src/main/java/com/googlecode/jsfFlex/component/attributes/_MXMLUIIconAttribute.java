@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="icon", returnType="java.lang.String", longDesc="Name of the class to use as the default icon.")
+@JSFComponent
 public interface _MXMLUIIconAttribute {
-	
-	/**
-	 * Name of the class to use as the default icon.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Name of the class to use as the default icon."
-    )
-	String getIcon();
 	
 }

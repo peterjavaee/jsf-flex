@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="scroll", returnType="java.lang.String", longDesc="Dispatched when the user manually scrolls the container.")
+@JSFComponent
 public interface _MXMLUIScrollAttribute {
-	
-	/**
-	 * Dispatched when the user manually scrolls the container.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Dispatched when the user manually scrolls the container."
-    )
-	String getScroll();
 	
 }

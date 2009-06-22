@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="labelField", returnType="java.lang.String", longDesc="The name of the field in the data provider items to display as the label.")
+@JSFComponent
 public interface _MXMLUILabelFieldAttribute {
-	
-	/**
-	 * The name of the field in the data provider items to display as the label.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "The name of the field in the data provider items to display as the label."
-    )
-	String getLabelField();
 	
 }

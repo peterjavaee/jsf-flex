@@ -18,31 +18,20 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperties(
+        properties={
+                @JSFJspProperty(name="repeatDelay", returnType="java.lang.String", longDesc="Number of milliseconds to wait."),
+                @JSFJspProperty(name="repeatInterval", returnType="java.lang.String", longDesc="Number of milliseconds in the actions.")
+        }
+)
+@JSFComponent
 public interface _MXMLUIRepeatAttributes {
-	
-	/**
-	 * Number of milliseconds to wait.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Number of milliseconds to wait."
-    )
-	String getRepeatDelay();
-
-	/**
-	 * Number of milliseconds in the actions.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Number of milliseconds in the actions."
-    )
-	String getRepeatInterval();
 	
 }

@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="backgroundDisabledColor", returnType="java.lang.String", longDesc="Background color of the component when it is disabled.")
+@JSFComponent
 public interface _MXMLUIBackgroundDisabledColorAttribute {
-	
-	/**
-	 * Background color of the component when it is disabled.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Background color of the component when it is disabled."
-    )
-	String getBackgroundDisabledColor();
 	
 }

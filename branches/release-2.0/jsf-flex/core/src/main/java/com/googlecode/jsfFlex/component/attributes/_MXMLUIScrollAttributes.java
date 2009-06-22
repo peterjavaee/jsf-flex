@@ -18,41 +18,21 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperties(
+        properties={
+                @JSFJspProperty(name="verticalScrollPolicy", returnType="java.lang.String", longDesc="Specifies whether the vertical scroll bar is always present, always absent, or automatically added when needed."),
+                @JSFJspProperty(name="verticalScrollPosition", returnType="java.lang.String", longDesc="The current position of the vertical scroll bar."),
+                @JSFJspProperty(name="horizontalScrollPolicy", returnType="java.lang.String", longDesc="Specifies whether the horizontal scroll bar is always present,always absent, or automatically added when needed.")
+        }
+)
+@JSFComponent
 public interface _MXMLUIScrollAttributes {
-	
-	/**
-	 * Specifies whether the vertical scroll bar is always present, always absent, or automatically added when needed.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Specifies whether the vertical scroll bar is always present, always absent, or automatically added when needed."
-    )
-	String getVerticalScrollPolicy();
-
-	/**
-	 * The current position of the vertical scroll bar.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "The current position of the vertical scroll bar."
-    )
-	String getVerticalScrollPosition();
-
-	/**
-	 * Specifies whether the horizontal scroll bar is always present,always absent, or automatically added when needed.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Specifies whether the horizontal scroll bar is always present,always absent, or automatically added when needed."
-    )
-	String getHorizontalScrollPolicy();
 	
 }

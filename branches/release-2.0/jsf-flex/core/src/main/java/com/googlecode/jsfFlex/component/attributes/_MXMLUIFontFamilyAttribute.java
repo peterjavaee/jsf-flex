@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="fontFamily", returnType="java.lang.String", longDesc="Name of the font to use.")
+@JSFComponent
 public interface _MXMLUIFontFamilyAttribute {
-	
-	/**
-	 * Name of the font to use.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Name of the font to use."
-    )
-	String getFontFamily();
 	
 }

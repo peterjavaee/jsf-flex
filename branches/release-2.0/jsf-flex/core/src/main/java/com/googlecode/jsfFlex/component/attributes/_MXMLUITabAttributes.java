@@ -18,71 +18,24 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperties(
+        properties={
+                @JSFJspProperty(name="firstTabStyleName", returnType="java.lang.String", longDesc="Name of CSS style declaration that specifies styles for the first tab."),
+                @JSFJspProperty(name="lastTabStyleName", returnType="java.lang.String", longDesc="Name of CSS style declaration that specifies styles for the last tab."),
+                @JSFJspProperty(name="selectedTabTextStyleName", returnType="java.lang.String", longDesc="Name of CSS style declaration that specifies styles for the text of the selected tab."),
+                @JSFJspProperty(name="tabHeight", returnType="java.lang.String", longDesc="Height of each tab, in pixels."),
+                @JSFJspProperty(name="tabStyleName", returnType="java.lang.String", longDesc="Name of CSS style declaration that specifies styles for the tabs."),
+                @JSFJspProperty(name="tabWidth", returnType="java.lang.String", longDesc="Width of each tab, in pixels.")
+        }
+)
+@JSFComponent
 public interface _MXMLUITabAttributes {
-	
-	/**
-	 * Name of CSS style declaration that specifies styles for the first tab.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Name of CSS style declaration that specifies styles for the first tab."
-    )
-	public abstract String getFirstTabStyleName();
-
-	/**
-	 * Name of CSS style declaration that specifies styles for the last tab.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Name of CSS style declaration that specifies styles for the last tab."
-    )
-	public abstract String getLastTabStyleName();
-
-	/**
-	 * Name of CSS style declaration that specifies styles for the text of the selected tab.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Name of CSS style declaration that specifies styles for the text of the selected tab."
-    )
-	public abstract String getSelectedTabTextStyleName();
-
-	/**
-	 * Height of each tab, in pixels.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Height of each tab, in pixels."
-    )
-	public abstract String getTabHeight();
-
-	/**
-	 * Name of CSS style declaration that specifies styles for the tabs.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Name of CSS style declaration that specifies styles for the tabs."
-    )
-	public abstract String getTabStyleName();
-
-	/**
-	 * Width of each tab, in pixels.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Width of each tab, in pixels."
-    )
-	public abstract String getTabWidth();
 	
 }

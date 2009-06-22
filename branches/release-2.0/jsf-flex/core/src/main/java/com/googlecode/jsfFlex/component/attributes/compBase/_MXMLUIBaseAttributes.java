@@ -18,11 +18,25 @@
  */
 package com.googlecode.jsfFlex.component.attributes.compBase;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperties(
+        properties={
+                @JSFJspProperty(name="height", returnType="java.lang.String", longDesc="Number that specifies the height of the component, in pixels, in the parent's coordinates."),
+                @JSFJspProperty(name="styleName", returnType="java.lang.String", longDesc="The class style used by this component."),
+                @JSFJspProperty(name="width", returnType="java.lang.String", longDesc="Number that specifies the width of the component, in pixels, in the parent's coordinates."),
+                @JSFJspProperty(name="x", returnType="java.lang.String", longDesc="Number that specifies the component's horizontal position, in pixels, within its parent container."),
+                @JSFJspProperty(name="y", returnType="java.lang.String", longDesc="Number that specifies the component's vertical position, in pixels, within its parent container."),
+                @JSFJspProperty(name="creationComplete", returnType="java.lang.String", longDesc="Dispatched when the component has finished its construction, property processing, measuring, layout, and drawing.")
+        }
+)
+@JSFComponent
 public interface _MXMLUIBaseAttributes {
 	
 	/**
@@ -33,53 +47,5 @@ public interface _MXMLUIBaseAttributes {
             desc        =   "Id of the component."
     )
 	String getId();
-	
-	/**
-	 * Number that specifies the height of the component, in pixels, in the parent's coordinates.
-	 */
-    @JSFProperty(
-            desc        =   "Number that specifies the height of the component, in pixels, in the parent's coordinates."
-    )
-	String getHeight();
-	
-	/**
-	 * The class style used by this component.
-	 */
-    @JSFProperty(
-            desc        =   "The class style used by this component."
-    )
-	String getStyleName();
-	
-	/**
-	 * Number that specifies the width of the component, in pixels, in the parent's coordinates.
-	 */
-    @JSFProperty(
-            desc        =   "Number that specifies the width of the component, in pixels, in the parent's coordinates."
-    )
-	String getWidth();
-	
-	/**
-	 * Number that specifies the component's horizontal position, in pixels, within its parent container.
-	 */
-    @JSFProperty(
-            desc        =   "Number that specifies the component's horizontal position, in pixels, within its parent container."
-    )
-	String getX();
-	
-	/**
-	 * Number that specifies the component's vertical position, in pixels, within its parent container.
-	 */
-    @JSFProperty(
-            desc        =   "Number that specifies the component's vertical position, in pixels, within its parent container."
-    )
-	String getY();
-	
-	/**
-	 * Dispatched when the component has finished its construction, property processing, measuring, layout, and drawing.
-	 */
-    @JSFProperty(
-            desc        =   "Dispatched when the component has finished its construction, property processing, measuring, layout, and drawing."
-    )
-	String getCreationComplete();
 	
 }

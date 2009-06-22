@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="dataChange", returnType="java.lang.String", longDesc="Dispatched when the data property changes.")
+@JSFComponent
 public interface _MXMLUIDataChangeAttribute {
-	
-	/**
-	 * Dispatched when the data property changes.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Dispatched when the data property changes."
-    )
-	String getDataChange();
 	
 }

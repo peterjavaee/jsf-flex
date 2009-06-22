@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="wordWrap", returnType="java.lang.String", longDesc="A flag that indicates whether text in the row should be word wrapped.")
+@JSFComponent
 public interface _MXMLUIWordWrapAttribute {
-	
-	/**
-	 * A flag that indicates whether text in the row should be word wrapped.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "A flag that indicates whether text in the row should be word wrapped."
-    )
-	String getWordWrap();
 	
 }

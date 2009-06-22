@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="borderThickness", returnType="java.lang.String", longDesc="Bounding box thickness.")
+@JSFComponent
 public interface _MXMLUIBorderThicknessAttribute {
-	
-	/**
-	 * Bounding box thickness.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Bounding box thickness."
-    )
-	String getBorderThickness();
 	
 }

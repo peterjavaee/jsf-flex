@@ -18,51 +18,22 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperties(
+        properties={
+                @JSFJspProperty(name="fontGridFitType", returnType="java.lang.String", longDesc="Sets the gridFitType property of internal TextFields that represent text in Flex controls."),
+                @JSFJspProperty(name="fontSharpness", returnType="java.lang.String", longDesc="Sets the sharpness property of internal TextFields that represent text in Flex controls."),
+                @JSFJspProperty(name="fontAntiAliasType", returnType="java.lang.String", longDesc="Sets the antiAliasType property of internal TextFields."),
+                @JSFJspProperty(name="fontThickness", returnType="java.lang.String", longDesc="Sets the thickness property of internal TextFields that represent text in Flex controls.")
+        }
+)
+@JSFComponent
 public interface _MXMLUIFontSpecificAttributes {
-	
-	/**
-	 * Sets the gridFitType property of internal TextFields that represent text in Flex controls.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Sets the gridFitType property of internal TextFields that represent text in Flex controls."
-    )
-	String getFontGridFitType();
-
-	/**
-	 * Sets the sharpness property of internal TextFields that represent text in Flex controls.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Sets the sharpness property of internal TextFields that represent text in Flex controls."
-    )
-	String getFontSharpness();
-
-	/**
-	 * Sets the antiAliasType property of internal TextFields.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Sets the antiAliasType property of internal TextFields."
-    )
-	String getFontAntiAliasType();
-
-	/**
-	 * Sets the thickness property of internal TextFields that represent text in Flex controls.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Sets the thickness property of internal TextFields that represent text in Flex controls."
-    )
-	String getFontThickness();
 	
 }

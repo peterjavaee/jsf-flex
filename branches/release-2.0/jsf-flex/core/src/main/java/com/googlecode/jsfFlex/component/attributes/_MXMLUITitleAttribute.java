@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="title", returnType="java.lang.String", longDesc="Title or caption displayed in the title bar.")
+@JSFComponent
 public interface _MXMLUITitleAttribute {
-	
-	/**
-	 * Title or caption displayed in the title bar.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Title or caption displayed in the title bar."
-    )
-	String getTitle();
 	
 }

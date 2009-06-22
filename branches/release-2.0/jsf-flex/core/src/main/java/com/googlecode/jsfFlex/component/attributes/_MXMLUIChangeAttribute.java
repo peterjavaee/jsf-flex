@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="change", returnType="java.lang.String", longDesc="Dispatched when the selectedIndex or selectedItem property changes as a result of user interaction.")
+@JSFComponent
 public interface _MXMLUIChangeAttribute {
-	
-	/**
-	 * Dispatched when the selectedIndex or selectedItem property changes as a result of userinteraction.
-     */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Dispatched when the selectedIndex or selectedItem property changes as a result of user interaction."
-    )
-    String getChange();
 	
 }

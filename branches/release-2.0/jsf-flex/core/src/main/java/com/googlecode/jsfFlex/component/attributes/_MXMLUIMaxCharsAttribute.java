@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="maxChars", returnType="java.lang.String", longDesc="Maximum number of characters that users can enter in the text field.")
+@JSFComponent
 public interface _MXMLUIMaxCharsAttribute {
-	
-	/**
-	 * Maximum number of characters that users can enter in the text field.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Maximum number of characters that users can enter in the text field."
-    )
-	String getMaxChars();
 	
 }

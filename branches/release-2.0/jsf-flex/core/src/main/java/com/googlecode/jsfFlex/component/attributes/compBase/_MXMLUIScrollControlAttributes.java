@@ -18,71 +18,24 @@
  */
 package com.googlecode.jsfFlex.component.attributes.compBase;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperties(
+        properties={
+                @JSFJspProperty(name="border", returnType="java.lang.String", longDesc="The border object."),
+                @JSFJspProperty(name="liveScrolling", returnType="java.lang.String", longDesc="A flag that indicates whether scrolling is live as the scrollbar thumb is moved or the view is not updated until the thumb is released."),
+                @JSFJspProperty(name="maxHorizontalScrollPosition", returnType="java.lang.String", longDesc="The maximum value for the horizontalScrollPosition property."),
+                @JSFJspProperty(name="maxVerticalScrollPosition", returnType="java.lang.String", longDesc="The maximum value for the verticalScrollPosition property."),
+                @JSFJspProperty(name="scrollTipFunction", returnType="java.lang.String", longDesc="A function that computes the string to be displayed as the ScrollTip."),
+                @JSFJspProperty(name="showScrollTips", returnType="java.lang.String", longDesc="A flag that indicates whether a tooltip should appear near the scroll thumb when it is being dragged.")
+        }
+)
+@JSFComponent
 public interface _MXMLUIScrollControlAttributes {
-	
-	/**
-	 * The border object.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "The border object."
-    )
-	String getBorder();
-
-	/**
-	 * A flag that indicates whether scrolling is live as the scrollbar thumb is moved or the view is not updated until the thumb is released.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "A flag that indicates whether scrolling is live as the scrollbar thumb is moved or the view is not updated until the thumb is released."
-    )
-	String getLiveScrolling();
-
-	/**
-	 * The maximum value for the horizontalScrollPosition property.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "The maximum value for the horizontalScrollPosition property."
-    )
-	String getMaxHorizontalScrollPosition();
-
-	/**
-	 * The maximum value for the verticalScrollPosition property.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "The maximum value for the verticalScrollPosition property."
-    )
-	String getMaxVerticalScrollPosition();
-
-	/**
-	 * A function that computes the string to be displayed as the ScrollTip.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "A function that computes the string to be displayed as the ScrollTip."
-    )
-	String getScrollTipFunction();
-
-	/**
-	 * A flag that indicates whether a tooltip should appear near the scroll thumb when it is being dragged.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "A flag that indicates whether a tooltip should appear near the scroll thumb when it is being dragged."
-    )
-	String getShowScrollTips();
 	
 }

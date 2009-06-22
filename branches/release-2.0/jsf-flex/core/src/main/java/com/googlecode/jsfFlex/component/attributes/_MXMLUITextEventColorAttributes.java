@@ -18,31 +18,20 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperties(
+        properties={
+                @JSFJspProperty(name="textSelectedColor", returnType="java.lang.String", longDesc="Text color of the label as the user presses it."),
+                @JSFJspProperty(name="textRollOverColor", returnType="java.lang.String", longDesc="Text color of the label as the user moves the mouse pointer over the button.")
+        }
+)
+@JSFComponent
 public interface _MXMLUITextEventColorAttributes {
-	
-	/**
-	 * Text color of the label as the user presses it.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Text color of the label as the user presses it."
-    )
-	String getTextSelectedColor();
-
-	/**
-	 * Text color of the label as the user moves the mouse pointer over the button.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Text color of the label as the user moves the mouse pointer over the button."
-    )
-	String getTextRollOverColor();
 	
 }

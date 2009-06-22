@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="showHeaders", returnType="java.lang.String", longDesc="A flag that indicates whether the control should show column headers.")
+@JSFComponent
 public interface _MXMLUIShowHeadersAttribute {
-	
-	/**
-	 * A flag that indicates whether the control should show column headers.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "A flag that indicates whether the control should show column headers."
-    )
-	String getShowHeaders();
 	
 }

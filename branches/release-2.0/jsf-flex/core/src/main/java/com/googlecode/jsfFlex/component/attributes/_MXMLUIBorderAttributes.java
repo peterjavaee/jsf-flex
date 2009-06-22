@@ -18,41 +18,21 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperties(
+        properties={
+                @JSFJspProperty(name="borderSides", returnType="java.lang.String", longDesc="Bounding box sides. A space-delimited String that specifies the sides of the border to show."),
+                @JSFJspProperty(name="borderStyle", returnType="java.lang.String", longDesc="Bounding box style."),
+                @JSFJspProperty(name="borderSkin", returnType="java.lang.String", longDesc="The border skin of the component.")
+        }
+)
+@JSFComponent
 public interface _MXMLUIBorderAttributes {
-	
-	/**
-	 * Bounding box sides. A space-delimited String that specifies the sides of the border to show.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Bounding box sides. A space-delimited String that specifies the sides of the border to show."
-    )
-	String getBorderSides();
-
-	/**
-	 * Bounding box style.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Bounding box style."
-    )
-	String getBorderStyle();
-
-	/**
-	 * The border skin of the component.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "The border skin of the component."
-    )
-	String getBorderSkin();
 	
 }

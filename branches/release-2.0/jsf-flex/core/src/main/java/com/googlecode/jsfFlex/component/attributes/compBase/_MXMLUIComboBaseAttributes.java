@@ -18,51 +18,22 @@
  */
 package com.googlecode.jsfFlex.component.attributes.compBase;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperties(
+        properties={
+                @JSFJspProperty(name="editableDisabledSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the background and border when the control is disabled, and the editable property is true."),
+                @JSFJspProperty(name="editableDownSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the background and border when the user holds down the mouse button, and the editable property is true."),
+                @JSFJspProperty(name="editableOverSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the background and border when the mouse is over the control, and the editable property is true."),
+                @JSFJspProperty(name="editableUpSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the background and border when the mouse is not over the control, and the editable property is true.")
+        }
+)
+@JSFComponent
 public interface _MXMLUIComboBaseAttributes {
-	
-	/**
-	 * Name of the class to use as the skin for the background and border when the control is disabled, and the editable property is true.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Name of the class to use as the skin for the background and border when the control is disabled, and the editable property is true."
-    )
-	String getEditableDisabledSkin();
-
-	/**
-	 * Name of the class to use as the skin for the background and border when the user holds down the mouse button, and the editable property is true.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Name of the class to use as the skin for the background and border when the user holds down the mouse button, and the editable property is true."
-    )
-	String getEditableDownSkin();
-
-	/**
-	 * Name of the class to use as the skin for the background and border when the mouse is over the control, and the editable property is true.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Name of the class to use as the skin for the background and border when the mouse is over the control, and the editable property is true."
-    )
-	String getEditableOverSkin();
-
-	/**
-	 * Name of the class to use as the skin for the background and border when the mouse is not over the control, and the editable property is true.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Name of the class to use as the skin for the background and border when the mouse is not over the control, and the editable property is true."
-    )
-	String getEditableUpSkin();
 	
 }

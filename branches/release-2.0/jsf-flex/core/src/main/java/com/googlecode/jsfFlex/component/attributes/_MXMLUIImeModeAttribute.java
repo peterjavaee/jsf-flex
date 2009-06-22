@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="imeMode", returnType="java.lang.String", longDesc="Specifies the IME (input method editor) mode.")
+@JSFComponent
 public interface _MXMLUIImeModeAttribute {
-	
-	/**
-	 * Specifies the IME (input method editor) mode.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Specifies the IME (input method editor) mode."
-    )
-	String getImeMode();
 	
 }

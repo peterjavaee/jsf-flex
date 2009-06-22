@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="allowMultipleSelection", returnType="java.lang.String", longDesc="A flag that indicates whether you can allow more than one item to be selected at the same time.")
+@JSFComponent
 public interface _MXMLUIAllowMultipleSelectionAttribute {
-	
-	/**
-	 * A flag that indicates whether you can allow more than one item to be selected at the same time.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "A flag that indicates whether you can allow more than one item to be selected at the same time."
-    )
-	String getAllowMultipleSelection();
 	
 }

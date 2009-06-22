@@ -18,41 +18,21 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperties(
+        properties={
+                @JSFJspProperty(name="rowCount", returnType="java.lang.String", longDesc="Maximum number of rows visible in the control."),
+                @JSFJspProperty(name="itemRenderer", returnType="java.lang.String", longDesc="IFactory that generates the instances that displays the data for the drop-down list of the control."),
+                @JSFJspProperty(name="selectionDuration", returnType="java.lang.String", longDesc="The selectionDuration of the drop-down list.")
+        }
+)
+@JSFComponent
 public interface _MXMLUIItemInfoAttributes {
-	
-	/**
-	 * Maximum number of rows visible in the control.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Maximum number of rows visible in the control."
-    )
-	String getRowCount();
-
-	/**
-	 * IFactory that generates the instances that displays the data for the drop-down list of the control.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "IFactory that generates the instances that displays the data for the drop-down list of the control."
-    )
-	String getItemRenderer();
-
-	/**
-	 * The selectionDuration of the drop-down list.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "The selectionDuration of the drop-down list."
-    )
-	String getSelectionDuration();
 	
 }

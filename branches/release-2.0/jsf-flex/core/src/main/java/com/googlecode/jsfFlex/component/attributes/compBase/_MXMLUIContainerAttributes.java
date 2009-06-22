@@ -18,173 +18,46 @@
  */
 package com.googlecode.jsfFlex.component.attributes.compBase;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperties(
+        properties={
+                @JSFJspProperty(name="autoLayout", returnType="java.lang.String", longDesc="If true, measurement and layout are done when the position or size of a child is changed."),
+                @JSFJspProperty(name="clipContent", returnType="java.lang.String", longDesc="Whether to apply a clip mask if the positions and/or sizes of this container's children extend outside the borders of this container."),
+                @JSFJspProperty(name="creationIndex", returnType="java.lang.String", longDesc="Specifies the order to instantiate and draw the children of the container."),
+                @JSFJspProperty(name="defaultButton", returnType="java.lang.String", longDesc="The Button control designated as the default button for the container."),
+                @JSFJspProperty(name="horizontalLineScrollSize", returnType="java.lang.String", longDesc="Number of pixels to move when the left- or right-arrow button in the horizontalscroll bar is pressed."),
+                @JSFJspProperty(name="horizontalPageScrollSize", returnType="java.lang.String", longDesc="Number of pixels to move when the track in the horizontal scroll bar is pressed."),
+                @JSFJspProperty(name="horizontalScrollBar", returnType="java.lang.String", longDesc="The horizontal scrollbar used in this container."),
+                @JSFJspProperty(name="verticalLineScrollSize", returnType="java.lang.String", longDesc="Number of pixels to scroll when the up- or down-arrow button in the verticalscroll bar is pressed."),
+                @JSFJspProperty(name="verticalPageScrollSize", returnType="java.lang.String", longDesc="Number of pixels to scroll when the track in the vertical scroll bar is pressed."),
+                @JSFJspProperty(name="verticalScrollBar", returnType="java.lang.String", longDesc="The vertical scrollbar used in this container."),
+                @JSFJspProperty(name="backgroundAttachment", returnType="java.lang.String", longDesc="If a background image is specified, this style specifies whether it is fixed with regard to the viewport (fixed) or scrolls along with the content (scroll).The default value is scroll."),
+                @JSFJspProperty(name="disabledOverlayAlpha", returnType="java.lang.String", longDesc="The alpha value for the overlay that is placed on top of the container when it is disabled."),
+                @JSFJspProperty(name="childAdd", returnType="java.lang.String", longDesc="Dispatched after a child has been added to a container."),
+                @JSFJspProperty(name="childIndexChange", returnType="java.lang.String", longDesc="Dispatched after the index (among the container children) of a container child changes."),
+                @JSFJspProperty(name="childRemove", returnType="java.lang.String", longDesc="Dispatched before a child of a container is removed.")
+        }
+)
+@JSFComponent
 public interface _MXMLUIContainerAttributes {
 	
-	/**
-	 * If true, measurement and layout are done when the position or size of a child is changed.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "If true, measurement and layout are done when the position or size of a child is changed."
-    )
-	String getAutoLayout();
-
-	/**
-	 * Whether to apply a clip mask if the positions and/or sizes of this container's children extend outside the borders of this container.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Whether to apply a clip mask if the positions and/or sizes of this container's children extend outside the borders of this container."
-    )
-	String getClipContent();
-
-	/**
-	 * Specifies the order to instantiate and draw the children of the container.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Specifies the order to instantiate and draw the children of the container."
-    )
-	String getCreationIndex();
-	
-	/**
-	 * The child creation policy for this Container.
-	 */
+    /**
+     * The child creation policy for this Container.
+     */
     @JSFProperty(
             required        =   false,
             rtexprvalue     =   false,
             desc            =   "The child creation policy for this Container."
     )
-	String getCreationPolicy();
-	
-	void setCreationPolicy(String creationPolicy);
-	
-	/**
-	 * The Button control designated as the default button for the container.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "The Button control designated as the default button for the container."
-    )
-	String getDefaultButton();
-
-	/**
-	 * Number of pixels to move when the left- or right-arrow button in the horizontalscroll bar is pressed.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Number of pixels to move when the left- or right-arrow button in the horizontalscroll bar is pressed."
-    )
-	String getHorizontalLineScrollSize();
-
-	/**
-	 * Number of pixels to move when the track in the horizontal scroll bar is pressed.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Number of pixels to move when the track in the horizontal scroll bar is pressed."
-    )
-	String getHorizontalPageScrollSize();
-
-	/**
-	 * The horizontal scrollbar used in this container.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "The horizontal scrollbar used in this container."
-    )
-	String getHorizontalScrollBar();
-
-	/**
-	 * Number of pixels to scroll when the up- or down-arrow button in the verticalscroll bar is pressed.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Number of pixels to scroll when the up- or down-arrow button in the verticalscroll bar is pressed."
-    )
-	String getVerticalLineScrollSize();
-
-	/**
-	 * Number of pixels to scroll when the track in the vertical scroll bar is pressed.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Number of pixels to scroll when the track in the vertical scroll bar is pressed."
-    )
-	String getVerticalPageScrollSize();
-
-	/**
-	 * The vertical scrollbar used in this container.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "The vertical scrollbar used in this container."
-    )
-	String getVerticalScrollBar();
-
-	/**
-	 * If a background image is specified, this style specifies whether it is fixed with regard to the viewport (fixed) or scrolls along with the content (scroll).The default value is scroll.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "If a background image is specified, this style specifies whether it is fixed with regard to the viewport (fixed) or scrolls along with the content (scroll).The default value is scroll."
-    )
-	String getBackgroundAttachment();
-
-	/**
-	 * The alpha value for the overlay that is placed on top of the container when it is disabled.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "The alpha value for the overlay that is placed on top of the container when it is disabled."
-    )
-	String getDisabledOverlayAlpha();
-
-	/**
-	 * Dispatched after a child has been added to a container.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Dispatched after a child has been added to a container."
-    )
-	String getChildAdd();
-
-	/**
-	 * Dispatched after the index (among the container children) of a container child changes.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Dispatched after the index (among the container children) of a container child changes."
-    )
-	String getChildIndexChange();
-
-	/**
-	 * Dispatched before a child of a container is removed.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Dispatched before a child of a container is removed."
-    )
-	String getChildRemove();
-	
+    String getCreationPolicy();
+    
+    void setCreationPolicy(String creationPolicy);
+    
 }

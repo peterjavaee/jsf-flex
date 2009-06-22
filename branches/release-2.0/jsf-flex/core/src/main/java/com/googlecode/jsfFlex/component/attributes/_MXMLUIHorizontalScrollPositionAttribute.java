@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="horizontalScrollPosition", returnType="java.lang.String", longDesc="The current position of the horizontal scroll bar.")
+@JSFComponent
 public interface _MXMLUIHorizontalScrollPositionAttribute {
-	
-	/**
-	 * The current position of the horizontal scroll bar.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "The current position of the horizontal scroll bar."
-    )
-	String getHorizontalScrollPosition();
 	
 }

@@ -18,41 +18,21 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperties(
+        properties={
+                @JSFJspProperty(name="thumbDownSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the thumb of the scroll bar when you click the thumb."),
+                @JSFJspProperty(name="thumbOverSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the thumb of the scroll bar when the mouse pointer is over the thumb."),
+                @JSFJspProperty(name="thumbUpSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the thumb of the scroll bar.")
+        }
+)
+@JSFComponent
 public interface _MXMLUIThumbSkinAttributes {
-	
-	/**
-	 * Name of the class to use as the skin for the thumb of the scroll bar when you click the thumb.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Name of the class to use as the skin for the thumb of the scroll bar when you click the thumb."
-    )
-	String getThumbDownSkin();
-
-	/**
-	 * Name of the class to use as the skin for the thumb of the scroll bar when the mouse pointer is over the thumb.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Name of the class to use as the skin for the thumb of the scroll bar whenthe mouse pointer is over the thumb."
-    )
-	String getThumbOverSkin();
-
-	/**
-	 * Name of the class to use as the skin for the thumb of the scroll bar.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Name of the class to use as the skin for the thumb of the scroll bar."
-    )
-	String getThumbUpSkin();
 	
 }

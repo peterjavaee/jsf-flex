@@ -18,31 +18,20 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperties(
+        properties={
+                @JSFJspProperty(name="horizontalGap", returnType="java.lang.String", longDesc="Horizontal gap."),
+                @JSFJspProperty(name="verticalGap", returnType="java.lang.String", longDesc="Vertical gap.")
+        }
+)
+@JSFComponent
 public interface _MXMLUIGapAttributes {
-	
-	/**
-	 * Horizontal gap.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Horizontal gap."
-    )
-	String getHorizontalGap();
-
-	/**
-	 * Vertical gap.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Vertical gap."
-    )
-	String getVerticalGap();
 	
 }

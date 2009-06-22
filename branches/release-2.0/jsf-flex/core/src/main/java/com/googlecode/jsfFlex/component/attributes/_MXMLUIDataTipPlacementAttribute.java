@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="dataTipPlacement", returnType="java.lang.String", longDesc="The location of the data tip relative to the thumb.")
+@JSFComponent
 public interface _MXMLUIDataTipPlacementAttribute {
-	
-	/**
-	 * The location of the data tip relative to the thumb.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "The location of the data tip relative to the thumb."
-    )
-	String getDataTipPlacement();
 	
 }

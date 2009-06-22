@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="historyManagementEnabled", returnType="java.lang.String", longDesc="If true, enables history management within this ViewStack container.")
+@JSFComponent
 public interface _MXMLUIHistoryManagementAttribute {
-	
-	/**
-	 * If true, enables history management within this ViewStack container.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "If true, enables history management within this ViewStack container."
-    )
-	String getHistoryManagementEnabled();
 	
 }

@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="selectable", returnType="java.lang.String", longDesc="Specifies whether the text can be selected.")
+@JSFComponent
 public interface _MXMLUISelectableAttribute {
-	
-	/**
-	 * Specifies whether the text can be selected.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Specifies whether the text can be selected."
-    )
-	String getSelectable();
 	
 }

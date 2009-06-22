@@ -18,21 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="headerHeight", returnType="java.lang.String", longDesc="The height of the header cell of the column, in pixels.")
+@JSFComponent
 public interface _MXMLUIHeaderHeightAttribute {
-	
-	/**
-	 * The height of the header cell of the column, in pixels.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "The height of the header cell of the column, in pixels."
-    )
-	String getHeaderHeight();
 	
 }

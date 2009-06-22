@@ -18,31 +18,20 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperties(
+        properties={
+                @JSFJspProperty(name="fillAlphas", returnType="java.lang.String", longDesc="Alphas used for the background fill of controls."),
+                @JSFJspProperty(name="fillColors", returnType="java.lang.String", longDesc="Colors used to tint the background of the control.")
+        }
+)
+@JSFComponent
 public interface _MXMLUIFillAttributes {
-	
-	/**
-	 * Alphas used for the background fill of controls.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Alphas used for the background fill of controls."
-    )
-	String getFillAlphas();
-
-	/**
-	 * Colors used to tint the background of the control.
-	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "Colors used to tint the background of the control."
-    )
-	String getFillColors();
 	
 }
