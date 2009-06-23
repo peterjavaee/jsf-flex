@@ -19,20 +19,12 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="thumbDownSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the thumb of the scroll bar when you click the thumb."),
-                @JSFJspProperty(name="thumbOverSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the thumb of the scroll bar when the mouse pointer is over the thumb."),
-                @JSFJspProperty(name="thumbUpSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the thumb of the scroll bar.")
-        }
-)
 @JSFComponent
-public interface _MXMLUIThumbSkinAttributes {
+public interface _MXMLUIThumbSkinAttributes 
+                    extends _MXMLUIThumbDownSkinAttribute, _MXMLUIThumbOverSkinAttribute, _MXMLUIThumbUpSkinAttribute {
 	
 }

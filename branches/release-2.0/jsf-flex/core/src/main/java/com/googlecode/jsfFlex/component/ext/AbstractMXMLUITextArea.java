@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUIHtmlTextInputBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
@@ -44,15 +46,6 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControlAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlTextArea"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUITextArea"
- *   type     = "com.googlecode.jsfFlex.MXMLUITextArea"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUITextAreaTag"
- *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLTextArea"
- *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
- * 
  * @JSFJspProperties
  * 		properties	=		
  * 						   @JSFJspProperty
@@ -158,6 +151,15 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControl
  *   						
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlTextArea",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUITextArea",
+        type                =   "com.googlecode.jsfFlex.MXMLUITextArea",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUITextAreaTag",
+        family              =   "javax.faces.MXMLInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLTextArea",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+)
 public abstract class AbstractMXMLUITextArea 
 						extends MXMLUIHtmlTextInputBase 
 						implements _MXMLUIScrollControlAttributes, _MXMLUIBaseAttributes, _MXMLUIScrollAttributes, 

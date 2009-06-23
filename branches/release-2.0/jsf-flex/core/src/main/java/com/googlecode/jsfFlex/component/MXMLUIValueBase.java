@@ -90,8 +90,6 @@ public abstract class MXMLUIValueBase extends MXMLUIInputBase {
 	 * Current value.
 	 */
     @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
             inheritTag      =   true,
             desc            =   "Current value."
     )

@@ -29,6 +29,7 @@ import javax.faces.model.SelectItem;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,15 +50,6 @@ import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.util.MXMLJsfUtil;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlComboBox"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIComboBox"
- *   type     = "com.googlecode.jsfFlex.MXMLUIComboBox"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIComboBoxTag"
- *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLComboBox"
- *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
- *   
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -388,6 +380,15 @@ import com.googlecode.jsfFlex.util.MXMLJsfUtil;
  * no reason to create an another base class to preserve both "selectedIndex" + "text".<br>
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlComboBox",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIComboBox",
+        type                =   "com.googlecode.jsfFlex.MXMLUIComboBox",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIComboBoxTag",
+        family              =   "javax.faces.MXMLInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLComboBox",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+)
 public abstract class AbstractMXMLUIComboBox 
 						extends MXMLUISelectedIndexBase
 						implements _MXMLUIComboBaseAttributes, _MXMLUIBaseAttributes, _MXMLUITextAttribute, 

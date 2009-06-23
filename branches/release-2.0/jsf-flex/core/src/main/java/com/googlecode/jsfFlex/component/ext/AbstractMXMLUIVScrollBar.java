@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIArrowAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderColorAttribute;
@@ -31,14 +33,6 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollBarAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlVScrollBar"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIVScrollBar"
- *   type     = "com.googlecode.jsfFlex.MXMLUIVScrollBar"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIVScrollBarTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLVScrollBar"
- * 
  @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -60,6 +54,14 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollBarAttr
  *   
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlVScrollBar",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIVScrollBar",
+        type                =   "com.googlecode.jsfFlex.MXMLUIVScrollBar",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIVScrollBarTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLVScrollBar"
+)
 public abstract class AbstractMXMLUIVScrollBar 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIScrollBarAttributes, _MXMLUIBaseAttributes, _MXMLUIArrowAttributes, 

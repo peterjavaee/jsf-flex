@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.convert.attributes.compBase;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -25,12 +27,8 @@ public interface _MXMLUIFormatter {
 	
 	/**
 	 * Description saved by the formatter when an error occurs.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Description saved by the formatter when an error occurs."
 	 */
+    @JSFProperty(desc   =   "Description saved by the formatter when an error occurs.")
 	String getError();
 	
 }

@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIAllowMultipleSelectionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
@@ -68,15 +70,6 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIListBaseAttri
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControlAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlTree"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUITree"
- *   type     = "com.googlecode.jsfFlex.MXMLUITree"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUITreeTag"
- *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLTree"
- *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
- *   
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -290,6 +283,15 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControl
  *   						
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlTree",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUITree",
+        type                =   "com.googlecode.jsfFlex.MXMLUITree",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUITreeTag",
+        family              =   "javax.faces.MXMLInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLTree",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+)
 public abstract class AbstractMXMLUITree 
 						extends MXMLUISelectedIndexBase
 						implements _MXMLUIListBaseAttributes, _MXMLUIScrollControlAttributes, _MXMLUITrackAttributes,  

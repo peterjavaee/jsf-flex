@@ -28,13 +28,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
 @JSFJspProperties(
         properties={
                 @JSFJspProperty(name="addedEffect", returnType="java.lang.String", longDesc="Played when the component is added as a child to a Container."),
-                @JSFJspProperty(name="creationCompleteEffect", returnType="java.lang.String", longDesc="Played when the component is created."),
-                @JSFJspProperty(name="focusInEffect", returnType="java.lang.String", longDesc="Played when the component gains keyboard focus."),
-                @JSFJspProperty(name="focusOutEffect", returnType="java.lang.String", longDesc="Played when the component loses keyboard focus."),
                 @JSFJspProperty(name="hideEffect", returnType="java.lang.String", longDesc="Played when the component becomes invisible."),
-                @JSFJspProperty(name="mouseDownEffect", returnType="java.lang.String", longDesc="Played when the user presses the mouse button while over the component."),
-                @JSFJspProperty(name="mouseUpEffect", returnType="java.lang.String", longDesc="Played when the user releases the mouse button while over the component."),
-                @JSFJspProperty(name="moveEffect", returnType="java.lang.String", longDesc="Played when the component is moved."),
                 @JSFJspProperty(name="removedEffect", returnType="java.lang.String", longDesc="Played when the component is removed from a Container."),
                 @JSFJspProperty(name="resizeEffect", returnType="java.lang.String", longDesc="Played when the component is resized."),
                 @JSFJspProperty(name="rollOutEffect", returnType="java.lang.String", longDesc="Played when the user rolls the mouse so it is no longer over the component."),

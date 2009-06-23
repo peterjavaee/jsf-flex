@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
@@ -54,14 +56,6 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlDividedBox"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIDividedBox"
- *   type     = "com.googlecode.jsfFlex.MXMLUIDividedBox"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIDividedBoxTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLDividedBox"
- *   
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -137,6 +131,14 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   						
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlDividedBox",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIDividedBox",
+        type                =   "com.googlecode.jsfFlex.MXMLUIDividedBox",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIDividedBoxTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLDividedBox"
+)
 public abstract class AbstractMXMLUIDividedBox 
 						extends MXMLUISimpleBase
 						implements _MXMLUIVerticalAlignAttribute, _MXMLUIIconAttribute, _MXMLUIContainerAttributes, 

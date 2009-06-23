@@ -18,18 +18,12 @@
  */
 package com.googlecode.jsfFlex.validator.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlPhoneNumberValidator"
- *   class    = "com.googlecode.jsfFlex.validator.ext.MXMLUIPhoneNumberValidator"
- *   type     = "com.googlecode.jsfFlex.MXMLUIPhoneNumberValidator"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIPhoneNumberValidatorTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLPhoneNumberValidator"
- * 
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -55,6 +49,14 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlPhoneNumberValidator",
+        clazz               =   "com.googlecode.jsfFlex.validator.ext.MXMLUIPhoneNumberValidator",
+        type                =   "com.googlecode.jsfFlex.MXMLUIPhoneNumberValidator",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIPhoneNumberValidatorTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLPhoneNumberValidator"
+)
 public abstract class AbstractMXMLUIPhoneNumberValidator 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIValidatorAttributes {

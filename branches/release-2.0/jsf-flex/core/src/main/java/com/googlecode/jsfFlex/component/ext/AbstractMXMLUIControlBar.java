@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
@@ -54,16 +56,16 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlControlBar"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIControlBar"
- *   type     = "com.googlecode.jsfFlex.MXMLUIControlBar"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIControlBarTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLControlBar"
- *   
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlControlBar",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIControlBar",
+        type                =   "com.googlecode.jsfFlex.MXMLUIControlBar",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIControlBarTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLControlBar"
+)
 public abstract class AbstractMXMLUIControlBar 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIIconAttribute, _MXMLUIContainerAttributes, _MXMLUIBaseAttributes, 

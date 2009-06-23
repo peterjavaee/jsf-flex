@@ -18,19 +18,19 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFComponent
 public interface _MXMLUITextBindingAttribute {
 	
 	/**
 	 * Specifies the attribute used for binding on the server side for Input components. [i.e. TextInput and RichTextEditor]. Default is text and choices are eithertext or htmlText.
      */
     @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
             defaultValue    =   "text",
             desc            =   "Specifies the attribute used for binding on the server side for Input components. [i.e. TextInput and RichTextEditor]. Default is text and choices are eithertext or htmlText."
     )

@@ -18,18 +18,12 @@
  */
 package com.googlecode.jsfFlex.convert.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlCurrencyFormatter"
- *   class    = "com.googlecode.jsfFlex.convert.ext.MXMLUICurrencyFormatter"
- *   type     = "com.googlecode.jsfFlex.MXMLUICurrencyFormatter"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUICurrencyFormatterTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLCurrencyFormatter"
- * 
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -97,6 +91,14 @@ import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
  * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlCurrencyFormatter",
+        clazz               =   "com.googlecode.jsfFlex.convert.ext.MXMLUICurrencyFormatter",
+        type                =   "com.googlecode.jsfFlex.MXMLUICurrencyFormatter",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUICurrencyFormatterTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLCurrencyFormatter"
+)
 public abstract class AbstractMXMLUICurrencyFormatter 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIFormatter {

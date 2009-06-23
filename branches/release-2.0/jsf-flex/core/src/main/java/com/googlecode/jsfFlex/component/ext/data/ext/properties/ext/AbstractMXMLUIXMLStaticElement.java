@@ -23,18 +23,14 @@ import java.util.Map;
 
 import javax.faces.context.FacesContext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 import com.googlecode.jsfFlex.component.ext.data.MXMLUIXMLContainerBase;
 import com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIXMLElementBase;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlXMLStaticElement"
- *   class    = "com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.MXMLUIXMLStaticElement"
- *   type     = "com.googlecode.jsfFlex.MXMLUIXMLStaticElement"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.data.properties.MXMLUIXMLStaticElementTag"
- *   family   = "javax.faces.MXMLProperty"
- *   
  * Since this component is out of the norm in relation to writing MXML content, it will perform <br>
  * the write of MXML content within the component rather than within a Renderer [meaning Renderer does <br>
  * not exist for this component]. Also when stated that it is writing MXML content, it technically is <br>
@@ -48,6 +44,13 @@ import com.googlecode.jsfFlex.shared.context.MxmlContext;
  * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlXMLStaticElement",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.MXMLUIXMLStaticElement",
+        type                =   "com.googlecode.jsfFlex.MXMLUIXMLStaticElement",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.data.properties.MXMLUIXMLStaticElementTag",
+        family              =   "javax.faces.MXMLProperty"
+)
 public abstract class AbstractMXMLUIXMLStaticElement 
 						extends MXMLUIXMLElementBase {
 	
@@ -82,22 +85,17 @@ public abstract class AbstractMXMLUIXMLStaticElement
 	
 	/**
 	 * Static name of the node.
-	 * 
-	 *@JSFProperty
-	 *    required        = true
-	 *    rtexprvalue     = false
-	 *    desc            = "Static name of the node."
 	 */
+    @JSFProperty(
+            required    =   true,
+            desc        =   "Static name of the node."
+    )
 	public abstract String getStaticNodeName();
 	
 	/**
 	 * Static value of the node.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Static value of the node."
 	 */
+    @JSFProperty(desc        =   "Static value of the node.")
 	public abstract String getStaticNodeValue();
 	
 }

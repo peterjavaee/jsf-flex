@@ -28,12 +28,12 @@ import javax.faces.render.Renderer;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderKit;
+
 /**
- * @JSFRenderKit
- *   renderKitId = "MXML_BASIC"
- * 
  * @author Ji Hoon Kim
  */
+@JSFRenderKit(renderKitId   =   "MXML_BASIC")
 public class MXMLRenderKitImplWrapper extends MXMLRenderKitImpl {
 	
 	private final static Log _log = LogFactory.getLog(MXMLRenderKitImplWrapper.class);

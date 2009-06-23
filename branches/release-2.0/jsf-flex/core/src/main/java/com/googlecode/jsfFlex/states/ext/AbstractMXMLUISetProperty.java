@@ -18,17 +18,12 @@
  */
 package com.googlecode.jsfFlex.states.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlSetProperty"
- *   class    = "com.googlecode.jsfFlex.states.ext.MXMLUISetProperty"
- *   type     = "com.googlecode.jsfFlex.MXMLUISetProperty"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUISetPropertyTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLSetProperty"
- * 
  * @JSFJspProperties
  * 		properties	=		
  * 							@JSFJspProperty
@@ -50,16 +45,24 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
  *   						
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlSetProperty",
+        clazz               =   "com.googlecode.jsfFlex.states.ext.MXMLUISetProperty",
+        type                =   "com.googlecode.jsfFlex.MXMLUISetProperty",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUISetPropertyTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLSetProperty"
+)
 public abstract class AbstractMXMLUISetProperty 
 						extends MXMLUISimpleBase {
 	
 	/**
 	 * Id of the component.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Id of the component."
-	 *     inheritedTag	= true
 	 */
+    @JSFProperty(
+            inheritTag  =   true,
+            desc        =   "Id of the component."
+    )
 	public String getId(){
 		return super.getId();
 	}

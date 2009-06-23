@@ -30,6 +30,7 @@ import javax.faces.context.FacesContext;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.component.MXMLUIInputBase;
@@ -38,14 +39,6 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
 import com.googlecode.jsfFlex.util.ReflectionHelperUtil;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlDataGridColumn"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIDataGridColumn"
- *   type     = "com.googlecode.jsfFlex.MXMLUIDataGridColumn"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIDataGridColumnTag"
- *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLDataGridColumn"
- *   
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -295,6 +288,14 @@ import com.googlecode.jsfFlex.util.ReflectionHelperUtil;
  *   						   						
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlDataGridColumn",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIDataGridColumn",
+        type                =   "com.googlecode.jsfFlex.MXMLUIDataGridColumn",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIDataGridColumnTag",
+        family              =   "javax.faces.MXMLInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLDataGridColumn"
+)
 public abstract class AbstractMXMLUIDataGridColumn 
 						extends MXMLUIInputBase 
 						implements _MXMLUIDataFieldAttribute, _MXMLUIEditableAttribute {

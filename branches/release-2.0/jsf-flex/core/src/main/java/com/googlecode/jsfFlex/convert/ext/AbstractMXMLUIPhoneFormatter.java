@@ -18,18 +18,12 @@
  */
 package com.googlecode.jsfFlex.convert.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlPhoneFormatter"
- *   class    = "com.googlecode.jsfFlex.convert.ext.MXMLUIPhoneFormatter"
- *   type     = "com.googlecode.jsfFlex.MXMLUIPhoneFormatter"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIPhoneFormatterTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLPhoneFormatter"
- *   
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -61,6 +55,14 @@ import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
  * 				
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlPhoneFormatter",
+        clazz               =   "com.googlecode.jsfFlex.convert.ext.MXMLUIPhoneFormatter",
+        type                =   "com.googlecode.jsfFlex.MXMLUIPhoneFormatter",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIPhoneFormatterTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLPhoneFormatter"
+)
 public abstract class AbstractMXMLUIPhoneFormatter 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIFormatter {

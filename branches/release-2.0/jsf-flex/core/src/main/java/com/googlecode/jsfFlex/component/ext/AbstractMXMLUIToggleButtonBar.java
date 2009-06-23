@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
@@ -60,14 +62,6 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlToggleButtonBar"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIToggleButtonBar"
- *   type     = "com.googlecode.jsfFlex.MXMLUIToggleButtonBar"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIToggleButtonBarTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLToggleButtonBar"
- * 
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -125,6 +119,14 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlToggleButtonBar",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIToggleButtonBar",
+        type                =   "com.googlecode.jsfFlex.MXMLUIToggleButtonBar",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIToggleButtonBarTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLToggleButtonBar"
+)
 public abstract class AbstractMXMLUIToggleButtonBar 
 						extends MXMLUISimpleBase
 						implements _MXMLUIVerticalAlignAttribute, _MXMLUITrackAttributes, 

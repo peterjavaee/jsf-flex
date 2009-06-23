@@ -38,6 +38,11 @@
     </dependency>
     
     <dependency>
+      <groupId>org.apache.myfaces.buildtools</groupId>
+      <artifactId>myfaces-builder-annotations</artifactId>
+    </dependency>
+    
+    <dependency>
       <groupId>javax.faces</groupId>
       <artifactId>jsf-api</artifactId>
       <scope>provided</scope>

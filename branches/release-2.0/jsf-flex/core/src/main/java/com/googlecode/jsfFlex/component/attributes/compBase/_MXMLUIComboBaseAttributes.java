@@ -19,21 +19,30 @@
 package com.googlecode.jsfFlex.component.attributes.compBase;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
+
+import com.googlecode.jsfFlex.component.attributes._MXMLUIControlSkinAttributes;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableDisabledSkinAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableDownSkinAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableOverSkinAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableUpSkinAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIImeModeAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIRestrictAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedIndexAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedItemAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUITextInputStyleNameAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="editableDisabledSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the background and border when the control is disabled, and the editable property is true."),
-                @JSFJspProperty(name="editableDownSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the background and border when the user holds down the mouse button, and the editable property is true."),
-                @JSFJspProperty(name="editableOverSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the background and border when the mouse is over the control, and the editable property is true."),
-                @JSFJspProperty(name="editableUpSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the background and border when the mouse is not over the control, and the editable property is true.")
-        }
-)
 @JSFComponent
-public interface _MXMLUIComboBaseAttributes {
+public interface _MXMLUIComboBaseAttributes 
+                        extends _MXMLUIDataProviderAttribute, _MXMLUIEditableAttribute, _MXMLUIImeModeAttribute, 
+                        _MXMLUIRestrictAttribute, _MXMLUISelectedIndexAttribute, _MXMLUISelectedItemAttribute, 
+                        _MXMLUITextAttribute, _MXMLUIControlSkinAttributes, _MXMLUIBaseAttributes, 
+                        _MXMLUIEditableDisabledSkinAttribute, _MXMLUIEditableDownSkinAttribute, _MXMLUIEditableOverSkinAttribute,
+                        _MXMLUIEditableUpSkinAttribute, _MXMLUITextInputStyleNameAttribute {
 	
 }

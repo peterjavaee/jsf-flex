@@ -34,20 +34,22 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="dataProvider", byMethod=true),
-				@JsfFlexAttribute(attribute="editable", byMethod=true),
-				@JsfFlexAttribute(attribute="imeMode", byMethod=true),
-				@JsfFlexAttribute(attribute="restrict", byMethod=true),
-				@JsfFlexAttribute(attribute="selectedIndex", byMethod=true),
-				@JsfFlexAttribute(attribute="selectedItem", byMethod=true),
-				@JsfFlexAttribute(attribute="disabledSkin", byMethod=true),
-				@JsfFlexAttribute(attribute="downSkin", byMethod=true),
-				@JsfFlexAttribute(attribute="editableDisabledSkin", byMethod=true),
-				@JsfFlexAttribute(attribute="editableDownSkin", byMethod=true),
-				@JsfFlexAttribute(attribute="editableOverSkin", byMethod=true),
-				@JsfFlexAttribute(attribute="editableUpSkin", byMethod=true),
-				@JsfFlexAttribute(attribute="overSkin", byMethod=true),
-				@JsfFlexAttribute(attribute="upSkin", byMethod=true)
+				@JsfFlexAttribute(attribute="dataProvider"),
+				@JsfFlexAttribute(attribute="editable"),
+				@JsfFlexAttribute(attribute="imeMode"),
+				@JsfFlexAttribute(attribute="restrict"),
+				@JsfFlexAttribute(attribute="selectedIndex"),
+				@JsfFlexAttribute(attribute="selectedItem"),
+                @JsfFlexAttribute(attribute="text"),
+				@JsfFlexAttribute(attribute="disabledSkin"),
+				@JsfFlexAttribute(attribute="downSkin"),
+				@JsfFlexAttribute(attribute="editableDisabledSkin"),
+				@JsfFlexAttribute(attribute="editableDownSkin"),
+				@JsfFlexAttribute(attribute="editableOverSkin"),
+				@JsfFlexAttribute(attribute="editableUpSkin"),
+				@JsfFlexAttribute(attribute="overSkin"),
+                @JsfFlexAttribute(attribute="textInputStyleName"),
+				@JsfFlexAttribute(attribute="upSkin")
 		}
 )
 public abstract class MXMLComboBaseTemplateRenderer extends MXMLComponentRenderer {

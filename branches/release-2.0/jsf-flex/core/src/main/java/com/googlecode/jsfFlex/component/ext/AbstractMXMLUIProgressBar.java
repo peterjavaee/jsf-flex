@@ -18,19 +18,12 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUIValueBase;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlProgressBar"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIProgressBar"
- *   type     = "com.googlecode.jsfFlex.MXMLUIProgressBar"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIProgressBarTag"
- *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLProgressBar"
- *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
- *   
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -283,6 +276,15 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlProgressBar",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIProgressBar",
+        type                =   "com.googlecode.jsfFlex.MXMLUIProgressBar",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIProgressBarTag",
+        family              =   "javax.faces.MXMLInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLProgressBar",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+)
 public abstract class AbstractMXMLUIProgressBar 
 						extends MXMLUIValueBase 
 						implements _MXMLUIBaseAttributes {

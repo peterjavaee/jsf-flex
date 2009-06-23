@@ -18,19 +18,12 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUIValueBase;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlNumericStepper"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUINumericStepper"
- *   type     = "com.googlecode.jsfFlex.MXMLUINumericStepper"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUINumericStepperTag"
- *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLNumericStepper"
- *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
- *   
  * @JSFJspProperties
  * 		properties	=		
  * 							@JSFJspProperty
@@ -328,6 +321,15 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   						
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlNumericStepper",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUINumericStepper",
+        type                =   "com.googlecode.jsfFlex.MXMLUINumericStepper",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUINumericStepperTag",
+        family              =   "javax.faces.MXMLInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLNumericStepper",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+)
 public abstract class AbstractMXMLUINumericStepper 
 						extends MXMLUIValueBase 
 						implements _MXMLUIBaseAttributes {

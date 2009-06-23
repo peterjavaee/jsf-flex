@@ -18,18 +18,12 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlImage"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIImage"
- *   type     = "com.googlecode.jsfFlex.MXMLUIImage"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIImageTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLImage"
- * 
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -159,6 +153,14 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlImage",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIImage",
+        type                =   "com.googlecode.jsfFlex.MXMLUIImage",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIImageTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLImage"
+)
 public abstract class AbstractMXMLUIImage 
 						extends MXMLUISimpleBase
 						implements _MXMLUIBaseAttributes {

@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUIOutputBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataAttributes;
@@ -35,16 +37,16 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUITruncateToFitAttribute
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlText"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIText"
- *   type     = "com.googlecode.jsfFlex.MXMLUIText"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUITextTag"
- *   family   = "javax.faces.MXMLOutput"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLText"
- *   
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlText",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIText",
+        type                =   "com.googlecode.jsfFlex.MXMLUIText",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUITextTag",
+        family              =   "javax.faces.MXMLOutput",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLText"
+)
 public abstract class AbstractMXMLUIText 
 						extends MXMLUIOutputBase
 						implements _MXMLUITruncateToFitAttribute, _MXMLUIBaseAttributes, _MXMLUIColorAttribute, 

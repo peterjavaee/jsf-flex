@@ -180,8 +180,6 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 	 * A boolean value that identifies the phase during which value change events should fire. During normal event processing, value change events are fired during the "invoke application" phase of request processing. If this attribute is set to true, these methods are fired instead at the end of the apply request values phase.
 	 */
     @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
             inheritTag      =   true,
             desc            =   "A boolean value that identifies the phase during which value change events should fire. During normal event processing, value change events are fired during the 'invoke application' phase of request processing. If this attribute is set to true, these methods are fired instead at the end of the apply request values phase."
     )

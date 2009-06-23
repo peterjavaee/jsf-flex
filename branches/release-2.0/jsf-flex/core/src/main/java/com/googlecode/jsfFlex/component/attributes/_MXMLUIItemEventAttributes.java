@@ -19,19 +19,12 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="itemRollOver", returnType="java.lang.String", longDesc="Dispatched when the user rolls the mouse over a drop-down list item."),
-                @JSFJspProperty(name="itemRollOut", returnType="java.lang.String", longDesc="Dispatched when the user rolls the mouse over a drop-down list item.")
-        }
-)
 @JSFComponent
-public interface _MXMLUIItemEventAttributes {
+public interface _MXMLUIItemEventAttributes 
+                    extends _MXMLUIItemRollOverAttribute, _MXMLUIItemRollOutAttribute {
 	
 }

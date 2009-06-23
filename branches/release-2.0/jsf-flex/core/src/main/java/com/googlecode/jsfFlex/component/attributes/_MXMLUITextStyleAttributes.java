@@ -19,20 +19,12 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="textIndent", returnType="java.lang.String", longDesc="Offset of first line of text from the left side of the container, in pixels."),
-                @JSFJspProperty(name="textDecoration", returnType="java.lang.String", longDesc="Determines whether the text is underlined."),
-                @JSFJspProperty(name="textAlign", returnType="java.lang.String", longDesc="Alignment of text within a container.")
-        }
-)
 @JSFComponent
-public interface _MXMLUITextStyleAttributes {
+public interface _MXMLUITextStyleAttributes 
+                    extends _MXMLUITextIndentAttribute, _MXMLUITextDecorationAttribute, _MXMLUITextAlignAttribute {
 	
 }

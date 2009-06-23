@@ -18,19 +18,12 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISelectedBase;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlCheckBox"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUICheckBox"
- *   type     = "com.googlecode.jsfFlex.MXMLUICheckBox"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUICheckBoxTag"
- *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLCheckBox"
- *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
- * 
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -382,6 +375,15 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlCheckBox",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUICheckBox",
+        type                =   "com.googlecode.jsfFlex.MXMLUICheckBox",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUICheckBoxTag",
+        family              =   "javax.faces.MXMLInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLCheckBox",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+)
 public abstract class AbstractMXMLUICheckBox 
 						extends MXMLUISelectedBase 
 						implements _MXMLUIBaseAttributes {

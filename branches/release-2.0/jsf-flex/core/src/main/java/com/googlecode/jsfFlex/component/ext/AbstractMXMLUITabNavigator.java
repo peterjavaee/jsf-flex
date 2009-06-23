@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUIViewStackBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
@@ -54,15 +56,6 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlTabNavigator"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUITabNavigator"
- *   type     = "com.googlecode.jsfFlex.MXMLUITabNavigator"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUITabNavigatorTag"
- *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLTabNavigator"
- *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
- * 
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -132,6 +125,15 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  *   
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlTabNavigator",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUITabNavigator",
+        type                =   "com.googlecode.jsfFlex.MXMLUITabNavigator",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUITabNavigatorTag",
+        family              =   "javax.faces.MXMLInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLTabNavigator",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+)
 public abstract class AbstractMXMLUITabNavigator 
 						extends MXMLUIViewStackBase 
 						implements _MXMLUIBaseAttributes, _MXMLUIResizeToContentAttribute, _MXMLUIContainerAttributes, 

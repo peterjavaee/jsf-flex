@@ -25,6 +25,8 @@ import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
@@ -69,14 +71,6 @@ import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlApplication"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIApplication"
- *   family   = "javax.faces.MXMLApplication"
- *   type     = "com.googlecode.jsfFlex.MXMLUIApplication"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIApplicationTag"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLApplication"
- *   
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -218,6 +212,14 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
  *   						
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlApplication",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIApplication",
+        type                =   "com.googlecode.jsfFlex.MXMLUIApplication",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIApplicationTag",
+        family              =   "javax.faces.MXMLApplication",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLApplication"
+)
 public abstract class AbstractMXMLUIApplication 
 						extends UIComponentBase 
 						implements _MXMLUIContainerAttributes, _MXMLUIBaseAttributes, _MXMLApplicationContract,
@@ -462,122 +464,77 @@ public abstract class AbstractMXMLUIApplication
 	
 	/**
 	 * The mxmlPackageName for the application.
-	 * 
-	 *@JSFProperty
-	 *    required        = true
-	 *    rtexprvalue     = false
-	 *    desc            = "The mxmlPackageName for the application."
 	 */
+    @JSFProperty(
+            required    =   true,
+            desc        =   "The mxmlPackageName for the application."
+    )
 	public abstract String getMxmlPackageName();
 
 	/**
 	 * This value will be passed to the mxmlc compiler when creating a SWF. It must be an absolutePath to a filesystem where additional ActionScript and MXML files that areneeded for the current SWF generation are located at. There can be multiple valuesseparated with a space.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "This value will be passed to the mxmlc compiler when creating a SWF. It must be an absolutePath to a filesystem where additional ActionScript and MXML files that areneeded for the current SWF generation are located at. There can be multiple valuesseparated with a space."
 	 */
+    @JSFProperty(desc   =   "This value will be passed to the mxmlc compiler when creating a SWF. It must be an absolutePath to a filesystem where additional ActionScript and MXML files that areneeded for the current SWF generation are located at. There can be multiple valuesseparated with a space.")
 	public abstract String getSourcePath();
 
 	/**
 	 * This value will be passed to the mxmlc compiler when creating a SWF. It represents the defaultBgColor, surprise.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "This value will be passed to the mxmlc compiler when creating a SWF. It represents the defaultBgColor, surprise."
 	 */
+    @JSFProperty(desc   =   "This value will be passed to the mxmlc compiler when creating a SWF. It represents the defaultBgColor, surprise.")
 	public abstract String getDefaultBgColor();
 
 	/**
 	 * This value will be passed to the mxmlc compiler when creating a SWF. It represents the max level of recursion that the Flash VM will allow.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "This value will be passed to the mxmlc compiler when creating a SWF. It represents the max level of recursion that the Flash VM will allow."
 	 */
+    @JSFProperty(desc   =   "This value will be passed to the mxmlc compiler when creating a SWF. It represents the max level of recursion that the Flash VM will allow.")
 	public abstract Integer getMaxLvRecursion();
 
 	/**
 	 * This value will be passed to the mxmlc compiler when creating a SWF. It represents the max script exec time that the Flash VM will allow.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "This value will be passed to the mxmlc compiler when creating a SWF. It represents the max script exec time that the Flash VM will allow."
 	 */
+    @JSFProperty(desc   =   "This value will be passed to the mxmlc compiler when creating a SWF. It represents the max script exec time that the Flash VM will allow.")
 	public abstract Integer getMaxScriptExecTime();
 
 	/**
 	 * This value will be passed to the mxmlc compiler when creating a SWF. It represents whether the creation of the SWF files will based incrementally.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "This value will be passed to the mxmlc compiler when creating a SWF. It represents whether the creation of the SWF files will based incrementally."
 	 */
+    @JSFProperty(desc   =   "This value will be passed to the mxmlc compiler when creating a SWF. It represents whether the creation of the SWF files will based incrementally.")
 	public abstract boolean isIncremental();
 
 	/**
 	 * This value will be passed to the mxmlc compiler when creating a SWF. It should bean absolutePath to a loadConfig XML file that specifies attributes for the mxmlc.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "This value will be passed to the mxmlc compiler when creating a SWF. It should bean absolutePath to a loadConfig XML file that specifies attributes for the mxmlc."
 	 */
+    @JSFProperty(desc   =   "This value will be passed to the mxmlc compiler when creating a SWF. It should bean absolutePath to a loadConfig XML file that specifies attributes for the mxmlc.")
 	public abstract String getLoadConfig();
 
 	/**
 	 * This value will be passed to the mxmlc compiler when creating a SWF. It simply is a metadata for the SWF.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "This value will be passed to the mxmlc compiler when creating a SWF. It simply is a metadata for the SWF."
 	 */
+    @JSFProperty(desc   =   "This value will be passed to the mxmlc compiler when creating a SWF. It simply is a metadata for the SWF.")
 	public abstract String getDescription();
 
 	/**
 	 * This value will be passed to the mxmlc compiler when creating a SWF. It simply is a metadata for the SWF.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "This value will be passed to the mxmlc compiler when creating a SWF. It simply is a metadata for the SWF."
 	 */
+    @JSFProperty(desc   =   "This value will be passed to the mxmlc compiler when creating a SWF. It simply is a metadata for the SWF.")
 	public abstract String getCreator();
 
 	/**
 	 * This value will be passed to the mxmlc compiler when creating a SWF. It simply is a metadata for the SWF.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "This value will be passed to the mxmlc compiler when creating a SWF. It simply is a metadata for the SWF."
 	 */
+    @JSFProperty(desc   =   "This value will be passed to the mxmlc compiler when creating a SWF. It simply is a metadata for the SWF.")
 	public abstract String getPublisher();
 
 	/**
 	 * This value will be passed to the mxmlc compiler when creating a SWF. It simply is a metadata for the SWF.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "This value will be passed to the mxmlc compiler when creating a SWF. It simply isa  metadata for the SWF."
 	 */
+    @JSFProperty(desc   =   "This value will be passed to the mxmlc compiler when creating a SWF. It simply isa  metadata for the SWF.")
 	public abstract String getLanguage();
 
 	/**
 	 * This value will be passed to the mxmlc compiler when creating a SWF. It simply is a metadata for the SWF.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "This value will be passed to the mxmlc compiler when creating a SWF. It simply is a metadata for the SWF."
 	 */
+    @JSFProperty(desc   =   "This value will be passed to the mxmlc compiler when creating a SWF. It simply is a metadata for the SWF.")
 	public abstract String getDate();
 	
 	
@@ -587,142 +544,86 @@ public abstract class AbstractMXMLUIApplication
 	
 	/**
 	 * Color of text for the error component. The default value is 0x0B333C.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Color of text for the error component. The default value is 0x0B333C."
 	 */
+    @JSFProperty(desc   =   "Color of text for the error component. The default value is 0x0B333C.")
 	public abstract String getErrorColor();
 	
 	/**
 	 * Sets the antiAliasType property of internal TextFields for the error component. Possible values are normal and advanced.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Sets the antiAliasType property of internal TextFields for the error component. Possible values are normal and advanced."
 	 */
+    @JSFProperty(desc   =   "Sets the antiAliasType property of internal TextFields for the error component. Possible values are normal and advanced.")
 	public abstract String getErrorFontAntiAliasType();
 	
 	/**
 	 * Name of the font to use for the error component. The default value is Verdana.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Name of the font to use for the error component. The default value is Verdana."
 	 */
+    @JSFProperty(desc   =   "Name of the font to use for the error component. The default value is Verdana.")
 	public abstract String getErrorFontFamily();
 	
 	/**
 	 * Sets the gridFitType property of internal TextFields for the error component that represent text in Flex controls. The possible values are none, pixel, and subpixel.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Sets the gridFitType property of internal TextFields for the error component that represent text in Flex controls. The possible values are none, pixel, and subpixel."
 	 */
+    @JSFProperty(desc   =   "Sets the gridFitType property of internal TextFields for the error component that represent text in Flex controls. The possible values are none, pixel, and subpixel.")
 	public abstract String getErrorFontGridFitType();
 	
 	/**
 	 * Sets the sharpness property of internal TextFields for the error component that represent text in Flex controls. This property specifies the sharpness of the glyph edges. The possible values are Numbers from -400 through 400.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Sets the sharpness property of internal TextFields for the error component that represent text in Flex controls. This property specifies the sharpness of the glyph edges. The possible values are Numbers from -400 through 400."
 	 */
+    @JSFProperty(desc   =   "Sets the sharpness property of internal TextFields for the error component that represent text in Flex controls. This property specifies the sharpness of the glyph edges. The possible values are Numbers from -400 through 400.")
 	public abstract String getErrorFontSharpness();
 	
 	/**
 	 * Height of the text for the error component, in pixels. The default value is 10.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Height of the text for the error component, in pixels. The default value is 10."
 	 */
+    @JSFProperty(desc   =   "Height of the text for the error component, in pixels. The default value is 10.")
 	public abstract String getErrorFontSize();
 	
 	/**
 	 * Determines whether the text for the error component is italic font. Recognized values are normal and italic.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Determines whether the text for the error component is italic font. Recognized values are normal and italic."
 	 */
+    @JSFProperty(desc   =   "Determines whether the text for the error component is italic font. Recognized values are normal and italic.")
 	public abstract String getErrorFontStyle();
 	
 	/**
 	 * Sets the thickness property of internal TextFields for the error component that represent text in Flex controls. This property specifies the thickness of the glyph edges. The possible values are Numbers from -200 to 200.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Sets the thickness property of internal TextFields for the error component that represent text in Flex controls. This property specifies the thickness of the glyph edges. The possible values are Numbers from -200 to 200."
 	 */
+    @JSFProperty(desc   =   "Sets the thickness property of internal TextFields for the error component that represent text in Flex controls. This property specifies the thickness of the glyph edges. The possible values are Numbers from -200 to 200.")
 	public abstract String getErrorFontThickness();
 	
 	/**
 	 * Determines whether the text for the error component is boldface. Recognized values are normal and bold.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Determines whether the text for the error component is boldface. Recognized values are normal and bold."
 	 */
+    @JSFProperty(desc   =   "Determines whether the text for the error component is boldface. Recognized values are normal and bold.")
 	public abstract String getErrorFontWeight();
 	
 	/**
 	 * Number of pixels between the error component's container's left border and the left edge of its content area.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Number of pixels between the error component's container's left border and the left edge of its content area."
 	 */
+    @JSFProperty(desc   =   "Number of pixels between the error component's container's left border and the left edge of its content area.")
 	public abstract String getErrorPaddingLeft();
 	
 	/**
 	 * Number of pixels between the error component's container's right border and the right edge of its content area.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Number of pixels between the error component's container's right border and the right edge of its content area."
 	 */
+    @JSFProperty(desc   =   "Number of pixels between the error component's container's right border and the right edge of its content area.")
 	public abstract String getErrorPaddingRight();
 	
 	/**
 	 * Alignment of text for the error component within a container. Possible values are left, right, or center.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Alignment of text for the error component within a container. Possible values are left, right, or center."
 	 */
+    @JSFProperty(desc   =   "Alignment of text for the error component within a container. Possible values are left, right, or center.")
 	public abstract String getErrorTextAlign();
 	
 	/**
 	 * Determines whether the text for the error component is underlined. Possible values are none and underline.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Determines whether the text for the error component is underlined. Possible values are none and underline."
 	 */
+    @JSFProperty(desc   =   "Determines whether the text for the error component is underlined. Possible values are none and underline.")
 	public abstract String getErrorTextDecoration();
 	
 	/**
 	 * Offset of first line of text for the error component from the left side of the container, in pixels.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Offset of first line of text for the error component from the left side of the container, in pixels."
 	 */
+    @JSFProperty(desc   =   "Offset of first line of text for the error component from the left side of the container, in pixels.")
 	public abstract String getErrorTextIndent();
 	
 }

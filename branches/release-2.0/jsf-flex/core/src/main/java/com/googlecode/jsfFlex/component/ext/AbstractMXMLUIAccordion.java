@@ -22,6 +22,8 @@ import java.io.IOException;
 
 import javax.faces.context.FacesContext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
@@ -54,15 +56,6 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlAccordion"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIAccordion"
- *   type     = "com.googlecode.jsfFlex.MXMLUIAccordion"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIAccordionTag"
- *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLAccordion"
- *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
- *   
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -171,6 +164,15 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIContainerAttr
  * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlAccordion",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIAccordion",
+        type                =   "com.googlecode.jsfFlex.MXMLUIAccordion",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIAccordionTag",
+        family              =   "javax.faces.MXMLInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLAccordion",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+)
 public abstract class AbstractMXMLUIAccordion 
 						extends MXMLUISelectedIndexBase
 						implements _MXMLUIContainerAttributes, _MXMLUIBaseAttributes, _MXMLUIIconAttribute, 

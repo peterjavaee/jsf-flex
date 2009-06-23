@@ -18,18 +18,12 @@
  */
 package com.googlecode.jsfFlex.convert.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlZipCodeFormatter"
- *   class    = "com.googlecode.jsfFlex.convert.ext.MXMLUIZipCodeFormatter"
- *   type     = "com.googlecode.jsfFlex.MXMLUIZipCodeFormatter"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIZipCodeFormatterTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLZipCodeFormatter"
- * 
  * @JSFJspProperty
  *   name		= "formatString"
  *   returnType = "java.lang.String"
@@ -41,6 +35,14 @@ import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
  * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlZipCodeFormatter",
+        clazz               =   "com.googlecode.jsfFlex.convert.ext.MXMLUIZipCodeFormatter",
+        type                =   "com.googlecode.jsfFlex.MXMLUIZipCodeFormatter",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIZipCodeFormatterTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLZipCodeFormatter"
+)
 public abstract class AbstractMXMLUIZipCodeFormatter 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIFormatter {

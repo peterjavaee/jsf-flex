@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUIValueBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIChangeAttribute;
@@ -32,17 +34,17 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUISliderAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlHSlider"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIHSlider"
- *   type     = "com.googlecode.jsfFlex.MXMLUIHSlider"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIHSliderTag"
- *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLHSlider"
- *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
- * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlHSlider",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIHSlider",
+        type                =   "com.googlecode.jsfFlex.MXMLUIHSlider",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIHSliderTag",
+        family              =   "javax.faces.MXMLInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLHSlider",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+)
 public abstract class AbstractMXMLUIHSlider 
 						extends MXMLUIValueBase
 						implements _MXMLUISliderAttributes, _MXMLUIBaseAttributes, _MXMLUITrackAttributes, 

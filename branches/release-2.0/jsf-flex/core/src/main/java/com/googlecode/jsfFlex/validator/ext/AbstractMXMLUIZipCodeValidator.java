@@ -18,18 +18,12 @@
  */
 package com.googlecode.jsfFlex.validator.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlZipCodeValidator"
- *   class    = "com.googlecode.jsfFlex.validator.ext.MXMLUIZipCodeValidator"
- *   type     = "com.googlecode.jsfFlex.MXMLUIZipCodeValidator"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIZipCodeValidatorTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLZipCodeValidator"
- *   
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -79,6 +73,14 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlZipCodeValidator",
+        clazz               =   "com.googlecode.jsfFlex.validator.ext.MXMLUIZipCodeValidator",
+        type                =   "com.googlecode.jsfFlex.MXMLUIZipCodeValidator",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIZipCodeValidatorTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLZipCodeValidator"
+)
 public abstract class AbstractMXMLUIZipCodeValidator 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIValidatorAttributes {

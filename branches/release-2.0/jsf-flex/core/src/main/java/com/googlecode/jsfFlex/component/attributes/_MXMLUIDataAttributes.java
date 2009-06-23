@@ -19,20 +19,12 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="data", returnType="java.lang.String", longDesc="Lets you pass a value to the component when you use it in an item renderer or item editor."),
-                @JSFJspProperty(name="listData", returnType="java.lang.String", longDesc="When a component is used as a drop-in item renderer or drop-in item editor, Flex initializesthe listData property of the component with the appropriate data from the list control."),
-                @JSFJspProperty(name="condenseWhite", returnType="java.lang.String", longDesc="Specifies whether extra white space (spaces, line breaks, and so on) should be removed in a control with HTML text.")
-        }
-)
 @JSFComponent
-public interface _MXMLUIDataAttributes {
+public interface _MXMLUIDataAttributes
+                    extends _MXMLUIDataAttribute, _MXMLUIListDataAttribute, _MXMLUICondenseWhiteAttribute {
 	
 }

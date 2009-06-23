@@ -19,13 +19,18 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperty(name="dataField", returnType="java.lang.String", longDesc="The name of the field or property in the data provider item associated with the column.")
 @JSFComponent
 public interface _MXMLUIDataFieldAttribute {
 	
+    /**
+     * Maximum number of rows visible in the control.
+     */
+    @JSFProperty(desc   =   "The name of the field or property in the data provider item associated with the column.")
+    String getDataField();
+    
 }

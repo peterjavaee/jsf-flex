@@ -27,6 +27,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperties(
         properties={
+                @JSFJspProperty(name="automationName", returnType="java.lang.String", longDesc="Name that can be used as an identifier for this object."),
                 @JSFJspProperty(name="cachePolicy", returnType="java.lang.String", longDesc="Specifies the bitmap caching policy for this object."),
                 @JSFJspProperty(name="currentState", returnType="java.lang.String", longDesc="The current view state of the component."),
                 @JSFJspProperty(name="doubleClickEnabled", returnType="java.lang.String", longDesc="Specifies whether the UIComponent object receives doubleClick events."),

@@ -32,6 +32,7 @@ import javax.faces.context.FacesContext;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIAllowMultipleSelectionAttribute;
@@ -70,14 +71,6 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollBarAttr
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControlAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlDataGrid"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIDataGrid"
- *   type     = "com.googlecode.jsfFlex.MXMLUIDataGrid"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIDataGridTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLDataGrid"
- *   
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -273,6 +266,14 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControl
  *   						   						
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlDataGrid",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIDataGrid",
+        type                =   "com.googlecode.jsfFlex.MXMLUIDataGrid",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIDataGridTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLDataGrid"
+)
 public abstract class AbstractMXMLUIDataGrid 
 						extends MXMLUISimpleBase
 						implements _MXMLUIHeaderHeightAttribute, _MXMLUIShowHeadersAttribute,

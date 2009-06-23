@@ -18,20 +18,14 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlMenuBar"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIMenuBar"
- *   type     = "com.googlecode.jsfFlex.MXMLUIMenuBar"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIMenuBarTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLMenuBar"
- *   
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -281,6 +275,14 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   						   						
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlMenuBar",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIMenuBar",
+        type                =   "com.googlecode.jsfFlex.MXMLUIMenuBar",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIMenuBarTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLMenuBar"
+)
 public abstract class AbstractMXMLUIMenuBar 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIBaseAttributes, _MXMLUISelectedIndexAttribute,

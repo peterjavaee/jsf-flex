@@ -18,18 +18,12 @@
  */
 package com.googlecode.jsfFlex.validator.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlRegExpValidator"
- *   class    = "com.googlecode.jsfFlex.validator.ext.MXMLUIRegExpValidator"
- *   type     = "com.googlecode.jsfFlex.MXMLUIRegExpValidator"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIRegExpValidatorTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLRegExpValidator"
- *   
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -61,6 +55,14 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlRegExpValidator",
+        clazz               =   "com.googlecode.jsfFlex.validator.ext.MXMLUIRegExpValidator",
+        type                =   "com.googlecode.jsfFlex.MXMLUIRegExpValidator",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIRegExpValidatorTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLRegExpValidator"
+)
 public abstract class AbstractMXMLUIRegExpValidator 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIValidatorAttributes {

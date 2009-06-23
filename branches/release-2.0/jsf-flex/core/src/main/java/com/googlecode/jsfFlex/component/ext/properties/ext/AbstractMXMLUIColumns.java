@@ -25,21 +25,23 @@ import java.util.Map;
 
 import javax.faces.context.FacesContext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.ext.AbstractMXMLUIDataGrid;
 import com.googlecode.jsfFlex.component.ext.AbstractMXMLUIDataGridColumn;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlColumns"
- *   class    = "com.googlecode.jsfFlex.component.ext.properties.ext.MXMLUIColumns"
- *   type     = "com.googlecode.jsfFlex.MXMLUIColumns"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.properties.MXMLUIColumnsTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLColumns"
- * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlColumns",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.properties.ext.MXMLUIColumns",
+        type                =   "com.googlecode.jsfFlex.MXMLUIColumns",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.properties.MXMLUIColumnsTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLColumns"
+)
 public abstract class AbstractMXMLUIColumns 
 						extends MXMLUISimpleBase {
 	

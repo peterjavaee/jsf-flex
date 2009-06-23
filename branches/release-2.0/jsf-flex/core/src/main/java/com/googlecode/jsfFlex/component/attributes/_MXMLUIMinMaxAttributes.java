@@ -19,19 +19,12 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="minimum", returnType="java.lang.String", longDesc="Minimum value of the NumericStepper."),
-                @JSFJspProperty(name="maximum", returnType="java.lang.String", longDesc="Maximum value of the NumericStepper.")
-        }
-)
 @JSFComponent
-public interface _MXMLUIMinMaxAttributes {
+public interface _MXMLUIMinMaxAttributes 
+                    extends _MXMLUIMinimumAttribute, _MXMLUIMaximumAttribute {
 	
 }

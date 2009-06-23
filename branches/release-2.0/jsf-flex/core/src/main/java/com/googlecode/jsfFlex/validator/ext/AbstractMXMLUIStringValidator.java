@@ -18,18 +18,12 @@
  */
 package com.googlecode.jsfFlex.validator.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlStringValidator"
- *   class    = "com.googlecode.jsfFlex.validator.ext.MXMLUIStringValidator"
- *   type     = "com.googlecode.jsfFlex.MXMLUIStringValidator"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIStringValidatorTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLStringValidator"
- *   
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -61,6 +55,14 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  * 			
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlStringValidator",
+        clazz               =   "com.googlecode.jsfFlex.validator.ext.MXMLUIStringValidator",
+        type                =   "com.googlecode.jsfFlex.MXMLUIStringValidator",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIStringValidatorTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLStringValidator"
+)
 public abstract class AbstractMXMLUIStringValidator 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIValidatorAttributes {

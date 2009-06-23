@@ -19,19 +19,12 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="rollOverColor", returnType="java.lang.String", longDesc="The rollOverColor of the drop-down list."),
-                @JSFJspProperty(name="selectionColor", returnType="java.lang.String", longDesc="The selectionColor of the drop-down list.")
-        }
-)
 @JSFComponent
-public interface _MXMLUIDropDownEventColorAttributes {
+public interface _MXMLUIDropDownEventColorAttributes
+                    extends _MXMLUIRollOverColorAttribute, _MXMLUISelectionColorAttribute {
 	
 }

@@ -18,18 +18,12 @@
  */
 package com.googlecode.jsfFlex.validator.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlEmailValidator"
- *   class    = "com.googlecode.jsfFlex.validator.ext.MXMLUIEmailValidator"
- *   type     = "com.googlecode.jsfFlex.MXMLUIEmailValidator"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIEmailValidatorTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLEmailValidator"
- *   
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -85,6 +79,14 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  * 		
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlEmailValidator",
+        clazz               =   "com.googlecode.jsfFlex.validator.ext.MXMLUIEmailValidator",
+        type                =   "com.googlecode.jsfFlex.MXMLUIEmailValidator",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIEmailValidatorTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLEmailValidator"
+)
 public abstract class AbstractMXMLUIEmailValidator 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIValidatorAttributes {

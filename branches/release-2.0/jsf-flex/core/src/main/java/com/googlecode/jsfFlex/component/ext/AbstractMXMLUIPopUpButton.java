@@ -18,19 +18,12 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISelectedBase;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlPopUpButton"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIPopUpButton"
- *   type     = "com.googlecode.jsfFlex.MXMLUIPopUpButton"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIPopUpButtonTag"
- *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLPopUpButton"
- *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
- * 
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -460,6 +453,15 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlPopUpButton",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIPopUpButton",
+        type                =   "com.googlecode.jsfFlex.MXMLUIPopUpButton",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIPopUpButtonTag",
+        family              =   "javax.faces.MXMLInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLPopUpButton",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+)
 public abstract class AbstractMXMLUIPopUpButton 
 							extends MXMLUISelectedBase 
 							implements _MXMLUIBaseAttributes {

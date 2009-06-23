@@ -18,17 +18,12 @@
  */
 package com.googlecode.jsfFlex.component.ext.data.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlArrayCollection"
- *   class    = "com.googlecode.jsfFlex.component.ext.data.ext.MXMLUIArrayCollection"
- *   type     = "com.googlecode.jsfFlex.MXMLUIArrayCollection"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.data.MXMLUIArrayCollectionTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLArrayCollection"
- * 
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -56,16 +51,24 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
  *   						
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlArrayCollection",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.MXMLUIArrayCollection",
+        type                =   "com.googlecode.jsfFlex.MXMLUIArrayCollection",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.data.MXMLUIArrayCollectionTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLArrayCollection"
+)
 public abstract class AbstractMXMLUIArrayCollection 
 							extends MXMLUISimpleBase {
 	
 	/**
 	 * Id of the component.
-	 * 
-	 * @JSFProperty
-	 *     desc			= "Id of the component."
-	 *     inheritedTag	= true
 	 */
+    @JSFProperty(
+            inheritTag  =   true,
+            desc        =   "Id of the component."
+    )
 	public String getId(){
 		return super.getId();
 	}

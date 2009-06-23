@@ -19,20 +19,13 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="backgroundImage", returnType="java.lang.String", longDesc="Background image of a component."),
-                @JSFJspProperty(name="backgroundSize", returnType="java.lang.String", longDesc="Scales the image specified by backgroundImage to different percentage sizes."),
-                @JSFJspProperty(name="dropShadowColor", returnType="java.lang.String", longDesc="Color of the drop shadow.")
-        }
-)
 @JSFComponent
-public interface _MXMLUIBackgroundAttributes {
+public interface _MXMLUIBackgroundAttributes 
+                    extends _MXMLUIBackgroundImageAttribute, _MXMLUIBackgroundSizeAttribute, 
+                    _MXMLUIDropShadowColorAttribute {
 	
 }

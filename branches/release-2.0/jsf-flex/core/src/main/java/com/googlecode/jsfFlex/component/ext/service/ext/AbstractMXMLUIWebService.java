@@ -18,17 +18,11 @@
  */
 package com.googlecode.jsfFlex.component.ext.service.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlWebService"
- *   class    = "com.googlecode.jsfFlex.component.ext.service.ext.MXMLUIWebService"
- *   type     = "com.googlecode.jsfFlex.MXMLUIWebService"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.service.MXMLUIWebServiceTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLWebService"
- * 
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -92,9 +86,15 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
  *   						
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlWebService",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.service.ext.MXMLUIWebService",
+        type                =   "com.googlecode.jsfFlex.MXMLUIWebService",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.service.MXMLUIWebServiceTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLWebService"
+)
 public abstract class AbstractMXMLUIWebService 
 						extends MXMLUISimpleBase {
-	
-	
 	
 }

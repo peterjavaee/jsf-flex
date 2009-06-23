@@ -19,20 +19,12 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="rowCount", returnType="java.lang.String", longDesc="Maximum number of rows visible in the control."),
-                @JSFJspProperty(name="itemRenderer", returnType="java.lang.String", longDesc="IFactory that generates the instances that displays the data for the drop-down list of the control."),
-                @JSFJspProperty(name="selectionDuration", returnType="java.lang.String", longDesc="The selectionDuration of the drop-down list.")
-        }
-)
 @JSFComponent
-public interface _MXMLUIItemInfoAttributes {
-	
+public interface _MXMLUIItemInfoAttributes 
+                    extends _MXMLUIItemRendererAttribute, _MXMLUISelectionDurationAttribute, _MXMLUIRowCount {
+    
 }

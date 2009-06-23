@@ -23,19 +23,13 @@ import java.util.Map;
 import javax.el.ValueExpression;
 import javax.faces.context.FacesContext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 import com.googlecode.jsfFlex.component.MXMLUISelectedBase;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlRadioButton"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIRadioButton"
- *   type     = "com.googlecode.jsfFlex.MXMLUIRadioButton"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIRadioButtonTag"
- *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLRadioButton"
- *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
- * 
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -387,6 +381,15 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlRadioButton",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIRadioButton",
+        type                =   "com.googlecode.jsfFlex.MXMLUIRadioButton",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIRadioButtonTag",
+        family              =   "javax.faces.MXMLInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLRadioButton",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+)
 public abstract class AbstractMXMLUIRadioButton 
 						extends MXMLUISelectedBase
 						implements _MXMLUIBaseAttributes {
@@ -439,35 +442,28 @@ public abstract class AbstractMXMLUIRadioButton
 	
 	/**
 	 * Specifies the name of the group to which this RadioButton control belongs, or specifies the value of the id property of a RadioButtonGroup control if this RadioButton is part of agroup defined by a RadioButtonGroup control.
-	 * 
-	 *@JSFProperty
-	 *    required        = true
-	 *    rtexprvalue     = false
-	 *    desc            = "Specifies the name of the group to which this RadioButton control belongs, or specifies the value of the id property of a RadioButtonGroup control if this RadioButton is part of agroup defined by a RadioButtonGroup control."
 	 */
+    @JSFProperty(
+            required    =   true,
+            desc        =   "Specifies the name of the group to which this RadioButton control belongs, or specifies the value of the id property of a RadioButtonGroup control if this RadioButton is part of agroup defined by a RadioButtonGroup control."
+    )
 	public abstract String getGroupName();
     
 	/**
 	 * This will represent the selectedValue chosen for the RadioButtonGroup. It should be used for databinding, so to figure out which radioButton within the same groupNamehas been chosen. Meaning it serves no purpose for display, so rationally you shouldhave databinded to ONE of the RadioButton with the same groupName.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = true
-	 *    desc            = "This will represent the selectedValue chosen for the RadioButtonGroup. It should be used for databinding, so to figure out which radioButton within the same groupNamehas been chosen. Meaning it serves no purpose for display, so rationally you shouldhave databinded to ONE of the RadioButton with the same groupName."
 	 */
+    @JSFProperty(desc   =   "This will represent the selectedValue chosen for the RadioButtonGroup. It should be used for databinding, so to figure out which radioButton within the same groupNamehas been chosen. Meaning it serves no purpose for display, so rationally you shouldhave databinded to ONE of the RadioButton with the same groupName.")
 	public abstract String getSelectedValue();
 	
 	public abstract void setSelectedValue(String selectedValue);
 	
 	/**
 	 * Current value.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = true
-	 *    desc            = "Current value."
-	 *    inheritedTag	  = true
 	 */
+    @JSFProperty(
+            inheritTag  =   true,
+            desc        =   "Current value."
+    )
 	public Object getValue(){
 		return super.getValue();
 	}

@@ -19,19 +19,12 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="paddingBottom", returnType="java.lang.String", longDesc="Number of pixels between the container's bottom border and the bottom of its content area."),
-                @JSFJspProperty(name="paddingTop", returnType="java.lang.String", longDesc="Number of pixels between the container's top border and the top of its content area.")
-        }
-)
 @JSFComponent
-public interface _MXMLUIPaddingVerticalAttributes {
+public interface _MXMLUIPaddingVerticalAttributes 
+                    extends _MXMLUIPaddingBottomAttribute, _MXMLUIPaddingTopAttribute {
 	
 }

@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUITextInputBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIControlSkinAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
@@ -30,15 +32,6 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIComboBaseAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlDateField"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIDateField"
- *   type     = "com.googlecode.jsfFlex.MXMLUIDateField"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIDateFieldTag"
- *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLDateField"
- *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
- *   
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -372,6 +365,15 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIComboBaseAttr
  *   						
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlDateField",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIDateField",
+        type                =   "com.googlecode.jsfFlex.MXMLUIDateField",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIDateFieldTag",
+        family              =   "javax.faces.MXMLInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLDateField",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+)
 public abstract class AbstractMXMLUIDateField 
 						extends MXMLUITextInputBase 
 						implements _MXMLUIComboBaseAttributes, _MXMLUIBaseAttributes, _MXMLUISelectedIndexAttribute, 

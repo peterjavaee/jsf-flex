@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIAllowMultipleSelectionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
@@ -68,17 +70,17 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIListBaseAttri
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControlAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlHorizontalList"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIHorizontalList"
- *   type     = "com.googlecode.jsfFlex.MXMLUIHorizontalList"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIHorizontalListTag"
- *   family   = "javax.faces.MXMLInput"
- *   defaultRendererType	= "com.googlecode.jsfFlex.MXMLHorizontalList"
- *   tagSuperclass 			= "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
- *   
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlHorizontalList",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIHorizontalList",
+        type                =   "com.googlecode.jsfFlex.MXMLUIHorizontalList",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIHorizontalListTag",
+        family              =   "javax.faces.MXMLInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLHorizontalList",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+)
 public abstract class AbstractMXMLUIHorizontalList 
 						extends MXMLUISelectedIndexBase
 						implements _MXMLUIListBaseAttributes, _MXMLUIScrollControlAttributes, _MXMLUIBaseAttributes, 

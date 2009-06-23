@@ -18,18 +18,12 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlVRule"
- *   class    = "com.googlecode.jsfFlex.component.ext.MXMLUIVRule"
- *   type     = "com.googlecode.jsfFlex.MXMLUIVRule"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUIVRuleTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLVRule"
- * 
  * @JSFJspProperties
  * 		properties	=		
  * 							@JSFJspProperty
@@ -51,6 +45,14 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
  *   
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlVRule",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIVRule",
+        type                =   "com.googlecode.jsfFlex.MXMLUIVRule",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUIVRuleTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLVRule"
+)
 public abstract class AbstractMXMLUIVRule 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIBaseAttributes {

@@ -18,21 +18,19 @@
  */
 package com.googlecode.jsfFlex.component.attributes;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFComponent
 public interface _MXMLUIDataProviderAttribute {
 	
 	/**
 	 * The set of items this component displays.
 	 */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "The set of items this component displays."
-    )
+    @JSFProperty(desc   =   "The set of items this component displays.")
 	String getDataProvider();
 	
 	void setDataProvider(String dataProvider);

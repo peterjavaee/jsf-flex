@@ -19,19 +19,12 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="horizontalScrollBarStyleName", returnType="java.lang.String", longDesc="The name of the horizontal scrollbar style."),
-                @JSFJspProperty(name="verticalScrollBarStyleName", returnType="java.lang.String", longDesc="The name of the vertical scrollbar style.")
-        }
-)
 @JSFComponent
-public interface _MXMLUIScrollBarAttributes {
+public interface _MXMLUIScrollBarAttributes 
+                    extends _MXMLUIHorizontalScrollBarStyleNameAttribute, _MXMLUIVerticalScrollBarStyleNameAttribute {
 	
 }

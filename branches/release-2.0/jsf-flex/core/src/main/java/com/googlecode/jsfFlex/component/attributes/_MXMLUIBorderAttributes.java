@@ -19,20 +19,12 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="borderSides", returnType="java.lang.String", longDesc="Bounding box sides. A space-delimited String that specifies the sides of the border to show."),
-                @JSFJspProperty(name="borderStyle", returnType="java.lang.String", longDesc="Bounding box style."),
-                @JSFJspProperty(name="borderSkin", returnType="java.lang.String", longDesc="The border skin of the component.")
-        }
-)
 @JSFComponent
-public interface _MXMLUIBorderAttributes {
+public interface _MXMLUIBorderAttributes 
+                    extends _MXMLUIBorderSidesAttribute, _MXMLUIBorderStyleAttribute, _MXMLUIBorderSkinAttribute {
 	
 }

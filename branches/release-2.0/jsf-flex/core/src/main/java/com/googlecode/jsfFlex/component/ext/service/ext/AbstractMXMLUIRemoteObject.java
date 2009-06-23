@@ -18,17 +18,11 @@
  */
 package com.googlecode.jsfFlex.component.ext.service.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlRemoteObject"
- *   class    = "com.googlecode.jsfFlex.component.ext.service.ext.MXMLUIRemoteObject"
- *   type     = "com.googlecode.jsfFlex.MXMLUIRemoteObject"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.service.MXMLUIRemoteObjectTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLRemoteObject"
- * 
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -86,9 +80,15 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
  *   						
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlRemoteObject",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.service.ext.MXMLUIRemoteObject",
+        type                =   "com.googlecode.jsfFlex.MXMLUIRemoteObject",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.service.MXMLUIRemoteObjectTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLRemoteObject"
+)
 public abstract class AbstractMXMLUIRemoteObject 
 						extends MXMLUISimpleBase {
-	
-	
 	
 }

@@ -19,19 +19,12 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="trackColors", returnType="java.lang.String", longDesc="The colors of the track, as an array of two colors."),
-                @JSFJspProperty(name="trackSkin", returnType="java.lang.String", longDesc="Skin style for the progress indicator track.")
-        }
-)
 @JSFComponent
-public interface _MXMLUITrackAttributes {
+public interface _MXMLUITrackAttributes 
+                    extends _MXMLUITrackColorsAttribute, _MXMLUITrackSkinAttribute {
 	
 }

@@ -18,89 +18,26 @@
  */
 package com.googlecode.jsfFlex.validator.attributes.compBase;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
+
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperties(
+        properties={
+                @JSFJspProperty(name="enabled", returnType="java.lang.String", longDesc="Setting this value to false will stop the validator from performing validation."),
+                @JSFJspProperty(name="listener", returnType="java.lang.String", longDesc="Specifies the validation listener."),
+                @JSFJspProperty(name="property", returnType="java.lang.String", longDesc="A String specifying the name of the property of the source object that contains the value to validate."),
+                @JSFJspProperty(name="required", returnType="java.lang.String", longDesc="If true, specifies that a missing or empty value causes a validation error."),
+                @JSFJspProperty(name="requiredFieldError", returnType="java.lang.String", longDesc="Error message when a value is missing and the required property is true."),
+                @JSFJspProperty(name="source", returnType="java.lang.String", longDesc="Specifies the object containing the property to validate."),
+                @JSFJspProperty(name="trigger", returnType="java.lang.String", longDesc="Specifies the component generating the event that triggers the validator."),
+                @JSFJspProperty(name="triggerEvent", returnType="java.lang.String", longDesc="Specifies the event that triggers the validation.")
+        }
+)
+@JSFComponent
 public interface _MXMLUIValidatorAttributes {
-	
-	/**
-	 * Setting this value to false will stop the validator from performing validation.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Setting this value to false will stop the validator from performing validation."
-	 */
-	String getEnabled();
-
-	/**
-	 * Specifies the validation listener.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Specifies the validation listener."
-	 */
-	String getListener();
-
-	/**
-	 * A String specifying the name of the property of the source object that contains the value to validate.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "A String specifying the name of the property of the source object that contains the value to validate."
-	 */
-	String getProperty();
-
-	/**
-	 * If true, specifies that a missing or empty value causes a validation error.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "If true, specifies that a missing or empty value causes a validation error."
-	 */
-	String getRequired();
-
-	/**
-	 * Error message when a value is missing and the required property is true.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Error message when a value is missing and the required property is true."
-	 */
-	String getRequiredFieldError();
-
-	/**
-	 * Specifies the object containing the property to validate.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Specifies the object containing the property to validate."
-	 */
-	String getSource();
-
-	/**
-	 * Specifies the component generating the event that triggers the validator.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Specifies the component generating the event that triggers the validator."
-	 */
-	String getTrigger();
-
-	/**
-	 * Specifies the event that triggers the validation.
-	 * 
-	 *@JSFProperty
-	 *    required        = false
-	 *    rtexprvalue     = false
-	 *    desc            = "Specifies the event that triggers the validation."
-	 */
-	String getTriggerEvent();
 	
 }

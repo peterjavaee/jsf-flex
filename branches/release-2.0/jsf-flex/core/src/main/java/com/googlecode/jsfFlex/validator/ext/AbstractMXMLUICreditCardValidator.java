@@ -18,18 +18,12 @@
  */
 package com.googlecode.jsfFlex.validator.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttributes;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlCreditCardValidator"
- *   class    = "com.googlecode.jsfFlex.validator.ext.MXMLUICreditCardValidator"
- *   type     = "com.googlecode.jsfFlex.MXMLUICreditCardValidator"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUICreditCardValidatorTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLCreditCardValidator"
- *   
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -115,6 +109,14 @@ import com.googlecode.jsfFlex.validator.attributes.compBase._MXMLUIValidatorAttr
  * 	
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlCreditCardValidator",
+        clazz               =   "com.googlecode.jsfFlex.validator.ext.MXMLUICreditCardValidator",
+        type                =   "com.googlecode.jsfFlex.MXMLUICreditCardValidator",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUICreditCardValidatorTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLCreditCardValidator"
+)
 public abstract class AbstractMXMLUICreditCardValidator 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIValidatorAttributes {

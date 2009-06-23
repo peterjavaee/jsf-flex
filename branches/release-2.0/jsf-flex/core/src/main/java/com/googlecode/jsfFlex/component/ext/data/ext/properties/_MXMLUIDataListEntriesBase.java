@@ -23,18 +23,20 @@ import java.io.IOException;
 import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.attributes._MXMLUIBindingBeanListAttribute;
 
 /**
- * @JSFComponent
- * 	 class    = "com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIDataListEntriesBase"
- *   type     = "com.googlecode.jsfFlex.MXMLUIDataListEntriesBase"
- *   family   = "javax.faces.MXMLProperty"
- *   desc	  = "Base component for DataList Entries MXMLProperty component"
- *   template = "true"
- *   
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIDataListEntriesBase",
+        type                =   "com.googlecode.jsfFlex.MXMLUIDataListEntriesBase",
+        family              =   "javax.faces.MXMLProperty",
+        desc                =   "Base component for DataList Entries MXMLProperty component",
+        template            =   true
+)
 public abstract class _MXMLUIDataListEntriesBase 
 						extends UIComponentBase 
 						implements _MXMLUIBindingBeanListAttribute {

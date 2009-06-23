@@ -18,18 +18,12 @@
  */
 package com.googlecode.jsfFlex.convert.ext;
 
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
 
 /**
- * @JSFComponent
- *   name     = "jf:mxmlNumberFormatter"
- *   class    = "com.googlecode.jsfFlex.convert.ext.MXMLUINumberFormatter"
- *   type     = "com.googlecode.jsfFlex.MXMLUINumberFormatter"
- *   tagClass = "com.googlecode.jsfFlex.taglib.ext.MXMLUINumberFormatterTag"
- *   family   = "javax.faces.MXMLSimple"
- *   defaultRendererType= "com.googlecode.jsfFlex.MXMLNumberFormatter"
- * 
  * @JSFJspProperties
  * 		properties	=		
  *   						@JSFJspProperty
@@ -85,6 +79,14 @@ import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
  * 
  * @author Ji Hoon Kim
  */
+@JSFComponent(
+        name                =   "jf:mxmlNumberFormatter",
+        clazz               =   "com.googlecode.jsfFlex.convert.ext.MXMLUINumberFormatter",
+        type                =   "com.googlecode.jsfFlex.MXMLUINumberFormatter",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.ext.MXMLUINumberFormatterTag",
+        family              =   "javax.faces.MXMLSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.MXMLNumberFormatter"
+)
 public abstract class AbstractMXMLUINumberFormatter 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIFormatter {

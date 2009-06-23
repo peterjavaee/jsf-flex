@@ -19,25 +19,14 @@
 package com.googlecode.jsfFlex.component.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="downArrowDisabledSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the Up arrow when the arrow is disabled."),
-                @JSFJspProperty(name="downArrowDownSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the up arrow when the arrow is enabled and a user presses the mouse button over the arrow."),
-                @JSFJspProperty(name="downArrowUpSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the Up arrow when the arrow is enabled and the mouse pointer is not on the arrow."),
-                @JSFJspProperty(name="upArrowOverSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the Up arrow when the arrow is enabled and the mouse pointer is over the arrow."),
-                @JSFJspProperty(name="upArrowDownSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the Up arrow when the arrow is enabled and a user presses the mouse button over the arrow."),
-                @JSFJspProperty(name="upArrowDisabledSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the Up arrow when the arrow is disabled."),
-                @JSFJspProperty(name="downArrowOverSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the Up arrow when the arrow is enabled and the mouse pointer is over the arrow."),
-                @JSFJspProperty(name="upArrowUpSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the Up arrow when the arrow is enabled and the mouse pointer is not on the arrow.")
-        }
-)
 @JSFComponent
-public interface _MXMLUIArrowAttributes {
+public interface _MXMLUIArrowAttributes
+                    extends _MXMLUIDownArrowDisabledSkinAttribute, _MXMLUIDownArrowDownSkinAttribute, _MXMLUIDownArrowUpSkinAttribute,
+                    _MXMLUIUpArrowOverSkinAttribute, _MXMLUIUpArrowDownSkinAttribute, _MXMLUIUpArrowDisabledSkinAttribute, 
+                    _MXMLUIDownArrowOverSkinAttribute, _MXMLUIUpArrowUpSkinAttribute {
 	
 }
