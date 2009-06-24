@@ -52,6 +52,7 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUILeadingAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingHorizontalAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingVerticalAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIRepeatAttributes;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIRowCount;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollBarAttributes;
@@ -309,6 +310,6 @@ public abstract class AbstractMXMLUITree
 						_MXMLUILeadingAttribute, _MXMLUIPaddingHorizontalAttributes, _MXMLUIPaddingVerticalAttributes,  
 						_MXMLUIRepeatAttributes, _MXMLUIScrollAttribute, _MXMLUIScrollAttributes, _MXMLUIScrollBarAttributes,  
 						_MXMLUISelectableAttribute, _MXMLUISelectedItemAttribute, _MXMLUIColumnCountAttribute,
-						_MXMLUISelectionAttributes {
+						_MXMLUISelectionAttributes, _MXMLUIRowCount {
 	
 }

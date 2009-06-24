@@ -193,7 +193,8 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
      * message javax.faces.component.UIInput.REQUIRED is posted.
      */
     @JSFProperty(
-            inheritTag      =   true
+            inheritTag      =   true,
+            desc            =   "A boolean value that indicates whether an input value is required. If this value is true, and no input value is provided, the error message javax.faces.component.UIInput.REQUIRED is posted."
     )
 	public boolean isRequired(){
 		return super.isRequired();
@@ -237,7 +238,8 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
      * Converter interface.
      */
     @JSFProperty(
-            inheritTag      =   true
+            inheritTag      =   true,
+            desc            =   "The value can either be a static value (ID) or an EL expression. When a static id is specified, an instance of the converter type registered with that id is used. When this is an EL expression, the result of evaluating the expression must be an object that implements the Converter interface."
     )
     public Converter getConverter(){
     	return super.getConverter();

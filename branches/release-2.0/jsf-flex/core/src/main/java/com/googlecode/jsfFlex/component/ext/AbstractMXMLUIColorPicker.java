@@ -38,7 +38,9 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUICloseDurationAttribute
 import com.googlecode.jsfFlex.component.attributes._MXMLUICloseEasingFunctionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIColorFieldAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIDisabledIconColorAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIEnterAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFillAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIFocusAlphaAttribute;
@@ -61,6 +63,7 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUIShowTextFieldAttribute
 import com.googlecode.jsfFlex.component.attributes._MXMLUISwatchBorderColorAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISwatchBorderSizeAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUISwatchPanelStyleNameAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUITextStyleAttributes;
 import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIComboBaseAttributes;
 
@@ -87,7 +90,8 @@ public abstract class AbstractMXMLUIColorPicker
                         _MXMLUIOpenEasingFunctionAttribute, _MXMLUIPaddingVerticalAttributes, _MXMLUIPaddingHorizontalAttributes,
                         _MXMLUISwatchBorderColorAttribute, _MXMLUISwatchBorderSizeAttribute, _MXMLUISwatchPanelStyleNameAttribute,
                         _MXMLUITextStyleAttributes, _MXMLUIChangeAttribute, _MXMLUICloseAttribute, _MXMLUIEnterAttribute,
-                        _MXMLUIItemEventAttributes, _MXMLUIOpenAttribute, _MXMLUISelectedIndexAttribute {
+                        _MXMLUIItemEventAttributes, _MXMLUIOpenAttribute, _MXMLUISelectedIndexAttribute,
+                        _MXMLUITextAttribute, _MXMLUIEditableAttribute, _MXMLUIDataProviderAttribute {
 	
 	private final static Log _log = LogFactory.getLog(AbstractMXMLUIColorPicker.class);
 	

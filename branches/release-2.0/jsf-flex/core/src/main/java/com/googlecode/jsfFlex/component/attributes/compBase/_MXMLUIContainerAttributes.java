@@ -19,34 +19,34 @@
 package com.googlecode.jsfFlex.component.attributes.compBase;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
+import com.googlecode.jsfFlex.component.attributes._MXMLUIAutoLayoutAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttachmentAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIChildAddAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIChildIndexChangeAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIChildRemoveAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIClipContentAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUICreationIndexAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIDefaultButtonAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIDisabledOverlayAlphaAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalLineScrollSizeAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalPageScrollSizeAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollBarAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIVerticalLineScrollSizeAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIVerticalPageScrollSizeAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIVerticalScrollBarAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="autoLayout", returnType="java.lang.String", longDesc="If true, measurement and layout are done when the position or size of a child is changed."),
-                @JSFJspProperty(name="clipContent", returnType="java.lang.String", longDesc="Whether to apply a clip mask if the positions and/or sizes of this container's children extend outside the borders of this container."),
-                @JSFJspProperty(name="creationIndex", returnType="java.lang.String", longDesc="Specifies the order to instantiate and draw the children of the container."),
-                @JSFJspProperty(name="defaultButton", returnType="java.lang.String", longDesc="The Button control designated as the default button for the container."),
-                @JSFJspProperty(name="horizontalLineScrollSize", returnType="java.lang.String", longDesc="Number of pixels to move when the left- or right-arrow button in the horizontalscroll bar is pressed."),
-                @JSFJspProperty(name="horizontalPageScrollSize", returnType="java.lang.String", longDesc="Number of pixels to move when the track in the horizontal scroll bar is pressed."),
-                @JSFJspProperty(name="horizontalScrollBar", returnType="java.lang.String", longDesc="The horizontal scrollbar used in this container."),
-                @JSFJspProperty(name="verticalLineScrollSize", returnType="java.lang.String", longDesc="Number of pixels to scroll when the up- or down-arrow button in the verticalscroll bar is pressed."),
-                @JSFJspProperty(name="verticalPageScrollSize", returnType="java.lang.String", longDesc="Number of pixels to scroll when the track in the vertical scroll bar is pressed."),
-                @JSFJspProperty(name="verticalScrollBar", returnType="java.lang.String", longDesc="The vertical scrollbar used in this container."),
-                @JSFJspProperty(name="backgroundAttachment", returnType="java.lang.String", longDesc="If a background image is specified, this style specifies whether it is fixed with regard to the viewport (fixed) or scrolls along with the content (scroll).The default value is scroll."),
-                @JSFJspProperty(name="disabledOverlayAlpha", returnType="java.lang.String", longDesc="The alpha value for the overlay that is placed on top of the container when it is disabled."),
-                @JSFJspProperty(name="childAdd", returnType="java.lang.String", longDesc="Dispatched after a child has been added to a container."),
-                @JSFJspProperty(name="childIndexChange", returnType="java.lang.String", longDesc="Dispatched after the index (among the container children) of a container child changes."),
-                @JSFJspProperty(name="childRemove", returnType="java.lang.String", longDesc="Dispatched before a child of a container is removed.")
-        }
-)
 @JSFComponent
-public interface _MXMLUIContainerAttributes {
+public interface _MXMLUIContainerAttributes 
+                    extends _MXMLUIAutoLayoutAttribute, _MXMLUIClipContentAttribute, _MXMLUICreationIndexAttribute,
+                    _MXMLUIDefaultButtonAttribute, _MXMLUIHorizontalLineScrollSizeAttribute, _MXMLUIHorizontalPageScrollSizeAttribute,
+                    _MXMLUIHorizontalScrollBarAttribute, _MXMLUIVerticalLineScrollSizeAttribute, _MXMLUIVerticalPageScrollSizeAttribute,
+                    _MXMLUIVerticalScrollBarAttribute, _MXMLUIBackgroundAttachmentAttribute, _MXMLUIDisabledOverlayAlphaAttribute,
+                    _MXMLUIChildAddAttribute, _MXMLUIChildIndexChangeAttribute, _MXMLUIChildRemoveAttribute {
 	
     /**
      * The child creation policy for this Container.

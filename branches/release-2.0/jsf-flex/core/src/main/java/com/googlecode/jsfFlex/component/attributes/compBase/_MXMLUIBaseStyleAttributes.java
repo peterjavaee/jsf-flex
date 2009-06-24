@@ -19,22 +19,19 @@
 package com.googlecode.jsfFlex.component.attributes.compBase;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
+
+import com.googlecode.jsfFlex.component.attributes._MXMLUIFocusBlendModeAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIFocusSkinAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIFocusThicknessAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalCenterAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIVerticalCenterAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="focusBlendMode", returnType="java.lang.String", longDesc="Blend mode used by the focus rectangle."),
-                @JSFJspProperty(name="focusSkin", returnType="java.lang.String", longDesc="Skin used to draw the focus rectangle."),
-                @JSFJspProperty(name="focusThickness", returnType="java.lang.String", longDesc="Thickness, in pixels, of the focus rectangle outline."),
-                @JSFJspProperty(name="horizontalCenter", returnType="java.lang.String", longDesc="The horizontal distance in pixels from the center of the component's parent container to the center of the component."),
-                @JSFJspProperty(name="verticalCenter", returnType="java.lang.String", longDesc="The vertical distance in pixels from the center of the component's parent container to the center of the component.")
-        }
-)
 @JSFComponent
-public interface _MXMLUIBaseStyleAttributes {
+public interface _MXMLUIBaseStyleAttributes 
+                    extends _MXMLUIFocusBlendModeAttribute, _MXMLUIFocusSkinAttribute, _MXMLUIFocusThicknessAttribute,
+                    _MXMLUIHorizontalCenterAttribute, _MXMLUIVerticalCenterAttribute {
 	
 }

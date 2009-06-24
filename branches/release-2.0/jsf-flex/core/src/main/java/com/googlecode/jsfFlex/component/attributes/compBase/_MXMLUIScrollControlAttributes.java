@@ -19,23 +19,20 @@
 package com.googlecode.jsfFlex.component.attributes.compBase;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
+
+import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUILiveScrollingAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIMaxHorizontalScrollPositionAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIMaxVerticalScrollPositionAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollTipFunctionAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIShowScrollTipsAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="border", returnType="java.lang.String", longDesc="The border object."),
-                @JSFJspProperty(name="liveScrolling", returnType="java.lang.String", longDesc="A flag that indicates whether scrolling is live as the scrollbar thumb is moved or the view is not updated until the thumb is released."),
-                @JSFJspProperty(name="maxHorizontalScrollPosition", returnType="java.lang.String", longDesc="The maximum value for the horizontalScrollPosition property."),
-                @JSFJspProperty(name="maxVerticalScrollPosition", returnType="java.lang.String", longDesc="The maximum value for the verticalScrollPosition property."),
-                @JSFJspProperty(name="scrollTipFunction", returnType="java.lang.String", longDesc="A function that computes the string to be displayed as the ScrollTip."),
-                @JSFJspProperty(name="showScrollTips", returnType="java.lang.String", longDesc="A flag that indicates whether a tooltip should appear near the scroll thumb when it is being dragged.")
-        }
-)
 @JSFComponent
-public interface _MXMLUIScrollControlAttributes {
+public interface _MXMLUIScrollControlAttributes 
+                    extends _MXMLUIBorderAttribute, _MXMLUILiveScrollingAttribute, _MXMLUIMaxHorizontalScrollPositionAttribute,
+                    _MXMLUIMaxVerticalScrollPositionAttribute, _MXMLUIScrollTipFunctionAttribute, _MXMLUIShowScrollTipsAttribute {
 	
 }

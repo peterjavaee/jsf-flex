@@ -52,6 +52,7 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUILeadingAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingHorizontalAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingVerticalAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIRepeatAttributes;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIRowCount;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollBarAttributes;
@@ -98,6 +99,6 @@ public abstract class AbstractMXMLUITileList
 						_MXMLUIScrollAttribute, _MXMLUIScrollAttributes, _MXMLUIScrollBarAttributes, _MXMLUISelectableAttribute,  
 						_MXMLUIColumnCountAttribute, _MXMLUISelectedItemAttribute, _MXMLUISelectionAttributes, 
 						_MXMLUIShadowAttributes, _MXMLUITextEventColorAttributes, _MXMLUITextStyleAttributes, 
-						_MXMLUIThumbSkinAttributes {
+						_MXMLUIThumbSkinAttributes, _MXMLUIRowCount {
 	
 }

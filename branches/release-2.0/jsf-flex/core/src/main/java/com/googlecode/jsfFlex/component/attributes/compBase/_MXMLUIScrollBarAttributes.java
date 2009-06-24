@@ -19,24 +19,22 @@
 package com.googlecode.jsfFlex.component.attributes.compBase;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
+
+import com.googlecode.jsfFlex.component.attributes._MXMLUILineScrollSizeAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIMaxScrollPositionAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIMinScrollPositionAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIPageScrollSizeAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIPageSizeAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollPositionAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIThumbIconAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="lineScrollSize", returnType="java.lang.String", longDesc="Amount to scroll when an arrow button is pressed, in pixels."),
-                @JSFJspProperty(name="maxScrollPosition", returnType="java.lang.String", longDesc="Number which represents the maximum scroll position."),
-                @JSFJspProperty(name="minScrollPosition", returnType="java.lang.String", longDesc="Number that represents the minimum scroll position."),
-                @JSFJspProperty(name="pageScrollSize", returnType="java.lang.String", longDesc="Amount to move the scroll thumb when the scroll bar track is pressed, in pixels."),
-                @JSFJspProperty(name="pageSize", returnType="java.lang.String", longDesc="The number of lines equivalent to one page."),
-                @JSFJspProperty(name="scrollPosition", returnType="java.lang.String", longDesc="Number that represents the current scroll position."),
-                @JSFJspProperty(name="thumbIcon", returnType="java.lang.String", longDesc="Name of the class to use as the icon for the thumb of the scroll bar.")
-        }
-)
 @JSFComponent
-public interface _MXMLUIScrollBarAttributes {
+public interface _MXMLUIScrollBarAttributes 
+                    extends _MXMLUILineScrollSizeAttribute, _MXMLUIMaxScrollPositionAttribute, _MXMLUIMinScrollPositionAttribute,
+                    _MXMLUIPageScrollSizeAttribute, _MXMLUIPageSizeAttribute, _MXMLUIScrollPositionAttribute,
+                    _MXMLUIThumbIconAttribute {
 	
 }

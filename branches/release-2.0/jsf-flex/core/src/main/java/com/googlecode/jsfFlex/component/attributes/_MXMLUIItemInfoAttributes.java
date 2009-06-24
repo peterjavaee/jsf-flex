@@ -25,6 +25,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
  */
 @JSFComponent
 public interface _MXMLUIItemInfoAttributes 
-                    extends _MXMLUIItemRendererAttribute, _MXMLUISelectionDurationAttribute, _MXMLUIRowCount {
+                    extends _MXMLUIItemRendererAttribute, _MXMLUISelectionDurationAttribute {
     
 }

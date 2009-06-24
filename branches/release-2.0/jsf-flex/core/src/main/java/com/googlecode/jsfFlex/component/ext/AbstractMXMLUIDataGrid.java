@@ -60,6 +60,7 @@ import com.googlecode.jsfFlex.component.attributes._MXMLUILabelFieldAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUILabelFunctionAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUILeadingAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIRepeatAttributes;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIRowCount;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttribute;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttributes;
 import com.googlecode.jsfFlex.component.attributes._MXMLUIShadowAttributes;
@@ -287,7 +288,7 @@ public abstract class AbstractMXMLUIDataGrid
 						_MXMLUIDisabledColorAttribute, _MXMLUIShadowAttributes, _MXMLUIFontFamilyAttribute, 
 						_MXMLUIFontGeneralAttributes, _MXMLUIScrollBarAttributes, _MXMLUILeadingAttribute, 
 						_MXMLUIRepeatAttributes, _MXMLUIBatchColumnDataRetrievalSize, _MXMLUIBindingBeanListAttribute, 
-						_MXMLUIBindingBeanClassNameAttribute, _MXMLUIBaseAttributes {
+						_MXMLUIBindingBeanClassNameAttribute, _MXMLUIBaseAttributes, _MXMLUIRowCount {
 	
 	private final static Log _log = LogFactory.getLog(AbstractMXMLUIDataGrid.class);
 	

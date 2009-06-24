@@ -19,24 +19,22 @@
 package com.googlecode.jsfFlex.component.attributes.compBase;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
+
+import com.googlecode.jsfFlex.component.attributes._MXMLUIAddedEffectAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIHideEffectAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIRemovedEffectAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIResizeEffectAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIRollOutEffectAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIRollOverEffectAttribute;
+import com.googlecode.jsfFlex.component.attributes._MXMLUIShowEffectAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="addedEffect", returnType="java.lang.String", longDesc="Played when the component is added as a child to a Container."),
-                @JSFJspProperty(name="hideEffect", returnType="java.lang.String", longDesc="Played when the component becomes invisible."),
-                @JSFJspProperty(name="removedEffect", returnType="java.lang.String", longDesc="Played when the component is removed from a Container."),
-                @JSFJspProperty(name="resizeEffect", returnType="java.lang.String", longDesc="Played when the component is resized."),
-                @JSFJspProperty(name="rollOutEffect", returnType="java.lang.String", longDesc="Played when the user rolls the mouse so it is no longer over the component."),
-                @JSFJspProperty(name="rollOverEffect", returnType="java.lang.String", longDesc="Played when the user rolls the mouse over the component."),
-                @JSFJspProperty(name="showEffect", returnType="java.lang.String", longDesc="Played when the component becomes visible.")
-        }
-)
 @JSFComponent
-public interface _MXMLUIBaseEffectsAttributes {
+public interface _MXMLUIBaseEffectsAttributes 
+                    extends _MXMLUIAddedEffectAttribute, _MXMLUIHideEffectAttribute, _MXMLUIRemovedEffectAttribute,
+                    _MXMLUIResizeEffectAttribute, _MXMLUIRollOutEffectAttribute, _MXMLUIRollOverEffectAttribute,
+                    _MXMLUIShowEffectAttribute {
 	
 }
