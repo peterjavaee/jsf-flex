@@ -20,55 +20,51 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIAllowMultipleSelectionAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderThicknessAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIChangeAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIColumnCountAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUICornerRadiusAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataChangeAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDragAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDropDownEventColorAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIIconFieldAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIItemClickAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIItemEventAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIItemInfoAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUILabelFieldAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUILabelFunctionAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUILeadingAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingHorizontalAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIPaddingVerticalAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIRepeatAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIRowCount;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollBarAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUISelectableAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedItemAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUISelectionAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIShadowAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextEventColorAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextStyleAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIThumbSkinAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIVerticalAlignAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIWordWrapAttribute;
-import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIListBaseAttributes;
-import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControlAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIAllowMultipleSelectionAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundAlphaAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIBorderAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIBorderColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIBorderThicknessAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIChangeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIColumnCountAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUICornerRadiusAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDataChangeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDisabledColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDragAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIDropDownEventColorAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIFocusAlphaAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFocusRoundedCornersAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontFamilyAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontGeneralAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalScrollPositionAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIIconFieldAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIItemClickAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIItemEventAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIItemInfoAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUILabelFieldAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUILabelFunctionAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUILeadingAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIPaddingHorizontalAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIPaddingVerticalAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIRepeatAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIRowCount;
+import com.googlecode.jsfFlex.attributes._MXMLUIScrollAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIScrollAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUISelectableAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUISelectedItemAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUISelectionAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIShadowAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUITextEventColorAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUITextStyleAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIThumbSkinAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUITrackAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIVerticalAlignAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIWordWrapAttribute;
 
 /**
  * @author Ji Hoon Kim
@@ -83,7 +79,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControl
         tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
 )
 public abstract class AbstractMXMLUIHorizontalList 
-						extends MXMLUISelectedIndexBase
+						extends com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase
 						implements _MXMLUIListBaseAttributes, _MXMLUIScrollControlAttributes, _MXMLUIBaseAttributes, 
 						_MXMLUIAllowMultipleSelectionAttribute, _MXMLUITrackAttributes, _MXMLUIBackgroundAlphaAttribute, 
 						_MXMLUIBackgroundAttributes, _MXMLUIBackgroundColorAttribute, _MXMLUIBorderAttributes, 

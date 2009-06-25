@@ -21,7 +21,6 @@ package com.googlecode.jsfFlex.convert.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-import com.googlecode.jsfFlex.convert.attributes.compBase._MXMLUIFormatter;
 
 /**
  * @JSFJspProperty

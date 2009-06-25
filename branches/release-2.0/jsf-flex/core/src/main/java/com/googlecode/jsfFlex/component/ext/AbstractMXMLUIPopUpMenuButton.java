@@ -20,9 +20,8 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUISelectedBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
 
 /**
  @JSFJspProperties
@@ -488,7 +487,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
         tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
 )
 public abstract class AbstractMXMLUIPopUpMenuButton 
-						extends MXMLUISelectedBase
+						extends com.googlecode.jsfFlex.component.MXMLUISelectedBase
 						implements _MXMLUIBaseAttributes, _MXMLUIDataProviderAttribute {
 	
 }

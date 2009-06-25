@@ -20,18 +20,17 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
+import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIBorderColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIChangeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDataTipPlacementAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDirectionAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFillAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUILiveDraggingAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIMinMaxAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIThumbSkinAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUITrackAttributes;
 import com.googlecode.jsfFlex.component.MXMLUIValueBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIChangeAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataTipPlacementAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDirectionAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFillAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUILiveDraggingAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIMinMaxAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIThumbSkinAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
-import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUISliderAttributes;
 
 /**
  * @author Ji Hoon Kim

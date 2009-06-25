@@ -20,16 +20,14 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUITextInputBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIControlSkinAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImeModeAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIRestrictAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedIndexAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedItemAttribute;
-import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIComboBaseAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIControlSkinAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIEditableAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIImeModeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIRestrictAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUISelectedItemAttribute;
 
 /**
  * @JSFJspProperties
@@ -375,7 +373,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIComboBaseAttr
         tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
 )
 public abstract class AbstractMXMLUIDateField 
-						extends MXMLUITextInputBase 
+						extends com.googlecode.jsfFlex.component.MXMLUITextInputBase 
 						implements _MXMLUIComboBaseAttributes, _MXMLUIBaseAttributes, _MXMLUISelectedIndexAttribute, 
 						_MXMLUIControlSkinAttributes, _MXMLUIDataProviderAttribute, _MXMLUISelectedItemAttribute,  
 						_MXMLUIEditableAttribute, _MXMLUIImeModeAttribute, _MXMLUIRestrictAttribute {

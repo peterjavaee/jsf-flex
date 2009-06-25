@@ -33,9 +33,9 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.json.JSONObject;
 
+import com.googlecode.jsfFlex.attributes._MXMLUIDataFieldAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIEditableAttribute;
 import com.googlecode.jsfFlex.component.MXMLUIInputBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataFieldAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
 import com.googlecode.jsfFlex.util.ReflectionHelperUtil;
 
 /**

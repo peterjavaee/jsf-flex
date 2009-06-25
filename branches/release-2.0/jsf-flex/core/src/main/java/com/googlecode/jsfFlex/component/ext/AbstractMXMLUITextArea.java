@@ -20,30 +20,27 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUIHtmlTextInputBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAlphaAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBackgroundColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBorderThicknessAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUICornerRadiusAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIFontGeneralAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIHorizontalScrollPositionAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUILeadingAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIRepeatAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIScrollBarAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIShadowAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextStyleAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIThumbSkinAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITrackAttributes;
-import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControlAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundAlphaAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIBorderAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIBorderColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIBorderThicknessAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUICornerRadiusAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDisabledColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontFamilyAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontGeneralAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalScrollPositionAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUILeadingAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIRepeatAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIScrollAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIScrollAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIShadowAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUITextStyleAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIThumbSkinAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUITrackAttributes;
 
 /**
  * @JSFJspProperties
@@ -161,7 +158,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIScrollControl
         tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
 )
 public abstract class AbstractMXMLUITextArea 
-						extends MXMLUIHtmlTextInputBase 
+						extends com.googlecode.jsfFlex.component.MXMLUIHtmlTextInputBase 
 						implements _MXMLUIScrollControlAttributes, _MXMLUIBaseAttributes, _MXMLUIScrollAttributes, 
 						_MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundAttributes, _MXMLUIBackgroundColorAttribute, 
 						_MXMLUIBorderAttributes, _MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, 

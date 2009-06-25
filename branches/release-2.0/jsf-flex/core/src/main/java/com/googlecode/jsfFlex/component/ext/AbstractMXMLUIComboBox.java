@@ -34,17 +34,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIControlSkinAttributes;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIDataProviderCollectionAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIEditableAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIImeModeAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUIRestrictAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUISelectedItemAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
-import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIComboBaseAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIControlSkinAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderCollectionAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIEditableAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIImeModeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIRestrictAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUISelectedItemAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.util.MXMLJsfUtil;
@@ -390,7 +388,7 @@ import com.googlecode.jsfFlex.util.MXMLJsfUtil;
         tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
 )
 public abstract class AbstractMXMLUIComboBox 
-						extends MXMLUISelectedIndexBase
+						extends com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase
 						implements _MXMLUIComboBaseAttributes, _MXMLUIBaseAttributes, _MXMLUITextAttribute, 
 						_MXMLUIControlSkinAttributes, _MXMLUIDataProviderAttribute, _MXMLUIEditableAttribute, 
 						_MXMLUIImeModeAttribute, _MXMLUISelectedItemAttribute, _MXMLUIRestrictAttribute,

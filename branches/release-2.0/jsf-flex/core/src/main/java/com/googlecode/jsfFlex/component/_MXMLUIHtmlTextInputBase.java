@@ -22,8 +22,8 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.attributes._MXMLUIHtmlTextAttribute;
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextBindingAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIHtmlTextAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITextBindingAttribute;
 
 /**
  * This class will process the needed actions of setting and retrieving of "htmlText" attribute<br>

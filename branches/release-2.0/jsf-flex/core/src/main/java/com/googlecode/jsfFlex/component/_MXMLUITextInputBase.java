@@ -22,7 +22,7 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.attributes._MXMLUITextAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITextAttribute;
 
 /**
  * This class will process the needed actions of setting and retrieving of "text" attribute<br>

@@ -26,8 +26,7 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.component.MXMLUISelectedBase;
-import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
 
 /**
  * @JSFJspProperties
@@ -391,7 +390,7 @@ import com.googlecode.jsfFlex.component.attributes.compBase._MXMLUIBaseAttribute
         tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
 )
 public abstract class AbstractMXMLUIRadioButton 
-						extends MXMLUISelectedBase
+						extends com.googlecode.jsfFlex.component.MXMLUISelectedBase
 						implements _MXMLUIBaseAttributes {
 	
 	private static final String SELECTED_VALUE_ATTR = "selectedValue";

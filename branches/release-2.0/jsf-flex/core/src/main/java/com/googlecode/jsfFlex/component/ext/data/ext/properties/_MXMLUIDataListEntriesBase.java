@@ -25,7 +25,7 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.attributes._MXMLUIBindingBeanListAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIBindingBeanListAttribute;
 
 /**
  * @author Ji Hoon Kim
