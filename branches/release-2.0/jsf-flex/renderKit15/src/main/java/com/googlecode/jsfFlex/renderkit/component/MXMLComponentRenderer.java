@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="id", byMethod=true),
+				@JsfFlexAttribute(attribute="id"),
                 @JsfFlexAttribute(attribute="automationName"),
 				@JsfFlexAttribute(attribute="cachePolicy"),
 				@JsfFlexAttribute(attribute="currentState"),

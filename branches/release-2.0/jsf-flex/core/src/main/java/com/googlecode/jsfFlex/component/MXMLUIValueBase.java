@@ -74,10 +74,10 @@ public abstract class MXMLUIValueBase extends MXMLUIInputBase {
 	public void decode(FacesContext context) {
     	super.decode(context);
     	
-    	Map requestMap = context.getExternalContext().getRequestParameterMap();
+    	Map<String, String> requestMap = context.getExternalContext().getRequestParameterMap();
     	
     	String valueId = getId() + VALUE_ID_APPENDED;
-    	String valueUpdateVal = (String) requestMap.get(valueId);
+    	String valueUpdateVal = requestMap.get(valueId);
     	
     	if(valueUpdateVal != null){
     		setValue(valueUpdateVal);

@@ -22,9 +22,15 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
+import javax.faces.component.UIComponentBase;
+
+import org.json.JSONObject;
+
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
+import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
 import com.googlecode.jsfFlex.shared.beans.others.JsfFlexFlashApplicationConfiguration;
 import com.googlecode.jsfFlex.shared.tasks._CommonTaskRunner;
@@ -48,9 +54,9 @@ public class MxmlContextImpl extends MxmlContext {
 	
 	private final String _currMxml;
 	
-	private final List _applicationInitValueList;
-	private final Map _preMxmlCompMap;
-	private final Map _temporaryResourceMap;
+	private final List<JSONObject> _applicationInitValueList;
+	private final Map<Integer, Set<_MXMLContract>> _preMxmlCompMap;
+	private final Map<String, ? super UIComponentBase> _temporaryResourceMap;
 	private final AdditionalApplicationScriptContent _additionalAppScriptContent;
 	private final JsfFlexFlashApplicationConfiguration _jsfFlexFlashApplicationConfiguration;
 	
@@ -75,9 +81,9 @@ public class MxmlContextImpl extends MxmlContext {
 	public MxmlContextImpl(String currMxml, _MXMLApplicationContract currApplicationContract){
 		super();
 		_currMxml = currMxml;
-		_applicationInitValueList = new LinkedList();
-		_preMxmlCompMap = new TreeMap();
-		_temporaryResourceMap = new HashMap();
+		_applicationInitValueList = new LinkedList<JSONObject>();
+		_preMxmlCompMap = new TreeMap<Integer, Set<_MXMLContract>>();
+		_temporaryResourceMap = new HashMap<String, UIComponentBase>();
 		_additionalAppScriptContent = new AdditionalApplicationScriptContent(_currMxml, currApplicationContract);
 		_jsfFlexFlashApplicationConfiguration = new JsfFlexFlashApplicationConfiguration();
 		
@@ -92,13 +98,13 @@ public class MxmlContextImpl extends MxmlContext {
 	public String getCurrMxml() {
 		return _currMxml;
 	}
-	public List getApplicationInitValueList() {
+	public List<JSONObject> getApplicationInitValueList() {
 		return _applicationInitValueList;
 	}
-	public Map getPreMxmlCompMap() {
+	public Map<Integer, Set<_MXMLContract>> getPreMxmlCompMap() {
 		return _preMxmlCompMap;
 	}
-	public Map getTemporaryResourceMap() {
+	public Map<String, ? super UIComponentBase> getTemporaryResourceMap() {
 		return _temporaryResourceMap;
 	}
 	public AdditionalApplicationScriptContent getAdditionalAppScriptContent() {

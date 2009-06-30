@@ -33,6 +33,6 @@ public interface _MXMLUIBindingBeanListAttribute {
 	 * List of beans for data binding to the component.
 	 */
     @JSFProperty(desc   =   "List of beans for data binding to the component.")
-	List getBindingBeanList();
+	List<? super Object> getBindingBeanList();
 	
 }

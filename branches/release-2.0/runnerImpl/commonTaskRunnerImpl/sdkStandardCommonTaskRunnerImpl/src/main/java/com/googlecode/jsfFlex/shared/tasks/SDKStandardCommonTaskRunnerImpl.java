@@ -23,9 +23,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.tasks.sdk.UnzipTask;
 
@@ -35,8 +32,6 @@ import com.googlecode.jsfFlex.shared.tasks.sdk.UnzipTask;
  * @author Ji Hoon Kim
  */
 final class SDKStandardCommonTaskRunnerImpl extends TaskRunnerImpl implements _CommonTaskRunner {
-	
-	private final static Log _log = LogFactory.getLog(SDKStandardCommonTaskRunnerImpl.class);
 	
 	SDKStandardCommonTaskRunnerImpl(){
 		super();

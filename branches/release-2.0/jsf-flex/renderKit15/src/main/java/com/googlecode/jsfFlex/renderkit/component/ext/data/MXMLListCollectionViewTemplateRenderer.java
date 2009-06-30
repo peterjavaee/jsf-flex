@@ -35,10 +35,10 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="id", byMethod=true),
-				@JsfFlexAttribute(attribute="filterFunction", byMethod=false),
-				@JsfFlexAttribute(attribute="list", byMethod=false),
-				@JsfFlexAttribute(attribute="sort", byMethod=false)
+				@JsfFlexAttribute(attribute="id"),
+				@JsfFlexAttribute(attribute="filterFunction"),
+				@JsfFlexAttribute(attribute="list"),
+				@JsfFlexAttribute(attribute="sort")
 		}
 )
 public abstract class MXMLListCollectionViewTemplateRenderer extends MXMLComponentBaseRenderer {

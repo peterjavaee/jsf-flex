@@ -88,8 +88,8 @@ public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLC
 	}
 	
 	public void processDecodes(FacesContext context) {
-		Object mode = context.getExternalContext().getInitParameter(MXMLConstants.CONFIG_MODE_NAME);
-		if(mode == null || mode.toString().equals(MXMLConstants.SIMPLY_SWF_MODE) || mode.toString().equals(MXMLConstants.PRODUCTION_MODE)){
+		String mode = context.getExternalContext().getInitParameter(MXMLConstants.CONFIG_MODE_NAME);
+		if(mode == null || mode.equals(MXMLConstants.SIMPLY_SWF_MODE) || mode.equals(MXMLConstants.PRODUCTION_MODE)){
 			//need to dataBind so set back to true
 			setRendered(true);
 		}

@@ -73,10 +73,10 @@ public abstract class _MXMLUITextInputBase
     public void decode(FacesContext context) {
     	super.decode(context);
     	
-    	java.util.Map requestMap = context.getExternalContext().getRequestParameterMap();
+    	java.util.Map<String, String> requestMap = context.getExternalContext().getRequestParameterMap();
     	
     	String textId = getId() + TEXT_ID_APPENDED;
-    	String textUpdateVal = (String) requestMap.get(textId);
+    	String textUpdateVal = requestMap.get(textId);
     	
     	if(textUpdateVal != null){
     		setText(textUpdateVal);

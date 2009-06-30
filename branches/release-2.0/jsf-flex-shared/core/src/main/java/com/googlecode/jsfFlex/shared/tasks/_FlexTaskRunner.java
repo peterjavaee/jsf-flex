@@ -42,13 +42,13 @@ public interface _FlexTaskRunner extends _TaskRunner {
 	
 	void createMXML(String targetAbsolutePath, String copyTo);
 	
-	void createSwcSourceFiles(String swcPath, List systemSourceFiles, String jsfFlexMainSwcConfigFile, String webContextPath);
+	void createSwcSourceFiles(String swcPath, List<String> systemSourceFiles, String jsfFlexMainSwcConfigFile, String webContextPath);
 	
 	void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath);
 	
 	void createSWF(String mxmlFile, String swfPath, _MXMLApplicationContract componentMXML, String flexSDKRootPath, String locale, String localePath);
 	
-	void createSwfSourceFiles(String swfBasePath, List systemSwfSourceFiles);
+	void createSwfSourceFiles(String swfBasePath, List<String> systemSwfSourceFiles);
 	
 	void renameFile(String sourceFile, String destFile, boolean overWrite);
 	

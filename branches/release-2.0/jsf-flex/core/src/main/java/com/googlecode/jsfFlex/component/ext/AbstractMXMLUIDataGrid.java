@@ -309,20 +309,20 @@ public abstract class AbstractMXMLUIDataGrid
 	
 	private static final String DELETE_INDICES_KEY = "deleteIndices";
 	
-	private Map _dataGridColumnComponentMapping;
+	private Map<String, AbstractMXMLUIDataGridColumn> _dataGridColumnComponentMapping;
 	
 	{
-		_dataGridColumnComponentMapping = new HashMap();
+		_dataGridColumnComponentMapping = new HashMap<String, AbstractMXMLUIDataGridColumn>();
 	}
 	
-	public List getFormatedColumnData() {
+	public List<String> getFormatedColumnData() {
 		
 		FacesContext context = FacesContext.getCurrentInstance();
-		Map requestMap = context.getExternalContext().getRequestParameterMap();
+		Map<String, String> requestMap = context.getExternalContext().getRequestParameterMap();
 		
-		String columnDataField = (String) requestMap.get(COLUMN_DATA_FIELD_KEY);
-		String dataStartIndex = (String) requestMap.get(DATA_START_INDEX_KEY);
-		String dataEndIndex = (String) requestMap.get(DATA_END_INDEX_KEY);
+		String columnDataField = requestMap.get(COLUMN_DATA_FIELD_KEY);
+		String dataStartIndex = requestMap.get(DATA_START_INDEX_KEY);
+		String dataEndIndex = requestMap.get(DATA_END_INDEX_KEY);
 		
 		_log.info("Requested additional data with dataStartIndex : " + dataStartIndex + " , dataEndIndex : " + dataEndIndex + 
                         " for dataField : " + columnDataField + " for component : " + getId());
@@ -335,7 +335,7 @@ public abstract class AbstractMXMLUIDataGrid
 			parsedEndIndex = Integer.parseInt(dataEndIndex);
 		}catch(NumberFormatException parsingException){
 			_log.error("Error parsing of following values [" + dataStartIndex + ", " + dataEndIndex + "] to an int", parsingException);
-			return new LinkedList();
+			return new LinkedList<String>();
 		}
 		
         int dataSize = getBindingBeanList().size();
@@ -343,9 +343,9 @@ public abstract class AbstractMXMLUIDataGrid
 		
         _log.debug("Parsed start + end index are [ " + parsedStartIndex + ", " + parsedEndIndex + " ] with dataSize : " + dataSize + " for component : " + getId());
         
-		AbstractMXMLUIDataGridColumn dataGridColumnComponent = (AbstractMXMLUIDataGridColumn) _dataGridColumnComponentMapping.get(columnDataField);
+		AbstractMXMLUIDataGridColumn dataGridColumnComponent = _dataGridColumnComponentMapping.get(columnDataField);
 		
-		List formatedColumnData;
+		List<String> formatedColumnData;
 		
 		synchronized(getBindingBeanList()){
 			formatedColumnData = dataGridColumnComponent.getFormatedColumnData(getBindingBeanList(), parsedStartIndex, parsedEndIndex);
@@ -354,17 +354,17 @@ public abstract class AbstractMXMLUIDataGrid
 		return formatedColumnData;
 	}
 	
-	public Map updateModifiedDataField() {
+	public Map<String, ? super Object> updateModifiedDataField() {
 		
 		FacesContext context = FacesContext.getCurrentInstance();
-		Map requestMap = context.getExternalContext().getRequestParameterMap();
+		Map<String, String> requestMap = context.getExternalContext().getRequestParameterMap();
 		
-		String columnDataField = (String) requestMap.get(COLUMN_DATA_FIELD_KEY);
-		AbstractMXMLUIDataGridColumn dataGridColumnComponent = (AbstractMXMLUIDataGridColumn) _dataGridColumnComponentMapping.get(columnDataField);
+		String columnDataField = requestMap.get(COLUMN_DATA_FIELD_KEY);
+		AbstractMXMLUIDataGridColumn dataGridColumnComponent = _dataGridColumnComponentMapping.get(columnDataField);
 		
         _log.info("Update requested for dataField : " + columnDataField + " for component : " + getId());
         
-		Map updateResult;
+		Map<String, ? super Object> updateResult;
 		
 		synchronized(getBindingBeanList()){
 			updateResult = dataGridColumnComponent.updateModifiedDataField(context, requestMap, getBindingBeanList());
@@ -373,18 +373,18 @@ public abstract class AbstractMXMLUIDataGrid
         return updateResult;
 	}
 	
-	public Map addDataEntry(){
+	public Map<String, ? super Object> addDataEntry(){
 		
 		final String BEAN_ENTRY_CLASS_NAME = getBindingBeanList().size() > 0 ? getBindingBeanList().get(0).getClass().getName() : getBindingBeanClassName();
 		
-		Map addDataResult = new HashMap();
+		Map<String, ? super Object> addDataResult = new HashMap<String, Object>();
 		boolean success = true;
 		
 		FacesContext context = FacesContext.getCurrentInstance();
-		Map requestMap = context.getExternalContext().getRequestParameterMap();
+		Map<String, String> requestMap = context.getExternalContext().getRequestParameterMap();
 		
-		String addEntryStartIndex = (String) requestMap.get(ADD_ENTRY_START_INDEX_KEY);
-		String addEntryEndIndex = (String) requestMap.get(ADD_ENTRY_END_INDEX_KEY);
+		String addEntryStartIndex = requestMap.get(ADD_ENTRY_START_INDEX_KEY);
+		String addEntryEndIndex = requestMap.get(ADD_ENTRY_END_INDEX_KEY);
 		
 		int parsedAddEntryStartIndex = -1;
 		int parsedAddEntryEndIndex = -1;
@@ -410,15 +410,15 @@ public abstract class AbstractMXMLUIDataGrid
 				
 				beanEntryInstance = beanEntryClass.newInstance();
 				
-				for(Iterator iterate = _dataGridColumnComponentMapping.keySet().iterator(); iterate.hasNext();){
-					String currDataGridColumnDataField = (String) iterate.next();
+				for(Iterator<String> iterate = _dataGridColumnComponentMapping.keySet().iterator(); iterate.hasNext();){
+					String currDataGridColumnDataField = iterate.next();
 					String currDataFieldKey = currDataGridColumnDataField + ADD_DATA_ENTRY_DELIM + i;
 					
 					Object currDataFieldValue = requestMap.get(currDataFieldKey);
 					
 					_log.debug("Setting dataField : " + currDataGridColumnDataField + " with value : " + currDataFieldValue + 
 									" for class : " + beanEntryInstance.getClass().getName() + " for component : " + getId());
-					AbstractMXMLUIDataGridColumn currDataGridColumnComponent = (AbstractMXMLUIDataGridColumn) _dataGridColumnComponentMapping.get(currDataGridColumnDataField);
+					AbstractMXMLUIDataGridColumn currDataGridColumnComponent = _dataGridColumnComponentMapping.get(currDataGridColumnDataField);
 					currDataGridColumnComponent.setDataField(context, beanEntryInstance, currDataFieldValue);
 					
 				}
@@ -455,36 +455,35 @@ public abstract class AbstractMXMLUIDataGrid
 		return addDataResult;
 	}
 	
-	public Map removeDataEntry(){
+	public Map<String, ? super Object> removeDataEntry(){
 		
-        final Comparator DELETE_INDICES_COMPARATOR = new Comparator(){
+        final Comparator<? super String> DELETE_INDICES_COMPARATOR = new Comparator<String>(){
             
-            public int compare(Object firstInstance, Object secondInstance) {
-                Integer firstCompare = Integer.valueOf(firstInstance.toString());
-                Integer secondCompare = Integer.valueOf(secondInstance.toString());
+            public int compare(String firstInstance, String secondInstance) {
+                Integer firstCompare = Integer.valueOf(firstInstance);
+                Integer secondCompare = Integer.valueOf(secondInstance);
                 return firstCompare.compareTo(secondCompare);
             }
             
         };
         
-		Map removeDataResult = new HashMap();
+		Map<String, ? super Object> removeDataResult = new HashMap<String, Object>();
 		boolean success = true;
 		
 		FacesContext context = FacesContext.getCurrentInstance();
-		Map requestMap = context.getExternalContext().getRequestParameterMap();
+		Map<String, String> requestMap = context.getExternalContext().getRequestParameterMap();
 		
-		String deleteIndices = (String) requestMap.get(DELETE_INDICES_KEY);
-        List deleteIndicesList = Arrays.asList(deleteIndices.split(","));
+		String deleteIndices = requestMap.get(DELETE_INDICES_KEY);
+        List<String> deleteIndicesList = Arrays.asList(deleteIndices.split(","));
         Collections.sort(deleteIndicesList, DELETE_INDICES_COMPARATOR);
         Collections.reverse(deleteIndicesList);
 		_log.info("Requested deleteIndices are : " + deleteIndices + " for component : " + getId());
         
 		synchronized(getBindingBeanList()){
 			
-            for(Iterator iterate = deleteIndicesList.iterator(); iterate.hasNext();){
+            for(String currDeleteIndex : deleteIndicesList){
 				
-				String currDeleteIndex = (String) iterate.next();
-				int parsedDeleteIndex = -1;
+                int parsedDeleteIndex = -1;
 				
 				try{
 					parsedDeleteIndex = Integer.parseInt(currDeleteIndex);
@@ -513,22 +512,22 @@ public abstract class AbstractMXMLUIDataGrid
 		return removeDataResult;
 	}
 	
-	public Map sortDataEntry() {
+	public Map<String, ? super Object> sortDataEntry() {
 		
-		Map sortResult = new HashMap();
+		Map<String, ? super Object> sortResult = new HashMap<String, Object>();
 		boolean success = true;
 		
 		FacesContext context = FacesContext.getCurrentInstance();
-		Map requestMap = context.getExternalContext().getRequestParameterMap();
+		Map<String, String> requestMap = context.getExternalContext().getRequestParameterMap();
 		
-		String columnDataFieldToSortBy = (String) requestMap.get(COLUMN_DATA_FIELD_TO_SORT_BY_KEY);
-		boolean sortAscending = Boolean.valueOf((String) requestMap.get(SORT_ASCENDING_KEY)).booleanValue();
+		String columnDataFieldToSortBy = requestMap.get(COLUMN_DATA_FIELD_TO_SORT_BY_KEY);
+		boolean sortAscending = Boolean.valueOf(requestMap.get(SORT_ASCENDING_KEY)).booleanValue();
 		
 		_log.info("Requested sort of data entries with columnDataFieldToSortBy : " + columnDataFieldToSortBy + " sortAscending : " + sortAscending + " for component : " + getId());
 		
-		AbstractMXMLUIDataGridColumn dataGridColumnComponent = (AbstractMXMLUIDataGridColumn) _dataGridColumnComponentMapping.get(columnDataFieldToSortBy);
+		AbstractMXMLUIDataGridColumn dataGridColumnComponent = _dataGridColumnComponentMapping.get(columnDataFieldToSortBy);
 		Comparator dataFieldComparator = sortAscending ? dataGridColumnComponent.getAscendingComparator() : 
-																		dataGridColumnComponent.getDescendingComparator();
+																		    dataGridColumnComponent.getDescendingComparator();
 		
 		synchronized(getBindingBeanList()){
 			Collections.sort(getBindingBeanList(), dataFieldComparator);
@@ -550,7 +549,7 @@ public abstract class AbstractMXMLUIDataGrid
 		 * instances of AbstractMXMLUIDataGridColumn to _dataGridColumnComponents Map
 		 * will be added by AbstractMXMLUIColumns
 		 */
-		Map sessionMap = context.getExternalContext().getSessionMap();
+		Map<String, Object> sessionMap = context.getExternalContext().getSessionMap();
 		sessionMap.put(getId(), this);
 		
 	}
@@ -562,7 +561,7 @@ public abstract class AbstractMXMLUIDataGrid
 		 * No longer needed, so remove the content.
 		 * Below is a pure HACK till JSF 2.0.
 		 */
-		Map sessionMap = context.getExternalContext().getSessionMap();
+		Map<String, Object> sessionMap = context.getExternalContext().getSessionMap();
 		sessionMap.remove(getId());
 		
 	}
@@ -605,7 +604,7 @@ public abstract class AbstractMXMLUIDataGrid
 		return maxDataPartitionIndex;
 	}
 	
-	public Map getDataGridColumnComponentMapping(){
+	public Map<String, AbstractMXMLUIDataGridColumn> getDataGridColumnComponentMapping(){
 		return _dataGridColumnComponentMapping;
 	}
 	

@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.component.ext.data.ext.properties.ext;
 import java.io.IOException;
 import java.util.Map;
 
+import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
@@ -58,10 +59,10 @@ public abstract class AbstractMXMLUIXMLStaticElement
 		super.encodeBegin(context);
 		
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-		Map temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
+		Map<String, ? super UIComponentBase> temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
 		MXMLUIXMLContainerBase currXMLContainerBaseRef = (MXMLUIXMLContainerBase) temporaryResourceMap.get(MXMLUIXMLContainerBase.CURR_MXML_UI_XML_CONTAINER_KEY);
 		
-		StringBuffer xmlElementStartTagBuffer = new StringBuffer();
+		StringBuilder xmlElementStartTagBuffer = new StringBuilder();
 		
 		xmlElementStartTagBuffer.append("<");
 		xmlElementStartTagBuffer.append(getStaticNodeName());
@@ -71,7 +72,7 @@ public abstract class AbstractMXMLUIXMLStaticElement
 		xmlElementStartTagBuffer.append(">");
 		
 		//now need to set xml element's end tag
-		StringBuffer xmlElementEndTagBuffer = new StringBuffer();
+		StringBuilder xmlElementEndTagBuffer = new StringBuilder();
 		xmlElementEndTagBuffer.append(getStaticNodeValue() == null ? "" : getStaticNodeValue());
 		xmlElementEndTagBuffer.append("</");
 		xmlElementEndTagBuffer.append(getStaticNodeName());

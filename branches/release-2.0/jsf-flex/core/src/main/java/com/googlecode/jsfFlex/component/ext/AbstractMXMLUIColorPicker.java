@@ -124,10 +124,10 @@ public abstract class AbstractMXMLUIColorPicker
 	public void decode(FacesContext context) {
     	super.decode(context);
     	
-    	Map requestMap = context.getExternalContext().getRequestParameterMap();
+    	Map<String, String> requestMap = context.getExternalContext().getRequestParameterMap();
     	
     	String selectedColorId = getId() + SELECTED_COLOR_ID_APPENDED;
-    	String selectedColorUpdateVal = (String) requestMap.get(selectedColorId);
+    	String selectedColorUpdateVal = requestMap.get(selectedColorId);
     	
     	if(selectedColorUpdateVal != null){
     		setSelectedColor(selectedColorUpdateVal);

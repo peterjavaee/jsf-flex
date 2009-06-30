@@ -44,12 +44,12 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentNodeAttributes={},
 		
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="id", byMethod=true),
-				@JsfFlexAttribute(attribute="target", byMethod=false),
-				@JsfFlexAttribute(attribute="targetFactory", byMethod=false),
-				@JsfFlexAttribute(attribute="creationPolicy", byMethod=false),
-				@JsfFlexAttribute(attribute="position", byMethod=false),
-				@JsfFlexAttribute(attribute="relativeTo", byMethod=false)
+				@JsfFlexAttribute(attribute="id"),
+				@JsfFlexAttribute(attribute="target"),
+				@JsfFlexAttribute(attribute="targetFactory"),
+				@JsfFlexAttribute(attribute="creationPolicy"),
+				@JsfFlexAttribute(attribute="position"),
+				@JsfFlexAttribute(attribute="relativeTo")
 		}
 )
 public final class MXMLAddChildRenderer extends MXMLComponentBaseRenderer {

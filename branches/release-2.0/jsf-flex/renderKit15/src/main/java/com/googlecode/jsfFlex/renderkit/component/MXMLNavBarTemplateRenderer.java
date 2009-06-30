@@ -34,12 +34,12 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="dataProvider", byMethod=true),
-				@JsfFlexAttribute(attribute="iconField", byMethod=true),
-				@JsfFlexAttribute(attribute="labelField", byMethod=true),
-				@JsfFlexAttribute(attribute="selectedIndex", byMethod=true),
-				@JsfFlexAttribute(attribute="toolTipField", byMethod=true),
-				@JsfFlexAttribute(attribute="itemClick", byMethod=true)
+				@JsfFlexAttribute(attribute="dataProvider"),
+				@JsfFlexAttribute(attribute="iconField"),
+				@JsfFlexAttribute(attribute="labelField"),
+				@JsfFlexAttribute(attribute="selectedIndex"),
+				@JsfFlexAttribute(attribute="toolTipField"),
+				@JsfFlexAttribute(attribute="itemClick")
 		}
 )
 public abstract class MXMLNavBarTemplateRenderer extends MXMLBoxTemplateRenderer {

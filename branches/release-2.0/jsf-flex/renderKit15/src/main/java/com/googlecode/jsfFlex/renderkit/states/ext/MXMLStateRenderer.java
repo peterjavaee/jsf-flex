@@ -44,10 +44,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentNodeAttributes={},
 		
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="id", byMethod=true),
-				@JsfFlexAttribute(attribute="basedOn", byMethod=false),
-				@JsfFlexAttribute(attribute="name", byMethod=false),
-				@JsfFlexAttribute(attribute="overrides", byMethod=false)
+				@JsfFlexAttribute(attribute="id"),
+				@JsfFlexAttribute(attribute="basedOn"),
+				@JsfFlexAttribute(attribute="name"),
+				@JsfFlexAttribute(attribute="overrides")
 		}
 )
 public final class MXMLStateRenderer extends MXMLComponentBaseRenderer {

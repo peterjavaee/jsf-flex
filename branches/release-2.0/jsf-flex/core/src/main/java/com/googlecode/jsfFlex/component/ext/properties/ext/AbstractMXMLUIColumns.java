@@ -19,10 +19,10 @@
 package com.googlecode.jsfFlex.component.ext.properties.ext;
 
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
@@ -49,11 +49,11 @@ public abstract class AbstractMXMLUIColumns
 		super.encodeEnd(context);
 		
 		AbstractMXMLUIDataGrid dataGridComponent = (AbstractMXMLUIDataGrid) getParent();
-		Map dataGridColumnComponentMapping = dataGridComponent.getDataGridColumnComponentMapping();
+		Map<String, AbstractMXMLUIDataGridColumn> dataGridColumnComponentMapping = dataGridComponent.getDataGridColumnComponentMapping();
 		
-		List dataGridColumnComponents = getChildren();
-		for(Iterator iterate = dataGridColumnComponents.iterator(); iterate.hasNext();){
-			AbstractMXMLUIDataGridColumn currDataGridColumnComponent = (AbstractMXMLUIDataGridColumn) iterate.next();
+		List<UIComponent> dataGridColumnComponents = getChildren();
+		for(UIComponent currChild : dataGridColumnComponents){
+			AbstractMXMLUIDataGridColumn currDataGridColumnComponent = (AbstractMXMLUIDataGridColumn) currChild;
 			dataGridColumnComponentMapping.put(currDataGridColumnComponent.getDataField(), currDataGridColumnComponent);
 		}
 		

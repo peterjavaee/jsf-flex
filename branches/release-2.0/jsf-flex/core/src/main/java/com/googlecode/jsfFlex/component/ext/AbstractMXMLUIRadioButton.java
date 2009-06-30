@@ -399,7 +399,7 @@ public abstract class AbstractMXMLUIRadioButton
 	public void decode(FacesContext context) {
     	super.decode(context);
     	
-    	Map requestMap = context.getExternalContext().getRequestParameterMap();
+    	Map<String, String> requestMap = context.getExternalContext().getRequestParameterMap();
     	
     	/*
     	 *	So to make it easy for databinding, will utilize groupName + _selectedValue
@@ -409,14 +409,14 @@ public abstract class AbstractMXMLUIRadioButton
     	 */
     	
     	String selectedValueId = getGroupName() + SELECTED_VALUE_ID_APPENDED;
-    	String selectedValueUpdateVal = (String) requestMap.get(selectedValueId);
+    	String selectedValueUpdateVal = requestMap.get(selectedValueId);
     	if(selectedValueUpdateVal != null){
     		setSelectedValue(selectedValueUpdateVal);
     		setSubmittedValue(selectedValueUpdateVal);
     	}
     	
     	if(getValue() == null){
-    		setSelected(Boolean.valueOf(false));
+    		setSelected(false);
     	}else if(getSelectedValue() != null){
     		setSelected(Boolean.valueOf(getSelectedValue().equals(getValue())));
     	}

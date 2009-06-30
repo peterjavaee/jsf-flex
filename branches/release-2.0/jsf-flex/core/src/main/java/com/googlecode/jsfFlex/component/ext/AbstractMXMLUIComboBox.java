@@ -20,7 +20,6 @@ package com.googlecode.jsfFlex.component.ext;
 
 import java.io.IOException;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.Map;
 
 import javax.el.ValueExpression;
@@ -433,7 +432,7 @@ public abstract class AbstractMXMLUIComboBox
 	public void encodeBegin(FacesContext context) throws IOException {
 		super.encodeBegin(context);
 		
-		Collection dataProviderCollection = getDataProviderCollection();
+		Collection<? extends Object> dataProviderCollection = getDataProviderCollection();
 		if(dataProviderCollection != null && dataProviderCollection.size() > 0){
 			//For AbstractMXMLUIComboBox, entries within the collection must be of type SelectItem
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
@@ -441,8 +440,8 @@ public abstract class AbstractMXMLUIComboBox
 			additionalApplicationScriptContent.addActionScriptImport(COMBO_BOX_UICOMPONENT_PACKAGE_IMPORT);
 			
 			JSONArray comboBoxContent = new JSONArray();
-			for(Iterator iterate = dataProviderCollection.iterator(); iterate.hasNext();){
-				SelectItem currSelectItem = (SelectItem) iterate.next();
+			for(Object currInstace : dataProviderCollection){
+				SelectItem currSelectItem = (SelectItem) currInstace;
 				
 				JSONObject comboBoxEntry = new JSONObject();
 				
@@ -466,10 +465,10 @@ public abstract class AbstractMXMLUIComboBox
 	public void decode(FacesContext context) {
     	super.decode(context);
     	
-    	Map requestMap = context.getExternalContext().getRequestParameterMap();
+    	Map<String, String> requestMap = context.getExternalContext().getRequestParameterMap();
     	
     	String textId = getId() + TEXT_ID_APPENDED;
-    	String textUpdateVal = (String) requestMap.get(textId);
+    	String textUpdateVal = requestMap.get(textId);
     	
     	if(textUpdateVal != null){
     		setText(textUpdateVal);

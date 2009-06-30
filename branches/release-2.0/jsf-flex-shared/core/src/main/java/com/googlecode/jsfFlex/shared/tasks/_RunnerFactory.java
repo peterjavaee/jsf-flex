@@ -195,7 +195,7 @@ public abstract class _RunnerFactory {
 	}
 	
 	private static String errorMessage(String packageClass, Exception type){
-		StringBuffer errorMessage = new StringBuffer();
+        StringBuilder errorMessage = new StringBuilder();
 		
 		errorMessage.append("While creating an instance of " + packageClass);
 		errorMessage.append(type.getClass().getName());

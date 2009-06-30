@@ -34,11 +34,11 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="historyManagementEnabled", byMethod=false),
-				@JsfFlexAttribute(attribute="resizeToContent", byMethod=false),
-				@JsfFlexAttribute(attribute="horizontalGap", byMethod=false),
-				@JsfFlexAttribute(attribute="verticalGap", byMethod=false),
-				@JsfFlexAttribute(attribute="change", byMethod=false)
+				@JsfFlexAttribute(attribute="historyManagementEnabled"),
+				@JsfFlexAttribute(attribute="resizeToContent"),
+				@JsfFlexAttribute(attribute="horizontalGap"),
+				@JsfFlexAttribute(attribute="verticalGap"),
+				@JsfFlexAttribute(attribute="change")
 		}
 )
 public class MXMLViewStackTemplateRenderer extends MXMLContainerTemplateRenderer {

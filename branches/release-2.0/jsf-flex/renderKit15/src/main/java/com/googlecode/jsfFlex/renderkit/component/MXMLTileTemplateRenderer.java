@@ -34,13 +34,13 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="direction", byMethod=false),
-				@JsfFlexAttribute(attribute="tileHeight", byMethod=false),
-				@JsfFlexAttribute(attribute="tileWidth", byMethod=false),
-				@JsfFlexAttribute(attribute="horizontalAlign", byMethod=false),
-				@JsfFlexAttribute(attribute="horizontalGap", byMethod=false),
-				@JsfFlexAttribute(attribute="verticalAlign", byMethod=false),
-				@JsfFlexAttribute(attribute="verticalGap", byMethod=false)
+				@JsfFlexAttribute(attribute="direction"),
+				@JsfFlexAttribute(attribute="tileHeight"),
+				@JsfFlexAttribute(attribute="tileWidth"),
+				@JsfFlexAttribute(attribute="horizontalAlign"),
+				@JsfFlexAttribute(attribute="horizontalGap"),
+				@JsfFlexAttribute(attribute="verticalAlign"),
+				@JsfFlexAttribute(attribute="verticalGap")
 		}
 )
 public class MXMLTileTemplateRenderer extends MXMLContainerTemplateRenderer {

@@ -19,7 +19,6 @@
 package com.googlecode.jsfFlex.shared.tasks;
 
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -34,15 +33,15 @@ import java.util.List;
 class TaskRunnerImpl implements _TaskRunner {
 	
 	private final Object _lock;
-	private final List _tasks;
+	private final List<_Task> _tasks;
 	
 	TaskRunnerImpl(){
 		super();
-		_tasks = new LinkedList();
+		_tasks = new LinkedList<_Task>();
 	}
 	
-	TaskRunnerImpl(LinkedList tasks){
-		_tasks = new LinkedList();
+	TaskRunnerImpl(LinkedList<_Task> tasks){
+		_tasks = new LinkedList<_Task>();
 		_tasks.addAll(tasks);
 	}
 	
@@ -57,7 +56,7 @@ class TaskRunnerImpl implements _TaskRunner {
 		}
 	}
 	
-	public void addTasks(Collection tasksToAdd) {
+	public void addTasks(Collection<_Task> tasksToAdd) {
 		synchronized(_lock){
 			_tasks.addAll(tasksToAdd);
 			execute();
@@ -67,8 +66,7 @@ class TaskRunnerImpl implements _TaskRunner {
 	public void execute() {
 		
 		synchronized(_lock){
-			for(Iterator iterate = _tasks.iterator(); iterate.hasNext();){
-				_Task current = (_Task) iterate.next();
+			for(_Task current : _tasks){
 				current.performTask();
 			}
 			clearAllTask();

@@ -51,7 +51,7 @@ import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
 		mxmlComponentNodeAttributes={},
 		
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="id", byMethod=true)
+				@JsfFlexAttribute(attribute="id")
 		}
 )
 public final class MXMLObjectRenderer extends MXMLComponentBaseRenderer {
@@ -65,7 +65,7 @@ public final class MXMLObjectRenderer extends MXMLComponentBaseRenderer {
 		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
 		writer.mapFields(MXMLObjectRenderer.class, componentObj, null);
 		
-		Set tokenValueSet = componentMXML.getAnnotationDocletParserInstance().getTokenValueSet();
+		Set<TokenValue> tokenValueSet = componentMXML.getAnnotationDocletParserInstance().getTokenValueSet();
 		List children = componentObj.getChildren();
 		for(Iterator iterate = children.iterator(); iterate.hasNext();){
 			AbstractMXMLUIObjectStaticProperty currObjectProperty = (AbstractMXMLUIObjectStaticProperty) iterate.next();

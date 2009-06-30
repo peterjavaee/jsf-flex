@@ -33,6 +33,6 @@ public interface _MXMLUIDataProviderCollectionAttribute {
 	 * Property that allows providing java.util.Collection dataBinding for dataProvider attribute [i.e. ComboBox]
 	 */
     @JSFProperty(desc   =   "Property that allows providing java.util.Collection dataBinding for dataProvider attribute [i.e. ComboBox].")
-	Collection getDataProviderCollection();
+	Collection<? super Object> getDataProviderCollection();
 	
 }

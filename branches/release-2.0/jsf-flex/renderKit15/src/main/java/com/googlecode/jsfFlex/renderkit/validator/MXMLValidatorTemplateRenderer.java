@@ -37,14 +37,14 @@ import com.googlecode.jsfFlex.shared.context.MxmlContext;
 		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="enabled", byMethod=true),
-				@JsfFlexAttribute(attribute="listener", byMethod=true),
-				@JsfFlexAttribute(attribute="property", byMethod=true),
-				@JsfFlexAttribute(attribute="required", byMethod=true),
-				@JsfFlexAttribute(attribute="requiredFieldError", byMethod=true),
-				@JsfFlexAttribute(attribute="source", byMethod=true),
-				@JsfFlexAttribute(attribute="trigger", byMethod=true),
-				@JsfFlexAttribute(attribute="triggerEvent", byMethod=true)
+				@JsfFlexAttribute(attribute="enabled"),
+				@JsfFlexAttribute(attribute="listener"),
+				@JsfFlexAttribute(attribute="property"),
+				@JsfFlexAttribute(attribute="required"),
+				@JsfFlexAttribute(attribute="requiredFieldError"),
+				@JsfFlexAttribute(attribute="source"),
+				@JsfFlexAttribute(attribute="trigger"),
+				@JsfFlexAttribute(attribute="triggerEvent")
 		}
 )
 public class MXMLValidatorTemplateRenderer extends MXMLComponentRenderer {

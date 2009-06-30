@@ -44,10 +44,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="filterFunction", byMethod=false),
-				@JsfFlexAttribute(attribute="list", byMethod=false),
-				@JsfFlexAttribute(attribute="sort", byMethod=false),
-				@JsfFlexAttribute(attribute="source", byMethod=false)
+				@JsfFlexAttribute(attribute="filterFunction"),
+				@JsfFlexAttribute(attribute="list"),
+				@JsfFlexAttribute(attribute="sort"),
+				@JsfFlexAttribute(attribute="source")
 		}
 )
 public final class MXMLArrayCollectionRenderer extends MXMLListCollectionViewTemplateRenderer {

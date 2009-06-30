@@ -19,7 +19,6 @@
 package com.googlecode.jsfFlex.renderkit.component.ext.properties.ext;
 
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.faces.component.UIComponent;
@@ -85,7 +84,7 @@ public final class MXMLColumnsRenderer extends MXMLComponentBaseRenderer {
 			return;
 		}
 		
-		List childrenList = componentObj.getChildren();
+		List<UIComponent> childrenList = componentObj.getChildren();
 		
 		if(childrenList.size() > 0){
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
@@ -93,8 +92,7 @@ public final class MXMLColumnsRenderer extends MXMLComponentBaseRenderer {
 			additionalAppScriptContent.addDataGridScriptContent(dataGridComponentId, dataGrid.computeBatchColumnDataRetrievalSize(), dataGrid.computeMaxDataPartitionIndex());
 			additionalAppScriptContent.addActionScriptImport(DATA_GRID_SERVICE_REQUEST_IMPORT);
 			
-			for(Iterator iterate = childrenList.iterator(); iterate.hasNext();){
-				UIComponent currChild = (UIComponent) iterate.next();
+			for(UIComponent currChild : childrenList){
 				if(!(currChild instanceof AbstractMXMLUIDataGridColumn)){
 					throw new ComponentBuildException(INVALID_CHILD_COMPONENT);
 				}

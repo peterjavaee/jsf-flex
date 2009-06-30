@@ -63,8 +63,8 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 	}
 	
 	public void copyFileSet(String copyDir, String copyInclude, String copyExclude, String copyTo) {
-		List copyIncludeList = copyInclude == null ? new LinkedList() : Arrays.asList(copyInclude.split(" "));
-		List copyExcludeList = copyExclude == null ? new LinkedList() : Arrays.asList(copyExclude.split(" "));
+		List<String> copyIncludeList = copyInclude == null ? new LinkedList<String>() : Arrays.asList(copyInclude.split(" "));
+		List<String> copyExcludeList = copyExclude == null ? new LinkedList<String>() : Arrays.asList(copyExclude.split(" "));
 		FileCopyTask fileCopier = new FileCopyTask(copyDir, copyIncludeList, copyExcludeList, copyTo);
 		addTask(fileCopier);
 	}
@@ -86,7 +86,7 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 		addTask(swfCreator);
 	}
 	
-	public void createSwcSourceFiles(String swcPath, List systemSourceFiles, String jsfFlexMainSwcConfigFile, String webContextPath) {
+	public void createSwcSourceFiles(String swcPath, List<String> systemSourceFiles, String jsfFlexMainSwcConfigFile, String webContextPath) {
 		//Echo the sourceFiles to the SWC path
 		
 		/*
@@ -97,7 +97,7 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 		for(Iterator systemSourceFilesIterator = systemSourceFiles.iterator(); systemSourceFilesIterator.hasNext();){
 			String currSystemSource = (String) systemSourceFilesIterator.next();
 			String[] currSplit = currSystemSource.split("/");
-			StringBuffer path = new StringBuffer();
+			StringBuilder path = new StringBuilder();
 			
 			/*
 			 * This is a pure HACK, implement it better later
@@ -140,7 +140,7 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 		
 	}
 	
-	public void createSwfSourceFiles(String swfBasePath, List systemSwfSourceFiles) {
+	public void createSwfSourceFiles(String swfBasePath, List<String> systemSwfSourceFiles) {
 		
 		MkdirTask swfBasePathDirCreator = new MkdirTask(swfBasePath);
 		addTask(swfBasePathDirCreator);

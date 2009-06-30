@@ -35,7 +35,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="error", byMethod=true)
+				@JsfFlexAttribute(attribute="error")
 		}
 )
 public abstract class MXMLFormatterTemplateRenderer extends MXMLComponentRenderer {

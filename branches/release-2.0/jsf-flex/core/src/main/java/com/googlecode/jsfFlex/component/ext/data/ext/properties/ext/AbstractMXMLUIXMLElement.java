@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.component.ext.data.ext.properties.ext;
 import java.io.IOException;
 import java.util.Map;
 
+import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
@@ -61,10 +62,10 @@ public abstract class AbstractMXMLUIXMLElement
 		super.encodeBegin(context);
 		
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-		Map temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
+		Map<String, ? super UIComponentBase> temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
 		MXMLUIXMLContainerBase currXMLContainerBaseRef = (MXMLUIXMLContainerBase) temporaryResourceMap.get(MXMLUIXMLContainerBase.CURR_MXML_UI_XML_CONTAINER_KEY);
 		
-		StringBuffer xmlElementStartTagBuffer = new StringBuffer();
+		StringBuilder xmlElementStartTagBuffer = new StringBuilder();
 		
 		xmlElementStartTagBuffer.append( processXMLTagDynamically(currXMLContainerBaseRef) );
 		
@@ -78,8 +79,8 @@ public abstract class AbstractMXMLUIXMLElement
 		final String GET_NODE_NAME_METHOD_NAME = getNodeName() != null ? "get" + getNodeName().substring(0, 1).toUpperCase() + getNodeName().substring(1) : null;
 		final String GET_NODE_VALUE_METHOD_NAME = getNodeValue() != null ? "get" + getNodeValue().substring(0, 1).toUpperCase() + getNodeName().substring(1) : null;
 		
-		StringBuffer xmlElementStartTagBuffer = new StringBuffer();
-		StringBuffer xmlElementEndTagBuffer = new StringBuffer();
+		StringBuilder xmlElementStartTagBuffer = new StringBuilder();
+		StringBuilder xmlElementEndTagBuffer = new StringBuilder();
 		
 		try{
 			String nodeName = ReflectionHelperUtil.getValue(getCurrBeanRef(), GET_NODE_NAME_METHOD_NAME).toString();

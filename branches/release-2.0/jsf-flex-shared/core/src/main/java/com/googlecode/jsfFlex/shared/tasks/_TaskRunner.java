@@ -27,7 +27,7 @@ public interface _TaskRunner {
 	
 	void addTask(_Task toAdd);
 	
-	void addTasks(Collection tasksToAdd);
+	void addTasks(Collection<_Task> tasksToAdd);
 	
 	void execute();
 

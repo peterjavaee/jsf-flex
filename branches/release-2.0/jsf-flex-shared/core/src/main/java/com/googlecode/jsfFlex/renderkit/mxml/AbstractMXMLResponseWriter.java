@@ -84,7 +84,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
      * @return
      */
     public final String childPreMxmlComponentIdentifier(_MXMLContract currInstance){
-        StringBuffer toReturn = new StringBuffer();
+        StringBuilder toReturn = new StringBuilder();
         
         toReturn.append(currInstance.getPreMxmlIdentifier());
         toReturn.append(MXMLRendererBase.MAJOR_MINOR_DELIM);
@@ -103,7 +103,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
      * @return
      */
     public final String siblingPreMxmlComponentIdentifier(_MXMLContract currInstance){
-        StringBuffer toReturn = new StringBuffer();
+        StringBuilder toReturn = new StringBuilder();
         
         toReturn.append(currInstance.getParentPreMxmlIdentifier());
         toReturn.append(MXMLRendererBase.MAJOR_MINOR_DELIM);
@@ -121,7 +121,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
      * @return
      */
     public final String childReplaceTokenWithPreMxmlIdentifier(_MXMLContract currInstance){
-        StringBuffer toReturn = new StringBuffer();
+        StringBuilder toReturn = new StringBuilder();
         
         toReturn.append(MXMLConstants.CHILD_REPLACE_TOKEN_PREMXML_IDENTIFIER_PRE);
         toReturn.append(currInstance.getPreMxmlIdentifier());
@@ -138,7 +138,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
      * @return
      */
     public final String siblingReplaceTokenWithPreMxmlIdentifier(_MXMLContract currInstance){
-        StringBuffer toReturn = new StringBuffer();
+        StringBuilder toReturn = new StringBuilder();
         
         toReturn.append(MXMLConstants.SIBLING_REPLACE_TOKEN_PREMXML_IDENTIFIER_PRE);
         toReturn.append(currInstance.getPreMxmlIdentifier());
@@ -152,7 +152,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
      * 
      * @param componentMXML
      */
-    public final void processCreateSwf(String mxmlFile, _MXMLApplicationContract componentMXML, Map multiLingualSupportMap) {
+    public final void processCreateSwf(String mxmlFile, _MXMLApplicationContract componentMXML, Map<String, String> multiLingualSupportMap) {
         
         MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
         //now create the MXML file
@@ -210,8 +210,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
      * @param componentMXML
      * @return
      */
-    public final Map getMultiLingualSupportMap(){
-        Map multiLingualSupportMap = new LinkedHashMap();
+    public final Map<String, String> getMultiLingualSupportMap(){
+        Map<String, String> multiLingualSupportMap = new LinkedHashMap<String, String>();
         
         MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
         String localeWebContextPath = mxmlContext.getLocaleWebContextPath();
@@ -283,16 +283,16 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
      * @param swfPath
      * @param flexSDKRootPath
      */
-    public final void createSWF(String mxmlFile, _MXMLApplicationContract componentMXML, String flexSDKRootPath, Map multiLingualSupportMap, String localeWebContextPath) {
+    public final void createSWF(String mxmlFile, _MXMLApplicationContract componentMXML, String flexSDKRootPath, Map<String, String> multiLingualSupportMap, String localeWebContextPath) {
         
-        String defaultLocale = (String) multiLingualSupportMap.get(MXMLConstants.DEFAULT_LOCALE_SWF_PATH_KEY);
+        String defaultLocale = multiLingualSupportMap.get(MXMLConstants.DEFAULT_LOCALE_SWF_PATH_KEY);
         
         if(defaultLocale != null){
             getFlexTaskRunner().createSWF(mxmlFile, defaultLocale, componentMXML, flexSDKRootPath, null, null);
         }else{
-            for(Iterator iterate = multiLingualSupportMap.keySet().iterator(); iterate.hasNext();){
-                String currLocale = (String) iterate.next();
-                String currLocaleFileName = (String) multiLingualSupportMap.get(currLocale);
+            for(Iterator<String> iterate = multiLingualSupportMap.keySet().iterator(); iterate.hasNext();){
+                String currLocale = iterate.next();
+                String currLocaleFileName = multiLingualSupportMap.get(currLocale);
                 String currLocaleSourcePath = localeWebContextPath + currLocale + File.separatorChar;
                 
                 getFlexTaskRunner().createSWF(mxmlFile, currLocaleFileName, componentMXML, flexSDKRootPath, currLocale, currLocaleSourcePath);
@@ -307,7 +307,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
      * @param _systemSourceFiles
      * @param jsfFlexMainSwcConfigFile
      */
-    public final void createSwcSourceFiles(String swcPath, List systemSourceFiles, String jsfFlexMainSwcConfigFile, String webContextPath) {
+    public final void createSwcSourceFiles(String swcPath, List<String> systemSourceFiles, String jsfFlexMainSwcConfigFile, String webContextPath) {
         getFlexTaskRunner().createSwcSourceFiles(swcPath, systemSourceFiles, jsfFlexMainSwcConfigFile, webContextPath);
     }
     
@@ -317,7 +317,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
      * @param _swfBasePath
      * @param _systemSwfSourceFiles
      */
-    public final void createSwfSourceFiles(String swfBasePath, List systemSwfSourceFiles) {
+    public final void createSwfSourceFiles(String swfBasePath, List<String> systemSwfSourceFiles) {
         getFlexTaskRunner().createSwfSourceFiles(swfBasePath, systemSwfSourceFiles);
     }
     
@@ -331,7 +331,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
         
         String filePath = mxmlContext.getSwfBasePath() + TO_CREATE_JSF_FLEX_FLASH_APPLICATION_CONFIG_FILE_NAME;
         
-        Map tokenMap = new HashMap();
+        Map<String, Object> tokenMap = new HashMap<String, Object>();
         tokenMap.put(JSF_FLEX_FLASH_APPLICATION_CONFIG_TOKEN, jsfFlexFlashApplicationConfiguration);
         
         createFileContent(filePath, JSF_FLEX_FLASH_APPLICATION_CONFIG_TEMPLATE, null, tokenMap);
@@ -424,7 +424,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
         getCommonTaskRunner().unZipArchiveAbsolute(unZipFile, unZipDest);
     }
     
-    public final void createFileContent(String filePath, String templateFile, Properties initProperties, Map tokenMap){
+    public final void createFileContent(String filePath, String templateFile, Properties initProperties, Map<String, ? extends Object> tokenMap){
         getFileManipulatorTaskRunner().createFileContent(filePath, templateFile, initProperties, tokenMap);
     }
     

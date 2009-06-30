@@ -73,10 +73,10 @@ public abstract class _MXMLUISelectedIndexBase
 	public void decode(FacesContext context) {
     	super.decode(context);
     	
-    	java.util.Map requestMap = context.getExternalContext().getRequestParameterMap();
+    	java.util.Map<String, String> requestMap = context.getExternalContext().getRequestParameterMap();
     	
     	String selectedIndexId = getId() + SELECTED_INDEX_ID_APPENDED;
-    	String selectedIndexUpdateVal = (String) requestMap.get(selectedIndexId);
+    	String selectedIndexUpdateVal = requestMap.get(selectedIndexId);
     	
     	if(selectedIndexUpdateVal != null){
     		setSelectedIndex(Integer.valueOf(selectedIndexUpdateVal));

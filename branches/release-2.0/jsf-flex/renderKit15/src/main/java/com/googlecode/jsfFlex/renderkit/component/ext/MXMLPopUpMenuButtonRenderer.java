@@ -44,11 +44,11 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="dataDescriptor", byMethod=false),
-				@JsfFlexAttribute(attribute="dataProvider", byMethod=true),
-				@JsfFlexAttribute(attribute="labelField", byMethod=false),
-				@JsfFlexAttribute(attribute="labelFunction", byMethod=false),
-				@JsfFlexAttribute(attribute="showRoot", byMethod=false)
+				@JsfFlexAttribute(attribute="dataDescriptor"),
+				@JsfFlexAttribute(attribute="dataProvider"),
+				@JsfFlexAttribute(attribute="labelField"),
+				@JsfFlexAttribute(attribute="labelFunction"),
+				@JsfFlexAttribute(attribute="showRoot")
 		}
 )
 public final class MXMLPopUpMenuButtonRenderer extends MXMLPopUpButtonTemplateRenderer {

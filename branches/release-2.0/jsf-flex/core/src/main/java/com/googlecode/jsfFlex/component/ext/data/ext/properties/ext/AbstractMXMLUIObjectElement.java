@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.component.ext.data.ext.properties.ext;
 import java.io.IOException;
 import java.util.Map;
 
+import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
@@ -61,10 +62,10 @@ public abstract class AbstractMXMLUIObjectElement
 		super.encodeBegin(context);
 		
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-		Map temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
+		Map<String, ? super UIComponentBase> temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
 		AbstractMXMLUIObject currObjectContainerRef = (AbstractMXMLUIObject) temporaryResourceMap.get(AbstractMXMLUIObject.CURR_MXML_UI_OBJECT_CONTAINER_KEY);
 		
-		StringBuffer objectStartTagBuffer = new StringBuffer();
+		StringBuilder objectStartTagBuffer = new StringBuilder();
 		objectStartTagBuffer.append(OBJECT_START_TAG);
 		
 		objectStartTagBuffer.append( processDataObjectProperties() );
@@ -80,7 +81,7 @@ public abstract class AbstractMXMLUIObjectElement
 		super.encodeEnd(context);
 		
 		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-		Map temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
+		Map<String, ? super UIComponentBase> temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
 		AbstractMXMLUIObject currObjectContainerRef = (AbstractMXMLUIObject) temporaryResourceMap.get(AbstractMXMLUIObject.CURR_MXML_UI_OBJECT_CONTAINER_KEY);
 		
 		currObjectContainerRef.getCurrBodyContentBufferedWriter().write(OBJECT_END_TAG);

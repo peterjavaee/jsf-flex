@@ -24,6 +24,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
+import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
@@ -50,7 +51,7 @@ public abstract class MXMLUIDataContainerBase
 										TO_BE_CREATED_BODY_CONTENT_FILE_SUFFIX;
 		_currBodyContentBufferedWriter = new BufferedWriter(new FileWriter(new File(_currBodyContentFilePath)));
 		
-		Map temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
+		Map<String, ? super UIComponentBase> temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
 		temporaryResourceMap.put(getTemporaryMapDataContainerKey(), this);
 		
 		super.encodeChildren(context);
