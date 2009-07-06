@@ -27,5 +27,5 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
 @JSFJspProperty(name="dataTipFunction", returnType="java.lang.String", longDesc="User-supplied function to run on each item to determine its dataTip.")
 @JSFComponent
 public interface _MXMLUIDataTipFunctionAttribute {
-
+    
 }

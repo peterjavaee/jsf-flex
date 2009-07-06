@@ -37,5 +37,5 @@ public interface _MXMLUIHtmlTextAttribute {
     String getHtmlText();
     
     void setHtmlText(String htmlText);
-    	
+    
 }

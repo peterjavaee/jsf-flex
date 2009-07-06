@@ -20,347 +20,63 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIControlSkinAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditableAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIImeModeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRestrictAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedItemAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIBorderColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIBorderThicknessAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIChangeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUICloseAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUICornerRadiusAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDataChangeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDateChooserStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDayNamesAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDisabledColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDisabledDaysAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDisabledRangesAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDisplayedMonthAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDisplayedYearAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFillAlphasAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFillColorsAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFirstDayOfWeekAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFocusAlphaAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFocusRoundedCornersAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontAntiAliasTypeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontFamilyAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontGridFitTypeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontSharpnessAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontSizeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontStyleAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontThicknessAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontWeightAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFormatStringAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIHeaderColorsAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIHeaderStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIHighlightAlphasAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUILabelFunctionAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUILeadingAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIMaxYearAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIMinYearAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIMonthNamesAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIMonthSymbolAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIOpenAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIPaddingLeftAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIPaddingRightAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIParseFunctionAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIRollOverColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIScrollAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUISelectableRangeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUISelectedDateAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUISelectionColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIShowTodayAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITextAlignAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITextDecorationAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITextIndentAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITodayColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITodayStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIWeekDayStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIYearNavigationEnabledAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIYearSymbolAttribute;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "maxYear"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The last year selectable in the control."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "parseFunction"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Function used to parse the date entered as text in the text field area of the DateField control and return a Date object to the control."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "dateChooserStyleName"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the CSS Style declaration to use for the styles for the DateChooser control's drop-down list."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "todayStyleName"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the style sheet definition to configure the appearance of the current day's numeric text, which is highlighted in the control when the showToday property is true. Specify a color style to change the font color. If omitted, the current day textinherits the text styles of the control."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "todayColor"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Color of the background of today's date. The default value is 0x2B333C."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "yearNavigationEnabled"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Enables year navigation."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "disabledRanges"
- *   						 returnType	= "java.lang.String" 
- *   						 longDesc	= "Disables single and multiple days."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "displayedMonth"
- *   						 returnType	= "java.lang.String" 
- *   						 longDesc	= "Used together with the displayedYear property, the displayedMonth property specifies the month displayed in the control."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "selectedDate"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Date selected in the control."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "displayedYear"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Used together with the displayedMonth property, the displayedYear property specifies the month displayed in the control."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "showToday"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "If true, specifies that today is highlighted in the DateChooser control."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "firstDayOfWeek"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Number representing the day of the week to display in the first column of the control."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "dayNames"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The weekday names for the control."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "monthNames"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Names of the months displayed at the top of the DateChooser control."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "disabledDays"
- *   						 returnType	= "java.lang.String" 
- *   						 longDesc	= "The days to disable in a week."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "selectableRange"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Range of dates between which dates are selectable."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "yearSymbol"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "This property is appended to the end of the year displayed at the top of the DateChooser control."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "minYear"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The first year selectable in the control."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "monthSymbol"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "This property is appended to the end of the value specified by the monthNames property to define the names of the months displayed at the top of the DateChooser control."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "weekDayStyleName"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Name of the style sheet definition to configure the weekday names of the control. If omitted, the weekday names inherit the text styles of the control."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "formatString"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "The mask pattern."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "labelFunction"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "User-supplied function to run on each item to determine its label."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "borderColor"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Color of the border."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "borderThickness"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Bounding box thickness."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "color"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Color of text in the component."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "cornerRadius"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Radius of component corners."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "disabledColor"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Color of text in the component if it is disabled."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "fillAlphas"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Alphas used for the background fill of controls."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "fillColors"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Colors used to tint the background of the control."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "focusAlpha"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Specifies the alpha transparency value of the focus skin."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "focusRoundedCorners"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Specifies which corners of the focus rectangle should be rounded."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "fontGridFitType"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Sets the gridFitType property of internal TextFields that represent text in Flex controls."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "fontSharpness"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Sets the sharpness property of internal TextFields that represent text in Flex controls."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "fontAntiAliasType"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Sets the antiAliasType property of internal TextFields."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "fontThickness"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Sets the thickness property of internal TextFields that represent text in Flex controls."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "fontFamily"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Name of the font to use."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "fontStyle"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Determines whether the text is italic font."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "fontWeight"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Determines whether the text is boldface."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "fontSize"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Height of the text, in pixels."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "headerColors"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Colors of the band at the top of the control."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "headerStyleName"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Name of the style sheet definition to configure the text (month name and year) and appearance of the header area of the control."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "highlightAlphas"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Alphas used for the highlight fill of controls."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "leading"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Additional vertical space between lines of text."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "paddingLeft"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Number of pixels between the container's left border and the left edge of its content area."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "paddingRight"
- *   						 returnType	= "java.lang.String" 
- *   						 longDesc	= "Number of pixels between the container's right border and the right edge of its content area."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "rollOverColor"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The rollOverColor of the drop-down list."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "selectionColor"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The selectionColor of the drop-down list."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "textIndent"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Offset of first line of text from the left side of the container, in pixels."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "textDecoration"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Determines whether the text is underlined."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "textAlign"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Alignment of text within a container."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "change"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Dispatched when the selectedIndex or selectedItem property changes as a result of user interaction."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "close"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Dispatched when the drop-down list is dismissed for any reason."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "dataChange"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Dispatched when the data property changes."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "open"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Dispatched when the user clicks the drop-down button to display the drop-down list."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "scroll"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Dispatched when the user manually scrolls the container."
- *   						
  * @author Ji Hoon Kim
  */
 @JSFComponent(
@@ -374,8 +90,23 @@ import com.googlecode.jsfFlex.attributes._MXMLUISelectedItemAttribute;
 )
 public abstract class AbstractMXMLUIDateField 
 						extends com.googlecode.jsfFlex.component.MXMLUITextInputBase 
-						implements _MXMLUIComboBaseAttributes, _MXMLUIBaseAttributes, _MXMLUISelectedIndexAttribute, 
-						_MXMLUIControlSkinAttributes, _MXMLUIDataProviderAttribute, _MXMLUISelectedItemAttribute,  
-						_MXMLUIEditableAttribute, _MXMLUIImeModeAttribute, _MXMLUIRestrictAttribute {
+						implements _MXMLUIComboBaseAttributes, _MXMLUIDayNamesAttribute, _MXMLUIDisabledDaysAttribute, 
+                        _MXMLUIDisabledRangesAttribute, _MXMLUIDisplayedMonthAttribute, _MXMLUIDisplayedYearAttribute, 
+                        _MXMLUIFirstDayOfWeekAttribute, _MXMLUIFormatStringAttribute, _MXMLUILabelFunctionAttribute, 
+                        _MXMLUIMaxYearAttribute, _MXMLUIMinYearAttribute, _MXMLUIMonthNamesAttribute, _MXMLUIMonthSymbolAttribute, 
+                        _MXMLUIParseFunctionAttribute, _MXMLUISelectableRangeAttribute, _MXMLUISelectedDateAttribute, 
+                        _MXMLUIShowTodayAttribute, _MXMLUIYearNavigationEnabledAttribute, _MXMLUIYearSymbolAttribute, 
+                        _MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, _MXMLUIColorAttribute, 
+                        _MXMLUICornerRadiusAttribute, _MXMLUIDateChooserStyleNameAttribute, _MXMLUIDisabledColorAttribute, 
+                        _MXMLUIFillAlphasAttribute, _MXMLUIFillColorsAttribute, _MXMLUIFocusAlphaAttribute, 
+                        _MXMLUIFocusRoundedCornersAttribute, _MXMLUIFontAntiAliasTypeAttribute, _MXMLUIFontFamilyAttribute, 
+                        _MXMLUIFontGridFitTypeAttribute, _MXMLUIFontSharpnessAttribute, _MXMLUIFontSizeAttribute, 
+                        _MXMLUIFontStyleAttribute, _MXMLUIFontThicknessAttribute, _MXMLUIFontWeightAttribute, 
+                        _MXMLUIHeaderColorsAttribute, _MXMLUIHeaderStyleNameAttribute, _MXMLUIHighlightAlphasAttribute, 
+                        _MXMLUILeadingAttribute, _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, 
+                        _MXMLUIRollOverColorAttribute, _MXMLUISelectionColorAttribute, _MXMLUITextAlignAttribute, 
+                        _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, _MXMLUITodayColorAttribute, 
+                        _MXMLUITodayStyleNameAttribute, _MXMLUIWeekDayStyleNameAttribute, _MXMLUIChangeAttribute, 
+                        _MXMLUICloseAttribute, _MXMLUIDataChangeAttribute, _MXMLUIOpenAttribute, _MXMLUIScrollAttribute {
 	
 }

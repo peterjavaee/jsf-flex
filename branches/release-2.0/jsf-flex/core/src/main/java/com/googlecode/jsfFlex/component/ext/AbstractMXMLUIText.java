@@ -20,20 +20,6 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataChangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontGeneralAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSpecificAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIHtmlTextAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingHorizontalAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectableAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextStyleAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUITruncateToFitAttribute;
 import com.googlecode.jsfFlex.component.MXMLUIOutputBase;
 
 /**
@@ -49,10 +35,6 @@ import com.googlecode.jsfFlex.component.MXMLUIOutputBase;
 )
 public abstract class AbstractMXMLUIText 
 						extends MXMLUIOutputBase
-						implements _MXMLUITruncateToFitAttribute, _MXMLUIBaseAttributes, _MXMLUIColorAttribute, 
-						_MXMLUIDataAttributes, _MXMLUIDataChangeAttribute, _MXMLUIDisabledColorAttribute, 
-						_MXMLUIFontFamilyAttribute, _MXMLUIFontGeneralAttributes, _MXMLUIFontSpecificAttributes, 
-						_MXMLUIHtmlTextAttribute, _MXMLUIPaddingHorizontalAttributes, _MXMLUISelectableAttribute, 
-						_MXMLUITextAttribute, _MXMLUITextStyleAttributes {
+						implements _MXMLUILabelAttributes {
 	
 }

@@ -20,37 +20,12 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIArrowAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICornerRadiusAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDirectionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFillAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIHighlightAlphaAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIThumbSkinAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUITrackAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIRepeatDelayAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIRepeatIntervalAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIScrollAttribute;
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 
 /**
- @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "repeatDelay"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Number of milliseconds to wait."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "repeatInterval"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Number of milliseconds in the actions."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "scroll"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Dispatched when the user manually scrolls the container."
- *   
  * @author Ji Hoon Kim
  */
 @JSFComponent(
@@ -63,9 +38,7 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 )
 public abstract class AbstractMXMLUIVScrollBar 
 						extends MXMLUISimpleBase 
-						implements _MXMLUIScrollBarAttributes, _MXMLUIBaseAttributes, _MXMLUIArrowAttributes, 
-						_MXMLUIBorderColorAttribute, _MXMLUICornerRadiusAttribute, _MXMLUIDirectionAttribute, 
-						_MXMLUIFillAttributes, _MXMLUIHighlightAlphaAttribute, _MXMLUITrackAttributes, 
-						_MXMLUIThumbSkinAttributes {
+						implements _MXMLUIScrollBarAttributes, _MXMLUIRepeatDelayAttribute, _MXMLUIRepeatIntervalAttribute, 
+                        _MXMLUIScrollAttribute {
 	
 }

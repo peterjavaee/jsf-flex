@@ -37,33 +37,40 @@ import com.googlecode.jsfFlex.attributes._MXMLUICloseDurationAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUICloseEasingFunctionAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIColorFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDisabledIconColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditableAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIEnterAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFillAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIFillAlphasAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFillColorsAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFocusAlphaAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFocusRoundedCornersAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontAntiAliasTypeAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontGeneralAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSpecificAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIHighlightAlphaAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontGridFitTypeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontSharpnessAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontSizeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontStyleAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontThicknessAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontWeightAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIHighlightAlphasAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIIconColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemEventAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUIItemRollOutAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIItemRollOverAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILabelFieldAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILeadingAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIOpenAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIOpenDurationAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIOpenEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingHorizontalAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingVerticalAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIPaddingBottomAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIPaddingLeftAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIPaddingRightAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIPaddingTopAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIShowTextFieldAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISwatchBorderColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISwatchBorderSizeAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISwatchPanelStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextStyleAttributes;
+import com.googlecode.jsfFlex.attributes._MXMLUITextAlignAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITextDecorationAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITextIndentAttribute;
 import com.googlecode.jsfFlex.component.MXMLUIInputBase;
 
 /**
@@ -80,17 +87,20 @@ import com.googlecode.jsfFlex.component.MXMLUIInputBase;
 )
 public abstract class AbstractMXMLUIColorPicker 
 						extends MXMLUIInputBase
-                        implements _MXMLUIComboBaseAttributes, _MXMLUILabelFieldAttribute, _MXMLUIBorderColorAttribute, _MXMLUICloseDurationAttribute,
-                        _MXMLUIColorFieldAttribute, _MXMLUIShowTextFieldAttribute, _MXMLUICloseEasingFunctionAttribute,
-                        _MXMLUIColorAttribute, _MXMLUIDisabledIconColorAttribute, _MXMLUIFillAttributes, 
-                        _MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, _MXMLUIFontGeneralAttributes,
-                        _MXMLUIFontSpecificAttributes, _MXMLUIFontFamilyAttribute, _MXMLUIHighlightAlphaAttribute, 
-                        _MXMLUIIconColorAttribute, _MXMLUILeadingAttribute, _MXMLUIOpenDurationAttribute, 
-                        _MXMLUIOpenEasingFunctionAttribute, _MXMLUIPaddingVerticalAttributes, _MXMLUIPaddingHorizontalAttributes,
-                        _MXMLUISwatchBorderColorAttribute, _MXMLUISwatchBorderSizeAttribute, _MXMLUISwatchPanelStyleNameAttribute,
-                        _MXMLUITextStyleAttributes, _MXMLUIChangeAttribute, _MXMLUICloseAttribute, _MXMLUIEnterAttribute,
-                        _MXMLUIItemEventAttributes, _MXMLUIOpenAttribute, _MXMLUISelectedIndexAttribute,
-                        _MXMLUITextAttribute, _MXMLUIEditableAttribute, _MXMLUIDataProviderAttribute {
+                        implements _MXMLUIComboBaseAttributes, _MXMLUIColorFieldAttribute, _MXMLUILabelFieldAttribute, 
+                        _MXMLUIShowTextFieldAttribute, _MXMLUIBorderColorAttribute, _MXMLUICloseDurationAttribute, 
+                        _MXMLUICloseEasingFunctionAttribute, _MXMLUIColorAttribute, _MXMLUIDisabledIconColorAttribute, 
+                        _MXMLUIFillAlphasAttribute, _MXMLUIFillColorsAttribute, _MXMLUIFocusAlphaAttribute, 
+                        _MXMLUIFocusRoundedCornersAttribute, _MXMLUIFontAntiAliasTypeAttribute, _MXMLUIFontFamilyAttribute, 
+                        _MXMLUIFontGridFitTypeAttribute, _MXMLUIFontSharpnessAttribute, _MXMLUIFontSizeAttribute, 
+                        _MXMLUIFontStyleAttribute, _MXMLUIFontThicknessAttribute, _MXMLUIFontWeightAttribute, 
+                        _MXMLUIHighlightAlphasAttribute, _MXMLUIIconColorAttribute, _MXMLUILeadingAttribute, 
+                        _MXMLUIOpenDurationAttribute, _MXMLUIOpenEasingFunctionAttribute, _MXMLUIPaddingBottomAttribute, 
+                        _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, _MXMLUIPaddingTopAttribute, 
+                        _MXMLUISwatchBorderColorAttribute, _MXMLUISwatchBorderSizeAttribute, _MXMLUISwatchPanelStyleNameAttribute, 
+                        _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, 
+                        _MXMLUIChangeAttribute, _MXMLUICloseAttribute, _MXMLUIEnterAttribute, _MXMLUIItemRollOutAttribute,
+                        _MXMLUIItemRollOverAttribute, _MXMLUIOpenAttribute {
 	
 	private final static Log _log = LogFactory.getLog(AbstractMXMLUIColorPicker.class);
 	
