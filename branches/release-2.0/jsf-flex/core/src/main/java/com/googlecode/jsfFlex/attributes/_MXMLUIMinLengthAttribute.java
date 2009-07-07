@@ -24,8 +24,8 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperty(name="minHeight", returnType="java.lang.String", longDesc="Number that specifies the minimum height of the component, in pixels, in the component's coordinates.")
+@JSFJspProperty(name="minLength", returnType="java.lang.String", longDesc="Minimum length for a valid String.")
 @JSFComponent
-public interface _MXMLUIMinHeighAttribute {
-
+public interface _MXMLUIMinLengthAttribute {
+    
 }

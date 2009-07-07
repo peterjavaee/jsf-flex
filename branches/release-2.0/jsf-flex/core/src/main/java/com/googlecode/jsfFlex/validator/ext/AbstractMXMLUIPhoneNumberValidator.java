@@ -20,28 +20,12 @@ package com.googlecode.jsfFlex.validator.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
+import com.googlecode.jsfFlex.attributes._MXMLUIAllowedFormatCharsAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIInvalidCharErrorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIWrongLengthErrorAttribute;
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "allowedFormatChars"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "The set of formatting characters allowed."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "invalidCharError"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Error message when the value contains invalid characters."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "wrongLengthError"
- *  						 returnType = "java.lang.String"
- *  						 longDesc	= "Error message when the field contains the wrong number of digits for the specified type."
- * 
  * One thing to note about MXML Formatter and Validator is that they are not actually converters or validators<br>
  * respectively but actually are components. This is so because they perform the formatting and validation<br>
  * as Flex components on the client side and not on the server side.<br>
@@ -58,6 +42,7 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 )
 public abstract class AbstractMXMLUIPhoneNumberValidator 
 						extends MXMLUISimpleBase 
-						implements _MXMLUIValidatorAttributes {
+						implements _MXMLUIValidatorAttributes, _MXMLUIAllowedFormatCharsAttribute, _MXMLUIInvalidCharErrorAttribute, 
+                        _MXMLUIWrongLengthErrorAttribute {
 	
 }

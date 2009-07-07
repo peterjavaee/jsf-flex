@@ -19,71 +19,19 @@
 package com.googlecode.jsfFlex.component.ext.service.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
+import com.googlecode.jsfFlex.attributes._MXMLUIConcurrencyAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFaultAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIMakeObjectsBindableAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIResultAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIServiceNameAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIShowBusyCursorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIUseProxyAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIWsdlAttribute;
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "concurrency"
- *   						 returnType = "java.lang.String"
- *   						 longDesc	= "Value that indicates how to handle multiple calls to the same service."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "destination"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The destination of the service."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "id"
- *   						 returnType = "java.lang.String"
- *   						 longDesc	= "Id of the component."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "serviceName"
- *   						 returnType = "java.lang.String"
- *   						 longDesc	= "Name of the service."
- *   						, 
- *   						
- *   						@JSFJspProperty
- * 							 name		= "showBusyCursor"
- *   						 returnType = "java.lang.String"
- *   						 longDesc	= "If true, a busy cursor is displayed while a service is executing."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "makeObjectsBindable"
- *   						 returnType = "java.lang.String"
- *   						 longDesc	= "When this value is true, anonymous objects returned are forced to bindable objects."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "useProxy"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "Specifies whether to use the Flex proxy service."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "wsdl"
- *   						 returnType = "java.lang.String"
- *   						 longDesc	= "The location of the WSDL document for this WebService."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "fault"
- *   						 returnType = "java.lang.String"
- *   						 longDesc	= "The fault event is dispatched when a service call fails and isn't handled by the Operation itself."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "result"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The result event is dispatched when a service call successfully returns and isn't handled by the Operation itself."
- *   						
  * @author Ji Hoon Kim
  */
 @JSFComponent(
@@ -95,6 +43,20 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
         defaultRendererType =   "com.googlecode.jsfFlex.MXMLWebService"
 )
 public abstract class AbstractMXMLUIWebService 
-						extends MXMLUISimpleBase {
-	
+						extends MXMLUISimpleBase 
+                        implements _MXMLUIConcurrencyAttribute, _MXMLUIServiceNameAttribute, _MXMLUIShowBusyCursorAttribute, 
+                        _MXMLUIMakeObjectsBindableAttribute, _MXMLUIUseProxyAttribute, _MXMLUIWsdlAttribute, 
+                        _MXMLUIFaultAttribute, _MXMLUIResultAttribute {
+    
+    /**
+     * Id of the component.
+     */
+    @JSFProperty(
+            inheritTag  =   true,
+            desc        =   "Id of the component."
+    )
+    public String getId(){
+        return super.getId();
+    }
+    
 }

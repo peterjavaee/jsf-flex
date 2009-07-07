@@ -21,34 +21,13 @@ package com.googlecode.jsfFlex.states.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
+import com.googlecode.jsfFlex.attributes._MXMLUIHandlerAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIHandlerFunctionAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUINameAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITargetAttribute;
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- * 							@JSFJspProperty
- * 							 name		= "name"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The name of the event whose handler is being set."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "handlerFunction"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The handler function for the event."
- * 							,
- * 							
- *   						@JSFJspProperty
- *   						 name		= "target"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The component that dispatches the event."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "handler"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The event handler function to execute in response to the event that is specified by the name property."
- * 							
  * @author Ji Hoon Kim
  */
 @JSFComponent(
@@ -60,7 +39,9 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
         defaultRendererType =   "com.googlecode.jsfFlex.MXMLSetEventHandler"
 )
 public abstract class AbstractMXMLUISetEventHandler 
-						extends MXMLUISimpleBase {
+						extends MXMLUISimpleBase 
+                        implements _MXMLUINameAttribute, _MXMLUIHandlerFunctionAttribute, _MXMLUITargetAttribute, 
+                        _MXMLUIHandlerAttribute {
 	
 	/**
 	 * Id of the component.

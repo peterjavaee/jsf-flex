@@ -31,7 +31,7 @@ public interface _MXMLUIBasePropertiesAttributes
                     _MXMLUIExplicitMinWidthAttribute, _MXMLUIExplicitWidthAttribute, _MXMLUIFocusEnabledAttribute,
                     _MXMLUIIncludeInLayoutAttribute, _MXMLUIMaxHeightAttribute, _MXMLUIMaxWidthAttribute,
                     _MXMLUIMeasuredHeightAttribute, _MXMLUIMeasuredMinHeightAttribute, _MXMLUIMeasuredMinWidthAttribute,
-                    _MXMLUIMeasuredWidthAttribute, _MXMLMinHeightAttribute, _MXMLUIMinWidthAttribute,
+                    _MXMLUIMeasuredWidthAttribute, _MXMLUIMinHeightAttribute, _MXMLUIMinWidthAttribute,
                     _MXMLUIMouseFocusEnabledAttribute, _MXMLUIPercentHeightAttribute, _MXMLUIPercentWidthAttribute,
                     _MXMLUIScaleXAttribute, _MXMLUIScaleYAttribute, _MXMLUIStatesAttribute, _MXMLUIToolTipAttribute,
                     _MXMLUITransitionsAttribute, _MXMLUIValidationSubFieldAttribute {

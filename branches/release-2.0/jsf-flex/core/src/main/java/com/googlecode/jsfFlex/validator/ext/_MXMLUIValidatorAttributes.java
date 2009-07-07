@@ -19,25 +19,23 @@
 package com.googlecode.jsfFlex.validator.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperties;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
+
+import com.googlecode.jsfFlex.attributes._MXMLUIEnabledAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIListenerAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIPropertyAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIRequiredAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIRequiredFieldErrorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUISourceAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITriggerAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITriggerEventAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperties(
-        properties={
-                @JSFJspProperty(name="enabled", returnType="java.lang.String", longDesc="Setting this value to false will stop the validator from performing validation."),
-                @JSFJspProperty(name="listener", returnType="java.lang.String", longDesc="Specifies the validation listener."),
-                @JSFJspProperty(name="property", returnType="java.lang.String", longDesc="A String specifying the name of the property of the source object that contains the value to validate."),
-                @JSFJspProperty(name="required", returnType="java.lang.String", longDesc="If true, specifies that a missing or empty value causes a validation error."),
-                @JSFJspProperty(name="requiredFieldError", returnType="java.lang.String", longDesc="Error message when a value is missing and the required property is true."),
-                @JSFJspProperty(name="source", returnType="java.lang.String", longDesc="Specifies the object containing the property to validate."),
-                @JSFJspProperty(name="trigger", returnType="java.lang.String", longDesc="Specifies the component generating the event that triggers the validator."),
-                @JSFJspProperty(name="triggerEvent", returnType="java.lang.String", longDesc="Specifies the event that triggers the validation.")
-        }
-)
 @JSFComponent
-interface _MXMLUIValidatorAttributes {
+interface _MXMLUIValidatorAttributes 
+                extends _MXMLUIEnabledAttribute, _MXMLUIListenerAttribute, _MXMLUIPropertyAttribute, 
+                _MXMLUIRequiredAttribute, _MXMLUIRequiredFieldErrorAttribute, _MXMLUISourceAttribute, 
+                _MXMLUITriggerAttribute, _MXMLUITriggerEventAttribute {
 	
 }

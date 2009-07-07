@@ -21,16 +21,10 @@ package com.googlecode.jsfFlex.states.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
+import com.googlecode.jsfFlex.attributes._MXMLUITargetAttribute;
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- * 							@JSFJspProperty
- * 							 name		= "target"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The child to remove from the view."
- *   						
  * @author Ji Hoon Kim
  */
 @JSFComponent(
@@ -42,7 +36,8 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
         defaultRendererType =   "com.googlecode.jsfFlex.MXMLRemoveChild"
 )
 public abstract class AbstractMXMLUIRemoveChild 
-						extends MXMLUISimpleBase {
+						extends MXMLUISimpleBase 
+                        implements _MXMLUITargetAttribute {
 	
 	/**
 	 * Id of the component.

@@ -20,14 +20,10 @@ package com.googlecode.jsfFlex.convert.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
+import com.googlecode.jsfFlex.attributes._MXMLUIFormatStringAttribute;
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 
 /**
- * @JSFJspProperty
- *   name		= "formatString"
- *   returnType = "java.lang.String"
- *   longDesc	= "The mask pattern."
- * 
  * One thing to note about MXML Formatter and Validator is that they are not actually converters or validators<br>
  * respectively but actually are components. This is so because they perform the formatting and validation<br>
  * as Flex components on the client side and not on the server side.<br>
@@ -44,6 +40,6 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 )
 public abstract class AbstractMXMLUIZipCodeFormatter 
 						extends MXMLUISimpleBase 
-						implements _MXMLUIFormatter {
+						implements _MXMLUIFormatter, _MXMLUIFormatStringAttribute {
 	
 }

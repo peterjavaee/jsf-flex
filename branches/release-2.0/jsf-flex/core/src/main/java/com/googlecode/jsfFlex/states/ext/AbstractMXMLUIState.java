@@ -21,28 +21,12 @@ package com.googlecode.jsfFlex.states.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
+import com.googlecode.jsfFlex.attributes._MXMLUIBasedOnAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUINameAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIOverridesAttribute;
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- * 							@JSFJspProperty
- * 							 name		= "basedOn"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The name of the view state upon which this view state is based, or null if this view state is not based on a named view state."
- *   						,
- *   						
- *   						@JSFJspProperty
- *   						 name		= "name"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The name of the view state."
- * 							,
- * 							
- *   						@JSFJspProperty
- *   						 name		= "overrides"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The overrides for this view state, as an Array of objects that implement the IOverride interface."
- *
  * @author Ji Hoon Kim
  */
 @JSFComponent(
@@ -54,7 +38,8 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
         defaultRendererType =   "com.googlecode.jsfFlex.MXMLState"
 )
 public abstract class AbstractMXMLUIState 
-						extends MXMLUISimpleBase {
+						extends MXMLUISimpleBase 
+                        implements _MXMLUIBasedOnAttribute, _MXMLUINameAttribute, _MXMLUIOverridesAttribute {
 	
 	/**
 	 * Id of the component.

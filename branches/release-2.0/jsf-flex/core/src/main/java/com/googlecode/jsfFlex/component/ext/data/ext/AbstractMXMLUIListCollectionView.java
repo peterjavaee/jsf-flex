@@ -24,25 +24,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 
 /**
- * @JSFJspProperties
- * 		properties	=		
- *   						@JSFJspProperty
- * 							 name		= "filterFunction"
- *   						 returnType = "java.lang.String"
- *   						 longDesc	= "A function that the view will use to eliminate items that do not match the function's criteria."
- *   						,
- *   						
- *   						@JSFJspProperty
- * 							 name		= "list"
- *   						 returnType = "java.lang.String"
- *   						 longDesc	= "The IList that this collection view wraps."
- *   						, 
- *   						
- *   						@JSFJspProperty
- *   						 name		= "sort"
- *   						 returnType	= "java.lang.String"
- *   						 longDesc	= "The Sort that will be applied to the ICollectionView."
- *   						
  * @author Ji Hoon Kim
  */
 @JSFComponent(
@@ -54,7 +35,8 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
         defaultRendererType =   "com.googlecode.jsfFlex.MXMLListCollectionView"
 )
 public abstract class AbstractMXMLUIListCollectionView 
-							extends MXMLUISimpleBase {
+							extends MXMLUISimpleBase 
+                            implements _MXMLUIListCollectionViewAttributes {
 	
 	/**
 	 * Id of the component.
