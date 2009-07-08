@@ -27,6 +27,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUICloseAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUICornerRadiusAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDataChangeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDateChooserStyleNameAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDayNamesAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDisabledColorAttribute;
@@ -34,6 +35,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIDisabledDaysAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDisabledRangesAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDisplayedMonthAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDisplayedYearAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIEditableAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFillAlphasAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFillColorsAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFirstDayOfWeekAttribute;
@@ -65,6 +67,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIRollOverColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIScrollAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISelectableRangeAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISelectedDateAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISelectionColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIShowTodayAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITextAlignAttribute;
@@ -107,6 +110,7 @@ public abstract class AbstractMXMLUIDateField
                         _MXMLUIRollOverColorAttribute, _MXMLUISelectionColorAttribute, _MXMLUITextAlignAttribute, 
                         _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, _MXMLUITodayColorAttribute, 
                         _MXMLUITodayStyleNameAttribute, _MXMLUIWeekDayStyleNameAttribute, _MXMLUIChangeAttribute, 
-                        _MXMLUICloseAttribute, _MXMLUIDataChangeAttribute, _MXMLUIOpenAttribute, _MXMLUIScrollAttribute {
+                        _MXMLUICloseAttribute, _MXMLUIDataChangeAttribute, _MXMLUIOpenAttribute, _MXMLUIScrollAttribute,
+                        _MXMLUIDataProviderAttribute, _MXMLUIEditableAttribute, _MXMLUISelectedIndexAttribute {
 	
 }

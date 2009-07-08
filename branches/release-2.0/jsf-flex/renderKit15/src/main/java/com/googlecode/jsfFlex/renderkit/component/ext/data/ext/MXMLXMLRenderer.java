@@ -45,7 +45,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 		mxmlComponentNodeAttributes={},
 		
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="id")
+				@JsfFlexAttribute(attribute="id", byMethod=true)
 		}
 )
 public final class MXMLXMLRenderer extends MXMLComponentBaseRenderer {

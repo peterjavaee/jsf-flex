@@ -44,12 +44,14 @@ import com.googlecode.jsfFlex.attributes._MXMLUICloseEasingFunctionAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUICornerRadiusAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDataChangeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderCollectionAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDisabledColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDropDownBorderColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDropDownStyleNameAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDropdownFactoryAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDropdownWidthAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIEditableAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIEnterAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFillAlphasAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFillColorsAttribute;
@@ -79,10 +81,12 @@ import com.googlecode.jsfFlex.attributes._MXMLUIPromptAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIRollOverColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIRowCount;
 import com.googlecode.jsfFlex.attributes._MXMLUIScrollAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISelectionColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISelectionDurationAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISelectionEasingFunctionAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITextAlignAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITextDecorationAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITextIndentAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITextRollOverColorAttribute;
@@ -125,7 +129,8 @@ public abstract class AbstractMXMLUIComboBox
                         _MXMLUITextIndentAttribute, _MXMLUITextRollOverColorAttribute, _MXMLUITextSelectedColorAttribute, 
                         _MXMLUIChangeAttribute, _MXMLUICloseAttribute, _MXMLUIDataChangeAttribute, 
                         _MXMLUIEnterAttribute, _MXMLUIItemRollOutAttribute, _MXMLUIItemRollOverAttribute, 
-                        _MXMLUIOpenAttribute, _MXMLUIScrollAttribute, _MXMLUIDataProviderCollectionAttribute {
+                        _MXMLUIOpenAttribute, _MXMLUIScrollAttribute, _MXMLUIDataProviderCollectionAttribute ,_MXMLUIDataProviderAttribute, 
+                        _MXMLUIEditableAttribute, _MXMLUISelectedIndexAttribute, _MXMLUITextAttribute {
 	
 	private final static Log _log = LogFactory.getLog(AbstractMXMLUIComboBox.class);
 	

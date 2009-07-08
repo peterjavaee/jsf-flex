@@ -47,6 +47,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIPreloaderAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIResetHistoryAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIScriptRecursionLimitAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIScriptTimeLimitAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITitleAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIUsePreloaderAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIVerticalAlignAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIVerticalGapAttribute;
@@ -82,7 +83,7 @@ public abstract class AbstractMXMLUIApplication
                         _MXMLUIHorizontalAlignAttribute, _MXMLUIHorizontalGapAttribute, _MXMLUIModalTransparencyAttribute, 
                         _MXMLUIModalTransparencyBlurAttribute, _MXMLUIModalTransparencyColorAttribute, _MXMLUIModalTransparencyDurationAttribute, 
                         _MXMLUIVerticalAlignAttribute, _MXMLUIVerticalGapAttribute, _MXMLUIApplicationCompleteAttribute, 
-                        _MXMLUIErrorAttribute {
+                        _MXMLUIErrorAttribute, _MXMLUITitleAttribute {
 	
 	private static final String JSF_FLEX_COMMUNICATOR_CORE_JS = "jsfFlexCommunicatorCore.js";
 	private static final String JSF_FLEX_COMMUNICATOR_LOGGER_JS = "jsfFlexCommunicatorLogger.js";

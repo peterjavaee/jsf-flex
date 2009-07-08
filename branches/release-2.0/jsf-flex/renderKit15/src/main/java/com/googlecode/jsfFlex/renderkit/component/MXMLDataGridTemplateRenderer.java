@@ -36,7 +36,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="columns"),
 				@JsfFlexAttribute(attribute="draggableColumns"),
-				@JsfFlexAttribute(attribute="editable"),
+				@JsfFlexAttribute(attribute="editable", byMethod=true),
 				@JsfFlexAttribute(attribute="editedItemPosition"),
 				@JsfFlexAttribute(attribute="horizontalScrollPosition"),
 				@JsfFlexAttribute(attribute="imeMode"),

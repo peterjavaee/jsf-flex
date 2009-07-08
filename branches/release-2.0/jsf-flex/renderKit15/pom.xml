@@ -89,8 +89,39 @@
   </dependencies>
   
   <build>
-   
+    
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+        <excludes>
+           <exclude>**/*.vm</exclude>
+        </excludes>
+      </resource>
+    </resources>
+    
     <plugins>
+      <plugin>
+        <groupId>org.apache.myfaces.buildtools</groupId>
+        <artifactId>myfaces-builder-plugin</artifactId>
+        <version>${myfaces.buildtools.version}</version>
+        <executions>
+	    <execution>
+            <goals>
+              <goal>build-metadata</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>makefacesconfig</id>
+            <configuration>
+              <xmlFile>META-INF/faces-config.xml</xmlFile>
+            </configuration>
+            <goals>
+              <goal>make-config</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -101,6 +132,7 @@
           <meminitial>256</meminitial>
         </configuration>
       </plugin>
+      
     </plugins>
     
   </build>

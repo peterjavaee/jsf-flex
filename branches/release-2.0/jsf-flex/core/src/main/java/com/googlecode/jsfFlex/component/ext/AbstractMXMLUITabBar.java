@@ -20,8 +20,10 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
+import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFirstTabStyleNameAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILastTabStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISelectedTabTextStyleNameAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITabHeightAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITabStyleNameAttribute;
@@ -43,6 +45,6 @@ public abstract class AbstractMXMLUITabBar
 						extends MXMLUISimpleBase
 						implements _MXMLUIToggleButtonBarAttributes, _MXMLUIFirstTabStyleNameAttribute, _MXMLUILastTabStyleNameAttribute, 
                         _MXMLUISelectedTabTextStyleNameAttribute, _MXMLUITabHeightAttribute, _MXMLUITabStyleNameAttribute, 
-                        _MXMLUITabWidthAttribute {
+                        _MXMLUITabWidthAttribute, _MXMLUIDataProviderAttribute, _MXMLUISelectedIndexAttribute {
 	
 }

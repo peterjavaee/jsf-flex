@@ -73,7 +73,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 				@JsfFlexAttribute(attribute="labelField"),
 				@JsfFlexAttribute(attribute="labelFunction"),
 				@JsfFlexAttribute(attribute="prompt"),
-				@JsfFlexAttribute(attribute="rowCount"),
+				@JsfFlexAttribute(attribute="rowCount", byMethod=true),
 				@JsfFlexAttribute(attribute="alternatingItemColors"),
 				@JsfFlexAttribute(attribute="arrowButtonWidth"),
 				@JsfFlexAttribute(attribute="borderColor"),

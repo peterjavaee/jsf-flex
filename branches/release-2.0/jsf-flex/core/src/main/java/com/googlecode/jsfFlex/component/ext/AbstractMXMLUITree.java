@@ -21,10 +21,12 @@ package com.googlecode.jsfFlex.component.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes._MXMLUIDataDescriptorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDefaultLeafIconAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDepthColorsAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDisclosureClosedIconAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDisclosureOpenIconAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIEditableAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFirstVisibleItemAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFolderClosedIconAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFolderOpenIconAttribute;
@@ -36,6 +38,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIItemOpeningAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIOpenDurationAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIOpenEasingFunctionAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIOpenItemsAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIRowCount;
 import com.googlecode.jsfFlex.attributes._MXMLUIShowRootAttribute;
 
 /**
@@ -57,6 +60,7 @@ public abstract class AbstractMXMLUITree
                         _MXMLUIDepthColorsAttribute, _MXMLUIDisclosureClosedIconAttribute, _MXMLUIDisclosureOpenIconAttribute, 
                         _MXMLUIFolderClosedIconAttribute, _MXMLUIFolderOpenIconAttribute, _MXMLUIIndentationAttribute, 
                         _MXMLUIOpenDurationAttribute, _MXMLUIOpenEasingFunctionAttribute, _MXMLUIItemCloseAttribute, 
-                        _MXMLUIItemOpenAttribute, _MXMLUIItemOpeningAttribute {
+                        _MXMLUIItemOpenAttribute, _MXMLUIItemOpeningAttribute, _MXMLUIEditableAttribute, 
+                        _MXMLUIDataProviderAttribute, _MXMLUIRowCount {
 	
 }

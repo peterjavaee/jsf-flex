@@ -51,7 +51,7 @@ import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
 		mxmlComponentNodeAttributes={},
 		
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="id")
+				@JsfFlexAttribute(attribute="id", byMethod=true)
 		}
 )
 public final class MXMLObjectRenderer extends MXMLComponentBaseRenderer {

@@ -111,8 +111,8 @@ public abstract class AbstractMXMLUIDataGridColumn
 	private static final String REQUEST_KEYS_KEY = "requestKeys";
 	private static final String RESULT_CODE_KEY = "resultCode";
 	
-	private Comparator<? super Object> ascendingComparator;
-	private Comparator<? super Object> descendingComparator;
+	private Comparator<Object> ascendingComparator;
+	private Comparator<Object> descendingComparator;
 	
 	public JSONObject getComponentInitValues(){
 		return null;
@@ -232,7 +232,7 @@ public abstract class AbstractMXMLUIDataGridColumn
 		return GET_DATA_FIELD_METHOD_NAME;
 	}
 	
-	public synchronized Comparator<? super Object> getAscendingComparator() {
+	public synchronized Comparator<Object> getAscendingComparator() {
 		if(ascendingComparator == null){
 			ascendingComparator = new Comparator<Object>(){
 				
@@ -263,7 +263,7 @@ public abstract class AbstractMXMLUIDataGridColumn
 		return ascendingComparator;
 	}
 	
-	public synchronized Comparator<? super Object> getDescendingComparator() {
+	public synchronized Comparator<Object> getDescendingComparator() {
 		if(descendingComparator == null){
 			descendingComparator = new Comparator<Object>(){
 				

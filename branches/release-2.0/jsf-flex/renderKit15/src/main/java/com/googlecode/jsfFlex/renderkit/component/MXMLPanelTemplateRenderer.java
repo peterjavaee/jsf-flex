@@ -36,7 +36,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="layout"),
 				@JsfFlexAttribute(attribute="status"),
-				@JsfFlexAttribute(attribute="title"),
+				@JsfFlexAttribute(attribute="title", byMethod=true),
 				@JsfFlexAttribute(attribute="titleIcon"),
 				@JsfFlexAttribute(attribute="borderAlpha"),
 				@JsfFlexAttribute(attribute="borderThicknessBottom"),

@@ -34,10 +34,10 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="dataProvider"),
+				@JsfFlexAttribute(attribute="dataProvider", byMethod=true),
 				@JsfFlexAttribute(attribute="iconField"),
 				@JsfFlexAttribute(attribute="labelField"),
-				@JsfFlexAttribute(attribute="selectedIndex"),
+				@JsfFlexAttribute(attribute="selectedIndex", byMethod=true),
 				@JsfFlexAttribute(attribute="toolTipField"),
 				@JsfFlexAttribute(attribute="itemClick")
 		}

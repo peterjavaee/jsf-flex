@@ -45,13 +45,13 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="dataDescriptor"),
-				@JsfFlexAttribute(attribute="dataProvider"),
+				@JsfFlexAttribute(attribute="dataProvider", byMethod=true),
 				@JsfFlexAttribute(attribute="iconField"),
 				@JsfFlexAttribute(attribute="labelField"),
 				@JsfFlexAttribute(attribute="labelFunction"),
 				@JsfFlexAttribute(attribute="menubarItems"),
 				@JsfFlexAttribute(attribute="menus"),
-				@JsfFlexAttribute(attribute="selectedIndex"),
+				@JsfFlexAttribute(attribute="selectedIndex", byMethod=true),
 				@JsfFlexAttribute(attribute="showRoot"),
 				@JsfFlexAttribute(attribute="backgroundAlpha"),
 				@JsfFlexAttribute(attribute="backgroundColor"),

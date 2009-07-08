@@ -44,10 +44,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="dataField"),
+				@JsfFlexAttribute(attribute="dataField", byMethod=true),
 				@JsfFlexAttribute(attribute="dataTipField"),
 				@JsfFlexAttribute(attribute="dataTipFunction"),
-				@JsfFlexAttribute(attribute="editable"),
+				@JsfFlexAttribute(attribute="editable", byMethod=true),
 				@JsfFlexAttribute(attribute="editorDataField"),
 				@JsfFlexAttribute(attribute="editorHeightOffset"),
 				@JsfFlexAttribute(attribute="editorUsesEnterKey"),

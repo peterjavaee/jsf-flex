@@ -66,8 +66,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="groupName"),
-				@JsfFlexAttribute(attribute="value")
+				@JsfFlexAttribute(attribute="groupName", byMethod=true),
+				@JsfFlexAttribute(attribute="value", byMethod=true)
 		}
 )
 public final class MXMLRadioButtonRenderer extends MXMLButtonTemplateRenderer {

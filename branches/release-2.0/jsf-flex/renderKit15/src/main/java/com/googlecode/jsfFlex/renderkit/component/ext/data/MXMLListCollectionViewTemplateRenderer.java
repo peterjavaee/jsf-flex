@@ -35,7 +35,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="id"),
+				@JsfFlexAttribute(attribute="id", byMethod=true),
 				@JsfFlexAttribute(attribute="filterFunction"),
 				@JsfFlexAttribute(attribute="list"),
 				@JsfFlexAttribute(attribute="sort")

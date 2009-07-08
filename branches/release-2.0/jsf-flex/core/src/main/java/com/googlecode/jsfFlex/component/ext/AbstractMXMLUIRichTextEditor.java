@@ -23,6 +23,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
 import com.googlecode.jsfFlex.attributes._MXMLUIDefaultLinkProtocolAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIShowControlBarAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIShowToolTipsAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITitleAttribute;
 
 /**
  * @author Ji Hoon Kim
@@ -39,6 +40,6 @@ import com.googlecode.jsfFlex.attributes._MXMLUIShowToolTipsAttribute;
 public abstract class AbstractMXMLUIRichTextEditor 
 						extends com.googlecode.jsfFlex.component.MXMLUIHtmlTextInputBase 
 						implements _MXMLUIPanelAttributes, _MXMLUIDefaultLinkProtocolAttribute, _MXMLUIShowControlBarAttribute, 
-                        _MXMLUIShowToolTipsAttribute {
+                        _MXMLUIShowToolTipsAttribute, _MXMLUITitleAttribute {
 	
 }

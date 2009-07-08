@@ -20,6 +20,9 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
+import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIRowCount;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -34,6 +37,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
 )
 public abstract class AbstractMXMLUIHorizontalList 
 						extends com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase
-						implements _MXMLUIListBaseAttributes {
+						implements _MXMLUIListBaseAttributes, _MXMLUIDataProviderAttribute, _MXMLUIRowCount {
 	
 }

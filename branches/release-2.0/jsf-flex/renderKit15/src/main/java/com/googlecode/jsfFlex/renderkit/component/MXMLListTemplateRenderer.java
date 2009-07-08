@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="editable"),
+				@JsfFlexAttribute(attribute="editable", byMethod=true),
 				@JsfFlexAttribute(attribute="editedItemPosition"),
 				@JsfFlexAttribute(attribute="editorDataField"),
 				@JsfFlexAttribute(attribute="editorHeightOffset"),

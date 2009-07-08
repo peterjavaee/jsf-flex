@@ -37,7 +37,9 @@ import com.googlecode.jsfFlex.attributes._MXMLUICloseDurationAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUICloseEasingFunctionAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIColorFieldAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDisabledIconColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIEditableAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIEnterAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFillAlphasAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFillColorsAttribute;
@@ -64,11 +66,13 @@ import com.googlecode.jsfFlex.attributes._MXMLUIPaddingBottomAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIPaddingLeftAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIPaddingRightAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIPaddingTopAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIShowTextFieldAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISwatchBorderColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISwatchBorderSizeAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISwatchPanelStyleNameAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITextAlignAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITextAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITextDecorationAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITextIndentAttribute;
 import com.googlecode.jsfFlex.component.MXMLUIInputBase;
@@ -100,7 +104,8 @@ public abstract class AbstractMXMLUIColorPicker
                         _MXMLUISwatchBorderColorAttribute, _MXMLUISwatchBorderSizeAttribute, _MXMLUISwatchPanelStyleNameAttribute, 
                         _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, 
                         _MXMLUIChangeAttribute, _MXMLUICloseAttribute, _MXMLUIEnterAttribute, _MXMLUIItemRollOutAttribute,
-                        _MXMLUIItemRollOverAttribute, _MXMLUIOpenAttribute {
+                        _MXMLUIItemRollOverAttribute, _MXMLUIOpenAttribute, _MXMLUIDataProviderAttribute, 
+                        _MXMLUIEditableAttribute, _MXMLUISelectedIndexAttribute, _MXMLUITextAttribute {
 	
 	private final static Log _log = LogFactory.getLog(AbstractMXMLUIColorPicker.class);
 	

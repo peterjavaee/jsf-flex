@@ -70,7 +70,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 				@JsfFlexAttribute(attribute="condenseWhite"),
 				@JsfFlexAttribute(attribute="data"),
 				@JsfFlexAttribute(attribute="displayAsPassword"),
-				@JsfFlexAttribute(attribute="editable"),
+				@JsfFlexAttribute(attribute="editable", byMethod=true),
 				@JsfFlexAttribute(attribute="horizontalScrollPosition"),
 				@JsfFlexAttribute(attribute="imeMode"),
 				@JsfFlexAttribute(attribute="listData"),

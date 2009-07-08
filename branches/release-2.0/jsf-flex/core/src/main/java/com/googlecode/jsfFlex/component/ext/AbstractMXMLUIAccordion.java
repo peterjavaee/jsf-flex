@@ -75,7 +75,7 @@ public abstract class AbstractMXMLUIAccordion
 		 * 
 		 *	I think this is the most prudent choice
 		 */
-		setCreationPolicy("all");
+        getAttributes().put("creationPolicy", "all");
 		
 		super.encodeBegin(context);
 	}

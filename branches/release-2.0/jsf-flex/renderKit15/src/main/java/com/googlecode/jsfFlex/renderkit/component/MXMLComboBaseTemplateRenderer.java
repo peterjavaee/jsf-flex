@@ -34,13 +34,13 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="dataProvider"),
-				@JsfFlexAttribute(attribute="editable"),
+				@JsfFlexAttribute(attribute="dataProvider", byMethod=true),
+				@JsfFlexAttribute(attribute="editable", byMethod=true),
 				@JsfFlexAttribute(attribute="imeMode"),
 				@JsfFlexAttribute(attribute="restrict"),
-				@JsfFlexAttribute(attribute="selectedIndex"),
+				@JsfFlexAttribute(attribute="selectedIndex", byMethod=true),
 				@JsfFlexAttribute(attribute="selectedItem"),
-                @JsfFlexAttribute(attribute="text"),
+                @JsfFlexAttribute(attribute="text", byMethod=true),
 				@JsfFlexAttribute(attribute="disabledSkin"),
 				@JsfFlexAttribute(attribute="downSkin"),
 				@JsfFlexAttribute(attribute="editableDisabledSkin"),

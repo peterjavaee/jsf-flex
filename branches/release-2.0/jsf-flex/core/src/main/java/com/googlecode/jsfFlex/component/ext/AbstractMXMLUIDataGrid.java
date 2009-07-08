@@ -37,6 +37,10 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
 import com.googlecode.jsfFlex.attributes._MXMLUIBatchColumnDataRetrievalSize;
 import com.googlecode.jsfFlex.attributes._MXMLUIBindingBeanClassNameAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIBindingBeanListAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIEditableAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIRowCount;
+import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 
 /**
@@ -53,7 +57,8 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 public abstract class AbstractMXMLUIDataGrid 
 						extends MXMLUISimpleBase
 						implements _MXMLUIDataGridAttributes, _MXMLUIBindingBeanListAttribute, _MXMLUIBindingBeanClassNameAttribute,
-                        _MXMLUIBatchColumnDataRetrievalSize {
+                        _MXMLUIBatchColumnDataRetrievalSize, _MXMLUIEditableAttribute, _MXMLUIDataProviderAttribute, 
+                        _MXMLUIRowCount, _MXMLUISelectedIndexAttribute {
 	
 	private final static Log _log = LogFactory.getLog(AbstractMXMLUIDataGrid.class);
 	
@@ -294,7 +299,7 @@ public abstract class AbstractMXMLUIDataGrid
 		_log.info("Requested sort of data entries with columnDataFieldToSortBy : " + columnDataFieldToSortBy + " sortAscending : " + sortAscending + " for component : " + getId());
 		
 		AbstractMXMLUIDataGridColumn dataGridColumnComponent = _dataGridColumnComponentMapping.get(columnDataFieldToSortBy);
-		Comparator dataFieldComparator = sortAscending ? dataGridColumnComponent.getAscendingComparator() : 
+		Comparator<Object> dataFieldComparator = sortAscending ? dataGridColumnComponent.getAscendingComparator() : 
 																		    dataGridColumnComponent.getDescendingComparator();
 		
 		synchronized(getBindingBeanList()){

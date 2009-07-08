@@ -36,10 +36,10 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="condenseWhite"),
 				@JsfFlexAttribute(attribute="data"),
-				@JsfFlexAttribute(attribute="htmlText"),
+				@JsfFlexAttribute(attribute="htmlText", byMethod=true),
 				@JsfFlexAttribute(attribute="listData"),
 				@JsfFlexAttribute(attribute="selectable"),
-				@JsfFlexAttribute(attribute="text"),
+				@JsfFlexAttribute(attribute="text", byMethod=true),
 				@JsfFlexAttribute(attribute="truncateToFit"),
 				@JsfFlexAttribute(attribute="color"),
 				@JsfFlexAttribute(attribute="disabledColor"),

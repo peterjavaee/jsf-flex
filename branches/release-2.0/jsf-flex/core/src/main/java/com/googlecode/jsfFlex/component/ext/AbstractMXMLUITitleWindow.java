@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.component.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes._MXMLUIShowCloseButtonAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITitleAttribute;
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 
 /**
@@ -36,6 +37,6 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 )
 public abstract class AbstractMXMLUITitleWindow 
 						extends MXMLUISimpleBase 
-						implements _MXMLUIPanelAttributes, _MXMLUIShowCloseButtonAttribute {
+						implements _MXMLUIPanelAttributes, _MXMLUIShowCloseButtonAttribute, _MXMLUITitleAttribute {
 	
 }

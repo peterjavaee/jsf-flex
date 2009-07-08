@@ -19,7 +19,6 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
 import com.googlecode.jsfFlex.attributes._MXMLUIAutoLayoutAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundAlphaAttribute;
@@ -107,16 +106,4 @@ interface _MXMLUIContainerAttributes
                     _MXMLUIVerticalScrollBarStyleNameAttribute, _MXMLUIChildAddAttribute, _MXMLUIChildIndexChangeAttribute, 
                     _MXMLUIChildRemoveAttribute, _MXMLUIDataChangeAttribute, _MXMLUIScrollAttribute, _MXMLUIBaseAttributes {
 	
-    /**
-     * The child creation policy for this Container.
-     */
-    @JSFProperty(
-            required        =   false,
-            rtexprvalue     =   false,
-            desc            =   "The child creation policy for this Container."
-    )
-    String getCreationPolicy();
-    
-    void setCreationPolicy(String creationPolicy);
-    
 }

@@ -46,7 +46,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="concurrency"),
 				@JsfFlexAttribute(attribute="destination"),
-				@JsfFlexAttribute(attribute="id"),
+				@JsfFlexAttribute(attribute="id", byMethod=true),
 				@JsfFlexAttribute(attribute="endpoint"),
 				@JsfFlexAttribute(attribute="showBusyCursor"),
 				@JsfFlexAttribute(attribute="source"),
