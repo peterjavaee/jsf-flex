@@ -20,6 +20,15 @@ This page contains brief overview in importing the project into Eclipse 3.4.0 fo
   * Select Project Facets and click on {{{JavaServer}}} Faces with version 1.2.
   * Click on Further configuration required.
   * Select the default *Server Supplied JSF Implementation*
+    * If one wishes to use a different JSF impl than the one provided from the Server {{{{i.e. MyFaces}}}}, provide the impl Jars within the WEB-INF/lib directory and add the following within the web.xml : 
+{{{
+<context-param>
+  <param-name>org.jboss.jbossfaces.WAR_BUNDLES_JSF_IMPL</param-name>
+  <param-value>true</param-value>
+</context-param>
+}}}
+    Then JBoss will use the implementation within the classpath of the project rather than from its default/provided impl.
+      
   * Add additional URL Mapping Patterns for {{{FacesServlet}}} with {{{/jsfFlexHttpServiceRequestListener/* and *.jsf}}}.
     http://jsf-flex.googlecode.com/svn/wiki/projectFacetsEclipseJBoss42.jpg
     http://jsf-flex.googlecode.com/svn/wiki/settingJsf12BasePropertiesEclipseJBoss42.jpg
