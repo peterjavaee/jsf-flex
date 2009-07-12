@@ -176,6 +176,17 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 		_preMxmlIdentifier = preMxmlIdentifier;
 	}
 	
+    /**
+     * Id of the component.
+     */
+    @JSFProperty(
+            inheritTag  =   true,
+            desc        =   "Id of the component."
+    )
+    public String getId(){
+        return super.getId();
+    }
+    
 	/**
 	 * A boolean value that identifies the phase during which value change events should fire. During normal event processing, value change events are fired during the "invoke application" phase of request processing. If this attribute is set to true, these methods are fired instead at the end of the apply request values phase.
 	 */

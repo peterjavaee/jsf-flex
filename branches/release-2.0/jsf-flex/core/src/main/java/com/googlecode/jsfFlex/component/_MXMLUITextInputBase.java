@@ -48,27 +48,30 @@ public abstract class _MXMLUITextInputBase
 	
 	private org.json.JSONObject initValue;
 	
-	{
-		try{
-			initValue = new org.json.JSONObject();
-			initValue.put(ATTRIBUTE, TEXT_ATTR);
-			
-			_initValues.put(initValue);
-			
-		}catch(org.json.JSONException jsonException){
-			_log.info("Error while formatting to JSON content", jsonException);
-		}
-	}
-	
 	protected void populateComponentInitValues(){
 		try{
 			if(getText() != null){
-				initValue.put(VALUE, com.googlecode.jsfFlex.util.MXMLJsfUtil.escapeCharacters( getText() ));
+				getInitValue().put(VALUE, com.googlecode.jsfFlex.util.MXMLJsfUtil.escapeCharacters( getText() ));
 			}
 		}catch(org.json.JSONException jsonException){
 			_log.info("Error while formatting to JSON content", jsonException);
 		}
 	}
+    
+    private synchronized org.json.JSONObject getInitValue(){
+        if(initValue == null){
+            try{
+                initValue = new org.json.JSONObject();
+                initValue.put(ATTRIBUTE, TEXT_ATTR);
+                
+                _initValues.put(initValue);
+                
+            }catch(org.json.JSONException jsonException){
+                _log.info("Error while formatting to JSON content", jsonException);
+            }
+        }
+        return initValue;
+    }
 	
     public void decode(FacesContext context) {
     	super.decode(context);

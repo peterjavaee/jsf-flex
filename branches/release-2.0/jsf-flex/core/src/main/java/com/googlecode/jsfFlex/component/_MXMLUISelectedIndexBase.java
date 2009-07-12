@@ -48,27 +48,30 @@ public abstract class _MXMLUISelectedIndexBase
 	
 	private org.json.JSONObject initValue;
 	
-	{
-		try{
-			initValue = new org.json.JSONObject();
-			initValue.put(ATTRIBUTE, SELECTED_INDEX_ATTR);
-			
-			_initValues.put(initValue);
-			
-		}catch(org.json.JSONException jsonException){
-			_log.info("Error while formatting to JSON content", jsonException);
-		}
-	}
-	
 	protected void populateComponentInitValues(){
 		try{
 			if(getSelectedIndex() != null){
-				initValue.put(VALUE, getSelectedIndex());
+				getInitValue().put(VALUE, getSelectedIndex());
 			}
 		}catch(org.json.JSONException jsonException){
 			_log.info("Error while formatting to JSON content", jsonException);
 		}
 	}
+    
+    private synchronized org.json.JSONObject getInitValue(){
+        if(initValue == null){
+            try{
+                initValue = new org.json.JSONObject();
+                initValue.put(ATTRIBUTE, SELECTED_INDEX_ATTR);
+                
+                _initValues.put(initValue);
+                
+            }catch(org.json.JSONException jsonException){
+                _log.info("Error while formatting to JSON content", jsonException);
+            }
+        }
+        return initValue;
+    }
 	
 	public void decode(FacesContext context) {
     	super.decode(context);

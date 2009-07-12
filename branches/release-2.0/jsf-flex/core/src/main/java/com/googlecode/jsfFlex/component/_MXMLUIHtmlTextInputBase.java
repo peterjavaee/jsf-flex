@@ -50,23 +50,10 @@ public abstract class _MXMLUIHtmlTextInputBase
 	
 	private org.json.JSONObject initValue;
 	
-	{
-		try{
-			initValue = new org.json.JSONObject();
-			initValue.put(ATTRIBUTE, HTML_TEXT_ATTR);
-			
-			_initValues.put(initValue);
-			
-		}catch(org.json.JSONException jsonException){
-			_log.info("Error while formatting to JSON content", jsonException);
-		}
-	}
-	
 	protected void populateComponentInitValues(){
-		
 		try{
 			if(getTextBinding().equals(HTML_TEXT_ATTR) && getHtmlText() != null){
-				initValue.put(VALUE, com.googlecode.jsfFlex.util.MXMLJsfUtil.escapeCharacters( getHtmlText() ));
+				getInitValue().put(VALUE, com.googlecode.jsfFlex.util.MXMLJsfUtil.escapeCharacters( getHtmlText() ));
 			}else{
 				super.populateComponentInitValues();
 			}
@@ -74,6 +61,21 @@ public abstract class _MXMLUIHtmlTextInputBase
 			_log.info("Error while formatting to JSON content", jsonException);
 		}
 	}
+    
+    private synchronized org.json.JSONObject getInitValue(){
+        if(initValue == null){
+            try{
+                initValue = new org.json.JSONObject();
+                initValue.put(ATTRIBUTE, HTML_TEXT_ATTR);
+                
+                _initValues.put(initValue);
+                
+            }catch(org.json.JSONException jsonException){
+                _log.info("Error while formatting to JSON content", jsonException);
+            }
+        }
+        return initValue;
+    }
     
     public void decode(FacesContext context) {
     	super.decode(context);
