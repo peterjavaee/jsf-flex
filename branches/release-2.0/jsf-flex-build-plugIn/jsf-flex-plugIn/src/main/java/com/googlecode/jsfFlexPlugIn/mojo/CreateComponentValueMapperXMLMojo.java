@@ -36,15 +36,15 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
 
-import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
 import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectListener;
 import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectorBase;
 import com.googlecode.jsfFlexPlugIn.parser._JsfFlexParserListener;
 import com.googlecode.jsfFlexPlugIn.parser.velocity.JsfFlexVelocityParser;
 import com.googlecode.jsfFlexPlugIn.utils.tasks.ReplaceText;
 import com.thoughtworks.qdox.JavaDocBuilder;
+import com.thoughtworks.qdox.model.Annotation;
 import com.thoughtworks.qdox.model.JavaClass;
+import com.thoughtworks.qdox.model.annotation.AnnotationValue;
 
 /**
  * @goal    createComponentValueMapperXML
@@ -229,7 +229,7 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 		}
     	
     }
-	
+    
     public void execute() throws MojoExecutionException, MojoFailureException {
 		
         String currDirPath = (String) _project.getCompileSourceRoots().get(0);
@@ -244,6 +244,14 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 		_jsfFlexVelocityParser.addParserListener(this);
 		
 		_jsfFlexInspector = new _JsfFlexInspectorBase(currDirPath){
+            
+            private static final String JSF_FLEX_ATTRIBUTE_PROPERTIES_ANNOTATION_NAME = "com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties";
+            private static final String MXML_COMPONENT_NODE_ATTRIBUTES_KEY = "mxmlComponentNodeAttributes";
+            
+            private static final String IS_VALUE_DYNAMIC_ATTRIBUTE_KEY = "isValueDynamic";
+            private static final String IS_VALUE_NESTED_ATTRIBUTE_KEY = "isValueNested";
+            private static final String IS_NAME_DYNAMIC_ATTRIBUTE_KEY = "isNameDynamic";
+            
 			public void inspectFiles(){
 				/*
 				 * In order to keep in synch with the QDox parsing, following is the 
@@ -267,58 +275,86 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 				JavaDocBuilder builder = new JavaDocBuilder();
 				builder.addSourceTree(new File(getDirPath()));
 				JavaClass[] inspectableFiles = builder.getClasses();
-				
+                
 				for(JavaClass currClass : inspectableFiles){
-					JsfFlexAttributeProperties jsfFlexAttributeList = currClass.getClass().getAnnotation(JsfFlexAttributeProperties.class);
-					List<Map<String, ? extends Object>> inspectedList = new LinkedList<Map<String, ? extends Object>>();
+					
+                    List<Map<String, ? extends Object>> inspectedList = new LinkedList<Map<String, ? extends Object>>();
 					Map<String, String> inspectedMap = new LinkedHashMap<String, String>();
 					
-					if(jsfFlexAttributeList == null || jsfFlexAttributeList.mxmlComponentPackage() == null || 
-								jsfFlexAttributeList.mxmlComponentName().length() == 0){
-						continue;
-					}
-					
-					inspectedMap.put(MXML_COMPONENT_PACKAGE_KEY, jsfFlexAttributeList.mxmlComponentPackage());
-					inspectedMap.put(MXML_COMPONENT_NAME_KEY, jsfFlexAttributeList.mxmlComponentName());
+                    Annotation[] qdoxAnnotations = currClass.getAnnotations();
+                    Annotation jsfFlexAttributeListAnnotation = null;
+                    
+                    if(qdoxAnnotations == null){
+                        continue;
+                    }
+                    
+                    for(Annotation currAnnotation : qdoxAnnotations){
+                        if(currAnnotation.getType().getValue().equals(JSF_FLEX_ATTRIBUTE_PROPERTIES_ANNOTATION_NAME)){
+                            jsfFlexAttributeListAnnotation = currAnnotation;
+                            break;
+                        }
+                    }
+                    
+                    if(jsfFlexAttributeListAnnotation == null){
+                        continue;
+                    }
+                    
+                    AnnotationValue mxmlComponentPackage = jsfFlexAttributeListAnnotation.getProperty(MXML_COMPONENT_PACKAGE_KEY);
+                    AnnotationValue mxmlComponentName = jsfFlexAttributeListAnnotation.getProperty(MXML_COMPONENT_NAME_KEY);
+                    
+                    if(mxmlComponentPackage == null || mxmlComponentName == null){
+                        continue;
+                    }
+                    
+                    inspectedMap.put(MXML_COMPONENT_PACKAGE_KEY, removeQuotes( mxmlComponentPackage.getParameterValue().toString() ));
+					inspectedMap.put(MXML_COMPONENT_NAME_KEY, removeQuotes( mxmlComponentName.getParameterValue().toString() ));
 					
 					inspectedList.add(inspectedMap);
 					//have added Map info containing CLASS_* info
-					
-					for(FlexComponentNodeAttribute currComponentNodeInfo : jsfFlexAttributeList.mxmlComponentNodeAttributes()){
-						inspectedMap = new LinkedHashMap<String, String>();
-						
-						inspectedMap.put(HTML_TYPE_KEY, currComponentNodeInfo.htmlType());
-						inspectedMap.put(TYPE_ATTRIBUTE_VALUE_KEY, currComponentNodeInfo.typeAttributeValue());
-						
-						inspectedMap.put(VALUE_ATTRIBUTE_VALUE_KEY, currComponentNodeInfo.valueAttributeValue());
-						inspectedMap.put(VALUE_DYNAMIC_KEY, String.valueOf(currComponentNodeInfo.isValueDynamic()));
-						inspectedMap.put(VALUE_NESTED_KEY, String.valueOf(currComponentNodeInfo.isValueNested()));
-						
-						String builtString;
-						if(currComponentNodeInfo.isValueNested()){
-							StringBuilder toBuildString = new StringBuilder();
-							
-							for(String buildInto : currComponentNodeInfo.valueNestedValues()){
-								toBuildString.append(buildInto);
-								toBuildString.append("_");
-							}
-							
-							toBuildString.deleteCharAt(toBuildString.length()-1);
-							builtString = toBuildString.toString();
-						}else{
-							builtString = "";
-						}
-						
-						inspectedMap.put(VALUE_NESTED_VALUES_KEY, builtString);
-						
-						inspectedMap.put(NAME_ATTRIBUTE_VALUE_KEY, currComponentNodeInfo.nameAttributeValue());
-						inspectedMap.put(NAME_DYNAMIC_KEY, String.valueOf(currComponentNodeInfo.isNameDynamic()));
-						inspectedMap.put(NAME_APPEND_KEY, currComponentNodeInfo.nameAppend());
-						
-						inspectedList.add(inspectedMap);
-					}
-					
-					inspectFileFinished(inspectedList, currClass.getName(), currClass.getPackage().toString());
+					AnnotationValue mxmlComponentNodeAttributes = jsfFlexAttributeListAnnotation.getProperty(MXML_COMPONENT_NODE_ATTRIBUTES_KEY);
+                    List<Annotation> flexComponentNodeAttributes = (List<Annotation>) mxmlComponentNodeAttributes.getParameterValue();
+                    
+                    for(Annotation currFlexComponentNodeAttribute : flexComponentNodeAttributes){
+                        inspectedMap = new LinkedHashMap<String, String>();
+                        
+                        inspectedMap.put(HTML_TYPE_KEY, removeQuotes( currFlexComponentNodeAttribute.getProperty(HTML_TYPE_KEY).getParameterValue().toString() ));
+                        inspectedMap.put(TYPE_ATTRIBUTE_VALUE_KEY, removeQuotes( currFlexComponentNodeAttribute.getProperty(TYPE_ATTRIBUTE_VALUE_KEY).getParameterValue().toString() ));
+                        
+                        AnnotationValue valueAttributeValue = currFlexComponentNodeAttribute.getProperty(VALUE_ATTRIBUTE_VALUE_KEY);
+                        if(valueAttributeValue != null){
+                            inspectedMap.put(VALUE_ATTRIBUTE_VALUE_KEY, removeQuotes( valueAttributeValue.getParameterValue().toString() ));
+                        }
+                        
+                        inspectedMap.put(VALUE_DYNAMIC_KEY, removeQuotes( currFlexComponentNodeAttribute.getProperty(IS_VALUE_DYNAMIC_ATTRIBUTE_KEY).getParameterValue().toString() ));
+                        inspectedMap.put(VALUE_NESTED_KEY, removeQuotes( currFlexComponentNodeAttribute.getProperty(IS_VALUE_NESTED_ATTRIBUTE_KEY).getParameterValue().toString() ));
+                        
+                        String builtString;
+                        boolean isValueNested = Boolean.valueOf(removeQuotes( currFlexComponentNodeAttribute.getProperty(IS_VALUE_NESTED_ATTRIBUTE_KEY).getParameterValue().toString() ));
+                        if(isValueNested){
+                            StringBuilder toBuildString = new StringBuilder();
+                            List<String> valueNestedValues = (List<String>) currFlexComponentNodeAttribute.getProperty(VALUE_NESTED_VALUES_KEY).getParameterValue();
+                            for(String buildInto : valueNestedValues){
+                                toBuildString.append(removeQuotes( buildInto ));
+                                toBuildString.append("_");
+                            }
+                            
+                            toBuildString.deleteCharAt(toBuildString.length()-1);
+                            builtString = toBuildString.toString();
+                        }else{
+                            builtString = "";
+                        }
+                        
+                        inspectedMap.put(VALUE_NESTED_VALUES_KEY, builtString);
+                        
+                        inspectedMap.put(NAME_ATTRIBUTE_VALUE_KEY, removeQuotes( currFlexComponentNodeAttribute.getProperty(NAME_ATTRIBUTE_VALUE_KEY).getParameterValue().toString() ));
+                        inspectedMap.put(NAME_DYNAMIC_KEY, removeQuotes( currFlexComponentNodeAttribute.getProperty(IS_NAME_DYNAMIC_ATTRIBUTE_KEY).getParameterValue().toString() ));
+                        inspectedMap.put(NAME_APPEND_KEY, removeQuotes( currFlexComponentNodeAttribute.getProperty(NAME_APPEND_KEY).getParameterValue().toString() ));
+                        
+                        inspectedList.add(inspectedMap);
+                        
+                    }
+                    
+                    inspectFileFinished(inspectedList, currClass.getName(), currClass.getPackage().toString());
 				}
 				
 				inspectionCompleted();
@@ -378,6 +414,10 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 		}
 		
 	}
+    
+    private String removeQuotes(String content){
+        return content == null ? "" : content.replaceAll("\"", "");
+    }
 	
 	private String returnEmptyStringForNull(Object checkForNull){
 		return checkForNull == null ? "" : checkForNull.toString();

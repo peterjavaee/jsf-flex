@@ -132,6 +132,17 @@ public abstract class MXMLUIOutputBase extends UIOutput implements _MXMLContract
 		_preMxmlIdentifier = preMxmlIdentifier;
 	}
 	
+    /**
+     * Id of the component.
+     */
+    @JSFProperty(
+            inheritTag  =   true,
+            desc        =   "Id of the component."
+    )
+    public String getId(){
+        return super.getId();
+    }
+    
 	/**
      * The value can either be a static value (ID) or an EL expression. When a static id is
      * specified, an instance of the converter type registered with that id is used. When this is an
