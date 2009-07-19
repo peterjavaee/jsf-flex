@@ -30,6 +30,7 @@ import org.apache.commons.logging.LogFactory;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
+import com.googlecode.jsfFlex.shared.tasks.ant.CopyLocaleTask;
 import com.googlecode.jsfFlex.shared.tasks.ant.DeleteTask;
 import com.googlecode.jsfFlex.shared.tasks.ant.EchoTask;
 import com.googlecode.jsfFlex.shared.tasks.ant.FileCopyTask;
@@ -85,6 +86,11 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 		MXMLCTask swfCreator = new MXMLCTask(mxmlFile, swfPath, componentMXML, flexSDKRootPath).locale(locale).localePath(localePath);
 		addTask(swfCreator);
 	}
+    
+    public void copyLocale(String locale, String flexSDKRootPath){
+        CopyLocaleTask copyLocale = new CopyLocaleTask(locale, flexSDKRootPath);
+        addTask(copyLocale);
+    }
 	
 	public void createSwcSourceFiles(String swcPath, List<String> systemSourceFiles, String jsfFlexMainSwcConfigFile, String webContextPath) {
 		//Echo the sourceFiles to the SWC path

@@ -48,6 +48,8 @@ public interface _FlexTaskRunner extends _TaskRunner {
 	
 	void createSWF(String mxmlFile, String swfPath, _MXMLApplicationContract componentMXML, String flexSDKRootPath, String locale, String localePath);
 	
+    void copyLocale(String locale, String flexSDKRootPath);
+    
 	void createSwfSourceFiles(String swfBasePath, List<String> systemSwfSourceFiles);
 	
 	void renameFile(String sourceFile, String destFile, boolean overWrite);

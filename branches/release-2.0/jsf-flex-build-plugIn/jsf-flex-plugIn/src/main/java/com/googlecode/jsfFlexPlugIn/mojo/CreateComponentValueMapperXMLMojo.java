@@ -312,6 +312,8 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 					inspectedList.add(inspectedMap);
 					//have added Map info containing CLASS_* info
 					AnnotationValue mxmlComponentNodeAttributes = jsfFlexAttributeListAnnotation.getProperty(MXML_COMPONENT_NODE_ATTRIBUTES_KEY);
+                    
+                    @SuppressWarnings("unchecked")
                     List<Annotation> flexComponentNodeAttributes = (List<Annotation>) mxmlComponentNodeAttributes.getParameterValue();
                     
                     for(Annotation currFlexComponentNodeAttribute : flexComponentNodeAttributes){
@@ -332,6 +334,8 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
                         boolean isValueNested = Boolean.valueOf(removeQuotes( currFlexComponentNodeAttribute.getProperty(IS_VALUE_NESTED_ATTRIBUTE_KEY).getParameterValue().toString() ));
                         if(isValueNested){
                             StringBuilder toBuildString = new StringBuilder();
+                            
+                            @SuppressWarnings("unchecked")
                             List<String> valueNestedValues = (List<String>) currFlexComponentNodeAttribute.getProperty(VALUE_NESTED_VALUES_KEY).getParameterValue();
                             for(String buildInto : valueNestedValues){
                                 toBuildString.append(removeQuotes( buildInto ));

@@ -197,6 +197,13 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
             }
             
             createJsfFlexFlashApplicationConfigurationFile();
+            
+            /*
+             * Additional step of executing copyLocale script for Flex 3.0+.
+             */
+            for(String currLocale : multiLingualSupportMap.keySet()){
+                copyLocale(currLocale, mxmlContext.getFlexSDKPath());
+            }
         }
         
         //finally the SWF file
@@ -276,7 +283,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
     }
     
     /**
-     * Thie method will create the application SWF file from its MXML file.<br>
+     * This method will create the application SWF file from its MXML file.<br>
      * 
      * @param componentMXML
      * @param mxmlFile
@@ -298,6 +305,16 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
                 getFlexTaskRunner().createSWF(mxmlFile, currLocaleFileName, componentMXML, flexSDKRootPath, currLocale, currLocaleSourcePath);
             }
         }
+    }
+    
+    /**
+     * This method will execute a copyLocale script of en_US to the specified locale. This is an add on task for Flex 3.0+.<br>
+     * 
+     * @param locale
+     * @param flexSDKRootPath
+     */
+    public final void copyLocale(String locale, String flexSDKRootPath){
+        getFlexTaskRunner().copyLocale(locale, flexSDKRootPath);
     }
     
     /**

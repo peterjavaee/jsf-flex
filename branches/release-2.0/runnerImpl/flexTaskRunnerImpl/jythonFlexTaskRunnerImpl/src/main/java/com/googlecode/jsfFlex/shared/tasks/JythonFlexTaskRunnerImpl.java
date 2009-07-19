@@ -34,6 +34,7 @@ import org.python.util.PythonInterpreter;
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
+import com.googlecode.jsfFlex.shared.tasks.jython.CopyLocaleTask;
 import com.googlecode.jsfFlex.shared.tasks.jython.DeleteTask;
 import com.googlecode.jsfFlex.shared.tasks.jython.EchoTask;
 import com.googlecode.jsfFlex.shared.tasks.jython.FileCopyTask;
@@ -121,6 +122,11 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 		MXMLCTask swfCreator = new MXMLCTask(mxmlFile, swfPath, componentMXML, flexSDKRootPath).locale(locale).localePath(localePath);
 		addTask(swfCreator);
 	}
+    
+    public void copyLocale(String locale, String flexSDKRootPath){
+        CopyLocaleTask copyLocale = new CopyLocaleTask(locale, flexSDKRootPath);
+        addTask(copyLocale);
+    }
 	
 	public void createSwcSourceFiles(String swcPath, List<String> systemSourceFiles, String jsfFlexMainSwcConfigFile, String webContextPath) {
 		//Echo the sourceFiles to the SWC path
