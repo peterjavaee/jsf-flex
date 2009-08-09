@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<app_configuration>
-	<flash_to_javascript_log_level>${jsfFlexFlashApplicationConfig.getFlashToJavaScriptLogMode()}</flash_to_javascript_log_level>
-</app_configuration>
