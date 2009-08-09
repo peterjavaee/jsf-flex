@@ -1,0 +1,167 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.googlecode.jsf-flex</groupId>
+  <artifactId>jsf-flex-build-project</artifactId>
+  <packaging>pom</packaging>
+  <version>2.0b</version>
+  <name>JSF-Flex Main Build Project</name>
+  <url>http://code.google.com/p/jsf-flex/</url>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+    <license>
+      <name>Mozilla Public License, Version 1.1</name>
+      <url>http://www.mozilla.org/MPL/MPL-1.1.html</url>
+      <distribution>repo</distribution>
+    </license>
+    <license>
+      <name>Jython License</name>
+      <url>http://www.jython.org/Project/license.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <description>JSF Flex Main Build Project</description>
+  
+  <scm>
+    <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk</connection>
+    <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk</developerConnection>
+  </scm>
+  
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>20080701</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging</artifactId>
+        <version>1.1.1</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+        <version>${javax.servlet.jstl.version}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>javax.servlet.jsp</groupId>
+        <artifactId>jsp-api</artifactId>
+        <version>${javax.servlet.jsp.api.version}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>servlet-api</artifactId>
+        <version>${javax.servlet.api.version}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>org.apache.myfaces.core</groupId>
+        <artifactId>myfaces-api</artifactId>
+        <version>${myfaces.version}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>org.apache.myfaces.core</groupId>
+        <artifactId>myfaces-impl</artifactId>
+        <version>${myfaces.version}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>org.apache.myfaces.shared</groupId>
+        <artifactId>myfaces-shared-impl</artifactId>
+        <version>${myfaces.shared.version}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>org.apache.myfaces.buildtools</groupId>
+        <artifactId>myfaces-builder-annotations</artifactId>
+        <version>${myfaces.buildtools.version}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>javax.faces</groupId>
+        <artifactId>jsf-api</artifactId>
+        <version>${mojarra.jsf.version}</version>
+      </dependency> 
+      
+      <dependency>
+        <groupId>javax.faces</groupId>
+        <artifactId>jsf-impl</artifactId>
+        <version>${mojarra.jsf.version}</version>
+      </dependency>
+      
+      <dependency>
+        <groupId>org.apache.myfaces.buildtools</groupId>
+        <artifactId>myfaces-builder-plugin</artifactId>
+        <version>${myfaces.buildtools.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.googlecode.jsf-flex.jsf-flex-shared-project</groupId>
+        <artifactId>jsf-flex-shared</artifactId>
+        <version>${jsf.flex.shared.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
+        <artifactId>jsf-flex</artifactId>
+        <version>${jsf.flex.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
+        <artifactId>jsf-flex-project-renderKit15</artifactId>
+        <version>${jsf.flex.renderKit.version}</version>
+      </dependency>
+      
+    </dependencies>
+  </dependencyManagement>
+  
+  <modules>
+    <module>jsf-flex-build-plugIn</module>
+    <module>jsf-flex</module>
+    <module>jsf-flex-shared</module>
+    <module>runnerImpl</module>
+  </modules>
+  
+  <build>
+    <defaultGoal>install</defaultGoal>
+    <extensions>
+      <extension>
+        <groupId>org.jvnet.wagon-svn</groupId>
+        <artifactId>wagon-svn</artifactId>
+        <version>1.9</version>
+      </extension>
+    </extensions>
+  </build>
+  
+  <distributionManagement>
+    <repository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>jsf-flex-googlecode</id>
+      <url>svn:https://jsf-flex.googlecode.com/svn/repository/release</url>
+    </repository>
+  </distributionManagement>
+  
+  <properties>
+    <javax.servlet.jstl.version>1.1.2</javax.servlet.jstl.version>
+    <javax.servlet.jsp.api.version>2.1</javax.servlet.jsp.api.version>
+    <javax.servlet.api.version>2.5</javax.servlet.api.version>
+    <myfaces.buildtools.version>1.0.3</myfaces.buildtools.version>
+    <myfaces.version>1.2.2</myfaces.version>
+    <myfaces.shared.version>3.0.3</myfaces.shared.version>
+    <mojarra.jsf.version>1.2-b19</mojarra.jsf.version>
+    <jsf.flex.shared.version>2.0b</jsf.flex.shared.version>
+    <jsf.flex.renderKit.version>2.0b</jsf.flex.renderKit.version>
+    <jsf.flex.version>2.0b</jsf.flex.version>
+    <jsf.flex.plugIn.version>2.0b</jsf.flex.plugIn.version>
+  </properties>
+  
+</project>
+
