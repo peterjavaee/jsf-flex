@@ -10,13 +10,26 @@ JSF Flex goal is to provide users capability in creating standard Flex component
    * IE
    * Opera
    * Safari
- * various application servers
+ * various servlet container/application servers
    * {{{TomCat}}}
    * {{{JBoss}}}
 
 
 ==Milestones==
 ------
+
+===Release 1.5 BETA===
+
+===Release Date===
+TBD
+
+===Features===
+ * Change from usage of Qdox Javadoc to Annotation
+ * Code written in JDK 5.0
+ * Support of latest, stable Flex version { 3.xx {i.e. features such as runtime access of locale messages}}.
+ * Better packaging of component attributes { implementation }
+ * Additional functionality such as the current {{{DataGrid}}} component where there will be further interweaving of JSF/Java + {{{ActionScript}}} content.
+ * Fixes from additional testing
 
 ===Release 1.0 BETA===
 
