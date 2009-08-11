@@ -19,7 +19,6 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
 import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
@@ -57,25 +56,11 @@ interface _MXMLUILabelAttributes
             _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, _MXMLUITextAlignAttribute,
             _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, _MXMLUIDataChangeAttribute,
             _MXMLUIBaseAttributes {
-
-    /**
-     * Specifies the text displayed by the control.
-     */
-    @JSFProperty(
-            rtexprvalue     =   true,
-            desc            =   "Specifies the text displayed by the control."
-    )
+    
     String getHtmlText();
     
     void setHtmlText(String htmlText);
-
-    /**
-     * Plain text that appears in the control.
-     */
-    @JSFProperty(
-            rtexprvalue     =   true,
-            desc            =   "Plain text that appears in the control."
-    )
+    
     String getText();
     
     void setText(String text);

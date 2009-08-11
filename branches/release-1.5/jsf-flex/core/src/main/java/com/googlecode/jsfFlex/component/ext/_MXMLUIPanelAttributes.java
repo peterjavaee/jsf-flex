@@ -19,7 +19,6 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
 import com.googlecode.jsfFlex.attributes._MXMLUIBorderAlphaAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIBorderThicknessBottomAttribute;
@@ -71,10 +70,6 @@ interface _MXMLUIPanelAttributes
                 _MXMLUIVerticalAlignAttribute, _MXMLUIVerticalGapAttribute, _MXMLUIResizeEndEffectAttribute, 
                 _MXMLUIResizeStartEffectAttribute, _MXMLUICloseAttribute, _MXMLUIContainerAttributes {
     
-    /**
-     * Title or caption displayed in the title bar.
-     */
-    @JSFProperty(desc   =   "Title or caption displayed in the title bar.")
     String getTitle();
     
 }

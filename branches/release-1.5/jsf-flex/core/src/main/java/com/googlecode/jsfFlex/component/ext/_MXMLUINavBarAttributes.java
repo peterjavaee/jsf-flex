@@ -19,7 +19,6 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
 import com.googlecode.jsfFlex.attributes._MXMLUIIconFieldAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIItemClickAttribute;
@@ -34,19 +33,8 @@ interface _MXMLUINavBarAttributes
             extends _MXMLUIIconFieldAttribute, _MXMLUILabelFieldAttribute, _MXMLUIToolTipFieldAttribute, 
             _MXMLUIItemClickAttribute, _MXMLUIBoxAttributes {
     
-    /**
-     * The set of items this component displays.
-     */
-    @JSFProperty(desc   =   "The set of items this component displays.")
     String getDataProvider();
     
-    /**
-     * The index in the data provider of the selected item.
-     */
-    @JSFProperty(
-            rtexprvalue     =   true,
-            desc            =   "The index in the data provider of the selected item."
-    )
     Integer getSelectedIndex();
     
     void setSelectedIndex(Integer selectedIndex);

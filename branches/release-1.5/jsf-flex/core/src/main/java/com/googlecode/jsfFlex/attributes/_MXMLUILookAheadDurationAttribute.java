@@ -16,19 +16,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.component.ext.data.ext;
+package com.googlecode.jsfFlex.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-
-import com.googlecode.jsfFlex.attributes._MXMLUIFilterFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIListAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISortAttribute;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="lookAheadDuration", returnType="java.lang.String", longDesc="The type look-ahead duration, in milliseconds, for multi-character look ahead.")
 @JSFComponent
-interface _MXMLUIListCollectionViewAttributes 
-                extends _MXMLUIFilterFunctionAttribute, _MXMLUIListAttribute, _MXMLUISortAttribute {
+public interface _MXMLUILookAheadDurationAttribute {
     
 }

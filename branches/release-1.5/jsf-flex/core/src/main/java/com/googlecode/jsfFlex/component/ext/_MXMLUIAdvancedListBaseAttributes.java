@@ -27,6 +27,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIChangeAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIColumnCountAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIColumnWidthAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDataChangeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDataChangeEffectAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDataTipFieldAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDataTipFunctionAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDragEnabledAttribute;
@@ -73,24 +74,24 @@ import com.googlecode.jsfFlex.attributes._MXMLUIWordWrapAttribute;
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIListBaseAttributes 
-                    extends _MXMLUIAllowDragSelectionAttribute, _MXMLUIAllowMultipleSelectionAttribute, _MXMLUIColumnCountAttribute, 
-                    _MXMLUIColumnWidthAttribute, _MXMLUIDataTipFieldAttribute, _MXMLUIDataTipFunctionAttribute, 
-                    _MXMLUIDragEnabledAttribute, _MXMLUIDragMoveEnabledAttribute, _MXMLUIDropEnabledAttribute, 
-                    _MXMLUIIconFieldAttribute, _MXMLUIIconFunctionAttribute, _MXMLUIItemRendererAttribute, 
-                    _MXMLUILabelFieldAttribute, _MXMLUILabelFunctionAttribute, _MXMLUILockedColumnCountAttribute, 
-                    _MXMLUILockedRowCountAttribute, _MXMLUIMenuSelectionModeAttribute, _MXMLUIRowHeightAttribute, 
-                    _MXMLUISelectableAttribute, _MXMLUISelectedIndicesAttribute, _MXMLUISelectedItemAttribute, 
-                    _MXMLUISelectedItemsAttribute, _MXMLUIShowDataTipsAttribute, _MXMLUIVariableRowHeightAttribute,
-                    _MXMLUIWordWrapAttribute, _MXMLUIAlternatingItemColorsAttribute, _MXMLUIDropIndicatorSkinAttribute, 
-                    _MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, _MXMLUIPaddingBottomAttribute, 
-                    _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, _MXMLUIPaddingTopAttribute, 
-                    _MXMLUIRollOverColorAttribute, _MXMLUISelectionColorAttribute, _MXMLUISelectionDisabledColorAttribute, 
-                    _MXMLUISelectionDurationAttribute, _MXMLUISelectionEasingFunctionAttribute, _MXMLUITextRollOverColorAttribute, 
-                    _MXMLUITextSelectedColorAttribute, _MXMLUIUseRollOverAttribute, _MXMLUIVerticalAlignAttribute, 
-                    _MXMLUIChangeAttribute, _MXMLUIDataChangeAttribute, _MXMLUIItemDoubleClickAttribute, 
-                    _MXMLUIItemRollOutAttribute, _MXMLUIItemRollOverAttribute, _MXMLUIItemClickAttribute, 
-                    _MXMLUIScrollControlAttributes {
+interface _MXMLUIAdvancedListBaseAttributes 
+                extends _MXMLUIAllowDragSelectionAttribute, _MXMLUIAllowMultipleSelectionAttribute, _MXMLUIColumnCountAttribute, 
+                _MXMLUIColumnWidthAttribute, _MXMLUIDataTipFieldAttribute, _MXMLUIDataTipFunctionAttribute, 
+                _MXMLUIDragEnabledAttribute, _MXMLUIDragMoveEnabledAttribute, _MXMLUIDropEnabledAttribute, 
+                _MXMLUIIconFieldAttribute, _MXMLUIIconFunctionAttribute, _MXMLUIItemRendererAttribute, 
+                _MXMLUILabelFieldAttribute, _MXMLUILabelFunctionAttribute, _MXMLUILockedColumnCountAttribute, 
+                _MXMLUILockedRowCountAttribute, _MXMLUIMenuSelectionModeAttribute, _MXMLUIRowHeightAttribute, 
+                _MXMLUISelectableAttribute, _MXMLUISelectedIndicesAttribute, _MXMLUISelectedItemAttribute, 
+                _MXMLUISelectedItemsAttribute, _MXMLUIShowDataTipsAttribute, _MXMLUIVariableRowHeightAttribute, 
+                _MXMLUIWordWrapAttribute, _MXMLUIAlternatingItemColorsAttribute, _MXMLUIDataChangeEffectAttribute, 
+                _MXMLUIDropIndicatorSkinAttribute, _MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, 
+                _MXMLUIPaddingBottomAttribute, _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, 
+                _MXMLUIPaddingTopAttribute, _MXMLUIRollOverColorAttribute, _MXMLUISelectionColorAttribute, 
+                _MXMLUISelectionDisabledColorAttribute, _MXMLUISelectionDurationAttribute, _MXMLUISelectionEasingFunctionAttribute, 
+                _MXMLUITextRollOverColorAttribute, _MXMLUITextSelectedColorAttribute, _MXMLUIUseRollOverAttribute, 
+                _MXMLUIVerticalAlignAttribute, _MXMLUIChangeAttribute, _MXMLUIDataChangeAttribute, 
+                _MXMLUIItemClickAttribute, _MXMLUIItemDoubleClickAttribute, _MXMLUIItemRollOutAttribute, 
+                _MXMLUIItemRollOverAttribute, _MXMLUIScrollControlAttributes {
     
     String getDataProvider();
     

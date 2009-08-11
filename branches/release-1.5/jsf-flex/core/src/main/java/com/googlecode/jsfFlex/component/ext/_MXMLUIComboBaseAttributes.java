@@ -19,7 +19,6 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
 import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes._MXMLUIDisabledSkinAttribute;
@@ -45,39 +44,17 @@ interface _MXMLUIComboBaseAttributes
                         _MXMLUIEditableDownSkinAttribute, _MXMLUIEditableOverSkinAttribute, _MXMLUIEditableUpSkinAttribute,
                         _MXMLUIOverSkinAttribute, _MXMLUITextInputStyleNameAttribute, _MXMLUIUpSkinAttribute, 
                         _MXMLUIBaseAttributes {
-
-    /**
-     * The set of items this component displays.
-     */
-    @JSFProperty(desc   =   "The set of items this component displays.")
+    
     String getDataProvider();
     
     void setDataProvider(String dataProvider);
-
-    /**
-     * A flag that indicates whether the control is editable.
-     */
-    @JSFProperty(desc   =   "A flag that indicates whether the control is editable.")
+    
     String getEditable();
-
-    /**
-     * The index in the data provider of the selected item.
-     */
-    @JSFProperty(
-            rtexprvalue     =   true,
-            desc            =   "The index in the data provider of the selected item."
-    )
+    
     Integer getSelectedIndex();
     
     void setSelectedIndex(Integer selectedIndex);
-
-    /**
-     * Plain text that appears in the control.
-     */
-    @JSFProperty(
-            rtexprvalue     =   true,
-            desc            =   "Plain text that appears in the control."
-    )
+    
     String getText();
     
     void setText(String text);

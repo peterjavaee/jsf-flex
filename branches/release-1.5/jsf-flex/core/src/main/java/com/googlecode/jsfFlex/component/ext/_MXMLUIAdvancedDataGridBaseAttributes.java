@@ -16,19 +16,24 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.component.ext.data.ext;
+package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIFilterFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIListAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISortAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIHeaderHeightAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIHeaderWordWrapAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUISelectionModeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIShowHeadersAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUISortItemRendererAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIStyleFunctionAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIListCollectionViewAttributes 
-                extends _MXMLUIFilterFunctionAttribute, _MXMLUIListAttribute, _MXMLUISortAttribute {
+interface _MXMLUIAdvancedDataGridBaseAttributes 
+                extends _MXMLUIHeaderHeightAttribute, _MXMLUIHeaderWordWrapAttribute, _MXMLUISelectionModeAttribute, 
+                _MXMLUIShowHeadersAttribute, _MXMLUISortItemRendererAttribute, _MXMLUIStyleFunctionAttribute, 
+                _MXMLUIAdvancedListBaseAttributes {
     
 }

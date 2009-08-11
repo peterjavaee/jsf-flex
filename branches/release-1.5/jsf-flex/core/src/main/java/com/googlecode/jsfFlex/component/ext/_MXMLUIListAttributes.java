@@ -19,7 +19,6 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
 import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundDisabledColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIEditedItemPositionAttribute;
@@ -51,10 +50,6 @@ interface _MXMLUIListAttributes
                     _MXMLUIItemEditBeginAttribute, _MXMLUIItemEditEndAttribute, _MXMLUIItemEditBeginningAttribute, 
                     _MXMLUIItemFocusInAttribute, _MXMLUIItemFocusOutAttribute, _MXMLUIListBaseAttributes {
     
-    /**
-     * A flag that indicates whether the control is editable.
-     */
-    @JSFProperty(desc   =   "A flag that indicates whether the control is editable.")
     String getEditable();
     
 }
