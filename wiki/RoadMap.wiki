@@ -18,7 +18,7 @@ JSF Flex goal is to provide users capability in creating standard Flex component
 ==Milestones==
 ------
 
-===Release 1.5 BETA===
+===Release 1.1 BETA===
 
 ===Release Date===
 TBD
