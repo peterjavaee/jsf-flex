@@ -35,7 +35,6 @@ public final class CopyLocaleTask extends AntBaseTask {
     
     private static final String WINDOWS_EXEC = "bin" + File.separatorChar + "copylocale.exe";
     private static final String NON_WINDOWS_SHELL = "bin" + File.separatorChar + "copylocale.sh";
-    private static final String EN_US = "en_us";
     
     private static final String COPY_LOCALE_TARGET = "copy_locale";
     
@@ -73,7 +72,7 @@ public final class CopyLocaleTask extends AntBaseTask {
         }
         
         arg = _copyLocaleTask.createArg();
-        arg.setLine(EN_US + " " + _locale);
+        arg.setLine(MXMLConstants.EN_US + " " + _locale);
         
         _copyLocaleTask.maybeConfigure();
         

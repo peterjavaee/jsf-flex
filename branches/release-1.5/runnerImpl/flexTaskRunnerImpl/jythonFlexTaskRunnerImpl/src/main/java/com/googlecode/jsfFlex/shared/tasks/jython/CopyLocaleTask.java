@@ -45,8 +45,7 @@ public final class CopyLocaleTask extends _JythonBaseTask {
     
     private static final String WINDOWS_EXEC = "bin" + File.separatorChar + "copylocale.exe";
     private static final String NON_WINDOWS_SHELL = "bin" + File.separatorChar + "copylocale.sh";
-    private static final String EN_US = "en_us";
-    
+        
     private String _locale;
     private String _flexSDKRootPath;
     
@@ -73,7 +72,7 @@ public final class CopyLocaleTask extends _JythonBaseTask {
         
         Vector<String> commandArguments = new Vector<String>();
         
-        commandArguments.add(EN_US + " " + _locale);
+        commandArguments.add(MXMLConstants.EN_US + " " + _locale);
         
         return commandArguments;
     }

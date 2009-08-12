@@ -150,7 +150,7 @@
 							    	<jf:mxmlTextArea id="textAreaRef" text="#{mxmlOverallBean.textAreaText}" >
 							    		<f:validateLongRange minimum="10" maximum="60" />
 							    	</jf:mxmlTextArea>
-							    	<jf:mxmlDateField text="#{mxmlOverallBean.dateFieldText}" />
+							    	<jf:mxmlDateField text="#{mxmlOverallBean.dateFieldText}" width="100" />
 							    	<jf:mxmlCheckBox label="CheckBox am I [\^$.|?*+(){}" selected="#{mxmlOverallBean.checkBoxSelected}" />
 						    	</jf:mxmlBox>
 						    	

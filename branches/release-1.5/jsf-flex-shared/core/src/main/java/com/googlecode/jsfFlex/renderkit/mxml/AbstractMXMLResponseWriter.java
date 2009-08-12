@@ -200,8 +200,13 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
             
             /*
              * Additional step of executing copyLocale script for Flex 3.0+.
+             * Skip en_US as it is the original source language
+             * TODO: For creation of SWF + copying of Locale, consider implementation with the usage of Executor
              */
             for(String currLocale : multiLingualSupportMap.keySet()){
+                if(currLocale.equalsIgnoreCase(MXMLConstants.EN_US)){
+                    continue;
+                }
                 copyLocale(currLocale, mxmlContext.getFlexSDKPath());
             }
         }

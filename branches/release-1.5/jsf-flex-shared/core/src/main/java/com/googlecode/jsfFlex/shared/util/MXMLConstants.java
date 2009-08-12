@@ -42,6 +42,7 @@ public final class MXMLConstants {
 	public static final String LOCALE_WEB_CONTEXT_RELATIVE_PATH = "com.googlecode.jsfFlex.LocaleWebContextRelativePath";
 	public static final String DEFAULT_LOCALE = "com.googlecode.jsfFlex.DefaultLocale";
 	public static final String DEFAULT_LOCALE_SWF_PATH_KEY = "DefaultLocaleSwfPathKey";
+    public static final String EN_US = "en_us";
 	public static final char SWF_FILE_NAME_LOCALE_SEPARATOR = '-';
 	
 	public static final String FLASH_TO_JAVASCRIPT_LOG_LEVEL_NAME = "com.googlecode.jsfFlex.FlashToJavaScriptLogLevel";
