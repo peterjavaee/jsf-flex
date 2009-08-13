@@ -116,20 +116,23 @@ package com.googlecode.jsfFlex.communication.core
 						if(currValue != null){
 							var objectRef:Object;
 							
-							if(currValue is String){
-								
-								var currValueString:String = currValue as String;
-								if(currValueString != NULL_STRING){
+							try{
+								if(currValue is String){
+									
+									var currValueString:String = currValue as String;
+									if(currValueString != NULL_STRING){
+										objectRef = _refApp[currId];
+										currValueString = unEscapeCharacters(currValueString);
+										objectRef[currAttr] = currValueString;
+									}
+									
+								}else{
 									objectRef = _refApp[currId];
-									currValueString = unEscapeCharacters(currValueString);
-									objectRef[currAttr] = currValueString;
+									objectRef[currAttr] = currValue;
 								}
-								
-							}else{
-								
-								objectRef = _refApp[currId];
-								objectRef[currAttr] = currValue;
-								
+							}catch(initValueSetterError:Error){
+								trace("Failure in setting of id/value : " + currId + "/" + currValue + ", " + initValueSetterError.errorID + " " + initValueSetterError.message);
+								_log.error("Failure in setting of id/value : " + currId + "/" + currValue + ", " + initValueSetterError.errorID + " " + initValueSetterError.message);
 							}
 						}
 					}

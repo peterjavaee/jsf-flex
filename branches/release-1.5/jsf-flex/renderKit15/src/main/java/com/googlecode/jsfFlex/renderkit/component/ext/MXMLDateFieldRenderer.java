@@ -53,7 +53,17 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						valueNestedValues={},
 						nameAttributeValue="id",
 						isNameDynamic=true,
-						nameAppend="_text")
+						nameAppend="_text"),
+                @FlexComponentNodeAttribute(
+                        htmlType="input",
+                        typeAttributeValue="hidden",
+                        valueAttributeValue="selectedDate",
+                        isValueDynamic=true,
+                        isValueNested=false,
+                        valueNestedValues={},
+                        nameAttributeValue="id",
+                        isNameDynamic=true,
+                        nameAppend="_selectedDate")
 		},
 
 		jsfFlexAttributes={
@@ -71,7 +81,6 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 				@JsfFlexAttribute(attribute="monthSymbol"),
 				@JsfFlexAttribute(attribute="parseFunction"),
 				@JsfFlexAttribute(attribute="selectableRange"),
-				@JsfFlexAttribute(attribute="selectedDate"),
 				@JsfFlexAttribute(attribute="showToday"),
 				@JsfFlexAttribute(attribute="yearNavigationEnabled"),
 				@JsfFlexAttribute(attribute="yearSymbol"),

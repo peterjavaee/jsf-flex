@@ -65,7 +65,7 @@ public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLC
     	return null;
     }
 
-	public _AnnotationDocletParser getAnnotationDocletParserInstance(){
+	public synchronized _AnnotationDocletParser getAnnotationDocletParserInstance(){
 		
 		if(_annotationDocletParserInstance == null){
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();

@@ -18,13 +18,16 @@
  */
 package com.googlecode.jsfFlex.util;
 
+import java.util.Calendar;
+
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
  * This Util class will provide functionalities that are need by JSF Flex components, such as : <br>
  * <ul>
- * 	<li> escapeCharacters 		: This method will take the argument and return an encoded version in UTF-8<br>
+ * 	<li> escapeCharacters 		    : This method will take the argument and return an encoded version in UTF-8<br>
+ *  <li> convertJavaCalendarToASDate: This method will take a Java Calendar and format it to a String representation of ActionScript Date [used for initValue]<br>
  * </ul>
  * 
  * @author Ji Hoon Kim
@@ -39,6 +42,28 @@ public final class MXMLJsfUtil {
 	private MXMLJsfUtil(){
 		super();
 	}
+    
+    public static String convertJavaDateToASDate(Calendar toConvert){
+        StringBuilder asDateFormat = new StringBuilder();
+        
+        asDateFormat.append("new Date(");
+        asDateFormat.append(toConvert.get(Calendar.YEAR));
+        asDateFormat.append(", ");
+        asDateFormat.append(toConvert.get(Calendar.MONTH));
+        asDateFormat.append(", ");
+        asDateFormat.append(toConvert.get(Calendar.DATE));
+        asDateFormat.append(", ");
+        asDateFormat.append(toConvert.get(Calendar.HOUR_OF_DAY));
+        asDateFormat.append(", ");
+        asDateFormat.append(toConvert.get(Calendar.MINUTE));
+        asDateFormat.append(", ");
+        asDateFormat.append(toConvert.get(Calendar.SECOND));
+        asDateFormat.append(", ");
+        asDateFormat.append(toConvert.get(Calendar.MILLISECOND));
+        asDateFormat.append(")");
+        
+        return asDateFormat.toString();
+    }
 	
 	/**
 	 * This method will take the argument and return an encoded version in UTF-8. Also it will replace<br>

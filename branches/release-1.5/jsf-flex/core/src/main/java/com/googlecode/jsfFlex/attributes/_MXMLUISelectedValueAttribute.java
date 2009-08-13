@@ -18,8 +18,6 @@
  */
 package com.googlecode.jsfFlex.attributes;
 
-import java.util.Calendar;
-
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
@@ -27,14 +25,14 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface _MXMLUISelectedDateAttribute {
+public interface _MXMLUISelectedValueAttribute {
     
     /**
-     * Date selected in the control.
+     * This will represent the selectedValue chosen for the RadioButtonGroup. It should be used for databinding, so to figure out which radioButton within the same groupNamehas been chosen. Meaning it serves no purpose for display, so rationally you shouldhave databinded to ONE of the RadioButton with the same groupName.
      */
-    @JSFProperty(desc   =   "Date selected in the control.")
-    Calendar getSelectedDate();
+    @JSFProperty(desc   =   "This will represent the selectedValue chosen for the RadioButtonGroup. It should be used for databinding, so to figure out which radioButton within the same groupNamehas been chosen. Meaning it serves no purpose for display, so rationally you shouldhave databinded to ONE of the RadioButton with the same groupName.")
+    String getSelectedValue();
     
-    void setSelectedDate(Calendar selectedDate);
+    void setSelectedValue(String selectedValue);
     
 }

@@ -26,7 +26,6 @@ import javax.faces.context.FacesContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -66,6 +65,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIPaddingBottomAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIPaddingLeftAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIPaddingRightAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIPaddingTopAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUISelectedColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIShowTextFieldAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISwatchBorderColorAttribute;
@@ -105,7 +105,8 @@ public abstract class AbstractMXMLUIColorPicker
                         _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, 
                         _MXMLUIChangeAttribute, _MXMLUICloseAttribute, _MXMLUIEnterAttribute, _MXMLUIItemRollOutAttribute,
                         _MXMLUIItemRollOverAttribute, _MXMLUIOpenAttribute, _MXMLUIDataProviderAttribute, 
-                        _MXMLUIEditableAttribute, _MXMLUISelectedIndexAttribute, _MXMLUITextAttribute {
+                        _MXMLUIEditableAttribute, _MXMLUISelectedIndexAttribute, _MXMLUITextAttribute,
+                        _MXMLUISelectedColorAttribute {
 	
 	private final static Log _log = LogFactory.getLog(AbstractMXMLUIColorPicker.class);
 	
@@ -166,13 +167,5 @@ public abstract class AbstractMXMLUIColorPicker
     	}
     	
     }
-	
-	/**
-	 * The value of the currently selected color in the SwatchPanel object.
-	 */
-    @JSFProperty(desc   =   "The value of the currently selected color in the SwatchPanel object.")
-	public abstract String getSelectedColor();
-	
-	public abstract void setSelectedColor(String selectedColor);
 	
 }

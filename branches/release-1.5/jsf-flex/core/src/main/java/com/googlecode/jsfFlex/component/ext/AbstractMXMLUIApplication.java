@@ -246,7 +246,7 @@ public abstract class AbstractMXMLUIApplication
     	return null;
     }
 	
-	public _AnnotationDocletParser getAnnotationDocletParserInstance(){
+	public synchronized _AnnotationDocletParser getAnnotationDocletParserInstance(){
 		
 		if(_annotationDocletParserInstance == null){
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();

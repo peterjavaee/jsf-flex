@@ -1,3 +1,11 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:ui="http://java.sun.com/jsf/facelets"
+        xmlns:h="http://java.sun.com/jsf/html"
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:jf="http://jsf-flex.googlecode.com">
+<!--
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -16,25 +24,22 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.attributes;
+//-->
 
-import java.util.Calendar;
+<body>
 
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+<f:view renderKitId="MXML_BASIC">
+    
+    <h:form>
+    	
+    	<jf:mxmlApplication mxmlPackageName="mxmlDateChooser" height="500" width="800">
+	    	<jf:mxmlDateChooser selectedDate="#{mxmlFaceletOverallBean.selectedDate}" width="300" />
+	    </jf:mxmlApplication>
+    	
+    </h:form>
+    
+</f:view>
 
-/**
- * @author Ji Hoon Kim
- */
-@JSFComponent
-public interface _MXMLUISelectedDateAttribute {
-    
-    /**
-     * Date selected in the control.
-     */
-    @JSFProperty(desc   =   "Date selected in the control.")
-    Calendar getSelectedDate();
-    
-    void setSelectedDate(Calendar selectedDate);
-    
-}
+</body>
+
+</html>

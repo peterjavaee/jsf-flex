@@ -132,7 +132,7 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 		super.processDecodes(context);
 	}
 	
-	public _AnnotationDocletParser getAnnotationDocletParserInstance(){
+	public synchronized _AnnotationDocletParser getAnnotationDocletParserInstance(){
 		
 		if(_annotationDocletParserInstance == null){
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();

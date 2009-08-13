@@ -18,8 +18,6 @@
  */
 package com.googlecode.jsfFlex.attributes;
 
-import java.util.Calendar;
-
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
@@ -27,14 +25,14 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface _MXMLUISelectedDateAttribute {
+public interface _MXMLUISelectedColorAttribute {
     
     /**
-     * Date selected in the control.
+     * The value of the currently selected color in the SwatchPanel object.
      */
-    @JSFProperty(desc   =   "Date selected in the control.")
-    Calendar getSelectedDate();
+    @JSFProperty(desc   =   "The value of the currently selected color in the SwatchPanel object.")
+    String getSelectedColor();
     
-    void setSelectedDate(Calendar selectedDate);
+    void setSelectedColor(String selectedColor);
     
 }

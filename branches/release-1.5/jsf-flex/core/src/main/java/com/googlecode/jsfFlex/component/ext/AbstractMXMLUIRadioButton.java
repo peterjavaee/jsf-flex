@@ -26,6 +26,9 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
+import com.googlecode.jsfFlex.attributes._MXMLUIGroupNameAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUISelectedValueAttribute;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -40,7 +43,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
 )
 public abstract class AbstractMXMLUIRadioButton 
 						extends com.googlecode.jsfFlex.component.MXMLUISelectedBase
-						implements _MXMLUIButtonAttributes {
+						implements _MXMLUIButtonAttributes, _MXMLUIGroupNameAttribute, _MXMLUISelectedValueAttribute {
 	
 	private static final String SELECTED_VALUE_ATTR = "selectedValue";
 	private static final String SELECTED_VALUE_ID_APPENDED = "_selectedValue";
@@ -87,23 +90,6 @@ public abstract class AbstractMXMLUIRadioButton
     	}
     	
     }
-	
-	/**
-	 * Specifies the name of the group to which this RadioButton control belongs, or specifies the value of the id property of a RadioButtonGroup control if this RadioButton is part of agroup defined by a RadioButtonGroup control.
-	 */
-    @JSFProperty(
-            required    =   true,
-            desc        =   "Specifies the name of the group to which this RadioButton control belongs, or specifies the value of the id property of a RadioButtonGroup control if this RadioButton is part of agroup defined by a RadioButtonGroup control."
-    )
-	public abstract String getGroupName();
-    
-	/**
-	 * This will represent the selectedValue chosen for the RadioButtonGroup. It should be used for databinding, so to figure out which radioButton within the same groupNamehas been chosen. Meaning it serves no purpose for display, so rationally you shouldhave databinded to ONE of the RadioButton with the same groupName.
-	 */
-    @JSFProperty(desc   =   "This will represent the selectedValue chosen for the RadioButtonGroup. It should be used for databinding, so to figure out which radioButton within the same groupNamehas been chosen. Meaning it serves no purpose for display, so rationally you shouldhave databinded to ONE of the RadioButton with the same groupName.")
-	public abstract String getSelectedValue();
-	
-	public abstract void setSelectedValue(String selectedValue);
 	
 	/**
 	 * Current value.

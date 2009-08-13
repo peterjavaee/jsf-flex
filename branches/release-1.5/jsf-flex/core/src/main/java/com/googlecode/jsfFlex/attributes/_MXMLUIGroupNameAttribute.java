@@ -18,8 +18,6 @@
  */
 package com.googlecode.jsfFlex.attributes;
 
-import java.util.Calendar;
-
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
@@ -27,14 +25,15 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface _MXMLUISelectedDateAttribute {
+public interface _MXMLUIGroupNameAttribute {
     
     /**
-     * Date selected in the control.
+     * Specifies the name of the group to which this RadioButton control belongs, or specifies the value of the id property of a RadioButtonGroup control if this RadioButton is part of agroup defined by a RadioButtonGroup control.
      */
-    @JSFProperty(desc   =   "Date selected in the control.")
-    Calendar getSelectedDate();
-    
-    void setSelectedDate(Calendar selectedDate);
+    @JSFProperty(
+            required    =   true,
+            desc        =   "Specifies the name of the group to which this RadioButton control belongs, or specifies the value of the id property of a RadioButtonGroup control if this RadioButton is part of agroup defined by a RadioButtonGroup control."
+    )
+    String getGroupName();
     
 }

@@ -18,6 +18,16 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes._MXMLUIBorderColorAttribute;
@@ -113,4 +123,59 @@ public abstract class AbstractMXMLUIDateField
                         _MXMLUICloseAttribute, _MXMLUIDataChangeAttribute, _MXMLUIOpenAttribute, _MXMLUIScrollAttribute,
                         _MXMLUIDataProviderAttribute, _MXMLUIEditableAttribute, _MXMLUISelectedIndexAttribute {
 	
+    private final static Log _log = LogFactory.getLog(AbstractMXMLUIDateField.class);
+    
+    private static final String SELECTED_DATE_ATTR = "selectedDate";
+    private static final String SELECTED_DATE_ID_APPENDED = "_selectedDate";
+    
+    private static final String DATE_FORMAT_DEFAULT = "EEE MMM dd HH:mm:ss z Z yyyy";
+    
+    public void decode(FacesContext context) {
+        super.decode(context);
+        
+        java.util.Map<String, String> requestMap = context.getExternalContext().getRequestParameterMap();
+        
+        String selectedDateId = getId() + SELECTED_DATE_ID_APPENDED;
+        String selectedDateUpdateVal = requestMap.get(selectedDateId);
+        
+        if(selectedDateUpdateVal != null){
+            /*
+             * HACK: Since ActionScript returns date in format of "Thu Aug 23 00:00:00 GMT-0700 2009"
+             * and "EEE MMM dd HH:mm:ss zZ yyyy" pattern doesn't seem to match it within SimpleDateFormat,
+             * place a space between z + Z
+             */
+            int dashIndex = selectedDateUpdateVal.indexOf("-");
+            if(dashIndex != -1){
+                selectedDateUpdateVal = selectedDateUpdateVal.substring(0, dashIndex) + " " + selectedDateUpdateVal.substring(dashIndex);
+            }
+            Calendar instance = Calendar.getInstance();
+            try{
+                DateFormat dateFormat = new SimpleDateFormat(DATE_FORMAT_DEFAULT);
+                dateFormat.setLenient(true);
+                instance.setTime( dateFormat.parse(selectedDateUpdateVal) );
+                setSelectedDate(instance);
+            }catch(ParseException parsingException){
+                setValid(false);
+                context.addMessage(getId(), new FacesMessage("Parsing exception for value : " + selectedDateUpdateVal));
+                _log.error("Parsing exception for value : " + selectedDateUpdateVal, parsingException);
+            }
+        }
+    }
+    
+    public void processUpdates(FacesContext context) {
+        super.processUpdates(context);
+        
+        if (!isRendered() || !isValid()){
+            return;
+        }
+        
+        javax.el.ValueExpression ve = getValueExpression(SELECTED_DATE_ATTR);
+        
+        if(ve != null && !ve.isReadOnly(context.getELContext())){
+            ve.setValue(context.getELContext(), getSelectedDate());
+            setSelectedDate(null);
+        }
+        
+    }
+    
 }

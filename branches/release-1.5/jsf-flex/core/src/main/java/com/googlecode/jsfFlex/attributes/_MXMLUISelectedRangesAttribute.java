@@ -18,23 +18,14 @@
  */
 package com.googlecode.jsfFlex.attributes;
 
-import java.util.Calendar;
-
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="selectedRanges", returnType="java.lang.String", longDesc="Selected date ranges.")
 @JSFComponent
-public interface _MXMLUISelectedDateAttribute {
-    
-    /**
-     * Date selected in the control.
-     */
-    @JSFProperty(desc   =   "Date selected in the control.")
-    Calendar getSelectedDate();
-    
-    void setSelectedDate(Calendar selectedDate);
+public interface _MXMLUISelectedRangesAttribute {
     
 }

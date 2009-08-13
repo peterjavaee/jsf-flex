@@ -177,6 +177,7 @@
 					       	
 					       	<jf:mxmlNumericStepper minimum="0" maximum="10" value="#{mxmlOverallBean.numericStepperValue}" />
 					       	<jf:mxmlColorPicker labelField="ColorPicker am I" selectedColor="#{mxmlOverallBean.colorPickerSelectedColor}" />
+					       	<jf:mxmlDateChooser selectedDate="#{mxmlFaceletOverallBean.selectedDate}" width="300" />
 			    		</jf:mxmlPanel>
 	
 			    </jf:mxmlTabNavigator>

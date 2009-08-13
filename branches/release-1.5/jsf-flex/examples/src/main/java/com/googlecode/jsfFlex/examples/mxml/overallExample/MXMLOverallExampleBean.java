@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.examples.mxml.overallExample;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -54,6 +55,7 @@ public class MXMLOverallExampleBean implements Serializable {
 	private String _horizontalSliderValue;
 	private String _verticalSliderValue;
 	private String _progressBarValue;
+    private Calendar _selectedDate;
 	
 	private List<WisePeopleEntry> _wisePeopleEntries;
 	
@@ -82,7 +84,8 @@ public class MXMLOverallExampleBean implements Serializable {
 		_horizontalSliderValue = "";
 		_verticalSliderValue = "";
 		_progressBarValue = "";
-		
+        _selectedDate = null;
+        
 		_wisePeopleEntries = new ArrayList<WisePeopleEntry>();
 		_wisePeopleEntries.add(new WisePeopleEntry("Issac Newton", "This most beautiful system [The Universe] could only proceed from the dominion of an intelligent and powerful Being.", 
 													"fatherOfPhysicsCalculus@wiseHumble.com"));
@@ -184,7 +187,13 @@ public class MXMLOverallExampleBean implements Serializable {
 	public String getRichTextEditorHtmlText() {
 		return _richTextEditorHtmlText;
 	}
-	public void setRichTextEditorHtmlText(String richTextEditorHtmlText) {
+    public Calendar getSelectedDate() {
+        return _selectedDate;
+    }
+    public void setSelectedDate(Calendar selectedDate) {
+        _selectedDate = selectedDate;
+    }
+    public void setRichTextEditorHtmlText(String richTextEditorHtmlText) {
 		_richTextEditorHtmlText = richTextEditorHtmlText;
 	}
 	public Integer getTabNavigatorSelectedIndex() {

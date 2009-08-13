@@ -69,7 +69,7 @@ public abstract class MXMLUIOutputBase extends UIOutput implements _MXMLContract
     	return null;
     }
 
-	public _AnnotationDocletParser getAnnotationDocletParserInstance(){
+	public synchronized _AnnotationDocletParser getAnnotationDocletParserInstance(){
 		
 		if(_annotationDocletParserInstance == null){
 			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
