@@ -138,7 +138,7 @@ public abstract class AbstractMXMLUIDateField
         String selectedDateId = getId() + SELECTED_DATE_ID_APPENDED;
         String selectedDateUpdateVal = requestMap.get(selectedDateId);
         
-        if(selectedDateUpdateVal != null){
+        if(selectedDateUpdateVal != null && selectedDateUpdateVal.length() > 0){
             /*
              * HACK: Since ActionScript returns date in format of "Thu Aug 23 00:00:00 GMT-0700 2009"
              * and "EEE MMM dd HH:mm:ss zZ yyyy" pattern doesn't seem to match it within SimpleDateFormat,

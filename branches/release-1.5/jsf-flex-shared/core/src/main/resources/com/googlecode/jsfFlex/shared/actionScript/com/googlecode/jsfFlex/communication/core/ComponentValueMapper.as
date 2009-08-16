@@ -52,6 +52,9 @@ package com.googlecode.jsfFlex.communication.core
 		private static const VALUE_ASSIGNMENT_STATEMENT:String = "value=";
 		private static const VALUE_ATTR:String = "VALUE";
 		
+		private static const SPECIFIC_OBJECT_TYPE_INIT:String = "specificObjectTypeInit";
+		private static const DATE_OBJECT:String = "Date";
+		
 		private static var _compValueMapper:XML;
 		private static var _loader:URLLoader;
 		
@@ -128,7 +131,15 @@ package com.googlecode.jsfFlex.communication.core
 									
 								}else{
 									objectRef = _refApp[currId];
-									objectRef[currAttr] = currValue;
+									if(currInitValue.specificObjectTypeInit != undefined){
+										//TODO: Implement this better or find an alternative method
+										switch(currInitValue[SPECIFIC_OBJECT_TYPE_INIT]){
+											case DATE_OBJECT: objectRef[currAttr] = ConstructActionScriptObject.constructDateObject(currValue as Array); break;
+										}
+										
+									}else{
+										objectRef[currAttr] = currValue;
+									}
 								}
 							}catch(initValueSetterError:Error){
 								trace("Failure in setting of id/value : " + currId + "/" + currValue + ", " + initValueSetterError.errorID + " " + initValueSetterError.message);

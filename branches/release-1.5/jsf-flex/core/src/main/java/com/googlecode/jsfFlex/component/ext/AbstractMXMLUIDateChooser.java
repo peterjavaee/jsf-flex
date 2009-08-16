@@ -156,6 +156,7 @@ public abstract class AbstractMXMLUIDateChooser
     private static final String SELECTED_DATE_ATTR = "selectedDate";
     private static final String SELECTED_DATE_ID_APPENDED = "_selectedDate";
     
+    private static final String DATE_TYPE_INIT_VALUE = "Date";
     private static final String DATE_FORMAT_DEFAULT = "EEE MMM dd HH:mm:ss z Z yyyy";
     
     private org.json.JSONObject initValue;
@@ -163,7 +164,7 @@ public abstract class AbstractMXMLUIDateChooser
     protected void populateComponentInitValues(){
         try{
             if(getSelectedDate() != null){
-                getInitValue().put(VALUE, com.googlecode.jsfFlex.util.MXMLJsfUtil.convertJavaDateToASDate( getSelectedDate() ));
+                getInitValue().put(VALUE, com.googlecode.jsfFlex.util.MXMLJsfUtil.convertJavaDateToASDateConstructorArguments( getSelectedDate() ));
             }
         }catch(org.json.JSONException jsonException){
             _log.info("Error while formatting to JSON content", jsonException);
@@ -175,6 +176,7 @@ public abstract class AbstractMXMLUIDateChooser
             try{
                 initValue = new org.json.JSONObject();
                 initValue.put(ATTRIBUTE, SELECTED_DATE_ATTR);
+                initValue.put(SPECIFIC_OBJECT_TYPE_INIT, DATE_TYPE_INIT_VALUE);
                 
                 _initValues.put(initValue);
                 
@@ -193,7 +195,7 @@ public abstract class AbstractMXMLUIDateChooser
         String selectedDateId = getId() + SELECTED_DATE_ID_APPENDED;
         String selectedDateUpdateVal = requestMap.get(selectedDateId);
         
-        if(selectedDateUpdateVal != null){
+        if(selectedDateUpdateVal != null && selectedDateUpdateVal.length() > 0){
             /*
              * HACK: Since ActionScript returns date in format of "Thu Aug 23 00:00:00 GMT-0700 2009"
              * and "EEE MMM dd HH:mm:ss zZ yyyy" pattern doesn't seem to match it within SimpleDateFormat,

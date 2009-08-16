@@ -58,7 +58,14 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 	
 	protected static final String ATTRIBUTE = "attribute";
 	protected static final String VALUE = "value";
-	
+	/*
+     * Below parameter should be inserted into initValue JSONObject when 
+     * specific ActionScript Object needs to be constructed for component's 
+     * initial value [i.e. AbstractMXMLUIDateChooser]
+	 */
+    protected static final String SPECIFIC_OBJECT_TYPE_INIT = "specificObjectTypeInit";
+    
+    
 	private static final String INIT_VALUES = "initValues";
 	
 	protected JSONArray _initValues;
