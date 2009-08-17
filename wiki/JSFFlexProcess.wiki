@@ -7,15 +7,17 @@ Brief overview of JSF Flex Process
  # The component library will piggy back on JSF lifecycle.
  # All Flex components must be nested within <s:mxmlApplication /> tag as it is the top component and this tag must be nested within <h:form /> tag.
  # During runtime, fields from sub-class of UIComponent will be fetched from the attribute map or by method call depending on the {{{JavaDoc}}}/annotation for the component files. For 
-   * renderKit14 fields will be read by parsing replaceMapping XML files, generated during the build time by inspecting the {{{JavaDocs}}}.
+   * renderKit14 fields will be read by parsing replaceMapping XML files, generated during the build time by inspecting the {{{JavaDocs}}}. *deprecated for release-1.1+*
    * renderKit15 fields will be read by inspecting the custom annotation of the files during run time.
  # Template files {a.k.a. preMxml files} will be created by implementation of {{{_FileManipulatorTaskRunner}}} java file with default being {{{VelocityFileManipulatorTaskRunnerImpl}}}. These templates known as preMxml file will be created per component. The fields to be added will be passed from the previous step of inspecting the sub-class of UIComponent with each renderKit project {renderKit14 and renderKit15} having an implementation of an interface {{{_AnnotationDocletParser}}}. For example for 
-   * renderKit14 the implementation class is {{{AnnotationDocletParser14Impl}}}
+   * renderKit14 the implementation class is {{{AnnotationDocletParser14Impl}}} *deprecated for release-1.1+*
    * renderKit15 the implementation class is {{{AnnotationDocletParser15Impl}}}.
  # Necessary source files will be created to their respective directory, such as 
    * SWC file containing the system's code
    * SWF library from generated SWC file
    * XML file{s} that is/are needed by the SWC. These are defined within mxmlConstants.xml}
+   * Extraction of Flex SDK
+   * Invocation of copyLocale *from release-1.1+*
  # After all the component's preMxml within <s:mxmlApplication /> have been created, MXML file and SWF file will be created by implementation of interface {{{_FlexTaskRunner}}}, default is {{{AntFlexTaskRunnerImpl}}}. <s:mxmlScript /> will give capability in writing Actionscript contents as the body content of the Tag by extending {{{javax.faces.webapp.UIComponentBodyTag}}} however it should be used sparingly and should be used mainly for components that extend MXMLUISimpleBase component. One additional thing to note is that mxmlPackageName attribute for <s:mxmlApplication /> tag will be used to name the MXML file and the application SWF file.
  # Also <s:mxmlApplication /> will create JSON objects which will be rendered onto the page for initial values of the Flex components. The reason for this is because <s:mxmlApplication /> has various modes :
      * debugMode : meaning preMxml, MXML, and SWF files would be created in each run as well as JSON objects.
@@ -24,7 +26,7 @@ Brief overview of JSF Flex Process
          * Tomcat on default for example flushes it out to their cache directory under metadata {{{i.e. C:\OpenSource\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jsf-flex-examples}}}
          * JBoss on default for example flushes it out to their temp directory {{{i.e. C:\Program Files\jboss-4.2.3.GA\server\default\tmp\deploy\tmp46689jsf-flex-examples.war}}}
      For large data components such as Datagrid, information will be passed from server, {{{JsfFlexHttpServicePhaseListener.java}}}, to client, {{{JsfFlexHttpService.as}}}. 
- # Uses dojo during the onLoad time to connect all the Form's onsubmit event with pageUnload function. Also each Flex/Flash app will communicate back to the page when it has finished setting up on its side {such as setting callBack methods and etcetera}, JSON will be passed to the apps to set the initial values. So the values will be decoded {for example htmlText allows XML tags and etcetera, so on the Java side there will be encoding and decoding on the Flex/Flash side} and set to the component's values.
+ # Uses Javascript during the onLoad time to connect all the Form's onsubmit event with pageUnload function. Also each Flex/Flash app will communicate back to the page when it has finished setting up on its side {such as setting callBack methods and etcetera}, JSON will be passed to the apps to set the initial values. So the values will be decoded {for example htmlText allows XML tags and etcetera, so on the Java side there will be encoding and decoding on the Flex/Flash side} and set to the component's values.
  # During the form's onsubmit action, pageUnload will return false and make a call to Flex/Flash app to return the component's values to the page. When returned, nodes will be appended to the form that was in the process of submission and will submit the page. On the Flex/Flash side, there will be an Actionscript which will use E4X {love it} to look up within an XML file the property/attributes that the component must return as JSON objects to the page, so that the page can create the elements with their attributes as child nodes of the form element. 
 
    http://jsf-flex.googlecode.com/svn/wiki/JSF_Flex_Process.jpg
