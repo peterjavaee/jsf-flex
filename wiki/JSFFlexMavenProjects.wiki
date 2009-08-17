@@ -7,7 +7,9 @@ This page will contain brief info regarding the maven projects of JSF Flex.
 
 
 ==jsf-flex-build-plugIn==
-A plug-in project that utilizes qdox open source project to inspect the {{{JavaDocs}}} in order to generate replaceMapping XML for jsf-flex/renderKit14 project. Also it will generate componentValueMapper.xml for jsf-flex-shared/core project by inspecting the {{{JavaDocs}}} or annotations for renderKit14 project or renderKit15 project respectively. Currently there exists a Hack to always use renderKit14 project, because qdox open source project has an issue when parsing Java files with annotations.
+A plug-in project that : 
+ * utilizes qdox open source project to inspect the {{{JavaDocs}}} in order to generate replaceMapping XML for jsf-flex/renderKit14 project { *deprecated as of release-1.1+* }.  
+ * generates componentValueMapper.xml for jsf-flex-shared/core project by inspecting the {{{JavaDocs}}} or annotations for renderKit14 project or renderKit15 project respectively. Currently there exists a Hack to always use renderKit14 project, because qdox open source project has an issue when parsing Java files with annotations { *renderKit14 is deprecated from release-1.1+, so it will always use annotations* }.
 
 
 ==jsf-flex/core==
@@ -36,18 +38,18 @@ Contains following list of classes specific to {{{MyFaces}}} impl as MXML_BASIC 
 A WAR project containing sample jsf pages for the project.
 
 ==jsf-flex-shared==
-A project containing shared resource for other projects.
+A project containing shared resource for other projects. Will also contain system Actionscript files.
 
 ==runnerImpl/commonTaskRunnerImpl==
-Contains projects that implement the {{{_CommonTaskRunner}}} interface used by jsf-flex-shared/core {i.e. sdkStandardCommonTaskRunnerImpl project}
+Contains projects that implement the {{{_CommonTaskRunner}}} interface used by jsf-flex-shared/core {i.e. sdkStandardCommonTaskRunnerImpl project}. There exists a task to unzip the Flex SDK to user's environment.
 
 ==runnerImpl/fileManipulatorTaskRunnerImpl==
-Contains projects that extends the {{{_FileManipulatorTaskRunner}}} abstract class used by jsf-flex-shared/core {i.e. velocityFileManipulatorTaskRunnerImpl project}
+Contains projects that extends the {{{_FileManipulatorTaskRunner}}} abstract class used by jsf-flex-shared/core {i.e. velocityFileManipulatorTaskRunnerImpl project}. There exist various tasks for file manipulations {i.e. creation of preMxml and etcetera}.
 
 ==runnerImpl/flexTaskRunnerImpl==
-Contains projects that implement the {{{_FlexTaskRunner}}} interface used by jsf-flex-shared/core {i.e. antFlexTaskRunnerImpl project}
+Contains projects that implement the {{{_FlexTaskRunner}}} interface used by jsf-flex-shared/core {i.e. antFlexTaskRunnerImpl project}. There exist various tasks for the project {i.e. createSwf and etcetera}.
 
-==jsf-flex/renderKit14 JRE < 1.5==
+==jsf-flex/renderKit14 JRE < 1.5, deprecated as of release-1.1+==
 For renderKit14, during the build time documentation for java files will be inspected by the JSF Flex plug-in and will generate replaceMapping XML files that will be parsed to check which fields to inspect and how to fetch these fields from the JSF component {by attribute map or by method invocation]. Contains an implementation of {{{_AnnotationDocletParser}}} interface used by jsf-flex-shared/core for fetching the fields from the JSF component, {{{AnnotationDocletParser14Impl}}} }
 
 ==jsf-flex/renderKit15 JRE > 1.4==
