@@ -96,16 +96,24 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 		super();
 	}
 	
-	public void copyFile(String fileToCopy, String fileToCopyTo) {
+	public void copyFile(String fileToCopy, String fileToCopyTo, String queueTaskId) {
 		FileCopyTask fileCopier = new FileCopyTask(fileToCopy, fileToCopyTo);
-		addTask(fileCopier);
+        if(queueTaskId != null){
+            queueFutureTask(queueTaskId, fileCopier);
+        }else{
+            addTask(fileCopier);
+        }
 	}
 	
-	public void copyFileSet(String copyDir, String copyInclude, String copyExclude, String copyTo) {
+	public void copyFileSet(String copyDir, String copyInclude, String copyExclude, String copyTo, String queueTaskId) {
 		List<String> copyIncludeList = copyInclude == null ? new LinkedList<String>() : Arrays.asList(copyInclude.split(" "));
 		List<String> copyExcludeList = copyExclude == null ? new LinkedList<String>() : Arrays.asList(copyExclude.split(" "));
 		FileCopyTask fileCopier = new FileCopyTask(copyDir, copyIncludeList, copyExcludeList, copyTo);
-		addTask(fileCopier);
+        if(queueTaskId != null){
+            queueFutureTask(queueTaskId, fileCopier);
+        }else{
+            addTask(fileCopier);
+        }
 	}
 	
 	public void createMXML(String targetAbsolutePath, String copyTo) {
@@ -115,17 +123,25 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 		
 		addTask(removeEmptySpace);
 		
-		copyFile(targetAbsolutePath, copyTo);
+		copyFile(targetAbsolutePath, copyTo, null);
 	}
 	
-	public void createSWF(String mxmlFile, String swfPath, _MXMLApplicationContract componentMXML, String flexSDKRootPath, String locale, String localePath) {
+	public void createSWF(String mxmlFile, String swfPath, _MXMLApplicationContract componentMXML, String flexSDKRootPath, String locale, String localePath, String queueTaskId) {
 		MXMLCTask swfCreator = new MXMLCTask(mxmlFile, swfPath, componentMXML, flexSDKRootPath).locale(locale).localePath(localePath);
-		addTask(swfCreator);
+        if(queueTaskId != null){
+            queueFutureTask(queueTaskId, swfCreator);
+        }else{
+            addTask(swfCreator);
+        }
 	}
     
-    public void copyLocale(String locale, String flexSDKRootPath){
+    public void copyLocale(String locale, String flexSDKRootPath, String queueTaskId){
         CopyLocaleTask copyLocale = new CopyLocaleTask(locale, flexSDKRootPath);
-        addTask(copyLocale);
+        if(queueTaskId != null){
+            queueFutureTask(queueTaskId, copyLocale);
+        }else{
+            addTask(copyLocale);
+        }
     }
 	
 	public void createSwcSourceFiles(String swcPath, List<String> systemSourceFiles, String jsfFlexMainSwcConfigFile, String webContextPath) {
@@ -206,31 +222,39 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 		}
 	}
 	
-	public void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath) {
+	public void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath, String queueTaskId) {
 		SWCTask swcCreate = new SWCTask(sourcePath, outPut, flexSDKRootPath, loadConfigFilePath);
-		addTask(swcCreate);
+        if(queueTaskId != null){
+            queueFutureTask(queueTaskId, swcCreate);
+        }else{
+            addTask(swcCreate);
+        }
 	}
 	
-	public void deleteResources(String resourceToDelete, boolean isDirectory) {
+	public void deleteResources(String resourceToDelete, boolean isDirectory, String queueTaskId) {
 		DeleteTask deleteResourceTask = new DeleteTask(resourceToDelete, isDirectory);
-		addTask(deleteResourceTask);
+        if(queueTaskId != null){
+            queueFutureTask(queueTaskId, deleteResourceTask);
+        }else{
+            addTask(deleteResourceTask);
+        }
 	}
 	
 	public void makeDirectory(String directoryToCreate) {
 		MkdirTask preMxmlDirCreator = new MkdirTask(directoryToCreate);
-		addTask(preMxmlDirCreator);
+        addTask(preMxmlDirCreator);
 	}
 	
 	public void renameFile(String sourceFile, String destFile, boolean overWrite) {
 		RenameTask rename = new RenameTask(sourceFile, destFile, overWrite);
-		addTask(rename);
+        addTask(rename);
 	}
 	
 	public void replaceTokenWithValue(String targetAbsolutePath, String valueToReplaceWith, String tokenReplace) {
 		
 		ReplaceTextTask addUIComponentTemplate = new ReplaceTextTask(targetAbsolutePath);
 		addUIComponentTemplate.addTokenValue(tokenReplace, valueToReplaceWith);
-		addTask(addUIComponentTemplate);
+        addTask(addUIComponentTemplate);
 	}
 	
 	public void writeBodyContent(_MXMLContract componentMXML) {
@@ -239,7 +263,7 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTask
 		String stringBodyContentToReplace = stringBodyContent == null ? "" : (String) stringBodyContent;
 		ReplaceTextTask writeBodyContent = new ReplaceTextTask(componentMXML.getAbsolutePathToPreMxmlFile());
 		writeBodyContent.addTokenValue(MXMLConstants.TAG_BODY_CONTENT_TOKEN, stringBodyContentToReplace);
-		addTask(writeBodyContent);
+        addTask(writeBodyContent);
 	}
 	
 	public final _FileManipulatorTaskRunner getFileManipulatorTaskRunner(){

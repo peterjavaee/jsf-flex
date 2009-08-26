@@ -47,6 +47,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
 import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
+import com.googlecode.jsfFlex.shared.tasks._TaskRunner.QUEUE_TASK_ID;
 import com.googlecode.jsfFlex.shared.util.MXMLAttributeConstants;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
@@ -129,6 +130,8 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		if(mxmlContext.isSimplySWF() || mxmlContext.isProductionEnv()){
 			return;
 		}
+        writer.unZipFlexSDK(componentMXML);
+        
 		/*
 		 * special case for MXMLApplication to filter out attribute "id"
 		 * In Flex, id attribute is not allowed on the root tag of a component
@@ -159,12 +162,11 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		
 		//check if simplySWF boolean flag is set and if so, create the SWF file and exit
 		if(mxmlContext.isSimplySWF()){
-			if(!new File(mxmlContext.getFlexSDKPath()).exists()){
-				writer.makeDirectory(mxmlContext.getFlexSDKPath());
-				writer.unZipArchiveRelative(MXMLConstants.FLEX_SDK_ZIP, mxmlContext.getFlexSDKPath());
-			}
-			
-			writer.createSWF(mxmlFile, componentMXML, mxmlContext.getFlexSDKPath(), multiLingualSupportMap, localeWebContextPath);
+            String queueTaskId = componentMXML.getId();
+            String unZipArchiveRelativeQueueTaskId = QUEUE_TASK_ID.UNZIP_ARCHIVE_RELATIVE.getQueueTaskId(queueTaskId);
+            
+			writer.waitForFutureTask(writer.getCommonTaskRunner(), unZipArchiveRelativeQueueTaskId);
+			writer.createSWF(mxmlFile, componentMXML, mxmlContext.getFlexSDKPath(), multiLingualSupportMap, localeWebContextPath, queueTaskId);
 			
 		}else if(!mxmlContext.isProductionEnv()){
 			//means it is of debugMode, so must create mxml and etcetera

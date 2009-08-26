@@ -21,6 +21,14 @@ package com.googlecode.jsfFlex.shared.tasks;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Previously TaskRunnerImpl was designed to allow lazy execution<br>
@@ -28,27 +36,34 @@ import java.util.List;
  * of the various _.+Runner interfaces, it was decided to execute the _Tasks<br>
  * upon addition.
  * 
+ * In order to improve performance, Executors's ThreadPool will be used to span off Threads for<br>
+ * FutureTasks. However, one thing to note is that these _Tasks should be<br>
+ * INDEPENDENT to other tasks added with the addTask method and other tasks<br>
+ * added with the queueFutureTask method.<br>
+ * 
  * @author Ji Hoon Kim
  */
 class TaskRunnerImpl implements _TaskRunner {
 	
-	private final Object _lock;
+    /*
+     * Technically most of the computers have Duo Core, so consider that when setting the value 
+     * for NUM_OF_EXECUTOR_THREADS
+     */
+    private static final int NUM_OF_EXECUTOR_THREADS = 4;
+    private static final int EXECUTOR_SERVICE_SHUT_DOWN_LIMIT = 120;
+    
+    private final ConcurrentMap<String, Future> _queuedTasks;
+    private final ExecutorService _queuedService = Executors.newFixedThreadPool(NUM_OF_EXECUTOR_THREADS);
+    
+	private final Object _lock = new Object();
 	private final List<_Task> _tasks;
-	
+    
 	TaskRunnerImpl(){
 		super();
 		_tasks = new LinkedList<_Task>();
+        _queuedTasks = new ConcurrentHashMap<String, Future>();
 	}
 	
-	TaskRunnerImpl(LinkedList<_Task> tasks){
-		_tasks = new LinkedList<_Task>();
-		_tasks.addAll(tasks);
-	}
-	
-	{
-		_lock = new Object();
-	}
-
 	public void addTask(_Task toAdd) {
 		synchronized(_lock){
 			_tasks.add(toAdd);
@@ -76,5 +91,46 @@ class TaskRunnerImpl implements _TaskRunner {
 	private void clearAllTask(){
 		_tasks.clear();
 	}
-	
+    
+    public void queueFutureTask(final String taskName, final _Task toAdd){
+        final FutureTask<?> task = new FutureTask<Void>(new Runnable(){
+            public void run() {
+                toAdd.performTask();
+                _queuedTasks.remove(taskName);
+            }
+        }, null);
+        
+        _queuedTasks.putIfAbsent(taskName, task);
+        _queuedService.submit(task);
+    }
+    
+    public boolean isTaskDone(String taskName){
+        Future task = _queuedTasks.get(taskName);
+        return (task != null && task.isDone());
+    }
+    
+    public void waitForFutureTask(String taskName){
+        Future task = _queuedTasks.get(taskName);
+        if(task != null){
+            try{
+                task.get();
+            }catch(ExecutionException executeExcept){
+                
+            }catch(InterruptedException interruptedExcept){
+                Thread.currentThread().interrupt();
+            }finally{
+                task.cancel(true);
+            }
+        }
+    }
+    
+    public void clearAllFutureTasks(){
+        _queuedService.shutdown();
+        try{
+            _queuedService.awaitTermination(EXECUTOR_SERVICE_SHUT_DOWN_LIMIT, TimeUnit.SECONDS);
+        }catch(InterruptedException interruptedException){
+            Thread.currentThread().interrupt();
+        }
+    }
+    
 }
