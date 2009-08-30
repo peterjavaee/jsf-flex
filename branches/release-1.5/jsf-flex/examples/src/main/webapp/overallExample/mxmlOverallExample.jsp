@@ -60,12 +60,10 @@
         </div>
         <br />
         
-	    <jf:mxmlApplication mxmlPackageName="anotherSwf" height="10%" width="90%" verticalScrollPolicy="off" backgroundColor="0xCC6666">
+	    <jf:mxmlApplication mxmlPackageName="mxmlOverallExample" height="90%" width="90%" errorColor="#B80000" errorFontSize="13">
 	    	<jf:mxmlLabel text="Following label contains korean text to demonstrate locale [if browser's language is set to korean]" color="#FFFFFF" fontWeight="bold"/>
 	    	<jf:mxmlLabel text="@Resource(bundle='LocaleExample', key='greeting')" color="#FFFFFF" fontWeight="bold" fontSize="14"/>
-	    </jf:mxmlApplication>
-	    
-	    <jf:mxmlApplication mxmlPackageName="mxmlOverallExample" height="80%" width="90%" errorColor="#B80000" errorFontSize="13">
+	    	
 	        <jf:mxmlScript>
 	        	import flash.events.Event;
 	        	

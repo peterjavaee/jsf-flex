@@ -92,6 +92,18 @@ class TaskRunnerImpl implements _TaskRunner {
 		_tasks.clear();
 	}
     
+    /* 
+     * Though finalize method is not always invoked, place in the code to clean up ExecutorService<br>
+     * for times when it is called.
+     */
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        if(_queuedService != null){
+            _queuedService.shutdownNow();
+        }
+    }
+    
     public void queueFutureTask(final String taskName, final _Task toAdd){
         final FutureTask<?> task = new FutureTask<Void>(new Runnable(){
             public void run() {

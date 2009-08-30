@@ -249,8 +249,8 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
                 new Thread(new Runnable(){
                     
                     public void run() {
-                        flexTaskRunner.copyLocale(currLocale, flexSDKPath, queueTaskId);
                         String waitForQueueTaskId = QUEUE_TASK_ID.COPY_LOCALE.getQueueTaskId(queueTaskId);
+                        flexTaskRunner.copyLocale(currLocale, flexSDKPath, waitForQueueTaskId);
                         waitForFutureTask(flexTaskRunner, waitForQueueTaskId);
                         localeLatch.countDown();
                     }
