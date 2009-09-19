@@ -124,23 +124,9 @@ public abstract class AbstractMXMLUIApplication
 			getAttributes().put(MX_ACTUAL_KEY, getAttributes().get(MX_XMLNS_KEY));
 		}
 		
-		MxmlContext mxmlContext = new MxmlContextImpl(getMxmlPackageName(), this);
-		
 		String mode = context.getExternalContext().getInitParameter(MXMLConstants.CONFIG_MODE_NAME);
-		
-		boolean isSimplySwf = false;
-		boolean isProduction = true;
-		
-		if(mode != null){
-			
-			isSimplySwf = mode.equals(MXMLConstants.SIMPLY_SWF_MODE);
-			isProduction = mode.equals(MXMLConstants.PRODUCTION_MODE);
-			
-		}
-		
-		mxmlContext.setProductionEnv(isProduction);
-		mxmlContext.setSimplySWF(isSimplySwf);
-		
+		MxmlContext mxmlContext = new MxmlContextImpl(getMxmlPackageName(), mode, this);
+        
 		String webContextPath = context.getExternalContext().getRequestContextPath();
 		String swfWebPath = webContextPath + "/" + MXMLConstants.SWF_DIRECTORY_NAME + "/" + getMxmlPackageName() + "/";
 		mxmlContext.setSwfWebPath(swfWebPath);
@@ -157,7 +143,7 @@ public abstract class AbstractMXMLUIApplication
 		}
 		
 		//to reflect the correct state when debugging
-		if(isProduction){
+		if(mxmlContext.isProductionEnv()){
 			//do not need to create preMXML, MXML, and SWF files
 			
 		}else{
@@ -215,7 +201,7 @@ public abstract class AbstractMXMLUIApplication
 				jsfFlexFlashApplicationConfiguration.setFlashToJavaScriptLogMode("5");
 			}
 			
-			if(isSimplySwf){
+			if(mxmlContext.isSimplySWF()){
 				//do not need to create preMXML files
 				
 			}else{

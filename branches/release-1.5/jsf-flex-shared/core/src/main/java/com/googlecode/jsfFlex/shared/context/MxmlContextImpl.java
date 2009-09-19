@@ -37,6 +37,7 @@ import com.googlecode.jsfFlex.shared.tasks._CommonTaskRunner;
 import com.googlecode.jsfFlex.shared.tasks._FileManipulatorTaskRunner;
 import com.googlecode.jsfFlex.shared.tasks._FlexTaskRunner;
 import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
+import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
  * An implementation of MxmlContext which will instantiate and store all the needed data structures<br>
@@ -78,7 +79,7 @@ public class MxmlContextImpl extends MxmlContext {
 	private String _swfWebPath;
 	private String _webContextPath;
 	
-	public MxmlContextImpl(String currMxml, _MXMLApplicationContract currApplicationContract){
+	public MxmlContextImpl(String currMxml, String mode, _MXMLApplicationContract currApplicationContract){
 		super();
 		_currMxml = currMxml;
 		_applicationInitValueList = new LinkedList<JSONObject>();
@@ -87,11 +88,16 @@ public class MxmlContextImpl extends MxmlContext {
 		_additionalAppScriptContent = new AdditionalApplicationScriptContent(_currMxml, currApplicationContract);
 		_jsfFlexFlashApplicationConfiguration = new JsfFlexFlashApplicationConfiguration();
 		
-		_runnerFactoryInstance = _RunnerFactory.getInstance();
-		_commonRunner = _runnerFactoryInstance.getCommonTaskRunnerImpl();
-		_fileManipulatorRunner = _runnerFactoryInstance.getFileManipulatorTaskRunnerImpl();
-		_flexRunner = _runnerFactoryInstance.getFlexTaskRunnerImpl();
-		
+        if(mode != null){
+            _simplySWF = mode.equals(MXMLConstants.SIMPLY_SWF_MODE);
+            _productionEnv = mode.equals(MXMLConstants.PRODUCTION_MODE);
+        }
+        
+        _runnerFactoryInstance = _RunnerFactory.getInstance();
+        _commonRunner = !_productionEnv ? _runnerFactoryInstance.getCommonTaskRunnerImpl() : null;
+        _fileManipulatorRunner = !_productionEnv ? _runnerFactoryInstance.getFileManipulatorTaskRunnerImpl() : null;
+        _flexRunner = !_productionEnv ? _runnerFactoryInstance.getFlexTaskRunnerImpl() : null;
+        
 		MxmlContext.setCurrentInstance(this);
 	}
 	
