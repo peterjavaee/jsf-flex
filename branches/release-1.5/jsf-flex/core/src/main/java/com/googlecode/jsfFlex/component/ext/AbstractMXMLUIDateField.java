@@ -45,6 +45,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIDisabledDaysAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDisabledRangesAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDisplayedMonthAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDisplayedYearAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDropdownFactoryAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIEditableAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFillAlphasAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFillColorsAttribute;
@@ -63,6 +64,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIFormatStringAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIHeaderColorsAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIHeaderStyleNameAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIHighlightAlphasAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIIconColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILabelFunctionAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILeadingAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIMaxYearAttribute;
@@ -105,16 +107,16 @@ public abstract class AbstractMXMLUIDateField
 						extends com.googlecode.jsfFlex.component.MXMLUITextInputBase 
 						implements _MXMLUIComboBaseAttributes, _MXMLUIDayNamesAttribute, _MXMLUIDisabledDaysAttribute, 
                         _MXMLUIDisabledRangesAttribute, _MXMLUIDisplayedMonthAttribute, _MXMLUIDisplayedYearAttribute, 
-                        _MXMLUIFirstDayOfWeekAttribute, _MXMLUIFormatStringAttribute, _MXMLUILabelFunctionAttribute, 
-                        _MXMLUIMaxYearAttribute, _MXMLUIMinYearAttribute, _MXMLUIMonthNamesAttribute, _MXMLUIMonthSymbolAttribute, 
-                        _MXMLUIParseFunctionAttribute, _MXMLUISelectableRangeAttribute, _MXMLUISelectedDateAttribute, 
-                        _MXMLUIShowTodayAttribute, _MXMLUIYearNavigationEnabledAttribute, _MXMLUIYearSymbolAttribute, 
-                        _MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, _MXMLUIColorAttribute, 
+                        _MXMLUIDropdownFactoryAttribute, _MXMLUIFirstDayOfWeekAttribute, _MXMLUIFormatStringAttribute, 
+                        _MXMLUILabelFunctionAttribute, _MXMLUIMaxYearAttribute, _MXMLUIMinYearAttribute, _MXMLUIMonthNamesAttribute, 
+                        _MXMLUIMonthSymbolAttribute, _MXMLUIParseFunctionAttribute, _MXMLUISelectableRangeAttribute, 
+                        _MXMLUISelectedDateAttribute, _MXMLUIShowTodayAttribute, _MXMLUIYearNavigationEnabledAttribute, 
+                        _MXMLUIYearSymbolAttribute, _MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, _MXMLUIColorAttribute, 
                         _MXMLUICornerRadiusAttribute, _MXMLUIDateChooserStyleNameAttribute, _MXMLUIDisabledColorAttribute, 
                         _MXMLUIFillAlphasAttribute, _MXMLUIFillColorsAttribute, _MXMLUIFocusAlphaAttribute, 
                         _MXMLUIFocusRoundedCornersAttribute, _MXMLUIFontAntiAliasTypeAttribute, _MXMLUIFontFamilyAttribute, 
                         _MXMLUIFontGridFitTypeAttribute, _MXMLUIFontSharpnessAttribute, _MXMLUIFontSizeAttribute, 
-                        _MXMLUIFontStyleAttribute, _MXMLUIFontThicknessAttribute, _MXMLUIFontWeightAttribute, 
+                        _MXMLUIFontStyleAttribute, _MXMLUIFontThicknessAttribute, _MXMLUIFontWeightAttribute, _MXMLUIIconColorAttribute,
                         _MXMLUIHeaderColorsAttribute, _MXMLUIHeaderStyleNameAttribute, _MXMLUIHighlightAlphasAttribute, 
                         _MXMLUILeadingAttribute, _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, 
                         _MXMLUIRollOverColorAttribute, _MXMLUISelectionColorAttribute, _MXMLUITextAlignAttribute, 

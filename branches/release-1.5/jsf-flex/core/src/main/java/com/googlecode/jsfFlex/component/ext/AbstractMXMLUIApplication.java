@@ -35,6 +35,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundGradientColorsAttribut
 import com.googlecode.jsfFlex.attributes._MXMLUIControlBarAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIErrorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFrameRateAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIHistoryManagementEnabledAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalAlignAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalGapAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILayoutAttribute;
@@ -76,8 +77,8 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 public abstract class AbstractMXMLUIApplication 
 						extends UIComponentBase 
 						implements _MXMLUIContainerAttributes, _MXMLApplicationContract, _MXMLUIControlBarAttribute, 
-                        _MXMLUIFrameRateAttribute, _MXMLUILayoutAttribute, _MXMLUIPageTitleAttribute, 
-                        _MXMLUIPreloaderAttribute, _MXMLUIResetHistoryAttribute, _MXMLUIScriptRecursionLimitAttribute, 
+                        _MXMLUIFrameRateAttribute, _MXMLUIHistoryManagementEnabledAttribute, _MXMLUILayoutAttribute, 
+                        _MXMLUIPageTitleAttribute, _MXMLUIPreloaderAttribute, _MXMLUIResetHistoryAttribute, _MXMLUIScriptRecursionLimitAttribute, 
                         _MXMLUIScriptTimeLimitAttribute, _MXMLUIUsePreloaderAttribute, _MXMLUIViewSourceURLAttribute, 
                         _MXMLUIXmlnsMXAttribute, _MXMLUIBackgroundGradientAlphasAttribute, _MXMLUIBackgroundGradientColorsAttribute, 
                         _MXMLUIHorizontalAlignAttribute, _MXMLUIHorizontalGapAttribute, _MXMLUIModalTransparencyAttribute, 

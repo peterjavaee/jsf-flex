@@ -29,6 +29,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalAlignAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILastTabStyleNameAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISelectedTabTextStyleNameAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITabHeightAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITabOffsetAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITabStyleNameAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITabWidthAttribute;
 import com.googlecode.jsfFlex.component.MXMLUIViewStackBase;
@@ -50,6 +51,6 @@ public abstract class AbstractMXMLUITabNavigator
 						implements _MXMLUIViewStackAttributes, _MXMLUIFillAlphasAttribute, _MXMLUIFillColorsAttribute, 
                         _MXMLUIFirstTabStyleNameAttribute, _MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, 
                         _MXMLUIHorizontalAlignAttribute, _MXMLUILastTabStyleNameAttribute, _MXMLUISelectedTabTextStyleNameAttribute, 
-                        _MXMLUITabHeightAttribute, _MXMLUITabStyleNameAttribute, _MXMLUITabWidthAttribute {
+                        _MXMLUITabHeightAttribute, _MXMLUITabOffsetAttribute, _MXMLUITabStyleNameAttribute, _MXMLUITabWidthAttribute {
 	
 }

@@ -48,6 +48,8 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 				@JsfFlexAttribute(attribute="snapInterval"),
 				@JsfFlexAttribute(attribute="thumbCount"),
 				@JsfFlexAttribute(attribute="tickInterval"),
+                @JsfFlexAttribute(attribute="tickValues"),
+                @JsfFlexAttribute(attribute="value"),
 				@JsfFlexAttribute(attribute="borderColor"),
 				@JsfFlexAttribute(attribute="dataTipOffset"),
 				@JsfFlexAttribute(attribute="dataTipPrecision"),

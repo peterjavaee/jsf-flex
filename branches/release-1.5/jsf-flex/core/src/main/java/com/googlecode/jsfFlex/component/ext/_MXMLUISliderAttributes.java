@@ -59,10 +59,12 @@ import com.googlecode.jsfFlex.attributes._MXMLUITickIntervalAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITickLengthAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITickOffsetAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITickThicknessAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUITickValuesAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITrackColorsAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITrackHighlightSkinAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITrackMarginAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITrackSkinAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIValueAttribute;
 
 /**
  * @author Ji Hoon Kim
@@ -70,18 +72,17 @@ import com.googlecode.jsfFlex.attributes._MXMLUITrackSkinAttribute;
 @JSFComponent
 interface _MXMLUISliderAttributes 
                     extends _MXMLUIAllowThumbOverlapAttribute, _MXMLUIAllowTrackClickAttribute, _MXMLUIDataTipFormatFunctionAttribute,
-                    _MXMLUIDirectionAttribute, _MXMLUILabelsAttribute, _MXMLUILiveDraggingAttribute, 
-                    _MXMLUIMaximumAttribute, _MXMLUIMinimumAttribute, _MXMLUIShowDataTipAttribute, 
-                    _MXMLUISliderDataTipClassAttribute, _MXMLUISliderThumbClassAttribute, _MXMLUISnapIntervalAttribute, 
-                    _MXMLUIThumbCountAttribute, _MXMLUITickIntervalAttribute, _MXMLUIBorderColorAttribute, 
+                    _MXMLUIDirectionAttribute, _MXMLUILabelsAttribute, _MXMLUILiveDraggingAttribute, _MXMLUIMaximumAttribute, 
+                    _MXMLUIMinimumAttribute, _MXMLUIShowDataTipAttribute, _MXMLUISliderDataTipClassAttribute, 
+                    _MXMLUISliderThumbClassAttribute, _MXMLUISnapIntervalAttribute, _MXMLUIThumbCountAttribute, 
+                    _MXMLUITickIntervalAttribute, _MXMLUITickValuesAttribute, _MXMLUIValueAttribute, _MXMLUIBorderColorAttribute, 
                     _MXMLUIDataTipOffsetAttribute, _MXMLUIDataTipPrecisionAttribute, _MXMLUIDataTipStyleNameAttribute, 
                     _MXMLUIFillAlphasAttribute, _MXMLUIFillColorsAttribute, _MXMLUILabelOffsetAttribute, _MXMLUILabelStyleNameAttribute, 
                     _MXMLUIShowTrackHighlightAttribute, _MXMLUISlideDurationAttribute, _MXMLUISlideEasingFunctionAttribute, 
                     _MXMLUIThumbDisabledSkinAttribute, _MXMLUIThumbDownSkinAttribute, _MXMLUIThumbOffsetAttribute, 
-                    _MXMLUIThumbOverSkinAttribute, _MXMLUIThumbUpSkinAttribute, _MXMLUITickColorAttribute, 
-                    _MXMLUITickLengthAttribute, _MXMLUITickOffsetAttribute, _MXMLUITickThicknessAttribute, 
-                    _MXMLUITrackColorsAttribute, _MXMLUITrackHighlightSkinAttribute, _MXMLUITrackMarginAttribute, 
-                    _MXMLUITrackSkinAttribute, _MXMLUIChangeAttribute, _MXMLUIThumbDragAttribute, _MXMLUIThumbPressAttribute, 
-                    _MXMLUIThumbReleaseAttribute, _MXMLUIBaseAttributes {
+                    _MXMLUIThumbOverSkinAttribute, _MXMLUIThumbUpSkinAttribute, _MXMLUITickColorAttribute, _MXMLUITickLengthAttribute, 
+                    _MXMLUITickOffsetAttribute, _MXMLUITickThicknessAttribute, _MXMLUITrackColorsAttribute, _MXMLUITrackHighlightSkinAttribute, 
+                    _MXMLUITrackMarginAttribute, _MXMLUITrackSkinAttribute, _MXMLUIChangeAttribute, _MXMLUIThumbDragAttribute, 
+                    _MXMLUIThumbPressAttribute, _MXMLUIThumbReleaseAttribute, _MXMLUIBaseAttributes {
 	
 }

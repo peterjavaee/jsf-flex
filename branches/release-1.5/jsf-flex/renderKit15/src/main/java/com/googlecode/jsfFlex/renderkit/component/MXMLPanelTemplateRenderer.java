@@ -43,11 +43,11 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 				@JsfFlexAttribute(attribute="borderThicknessLeft"),
 				@JsfFlexAttribute(attribute="borderThicknessRight"),
 				@JsfFlexAttribute(attribute="borderThicknessTop"),
-				@JsfFlexAttribute(attribute="closeButtonDisabledSkin"),
-				@JsfFlexAttribute(attribute="closeButtonDownSkin"),
-				@JsfFlexAttribute(attribute="closeButtonOverSkin"),
-				@JsfFlexAttribute(attribute="closeButtonUpSkin"),
-				@JsfFlexAttribute(attribute="controlBarStyleName"),
+                @JsfFlexAttribute(attribute="closeButtonDisabledSkin"),
+                @JsfFlexAttribute(attribute="closeButtonDownSkin"),
+                @JsfFlexAttribute(attribute="closeButtonOverSkin"),
+                @JsfFlexAttribute(attribute="closeButtonUpSkin"),
+                @JsfFlexAttribute(attribute="controlBarStyleName"),
 				@JsfFlexAttribute(attribute="footerColors"),
 				@JsfFlexAttribute(attribute="headerColors"),
 				@JsfFlexAttribute(attribute="headerHeight"),
@@ -66,7 +66,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 				@JsfFlexAttribute(attribute="verticalGap"),
 				@JsfFlexAttribute(attribute="resizeEndEffect"),
 				@JsfFlexAttribute(attribute="resizeStartEffect"),
-				@JsfFlexAttribute(attribute="close")
+                @JsfFlexAttribute(attribute="close")
 		}
 )
 public abstract class MXMLPanelTemplateRenderer extends MXMLContainerTemplateRenderer {

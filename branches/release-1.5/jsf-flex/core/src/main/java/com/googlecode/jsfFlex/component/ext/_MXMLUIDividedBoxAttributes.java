@@ -39,9 +39,8 @@ import com.googlecode.jsfFlex.attributes._MXMLUIVerticalDividerCursorAttribute;
 @JSFComponent
 interface _MXMLUIDividedBoxAttributes 
             extends _MXMLUILiveDraggingAttribute, _MXMLUIResizeToContentAttribute, _MXMLUIDividerAffordanceAttribute, 
-            _MXMLUIDividerAlphaAttribute, _MXMLUIDividerColorAttribute, _MXMLUIDividerSkinAttribute, 
-            _MXMLUIDividerThicknessAttribute, _MXMLUIHorizontalDividerCursorAttribute, _MXMLUIVerticalDividerCursorAttribute, 
-            _MXMLUIDividerPressAttribute, _MXMLUIDividerDragAttribute, _MXMLUIDividerReleaseAttribute, 
-            _MXMLUIBoxAttributes {
+            _MXMLUIDividerAlphaAttribute, _MXMLUIDividerColorAttribute, _MXMLUIDividerSkinAttribute, _MXMLUIDividerThicknessAttribute, 
+            _MXMLUIHorizontalDividerCursorAttribute, _MXMLUIVerticalDividerCursorAttribute, _MXMLUIDividerPressAttribute, 
+            _MXMLUIDividerDragAttribute, _MXMLUIDividerReleaseAttribute, _MXMLUIBoxAttributes {
     
 }

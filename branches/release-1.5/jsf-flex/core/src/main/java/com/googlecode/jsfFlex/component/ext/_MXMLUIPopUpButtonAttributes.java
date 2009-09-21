@@ -24,6 +24,8 @@ import com.googlecode.jsfFlex.attributes._MXMLUIArrowButtonWidthAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUICloseAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUICloseDurationAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUICloseEasingFunctionAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDisabledIconColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIIconColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIOpenAlwaysAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIOpenAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIOpenDurationAttribute;
@@ -40,9 +42,9 @@ import com.googlecode.jsfFlex.attributes._MXMLUIPopUpOverSkinAttribute;
 @JSFComponent
 interface _MXMLUIPopUpButtonAttributes 
                 extends _MXMLUIOpenAlwaysAttribute, _MXMLUIPopUpAttribute, _MXMLUIArrowButtonWidthAttribute, 
-                _MXMLUICloseDurationAttribute, _MXMLUICloseEasingFunctionAttribute, _MXMLUIOpenDurationAttribute, 
-                _MXMLUIOpenEasingFunctionAttribute, _MXMLUIPopUpDownSkinAttribute, _MXMLUIPopUpGapAttribute, 
-                _MXMLUIPopUpIconAttribute, _MXMLUIPopUpOverSkinAttribute, _MXMLUICloseAttribute, _MXMLUIOpenAttribute, 
-                _MXMLUIButtonAttributes {
+                _MXMLUICloseDurationAttribute, _MXMLUICloseEasingFunctionAttribute, _MXMLUIDisabledIconColorAttribute, 
+                _MXMLUIIconColorAttribute, _MXMLUIOpenDurationAttribute, _MXMLUIOpenEasingFunctionAttribute, _MXMLUIPopUpDownSkinAttribute, 
+                _MXMLUIPopUpGapAttribute, _MXMLUIPopUpIconAttribute, _MXMLUIPopUpOverSkinAttribute, _MXMLUICloseAttribute, 
+                _MXMLUIOpenAttribute, _MXMLUIButtonAttributes {
     
 }

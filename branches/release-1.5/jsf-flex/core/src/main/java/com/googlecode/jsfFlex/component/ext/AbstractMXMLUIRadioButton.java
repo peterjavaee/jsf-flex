@@ -26,7 +26,9 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
+import com.googlecode.jsfFlex.attributes._MXMLUIDisabledIconColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIGroupNameAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIIconColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISelectedValueAttribute;
 
 /**
@@ -43,7 +45,8 @@ import com.googlecode.jsfFlex.attributes._MXMLUISelectedValueAttribute;
 )
 public abstract class AbstractMXMLUIRadioButton 
 						extends com.googlecode.jsfFlex.component.MXMLUISelectedBase
-						implements _MXMLUIButtonAttributes, _MXMLUIGroupNameAttribute, _MXMLUISelectedValueAttribute {
+						implements _MXMLUIButtonAttributes, _MXMLUIGroupNameAttribute, _MXMLUISelectedValueAttribute,
+                        _MXMLUIDisabledIconColorAttribute, _MXMLUIIconColorAttribute {
 	
 	private static final String SELECTED_VALUE_ATTR = "selectedValue";
 	private static final String SELECTED_VALUE_ID_APPENDED = "_selectedValue";

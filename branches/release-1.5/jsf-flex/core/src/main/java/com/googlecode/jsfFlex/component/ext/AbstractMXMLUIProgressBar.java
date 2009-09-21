@@ -40,11 +40,13 @@ import com.googlecode.jsfFlex.attributes._MXMLUIFontWeightAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIHideAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalGapAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIIndeterminateAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIIndeterminateMoveIntervalAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIIndeterminateSkinAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILabelAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILabelPlacementAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILabelWidthAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILeadingAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIMaskSkinAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIMaximumAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIMinimumAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIModeAttribute;
@@ -81,19 +83,17 @@ import com.googlecode.jsfFlex.component.MXMLUIValueBase;
 public abstract class AbstractMXMLUIProgressBar 
 						extends MXMLUIValueBase 
 						implements _MXMLUIBaseAttributes, _MXMLUIConversionAttribute, _MXMLUIIndeterminateAttribute, 
-                        _MXMLUILabelAttribute, _MXMLUILabelPlacementAttribute, _MXMLUIMaximumAttribute, 
-                        _MXMLUIMinimumAttribute, _MXMLUIModeAttribute, _MXMLUISourceAttribute, _MXMLUIBarColorAttribute, 
-                        _MXMLUIBarSkinAttribute, _MXMLUIBorderColorAttribute, _MXMLUIColorAttribute, 
-                        _MXMLUIDisabledColorAttribute, _MXMLUIFontAntiAliasTypeAttribute, _MXMLUIFontFamilyAttribute, 
-                        _MXMLUIFontGridFitTypeAttribute, _MXMLUIFontSharpnessAttribute, _MXMLUIFontSizeAttribute, 
-                        _MXMLUIFontThicknessAttribute, _MXMLUIFontStyleAttribute, _MXMLUIFontWeightAttribute, 
-                        _MXMLUIHorizontalGapAttribute, _MXMLUIIndeterminateSkinAttribute, _MXMLUILabelWidthAttribute, 
-                        _MXMLUILeadingAttribute, _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, 
-                        _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, 
-                        _MXMLUIThemeColorAttribute, _MXMLUITrackColorsAttribute, _MXMLUITrackHeightAttribute, 
-                        _MXMLUITrackSkinAttribute, _MXMLUIVerticalGapAttribute, _MXMLUICompleteAttribute, 
-                        _MXMLUIHideAttribute, _MXMLUIProgressAttribute, _MXMLUIShowAttribute, 
-                        _MXMLUICompleteEffectAttribute {
+                        _MXMLUILabelAttribute, _MXMLUILabelPlacementAttribute, _MXMLUIMaximumAttribute, _MXMLUIMinimumAttribute, 
+                        _MXMLUIModeAttribute, _MXMLUISourceAttribute, _MXMLUIBarColorAttribute, _MXMLUIBarSkinAttribute, 
+                        _MXMLUIBorderColorAttribute, _MXMLUIColorAttribute, _MXMLUIDisabledColorAttribute, _MXMLUIFontAntiAliasTypeAttribute, 
+                        _MXMLUIFontFamilyAttribute, _MXMLUIFontGridFitTypeAttribute, _MXMLUIFontSharpnessAttribute, 
+                        _MXMLUIFontSizeAttribute, _MXMLUIFontThicknessAttribute, _MXMLUIFontStyleAttribute, _MXMLUIFontWeightAttribute, 
+                        _MXMLUIHorizontalGapAttribute, _MXMLUIIndeterminateMoveIntervalAttribute, _MXMLUIIndeterminateSkinAttribute, 
+                        _MXMLUILabelWidthAttribute, _MXMLUILeadingAttribute, _MXMLUIMaskSkinAttribute, _MXMLUIPaddingLeftAttribute, 
+                        _MXMLUIPaddingRightAttribute, _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, 
+                        _MXMLUITextIndentAttribute, _MXMLUIThemeColorAttribute, _MXMLUITrackColorsAttribute, _MXMLUITrackHeightAttribute, 
+                        _MXMLUITrackSkinAttribute, _MXMLUIVerticalGapAttribute, _MXMLUICompleteAttribute, _MXMLUIHideAttribute, 
+                        _MXMLUIProgressAttribute, _MXMLUIShowAttribute, _MXMLUICompleteEffectAttribute {
 	
 	protected void populateComponentInitValues(){
 		

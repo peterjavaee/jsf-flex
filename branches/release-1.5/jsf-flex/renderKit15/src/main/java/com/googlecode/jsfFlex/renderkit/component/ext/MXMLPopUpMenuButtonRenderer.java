@@ -46,6 +46,10 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="dataDescriptor"),
 				@JsfFlexAttribute(attribute="dataProvider", byMethod=true),
+                
+                @JsfFlexAttribute(attribute="iconField"),
+                @JsfFlexAttribute(attribute="iconFunction"),
+                
 				@JsfFlexAttribute(attribute="labelField"),
 				@JsfFlexAttribute(attribute="labelFunction"),
 				@JsfFlexAttribute(attribute="showRoot")

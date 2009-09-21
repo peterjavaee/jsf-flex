@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.component.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUILinkButtonStyleNameAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIRollOverColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISelectionColorAttribute;
@@ -44,9 +45,9 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 )
 public abstract class AbstractMXMLUILinkBar 
 						extends MXMLUISimpleBase 
-						implements _MXMLUINavBarAttributes, _MXMLUIRollOverColorAttribute, _MXMLUISelectionColorAttribute, 
-                        _MXMLUISeparatorColorAttribute, _MXMLUISeparatorSkinAttribute, _MXMLUISeparatorWidthAttribute, 
-                        _MXMLUITextRollOverColorAttribute, _MXMLUITextSelectedColorAttribute, _MXMLUIDataProviderAttribute, 
-                        _MXMLUISelectedIndexAttribute {
+						implements _MXMLUINavBarAttributes, _MXMLUILinkButtonStyleNameAttribute, _MXMLUIRollOverColorAttribute, 
+                        _MXMLUISelectionColorAttribute, _MXMLUISeparatorColorAttribute, _MXMLUISeparatorSkinAttribute, 
+                        _MXMLUISeparatorWidthAttribute, _MXMLUITextRollOverColorAttribute, _MXMLUITextSelectedColorAttribute, 
+                        _MXMLUIDataProviderAttribute, _MXMLUISelectedIndexAttribute {
 	
 }

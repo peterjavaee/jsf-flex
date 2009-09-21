@@ -58,16 +58,15 @@ import com.googlecode.jsfFlex.attributes._MXMLUIVerticalGapAttribute;
  */
 @JSFComponent
 interface _MXMLUIPanelAttributes 
-                extends _MXMLUILayoutAttribute, _MXMLUIStatusAttribute, _MXMLUITitleIconAttribute, 
-                _MXMLUIBorderAlphaAttribute, _MXMLUIBorderThicknessBottomAttribute, _MXMLUIBorderThicknessLeftAttribute, 
-                _MXMLUIBorderThicknessRightAttribute, _MXMLUIBorderThicknessTopAttribute, _MXMLUICloseButtonDisabledSkinAttribute, 
-                _MXMLUICloseButtonDownSkinAttribute, _MXMLUICloseButtonOverSkinAttribute, _MXMLUICloseButtonUpSkinAttribute, 
-                _MXMLUIControlBarStyleNameAttribute, _MXMLUIFooterColorsAttribute, _MXMLUIHeaderColorsAttribute, 
-                _MXMLUIHeaderHeightAttribute, _MXMLUIHighlightAlphasAttribute, _MXMLUIHorizontalAlignAttribute, 
-                _MXMLUIHorizontalGapAttribute, _MXMLUIModalTransparencyAttribute, _MXMLUIModalTransparencyBlurAttribute, 
-                _MXMLUIModalTransparencyColorAttribute, _MXMLUIModalTransparencyDurationAttribute, _MXMLUIRoundedBottomCornersAttribute, 
-                _MXMLUIStatusStyleNameAttribute, _MXMLUITitleBackgroundSkinAttribute, _MXMLUITitleStyleNameAttribute, 
-                _MXMLUIVerticalAlignAttribute, _MXMLUIVerticalGapAttribute, _MXMLUIResizeEndEffectAttribute, 
+                extends _MXMLUILayoutAttribute, _MXMLUIStatusAttribute, _MXMLUITitleIconAttribute, _MXMLUIBorderAlphaAttribute, 
+                _MXMLUIBorderThicknessBottomAttribute, _MXMLUIBorderThicknessLeftAttribute, _MXMLUIBorderThicknessRightAttribute, 
+                _MXMLUIBorderThicknessTopAttribute, _MXMLUICloseButtonDisabledSkinAttribute, _MXMLUICloseButtonDownSkinAttribute, 
+                _MXMLUICloseButtonOverSkinAttribute, _MXMLUICloseButtonUpSkinAttribute, _MXMLUIControlBarStyleNameAttribute, 
+                _MXMLUIFooterColorsAttribute, _MXMLUIHeaderColorsAttribute, _MXMLUIHeaderHeightAttribute, _MXMLUIHighlightAlphasAttribute, 
+                _MXMLUIHorizontalAlignAttribute, _MXMLUIHorizontalGapAttribute, _MXMLUIModalTransparencyAttribute, 
+                _MXMLUIModalTransparencyBlurAttribute, _MXMLUIModalTransparencyColorAttribute, _MXMLUIModalTransparencyDurationAttribute, 
+                _MXMLUIRoundedBottomCornersAttribute, _MXMLUIStatusStyleNameAttribute, _MXMLUITitleBackgroundSkinAttribute, 
+                _MXMLUITitleStyleNameAttribute, _MXMLUIVerticalAlignAttribute, _MXMLUIVerticalGapAttribute, _MXMLUIResizeEndEffectAttribute, 
                 _MXMLUIResizeStartEffectAttribute, _MXMLUICloseAttribute, _MXMLUIContainerAttributes {
     
     String getTitle();

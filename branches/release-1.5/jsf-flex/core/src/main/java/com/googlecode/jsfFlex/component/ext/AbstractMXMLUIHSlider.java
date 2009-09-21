@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
+import com.googlecode.jsfFlex.attributes._MXMLUIDataTipPlacementAttribute;
 import com.googlecode.jsfFlex.component.MXMLUIValueBase;
 
 /**
@@ -36,6 +37,6 @@ import com.googlecode.jsfFlex.component.MXMLUIValueBase;
 )
 public abstract class AbstractMXMLUIHSlider 
 						extends MXMLUIValueBase
-						implements _MXMLUISliderAttributes {
+						implements _MXMLUISliderAttributes, _MXMLUIDataTipPlacementAttribute {
 	
 }

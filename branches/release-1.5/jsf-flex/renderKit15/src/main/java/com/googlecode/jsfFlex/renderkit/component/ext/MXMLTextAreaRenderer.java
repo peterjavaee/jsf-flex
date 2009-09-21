@@ -72,7 +72,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 				@JsfFlexAttribute(attribute="displayAsPassword"),
 				@JsfFlexAttribute(attribute="editable", byMethod=true),
 				@JsfFlexAttribute(attribute="imeMode"),
-				@JsfFlexAttribute(attribute="listData"),
+                @JsfFlexAttribute(attribute="listData"),
 				@JsfFlexAttribute(attribute="maxChars"),
 				@JsfFlexAttribute(attribute="restrict"),
 				@JsfFlexAttribute(attribute="selectionBeginIndex"),

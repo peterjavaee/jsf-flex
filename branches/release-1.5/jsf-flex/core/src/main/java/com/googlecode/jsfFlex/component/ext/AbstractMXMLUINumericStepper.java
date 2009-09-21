@@ -53,6 +53,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIFontStyleAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFontThicknessAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFontWeightAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIHighlightAlphasAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIIconColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIImeModeAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILeadingAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIMaxCharsAttribute;
@@ -70,6 +71,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIUpArrowDisabledSkinAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIUpArrowDownSkinAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIUpArrowOverSkinAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIUpArrowUpSkinAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIValueAttribute;
 import com.googlecode.jsfFlex.component.MXMLUIValueBase;
 
 /**
@@ -87,7 +89,7 @@ import com.googlecode.jsfFlex.component.MXMLUIValueBase;
 public abstract class AbstractMXMLUINumericStepper 
 						extends MXMLUIValueBase 
 						implements _MXMLUIBaseAttributes, _MXMLUIImeModeAttribute, _MXMLUIMaxCharsAttribute, 
-                        _MXMLUIMaximumAttribute, _MXMLUIMinimumAttribute, _MXMLUIStepSizeAttribute, 
+                        _MXMLUIMaximumAttribute, _MXMLUIMinimumAttribute, _MXMLUIStepSizeAttribute, _MXMLUIValueAttribute, 
                         _MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundColorAttribute, _MXMLUIBackgroundImageAttribute, 
                         _MXMLUIBackgroundSizeAttribute, _MXMLUIBorderCapColorAttribute, _MXMLUIBorderColorAttribute, 
                         _MXMLUIBorderSidesAttribute, _MXMLUIBorderSkinAttribute, _MXMLUIBorderStyleAttribute, 
@@ -98,7 +100,7 @@ public abstract class AbstractMXMLUINumericStepper
                         _MXMLUIFontAntiAliasTypeAttribute, _MXMLUIFontFamilyAttribute, _MXMLUIFontGridFitTypeAttribute, 
                         _MXMLUIFontSharpnessAttribute, _MXMLUIFontSizeAttribute, _MXMLUIFontStyleAttribute, 
                         _MXMLUIFontThicknessAttribute, _MXMLUIFontWeightAttribute, _MXMLUIHighlightAlphasAttribute, 
-                        _MXMLUILeadingAttribute, _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, 
+                        _MXMLUIIconColorAttribute, _MXMLUILeadingAttribute, _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, 
                         _MXMLUIShadowDirectionAttribute, _MXMLUIShadowDistanceAttribute, _MXMLUITextAlignAttribute,
                         _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, _MXMLUIUpArrowDisabledSkinAttribute, 
                         _MXMLUIUpArrowDownSkinAttribute, _MXMLUIUpArrowOverSkinAttribute, _MXMLUIUpArrowUpSkinAttribute, 

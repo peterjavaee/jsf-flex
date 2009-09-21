@@ -30,6 +30,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalAlignAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIHttpStatusAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIInitAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIIoErrorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUILoadForCompatibilityAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILoaderContextAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIMaintainAspectRatioAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIOpenAttribute;
@@ -47,12 +48,12 @@ import com.googlecode.jsfFlex.attributes._MXMLUIVerticalAlignAttribute;
  */
 @JSFComponent
 interface _MXMLUISwfLoaderAttributes 
-                extends _MXMLUIAutoLoadAttribute, _MXMLUILoaderContextAttribute, _MXMLUIMaintainAspectRatioAttribute, 
-                _MXMLUIScaleContentAttribute, _MXMLUIShowBusyCursorAttribute, _MXMLUISourceAttribute, 
-                _MXMLUITrustContentAttribute, _MXMLUIBrokenImageBorderSkinAttribute, _MXMLUIBrokenImageSkinAttribute, 
-                _MXMLUIHorizontalAlignAttribute, _MXMLUIVerticalAlignAttribute, _MXMLUICompleteEffectAttribute, 
-                _MXMLUICompleteAttribute, _MXMLUIHttpStatusAttribute, _MXMLUIInitAttribute, _MXMLUIIoErrorAttribute, 
-                _MXMLUIOpenAttribute, _MXMLUIProgressAttribute, _MXMLUISecurityErrorAttribute, _MXMLUIUnloadAttribute, 
-                _MXMLUIBaseAttributes {
+                extends _MXMLUIAutoLoadAttribute, _MXMLUILoaderContextAttribute, _MXMLUILoadForCompatibilityAttribute, 
+                _MXMLUIMaintainAspectRatioAttribute, _MXMLUIScaleContentAttribute, _MXMLUIShowBusyCursorAttribute, 
+                _MXMLUISourceAttribute, _MXMLUITrustContentAttribute, _MXMLUIBrokenImageBorderSkinAttribute, 
+                _MXMLUIBrokenImageSkinAttribute, _MXMLUIHorizontalAlignAttribute, _MXMLUIVerticalAlignAttribute, 
+                _MXMLUICompleteEffectAttribute, _MXMLUICompleteAttribute, _MXMLUIHttpStatusAttribute, 
+                _MXMLUIInitAttribute, _MXMLUIIoErrorAttribute, _MXMLUIOpenAttribute, _MXMLUIProgressAttribute, 
+                _MXMLUISecurityErrorAttribute, _MXMLUIUnloadAttribute, _MXMLUIBaseAttributes {
     
 }

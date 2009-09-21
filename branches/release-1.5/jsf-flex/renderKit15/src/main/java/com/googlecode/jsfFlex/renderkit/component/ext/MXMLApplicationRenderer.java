@@ -18,7 +18,6 @@
  */
 package com.googlecode.jsfFlex.renderkit.component.ext;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -79,6 +78,7 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="controlBar"),
 				@JsfFlexAttribute(attribute="frameRate"),
+                @JsfFlexAttribute(attribute="historyManagementEnabled"),
 				@JsfFlexAttribute(attribute="layout"),
 				@JsfFlexAttribute(attribute="pageTitle"),
 				@JsfFlexAttribute(attribute="preloader"),

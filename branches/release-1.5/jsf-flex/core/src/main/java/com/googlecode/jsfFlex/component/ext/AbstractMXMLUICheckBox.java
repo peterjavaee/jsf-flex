@@ -20,6 +20,9 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
+import com.googlecode.jsfFlex.attributes._MXMLUIDisabledIconColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIIconColorAttribute;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -34,6 +37,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
 )
 public abstract class AbstractMXMLUICheckBox 
 						extends com.googlecode.jsfFlex.component.MXMLUISelectedBase 
-						implements _MXMLUIButtonAttributes {
+						implements _MXMLUIButtonAttributes, _MXMLUIDisabledIconColorAttribute, _MXMLUIIconColorAttribute {
 	
 }

@@ -35,9 +35,12 @@ import com.googlecode.jsfFlex.attributes._MXMLUIFontStyleAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFontThicknessAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFontWeightAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIListDataAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIPaddingBottomAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIPaddingLeftAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIPaddingRightAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIPaddingTopAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISelectableAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIStyleSheetAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITextAlignAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITextDecorationAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITextIndentAttribute;
@@ -48,13 +51,12 @@ import com.googlecode.jsfFlex.attributes._MXMLUITruncateToFitAttribute;
  */
 @JSFComponent
 interface _MXMLUILabelAttributes 
-            extends _MXMLUICondenseWhiteAttribute, _MXMLUIDataAttribute, _MXMLUIListDataAttribute, 
-            _MXMLUISelectableAttribute, _MXMLUITruncateToFitAttribute, _MXMLUIColorAttribute, 
-            _MXMLUIDisabledColorAttribute, _MXMLUIFontAntiAliasTypeAttribute, _MXMLUIFontFamilyAttribute,
-            _MXMLUIFontGridFitTypeAttribute, _MXMLUIFontSharpnessAttribute, _MXMLUIFontSizeAttribute,
-            _MXMLUIFontStyleAttribute, _MXMLUIFontThicknessAttribute, _MXMLUIFontWeightAttribute, 
-            _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, _MXMLUITextAlignAttribute,
-            _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, _MXMLUIDataChangeAttribute,
+            extends _MXMLUICondenseWhiteAttribute, _MXMLUIDataAttribute, _MXMLUIListDataAttribute, _MXMLUISelectableAttribute, 
+            _MXMLUITruncateToFitAttribute, _MXMLUIColorAttribute, _MXMLUIDisabledColorAttribute, _MXMLUIFontAntiAliasTypeAttribute, 
+            _MXMLUIFontFamilyAttribute, _MXMLUIFontGridFitTypeAttribute, _MXMLUIFontSharpnessAttribute, _MXMLUIFontSizeAttribute,
+            _MXMLUIFontStyleAttribute, _MXMLUIFontThicknessAttribute, _MXMLUIFontWeightAttribute, _MXMLUIPaddingLeftAttribute, 
+            _MXMLUIPaddingRightAttribute, _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, 
+            _MXMLUIDataChangeAttribute, _MXMLUIPaddingTopAttribute, _MXMLUIPaddingBottomAttribute, _MXMLUIStyleSheetAttribute, 
             _MXMLUIBaseAttributes {
     
     String getHtmlText();

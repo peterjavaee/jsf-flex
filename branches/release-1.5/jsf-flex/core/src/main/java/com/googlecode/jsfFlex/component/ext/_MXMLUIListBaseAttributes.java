@@ -47,6 +47,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUILabelFunctionAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILockedColumnCountAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILockedRowCountAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIMenuSelectionModeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIOffscreenExtraRowsOrColumnsAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIPaddingBottomAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIPaddingLeftAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIPaddingRightAttribute;
@@ -77,20 +78,19 @@ interface _MXMLUIListBaseAttributes
                     extends _MXMLUIAllowDragSelectionAttribute, _MXMLUIAllowMultipleSelectionAttribute, _MXMLUIColumnCountAttribute, 
                     _MXMLUIColumnWidthAttribute, _MXMLUIDataTipFieldAttribute, _MXMLUIDataTipFunctionAttribute, 
                     _MXMLUIDragEnabledAttribute, _MXMLUIDragMoveEnabledAttribute, _MXMLUIDropEnabledAttribute, 
-                    _MXMLUIIconFieldAttribute, _MXMLUIIconFunctionAttribute, _MXMLUIItemRendererAttribute, 
-                    _MXMLUILabelFieldAttribute, _MXMLUILabelFunctionAttribute, _MXMLUILockedColumnCountAttribute, 
-                    _MXMLUILockedRowCountAttribute, _MXMLUIMenuSelectionModeAttribute, _MXMLUIRowHeightAttribute, 
-                    _MXMLUISelectableAttribute, _MXMLUISelectedIndicesAttribute, _MXMLUISelectedItemAttribute, 
-                    _MXMLUISelectedItemsAttribute, _MXMLUIShowDataTipsAttribute, _MXMLUIVariableRowHeightAttribute,
-                    _MXMLUIWordWrapAttribute, _MXMLUIAlternatingItemColorsAttribute, _MXMLUIDropIndicatorSkinAttribute, 
-                    _MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, _MXMLUIPaddingBottomAttribute, 
-                    _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, _MXMLUIPaddingTopAttribute, 
+                    _MXMLUIIconFieldAttribute, _MXMLUIIconFunctionAttribute, _MXMLUIItemRendererAttribute, _MXMLUILabelFieldAttribute, 
+                    _MXMLUILabelFunctionAttribute, _MXMLUILockedColumnCountAttribute, _MXMLUILockedRowCountAttribute, 
+                    _MXMLUIMenuSelectionModeAttribute, _MXMLUIRowHeightAttribute, _MXMLUISelectableAttribute, _MXMLUISelectedIndicesAttribute, 
+                    _MXMLUISelectedItemAttribute, _MXMLUISelectedItemsAttribute, _MXMLUIShowDataTipsAttribute, 
+                    _MXMLUIVariableRowHeightAttribute, _MXMLUIWordWrapAttribute, _MXMLUIAlternatingItemColorsAttribute, 
+                    _MXMLUIDropIndicatorSkinAttribute, _MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, 
+                    _MXMLUIPaddingBottomAttribute, _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, _MXMLUIPaddingTopAttribute, 
                     _MXMLUIRollOverColorAttribute, _MXMLUISelectionColorAttribute, _MXMLUISelectionDisabledColorAttribute, 
                     _MXMLUISelectionDurationAttribute, _MXMLUISelectionEasingFunctionAttribute, _MXMLUITextRollOverColorAttribute, 
                     _MXMLUITextSelectedColorAttribute, _MXMLUIUseRollOverAttribute, _MXMLUIVerticalAlignAttribute, 
                     _MXMLUIChangeAttribute, _MXMLUIDataChangeAttribute, _MXMLUIItemDoubleClickAttribute, 
                     _MXMLUIItemRollOutAttribute, _MXMLUIItemRollOverAttribute, _MXMLUIItemClickAttribute, 
-                    _MXMLUIScrollControlAttributes {
+                    _MXMLUIOffscreenExtraRowsOrColumnsAttribute, _MXMLUIScrollControlAttributes {
     
     String getDataProvider();
     

@@ -35,8 +35,9 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="autoLoad"),
-				@JsfFlexAttribute(attribute="loaderContext"),
-				@JsfFlexAttribute(attribute="maintainAspectRatio"),
+                @JsfFlexAttribute(attribute="loadForCompatibility"),
+                @JsfFlexAttribute(attribute="loaderContext"),
+                @JsfFlexAttribute(attribute="maintainAspectRatio"),
 				@JsfFlexAttribute(attribute="scaleContent"),
 				@JsfFlexAttribute(attribute="showBusyCursor"),
 				@JsfFlexAttribute(attribute="source"),

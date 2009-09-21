@@ -123,14 +123,14 @@ import com.googlecode.jsfFlex.component.MXMLUIInputBase;
 )
 public abstract class AbstractMXMLUIDateChooser 
                             extends MXMLUIInputBase 
-                            implements _MXMLUIAllowDisjointSelectionAttribute, _MXMLUIAllowMultipleSelectionAttribute, 
+                            implements _MXMLUIBaseAttributes, _MXMLUIAllowDisjointSelectionAttribute, _MXMLUIAllowMultipleSelectionAttribute, 
                             _MXMLUIDayNamesAttribute, _MXMLUIDisabledDaysAttribute, _MXMLUIDisabledRangesAttribute, 
                             _MXMLUIDisplayedMonthAttribute, _MXMLUIDisplayedYearAttribute, _MXMLUIFirstDayOfWeekAttribute, 
-                            _MXMLUIMaxYearAttribute, _MXMLUIMinYearAttribute, _MXMLUIMonthNamesAttribute, 
-                            _MXMLUIMonthSymbolAttribute, _MXMLUISelectableRangeAttribute, _MXMLUISelectedDateAttribute, 
-                            _MXMLUISelectedRangesAttribute, _MXMLUIShowTodayAttribute, _MXMLUIYearNavigationEnabledAttribute, 
-                            _MXMLUIYearSymbolAttribute, _MXMLUIBackgroundColorAttribute, _MXMLUIBackgroundAlphaAttribute, 
-                            _MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, _MXMLUIColorAttribute, _MXMLUICornerRadiusAttribute, 
+                            _MXMLUIMaxYearAttribute, _MXMLUIMinYearAttribute, _MXMLUIMonthNamesAttribute, _MXMLUIMonthSymbolAttribute, 
+                            _MXMLUISelectableRangeAttribute, _MXMLUISelectedDateAttribute, _MXMLUISelectedRangesAttribute, 
+                            _MXMLUIShowTodayAttribute, _MXMLUIYearNavigationEnabledAttribute, _MXMLUIYearSymbolAttribute, 
+                            _MXMLUIBackgroundColorAttribute, _MXMLUIBackgroundAlphaAttribute, _MXMLUIBorderColorAttribute, 
+                            _MXMLUIBorderThicknessAttribute, _MXMLUIColorAttribute, _MXMLUICornerRadiusAttribute, 
                             _MXMLUIDisabledColorAttribute, _MXMLUIDisabledIconColorAttribute, _MXMLUIFillAlphasAttribute, 
                             _MXMLUIFillColorsAttribute, _MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, 
                             _MXMLUIFontAntiAliasTypeAttribute, _MXMLUIFontFamilyAttribute, _MXMLUIFontGridFitTypeAttribute, 
@@ -148,8 +148,7 @@ public abstract class AbstractMXMLUIDateChooser
                             _MXMLUISelectionColorAttribute, _MXMLUISelectionIndicatorSkinAttribute, _MXMLUITextAlignAttribute, 
                             _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, _MXMLUITodayColorAttribute, 
                             _MXMLUITodayIndicatorSkinAttribute, _MXMLUITodayStyleNameAttribute, _MXMLUIVerticalGapAttribute, 
-                            _MXMLUIWeekDayStyleNameAttribute, _MXMLUIChangeAttribute, _MXMLUIScrollAttribute,
-                            _MXMLUIBaseAttributes {
+                            _MXMLUIWeekDayStyleNameAttribute, _MXMLUIChangeAttribute, _MXMLUIScrollAttribute {
     
     private final static org.apache.commons.logging.Log _log = org.apache.commons.logging.LogFactory.getLog(AbstractMXMLUIDateChooser.class);
     

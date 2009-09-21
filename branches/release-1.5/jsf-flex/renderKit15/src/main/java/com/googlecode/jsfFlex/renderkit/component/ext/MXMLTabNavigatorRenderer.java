@@ -66,6 +66,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 				@JsfFlexAttribute(attribute="lastTabStyleName"),
 				@JsfFlexAttribute(attribute="selectedTabTextStyleName"),
 				@JsfFlexAttribute(attribute="tabHeight"),
+                @JsfFlexAttribute(attribute="tabOffset"),
 				@JsfFlexAttribute(attribute="tabStyleName"),
 				@JsfFlexAttribute(attribute="tabWidth")
 		}

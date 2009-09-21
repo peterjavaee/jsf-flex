@@ -47,6 +47,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIDataChangeAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderCollectionAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDisabledColorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIDisabledIconColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDropDownBorderColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDropDownStyleNameAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDropdownFactoryAttribute;
@@ -66,6 +67,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIFontStyleAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFontThicknessAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFontWeightAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIHighlightAlphasAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIIconColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIItemRendererAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIItemRollOutAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIItemRollOverAttribute;
@@ -75,8 +77,10 @@ import com.googlecode.jsfFlex.attributes._MXMLUILeadingAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIOpenAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIOpenDurationAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIOpenEasingFunctionAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIPaddingBottomAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIPaddingLeftAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIPaddingRightAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIPaddingTopAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIPromptAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIRollOverColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIRowCount;
@@ -117,20 +121,21 @@ public abstract class AbstractMXMLUIComboBox
                         _MXMLUIPromptAttribute, _MXMLUIRowCount, _MXMLUIAlternatingItemColorsAttribute, _MXMLUIArrowButtonWidthAttribute, 
                         _MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, _MXMLUICloseDurationAttribute, 
                         _MXMLUICloseEasingFunctionAttribute, _MXMLUIColorAttribute, _MXMLUICornerRadiusAttribute, 
-                        _MXMLUIDisabledColorAttribute, _MXMLUIDropDownBorderColorAttribute, _MXMLUIDropDownStyleNameAttribute, 
-                        _MXMLUIFillAlphasAttribute, _MXMLUIFillColorsAttribute, _MXMLUIFocusAlphaAttribute, 
+                        _MXMLUIDisabledColorAttribute, _MXMLUIDisabledIconColorAttribute, _MXMLUIDropDownBorderColorAttribute, 
+                        _MXMLUIDropDownStyleNameAttribute, _MXMLUIFillAlphasAttribute, _MXMLUIFillColorsAttribute, _MXMLUIFocusAlphaAttribute, 
                         _MXMLUIFocusRoundedCornersAttribute, _MXMLUIFontAntiAliasTypeAttribute, _MXMLUIFontFamilyAttribute, 
                         _MXMLUIFontGridFitTypeAttribute, _MXMLUIFontSharpnessAttribute, _MXMLUIFontSizeAttribute, 
                         _MXMLUIFontStyleAttribute, _MXMLUIFontThicknessAttribute, _MXMLUIFontWeightAttribute, 
-                        _MXMLUIHighlightAlphasAttribute, _MXMLUILeadingAttribute, _MXMLUIOpenDurationAttribute, 
-                        _MXMLUIOpenEasingFunctionAttribute, _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, 
-                        _MXMLUIRollOverColorAttribute, _MXMLUISelectionColorAttribute, _MXMLUISelectionDurationAttribute, 
-                        _MXMLUISelectionEasingFunctionAttribute, _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, 
-                        _MXMLUITextIndentAttribute, _MXMLUITextRollOverColorAttribute, _MXMLUITextSelectedColorAttribute, 
-                        _MXMLUIChangeAttribute, _MXMLUICloseAttribute, _MXMLUIDataChangeAttribute, 
-                        _MXMLUIEnterAttribute, _MXMLUIItemRollOutAttribute, _MXMLUIItemRollOverAttribute, 
-                        _MXMLUIOpenAttribute, _MXMLUIScrollAttribute, _MXMLUIDataProviderCollectionAttribute ,_MXMLUIDataProviderAttribute, 
-                        _MXMLUIEditableAttribute, _MXMLUISelectedIndexAttribute, _MXMLUITextAttribute {
+                        _MXMLUIHighlightAlphasAttribute, _MXMLUIIconColorAttribute, _MXMLUILeadingAttribute, _MXMLUIOpenDurationAttribute, 
+                        _MXMLUIOpenEasingFunctionAttribute, _MXMLUIPaddingTopAttribute, _MXMLUIPaddingBottomAttribute, 
+                        _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, _MXMLUIRollOverColorAttribute, 
+                        _MXMLUISelectionColorAttribute, _MXMLUISelectionDurationAttribute, _MXMLUISelectionEasingFunctionAttribute, 
+                        _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, 
+                        _MXMLUITextRollOverColorAttribute, _MXMLUITextSelectedColorAttribute, _MXMLUIChangeAttribute, 
+                        _MXMLUICloseAttribute, _MXMLUIDataChangeAttribute, _MXMLUIEnterAttribute, _MXMLUIItemRollOutAttribute, 
+                        _MXMLUIItemRollOverAttribute, _MXMLUIOpenAttribute, _MXMLUIScrollAttribute, _MXMLUIDataProviderCollectionAttribute, 
+                        _MXMLUIDataProviderAttribute, _MXMLUIEditableAttribute, _MXMLUISelectedIndexAttribute, 
+                        _MXMLUITextAttribute {
 	
 	private final static Log _log = LogFactory.getLog(AbstractMXMLUIComboBox.class);
 	

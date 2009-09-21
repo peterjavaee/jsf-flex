@@ -44,6 +44,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		mxmlComponentNodeAttributes={},
 
 		jsfFlexAttributes={
+                @JsfFlexAttribute(attribute="linkButtonStyleName"),
 				@JsfFlexAttribute(attribute="rollOverColor"),
 				@JsfFlexAttribute(attribute="selectionColor"),
 				@JsfFlexAttribute(attribute="separatorColor"),

@@ -16,27 +16,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.component.ext;
+package com.googlecode.jsfFlex.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-
-import com.googlecode.jsfFlex.attributes._MXMLUIIconFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemClickAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILabelFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIToolTipFieldAttribute;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="kerning", returnType="java.lang.String", longDesc="A Boolean value that indicates whether kerning is enabled (true) or disabled (false). Kerning adjusts the gap between certain character pairs to improve readability, and should be used only when necessary, such as with headings in large fonts.")
 @JSFComponent
-interface _MXMLUINavBarAttributes 
-            extends _MXMLUIIconFieldAttribute, _MXMLUILabelFieldAttribute, _MXMLUIToolTipFieldAttribute, _MXMLUIItemClickAttribute, 
-            _MXMLUIBoxAttributes {
-    
-    String getDataProvider();
-    
-    Integer getSelectedIndex();
-    
-    void setSelectedIndex(Integer selectedIndex);
+public interface _MXMLUIKerningAttribute {
     
 }

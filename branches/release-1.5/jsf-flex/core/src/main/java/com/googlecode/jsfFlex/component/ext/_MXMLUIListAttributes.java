@@ -45,10 +45,10 @@ import com.googlecode.jsfFlex.attributes._MXMLUIRendererIsEditorAttribute;
 interface _MXMLUIListAttributes 
                     extends _MXMLUIEditedItemPositionAttribute, _MXMLUIEditorDataFieldAttribute, _MXMLUIEditorHeightOffsetAttribute, 
                     _MXMLUIEditorUsesEnterKeyAttribute, _MXMLUIEditorWidthOffsetAttribute, _MXMLUIEditorXOffsetAttribute, 
-                    _MXMLUIEditorYOffsetAttribute, _MXMLUIImeModeAttribute, _MXMLUIItemEditorAttribute, 
-                    _MXMLUIItemEditorInstanceAttribute, _MXMLUIRendererIsEditorAttribute, _MXMLUIBackgroundDisabledColorAttribute, 
-                    _MXMLUIItemEditBeginAttribute, _MXMLUIItemEditEndAttribute, _MXMLUIItemEditBeginningAttribute, 
-                    _MXMLUIItemFocusInAttribute, _MXMLUIItemFocusOutAttribute, _MXMLUIListBaseAttributes {
+                    _MXMLUIEditorYOffsetAttribute, _MXMLUIImeModeAttribute, _MXMLUIItemEditorAttribute, _MXMLUIItemEditorInstanceAttribute, 
+                    _MXMLUIRendererIsEditorAttribute, _MXMLUIBackgroundDisabledColorAttribute, _MXMLUIItemEditBeginAttribute, 
+                    _MXMLUIItemEditEndAttribute, _MXMLUIItemEditBeginningAttribute, _MXMLUIItemFocusInAttribute, 
+                    _MXMLUIItemFocusOutAttribute, _MXMLUIListBaseAttributes {
     
     String getEditable();
     

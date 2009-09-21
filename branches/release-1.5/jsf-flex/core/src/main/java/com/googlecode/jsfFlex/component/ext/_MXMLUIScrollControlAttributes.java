@@ -73,11 +73,10 @@ interface _MXMLUIScrollControlAttributes
                     _MXMLUIBackgroundImageAttribute, _MXMLUIBackgroundSizeAttribute, _MXMLUIBorderColorAttribute, 
                     _MXMLUIBorderSidesAttribute, _MXMLUIBorderSkinAttribute, _MXMLUIBorderStyleAttribute, _MXMLUIBorderThicknessAttribute, 
                     _MXMLUIColorAttribute, _MXMLUICornerRadiusAttribute, _MXMLUIDisabledColorAttribute, _MXMLUIDropShadowColorAttribute, 
-                    _MXMLUIDropShadowEnabledAttribute, _MXMLUIFontFamilyAttribute, _MXMLUIFontSizeAttribute, 
-                    _MXMLUIFontStyleAttribute, _MXMLUIFontWeightAttribute, _MXMLUIHorizontalScrollBarStyleNameAttribute, 
-                    _MXMLUILeadingAttribute, _MXMLUIRepeatDelayAttribute, _MXMLUIRepeatIntervalAttribute, 
-                    _MXMLUIShadowDirectionAttribute, _MXMLUIShadowDistanceAttribute, _MXMLUITextAlignAttribute, 
-                    _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, _MXMLUIVerticalScrollBarStyleNameAttribute, 
+                    _MXMLUIDropShadowEnabledAttribute, _MXMLUIFontFamilyAttribute, _MXMLUIFontSizeAttribute, _MXMLUIFontStyleAttribute, 
+                    _MXMLUIFontWeightAttribute, _MXMLUIHorizontalScrollBarStyleNameAttribute, _MXMLUILeadingAttribute, 
+                    _MXMLUIRepeatDelayAttribute, _MXMLUIRepeatIntervalAttribute, _MXMLUIShadowDirectionAttribute, _MXMLUIShadowDistanceAttribute, 
+                    _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, _MXMLUIVerticalScrollBarStyleNameAttribute, 
                     _MXMLUIScrollAttribute, _MXMLUIBaseAttributes {
 	
 }

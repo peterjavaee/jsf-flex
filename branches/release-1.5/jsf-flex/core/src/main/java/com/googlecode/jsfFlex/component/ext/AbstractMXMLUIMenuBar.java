@@ -53,8 +53,10 @@ import com.googlecode.jsfFlex.attributes._MXMLUIItemUpSkinAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILabelFieldAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILabelFunctionAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILeadingAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIMenuBarItemRendererAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIMenuHideAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIMenuShowAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIMenuStyleNameAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIMenubarItemsAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIMenusAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIRollOverColorAttribute;
@@ -80,7 +82,7 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 public abstract class AbstractMXMLUIMenuBar 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIBaseAttributes, _MXMLUIDataDescriptorAttribute, _MXMLUIDataProviderAttribute, 
-                        _MXMLUIIconFieldAttribute, _MXMLUILabelFieldAttribute, _MXMLUILabelFunctionAttribute, 
+                        _MXMLUIIconFieldAttribute, _MXMLUILabelFieldAttribute, _MXMLUILabelFunctionAttribute, _MXMLUIMenuBarItemRendererAttribute, 
                         _MXMLUIMenubarItemsAttribute, _MXMLUIMenusAttribute, _MXMLUISelectedIndexAttribute, 
                         _MXMLUIShowRootAttribute, _MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundColorAttribute, 
                         _MXMLUIBackgroundSkinAttribute, _MXMLUIBorderColorAttribute, _MXMLUIColorAttribute, 
@@ -90,7 +92,7 @@ public abstract class AbstractMXMLUIMenuBar
                         _MXMLUIFontSharpnessAttribute, _MXMLUIFontSizeAttribute, _MXMLUIFontStyleAttribute, 
                         _MXMLUIFontThicknessAttribute, _MXMLUIFontWeightAttribute, _MXMLUIHighlightAlphasAttribute, 
                         _MXMLUIItemDownSkinAttribute, _MXMLUIItemOverSkinAttribute, _MXMLUIItemUpSkinAttribute, 
-                        _MXMLUILeadingAttribute, _MXMLUIRollOverColorAttribute, _MXMLUISelectionColorAttribute, 
+                        _MXMLUILeadingAttribute, _MXMLUIMenuStyleNameAttribute, _MXMLUIRollOverColorAttribute, _MXMLUISelectionColorAttribute, 
                         _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, 
                         _MXMLUIItemClickAttribute, _MXMLUIItemRollOutAttribute, _MXMLUIItemRollOverAttribute, 
                         _MXMLUIMenuHideAttribute, _MXMLUIMenuShowAttribute {

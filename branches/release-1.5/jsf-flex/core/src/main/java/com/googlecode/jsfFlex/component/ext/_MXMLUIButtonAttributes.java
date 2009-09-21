@@ -39,6 +39,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIFillColorsAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFocusAlphaAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFocusRoundedCornersAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFontAntiAliasTypeAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIFontContextAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFontFamilyAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFontGridFitTypeAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFontSharpnessAttribute;
@@ -49,9 +50,11 @@ import com.googlecode.jsfFlex.attributes._MXMLUIFontWeightAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIHighlightAlphasAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalGapAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIIconAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIKerningAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILabelAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILabelPlacementAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILeadingAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUILetterSpacingAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIOverIconAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIOverSkinAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIPaddingBottomAttribute;
@@ -69,6 +72,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUISelectedOverIconAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISelectedOverSkinAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISelectedUpIconAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUISelectedUpSkinAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUISkinAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIStickyHighlightingAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITextAlignAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITextDecorationAttribute;
@@ -85,23 +89,23 @@ import com.googlecode.jsfFlex.attributes._MXMLUIVerticalGapAttribute;
  */
 @JSFComponent
 interface _MXMLUIButtonAttributes 
-                    extends _MXMLUIAutoRepeatAttribute, _MXMLUIEmphasizedAttribute, _MXMLUILabelAttribute,
+                    extends _MXMLUIAutoRepeatAttribute, _MXMLUIEmphasizedAttribute, _MXMLUILabelAttribute, 
                     _MXMLUILabelPlacementAttribute, _MXMLUISelectedFieldAttribute, _MXMLUIStickyHighlightingAttribute,
                     _MXMLUIToggleAttribute, _MXMLUIBorderColorAttribute, _MXMLUIColorAttribute, _MXMLUICornerRadiusAttribute,
                     _MXMLUIDisabledColorAttribute, _MXMLUIDisabledIconAttribute, _MXMLUIDisabledSkinAttribute, 
                     _MXMLUIDownIconAttribute, _MXMLUIDownSkinAttribute, _MXMLUIFillAlphasAttribute, _MXMLUIFillColorsAttribute,
-                    _MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, _MXMLUIFontAntiAliasTypeAttribute,
+                    _MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, _MXMLUIFontAntiAliasTypeAttribute, 
                     _MXMLUIFontFamilyAttribute, _MXMLUIFontGridFitTypeAttribute, _MXMLUIFontSharpnessAttribute, 
                     _MXMLUIFontSizeAttribute, _MXMLUIFontStyleAttribute, _MXMLUIFontThicknessAttribute, _MXMLUIFontWeightAttribute, 
-                    _MXMLUIHighlightAlphasAttribute, _MXMLUIHorizontalGapAttribute, _MXMLUIIconAttribute, 
-                    _MXMLUILeadingAttribute, _MXMLUIOverIconAttribute, _MXMLUIOverSkinAttribute, _MXMLUIPaddingBottomAttribute,
-                    _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, _MXMLUIPaddingTopAttribute, _MXMLUIRepeatDelayAttribute,
-                    _MXMLUIRepeatIntervalAttribute, _MXMLUISelectedDisabledIconAttribute, _MXMLUISelectedDisabledSkinAttribute,
-                    _MXMLUISelectedDownIconAttribute, _MXMLUISelectedDownSkinAttribute, _MXMLUISelectedOverIconAttribute,
-                    _MXMLUISelectedOverSkinAttribute, _MXMLUISelectedUpIconAttribute, _MXMLUISelectedUpSkinAttribute, 
-                    _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, 
-                    _MXMLUITextRollOverColorAttribute, _MXMLUITextSelectedColorAttribute, _MXMLUIUpIconAttribute, 
-                    _MXMLUIUpSkinAttribute, _MXMLUIVerticalGapAttribute, _MXMLUIButtonDownAttribute, _MXMLUIChangeAttribute, 
-                    _MXMLUIDataChangeAttribute, _MXMLUIBaseAttributes {
+                    _MXMLUIHighlightAlphasAttribute, _MXMLUIHorizontalGapAttribute, _MXMLUIIconAttribute, _MXMLUILeadingAttribute, 
+                    _MXMLUIOverIconAttribute, _MXMLUIOverSkinAttribute, _MXMLUIPaddingBottomAttribute, _MXMLUIPaddingLeftAttribute, 
+                    _MXMLUIPaddingRightAttribute, _MXMLUIPaddingTopAttribute, _MXMLUIRepeatDelayAttribute, _MXMLUIRepeatIntervalAttribute, 
+                    _MXMLUISelectedDisabledIconAttribute, _MXMLUISelectedDisabledSkinAttribute, _MXMLUISelectedDownIconAttribute, 
+                    _MXMLUISelectedDownSkinAttribute, _MXMLUISelectedOverIconAttribute, _MXMLUISelectedOverSkinAttribute, 
+                    _MXMLUISelectedUpIconAttribute, _MXMLUISelectedUpSkinAttribute, _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, 
+                    _MXMLUITextIndentAttribute, _MXMLUITextRollOverColorAttribute, _MXMLUITextSelectedColorAttribute, 
+                    _MXMLUIUpIconAttribute, _MXMLUIUpSkinAttribute, _MXMLUIVerticalGapAttribute, _MXMLUIButtonDownAttribute, 
+                    _MXMLUIChangeAttribute, _MXMLUIDataChangeAttribute, _MXMLUIFontContextAttribute, _MXMLUIKerningAttribute, 
+                    _MXMLUILetterSpacingAttribute, _MXMLUISkinAttribute, _MXMLUIBaseAttributes {
     
 }

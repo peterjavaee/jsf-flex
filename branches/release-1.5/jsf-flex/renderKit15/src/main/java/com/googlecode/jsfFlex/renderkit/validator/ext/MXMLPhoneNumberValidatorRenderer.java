@@ -46,7 +46,8 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		jsfFlexAttributes={
 				@JsfFlexAttribute(attribute="allowedFormatChars"),
 				@JsfFlexAttribute(attribute="invalidCharError"),
-				@JsfFlexAttribute(attribute="wrongLengthError")
+                @JsfFlexAttribute(attribute="minDigits"),
+                @JsfFlexAttribute(attribute="wrongLengthError")
 		}
 )
 public final class MXMLPhoneNumberValidatorRenderer extends MXMLValidatorTemplateRenderer {

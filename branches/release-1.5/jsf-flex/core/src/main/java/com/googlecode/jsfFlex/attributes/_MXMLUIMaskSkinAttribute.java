@@ -16,27 +16,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.component.ext;
+package com.googlecode.jsfFlex.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-
-import com.googlecode.jsfFlex.attributes._MXMLUIIconFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemClickAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILabelFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIToolTipFieldAttribute;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="maskSkin", returnType="java.lang.String", longDesc="Skin style for the mask of the determinate and indeterminate bars.")
 @JSFComponent
-interface _MXMLUINavBarAttributes 
-            extends _MXMLUIIconFieldAttribute, _MXMLUILabelFieldAttribute, _MXMLUIToolTipFieldAttribute, _MXMLUIItemClickAttribute, 
-            _MXMLUIBoxAttributes {
-    
-    String getDataProvider();
-    
-    Integer getSelectedIndex();
-    
-    void setSelectedIndex(Integer selectedIndex);
+public interface _MXMLUIMaskSkinAttribute {
     
 }

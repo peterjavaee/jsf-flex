@@ -22,6 +22,8 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
 
 import com.googlecode.jsfFlex.attributes._MXMLUIDataDescriptorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIIconFieldAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIIconFunctionAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILabelFieldAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILabelFunctionAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIShowRootAttribute;
@@ -41,6 +43,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIShowRootAttribute;
 public abstract class AbstractMXMLUIPopUpMenuButton 
 						extends com.googlecode.jsfFlex.component.MXMLUISelectedBase
 						implements _MXMLUIPopUpButtonAttributes, _MXMLUIDataDescriptorAttribute, _MXMLUIDataProviderAttribute, 
-                        _MXMLUILabelFieldAttribute, _MXMLUILabelFunctionAttribute, _MXMLUIShowRootAttribute {
+                        _MXMLUIIconFieldAttribute, _MXMLUIIconFunctionAttribute, _MXMLUILabelFieldAttribute, 
+                        _MXMLUILabelFunctionAttribute, _MXMLUIShowRootAttribute {
 	
 }

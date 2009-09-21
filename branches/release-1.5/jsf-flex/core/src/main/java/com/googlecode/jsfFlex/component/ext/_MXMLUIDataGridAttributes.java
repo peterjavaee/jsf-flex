@@ -35,9 +35,13 @@ import com.googlecode.jsfFlex.attributes._MXMLUIHeaderShiftAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIHeaderStyleNameAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalGridLineColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalGridLinesAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalLockedSeparatorSkinAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalScrollPositionAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalSeparatorSkinAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIIconColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIImeModeAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIItemEditBeginAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIItemEditBeginningAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIItemEditEndAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIItemEditorInstanceAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIItemFocusInAttribute;
@@ -51,6 +55,8 @@ import com.googlecode.jsfFlex.attributes._MXMLUISortableColumnsAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIStretchCursorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIVerticalGridLineColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIVerticalGridLinesAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIVerticalLockedSeparatorSkinAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIVerticalSeparatorSkinAttribute;
 
 /**
  * @author Ji Hoon Kim
@@ -63,11 +69,12 @@ interface _MXMLUIDataGridAttributes
             _MXMLUIBackgroundDisabledColorAttribute, _MXMLUIColumnDropIndicatorSkinAttribute, _MXMLUIColumnResizeSkinAttribute, 
             _MXMLUIHeaderColorsAttribute, _MXMLUIHeaderDragProxyStyleNameAttribute, _MXMLUIHeaderSeparatorSkinAttribute, 
             _MXMLUIHeaderStyleNameAttribute, _MXMLUIHorizontalGridLineColorAttribute, _MXMLUIHorizontalGridLinesAttribute, 
-            _MXMLUIRollOverColorAttribute, _MXMLUISelectionColorAttribute, _MXMLUISortArrowSkinAttribute, 
-            _MXMLUIStretchCursorAttribute, _MXMLUIVerticalGridLineColorAttribute, _MXMLUIVerticalGridLinesAttribute, 
-            _MXMLUIColumnStretchAttribute, _MXMLUIHeaderReleaseAttribute, _MXMLUIHeaderShiftAttribute, 
-            _MXMLUIItemEditBeginAttribute, _MXMLUIItemEditEndAttribute, _MXMLUIItemFocusInAttribute, 
-            _MXMLUIItemFocusOutAttribute, _MXMLUIDataGridBaseAttributes {
+            _MXMLUIRollOverColorAttribute, _MXMLUISelectionColorAttribute, _MXMLUISortArrowSkinAttribute, _MXMLUIStretchCursorAttribute, 
+            _MXMLUIVerticalGridLineColorAttribute, _MXMLUIVerticalGridLinesAttribute, _MXMLUIColumnStretchAttribute, 
+            _MXMLUIHeaderReleaseAttribute, _MXMLUIHeaderShiftAttribute, _MXMLUIItemEditBeginAttribute, _MXMLUIItemEditEndAttribute, 
+            _MXMLUIItemFocusInAttribute, _MXMLUIItemFocusOutAttribute, _MXMLUIHorizontalLockedSeparatorSkinAttribute, 
+            _MXMLUIHorizontalSeparatorSkinAttribute, _MXMLUIIconColorAttribute, _MXMLUIVerticalLockedSeparatorSkinAttribute, 
+            _MXMLUIVerticalSeparatorSkinAttribute, _MXMLUIItemEditBeginningAttribute, _MXMLUIDataGridBaseAttributes {
 
     String getEditable();
     

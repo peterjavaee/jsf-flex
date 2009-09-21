@@ -31,6 +31,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIDownArrowUpSkinAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFillAlphasAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIFillColorsAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIHighlightAlphasAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIIconColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUILineScrollSizeAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIMaxScrollPositionAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIMinScrollPositionAttribute;
@@ -39,6 +40,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUIPageSizeAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIScrollPositionAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIThumbDownSkinAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIThumbIconAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIThumbOffsetAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIThumbOverSkinAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIThumbUpSkinAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUITrackColorsAttribute;
@@ -55,12 +57,12 @@ import com.googlecode.jsfFlex.attributes._MXMLUIUpArrowUpSkinAttribute;
 interface _MXMLUIScrollBarAttributes 
                     extends _MXMLUIDirectionAttribute, _MXMLUILineScrollSizeAttribute, _MXMLUIMaxScrollPositionAttribute, 
                     _MXMLUIMinScrollPositionAttribute, _MXMLUIPageScrollSizeAttribute, _MXMLUIPageSizeAttribute, 
-                    _MXMLUIScrollPositionAttribute, _MXMLUIBorderColorAttribute, _MXMLUICornerRadiusAttribute, 
-                    _MXMLUIDownArrowDisabledSkinAttribute, _MXMLUIDownArrowDownSkinAttribute, _MXMLUIDownArrowOverSkinAttribute, 
-                    _MXMLUIDownArrowUpSkinAttribute, _MXMLUIFillAlphasAttribute, _MXMLUIFillColorsAttribute, 
-                    _MXMLUIHighlightAlphasAttribute, _MXMLUIThumbDownSkinAttribute, _MXMLUIThumbIconAttribute, 
-                    _MXMLUIThumbOverSkinAttribute, _MXMLUIThumbUpSkinAttribute, _MXMLUITrackColorsAttribute, 
-                    _MXMLUITrackSkinAttribute, _MXMLUIUpArrowDisabledSkinAttribute, _MXMLUIUpArrowDownSkinAttribute, 
-                    _MXMLUIUpArrowOverSkinAttribute, _MXMLUIUpArrowUpSkinAttribute, _MXMLUIBaseAttributes {
+                    _MXMLUIScrollPositionAttribute, _MXMLUIBorderColorAttribute, _MXMLUICornerRadiusAttribute, _MXMLUIDownArrowDisabledSkinAttribute, 
+                    _MXMLUIDownArrowDownSkinAttribute, _MXMLUIDownArrowOverSkinAttribute, _MXMLUIDownArrowUpSkinAttribute, 
+                    _MXMLUIFillAlphasAttribute, _MXMLUIFillColorsAttribute, _MXMLUIHighlightAlphasAttribute, _MXMLUIIconColorAttribute, 
+                    _MXMLUIThumbDownSkinAttribute, _MXMLUIThumbIconAttribute, _MXMLUIThumbOffsetAttribute, _MXMLUIThumbOverSkinAttribute, 
+                    _MXMLUIThumbUpSkinAttribute, _MXMLUITrackColorsAttribute, _MXMLUITrackSkinAttribute, _MXMLUIUpArrowDisabledSkinAttribute, 
+                    _MXMLUIUpArrowDownSkinAttribute, _MXMLUIUpArrowOverSkinAttribute, _MXMLUIUpArrowUpSkinAttribute, 
+                    _MXMLUIBaseAttributes {
 	
 }
