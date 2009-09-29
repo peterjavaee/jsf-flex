@@ -62,7 +62,6 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 				@JsfFlexAttribute(attribute="maximum"),
 				@JsfFlexAttribute(attribute="minimum"),
 				@JsfFlexAttribute(attribute="stepSize"),
-                @JsfFlexAttribute(attribute="value"),
                 @JsfFlexAttribute(attribute="backgroundAlpha"),
 				@JsfFlexAttribute(attribute="backgroundColor"),
 				@JsfFlexAttribute(attribute="backgroundImage"),
