@@ -24,8 +24,8 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperty(name="minDigits", returnType="java.lang.String", longDesc="Minimum number of digits for a valid phone number.")
+@JSFJspProperty(name="numeric", returnType="java.lang.String", longDesc="Specifies that if the field being sorted contains numeric (Number/int/uint) values, or String representations of numeric values, the comparitor uses a numeric comparison.")
 @JSFComponent
-public interface _MXMLMinDigitsAttribute {
+public interface _MXMLUINumericAttribute {
     
 }

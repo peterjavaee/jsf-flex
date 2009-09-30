@@ -48,7 +48,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 				@JsfFlexAttribute(attribute="dividerRelease")
 		}
 )
-public class MXMLDividedBoxTemplateRenderer extends MXMLBoxTemplateRenderer {
+public abstract class MXMLDividedBoxTemplateRenderer extends MXMLBoxTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

@@ -64,7 +64,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 				@JsfFlexAttribute(attribute="upArrowUpSkin")
 		}
 )
-public class MXMLScrollBarTemplateRenderer extends MXMLComponentRenderer {
+public abstract class MXMLScrollBarTemplateRenderer extends MXMLComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

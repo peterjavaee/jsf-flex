@@ -20,9 +20,9 @@ package com.googlecode.jsfFlex.validator.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLMinDigitsAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIAllowedFormatCharsAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIInvalidCharErrorAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIMinDigitsAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIWrongLengthErrorAttribute;
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 
@@ -44,6 +44,6 @@ import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 public abstract class AbstractMXMLUIPhoneNumberValidator 
 						extends MXMLUISimpleBase 
 						implements _MXMLUIValidatorAttributes, _MXMLUIAllowedFormatCharsAttribute, _MXMLUIInvalidCharErrorAttribute, 
-                        _MXMLMinDigitsAttribute, _MXMLUIWrongLengthErrorAttribute {
+                        _MXMLUIMinDigitsAttribute, _MXMLUIWrongLengthErrorAttribute {
 	
 }

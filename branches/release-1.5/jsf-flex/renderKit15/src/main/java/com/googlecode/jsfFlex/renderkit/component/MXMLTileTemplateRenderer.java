@@ -43,7 +43,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 				@JsfFlexAttribute(attribute="verticalGap")
 		}
 )
-public class MXMLTileTemplateRenderer extends MXMLContainerTemplateRenderer {
+public abstract class MXMLTileTemplateRenderer extends MXMLContainerTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

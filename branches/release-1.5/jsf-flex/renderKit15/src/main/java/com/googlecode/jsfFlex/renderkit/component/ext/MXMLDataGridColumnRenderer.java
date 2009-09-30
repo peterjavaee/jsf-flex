@@ -89,7 +89,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 				@JsfFlexAttribute(attribute="textIndent")
 		}
 )
-public class MXMLDataGridColumnRenderer extends MXMLComponentBaseRenderer {
+public final class MXMLDataGridColumnRenderer extends MXMLComponentBaseRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

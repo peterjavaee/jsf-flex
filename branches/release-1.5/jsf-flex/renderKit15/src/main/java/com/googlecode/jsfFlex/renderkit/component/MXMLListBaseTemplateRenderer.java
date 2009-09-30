@@ -88,7 +88,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 				@JsfFlexAttribute(attribute="itemClick")
 		}
 )
-public class MXMLListBaseTemplateRenderer extends MXMLScrollControlTemplateRenderer {
+public abstract class MXMLListBaseTemplateRenderer extends MXMLScrollControlTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

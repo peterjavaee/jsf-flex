@@ -79,7 +79,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 				@JsfFlexAttribute(attribute="thumbRelease")
 		}
 )
-public class MXMLSliderTemplateRenderer extends MXMLComponentRenderer {
+public abstract class MXMLSliderTemplateRenderer extends MXMLComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

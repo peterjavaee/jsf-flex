@@ -41,7 +41,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 				@JsfFlexAttribute(attribute="change")
 		}
 )
-public class MXMLViewStackTemplateRenderer extends MXMLContainerTemplateRenderer {
+public abstract class MXMLViewStackTemplateRenderer extends MXMLContainerTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

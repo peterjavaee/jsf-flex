@@ -54,7 +54,7 @@ import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
 				@JsfFlexAttribute(attribute="itemFocusOut")
 		}
 )
-public class MXMLListTemplateRenderer extends MXMLListBaseTemplateRenderer {
+public abstract class MXMLListTemplateRenderer extends MXMLListBaseTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

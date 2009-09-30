@@ -47,7 +47,7 @@ import com.googlecode.jsfFlex.shared.context.MxmlContext;
 				@JsfFlexAttribute(attribute="triggerEvent")
 		}
 )
-public class MXMLValidatorTemplateRenderer extends MXMLComponentRenderer {
+public abstract class MXMLValidatorTemplateRenderer extends MXMLComponentRenderer {
 	
 	private static final String VALIDATION_MANAGER_IMPORT = "com.googlecode.jsfFlex.communication.validator.ValidationManager";
 	
