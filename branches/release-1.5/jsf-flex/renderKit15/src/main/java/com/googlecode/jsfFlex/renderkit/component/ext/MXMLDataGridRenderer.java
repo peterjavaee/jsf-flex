@@ -25,6 +25,7 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
+import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.component.MXMLDataGridTemplateRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
@@ -35,12 +36,24 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  */
 @JSFRenderer(
 		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLSimple",
+		family="javax.faces.MXMLInput",
 		type="com.googlecode.jsfFlex.MXMLDataGrid"
 )
 @JsfFlexAttributeProperties(
+        mxmlComponentPackage="mx.controls",
 		mxmlComponentName="DataGrid",
-		mxmlComponentNodeAttributes={},
+        mxmlComponentNodeAttributes={
+                @FlexComponentNodeAttribute(
+                        htmlType="input", 
+                        typeAttributeValue="hidden", 
+                        valueAttributeValue="selectedIndex",
+                        isValueDynamic=true,
+                        isValueNested=false,
+                        valueNestedValues={},
+                        nameAttributeValue="id",
+                        isNameDynamic=true,
+                        nameAppend="_selectedIndex")
+        },
 
 		jsfFlexAttributes={}
 )

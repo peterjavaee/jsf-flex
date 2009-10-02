@@ -19,7 +19,6 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundColorAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
@@ -69,7 +68,6 @@ import com.googlecode.jsfFlex.attributes._MXMLUITextIndentAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIVisibleAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIWidthAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIWordWrapAttribute;
-import com.googlecode.jsfFlex.component.MXMLUIInputBase;
 
 /**
  * @author Ji Hoon Kim
@@ -83,7 +81,7 @@ import com.googlecode.jsfFlex.component.MXMLUIInputBase;
         defaultRendererType =   "com.googlecode.jsfFlex.MXMLAdvancedDataGridColumn"
 )
 public abstract class AbstractMXMLUIAdvancedDataGridColumn 
-                        extends MXMLUIInputBase 
+                        extends AbstractDataGridColumnComponentBase
                         implements _MXMLUIDataFieldAttribute, _MXMLUIDataTipFieldAttribute, _MXMLUIDataTipFunctionAttribute, 
                         _MXMLUIEditableAttribute, _MXMLUIEditorDataFieldAttribute, _MXMLUIEditorHeightOffsetAttribute, 
                         _MXMLUIEditorUsesEnterKeyAttribute, _MXMLUIEditorWidthOffsetAttribute, _MXMLUIEditorXOffsetAttribute, 
@@ -100,13 +98,5 @@ public abstract class AbstractMXMLUIAdvancedDataGridColumn
                         _MXMLUIFontWeightAttribute, _MXMLUIHeaderStyleNameAttribute, _MXMLUIKerningAttribute, 
                         _MXMLUILetterSpacingAttribute, _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, 
                         _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute {
-    
-    public JSONObject getComponentInitValues(){
-        return null;
-    }
-    
-    protected void populateComponentInitValues(){
-        
-    }
     
 }

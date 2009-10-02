@@ -21,6 +21,9 @@ package com.googlecode.jsfFlex.component.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes._MXMLUIAlternatingItemColorsAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIBatchColumnDataRetrievalSize;
+import com.googlecode.jsfFlex.attributes._MXMLUIBindingBeanClassNameAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIBindingBeanListAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDefaultLeafIconAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIDepthColorsAttribute;
@@ -75,7 +78,7 @@ import com.googlecode.jsfFlex.attributes._MXMLUITreeColumnAttribute;
         defaultRendererType =   "com.googlecode.jsfFlex.MXMLAdvancedDataGrid"
 )
 public abstract class AbstractMXMLUIAdvancedDataGrid 
-                            extends com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase 
+                            extends AbstractDataGridComponentBase
                             implements _MXMLUIAdvancedDataGridBaseExAttributes, _MXMLUIEditableAttribute, _MXMLUIDataProviderAttribute, 
                             _MXMLUIRowCount, _MXMLUIDisplayDisclosureIconAttribute, _MXMLUIDisplayItemsExpandedAttribute, 
                             _MXMLUIGroupedColumnsAttribute, _MXMLUIGroupIconFunctionAttribute, _MXMLUIGroupItemRendererAttribute, 
@@ -90,6 +93,7 @@ public abstract class AbstractMXMLUIAdvancedDataGrid
                             _MXMLUISortFontSizeAttribute, _MXMLUISortFontStyleAttribute, _MXMLUISortFontWeightAttribute, 
                             _MXMLUITextRollOverColorAttribute, _MXMLUITextSelectedColorAttribute, _MXMLUIHeaderDragOutsideAttribute, 
                             _MXMLUIHeaderDropOutsideAttribute, _MXMLUIItemCloseAttribute, _MXMLUIItemOpenAttribute, 
-                            _MXMLUIItemOpeningAttribute {
+                            _MXMLUIItemOpeningAttribute, _MXMLUIBindingBeanListAttribute, _MXMLUIBindingBeanClassNameAttribute,
+                            _MXMLUIBatchColumnDataRetrievalSize {
     
 }

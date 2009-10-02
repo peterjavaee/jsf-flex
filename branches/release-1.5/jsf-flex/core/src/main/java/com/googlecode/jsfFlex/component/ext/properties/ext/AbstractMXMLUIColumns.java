@@ -28,8 +28,8 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-import com.googlecode.jsfFlex.component.ext.AbstractMXMLUIDataGrid;
-import com.googlecode.jsfFlex.component.ext.AbstractMXMLUIDataGridColumn;
+import com.googlecode.jsfFlex.component.ext.AbstractDataGridColumnComponentBase;
+import com.googlecode.jsfFlex.component.ext.AbstractDataGridComponentBase;
 
 /**
  * @author Ji Hoon Kim
@@ -48,12 +48,12 @@ public abstract class AbstractMXMLUIColumns
 	public void encodeEnd(FacesContext context) throws IOException {
 		super.encodeEnd(context);
 		
-		AbstractMXMLUIDataGrid dataGridComponent = (AbstractMXMLUIDataGrid) getParent();
-		Map<String, AbstractMXMLUIDataGridColumn> dataGridColumnComponentMapping = dataGridComponent.getDataGridColumnComponentMapping();
+        AbstractDataGridComponentBase dataGridComponent = (AbstractDataGridComponentBase) getParent();
+		Map<String, AbstractDataGridColumnComponentBase> dataGridColumnComponentMapping = dataGridComponent.getDataGridColumnComponentMapping();
 		
 		List<UIComponent> dataGridColumnComponents = getChildren();
 		for(UIComponent currChild : dataGridColumnComponents){
-			AbstractMXMLUIDataGridColumn currDataGridColumnComponent = (AbstractMXMLUIDataGridColumn) currChild;
+            AbstractDataGridColumnComponentBase currDataGridColumnComponent = (AbstractDataGridColumnComponentBase) currChild;
 			dataGridColumnComponentMapping.put(currDataGridColumnComponent.getDataField(), currDataGridColumnComponent);
 		}
 		

@@ -26,7 +26,8 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.component.ext.AbstractMXMLUIDataGrid;
+import com.googlecode.jsfFlex.component.ext.AbstractDataGridColumnComponentBase;
+import com.googlecode.jsfFlex.component.ext.AbstractDataGridComponentBase;
 import com.googlecode.jsfFlex.component.ext.AbstractMXMLUIDataGridColumn;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
@@ -52,8 +53,8 @@ import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 )
 public final class MXMLColumnsRenderer extends MXMLComponentBaseRenderer {
 	
-	private static final String INVALID_CHILD_COMPONENT = "Invalid Child Component : MXMLUIColumns can only have subclass of following abstract classes [ AbstractMXMLUIDataGridColumn ] as its children";
-	private static final String INVALID_PARENT_COMPONENT = "Invalid Parent Component : MXMLUIColumns can only have subclass of following abstract classes [ AbstractMXMLUIDataGrid ] as its parent";
+	private static final String INVALID_CHILD_COMPONENT = "Invalid Child Component : MXMLUIColumns can only have subclass of following abstract classes [ AbstractDataGridColumnComponentBase ] as its children";
+	private static final String INVALID_PARENT_COMPONENT = "Invalid Parent Component : MXMLUIColumns can only have subclass of following abstract classes [ AbstractDataGridComponentBase ] as its parent";
 	
 	private static final String DATA_GRID_SERVICE_REQUEST_IMPORT = "com.googlecode.jsfFlex.communication.component.DataGridServiceRequest";
 	
@@ -75,11 +76,11 @@ public final class MXMLColumnsRenderer extends MXMLComponentBaseRenderer {
 		
 		UIComponent dataGridComponent = componentObj.getParent();
 		String dataGridComponentId = dataGridComponent.getId();
-		if(!(dataGridComponent instanceof AbstractMXMLUIDataGrid)){
+		if(!(dataGridComponent instanceof AbstractDataGridComponentBase)){
 			throw new ComponentBuildException(INVALID_PARENT_COMPONENT);
 		}
 		
-		AbstractMXMLUIDataGrid dataGrid = (AbstractMXMLUIDataGrid) dataGridComponent;
+        AbstractDataGridComponentBase dataGrid = (AbstractDataGridComponentBase) dataGridComponent;
 		if(dataGrid.getBindingBeanList() == null){
 			return;
 		}
@@ -97,7 +98,7 @@ public final class MXMLColumnsRenderer extends MXMLComponentBaseRenderer {
 					throw new ComponentBuildException(INVALID_CHILD_COMPONENT);
 				}
 				
-				AbstractMXMLUIDataGridColumn currChildInstance = (AbstractMXMLUIDataGridColumn) currChild;
+                AbstractDataGridColumnComponentBase currChildInstance = (AbstractDataGridColumnComponentBase) currChild;
 				additionalAppScriptContent.addDataGridColumnToDataGridScriptContent(dataGridComponentId, currChildInstance.getId(), 
 														currChildInstance.getDataField(), Boolean.valueOf(currChildInstance.getEditable()));
 			}
