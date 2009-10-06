@@ -25,7 +25,6 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.component.MXMLDataGridTemplateRenderer;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
@@ -35,40 +34,28 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLInput",
-		type="com.googlecode.jsfFlex.MXMLDataGrid"
+        renderKitId="MXML_BASIC",
+        family="javax.faces.MXMLSimple",
+        type="com.googlecode.jsfFlex.MXMLDataGrid"
 )
 @JsfFlexAttributeProperties(
-        mxmlComponentPackage="mx.controls",
-		mxmlComponentName="DataGrid",
-        mxmlComponentNodeAttributes={
-                @FlexComponentNodeAttribute(
-                        htmlType="input", 
-                        typeAttributeValue="hidden", 
-                        valueAttributeValue="selectedIndex",
-                        isValueDynamic=true,
-                        isValueNested=false,
-                        valueNestedValues={},
-                        nameAttributeValue="id",
-                        isNameDynamic=true,
-                        nameAppend="_selectedIndex")
-        },
+        mxmlComponentName="DataGrid",
+        mxmlComponentNodeAttributes={},
 
-		jsfFlexAttributes={}
+        jsfFlexAttributes={}
 )
 public final class MXMLDataGridRenderer extends MXMLDataGridTemplateRenderer {
-	
-	@Override
-	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
-		super.encodeBegin(context, componentObj);
-		
-		_MXMLContract componentMXML = (_MXMLContract) componentObj;
-		
-		AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
-		writer.createPreMxml(componentMXML, MXMLDataGridRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
-				null);
-		
-	}
-	
+    
+    @Override
+    public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
+        super.encodeBegin(context, componentObj);
+        
+        _MXMLContract componentMXML = (_MXMLContract) componentObj;
+        
+        AbstractMXMLResponseWriter writer = (AbstractMXMLResponseWriter) context.getResponseWriter();
+        writer.createPreMxml(componentMXML, MXMLDataGridRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+                null);
+        
+    }
+    
 }
