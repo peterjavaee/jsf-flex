@@ -3,10 +3,11 @@
   <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
   <version>1.0b</version>
   <versioning>
-    <latest>1.0b</latest>
+    <latest>1.0.1b</latest>
     <versions>
       <version>1.0b</version>
+      <version>1.0.1b</version>
     </versions>
-    <lastUpdated>20090415073804</lastUpdated>
+    <lastUpdated>20091210073831</lastUpdated>
   </versioning>
 </metadata>
