@@ -9,7 +9,7 @@ There are two maven projects for JSF Flex Renderers, namely renderKit14 and rend
 
 ==UIComponent field inspection==
 
-===renderKit14 - deprecated from release-1.1+===
+===renderKit14 - deprecated from release-1.0.1b+===
 For renderKit14, during the build time Javadocs will be inspected by the JSF Flex Plug-in to generate replaceMapping XML files that will be parsed during runtime to check which fields to inspect and how to fetch these fields from the sub-classes of UIComponent {by attribute map or by method invocation}.
 
 ===renderKit15===
@@ -32,4 +32,4 @@ Main thing to note in terms of design for the renderers are the following :
    * flush necessary resources {i.e. componentValueMapper.xml} for the system's library to the correct directory
    * extract the flexSDK to the correct directory
    * create the application's SWF file {for multilingual application will create a SWF file for each locale}.
-   * will invoke copyLocale if the application is multilingual *for release-1.1+*
+   * will invoke copyLocale if the application is multilingual *for release-1.0.1b+*
