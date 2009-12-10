@@ -1,0 +1,54 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  
+  <parent>
+    <groupId>com.googlecode.jsf-flex.runner-impl-project.flex-runner-project</groupId>
+    <artifactId>flex-main-runner-project</artifactId>
+    <version>1.0.1b</version>
+  </parent>
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.googlecode.jsf-flex.runner-impl-project.flex-runner-project</groupId>
+  <artifactId>ant-flex-impl</artifactId>
+  <packaging>jar</packaging>
+  <name>JSF Flex Ant Flex Task Runner Impl Project</name>
+  <description>JSF Flex Ant Flex Runner impl project contains tasks using ANT</description>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  
+  <scm>
+    <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/runnerImp/flexTaskRunnerImpl/antFlexTaskRunnerImpl</connection>
+    <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/runnerImp/flexTaskRunnerImpl/antFlexTaskRunnerImpl</developerConnection>
+  </scm>
+  
+  <dependencies>
+    
+    <dependency>
+      <groupId>ant</groupId>
+      <artifactId>ant</artifactId>
+      <version>1.5.3-1</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>ant</groupId>
+      <artifactId>ant-optional</artifactId>
+      <version>1.5.3-1</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.googlecode.jsf-flex.jsf-flex-shared-project</groupId>
+      <artifactId>jsf-flex-shared</artifactId>
+    </dependency>
+    
+  </dependencies>
+   
+</project>
