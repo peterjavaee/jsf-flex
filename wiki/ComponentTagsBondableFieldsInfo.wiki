@@ -1,6 +1,6 @@
 = Introduction =
 
-This page will contain brief overview regarding bondable fields of JSF Flex components Tags which have reference in preserving the value/state.
+This page will contain brief overview regarding bondable fields of JSF Flex components Tags which have reference in *preserving the value/state during {{{postBack}}}*. Please check out mxmlOverallExample.xhtml and mxmlOverallExample.jsp pages for comprehensive viewing of these and additional data bounded components. 
 
 = Details =
 
@@ -19,6 +19,9 @@ This page will contain brief overview regarding bondable fields of JSF Flex comp
  
  * mxmlDataGrid
     # bindingBeanList _List_ : List of beans for asynchronous retrieval and update of data. The bean should have corresponding get + set methods for each mxmlDataGridColumn's dataField attributes and the data should implement the _Comparable_ interface for sorting.
+ 
+ * mxmlDateChooser
+    # selectedDate _Calendar_ : the selected date of the component.
  
  * mxmlDateField
     # text _String_ : contains the date selected by the user.
