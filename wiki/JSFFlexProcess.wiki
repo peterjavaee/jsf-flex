@@ -7,21 +7,21 @@ Brief overview of JSF Flex Process
  # The component library will piggy back on JSF lifecycle.
  # All Flex components must be nested within <s:mxmlApplication /> tag as it is the top component and this tag must be nested within <h:form /> tag.
  # During runtime, fields from sub-class of UIComponent will be fetched from the attribute map or by method call depending on the {{{JavaDoc}}}/annotation for the component files. For 
-   * renderKit14 fields will be read by parsing replaceMapping XML files, generated during the build time by inspecting the {{{JavaDocs}}}. *deprecated for release-1.1+*
+   * renderKit14 fields will be read by parsing replaceMapping XML files, generated during the build time by inspecting the {{{JavaDocs}}}. *deprecated for release-1.0.1+*
    * renderKit15 fields will be read by inspecting the custom annotation of the files during run time.
  # Template files {a.k.a. preMxml files} will be created by implementation of {{{_FileManipulatorTaskRunner}}} java file with default being {{{VelocityFileManipulatorTaskRunnerImpl}}}. These templates known as preMxml file will be created per component. The fields to be added will be passed from the previous step of inspecting the sub-class of UIComponent with each renderKit project {renderKit14 and renderKit15} having an implementation of an interface {{{_AnnotationDocletParser}}}. For example for 
-   * renderKit14 the implementation class is {{{AnnotationDocletParser14Impl}}} *deprecated for release-1.1+*
+   * renderKit14 the implementation class is {{{AnnotationDocletParser14Impl}}} *deprecated for release-1.0.1+*
    * renderKit15 the implementation class is {{{AnnotationDocletParser15Impl}}}.
  # Necessary source files will be created to their respective directory, such as 
    * SWC file containing the system's code
    * SWF library from generated SWC file
    * XML file{s} that is/are needed by the SWC. These are defined within mxmlConstants.xml}
    * Extraction of Flex SDK
-   * Invocation of copyLocale *from release-1.1+*
+   * Invocation of copyLocale *from release-1.0.1+*
  # After all the component's preMxml within <s:mxmlApplication /> have been created, MXML file and SWF file will be created by implementation of interface {{{_FlexTaskRunner}}}, default is {{{AntFlexTaskRunnerImpl}}}. <s:mxmlScript /> will give capability in writing Actionscript contents as the body content of the Tag by extending {{{javax.faces.webapp.UIComponentBodyTag}}} however it should be used sparingly and should be used mainly for components that extend MXMLUISimpleBase component. One additional thing to note is that mxmlPackageName attribute for <s:mxmlApplication /> tag will be used to name the MXML file and the application SWF file.
  # Also <s:mxmlApplication /> will create JSON objects which will be rendered onto the page for initial values of the Flex components. The reason for this is because <s:mxmlApplication /> has various modes :
      * debugMode : meaning preMxml, MXML, and SWF files would be created in each run as well as JSON objects.
-     * simplySWF : meaning MXML which has been modified by the user exists, so create only SWF files and JSON objects {users can use this to modify the MXML file and create a SWF file}
+     * simplySWF : meaning MXML which has been modified by the user exists, so create only SWF files and JSON objects {users can use this to modify the MXML file and create a SWF file} *deprecated for release-1.0.1b+, reason is there will be tight integration between the JSF components + {{{ActionScript}}} files so thought this feature would no longer be needed*
      * productionEnv : meaning SWF file already exists, so nothing to do here but create JSON objects {this is the default value to ensure that users do not run the components in either of the two other modes in an environment that is higher than dev}. One thing to note is that all directories of {{{Webcontent/swf/*}}} should be copied to their corresponding directory within the Workspace during the move to higher env {since the system uses servContext.getRealPath("") as the root directory of preMxml, MXML, and SWF directory and} 
          * Tomcat on default for example flushes it out to their cache directory under metadata {{{i.e. C:\OpenSource\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\jsf-flex-examples}}}
          * JBoss on default for example flushes it out to their temp directory {{{i.e. C:\Program Files\jboss-4.2.3.GA\server\default\tmp\deploy\tmp46689jsf-flex-examples.war}}}
