@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.googlecode.jsf-flex</groupId>
+    <artifactId>jsf-flex-build-project</artifactId>
+    <version>1.1b</version>
+  </parent>
+  
+  <groupId>com.googlecode.jsf-flex</groupId>
+  <artifactId>jsf-flex-project</artifactId>
+  <packaging>pom</packaging>
+  <name>JSF-Flex JSF Component Project</name>
+  <url>http://code.google.com/p/jsf-flex/</url>
+  <version>1.1b</version>
+  <description>
+    JSF Flex goal is to provide users capability in creating Flex components as JSF components. So users would 
+    create the components as normal JSF components and the contribution will create the necessary SWF files and 
+    etcetera and link the values of the components back to the managed beans using JSON+Javascript and Actionscript.
+  </description>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+    <license>
+      <name>Mozilla Public License, Version 1.1</name>
+      <url>http://www.mozilla.org/MPL/MPL-1.1.html</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  
+  <scm>
+    <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/jsf-flex</connection>
+    <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/jsf-flex</developerConnection>
+  </scm>
+
+  <modules>
+    <module>annotations</module>
+    <module>core</module>
+    <module>core-myFaces-impl</module>
+    <module>core-mojarra-impl</module>
+    <module>examples</module>
+    <module>renderKit15</module>
+  </modules>
+  
+</project>
