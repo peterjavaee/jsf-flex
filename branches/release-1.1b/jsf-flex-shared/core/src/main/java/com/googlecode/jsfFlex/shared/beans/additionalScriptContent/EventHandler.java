@@ -18,6 +18,7 @@
  */
 package com.googlecode.jsfFlex.shared.beans.additionalScriptContent;
 
+import com.googlecode.jsfFlex.shared.adapter._MXMLEvent;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
@@ -25,29 +26,15 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
  */
 public final class EventHandler {
     
-    public enum EVENT_HANDLER_TYPE {
-        SUBMIT_FORM_EVENT_HANDLER("SubmitFormEventHandler");
-        
-        private final String _actionScriptConstructor;
-        
-        private EVENT_HANDLER_TYPE(String actionScriptConstructor){
-            _actionScriptConstructor = actionScriptConstructor;
-        }
-        
-        private String getActionScriptConstructor(){
-            return _actionScriptConstructor;
-        }
-    }
-    
     private static final char DELIM_CHARACTER = '_';
     
     private final String _srcId;
     private final String _tgtId;
-    private final EVENT_HANDLER_TYPE _eventType;
+    private final _MXMLEvent.EVENT_HANDLER_TYPE _eventType;
     private final String _eventName;
     private final String _collectedUniqueId;
     
-    EventHandler(String srcId, String tgtId, EVENT_HANDLER_TYPE eventType, String eventName){
+    EventHandler(String srcId, String tgtId, _MXMLEvent.EVENT_HANDLER_TYPE eventType, String eventName){
         super();
         _srcId = srcId;
         _tgtId = tgtId;
@@ -65,7 +52,7 @@ public final class EventHandler {
     public String getEventName(){
         return _eventName;
     }
-    public EVENT_HANDLER_TYPE getEventType(){
+    public _MXMLEvent.EVENT_HANDLER_TYPE getEventType(){
         return _eventType;
     }
     public String getSrcId(){

@@ -19,6 +19,7 @@
 package com.googlecode.jsfFlex.renderkit.component;
 
 import java.io.IOException;
+import java.util.EnumSet;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -26,6 +27,11 @@ import javax.faces.context.FacesContext;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter._MXMLEvent;
+import com.googlecode.jsfFlex.shared.adapter._MXMLEvent.EVENT_HANDLER_TYPE;
+import com.googlecode.jsfFlex.shared.adapter._MXMLEvent.EVENT_HANDLER_TYPE.ACTION_SCRIPT_IMPORT;
+import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
+import com.googlecode.jsfFlex.shared.context.MxmlContext;
 
 /**
  * @author Ji Hoon Kim
@@ -104,9 +110,24 @@ public abstract class MXMLButtonTemplateRenderer extends MXMLComponentRenderer {
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
+        MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
 		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(MXMLButtonTemplateRenderer.class, componentObj, null);
 		
+		if(componentObj instanceof _MXMLEvent){
+            _MXMLEvent mxmlEvent = _MXMLEvent.class.cast( componentObj );
+            EVENT_HANDLER_TYPE eventHandlerType = mxmlEvent.getEventHandlerType();
+            AdditionalApplicationScriptContent additionalApplicationScriptContent = mxmlContext.getAdditionalAppScriptContent();
+            EnumSet<ACTION_SCRIPT_IMPORT> actionScriptImports = eventHandlerType.getActionScriptImports();
+            
+            for(ACTION_SCRIPT_IMPORT currASImport : actionScriptImports){
+                additionalApplicationScriptContent.addActionScriptImport(currASImport.getActionScriptImport());
+            }
+            
+            additionalApplicationScriptContent.addEventHandler(mxmlEvent.getEventHandlerSrcId(), mxmlEvent.getEventHandlerTgtId(), 
+                                                                mxmlEvent.getEventHandlerType(), mxmlEvent.getEventHandlerEventName());
+        }
+        
 	}
 	
 }

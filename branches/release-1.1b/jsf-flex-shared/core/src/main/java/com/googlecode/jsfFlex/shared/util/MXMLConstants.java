@@ -47,6 +47,7 @@ import com.googlecode.jsfFlex.shared.util.annotation.SwcActionScriptFiles;
                 @SwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.core.ComponentValueMapper"),
                 @SwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.core.ConstructActionScriptObject"),
                 @SwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.event.AbstractEventHandler"),
+                @SwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.event.DataUpdateEventHandler"),
                 @SwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.event.SubmitFormEventHandler"),
                 @SwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.event.helper.ScrollEventHelper"),
                 @SwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.logger.AbstractLogger"),

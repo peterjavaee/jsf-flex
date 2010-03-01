@@ -25,7 +25,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
-import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.EventHandler.EVENT_HANDLER_TYPE;
+import com.googlecode.jsfFlex.shared.adapter._MXMLEvent;
 
 /**
  * @author Ji Hoon Kim
@@ -65,7 +65,7 @@ public final class AdditionalApplicationScriptContent {
 		dataGridScriptContentInstance.addDataGridColumnContent(dataGridColumnId, dataField, columnEditable);
 	}
     
-	public void addEventHandler(String srcId, String tgtId, EVENT_HANDLER_TYPE eventType, String eventName){
+	public void addEventHandler(String srcId, String tgtId, _MXMLEvent.EVENT_HANDLER_TYPE eventType, String eventName){
         _eventHandlers.add(new EventHandler(srcId, tgtId, eventType, eventName));
     }
     

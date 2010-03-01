@@ -23,7 +23,7 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.component.MXMLUICommandBase;
-import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.EventHandler.EVENT_HANDLER_TYPE;
+import com.googlecode.jsfFlex.shared.adapter._MXMLEvent;
 import com.googlecode.jsfFlex.shared.util.MXMLJsfUtil;
 
 /**
@@ -40,23 +40,23 @@ import com.googlecode.jsfFlex.shared.util.MXMLJsfUtil;
 public abstract class AbstractMXMLUIButton 
 						extends MXMLUICommandBase
 						implements _MXMLUIButtonAttributes {
-
+    
     private static final String EVENT_HANDLER_EVENT_NAME = "buttonDown";
     
-    protected String getEventHandlerSrcId() {
+    public String getEventHandlerSrcId() {
         return getId();
     }
     
-    protected String getEventHandlerTgtId() {
+    public String getEventHandlerTgtId() {
         FacesContext currInstance = FacesContext.getCurrentInstance();
         return MXMLJsfUtil.retrieveFormId(getClientId(currInstance));
     }
     
-    protected EVENT_HANDLER_TYPE getEventHandlerType() {
-        return EVENT_HANDLER_TYPE.SUBMIT_FORM_EVENT_HANDLER;
+    public _MXMLEvent.EVENT_HANDLER_TYPE getEventHandlerType() {
+        return _MXMLEvent.EVENT_HANDLER_TYPE.SUBMIT_FORM_EVENT_HANDLER;
     }
     
-    protected String getEventHandlerEventName() {
+    public String getEventHandlerEventName() {
         return EVENT_HANDLER_EVENT_NAME;
     }
     

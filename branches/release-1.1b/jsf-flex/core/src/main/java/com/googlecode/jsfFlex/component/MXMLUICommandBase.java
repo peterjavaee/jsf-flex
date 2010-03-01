@@ -19,6 +19,7 @@
 package com.googlecode.jsfFlex.component;
 
 import java.io.IOException;
+import java.util.EnumSet;
 import java.util.Map;
 
 import javax.el.MethodExpression;
@@ -34,8 +35,8 @@ import org.json.JSONObject;
 import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
 import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexResource;
 import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
-import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.EventHandler.EVENT_HANDLER_TYPE;
+import com.googlecode.jsfFlex.shared.adapter._MXMLEvent;
+import com.googlecode.jsfFlex.shared.adapter._MXMLEvent.EVENT_HANDLER_TYPE.JAVA_SCRIPT_IMPORT;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
 import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
@@ -52,11 +53,9 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
         family  =   "javax.faces.MXMLCommandBase",
         desc    =   "Base component for MXMLCommand components"
 )
-public abstract class MXMLUICommandBase extends UICommand implements _MXMLContract {
-    
-    private static final String JSF_FLEX_COMMUNICATOR_EVENT_JS = "jsfFlexCommunicatorEvent.js";
-    private static final String ABSTRACT_EVENT_HANDLER_IMPORT = "com.googlecode.jsfFlex.communication.event.AbstractEventHandler";
-    private static final String SUBMIT_FORM_EVENT_HANDLER_IMPORT = "com.googlecode.jsfFlex.communication.event.SubmitFormEventHandler";
+public abstract class MXMLUICommandBase 
+                            extends UICommand 
+                            implements _MXMLContract, _MXMLEvent {
     
     private _AnnotationDocletParser _annotationDocletParserInstance;
     
@@ -74,14 +73,6 @@ public abstract class MXMLUICommandBase extends UICommand implements _MXMLContra
     public MXMLUICommandBase(){
         super();
     }
-    
-    protected abstract String getEventHandlerSrcId();
-    
-    protected abstract String getEventHandlerTgtId();
-    
-    protected abstract EVENT_HANDLER_TYPE getEventHandlerType();
-    
-    protected abstract String getEventHandlerEventName();
     
     public JSONObject getComponentInitValues(){
         return null;
@@ -109,15 +100,15 @@ public abstract class MXMLUICommandBase extends UICommand implements _MXMLContra
         
         //need to check whether to add content to AdditionalApplicationScriptContent for submission of form
         if(getAction() != null || getActionExpression() != null || getActionListener() != null){
-            if(!mxmlContext.isProductionEnv()){
-                AdditionalApplicationScriptContent additionalApplicationScriptContent = mxmlContext.getAdditionalAppScriptContent();
-                additionalApplicationScriptContent.addActionScriptImport(ABSTRACT_EVENT_HANDLER_IMPORT);
-                additionalApplicationScriptContent.addActionScriptImport(SUBMIT_FORM_EVENT_HANDLER_IMPORT);
-                additionalApplicationScriptContent.addEventHandler(getEventHandlerSrcId(), getEventHandlerTgtId(), 
-                            getEventHandlerType(), getEventHandlerEventName());
-            }
+            
+            EVENT_HANDLER_TYPE eventHandlerType = getEventHandlerType();
             JsfFlexResource jsfFlexResource = JsfFlexResource.getInstance();
-            jsfFlexResource.addResource(MXMLUICommandBase.class, JSF_FLEX_COMMUNICATOR_EVENT_JS);
+            EnumSet<JAVA_SCRIPT_IMPORT> javaScriptImports = eventHandlerType.getJavaScriptImports();
+            
+            for(JAVA_SCRIPT_IMPORT currJSImport : javaScriptImports){
+                jsfFlexResource.addResource(MXMLUICommandBase.class, currJSImport.getJavaScriptImport());
+            }
+            
         }
         
         super.encodeBegin(context);
