@@ -31,20 +31,11 @@ import javax.servlet.http.HttpServletResponse;
  */
 final class XMLServiceRequestDataRetrieverFlusher extends _ServiceRequestDataRetrieverFlusher {
 	
-	private static final String XML_CONTENT_TYPE = "text/xml";
-	
-	private static final String XML_HEAD = "<?xml version='1.0' encoding='UTF-8'?>";
-	private static final String XML_RESULT_ROOT_START_TAG = "<RESULT>";
-	private static final String XML_RESULT_ROOT_END_TAG = "</RESULT>";
-	
-	private static final String XML_VALUE_START_TAG = "<VALUE>";
-	private static final String XML_VALUE_END_TAG = "</VALUE>";
-	
 	XMLServiceRequestDataRetrieverFlusher(){
 		super();
 	}
 	
-	public void retrieveFlushData(FacesContext context, String componentId, String methodToInvoke) throws ServletException, IOException {
+	void retrieveFlushData(FacesContext context, String componentId, String methodToInvoke) throws ServletException, IOException {
 		
 		Collection<? extends Object> objectCollection = null;
 		

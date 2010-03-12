@@ -59,7 +59,7 @@ package com.googlecode.jsfFlex.communication.component
 		private static const REMOVE_DATA_ENTRY:String = "removeDataEntry";
 		private static const SORT_DATA_ENTRY:String = "sortDataEntry";
 		
-		private static const ADD_DATA_ENTRY_DELIM:String = "_";
+		private static const ADD_DATA_ENTRY_DELIM:String = "_DELIM_";
 		private static const DRAG_SOURCE_DATA:String = "items";
 		
 		private static var _log:ILogger;
@@ -579,9 +579,9 @@ package com.googlecode.jsfFlex.communication.component
 				removeDataRequestParameters.methodToInvoke = REMOVE_DATA_ENTRY;
 				
 				var currentActualCacheStartIndex:uint = computeActualCacheStartIndex();
-				var deleteIndices:String = "";
+				var deleteIndices:Array = new Array();
 				for(var i:uint=0; i < selectedIndices.length; i++){
-					deleteIndices += (currentActualCacheStartIndex + selectedIndices[i]) + ",";
+					deleteIndices.push((currentActualCacheStartIndex + selectedIndices[i]));
 				}
 				
 				removeDataRequestParameters.deleteIndices = deleteIndices;

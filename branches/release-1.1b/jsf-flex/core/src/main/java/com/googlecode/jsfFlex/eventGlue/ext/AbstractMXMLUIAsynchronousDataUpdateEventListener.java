@@ -46,15 +46,18 @@ public abstract class AbstractMXMLUIAsynchronousDataUpdateEventListener
                             extends _MXMLUIAsynchronousEventGlueBase 
                             implements _MXMLUIAsynchronousEventGlueHandler, _MXMLUIEventListener, _MXMLUITargetComponentId {
     
+    private static final String DATA_UPDATE_ATTRIBUTE_ATTR = "DATA_UPDATE_ATTRIBUTE";
     private static final String DATA_UPDATE_VALUE_ATTR = "DATA_UPDATE_VALUE";
     
-    public JSONObject processRequest() throws JSONException {
+    public JSONObject ayncProcessRequest() throws JSONException {
         
         FacesContext currContext = FacesContext.getCurrentInstance();
         javax.el.ELContext elContext = currContext.getELContext();
+        
+        String alteredAttribute = currContext.getExternalContext().getRequestParameterMap().get(DATA_UPDATE_ATTRIBUTE_ATTR);
         String alteredValue = currContext.getExternalContext().getRequestParameterMap().get(DATA_UPDATE_VALUE_ATTR);
         
-        Object[] arguments = new Object[]{getTargetComponentId(), alteredValue};
+        Object[] arguments = new Object[]{getTargetComponentId(), alteredAttribute, alteredValue};
         Object methodResult = getAsynchronousEventGlueHandler().invoke(elContext, arguments);
         AsynchronousDataUpdateEventBean result = null;
         if(!(methodResult instanceof AsynchronousDataUpdateEventBean)){
@@ -65,7 +68,7 @@ public abstract class AbstractMXMLUIAsynchronousDataUpdateEventListener
         
         return result.formatResponseToJSON();
     }
-        
+    
     public _MXMLEvent.EVENT_HANDLER_TYPE getEventHandlerType() {
         return _MXMLEvent.EVENT_HANDLER_TYPE.DATA_UPDATE_EVENT_HANDLER;
     }

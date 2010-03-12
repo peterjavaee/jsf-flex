@@ -50,7 +50,7 @@ public abstract class _MXMLUIAsynchronousEventGlueBase
                             implements _MXMLEvent, _MXMLUIAsynchronousEventGlueHandler, _MXMLUIEventListener, 
                             _MXMLUITargetComponentId {
     
-    public abstract JSONObject processRequest() throws JSONException;
+    public abstract JSONObject ayncProcessRequest() throws JSONException;
     
     public void encodeBegin(FacesContext context) throws IOException {
         

@@ -41,7 +41,7 @@ final class NameValueServiceRequestDataRetrieverFlusher extends _ServiceRequestD
 		super();
 	}
 	
-	public void retrieveFlushData(FacesContext context, String componentId, String methodToInvoke) throws ServletException, IOException {
+	void retrieveFlushData(FacesContext context, String componentId, String methodToInvoke) throws ServletException, IOException {
 		
 		Map<? extends Object, ? extends Object> objectMap = null;
         

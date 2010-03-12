@@ -37,7 +37,7 @@ final class RawServiceRequestDataRetrieverFlusher extends _ServiceRequestDataRet
 		super();
 	}
 	
-	public void retrieveFlushData(FacesContext context, String componentId, String methodToInvoke) throws ServletException, IOException {
+	void retrieveFlushData(FacesContext context, String componentId, String methodToInvoke) throws ServletException, IOException {
 		
 		Collection<? extends Object> objectCollection = null;
 		

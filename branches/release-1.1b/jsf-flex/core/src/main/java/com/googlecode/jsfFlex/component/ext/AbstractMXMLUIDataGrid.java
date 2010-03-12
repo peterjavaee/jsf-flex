@@ -75,7 +75,7 @@ public abstract class AbstractMXMLUIDataGrid
     private static final String BATCH_COLUMN_DATA_RETRIEVAL_SIZE = "batchColumnDataRetrievalSize";
     private static final String MAX_DATA_PARTITION_INDEX = "maxDataPartitionIndex";
     
-    private static final String ADD_DATA_ENTRY_DELIM = "_";
+    private static final String ADD_DATA_ENTRY_DELIM = "_DELIM_";
     private static final String ADD_ENTRY_START_INDEX_KEY = "addEntryStartIndex";
     private static final String ADD_ENTRY_END_INDEX_KEY = "addEntryEndIndex";
     
@@ -241,10 +241,9 @@ public abstract class AbstractMXMLUIDataGrid
         boolean success = true;
         
         FacesContext context = FacesContext.getCurrentInstance();
-        Map<String, String> requestMap = context.getExternalContext().getRequestParameterMap();
-        
-        String deleteIndices = requestMap.get(DELETE_INDICES_KEY);
-        List<String> deleteIndicesList = Arrays.asList(deleteIndices.split(","));
+        Map<String, String[]> requestParameterValuesMap = context.getExternalContext().getRequestParameterValuesMap();
+        String[] deleteIndices = requestParameterValuesMap.get(DELETE_INDICES_KEY);
+        List<String> deleteIndicesList = Arrays.asList(deleteIndices);
         Collections.sort(deleteIndicesList, DELETE_INDICES_COMPARATOR);
         Collections.reverse(deleteIndicesList);
         _log.info("Requested deleteIndices are : " + deleteIndices + " for component : " + getId());

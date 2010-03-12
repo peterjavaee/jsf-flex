@@ -41,11 +41,15 @@ public class JsfFlexHttpServicePhaseListener implements PhaseListener {
 	private static final String METHOD_TO_INVOKE = "methodToInvoke";
 	private static final String SERVLET_RETURN_METHOD = "servletReturnMethod";
 	
+    private static final String SERVLET_ARRAY_RESULT_FORMAT = "array";
 	private static final String SERVLET_NAME_VALUE_RESULT_FORMAT = "nameValue";
+    private static final String SERVLET_OBJECT_RESULT_FORMAT = "object";
 	private static final String SERVLET_RAW_RESULT_FORMAT = "raw";
 	private static final String SERVLET_XML_RESULT_FORMAT = "xml";
 	
+    private static final _ServiceRequestDataRetrieverFlusher ARRAY_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new ArrayServiceRequestDataRetrieverFlusher();
 	private static final _ServiceRequestDataRetrieverFlusher NAME_VALUE_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new NameValueServiceRequestDataRetrieverFlusher();
+    private static final _ServiceRequestDataRetrieverFlusher OBJECT_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new ObjectServiceRequestDataRetrieverFlusher();
 	private static final _ServiceRequestDataRetrieverFlusher RAW_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new RawServiceRequestDataRetrieverFlusher();
 	private static final _ServiceRequestDataRetrieverFlusher XML_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new XMLServiceRequestDataRetrieverFlusher();
 	
@@ -70,9 +74,13 @@ public class JsfFlexHttpServicePhaseListener implements PhaseListener {
 		
 		_ServiceRequestDataRetrieverFlusher serviceRequestDataRetrieverFlusher = null;
 		
-		if(servletReturnMethod.equals(SERVLET_NAME_VALUE_RESULT_FORMAT)){
+        if(servletReturnMethod.equals(SERVLET_ARRAY_RESULT_FORMAT)){
+            serviceRequestDataRetrieverFlusher = ARRAY_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER;
+        }else if(servletReturnMethod.equals(SERVLET_NAME_VALUE_RESULT_FORMAT)){
 			serviceRequestDataRetrieverFlusher = NAME_VALUE_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER;
-		}else if(servletReturnMethod.equals(SERVLET_RAW_RESULT_FORMAT)){
+		}else if(servletReturnMethod.equals(SERVLET_OBJECT_RESULT_FORMAT)){
+            serviceRequestDataRetrieverFlusher = OBJECT_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER;
+        }else if(servletReturnMethod.equals(SERVLET_RAW_RESULT_FORMAT)){
 			serviceRequestDataRetrieverFlusher = RAW_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER;
 		}else if(servletReturnMethod.equals(SERVLET_XML_RESULT_FORMAT)){
 			serviceRequestDataRetrieverFlusher = XML_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER;

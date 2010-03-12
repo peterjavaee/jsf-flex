@@ -18,10 +18,6 @@
  */
 package com.googlecode.jsfFlex.shared.util;
 
-import java.util.Calendar;
-
-import org.json.JSONArray;
-
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
@@ -39,20 +35,6 @@ public final class MXMLJsfUtil {
     
     private MXMLJsfUtil(){
         super();
-    }
-    
-    public static JSONArray convertJavaDateToASDateConstructorArguments(Calendar toConvert){
-        JSONArray dateConstructorArguments = new JSONArray();
-        
-        dateConstructorArguments.put(toConvert.get(Calendar.YEAR));
-        dateConstructorArguments.put(toConvert.get(Calendar.MONTH));
-        dateConstructorArguments.put(toConvert.get(Calendar.DATE));
-        dateConstructorArguments.put(toConvert.get(Calendar.HOUR_OF_DAY));
-        dateConstructorArguments.put(toConvert.get(Calendar.MINUTE));
-        dateConstructorArguments.put(toConvert.get(Calendar.SECOND));
-        dateConstructorArguments.put(toConvert.get(Calendar.MILLISECOND));
-        
-        return dateConstructorArguments;
     }
     
     /**

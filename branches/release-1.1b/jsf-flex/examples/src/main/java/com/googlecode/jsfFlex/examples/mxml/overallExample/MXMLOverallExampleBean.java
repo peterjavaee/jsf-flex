@@ -26,6 +26,7 @@ import java.util.List;
 
 import javax.faces.model.SelectItem;
 
+import com.googlecode.jsfFlex.shared.model.AsynchronousDataUpdateEventBean;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
@@ -99,6 +100,16 @@ public class MXMLOverallExampleBean implements Serializable {
 		_wisePeopleEntries.add(new WisePeopleEntry("Marcus Tullius Cicero", "A man of courage is also full of faith. Knowledge which is divorced from justice, may be called cunning rather than wisdom.",
 													"philosopher@wiseHumble.com"));
 		
+    }
+    
+    public String asyncDataUpdateListener(String targetId, String alteredAttribute, String alteredValue){
+        /*
+         * Two possible values can be returned for the MethodExpression of mxmlAsynchronousDataUpdateEventListener
+         *  AsynchronousDataUpdateEventBean
+         *  An Object representing the value to update the target component to
+         * 
+         */
+        return "random";
     }
 	
     public String buttonAction(){

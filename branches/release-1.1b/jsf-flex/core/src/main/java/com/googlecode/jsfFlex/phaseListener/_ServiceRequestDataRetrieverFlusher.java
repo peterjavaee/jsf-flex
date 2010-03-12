@@ -30,6 +30,16 @@ import javax.servlet.ServletException;
  */
 abstract class _ServiceRequestDataRetrieverFlusher {
 	
+    static final String XML_CONTENT_TYPE = "text/xml";
+    
+    static final String XML_HEAD = "<?xml version='1.0' encoding='UTF-8'?>";
+    
+    static final String XML_RESULT_ROOT_START_TAG = "<RESULT>";
+    static final String XML_RESULT_ROOT_END_TAG = "</RESULT>";
+    
+    static final String XML_VALUE_START_TAG = "<VALUE>";
+    static final String XML_VALUE_END_TAG = "</VALUE>";
+    
 	abstract void retrieveFlushData(FacesContext context, String componentId, String methodToInvoke) throws ServletException, IOException;
 	
 	Object invokeResourceMethod(FacesContext context, String componentId, String methodToInvoke, Class[] methodParameters, Object[] methodArguments) throws Exception {
