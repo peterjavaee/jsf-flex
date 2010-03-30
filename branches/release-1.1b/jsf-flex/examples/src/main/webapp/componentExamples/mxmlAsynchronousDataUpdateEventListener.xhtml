@@ -36,6 +36,9 @@
 	    	<jf:mxmlNumericStepper minimum="0" maximum="10" value="#{mxmlFaceletOverallBean.numericStepperValue}" />
 	    	
 	    	<jf:mxmlTextInput text="#{mxmlFaceletOverallBean.textInputText}" />
+	    	
+	    	<jf:mxmlAsynchronousDataUpdateEventListener targetComponentId="textInput" 
+    				eventListener="dataChange" asynchronousEventGlueHandler="#{mxmlFaceletOverallBean.asyncDataUpdateListener}"/>
 	    </jf:mxmlApplication>
     	
     </h:form>

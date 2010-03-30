@@ -26,7 +26,6 @@ import java.util.List;
 
 import javax.faces.model.SelectItem;
 
-import com.googlecode.jsfFlex.shared.model.AsynchronousDataUpdateEventBean;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
