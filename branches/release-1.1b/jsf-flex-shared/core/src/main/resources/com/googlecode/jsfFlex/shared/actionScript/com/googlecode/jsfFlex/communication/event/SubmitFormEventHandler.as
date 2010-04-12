@@ -39,18 +39,21 @@ package com.googlecode.jsfFlex.communication.event
 		
 		private var _srcId:String;
 		private var _tgtId:String;
+		private var _eventHandlerId:String;
 		
 		{
 			_log = LoggerFactory.newJSLoggerInstance(SubmitFormEventHandler);
 		}
 		
-		public function SubmitFormEventHandler(srcId:String, tgtId:String, eventName:String, compValMapper:ComponentValueMapper, refApp:UIComponent) {
+		public function SubmitFormEventHandler(srcId:String, tgtId:String, eventHandlerId:String, eventName:String, 
+													compValMapper:ComponentValueMapper, refApp:UIComponent) {
 			super(refApp[srcId], eventName);
 			
 			/*
 			 * srcId would be of the submit element and tgtId would be of the HTML form element
 			 */
 			_srcId = srcId;
+			_eventHandlerId = eventHandlerId;
 			_tgtId = tgtId;
 			activateListener();
 		}

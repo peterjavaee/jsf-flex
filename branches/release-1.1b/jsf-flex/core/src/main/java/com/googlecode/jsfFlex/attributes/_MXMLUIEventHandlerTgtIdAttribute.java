@@ -25,7 +25,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface _MXMLUITargetComponentId {
+public interface _MXMLUIEventHandlerTgtIdAttribute {
     
     /**
      * The id of the target component.
@@ -34,8 +34,6 @@ public interface _MXMLUITargetComponentId {
             required    = true,
             desc        = "The id of the target component."
     )
-    String getTargetComponentId();
-    
-    void setTargetComponentId(String targetComponentId);
+    String getEventHandlerTgtId();
     
 }

@@ -30,14 +30,16 @@ public final class EventHandler {
     
     private final String _srcId;
     private final String _tgtId;
+    private final String _evtHandlerId;
     private final _MXMLEvent.EVENT_HANDLER_TYPE _eventType;
     private final String _eventName;
     private final String _collectedUniqueId;
     
-    EventHandler(String srcId, String tgtId, _MXMLEvent.EVENT_HANDLER_TYPE eventType, String eventName){
+    EventHandler(String srcId, String tgtId, String evtHandlerId, _MXMLEvent.EVENT_HANDLER_TYPE eventType, String eventName){
         super();
         _srcId = srcId;
         _tgtId = tgtId;
+        _evtHandlerId = evtHandlerId;
         _eventName = eventName;
         _eventType = eventType;
         _collectedUniqueId = _srcId + DELIM_CHARACTER + _tgtId + DELIM_CHARACTER + _eventName + DELIM_CHARACTER + _eventType;
@@ -61,6 +63,9 @@ public final class EventHandler {
     public String getTgtId(){
         return _tgtId;
     }
+    public String getEventHandlerId(){
+        return _evtHandlerId;
+    }
     
     @Override
     public boolean equals(Object instance) {
@@ -69,7 +74,7 @@ public final class EventHandler {
         }
         
         EventHandler evtHandlerInstance = EventHandler.class.cast( instance );
-        return _srcId.equals(evtHandlerInstance._srcId) && _tgtId.equals(evtHandlerInstance._tgtId) &&
+        return _srcId.equals(evtHandlerInstance._srcId) && _tgtId.equals(evtHandlerInstance._tgtId) && _evtHandlerId.equals(evtHandlerInstance._evtHandlerId) &&
                 _eventType == evtHandlerInstance._eventType && _eventName.equals(evtHandlerInstance._eventName);
     }
     

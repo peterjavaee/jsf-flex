@@ -18,8 +18,6 @@
  */
 package com.googlecode.jsfFlex.attributes;
 
-import javax.el.MethodExpression;
-
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
@@ -27,16 +25,15 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface _MXMLUIAsynchronousEventGlueHandler {
+public interface _MXMLUIEventHandlerSrcIdAttribute {
     
+    /**
+     * The id of the source component.
+     */
     @JSFProperty(
-            required        =   true,
-            stateHolder     =   true,
-            jspName         =   "asynchronousEventGlueHandler",
-            methodSignature =   "java.lang.String,java.lang.String,java.lang.String",
-            returnSignature =   "java.lang.Object",
-            desc            =   "Method to be invoked during the asynchronous event."
+            required    = true,
+            desc        = "The id of the source component."
     )
-    MethodExpression getAsynchronousEventGlueHandler();
+    String getEventHandlerSrcId();
     
 }

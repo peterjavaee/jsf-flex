@@ -27,6 +27,9 @@ import javax.faces.event.PhaseId;
 import javax.faces.event.PhaseListener;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -34,6 +37,8 @@ public class JsfFlexHttpServicePhaseListener implements PhaseListener {
 	
 	private static final long serialVersionUID = -3131829162091907227L;
 	
+    private final static Log _log = LogFactory.getLog(JsfFlexHttpServicePhaseListener.class);
+    
 	private static final String JSF_FLEX_HTTP_SERVICE_REQUEST_LISTENER_URL = "/jsfFlexHttpServiceRequestListener/";
 	private static final Pattern JSF_FLEX_HTTP_SERVICE_REQUEST_LISTENER_URL_PATTERN = Pattern.compile(JSF_FLEX_HTTP_SERVICE_REQUEST_LISTENER_URL);
 	
@@ -72,6 +77,15 @@ public class JsfFlexHttpServicePhaseListener implements PhaseListener {
 		String methodToInvoke = context.getExternalContext().getRequestParameterMap().get(METHOD_TO_INVOKE);
 		String servletReturnMethod = context.getExternalContext().getRequestParameterMap().get(SERVLET_RETURN_METHOD);
 		
+        StringBuilder logMessage = new StringBuilder(getClass().getSimpleName());
+        logMessage.append(" => processServiceRequest :  componentId, methodToInvoke, servletReturnMethod [ ");
+        logMessage.append(componentId);
+        logMessage.append(", ");
+        logMessage.append(methodToInvoke);
+        logMessage.append(", ");
+        logMessage.append(servletReturnMethod);
+        logMessage.append(" ] ");
+        _log.info(logMessage.toString());
 		_ServiceRequestDataRetrieverFlusher serviceRequestDataRetrieverFlusher = null;
 		
         if(servletReturnMethod.equals(SERVLET_ARRAY_RESULT_FORMAT)){

@@ -92,6 +92,8 @@ public interface _MXMLEvent {
     
     String getEventHandlerTgtId();
     
+    String getEventHandlerId();
+    
     EVENT_HANDLER_TYPE getEventHandlerType();
     
     String getEventHandlerEventName();

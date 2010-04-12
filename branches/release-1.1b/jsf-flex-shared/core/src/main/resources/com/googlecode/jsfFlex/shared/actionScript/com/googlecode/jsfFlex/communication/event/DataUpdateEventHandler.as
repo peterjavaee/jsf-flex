@@ -26,6 +26,7 @@ package com.googlecode.jsfFlex.communication.event
 	import flash.events.Event;
 	import flash.external.ExternalInterface;
 	import mx.core.UIComponent;
+	import mx.rpc.events.ResultEvent;
 	
 	import com.googlecode.jsfFlex.communication.core.ComponentValueMapper;
 	import com.googlecode.jsfFlex.communication.logger.ILogger;
@@ -39,31 +40,35 @@ package com.googlecode.jsfFlex.communication.event
 		private static var _log:ILogger;
 		
 		private var _compValMapper:ComponentValueMapper;
+		private var _refApp:UIComponent;
 		private var _srcId:String;
 		private var _tgtId:String;
+		private var _eventHandlerId:String;
 		
 		{
 			_log = LoggerFactory.newJSLoggerInstance(DataUpdateEventHandler);
 		}
 		
-		public function DataUpdateEventHandler(srcId:String, tgtId:String, eventName:String, compValMapper:ComponentValueMapper, refApp:UIComponent) {
+		public function DataUpdateEventHandler(srcId:String, tgtId:String, eventHandlerId:String, eventName:String, compValMapper:ComponentValueMapper, refApp:UIComponent) {
 			super(refApp[srcId], eventName);
 			
 			/*
 			 * srcId would be of the submit element and tgtId would be of the HTML form element
 			 */
 			_compValMapper = compValMapper;
+			_refApp = refApp;
 			_srcId = srcId;
 			_tgtId = tgtId;
+			_eventHandlerId = eventHandlerId;
 			activateListener();
 		}
 		
 		override public function handleEvent(event:Event):void {
 			_log.info("Executing a data update value request for component " + _tgtId);
 			
-			var compValue:Object = compValMapper.getCompValue(_srcId)[0];
+			var compValue:Object = _compValMapper.getCompValue(_srcId)[0];
 			var dataRequestParameters:Object = new Object();
-			dataRequestParameters.componentId = _srcId;
+			dataRequestParameters.componentId = _eventHandlerId;
 			dataRequestParameters.methodToInvoke = ASYNC_PROCESS_REQUEST;
 			dataRequestParameters[DATA_UPDATE_ATTRIBUTE_ATTR] = compValue.id;
 			dataRequestParameters[DATA_UPDATE_VALUE_ATTR] = compValue.value;
@@ -74,8 +79,8 @@ package com.googlecode.jsfFlex.communication.event
 																_log.info("Returned from : " + ASYNC_SERVICE_REQUEST_URL + " of src/target :" + _srcId + "/" + _tgtId);
 																
 																var updateValue:String = lastResult.UPDATE_VALUE_ATTRIBUTE;
-																var compValue:Object = compValMapper.getCompValue(_tgtId)[0];
-																refApp[_tgtId][compValue.id] = updateValue;
+																var compValue:Object = _compValMapper.getCompValue(_tgtId)[0];
+																_refApp[_tgtId][compValue.id] = updateValue;
 																
 															}, dataRequestParameters, JsfFlexHttpService.POST_METHOD, JsfFlexHttpService.OBJECT_RESULT_FORMAT, null);
 			

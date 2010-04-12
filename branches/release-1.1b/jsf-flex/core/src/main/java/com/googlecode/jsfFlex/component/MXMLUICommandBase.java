@@ -134,6 +134,10 @@ public abstract class MXMLUICommandBase
         super.processDecodes(context);
     }
     
+    public String getEventHandlerId(){
+        return getId();
+    }
+    
     public String getAbsolutePathToPreMxmlFile() {
         return _absolutePathToPreMxmlFile;
     }

@@ -1,10 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:ui="http://java.sun.com/jsf/facelets"
-        xmlns:h="http://java.sun.com/jsf/html"
-        xmlns:f="http://java.sun.com/jsf/core"
-        xmlns:jf="http://jsf-flex.googlecode.com">
+<%@ page session="false" contentType="text/html;charset=utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
+<%@ taglib uri="http://jsf-flex.googlecode.com" prefix="jf"%>
+
+<html>
+
 <!--
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -33,13 +33,13 @@
     <h:form>
     	
     	<jf:mxmlApplication mxmlPackageName="mxmlAsynchronousDataUpdateEventListener" height="500" width="800">
-	    	<jf:mxmlNumericStepper minimum="0" maximum="10" value="#{mxmlFaceletOverallBean.numericStepperValue}" />
-	    	
-	    	<jf:mxmlTextInput text="#{mxmlFaceletOverallBean.textInputText}" />
-	    	
-	    	<jf:mxmlAsynchronousDataUpdateEventListener targetComponentId="textInput" 
-    				eventListener="dataChange" asynchronousEventGlueHandler="#{mxmlFaceletOverallBean.asyncDataUpdateListener}"/>
-	    </jf:mxmlApplication>
+    		<jf:mxmlNumericStepper id="srcComp" minimum="0" maximum="10" value="#{mxmlOverallBean.numericStepperValue}" />
+    		
+    		<jf:mxmlTextInput id="tgtComp" text="#{mxmlOverallBean.textInputText}" />
+    		
+    		<jf:mxmlAsynchronousDataUpdateEventListener eventHandlerTgtId="tgtComp" eventHandlerSrcId="srcComp"
+    				eventListener="change" asynchronousEventGlueHandler="#{mxmlOverallBean.asyncDataUpdateListener}"/>
+    	</jf:mxmlApplication>
     	
     </h:form>
     

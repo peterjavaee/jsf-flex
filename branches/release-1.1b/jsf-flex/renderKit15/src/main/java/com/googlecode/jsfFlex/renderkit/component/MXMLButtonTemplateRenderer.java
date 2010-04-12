@@ -124,7 +124,7 @@ public abstract class MXMLButtonTemplateRenderer extends MXMLComponentRenderer {
                 additionalApplicationScriptContent.addActionScriptImport(currASImport.getActionScriptImport());
             }
             
-            additionalApplicationScriptContent.addEventHandler(mxmlEvent.getEventHandlerSrcId(), mxmlEvent.getEventHandlerTgtId(), 
+            additionalApplicationScriptContent.addEventHandler(mxmlEvent.getEventHandlerSrcId(), mxmlEvent.getEventHandlerTgtId(), mxmlEvent.getEventHandlerId(),
                                                                 mxmlEvent.getEventHandlerType(), mxmlEvent.getEventHandlerEventName());
         }
         

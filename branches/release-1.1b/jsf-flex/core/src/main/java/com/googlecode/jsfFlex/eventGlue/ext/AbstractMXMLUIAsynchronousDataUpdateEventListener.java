@@ -20,13 +20,16 @@ package com.googlecode.jsfFlex.eventGlue.ext;
 
 import javax.faces.context.FacesContext;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.attributes._MXMLUIAsynchronousEventGlueHandler;
+import com.googlecode.jsfFlex.attributes._MXMLUIEventHandlerSrcIdAttribute;
+import com.googlecode.jsfFlex.attributes._MXMLUIEventHandlerTgtIdAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIEventListener;
-import com.googlecode.jsfFlex.attributes._MXMLUITargetComponentId;
 import com.googlecode.jsfFlex.eventGlue._MXMLUIAsynchronousEventGlueBase;
 import com.googlecode.jsfFlex.shared.adapter._MXMLEvent;
 import com.googlecode.jsfFlex.shared.model.AsynchronousDataUpdateEventBean;
@@ -44,7 +47,10 @@ import com.googlecode.jsfFlex.shared.model.AsynchronousDataUpdateEventBean;
 )
 public abstract class AbstractMXMLUIAsynchronousDataUpdateEventListener 
                             extends _MXMLUIAsynchronousEventGlueBase 
-                            implements _MXMLUIAsynchronousEventGlueHandler, _MXMLUIEventListener, _MXMLUITargetComponentId {
+                            implements _MXMLUIAsynchronousEventGlueHandler, _MXMLUIEventListener, _MXMLUIEventHandlerSrcIdAttribute,  
+                            _MXMLUIEventHandlerTgtIdAttribute {
+    
+    private final static Log _log = LogFactory.getLog(AbstractMXMLUIAsynchronousDataUpdateEventListener.class);
     
     private static final String DATA_UPDATE_ATTRIBUTE_ATTR = "DATA_UPDATE_ATTRIBUTE";
     private static final String DATA_UPDATE_VALUE_ATTR = "DATA_UPDATE_VALUE";
@@ -57,11 +63,19 @@ public abstract class AbstractMXMLUIAsynchronousDataUpdateEventListener
         String alteredAttribute = currContext.getExternalContext().getRequestParameterMap().get(DATA_UPDATE_ATTRIBUTE_ATTR);
         String alteredValue = currContext.getExternalContext().getRequestParameterMap().get(DATA_UPDATE_VALUE_ATTR);
         
-        Object[] arguments = new Object[]{getTargetComponentId(), alteredAttribute, alteredValue};
+        StringBuilder logMessage = new StringBuilder(getClass().getSimpleName());
+        logMessage.append(" => ayncProcessRequest :  alteredAttribute, alteredValue [ ");
+        logMessage.append(alteredAttribute);
+        logMessage.append(", ");
+        logMessage.append(alteredValue);
+        logMessage.append(" ] ");
+        _log.info(logMessage.toString());
+        
+        Object[] arguments = new Object[]{getEventHandlerTgtId(), alteredAttribute, alteredValue};
         Object methodResult = getAsynchronousEventGlueHandler().invoke(elContext, arguments);
         AsynchronousDataUpdateEventBean result = null;
         if(!(methodResult instanceof AsynchronousDataUpdateEventBean)){
-            result = new AsynchronousDataUpdateEventBean(getId(), getTargetComponentId(), methodResult.toString());
+            result = new AsynchronousDataUpdateEventBean(methodResult.toString(), getEventHandlerSrcId(), getEventHandlerTgtId());
         }else{
             result = AsynchronousDataUpdateEventBean.class.cast( methodResult );
         }

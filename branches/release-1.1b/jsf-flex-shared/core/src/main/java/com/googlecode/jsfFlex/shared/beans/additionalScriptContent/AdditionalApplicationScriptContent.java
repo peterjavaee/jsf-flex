@@ -65,8 +65,8 @@ public final class AdditionalApplicationScriptContent {
 		dataGridScriptContentInstance.addDataGridColumnContent(dataGridColumnId, dataField, columnEditable);
 	}
     
-	public void addEventHandler(String srcId, String tgtId, _MXMLEvent.EVENT_HANDLER_TYPE eventType, String eventName){
-        _eventHandlers.add(new EventHandler(srcId, tgtId, eventType, eventName));
+	public void addEventHandler(String srcId, String tgtId, String evtHandlerId, _MXMLEvent.EVENT_HANDLER_TYPE eventType, String eventName){
+        _eventHandlers.add(new EventHandler(srcId, tgtId, evtHandlerId, eventType, eventName));
     }
     
     public void addSimpleDataProviderSetter(String componentId, String dataProviderContent){

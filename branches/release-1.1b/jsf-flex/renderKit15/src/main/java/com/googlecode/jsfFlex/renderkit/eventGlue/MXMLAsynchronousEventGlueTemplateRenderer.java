@@ -51,7 +51,7 @@ public abstract class MXMLAsynchronousEventGlueTemplateRenderer extends Renderer
             additionalApplicationScriptContent.addActionScriptImport(currASImport.getActionScriptImport());
         }
         
-        additionalApplicationScriptContent.addEventHandler(mxmlEvent.getEventHandlerSrcId(), mxmlEvent.getEventHandlerTgtId(), 
+        additionalApplicationScriptContent.addEventHandler(mxmlEvent.getEventHandlerSrcId(), mxmlEvent.getEventHandlerTgtId(), mxmlEvent.getEventHandlerId(),
                                                             mxmlEvent.getEventHandlerType(), mxmlEvent.getEventHandlerEventName());
         
     }

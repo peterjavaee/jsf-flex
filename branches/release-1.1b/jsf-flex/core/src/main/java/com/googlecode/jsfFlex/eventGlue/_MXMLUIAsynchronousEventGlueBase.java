@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.eventGlue;
 
 import java.io.IOException;
 import java.util.EnumSet;
+import java.util.Map;
 
 import javax.faces.context.FacesContext;
 
@@ -29,13 +30,11 @@ import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.attributes._MXMLUIAsynchronousEventGlueHandler;
 import com.googlecode.jsfFlex.attributes._MXMLUIEventListener;
-import com.googlecode.jsfFlex.attributes._MXMLUITargetComponentId;
 import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
 import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexResource;
 import com.googlecode.jsfFlex.shared.adapter._MXMLEvent;
 import com.googlecode.jsfFlex.shared.adapter._MXMLEvent.EVENT_HANDLER_TYPE.JAVA_SCRIPT_IMPORT;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
-import com.googlecode.jsfFlex.shared.util.MXMLJsfUtil;
 
 /**
  * @author Ji Hoon Kim
@@ -47,8 +46,7 @@ import com.googlecode.jsfFlex.shared.util.MXMLJsfUtil;
 )
 public abstract class _MXMLUIAsynchronousEventGlueBase 
                             extends MXMLUISimpleBase 
-                            implements _MXMLEvent, _MXMLUIAsynchronousEventGlueHandler, _MXMLUIEventListener, 
-                            _MXMLUITargetComponentId {
+                            implements _MXMLEvent, _MXMLUIAsynchronousEventGlueHandler, _MXMLUIEventListener {
     
     public abstract JSONObject ayncProcessRequest() throws JSONException;
     
@@ -74,13 +72,22 @@ public abstract class _MXMLUIAsynchronousEventGlueBase
         super.encodeBegin(context);
     }
     
-    public String getEventHandlerSrcId() {
-        return getId();
+    @Override
+    public void encodeEnd(FacesContext context) throws IOException {
+        super.encodeEnd(context);
+        
+        /*
+         * adding the component to the map for future asynchronous request such as 
+         * DataUpdateEventHandler.as 
+         * 
+         */
+        Map<String, Object> sessionMap = context.getExternalContext().getSessionMap();
+        sessionMap.put(getId(), this);
+        
     }
     
-    public String getEventHandlerTgtId() {
-        FacesContext currInstance = FacesContext.getCurrentInstance();
-        return MXMLJsfUtil.retrieveFormId(getClientId(currInstance));
+    public String getEventHandlerId(){
+        return getId();
     }
     
 }

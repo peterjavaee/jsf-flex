@@ -28,7 +28,7 @@ import com.googlecode.jsfFlex.renderkit.eventGlue.MXMLAsynchronousEventGlueTempl
 @JSFRenderer(
         renderKitId="MXML_BASIC",
         family="javax.faces.MXMLEventListener",
-        type="com.googlecode.jsfFlex.MXMLUIAsynchronousDataUpdateEventListener"
+        type="com.googlecode.jsfFlex.MXMLAsynchronousDataUpdateEventListener"
 )
 public final class MXMLAsynchronousDataUpdateEventListenerRenderer 
                         extends MXMLAsynchronousEventGlueTemplateRenderer {

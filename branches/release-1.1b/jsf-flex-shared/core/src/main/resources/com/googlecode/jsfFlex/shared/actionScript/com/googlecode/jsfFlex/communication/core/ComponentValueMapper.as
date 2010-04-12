@@ -50,7 +50,7 @@ package com.googlecode.jsfFlex.communication.core
 		private static const COMP_VALUE_MAPPER:String = WebConstants.WEB_CONTEXT_PATH + "/swf/componentValueMapper.xml";
 		private static const NULL_STRING:String = "null";
 		private static const VALUE_ASSIGNMENT_STATEMENT:String = "value=";
-		private static const VALUE_ATTR:String = "VALUE";
+		private static const VALUE_ATTR:String = "value";
 		
 		private static const SPECIFIC_OBJECT_TYPE_INIT:String = "specificObjectTypeInit";
 		private static const DATE_OBJECT:String = "Date";

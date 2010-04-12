@@ -101,7 +101,7 @@ public class MXMLOverallExampleBean implements Serializable {
 		
     }
     
-    public String asyncDataUpdateListener(String targetId, String alteredAttribute, String alteredValue){
+    public Object asyncDataUpdateListener(String targetId, String alteredAttribute, String alteredValue){
         /*
          * Two possible values can be returned for the MethodExpression of mxmlAsynchronousDataUpdateEventListener
          *  AsynchronousDataUpdateEventBean
