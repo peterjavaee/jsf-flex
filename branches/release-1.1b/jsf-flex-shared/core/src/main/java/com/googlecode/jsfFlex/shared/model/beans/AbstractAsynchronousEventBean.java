@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.shared.model;
+package com.googlecode.jsfFlex.shared.model.beans;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -26,7 +26,7 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 /**
  * @author Ji Hoon Kim
  */
-public abstract class AbstractAsynchronousEventBean {
+abstract class AbstractAsynchronousEventBean {
     
     enum JSON_ATTRIBUTE_VALUES {
         SOURCE_COMPONENT_ID_ATTRIBUTE,

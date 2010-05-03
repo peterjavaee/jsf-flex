@@ -32,7 +32,8 @@ import com.googlecode.jsfFlex.attributes._MXMLUIEventHandlerTgtIdAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIEventListener;
 import com.googlecode.jsfFlex.eventGlue._MXMLUIAsynchronousEventGlueBase;
 import com.googlecode.jsfFlex.shared.adapter._MXMLEvent;
-import com.googlecode.jsfFlex.shared.model.AsynchronousDataUpdateEventBean;
+import com.googlecode.jsfFlex.shared.model.beans.AsynchronousDataUpdateEventBean;
+import com.googlecode.jsfFlex.shared.model.event.AsynchronousDataUpdateEvent;
 
 /**
  * @author Ji Hoon Kim
@@ -71,7 +72,7 @@ public abstract class AbstractMXMLUIAsynchronousDataUpdateEventListener
         logMessage.append(" ] ");
         _log.info(logMessage.toString());
         
-        Object[] arguments = new Object[]{getEventHandlerTgtId(), alteredAttribute, alteredValue};
+        Object[] arguments = new Object[]{ new AsynchronousDataUpdateEvent(alteredAttribute, alteredValue, getEventHandlerSrcId(), getEventHandlerTgtId()) };
         Object methodResult = getAsynchronousEventGlueHandler().invoke(elContext, arguments);
         AsynchronousDataUpdateEventBean result = null;
         if(!(methodResult instanceof AsynchronousDataUpdateEventBean)){

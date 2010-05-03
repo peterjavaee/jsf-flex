@@ -26,6 +26,7 @@ import java.util.List;
 
 import javax.faces.model.SelectItem;
 
+import com.googlecode.jsfFlex.shared.model.event.AsynchronousDataUpdateEvent;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 
 /**
@@ -101,7 +102,7 @@ public class MXMLOverallExampleBean implements Serializable {
 		
     }
     
-    public Object asyncDataUpdateListener(String targetId, String alteredAttribute, String alteredValue){
+    public Object asyncDataUpdateListener(AsynchronousDataUpdateEvent event){
         /*
          * Two possible values can be returned for the MethodExpression of mxmlAsynchronousDataUpdateEventListener
          *  AsynchronousDataUpdateEventBean
