@@ -140,12 +140,28 @@ public final class MXMLCTask extends AntBaseTask {
 		
 		if(_componentMXML.getExternalLibraryPath() != null){
 			arg = _mxmlcTask.createArg();
-			arg.setLine(EXTERNAL_LIBRARY_PATH + MXMLConstants.STRING_QUOTE + _componentMXML.getExternalLibraryPath() + MXMLConstants.STRING_QUOTE);
+            
+            StringBuilder externalLibraryPath = new StringBuilder();
+            for(String currExternalLibraryPath : _componentMXML.getExternalLibraryPath()){
+                externalLibraryPath.append(MXMLConstants.STRING_QUOTE);
+                externalLibraryPath.append(currExternalLibraryPath);
+                externalLibraryPath.append(MXMLConstants.STRING_QUOTE);
+                externalLibraryPath.append(" ");
+            }
+			arg.setLine(EXTERNAL_LIBRARY_PATH + externalLibraryPath.toString());
 		}
 		
 		if(_componentMXML.getRuntimeSharedLibraries() != null){
 			arg = _mxmlcTask.createArg();
-			arg.setLine(RUNTIME_SHARED_LIBRARIES + MXMLConstants.STRING_QUOTE + _componentMXML.getRuntimeSharedLibraries() + MXMLConstants.STRING_QUOTE);
+            
+            StringBuilder runtimeSharedLibrary = new StringBuilder();
+            for(String currRuntimeSharedLibrary : _componentMXML.getRuntimeSharedLibraries()){
+                runtimeSharedLibrary.append(MXMLConstants.STRING_QUOTE);
+                runtimeSharedLibrary.append(currRuntimeSharedLibrary);
+                runtimeSharedLibrary.append(MXMLConstants.STRING_QUOTE);
+                runtimeSharedLibrary.append(" ");
+            }
+			arg.setLine(RUNTIME_SHARED_LIBRARIES + runtimeSharedLibrary.toString());
 		}
 		
 		if(_componentMXML.getDefaultBgColor() != null){

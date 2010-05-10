@@ -87,24 +87,32 @@ public abstract class MxmlContext {
 	public abstract String getPreMxmlPath();
 	
 	public abstract void setPreMxmlPath(String preMxmlPath);
+    
+    public abstract String getJsfFlexSwcPath();
+    
+    public abstract void setJsfFlexSwcPath(String jsfFlexSwcPath);
 	
 	public abstract String getSwcPath();
 	
 	public abstract void setSwcPath(String swcPath);
 	
-	public abstract String getSwfBasePath();
+	public abstract String getApplicationSwfPath();
 	
-	public abstract void setSwfBasePath(String swfBasePath);
+	public abstract void setApplicationSwfPath(String applicationSwfPath);
 	
 	public abstract String getSwfPath();
 	
 	public abstract void setSwfPath(String swfPath);
 	
-	public abstract String getSwfWebPath();
+	public abstract String getApplicationSwfWebPath();
 	
-	public abstract void setSwfWebPath(String swfWebPath);
+	public abstract void setApplicationSwfWebPath(String applicationSwfWebPath);
 	
-	public abstract String getWebContextPath();
+    public abstract String getSwfWebPath();
+    
+    public abstract void setSwfWebPath(String swfWebPath);
+    
+    public abstract String getWebContextPath();
 	
 	public abstract void setWebContextPath(String webContextPath);
 	

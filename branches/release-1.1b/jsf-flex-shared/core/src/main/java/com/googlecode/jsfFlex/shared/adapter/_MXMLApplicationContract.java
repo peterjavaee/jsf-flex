@@ -26,10 +26,16 @@ import java.util.Collection;
 public interface _MXMLApplicationContract extends _MXMLContract {
 	
 	Collection<String> getSourcePath();
+    
+    Collection<String> getProvidedAdditionalExternalLibaryPath();
+    
+    Collection<String> getExternalLibraryPath();
 	
-	String getExternalLibraryPath();
-	
-	String getRuntimeSharedLibraries();
+    void addExternalLibraryPath(String externalLibraryPath);
+    
+	Collection<String> getRuntimeSharedLibraries();
+    
+    void addRuntimeSharedLibrary(String runtimeSharedLibrary);
 	
 	String getDefaultBgColor();
 	

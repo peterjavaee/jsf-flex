@@ -20,36 +20,38 @@
 <%@ page session="false" contentType="text/html;charset=utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
+<html>
+
 <head>
-<style type="text/css">
-.sectionDescription{
-	color:#708090;
-	font-family:verdana;
-	font-size:14px;
-	font-weight:700;
-	text-align:center;
-	text-decoration:underline;
-	width:50%;
-}
-
-.subSectionDescription{
-	width:80%;
-}
-
-.subSectionDescription .descriptionHeading{
-	color:FF9966;
-	font-family:Helvetica;
-	font-size:12px;
-	font-weight:700;
-	text-decoration:underline;
-}
-
-.subSectionDescription .descriptionText{
-	font-family:Garamond;
-	font-size: 15px;
-}
-
-</style>
+	<style type="text/css">
+	.sectionDescription{
+		color:#708090;
+		font-family:verdana;
+		font-size:14px;
+		font-weight:700;
+		text-align:center;
+		text-decoration:underline;
+		width:50%;
+	}
+	
+	.subSectionDescription{
+		width:80%;
+	}
+	
+	.subSectionDescription .descriptionHeading{
+		color:FF9966;
+		font-family:Helvetica;
+		font-size:12px;
+		font-weight:700;
+		text-decoration:underline;
+	}
+	
+	.subSectionDescription .descriptionText{
+		font-family:Garamond;
+		font-size: 15px;
+	}
+	
+	</style>
 </head>
 
 <f:view>
@@ -262,3 +264,5 @@
 	
 	</body>
 </f:view>
+
+</html>

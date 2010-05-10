@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.component.ext;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.LinkedList;
 
 import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
@@ -112,10 +113,15 @@ public abstract class AbstractMXMLUIApplication
 	private int _minorLevel = -1;
     
 	private String _applicationPath;
-	private String _externalLibraryPath;
-	private String _runtimeSharedLibraries;
+	private Collection<String> _externalLibraryPath;
+	private Collection<String> _runtimeSharedLibraries;
 	private boolean _accessible;
 	
+    {
+        _externalLibraryPath = new LinkedList<String>();
+        _runtimeSharedLibraries = new LinkedList<String>();
+    }
+    
 	public void encodeBegin(FacesContext context) throws IOException {
 		
 		ServletContext servContext = (ServletContext) context.getExternalContext().getContext();
@@ -131,8 +137,10 @@ public abstract class AbstractMXMLUIApplication
 		MxmlContext mxmlContext = new MxmlContextImpl(getMxmlPackageName(), mode, this);
         
 		String webContextPath = context.getExternalContext().getRequestContextPath();
-		String swfWebPath = webContextPath + "/" + MXMLConstants.SWF_DIRECTORY_NAME + "/" + getMxmlPackageName() + "/";
-		mxmlContext.setSwfWebPath(swfWebPath);
+        String swfWebPath = webContextPath + "/" + MXMLConstants.SWF_DIRECTORY_NAME + "/";
+		String applicationSwfWebPath = swfWebPath + getMxmlPackageName() + "/";
+        mxmlContext.setSwfWebPath(swfWebPath);
+		mxmlContext.setApplicationSwfWebPath(applicationSwfWebPath);
 		mxmlContext.setWebContextPath(webContextPath);
 		
 		//setting or appending scripts to execute upon application initialization
@@ -152,9 +160,9 @@ public abstract class AbstractMXMLUIApplication
 		}else{
 			String mxmlPath = _applicationPath + File.separatorChar + MXMLConstants.MXML_DIRECTORY_NAME + File.separatorChar +
 									getMxmlPackageName() + File.separatorChar;
-			String swfPath = _applicationPath + File.separatorChar + MXMLConstants.SWF_DIRECTORY_NAME + File.separatorChar +
-									getMxmlPackageName() + File.separatorChar + getMxmlPackageName() + MXMLConstants.SWF_FILE_EXT;
-			String swfBasePath = _applicationPath + File.separatorChar + MXMLConstants.SWF_DIRECTORY_NAME + File.separatorChar;
+            String swfPath = _applicationPath + File.separatorChar + MXMLConstants.SWF_DIRECTORY_NAME + File.separatorChar;
+            String applicationSwfPath = swfPath + getMxmlPackageName() + File.separatorChar + getMxmlPackageName() + MXMLConstants.SWF_FILE_EXT;
+			
 			/*
 			 * 	The above swfBasePath will hold placeholder of where swf-source-files's source-file[s] will be echoed to.
 			 * 	The files that will be echoed can be found in mxmlConstants.xml and are simply the contents that will be used
@@ -162,21 +170,22 @@ public abstract class AbstractMXMLUIApplication
 			 */
 			String flexSDKPath = _applicationPath + File.separatorChar + MXMLConstants.FLEX_SDK_DIRECTORY_NAME + File.separatorChar;
 			
-			String swcPath = _applicationPath + File.separatorChar + MXMLConstants.SWC_DIRECTORY_NAME + File.separatorChar +
-									MXMLConstants.JSF_FLEX_MAIN_SWC_DIRECTORY_NAME + File.separatorChar;
+            String swcPath = _applicationPath + File.separatorChar + MXMLConstants.SWC_DIRECTORY_NAME + File.separatorChar;
+			String jsfFlexSwcPath = swcPath + MXMLConstants.JSF_FLEX_MAIN_SWC_DIRECTORY_NAME + File.separatorChar;
 			
 			//externalLibraryPath will contain .swc file
-			String swcFileAbsolutePath = swcPath + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWC_FILE_EXT;
-			setExternalLibraryPath(swcFileAbsolutePath);
+			String swcFileAbsolutePath = jsfFlexSwcPath + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWC_FILE_EXT;
+            addExternalLibraryPath(swcFileAbsolutePath);
 			
 			//runtimeSharedLibrary has to be relative to the Web root path file
-			String jsfFlexMainSwcWebpath = webContextPath + "/swf/" + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWF_FILE_EXT;
-			setRuntimeSharedLibraries(jsfFlexMainSwcWebpath);
+			String jsfFlexMainSwcWebpath = swfWebPath + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWF_FILE_EXT;
+            addRuntimeSharedLibrary(jsfFlexMainSwcWebpath);
 			
 			mxmlContext.setFlexSDKPath(flexSDKPath);
 			mxmlContext.setMxmlPath(mxmlPath);
+			mxmlContext.setApplicationSwfPath(applicationSwfPath);
 			mxmlContext.setSwfPath(swfPath);
-			mxmlContext.setSwfBasePath(swfBasePath);
+            mxmlContext.setJsfFlexSwcPath(jsfFlexSwcPath);
 			mxmlContext.setSwcPath(swcPath);
 			
 			//set the attributes for jsfFlexFlashApplicationConfiguration
@@ -246,18 +255,18 @@ public abstract class AbstractMXMLUIApplication
 	public void setApplicationPath(String applicationPath) {
 		_applicationPath = applicationPath;
 	}
-	public String getRuntimeSharedLibraries() {
-		return _runtimeSharedLibraries;
-	}
-	public void setRuntimeSharedLibraries(String runtimeSharedLibraries) {
-		_runtimeSharedLibraries = runtimeSharedLibraries;
-	}
-	public String getExternalLibraryPath(){
+	public Collection<String> getExternalLibraryPath(){
 		return _externalLibraryPath;
 	}
-	public void setExternalLibraryPath(String externalLibraryPath){
-		_externalLibraryPath = externalLibraryPath;
-	}
+	public void addExternalLibraryPath(String externalLibraryPath){
+        _externalLibraryPath.add(externalLibraryPath);
+    }
+    public Collection<String> getRuntimeSharedLibraries() {
+        return _runtimeSharedLibraries;
+    }
+    public void addRuntimeSharedLibrary(String runtimeSharedLibrary){
+        _runtimeSharedLibraries.add(runtimeSharedLibrary);
+    }
 	public boolean isAccessible() {
 		return _accessible;
 	}
@@ -310,8 +319,14 @@ public abstract class AbstractMXMLUIApplication
 	 */
     @JSFProperty(desc   =   "This value will be passed to the mxmlc compiler when creating a SWF. It must be an absolutePath to a filesystem where additional ActionScript and MXML files that are needed for the current SWF generation are located at.")
 	public abstract Collection<String> getSourcePath();
-
-	/**
+    
+    /**
+     * This value represents Collection of additional SWC files. For instance, if one wishes to use additional open source projects or self projects that is archived as a SWC file, JSF Flex will unzip those files and place them within the same directory that JSF Flex's SWC file is extracted to to create links for the to be created SWF file.
+     */
+    @JSFProperty(desc   =   "This value represents Collection of additional SWC files. For instance, if one wishes to use additional open source projects or self projects that is archived as a SWC files, JSF Flex will unzip those files and place them within the same directory that JSF Flex's SWC file is extracted to to create dynamic links for the to be created SWF file.")
+    public abstract Collection<String> getProvidedAdditionalExternalLibaryPath();
+    
+    /**
 	 * This value will be passed to the mxmlc compiler when creating a SWF. It represents the defaultBgColor, surprise.
 	 */
     @JSFProperty(desc   =   "This value will be passed to the mxmlc compiler when creating a SWF. It represents the defaultBgColor, surprise.")

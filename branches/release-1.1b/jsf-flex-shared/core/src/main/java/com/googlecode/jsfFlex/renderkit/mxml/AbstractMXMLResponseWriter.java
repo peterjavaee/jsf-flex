@@ -19,9 +19,11 @@
 package com.googlecode.jsfFlex.renderkit.mxml;
 
 import java.io.File;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Writer;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -49,11 +51,21 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
  */
 public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
     
+    private final static String EXTERNAL_LIBRARY_PATH_COLLECTION_ERROR = "Paths for External Libary SWC files must be absolute.";
+    
     private final static String JSF_FLEX_FLASH_APPLICATION_CONFIG_TEMPLATE = "jsf-flex-flash-application-config.vm";
     private final static String TO_CREATE_JSF_FLEX_FLASH_APPLICATION_CONFIG_FILE_NAME = "jsfFlexFlashApplicationConfig.xml";
     private final static String JSF_FLEX_FLASH_APPLICATION_CONFIG_TOKEN = "jsfFlexFlashApplicationConfig";
     
-    private final static Object lock = new Object();
+    private final static Object LOCK = new Object();
+    private final static FilenameFilter SWF_LIBRARY_FILENAME_FILTER = new FilenameFilter() {
+        public boolean accept(File currDir, String currFileName) {
+            /*
+             * Since indexOf uses regular expression for String argument, must escape period.
+             */
+            return currFileName.indexOf("\\.swf") > -1;
+        }
+    };
     
     protected AbstractMXMLResponseWriter(){
         super();
@@ -157,7 +169,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
      */
     public final void unZipFlexSDK(_MXMLApplicationContract componentMXML) {
         MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-        synchronized(lock){
+        synchronized(LOCK){
             if(!new File(mxmlContext.getFlexSDKPath()).exists()){
                 makeDirectory(mxmlContext.getFlexSDKPath());
                 String queueTaskId = componentMXML.getId();
@@ -186,54 +198,138 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
      */
     public final void processCreateSwf(String mxmlFile, _MXMLApplicationContract componentMXML, Map<String, String> multiLingualSupportMap) {
         
-        MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-        //now create the MXML file
-        createMXML(componentMXML.getAbsolutePathToPreMxmlFile(), mxmlFile);
-        
+        final MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+        final _FlexTaskRunner flexTaskRunner = getFlexTaskRunner();
+        final _CommonTaskRunner commonTaskRunner = getCommonTaskRunner();
         final String queueTaskId = componentMXML.getId();
         final String flexSDKPath = mxmlContext.getFlexSDKPath();
+        
+        //now create the MXML file
+        createMXML(componentMXML.getAbsolutePathToPreMxmlFile(), mxmlFile);
         
         String unZipArchiveRelativeQueueTaskId = QUEUE_TASK_ID.UNZIP_ARCHIVE_RELATIVE.getQueueTaskId(queueTaskId);
         waitForFutureTask(getCommonTaskRunner(), unZipArchiveRelativeQueueTaskId);
         
-        synchronized(lock){
+        synchronized(LOCK){
             
-            if(!new File(mxmlContext.getSwcPath()).exists()){
+            if(!new File(mxmlContext.getJsfFlexSwcPath()).exists()){
                 //copy the necessary ActionScript files over for SWF generation 
-                createSwcSourceFiles(mxmlContext.getSwcPath(), MXMLConstants.getSwcSourceFiles(), 
+                createSwcSourceFiles(mxmlContext.getJsfFlexSwcPath(), MXMLConstants.getSwcSourceFiles(), 
                                             MXMLConstants.JSF_FLEX_MAIN_SWC_CONFIG_FILE, mxmlContext.getWebContextPath());
                 
                 //create the SWC file
-                String loadConfigAbsolutePath = mxmlContext.getSwcPath() + MXMLConstants.JSF_FLEX_MAIN_SWC_CONFIGURATIONFILE;
-                String swcFileLocationPath = mxmlContext.getSwcPath() + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWC_FILE_EXT;
-                createSystemSWCFile(mxmlContext.getSwcPath(), swcFileLocationPath, flexSDKPath, loadConfigAbsolutePath, null);
+                String loadConfigAbsolutePath = mxmlContext.getJsfFlexSwcPath() + MXMLConstants.JSF_FLEX_MAIN_SWC_CONFIGURATIONFILE;
+                String swcFileLocationPath = mxmlContext.getJsfFlexSwcPath() + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWC_FILE_EXT;
+                createSystemSWCFile(mxmlContext.getJsfFlexSwcPath(), swcFileLocationPath, flexSDKPath, loadConfigAbsolutePath, null);
                 
                 /*
                  *  copy the necessary swf source files to swfBasePath
                  *  these are files such as xml[s] which are used by the system's/above ActionScripts
                  */
-                createSwfSourceFiles(mxmlContext.getSwfBasePath(), MXMLConstants.getSwfSourceFiles());
+                createSwfSourceFiles(mxmlContext.getSwfPath(), MXMLConstants.getSwfSourceFiles());
                 
                 /*
                  * unzip the swc's library.swf file and copy it to the swf file for linking with the swf file
                  */
-                unZipArchiveAbsolute(new File(swcFileLocationPath), mxmlContext.getSwcPath(), null);
+                unZipArchiveAbsolute(new File(swcFileLocationPath), mxmlContext.getJsfFlexSwcPath(), null);
                 
                 //copy the library.swf file to swc directory
-                copyFileSet(mxmlContext.getSwcPath(), "**/*.swf", null, mxmlContext.getSwfBasePath(), null);
+                copyFileSet(mxmlContext.getJsfFlexSwcPath(), "**/*.swf", null, mxmlContext.getSwfPath(), null);
                 
                 //rename the file from library.swf to jsfFlexMainSwc.swf file
-                String sourceFile = mxmlContext.getSwcPath() + MXMLConstants.DEFAULT_SWC_LIBRARY_SWF_NAME;
-                String destFile = mxmlContext.getSwfBasePath() + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWF_FILE_EXT;
+                String sourceFile = mxmlContext.getSwfPath() + MXMLConstants.DEFAULT_SWC_LIBRARY_SWF_NAME;
+                String destFile = mxmlContext.getSwfPath() + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWF_FILE_EXT;
                 
                 renameFile(sourceFile, destFile, true);
-                
                 deleteResources(sourceFile, false, null);
+                
+                /*
+                 * Now need to place additional SWC content to the correct library path for dynamic linking to the 
+                 * to be created SWF file
+                 */
+                if(componentMXML.getProvidedAdditionalExternalLibaryPath() != null){
+                    final CountDownLatch additionalSWCLatch = new CountDownLatch(componentMXML.getProvidedAdditionalExternalLibaryPath().size());
+                    final Collection<String> runtimeSharedLibrary = componentMXML.getRuntimeSharedLibraries();
+                    final Collection<String> externalLibraryPath = componentMXML.getExternalLibraryPath();
+                    
+                    final String swcPath = mxmlContext.getSwcPath();
+                    
+                    for(final String currSWC : componentMXML.getProvidedAdditionalExternalLibaryPath()){
+                        String[] splitted = currSWC.split(String.valueOf(File.separatorChar));
+                        if(splitted == null || splitted.length < 1){
+                            throw new ComponentBuildException(EXTERNAL_LIBRARY_PATH_COLLECTION_ERROR);
+                        }
+                        
+                        externalLibraryPath.add(currSWC);
+                        String tempCurrSwcFileName = splitted[splitted.length - 1];
+                        
+                        final String currSWCFileName = tempCurrSwcFileName.substring(0, tempCurrSwcFileName.indexOf('.'));
+                        final String swcDirectory = swcPath + currSWCFileName + File.separatorChar; 
+                        final String waitForQueueTaskIdUnzip = QUEUE_TASK_ID.UNZIP_ARCHIVE_ABSOLUTE_FI.getQueueTaskId(queueTaskId + "_" + currSWCFileName);
+                        final String waitForQueueTaskIdCopy = QUEUE_TASK_ID.COPY_FILE_SET.getQueueTaskId(queueTaskId + "_" + currSWCFileName);
+                        
+                        new Thread(new Runnable(){
+                            
+                            public void run() {
+                                
+                                flexTaskRunner.makeDirectory(swcDirectory);
+                                commonTaskRunner.unZipArchiveAbsolute(new File(currSWC), swcDirectory, waitForQueueTaskIdUnzip);
+                                waitForFutureTask(commonTaskRunner, waitForQueueTaskIdUnzip);
+                                /*
+                                 * Usually the SWF file within the SWC file is defaulted to library.swf name, but do 
+                                 * not assume. Use the file with a SWF extension.
+                                 */
+                                
+                                File fetchLibrarySwfFileName = new File(swcDirectory);
+                                List<File> swfLibraryContents = java.util.Arrays.asList(fetchLibrarySwfFileName.listFiles(SWF_LIBRARY_FILENAME_FILTER));
+                                /*
+                                 * For sanity in case there exists multiple swf library content [should be not, but for future]
+                                 */
+                                int swfLibraryFileCount = 0;
+                                for(File currSwfLibrary : swfLibraryContents){
+                                    String originalFileName = currSwfLibrary.getAbsolutePath();
+                                    String[] nameSplitted = originalFileName.split(String.valueOf(File.separatorChar));
+                                    
+                                    /*
+                                     * Take the last fileName and rename it with the swc fileName.
+                                     * Note that this means that each SWC fileName should be unique, which is an 
+                                     * expected requirement.
+                                     */
+                                    
+                                    StringBuilder renameFileName = new StringBuilder();
+                                    for(int i=0; i < (nameSplitted.length - 1); i++){
+                                        renameFileName.append(nameSplitted[i]);
+                                        renameFileName.append(File.separatorChar);
+                                    }
+                                    
+                                    renameFileName.append(currSWCFileName);
+                                    renameFileName.append(swfLibraryFileCount++);
+                                    renameFileName.append(MXMLConstants.SWF_FILE_EXT);
+                                    
+                                    flexTaskRunner.renameFile(originalFileName, renameFileName.toString(), true);
+                                    runtimeSharedLibrary.add(mxmlContext.getSwfWebPath() + renameFileName.toString());
+                                }
+                                
+                                flexTaskRunner.copyFileSet(swcDirectory, "**/*.swf", null, mxmlContext.getSwfPath(), waitForQueueTaskIdCopy);
+                                waitForFutureTask(flexTaskRunner, waitForQueueTaskIdCopy);
+                                flexTaskRunner.deleteResources(swcDirectory, true, null);
+                                
+                            }
+                            
+                        }).start();
+                        
+                    }
+                    
+                    try{
+                        additionalSWCLatch.await();
+                    }catch(InterruptedException interruptedExcept){
+                        Thread.currentThread().interrupt();
+                    }
+                }
             }
             
             createJsfFlexFlashApplicationConfigurationFile();
             
-            final _FlexTaskRunner flexTaskRunner = getFlexTaskRunner();
             final CountDownLatch localeLatch = new CountDownLatch(multiLingualSupportMap.keySet().size());
             /*
              * Additional step of executing copyLocale script for Flex 3.0+.
@@ -282,10 +378,10 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
         String localeWebContextPath = mxmlContext.getLocaleWebContextPath();
         
         if(localeWebContextPath == null){
-            multiLingualSupportMap.put(MXMLConstants.DEFAULT_LOCALE_SWF_PATH_KEY, mxmlContext.getSwfPath());
+            multiLingualSupportMap.put(MXMLConstants.DEFAULT_LOCALE_SWF_PATH_KEY, mxmlContext.getApplicationSwfPath());
         }else{
             String swfBaseName = mxmlContext.getCurrMxml();
-            String swfFileNameBasePath = mxmlContext.getSwfBasePath() + swfBaseName + File.separatorChar;
+            String swfFileNameBasePath = mxmlContext.getSwfPath() + swfBaseName + File.separatorChar;
             
             File localeWebContextDirectory = new File(localeWebContextPath);
             if(localeWebContextDirectory.isDirectory()){
@@ -459,7 +555,7 @@ public abstract class AbstractMXMLResponseWriter extends ResponseWriter {
         MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
         JsfFlexFlashApplicationConfiguration jsfFlexFlashApplicationConfiguration = mxmlContext.getJsfFlexFlashApplicationConfiguration();
         
-        String filePath = mxmlContext.getSwfBasePath() + TO_CREATE_JSF_FLEX_FLASH_APPLICATION_CONFIG_FILE_NAME;
+        String filePath = mxmlContext.getSwfPath() + TO_CREATE_JSF_FLEX_FLASH_APPLICATION_CONFIG_FILE_NAME;
         
         Map<String, Object> tokenMap = new HashMap<String, Object>();
         tokenMap.put(JSF_FLEX_FLASH_APPLICATION_CONFIG_TOKEN, jsfFlexFlashApplicationConfiguration);

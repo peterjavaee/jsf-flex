@@ -56,7 +56,7 @@ class TaskRunnerImpl implements _TaskRunner {
      * Technically most of the computers have Duo Core, so consider that when setting the value 
      * for NUM_OF_EXECUTOR_THREADS
      */
-    private static final int NUM_OF_EXECUTOR_THREADS = 4;
+    private static final int NUM_OF_EXECUTOR_THREADS = 6;
     private static final int EXECUTOR_SERVICE_SHUT_DOWN_LIMIT = 20;
     
     private final ConcurrentMap<String, Future> _queuedTasks;

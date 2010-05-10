@@ -72,10 +72,12 @@ public class MxmlContextImpl extends MxmlContext {
 	private String _localeWebContextPath;
 	private String _mxmlPath;
 	private String _preMxmlPath;
+    private String _jsfFlexSwcPath;
 	private String _swcPath;
-	private String _swfBasePath;
+	private String _applicationSwfPath;
 	private String _swfPath;
-	private String _swfWebPath;
+	private String _applicationSwfWebPath;
+    private String _swfWebPath;
 	private String _webContextPath;
 	
 	public MxmlContextImpl(String currMxml, String mode, _MXMLApplicationContract currApplicationContract){
@@ -160,17 +162,23 @@ public class MxmlContextImpl extends MxmlContext {
 	public void setPreMxmlPath(String preMxmlPath) {
 		_preMxmlPath = preMxmlPath;
 	}
+    public String getJsfFlexSwcPath(){
+        return _jsfFlexSwcPath;
+    }
+    public void setJsfFlexSwcPath(String jsfFlexSwcPath){
+        _jsfFlexSwcPath = jsfFlexSwcPath;
+    }
 	public String getSwcPath() {
 		return _swcPath;
 	}
 	public void setSwcPath(String swcPath) {
 		_swcPath = swcPath;
 	}
-	public String getSwfBasePath() {
-		return _swfBasePath;
+	public String getApplicationSwfPath() {
+		return _applicationSwfPath;
 	}
-	public void setSwfBasePath(String swfBasePath) {
-		_swfBasePath = swfBasePath;
+	public void setApplicationSwfPath(String applicationSwfPath) {
+		_applicationSwfPath = applicationSwfPath;
 	}
 	public String getSwfPath() {
 		return _swfPath;
@@ -178,12 +186,18 @@ public class MxmlContextImpl extends MxmlContext {
 	public void setSwfPath(String swfPath) {
 		_swfPath = swfPath;
 	}
-	public String getSwfWebPath() {
-		return _swfWebPath;
+	public String getApplicationSwfWebPath() {
+		return _applicationSwfWebPath;
 	}
-	public void setSwfWebPath(String swfWebPath) {
-		_swfWebPath = swfWebPath;
+	public void setApplicationSwfWebPath(String applicationSwfWebPath) {
+		_applicationSwfWebPath = applicationSwfWebPath;
 	}
+    public String getSwfWebPath(){
+        return _swfWebPath;
+    }
+    public void setSwfWebPath(String swfWebPath){
+        _swfWebPath = swfWebPath;
+    }
 	public String getWebContextPath(){
 		return _webContextPath;
 	}
