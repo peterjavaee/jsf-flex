@@ -21,7 +21,9 @@ package com.googlecode.jsfFlex.component.ext;
 import java.io.File;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
@@ -55,7 +57,6 @@ import com.googlecode.jsfFlex.attributes._MXMLUIUsePreloaderAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIVerticalAlignAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIVerticalGapAttribute;
 import com.googlecode.jsfFlex.attributes._MXMLUIViewSourceURLAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIXmlnsMXAttribute;
 import com.googlecode.jsfFlex.container.ext._MXMLUIContainerAttributes;
 import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
 import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexResource;
@@ -83,7 +84,7 @@ public abstract class AbstractMXMLUIApplication
                         _MXMLUIFrameRateAttribute, _MXMLUIHistoryManagementEnabledAttribute, _MXMLUILayoutAttribute, 
                         _MXMLUIPageTitleAttribute, _MXMLUIPreloaderAttribute, _MXMLUIResetHistoryAttribute, _MXMLUIScriptRecursionLimitAttribute, 
                         _MXMLUIScriptTimeLimitAttribute, _MXMLUIUsePreloaderAttribute, _MXMLUIViewSourceURLAttribute, 
-                        _MXMLUIXmlnsMXAttribute, _MXMLUIBackgroundGradientAlphasAttribute, _MXMLUIBackgroundGradientColorsAttribute, 
+                        _MXMLUIBackgroundGradientAlphasAttribute, _MXMLUIBackgroundGradientColorsAttribute, 
                         _MXMLUIHorizontalAlignAttribute, _MXMLUIHorizontalGapAttribute, _MXMLUIModalTransparencyAttribute, 
                         _MXMLUIModalTransparencyBlurAttribute, _MXMLUIModalTransparencyColorAttribute, _MXMLUIModalTransparencyDurationAttribute, 
                         _MXMLUIVerticalAlignAttribute, _MXMLUIVerticalGapAttribute, _MXMLUIApplicationCompleteAttribute, 
@@ -94,9 +95,9 @@ public abstract class AbstractMXMLUIApplication
 	
 	private static final String INITIALIZE_ATTR = "initialize";
 	
-	private static final String MX_ACTUAL_KEY = "xmlns:mx";
-	private static final String MX_XMLNS_KEY = "xmlnsMX";
-	private static final String MX_DEFAULT_XMLNS = "http://www.adobe.com/2006/mxml";
+	private static final String MX_XMLNS = "xmlns:mx";
+    private static final String XMLNS_PREFIX = "xmlns:";
+	private static final String MX_DEFAULT_XMLNS_URL = "http://www.adobe.com/2006/mxml";
     private static final String INITIALIZE_CALL = "initializeApp(event);";
 	
     private _AnnotationDocletParser _annotationDocletParserInstance;
@@ -115,11 +116,14 @@ public abstract class AbstractMXMLUIApplication
 	private String _applicationPath;
 	private Collection<String> _externalLibraryPath;
 	private Collection<String> _runtimeSharedLibraries;
+    private Map<String, String> _xmlnsMap;
+    
 	private boolean _accessible;
 	
     {
         _externalLibraryPath = new LinkedList<String>();
         _runtimeSharedLibraries = new LinkedList<String>();
+        _xmlnsMap = new HashMap<String, String>();
     }
     
 	public void encodeBegin(FacesContext context) throws IOException {
@@ -127,12 +131,18 @@ public abstract class AbstractMXMLUIApplication
 		ServletContext servContext = (ServletContext) context.getExternalContext().getContext();
 		setApplicationPath( servContext.getRealPath("") );
 		
-		if(getAttributes().get(MX_XMLNS_KEY) == null){
-			getAttributes().put(MX_ACTUAL_KEY, MX_DEFAULT_XMLNS);
-		}else{
-			getAttributes().put(MX_ACTUAL_KEY, getAttributes().get(MX_XMLNS_KEY));
-		}
-		
+        Map<String, String> xmlnsMap = getXmlnsMap();
+        xmlnsMap.put(MX_XMLNS, MX_DEFAULT_XMLNS_URL);
+        
+        if(getProvidedAdditionalXmlnsMap() != null){
+            Map<String, String> providedAdditionalXmlnsMap = getProvidedAdditionalXmlnsMap();
+            for(String currXmlnsKey : providedAdditionalXmlnsMap.keySet()){
+                String currXmlnsUrl = providedAdditionalXmlnsMap.get(currXmlnsKey);
+                currXmlnsKey = currXmlnsKey.indexOf(':') > -1 ? currXmlnsKey : XMLNS_PREFIX + currXmlnsKey;
+                xmlnsMap.put(currXmlnsKey, currXmlnsUrl);
+            }
+        }
+        
 		String mode = context.getExternalContext().getInitParameter(MXMLConstants.CONFIG_MODE_NAME);
 		MxmlContext mxmlContext = new MxmlContextImpl(getMxmlPackageName(), mode, this);
         
@@ -255,17 +265,20 @@ public abstract class AbstractMXMLUIApplication
 	public void setApplicationPath(String applicationPath) {
 		_applicationPath = applicationPath;
 	}
-	public Collection<String> getExternalLibraryPath(){
+	public Collection<String> getExternalLibraryPath() {
 		return _externalLibraryPath;
 	}
-	public void addExternalLibraryPath(String externalLibraryPath){
+	public void addExternalLibraryPath(String externalLibraryPath) {
         _externalLibraryPath.add(externalLibraryPath);
     }
     public Collection<String> getRuntimeSharedLibraries() {
         return _runtimeSharedLibraries;
     }
-    public void addRuntimeSharedLibrary(String runtimeSharedLibrary){
+    public void addRuntimeSharedLibrary(String runtimeSharedLibrary) {
         _runtimeSharedLibraries.add(runtimeSharedLibrary);
+    }
+    public Map<String, String> getXmlnsMap() {
+        return _xmlnsMap;
     }
 	public boolean isAccessible() {
 		return _accessible;
@@ -313,6 +326,12 @@ public abstract class AbstractMXMLUIApplication
             desc        =   "The mxmlPackageName for the application."
     )
 	public abstract String getMxmlPackageName();
+    
+    /**
+     * Additional xmlns in form of key/value where key is the prefix and the value being the url.
+     */
+    @JSFProperty(desc   =   "Additional xmlns in form of key/value where key is the prefix and the value being the url.")
+    public abstract Map<String, String> getProvidedAdditionalXmlnsMap();
 
 	/**
 	 * This value will be passed to the mxmlc compiler when creating a SWF. It must be an absolutePath to a filesystem where additional ActionScript and MXML files that are needed for the current SWF generation are located at.

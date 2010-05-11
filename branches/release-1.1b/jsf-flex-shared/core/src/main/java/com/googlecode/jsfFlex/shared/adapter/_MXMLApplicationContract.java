@@ -19,6 +19,7 @@
 package com.googlecode.jsfFlex.shared.adapter;
 
 import java.util.Collection;
+import java.util.Map;
 
 /**
  * @author Ji Hoon Kim
@@ -36,8 +37,10 @@ public interface _MXMLApplicationContract extends _MXMLContract {
 	Collection<String> getRuntimeSharedLibraries();
     
     void addRuntimeSharedLibrary(String runtimeSharedLibrary);
-	
-	String getDefaultBgColor();
+    
+    Map<String, String> getXmlnsMap();
+    
+    String getDefaultBgColor();
 	
 	Integer getMaxLvRecursion();
 	

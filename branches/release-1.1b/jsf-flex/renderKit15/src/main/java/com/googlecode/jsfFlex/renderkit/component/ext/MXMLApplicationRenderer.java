@@ -45,7 +45,6 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
 import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
 import com.googlecode.jsfFlex.shared.context.MxmlContext;
-import com.googlecode.jsfFlex.shared.tasks._TaskRunner.QUEUE_TASK_ID;
 import com.googlecode.jsfFlex.shared.util.MXMLAttributeConstants;
 import com.googlecode.jsfFlex.shared.util.MXMLConstants;
 import com.googlecode.jsfFlex.shared.util.MXMLJsfUtil;
@@ -107,8 +106,6 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 	
 	private static final String MXML_APPLICATION_BODY_TEMPLATE  = "MXMLApplicationBody.vm";
 	
-	private static final String MX_KEY = "xmlns:mx";
-	
 	private static final String TO_BE_CREATED_ADDITIONAL_APP_SCRIPT_CONTENT_TEMPLATE_SUFFIX = "AdditionalAppScriptContent.tmp";
 	private static final String ADDITIONAL_APPLICATION_SCRIPT_CONTENT_TOKEN = "additionalApplicationScriptContent";
 	
@@ -142,12 +139,15 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		writer.mapFields(MXMLApplicationRenderer.class, componentObj, null);
 		
 		/*
-		 * HACK
-		 * Because of the colon, the detection of qdox is giving issues. So for the time
-		 * being until a better solution is found, manually pull and push the info.
+		 * Place in xmlns provided by the user + default for Flex application
 		 */
-		componentMXML.getAnnotationDocletParserInstance().getTokenValueSet().add(new TokenValue(MX_KEY, componentMXML.getAttributes().get(MX_KEY).toString()));
-		
+        Set<TokenValue> tokenValueSet = componentMXML.getAnnotationDocletParserInstance().getTokenValueSet(); 
+        Map<String, String> xmlnsMap = componentMXML.getXmlnsMap();
+        for(String currXmlnsKey : xmlnsMap.keySet()){
+            String currXmlnsValue = xmlnsMap.get(currXmlnsKey);
+            tokenValueSet.add(new TokenValue(currXmlnsKey, currXmlnsValue));
+        }
+        
 	}
 	
 	@Override
