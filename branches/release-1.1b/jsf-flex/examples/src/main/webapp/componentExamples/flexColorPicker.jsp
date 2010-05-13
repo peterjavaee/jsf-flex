@@ -28,13 +28,13 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlColorPicker" height="500" width="800">
-    		<jf:mxmlColorPicker labelField="ColorPicker example" selectedColor="#{mxmlOverallBean.colorPickerSelectedColor}" />
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexColorPicker" height="500" width="800">
+    		<jf:flexColorPicker labelField="ColorPicker example" selectedColor="#{flexOverallBean.colorPickerSelectedColor}" />
+    	</jf:flexApplication>
     	
     </h:form>
     

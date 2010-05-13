@@ -16,18 +16,18 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.examples.mxml.multipleRequestDataGridExample;
+package com.googlecode.jsfFlex.examples.flex.multipleRequestDataGridExample;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * @author Ji Hoon Kim
  */
-public final class MXMLMultipleRequestDataGridExampleBean implements Serializable {
+public final class FlexMultipleRequestDataGridExampleBean implements Serializable {
 	
 	private static final long serialVersionUID = 1501524398537830947L;
 
@@ -36,7 +36,7 @@ public final class MXMLMultipleRequestDataGridExampleBean implements Serializabl
 	private List<LargeDataEntry> _largeDataEntries;
 	private List<LargeDataEntry> _largeSecondDataEntries;
 	
-	public MXMLMultipleRequestDataGridExampleBean(){
+	public FlexMultipleRequestDataGridExampleBean(){
 		super();
 		
 		_largeDataEntries = new ArrayList<LargeDataEntry>();
@@ -109,9 +109,9 @@ public final class MXMLMultipleRequestDataGridExampleBean implements Serializabl
         
         @Override
 		public int hashCode() {
-			int hashCodeVal = MXMLConstants.HASH_CODE_INIT_VALUE;
-			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _firstColumnEntry.hashCode();
-			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _secondColumnEntry.hashCode();
+			int hashCodeVal = FlexConstants.HASH_CODE_INIT_VALUE;
+			hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _firstColumnEntry.hashCode();
+			hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _secondColumnEntry.hashCode();
 			return hashCodeVal;
 		}
 		

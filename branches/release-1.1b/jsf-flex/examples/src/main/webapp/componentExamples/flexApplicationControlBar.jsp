@@ -28,15 +28,15 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlApplicationControlBar" height="500" width="800">
-    		<jf:mxmlApplicationControlBar dock="true">
-    			<jf:mxmlLabel text="Simple Application Control Bar" />
-    		</jf:mxmlApplicationControlBar>
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexApplicationControlBar" height="500" width="800">
+    		<jf:flexApplicationControlBar dock="true">
+    			<jf:flexLabel text="Simple Application Control Bar" />
+    		</jf:flexApplicationControlBar>
+    	</jf:flexApplication>
     	
     </h:form>
     

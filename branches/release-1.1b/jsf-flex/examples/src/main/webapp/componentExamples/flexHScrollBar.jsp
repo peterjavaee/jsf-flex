@@ -28,12 +28,12 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
-    	<jf:mxmlApplication mxmlPackageName="mxmlHScrollBar" height="500" width="800">
-    		<jf:mxmlHScrollBar />
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexHScrollBar" height="500" width="800">
+    		<jf:flexHScrollBar />
+    	</jf:flexApplication>
     </h:form>
     
 </f:view>

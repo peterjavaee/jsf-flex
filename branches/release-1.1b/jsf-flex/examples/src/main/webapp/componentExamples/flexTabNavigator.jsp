@@ -28,20 +28,20 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlTabNavigator" height="500" width="800">
-    		<jf:mxmlTabNavigator width="100%" height="100%" selectedIndex="#{mxmlOverallBean.tabNavigatorSelectedIndex}">
-	    		<jf:mxmlPanel label="First Tab" width="100%" height="100%">
-	    			<jf:mxmlLabel text="Label for first Tab." />
-	    		</jf:mxmlPanel>
-	    		<jf:mxmlPanel label="Second Tab" width="100%" height="100%">
-	    			<jf:mxmlLabel text="Label for second Tab." />
-	    		</jf:mxmlPanel>
-    		</jf:mxmlTabNavigator>
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexTabNavigator" height="500" width="800">
+    		<jf:flexTabNavigator width="100%" height="100%" selectedIndex="#{flexOverallBean.tabNavigatorSelectedIndex}">
+	    		<jf:flexPanel label="First Tab" width="100%" height="100%">
+	    			<jf:flexLabel text="Label for first Tab." />
+	    		</jf:flexPanel>
+	    		<jf:flexPanel label="Second Tab" width="100%" height="100%">
+	    			<jf:flexLabel text="Label for second Tab." />
+	    		</jf:flexPanel>
+    		</jf:flexTabNavigator>
+    	</jf:flexApplication>
     	
     </h:form>
     

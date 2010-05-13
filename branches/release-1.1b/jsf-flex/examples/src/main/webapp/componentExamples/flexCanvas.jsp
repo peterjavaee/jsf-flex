@@ -28,15 +28,15 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlCanvas" height="500" width="800">
-    		<jf:mxmlCanvas>
-    			<jf:mxmlLabel text="Canvas allows absolute positioning of components, refer to Adobe site for better example" x="100" y="100" />
-    		</jf:mxmlCanvas>
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexCanvas" height="500" width="800">
+    		<jf:flexCanvas>
+    			<jf:flexLabel text="Canvas allows absolute positioning of components, refer to Adobe site for better example" x="100" y="100" />
+    		</jf:flexCanvas>
+    	</jf:flexApplication>
     	
     </h:form>
     

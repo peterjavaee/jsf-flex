@@ -28,12 +28,12 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
-    	<jf:mxmlApplication mxmlPackageName="mxmlProgressBar" height="500" width="800">
+    	<jf:flexApplication mxmlPackageName="flexProgressBar" height="500" width="800">
     		
-    		<jf:mxmlScript>
+    		<jf:flexScript>
 	        	
 		    	private function increaseProgressBar():void{
 					progressBarRef.setProgress((progressBarRef.value + 10) % 110, 100);
@@ -43,11 +43,11 @@
 					progressBarRef.setProgress(progressBarRef.value == 0 ? 0 : progressBarRef.value - 10, 100);
 				}
 				
-		    </jf:mxmlScript>
-    		<jf:mxmlButton label="Increase Progress Bar" buttonDown="increaseProgressBar();"/>
-	        <jf:mxmlButton label="Decrease Progress Bar" buttonDown="decreaseProgressBar();" />
-    		<jf:mxmlProgressBar id="progressBarRef" mode="manual" minimum="0" maximum="100"	value="#{mxmlOverallBean.progressBarValue}" />
-    	</jf:mxmlApplication>
+		    </jf:flexScript>
+    		<jf:flexButton label="Increase Progress Bar" buttonDown="increaseProgressBar();"/>
+	        <jf:flexButton label="Decrease Progress Bar" buttonDown="decreaseProgressBar();" />
+    		<jf:flexProgressBar id="progressBarRef" mode="manual" minimum="0" maximum="100"	value="#{flexOverallBean.progressBarValue}" />
+    	</jf:flexApplication>
     </h:form>
     
 </f:view>

@@ -28,51 +28,51 @@
 
 <ui:composition>
 	
-	<jf:mxmlXMLList>
+	<jf:flexXMLList>
     	<!-- can provide statically -->
-    	<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    		<jf:mxmlXMLStaticAttribute staticPropertyName="label" staticPropertyValue="Menu1" />
-    		<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    			<jf:mxmlXMLStaticAttribute staticPropertyName="label" staticPropertyValue="MenuItem 1-A" />
-    			<jf:mxmlXMLStaticAttribute staticPropertyName="data" staticPropertyValue="1A" />
-    		</jf:mxmlXMLStaticElement>
-    		<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    			<jf:mxmlXMLStaticAttribute staticPropertyName="label" staticPropertyValue="MenuItem 1-B" />
-    			<jf:mxmlXMLStaticAttribute staticPropertyName="data" staticPropertyValue="1B" />
-    		</jf:mxmlXMLStaticElement>
-    	</jf:mxmlXMLStaticElement>
+    	<jf:flexXMLStaticElement staticNodeName="menuitem">
+    		<jf:flexXMLStaticAttribute staticPropertyName="label" staticPropertyValue="Menu1" />
+    		<jf:flexXMLStaticElement staticNodeName="menuitem">
+    			<jf:flexXMLStaticAttribute staticPropertyName="label" staticPropertyValue="MenuItem 1-A" />
+    			<jf:flexXMLStaticAttribute staticPropertyName="data" staticPropertyValue="1A" />
+    		</jf:flexXMLStaticElement>
+    		<jf:flexXMLStaticElement staticNodeName="menuitem">
+    			<jf:flexXMLStaticAttribute staticPropertyName="label" staticPropertyValue="MenuItem 1-B" />
+    			<jf:flexXMLStaticAttribute staticPropertyName="data" staticPropertyValue="1B" />
+    		</jf:flexXMLStaticElement>
+    	</jf:flexXMLStaticElement>
     	
     	<!-- can provide dynamically as xmlListEntries -->
-    	<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    		<jf:mxmlXMLStaticAttribute staticPropertyName="label" staticPropertyValue="Menu2" />
-    		<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    			<jf:mxmlXMLStaticAttribute staticPropertyName="label" staticPropertyValue="MenuItem 2-A" />
-    			<jf:mxmlXMLStaticAttribute staticPropertyName="type" staticPropertyValue="check" />
-    			<jf:mxmlXMLStaticAttribute staticPropertyName="data" staticPropertyValue="2A" />
-    		</jf:mxmlXMLStaticElement>
-    		<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    			<jf:mxmlXMLStaticAttribute staticPropertyName="type" staticPropertyValue="Separator" />
-    		</jf:mxmlXMLStaticElement>
+    	<jf:flexXMLStaticElement staticNodeName="menuitem">
+    		<jf:flexXMLStaticAttribute staticPropertyName="label" staticPropertyValue="Menu2" />
+    		<jf:flexXMLStaticElement staticNodeName="menuitem">
+    			<jf:flexXMLStaticAttribute staticPropertyName="label" staticPropertyValue="MenuItem 2-A" />
+    			<jf:flexXMLStaticAttribute staticPropertyName="type" staticPropertyValue="check" />
+    			<jf:flexXMLStaticAttribute staticPropertyName="data" staticPropertyValue="2A" />
+    		</jf:flexXMLStaticElement>
+    		<jf:flexXMLStaticElement staticNodeName="menuitem">
+    			<jf:flexXMLStaticAttribute staticPropertyName="type" staticPropertyValue="Separator" />
+    		</jf:flexXMLStaticElement>
     		
-    		<jf:mxmlXMLStaticElement staticNodeName="menuitem">
-    			<jf:mxmlXMLStaticAttribute staticPropertyName="label" staticPropertyValue="MenuItem 2-B" />
+    		<jf:flexXMLStaticElement staticNodeName="menuitem">
+    			<jf:flexXMLStaticAttribute staticPropertyName="label" staticPropertyValue="MenuItem 2-B" />
     			
     			<!-- below is sample a for binding to bean using xmlListEntries -->
-    			<jf:mxmlXMLListEntries bindingBeanList="#{mxmlFaceletOverallBean.xmlBeanEntries}">
+    			<jf:flexXMLListEntries bindingBeanList="#{flexFaceletOverallBean.xmlBeanEntries}">
     			
-    				<jf:mxmlXMLElement nodeName="nodeName">
-    					<jf:mxmlXMLAttribute property="label" />
-    					<jf:mxmlXMLAttribute property="type" />
-    					<jf:mxmlXMLAttribute property="groupName" />
-    					<jf:mxmlXMLAttribute property="data" />
-    				</jf:mxmlXMLElement>
+    				<jf:flexXMLElement nodeName="nodeName">
+    					<jf:flexXMLAttribute property="label" />
+    					<jf:flexXMLAttribute property="type" />
+    					<jf:flexXMLAttribute property="groupName" />
+    					<jf:flexXMLAttribute property="data" />
+    				</jf:flexXMLElement>
     				
-    			</jf:mxmlXMLListEntries>
-    		</jf:mxmlXMLStaticElement>
+    			</jf:flexXMLListEntries>
+    		</jf:flexXMLStaticElement>
     		
-    	</jf:mxmlXMLStaticElement>
+    	</jf:flexXMLStaticElement>
     	
-    </jf:mxmlXMLList>
+    </jf:flexXMLList>
 	
 </ui:composition>
 

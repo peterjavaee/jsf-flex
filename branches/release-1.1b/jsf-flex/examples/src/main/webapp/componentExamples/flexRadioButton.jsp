@@ -28,17 +28,17 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlRadioButton" height="500" width="800">
-    		<jf:mxmlRadioButton groupName="radioTest" label="First" value="First" 
-					    			selectedValue="#{mxmlOverallBean.radioButtonSelectedValue}" 
-					    			selected="#{mxmlOverallBean.radioButtonFirstSelected}"/>
-			<jf:mxmlRadioButton groupName="radioTest" label="Second" value="Second" 
-									selected="#{mxmlOverallBean.radioButtonSecondSelected}"/>
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexRadioButton" height="500" width="800">
+    		<jf:flexRadioButton groupName="radioTest" label="First" value="First" 
+					    			selectedValue="#{flexOverallBean.radioButtonSelectedValue}" 
+					    			selected="#{flexOverallBean.radioButtonFirstSelected}"/>
+			<jf:flexRadioButton groupName="radioTest" label="Second" value="Second" 
+									selected="#{flexOverallBean.radioButtonSecondSelected}"/>
+    	</jf:flexApplication>
     	
     </h:form>
     

@@ -28,13 +28,13 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlDateChooser" height="500" width="800">
-    		<jf:mxmlDateField selectedDate="#{mxmlOverallBean.selectedDate}" width="300" />
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexDateChooser" height="500" width="800">
+    		<jf:flexDateField selectedDate="#{flexOverallBean.selectedDate}" width="300" />
+    	</jf:flexApplication>
     	
     </h:form>
     

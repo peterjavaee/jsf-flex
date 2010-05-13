@@ -28,15 +28,15 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlTitleWindow" height="500" width="800">
-    		<jf:mxmlTitleWindow title="Title Window" x="168" y="86" borderStyle="inset">
-    			<jf:mxmlLabel text="Label for titleWindow example." />
-			</jf:mxmlTitleWindow>
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexTitleWindow" height="500" width="800">
+    		<jf:flexTitleWindow title="Title Window" x="168" y="86" borderStyle="inset">
+    			<jf:flexLabel text="Label for titleWindow example." />
+			</jf:flexTitleWindow>
+    	</jf:flexApplication>
     	
     </h:form>
     

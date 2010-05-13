@@ -28,22 +28,22 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlButtonBar" height="500" width="800">
-    		<jf:mxmlButtonBar>
-       			<jf:mxmlDataProvider>
-					<jf:mxmlObject>
-						<jf:mxmlObjectStaticProperty staticPropertyName="label" staticPropertyValue="First Nesting" />
-					</jf:mxmlObject>
-					<jf:mxmlObject>
-						<jf:mxmlObjectStaticProperty staticPropertyName="label" staticPropertyValue="Second Nesting" />
-					</jf:mxmlObject>
-				</jf:mxmlDataProvider>
-			</jf:mxmlButtonBar>
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexButtonBar" height="500" width="800">
+    		<jf:flexButtonBar>
+       			<jf:flexDataProvider>
+					<jf:flexObject>
+						<jf:flexObjectStaticProperty staticPropertyName="label" staticPropertyValue="First Nesting" />
+					</jf:flexObject>
+					<jf:flexObject>
+						<jf:flexObjectStaticProperty staticPropertyName="label" staticPropertyValue="Second Nesting" />
+					</jf:flexObject>
+				</jf:flexDataProvider>
+			</jf:flexButtonBar>
+    	</jf:flexApplication>
     	
     </h:form>
     

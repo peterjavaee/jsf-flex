@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.examples.mxml.overallExample;
+package com.googlecode.jsfFlex.examples.flex.overallExample;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -27,12 +27,12 @@ import java.util.List;
 import javax.faces.model.SelectItem;
 
 import com.googlecode.jsfFlex.shared.model.event.AsynchronousDataUpdateEvent;
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * @author Ji Hoon Kim
  */
-public class MXMLOverallExampleBean implements Serializable {
+public class FlexOverallExampleBean implements Serializable {
 	
 	private static final long serialVersionUID = 6694836447144771325L;
 	
@@ -60,7 +60,7 @@ public class MXMLOverallExampleBean implements Serializable {
 	
     private List<WisePeopleEntry> _wisePeopleEntries;
 	
-    public MXMLOverallExampleBean(){
+    public FlexOverallExampleBean(){
 		super();
 		_accordionSelectedIndex = Integer.valueOf(0);
 		_tabNavigatorSelectedIndex = Integer.valueOf(0);
@@ -295,10 +295,10 @@ public class MXMLOverallExampleBean implements Serializable {
 		
         @Override
 		public int hashCode() {
-			int hashCodeVal = MXMLConstants.HASH_CODE_INIT_VALUE;
-			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _name.hashCode();
-			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _quote.hashCode();
-			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _email.hashCode();
+			int hashCodeVal = FlexConstants.HASH_CODE_INIT_VALUE;
+			hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _name.hashCode();
+			hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _quote.hashCode();
+			hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _email.hashCode();
 			return hashCodeVal;
 		}
 		

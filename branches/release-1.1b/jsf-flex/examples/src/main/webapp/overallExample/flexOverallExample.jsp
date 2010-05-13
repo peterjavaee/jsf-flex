@@ -44,29 +44,29 @@
 </head>
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
 	
 	<h:form>
 		<div>
     	The button on the right is to test out the decode process and make sure that the information is mapped correctly.
     	<h:commandButton value="DecodeTester" action="success" /> <br/>
-    	Also there exists a button  and a linkButton within mxmlApplication that will also perform a submission.
+    	Also there exists a button  and a linkButton within flexApplication that will also perform a submission.
     	</div>
     	
         <div id="descriptionStyle">
-            Note that the client validation for the component with id textInputRef [namely mxmlNumberValidator] is not a child tag
-            of the mxmlTextInput tag. <br/>However the regular validation tag [validateLongRange] is a child tag which performs the validation
+            Note that the client validation for the component with id textInputRef [namely flexNumberValidator] is not a child tag
+            of the flexTextInput tag. <br/>However the regular validation tag [validateLongRange] is a child tag which performs the validation
             on the server side.
             <br />
             <h:message for="textAreaRef" errorClass="errorStyle" />
         </div>
         <br />
         
-	    <jf:mxmlApplication mxmlPackageName="mxmlOverallExample" height="90%" width="90%" errorColor="#B80000" errorFontSize="13">
-	    	<jf:mxmlLabel text="Following label contains korean text to demonstrate locale [if browser's language is set to korean]" color="#FFFFFF" fontWeight="bold"/>
-	    	<jf:mxmlLabel text="@Resource(bundle='LocaleExample', key='greeting')" color="#FFFFFF" fontWeight="bold" fontSize="14"/>
+	    <jf:flexApplication mxmlPackageName="flexOverallExample" height="90%" width="90%" errorColor="#B80000" errorFontSize="13">
+	    	<jf:flexLabel text="Following label contains korean text to demonstrate locale [if browser's language is set to korean]" color="#FFFFFF" fontWeight="bold"/>
+	    	<jf:flexLabel text="@Resource(bundle='LocaleExample', key='greeting')" color="#FFFFFF" fontWeight="bold" fontSize="14"/>
 	    	
-	        <jf:mxmlScript>
+	        <jf:flexScript>
 	        	import flash.events.Event;
 	        	
 		    	import mx.collections.XMLListCollection;
@@ -130,142 +130,142 @@
 					progressBarRef.setProgress(progressBarRef.value == 0 ? 0 : progressBarRef.value - 10, 100);
 				}
 				
-		    </jf:mxmlScript>
+		    </jf:flexScript>
 		    <!-- Validation on the client side -->
-		    <jf:mxmlNumberValidator exceedsMaxError="The number provided exceeds max value [60]." property="text"
+		    <jf:flexNumberValidator exceedsMaxError="The number provided exceeds max value [60]." property="text"
 		    						domain="int" integerError="Must be an integer value."
 			    					lowerThanMinError="The number provided is lower than min value [10]." maxValue="60" minValue="10" 
 			    					required="true" source="{textInputRef}" />
 			
-			<jf:mxmlAccordion width="100%" height="100%" selectedIndex="#{mxmlOverallBean.accordionSelectedIndex}">
+			<jf:flexAccordion width="100%" height="100%" selectedIndex="#{flexOverallBean.accordionSelectedIndex}">
 			    
-				<jf:mxmlTabNavigator width="100%" height="100%" selectedIndex="#{mxmlOverallBean.tabNavigatorSelectedIndex}">
+				<jf:flexTabNavigator width="100%" height="100%" selectedIndex="#{flexOverallBean.tabNavigatorSelectedIndex}">
 						
-			    		<jf:mxmlPanel label="First Tab" width="100%" height="100%">
-			    			<jf:mxmlDividedBox direction="horizontal" width="100%" height="100%">
+			    		<jf:flexPanel label="First Tab" width="100%" height="100%">
+			    			<jf:flexDividedBox direction="horizontal" width="100%" height="100%">
 			    			
-				    			<jf:mxmlBox width="30%" height="100%">
-					    			<jf:mxmlTextInput id="textInputRef" text="#{mxmlOverallBean.textInputText}" />
-					    			<jf:mxmlRichTextEditor textBinding="htmlText" htmlText="#{mxmlOverallBean.richTextEditorHtmlText}" />
-							    	<jf:mxmlTextArea id="textAreaRef" text="#{mxmlOverallBean.textAreaText}" >
+				    			<jf:flexBox width="30%" height="100%">
+					    			<jf:flexTextInput id="textInputRef" text="#{flexOverallBean.textInputText}" />
+					    			<jf:flexRichTextEditor textBinding="htmlText" htmlText="#{flexOverallBean.richTextEditorHtmlText}" />
+							    	<jf:flexTextArea id="textAreaRef" text="#{flexOverallBean.textAreaText}" >
 							    		<f:validateLongRange minimum="10" maximum="60" />
-							    	</jf:mxmlTextArea>
-							    	<jf:mxmlDateField text="#{mxmlOverallBean.dateFieldText}" width="100" />
-							    	<jf:mxmlCheckBox label="CheckBox am I [\^$.|?*+(){}" selected="#{mxmlOverallBean.checkBoxSelected}" />
-						    	</jf:mxmlBox>
+							    	</jf:flexTextArea>
+							    	<jf:flexDateField text="#{flexOverallBean.dateFieldText}" width="100" />
+							    	<jf:flexCheckBox label="CheckBox am I [\^$.|?*+(){}" selected="#{flexOverallBean.checkBoxSelected}" />
+						    	</jf:flexBox>
 						    	
-						    	<jf:mxmlBox width="70%" height="100%">
-						    		<jf:mxmlDataGrid bindingBeanList="#{mxmlOverallBean.wisePeopleEntries}" width="100%" 
+						    	<jf:flexBox width="70%" height="100%">
+						    		<jf:flexDataGrid bindingBeanList="#{flexOverallBean.wisePeopleEntries}" width="100%" 
 						    							rowCount="4" resizableColumns="true" editable="true">
-								    	<jf:mxmlColumns>
-								    		<jf:mxmlDataGridColumn dataField="name" headerText="Name" />
-								    		<jf:mxmlDataGridColumn wordWrap="true" dataField="quote" headerText="Quote" minWidth="170" />
-								    		<jf:mxmlDataGridColumn dataField="email" headerText="Email" />
-								    	</jf:mxmlColumns>
-								    </jf:mxmlDataGrid>
-							   </jf:mxmlBox>
+								    	<jf:flexColumns>
+								    		<jf:flexDataGridColumn dataField="name" headerText="Name" />
+								    		<jf:flexDataGridColumn wordWrap="true" dataField="quote" headerText="Quote" minWidth="170" />
+								    		<jf:flexDataGridColumn dataField="email" headerText="Email" />
+								    	</jf:flexColumns>
+								    </jf:flexDataGrid>
+							   </jf:flexBox>
 					    	
-					    	</jf:mxmlDividedBox>
-					    </jf:mxmlPanel>
+					    	</jf:flexDividedBox>
+					    </jf:flexPanel>
 			    			
-			    		<jf:mxmlPanel label="Second Tab" width="100%" height="100%">
-					    	<jf:mxmlComboBox text="#{mxmlOverallBean.comboBoxText}" selectedIndex="#{mxmlOverallBean.comboBoxSelectedIndex}" 
-					    							dataProviderCollection="#{mxmlOverallBean.comboBoxDisplayEntries}" />
-					    	<jf:mxmlRadioButton groupName="radioTest" label="First" value="First" 
-					    							selectedValue="#{mxmlOverallBean.radioButtonSelectedValue}" selected="#{mxmlOverallBean.radioButtonFirstSelected}"/>
-					       	<jf:mxmlRadioButton groupName="radioTest" label="Second" value="Second" selected="#{mxmlOverallBean.radioButtonSecondSelected}"/>
+			    		<jf:flexPanel label="Second Tab" width="100%" height="100%">
+					    	<jf:flexComboBox text="#{flexOverallBean.comboBoxText}" selectedIndex="#{flexOverallBean.comboBoxSelectedIndex}" 
+					    							dataProviderCollection="#{flexOverallBean.comboBoxDisplayEntries}" />
+					    	<jf:flexRadioButton groupName="radioTest" label="First" value="First" 
+					    							selectedValue="#{flexOverallBean.radioButtonSelectedValue}" selected="#{flexOverallBean.radioButtonFirstSelected}"/>
+					       	<jf:flexRadioButton groupName="radioTest" label="Second" value="Second" selected="#{flexOverallBean.radioButtonSecondSelected}"/>
 					       	
-					       	<jf:mxmlNumericStepper minimum="0" maximum="10" value="#{mxmlOverallBean.numericStepperValue}" />
-					       	<jf:mxmlColorPicker labelField="ColorPicker am I" selectedColor="#{mxmlOverallBean.colorPickerSelectedColor}" />
-					       	<jf:mxmlDateChooser selectedDate="#{mxmlFaceletOverallBean.selectedDate}" width="300" />
-			    		</jf:mxmlPanel>
+					       	<jf:flexNumericStepper minimum="0" maximum="10" value="#{flexOverallBean.numericStepperValue}" />
+					       	<jf:flexColorPicker labelField="ColorPicker am I" selectedColor="#{flexOverallBean.colorPickerSelectedColor}" />
+					       	<jf:flexDateChooser selectedDate="#{flexFaceletOverallBean.selectedDate}" width="300" />
+			    		</jf:flexPanel>
 	
-			    </jf:mxmlTabNavigator>
+			    </jf:flexTabNavigator>
 			            	
-		       	<jf:mxmlPanel width="100%" height="100%">
+		       	<jf:flexPanel width="100%" height="100%">
 			    		  
-			    		  <jf:mxmlDividedBox direction="horizontal" width="100%" height="100%">
+			    		  <jf:flexDividedBox direction="horizontal" width="100%" height="100%">
 			    		  	
-			    		  	<jf:mxmlBox width="50%" height="100%">
-				    			<jf:mxmlLinkButton action="success" label="To Submit" />
-				        		<jf:mxmlButton label="Click Me for a nice message" buttonDown="alertMe();"/>
-				        		<jf:mxmlButton action="#{mxmlOverallBean.buttonAction}" label="Will submit the form"/>
-				        		<jf:mxmlLabel text="Simple List" />
-				        		<jf:mxmlList width="100" dataProvider="{reallySimpleArray}" selectedIndex="#{mxmlOverallBean.listSelectedIndex}" />
-				        		<jf:mxmlTree width="100" dataProvider="{complexStructCollection}" labelField="@label" selectedIndex="#{mxmlOverallBean.treeSelectedIndex}"/>
-				        	</jf:mxmlBox>
+			    		  	<jf:flexBox width="50%" height="100%">
+				    			<jf:flexLinkButton action="success" label="To Submit" />
+				        		<jf:flexButton label="Click Me for a nice message" buttonDown="alertMe();"/>
+				        		<jf:flexButton action="#{flexOverallBean.buttonAction}" label="Will submit the form"/>
+				        		<jf:flexLabel text="Simple List" />
+				        		<jf:flexList width="100" dataProvider="{reallySimpleArray}" selectedIndex="#{flexOverallBean.listSelectedIndex}" />
+				        		<jf:flexTree width="100" dataProvider="{complexStructCollection}" labelField="@label" selectedIndex="#{flexOverallBean.treeSelectedIndex}"/>
+				        	</jf:flexBox>
 				        	
-			        		<jf:mxmlBox width="50%" height="100%">
-				        		<jf:mxmlLabel text="Simple ButtonBar" />
-				        		<jf:mxmlButtonBar>
-				        			<jf:mxmlDataProvider>
-	                                    <jf:mxmlObject>
-	                                    	<jf:mxmlObjectStaticProperty staticPropertyName="label" staticPropertyValue="First Nesting" />
-	                                    </jf:mxmlObject>
-	                                    <jf:mxmlObject>
-	                                    	<jf:mxmlObjectStaticProperty staticPropertyName="label" staticPropertyValue="Second Nesting" />
-	                                    </jf:mxmlObject>
-	                                </jf:mxmlDataProvider>
-				        		</jf:mxmlButtonBar>
-				        		<jf:mxmlLabel text="Simple ToggleButtonBar" />
-				        		<jf:mxmlToggleButtonBar dataProvider="{reallySimpleArray}" />
+			        		<jf:flexBox width="50%" height="100%">
+				        		<jf:flexLabel text="Simple ButtonBar" />
+				        		<jf:flexButtonBar>
+				        			<jf:flexDataProvider>
+	                                    <jf:flexObject>
+	                                    	<jf:flexObjectStaticProperty staticPropertyName="label" staticPropertyValue="First Nesting" />
+	                                    </jf:flexObject>
+	                                    <jf:flexObject>
+	                                    	<jf:flexObjectStaticProperty staticPropertyName="label" staticPropertyValue="Second Nesting" />
+	                                    </jf:flexObject>
+	                                </jf:flexDataProvider>
+				        		</jf:flexButtonBar>
+				        		<jf:flexLabel text="Simple ToggleButtonBar" />
+				        		<jf:flexToggleButtonBar dataProvider="{reallySimpleArray}" />
 				        		
-				        		<jf:mxmlLabel text="Simple TabBar" />
-				        		<jf:mxmlTabBar dataProvider="{reallySimpleArray}" />
-				        		<jf:mxmlLabel text="Simple LinkBar" />
-				        		<jf:mxmlLinkBar dataProvider="{reallySimpleArray}" />
-				        	</jf:mxmlBox>
+				        		<jf:flexLabel text="Simple TabBar" />
+				        		<jf:flexTabBar dataProvider="{reallySimpleArray}" />
+				        		<jf:flexLabel text="Simple LinkBar" />
+				        		<jf:flexLinkBar dataProvider="{reallySimpleArray}" />
+				        	</jf:flexBox>
 			        		
-				          </jf:mxmlDividedBox>
+				          </jf:flexDividedBox>
 				          
-				</jf:mxmlPanel>
+				</jf:flexPanel>
 				
-				<jf:mxmlBox width="100%" height="100%">
+				<jf:flexBox width="100%" height="100%">
 				
-					<jf:mxmlBox width="100%" height="40%">
+					<jf:flexBox width="100%" height="40%">
 						
-						<jf:mxmlLabel text="Simple VScrollBar" />
-						<jf:mxmlVScrollBar />
-						<jf:mxmlSpacer height="10" />
+						<jf:flexLabel text="Simple VScrollBar" />
+						<jf:flexVScrollBar />
+						<jf:flexSpacer height="10" />
 						
-						<jf:mxmlLabel text="Simple HScrollBar" />
-						<jf:mxmlHScrollBar />
+						<jf:flexLabel text="Simple HScrollBar" />
+						<jf:flexHScrollBar />
 						
-						<jf:mxmlSpacer height="20" />
-				        <jf:mxmlHRule width="100%" />
-				        <jf:mxmlSpacer height="20" />
+						<jf:flexSpacer height="20" />
+				        <jf:flexHRule width="100%" />
+				        <jf:flexSpacer height="20" />
 					    
-						<jf:mxmlLabel text="Simple HSlider" />
-						<jf:mxmlHSlider value="#{mxmlOverallBean.horizontalSliderValue}" />
-						<jf:mxmlSpacer height="10" />
+						<jf:flexLabel text="Simple HSlider" />
+						<jf:flexHSlider value="#{flexOverallBean.horizontalSliderValue}" />
+						<jf:flexSpacer height="10" />
 							
-						<jf:mxmlLabel text="Simple VSlider" />
-						<jf:mxmlVSlider value="#{mxmlOverallBean.verticalSliderValue}" />
+						<jf:flexLabel text="Simple VSlider" />
+						<jf:flexVSlider value="#{flexOverallBean.verticalSliderValue}" />
 						
-					</jf:mxmlBox>
+					</jf:flexBox>
 					
-					<jf:mxmlTitleWindow title="Title Window" x="168" y="86" borderStyle="inset">
+					<jf:flexTitleWindow title="Title Window" x="168" y="86" borderStyle="inset">
 					    
-					    <jf:mxmlTile>
-					        <jf:mxmlButton label="Increase Progress Bar" buttonDown="increaseProgressBar();"/>
-					        <jf:mxmlButton label="Decrease Progress Bar" buttonDown="decreaseProgressBar();" />
-					    </jf:mxmlTile>
+					    <jf:flexTile>
+					        <jf:flexButton label="Increase Progress Bar" buttonDown="increaseProgressBar();"/>
+					        <jf:flexButton label="Decrease Progress Bar" buttonDown="decreaseProgressBar();" />
+					    </jf:flexTile>
 					    
-					    <jf:mxmlProgressBar id="progressBarRef" mode="manual" minimum="0" maximum="100"	value="#{mxmlOverallBean.progressBarValue}" />
+					    <jf:flexProgressBar id="progressBarRef" mode="manual" minimum="0" maximum="100"	value="#{flexOverallBean.progressBarValue}" />
 					    
-					</jf:mxmlTitleWindow>
+					</jf:flexTitleWindow>
 					
-				</jf:mxmlBox>
+				</jf:flexBox>
 				
-			</jf:mxmlAccordion>
+			</jf:flexAccordion>
 			
-			<jf:mxmlApplicationControlBar dock="true">
-	        	<jf:mxmlMenuBar dataProvider="{complexStructCollection}" labelField="@label" />
-			    <jf:mxmlPopUpButton creationComplete="initMenu(event);" width="135" />
-			    <jf:mxmlPopUpMenuButton dataProvider="{complexStructCollection}" labelField="@label" />
-			</jf:mxmlApplicationControlBar>
+			<jf:flexApplicationControlBar dock="true">
+	        	<jf:flexMenuBar dataProvider="{complexStructCollection}" labelField="@label" />
+			    <jf:flexPopUpButton creationComplete="initMenu(event);" width="135" />
+			    <jf:flexPopUpMenuButton dataProvider="{complexStructCollection}" labelField="@label" />
+			</jf:flexApplicationControlBar>
 			    		  
-	    </jf:mxmlApplication>
+	    </jf:flexApplication>
     
     </h:form>
 </f:view>

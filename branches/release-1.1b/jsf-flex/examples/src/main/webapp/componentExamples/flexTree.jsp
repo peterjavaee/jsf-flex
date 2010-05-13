@@ -28,12 +28,12 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlTree" height="500" width="800">
-    		<jf:mxmlScript>
+    	<jf:flexApplication mxmlPackageName="flexTree" height="500" width="800">
+    		<jf:flexScript>
 	        	
 		    	import mx.collections.XMLListCollection;
 		    	
@@ -56,10 +56,10 @@
 				[Bindable]
 				public var complexStructCollection:XMLListCollection = new XMLListCollection(complexStruct);
 				
-		    </jf:mxmlScript>
-    		<jf:mxmlTree width="500" dataProvider="{complexStructCollection}" labelField="@label" 
-    						selectedIndex="#{mxmlOverallBean.treeSelectedIndex}"/>
-    	</jf:mxmlApplication>
+		    </jf:flexScript>
+    		<jf:flexTree width="500" dataProvider="{complexStructCollection}" labelField="@label" 
+    						selectedIndex="#{flexOverallBean.treeSelectedIndex}"/>
+    	</jf:flexApplication>
     	
     </h:form>
     

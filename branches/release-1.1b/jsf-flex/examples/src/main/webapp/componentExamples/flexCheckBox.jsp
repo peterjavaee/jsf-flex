@@ -28,13 +28,13 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlCheckBox" height="500" width="800">
-    		<jf:mxmlCheckBox label="CheckBox example" selected="#{mxmlOverallBean.checkBoxSelected}" />
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexCheckBox" height="500" width="800">
+    		<jf:flexCheckBox label="CheckBox example" selected="#{flexOverallBean.checkBoxSelected}" />
+    	</jf:flexApplication>
     	
     </h:form>
     

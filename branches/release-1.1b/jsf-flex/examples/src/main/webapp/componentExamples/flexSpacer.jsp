@@ -28,15 +28,15 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlSpacer" height="500" width="800">
-    		<jf:mxmlLabel text="First label for mxmlSpacer example." />
-    		<jf:mxmlSpacer height="10" width="10" />
-    		<jf:mxmlLabel text="Follow up label." />
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexSpacer" height="500" width="800">
+    		<jf:flexLabel text="First label for flexSpacer example." />
+    		<jf:flexSpacer height="10" width="10" />
+    		<jf:flexLabel text="Follow up label." />
+    	</jf:flexApplication>
     	
     </h:form>
     

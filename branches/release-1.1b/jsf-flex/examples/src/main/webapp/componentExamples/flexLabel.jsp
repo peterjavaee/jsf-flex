@@ -28,13 +28,13 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlLabel" height="500" width="800">
-    		<jf:mxmlLabel text="I am a label." />
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexLabel" height="500" width="800">
+    		<jf:flexLabel text="I am a label." />
+    	</jf:flexApplication>
     	
     </h:form>
     

@@ -28,20 +28,20 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlDividedBox" height="500" width="800">
-    		<jf:mxmlDividedBox direction="horizontal" width="100%" height="100%">
-    			<jf:mxmlBox>
-    				<jf:mxmlLabel text="Label for first divided box." />
-    			</jf:mxmlBox>
-    			<jf:mxmlBox>
-    				<jf:mxmlLabel text="Label for second divided box." />
-    			</jf:mxmlBox>
-    		</jf:mxmlDividedBox>
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexDividedBox" height="500" width="800">
+    		<jf:flexDividedBox direction="horizontal" width="100%" height="100%">
+    			<jf:flexBox>
+    				<jf:flexLabel text="Label for first divided box." />
+    			</jf:flexBox>
+    			<jf:flexBox>
+    				<jf:flexLabel text="Label for second divided box." />
+    			</jf:flexBox>
+    		</jf:flexDividedBox>
+    	</jf:flexApplication>
     	
     </h:form>
     

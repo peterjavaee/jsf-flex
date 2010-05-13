@@ -71,7 +71,7 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     <div id="container">
         <h4 id="warningMessage">
         Unless one is using a browser with compatible CSS 2.1 [i.e. IE >= 7.0] the below content will look fuzzy
@@ -81,84 +81,84 @@
             <legend id="fieldSetLegend">Mapping of the fields</legend>
             <div>
                 <div> Accordion Selected Index :</div>
-                <div><h:outputText value="#{mxmlOverallBean.accordionSelectedIndex}"></h:outputText></div>
+                <div><h:outputText value="#{flexOverallBean.accordionSelectedIndex}"></h:outputText></div>
             </div>
             <div>
                 <div>Tab Navigator Selected Index :</div>
-                <div><h:outputText value="#{mxmlOverallBean.tabNavigatorSelectedIndex}"></h:outputText></div>
+                <div><h:outputText value="#{flexOverallBean.tabNavigatorSelectedIndex}"></h:outputText></div>
             </div>
             <div>
                 <div>TextInput Text :</div>
-                <div><h:outputText value="#{mxmlOverallBean.textInputText}"></h:outputText></div>
+                <div><h:outputText value="#{flexOverallBean.textInputText}"></h:outputText></div>
             </div>
             <div>
                 <div>RichTextEditorHtmlText :</div>
-                <div style="width:800px;"><h:outputText value="#{mxmlOverallBean.richTextEditorHtmlText}"></h:outputText></div>
+                <div style="width:800px;"><h:outputText value="#{flexOverallBean.richTextEditorHtmlText}"></h:outputText></div>
             </div>
             <div>
                 <div>TextArea Text :</div>
-                <div><h:outputText value="#{mxmlOverallBean.textAreaText}"></h:outputText></div>
+                <div><h:outputText value="#{flexOverallBean.textAreaText}"></h:outputText></div>
             </div>
             <div>
                 <div>DateField Text :</div>
-                <div><h:outputText value="#{mxmlOverallBean.dateFieldText}"></h:outputText></div>
+                <div><h:outputText value="#{flexOverallBean.dateFieldText}"></h:outputText></div>
             </div>
             <div>
                 <div>CheckBox Selected :</div>
-                <div><h:outputText value="#{mxmlOverallBean.checkBoxSelected}"></h:outputText></div>
+                <div><h:outputText value="#{flexOverallBean.checkBoxSelected}"></h:outputText></div>
             </div>
             <div>
                 <div>ComboBox Text :</div>
-                <div><h:outputText value="#{mxmlOverallBean.comboBoxText}"></h:outputText></div>
+                <div><h:outputText value="#{flexOverallBean.comboBoxText}"></h:outputText></div>
             </div>
             <div>
                 <div>ComboBox Selected Index :</div>
-                <div><h:outputText value="#{mxmlOverallBean.comboBoxSelectedIndex}"></h:outputText></div>
+                <div><h:outputText value="#{flexOverallBean.comboBoxSelectedIndex}"></h:outputText></div>
             </div>
             <div>
                 <div>RadioButtonSelected Value :</div>
-                <div><h:outputText value="#{mxmlOverallBean.radioButtonSelectedValue}"></h:outputText></div>
+                <div><h:outputText value="#{flexOverallBean.radioButtonSelectedValue}"></h:outputText></div>
             </div>
             <div>
                 <div>RadioButton First Selected :</div>
-                <div><h:outputText value="#{mxmlOverallBean.radioButtonFirstSelected}"></h:outputText></div>
+                <div><h:outputText value="#{flexOverallBean.radioButtonFirstSelected}"></h:outputText></div>
             </div>
             <div>
                 <div>RadioButton Second Selected :</div>
-                <div><h:outputText value="#{mxmlOverallBean.radioButtonSecondSelected}"></h:outputText></div>
+                <div><h:outputText value="#{flexOverallBean.radioButtonSecondSelected}"></h:outputText></div>
             </div>
             <div>
                 <div>NumericStepper Value :</div>
-                <div><h:outputText value="#{mxmlOverallBean.numericStepperValue}"></h:outputText></div>
+                <div><h:outputText value="#{flexOverallBean.numericStepperValue}"></h:outputText></div>
             </div>
             <div>
                 <div>ColorPicker SelectedColor :</div>
-                <div><h:outputText value="#{mxmlOverallBean.colorPickerSelectedColor}"></h:outputText></div>
+                <div><h:outputText value="#{flexOverallBean.colorPickerSelectedColor}"></h:outputText></div>
             </div>
             <div>
                 <div>List SelectedIndex :</div>
-                <div><h:outputText value="#{mxmlOverallBean.listSelectedIndex}"></h:outputText></div>
+                <div><h:outputText value="#{flexOverallBean.listSelectedIndex}"></h:outputText></div>
             </div>
             <div>
                 <div>Tree SelectedIndex :</div>
-                <div><h:outputText value="#{mxmlOverallBean.treeSelectedIndex}"></h:outputText></div>
+                <div><h:outputText value="#{flexOverallBean.treeSelectedIndex}"></h:outputText></div>
             </div>
             <div>
                 <div>HorizontalSlider Value :</div>
-                <div><h:outputText value="#{mxmlOverallBean.horizontalSliderValue}"></h:outputText></div>
+                <div><h:outputText value="#{flexOverallBean.horizontalSliderValue}"></h:outputText></div>
             </div>
             <div>
                 <div>VerticalSlider Value :</div>
-                <div><h:outputText value="#{mxmlOverallBean.verticalSliderValue}"></h:outputText></div>
+                <div><h:outputText value="#{flexOverallBean.verticalSliderValue}"></h:outputText></div>
             </div>
             <div>
                 <div>Selected Date :</div>
-                <div style="overflow-x:scroll;width:800px;"><h:outputText value="#{mxmlOverallBean.selectedDate}"></h:outputText></div>
+                <div style="overflow-x:scroll;width:800px;"><h:outputText value="#{flexOverallBean.selectedDate}"></h:outputText></div>
             </div>
         </fieldset>
         <h:form>
             <div style="color:#00CC33;padding-left:10px;">
-                To navigate back to mxmlExample click the following button <h:commandButton value="Back to mxmlExample" action="back" style="margin-left: 10px;"/>
+                To navigate back to flexExample click the following button <h:commandButton value="Back to flexExample" action="back" style="margin-left: 10px;"/>
             </div>
         </h:form>
     </div>

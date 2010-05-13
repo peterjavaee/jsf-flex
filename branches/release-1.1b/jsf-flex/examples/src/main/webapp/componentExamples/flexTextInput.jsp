@@ -28,13 +28,13 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlTextInput" height="500" width="800">
-    		<jf:mxmlTextInput text="#{mxmlOverallBean.textInputText}" />
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexTextInput" height="500" width="800">
+    		<jf:flexTextInput text="#{flexOverallBean.textInputText}" />
+    	</jf:flexApplication>
     	
     </h:form>
     

@@ -28,14 +28,14 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlComboBox" height="500" width="800">
-    		<jf:mxmlComboBox text="#{mxmlOverallBean.comboBoxText}" selectedIndex="#{mxmlOverallBean.comboBoxSelectedIndex}" 
-    							dataProviderCollection="#{mxmlOverallBean.comboBoxDisplayEntries}" />
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexComboBox" height="500" width="800">
+    		<jf:flexComboBox text="#{flexOverallBean.comboBoxText}" selectedIndex="#{flexOverallBean.comboBoxSelectedIndex}" 
+    							dataProviderCollection="#{flexOverallBean.comboBoxDisplayEntries}" />
+    	</jf:flexApplication>
     	
     </h:form>
     

@@ -28,13 +28,13 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlVRule" height="500" width="800">
-    		<jf:mxmlVRule strokeWidth="1" strokeColor="red" />
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexVRule" height="500" width="800">
+    		<jf:flexVRule strokeWidth="1" strokeColor="red" />
+    	</jf:flexApplication>
     	
     </h:form>
     

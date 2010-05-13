@@ -28,12 +28,12 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
-    	<jf:mxmlApplication mxmlPackageName="mxmlHSlider" height="500" width="800">
-    		<jf:mxmlHSlider value="#{mxmlOverallBean.horizontalSliderValue}" />
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexHSlider" height="500" width="800">
+    		<jf:flexHSlider value="#{flexOverallBean.horizontalSliderValue}" />
+    	</jf:flexApplication>
     </h:form>
     
 </f:view>

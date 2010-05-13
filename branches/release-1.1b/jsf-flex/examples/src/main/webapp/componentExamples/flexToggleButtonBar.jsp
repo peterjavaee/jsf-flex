@@ -28,28 +28,28 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlToggleButtonBar" height="500" width="800">
-    		<jf:mxmlToggleButtonBar>
-    			<jf:mxmlDataProvider>
-   					<jf:mxmlObject>
-   						<jf:mxmlObjectStaticProperty staticPropertyName="label" staticPropertyValue="First" />
-   					</jf:mxmlObject>
-   					<jf:mxmlObject>
-   						<jf:mxmlObjectStaticProperty staticPropertyName="label" staticPropertyValue="Second" />
-   					</jf:mxmlObject>
-   					<jf:mxmlObject>
-   						<jf:mxmlObjectStaticProperty staticPropertyName="label" staticPropertyValue="Third" />
-   					</jf:mxmlObject>
-   					<jf:mxmlObject>
-   						<jf:mxmlObjectStaticProperty staticPropertyName="label" staticPropertyValue="Thought fourth, right" />
-   					</jf:mxmlObject>
-    			</jf:mxmlDataProvider>
-    		</jf:mxmlToggleButtonBar>
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexToggleButtonBar" height="500" width="800">
+    		<jf:flexToggleButtonBar>
+    			<jf:flexDataProvider>
+   					<jf:flexObject>
+   						<jf:flexObjectStaticProperty staticPropertyName="label" staticPropertyValue="First" />
+   					</jf:flexObject>
+   					<jf:flexObject>
+   						<jf:flexObjectStaticProperty staticPropertyName="label" staticPropertyValue="Second" />
+   					</jf:flexObject>
+   					<jf:flexObject>
+   						<jf:flexObjectStaticProperty staticPropertyName="label" staticPropertyValue="Third" />
+   					</jf:flexObject>
+   					<jf:flexObject>
+   						<jf:flexObjectStaticProperty staticPropertyName="label" staticPropertyValue="Thought fourth, right" />
+   					</jf:flexObject>
+    			</jf:flexDataProvider>
+    		</jf:flexToggleButtonBar>
+    	</jf:flexApplication>
     	
     </h:form>
     

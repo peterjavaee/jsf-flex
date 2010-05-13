@@ -28,12 +28,12 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlPopUpButton" height="500" width="800">
-    		<jf:mxmlScript>
+    	<jf:flexApplication mxmlPackageName="flexPopUpButton" height="500" width="800">
+    		<jf:flexScript>
 	        	import flash.events.Event;
 	        	
 		    	import mx.controls.Menu;
@@ -61,11 +61,11 @@
 	                myMenu.selectedIndex = event.index;
 	            }
 		    	
-		    </jf:mxmlScript>
+		    </jf:flexScript>
     		
     		
-    		<jf:mxmlPopUpButton creationComplete="initMenu(event);" width="135" />
-    	</jf:mxmlApplication>
+    		<jf:flexPopUpButton creationComplete="initMenu(event);" width="135" />
+    	</jf:flexApplication>
     	
     </h:form>
     

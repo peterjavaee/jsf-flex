@@ -28,22 +28,22 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
         
-        <jf:mxmlApplication mxmlPackageName="mxmlHorizontalList" height="500" width="800">
-            <jf:mxmlHorizontalList columnCount="2" columnWidth="100">
-                <jf:mxmlDataProvider>
-                    <jf:mxmlObject>
-                    	<jf:mxmlObjectStaticProperty staticPropertyName="label" staticPropertyValue="First" />
-                    </jf:mxmlObject>
-                    <jf:mxmlObject>
-                    	<jf:mxmlObjectStaticProperty staticPropertyName="label" staticPropertyValue="Second" />
-                    </jf:mxmlObject>
-                </jf:mxmlDataProvider>
-            </jf:mxmlHorizontalList>
-        </jf:mxmlApplication>
+        <jf:flexApplication mxmlPackageName="flexHorizontalList" height="500" width="800">
+            <jf:flexHorizontalList columnCount="2" columnWidth="100">
+                <jf:flexDataProvider>
+                    <jf:flexObject>
+                    	<jf:flexObjectStaticProperty staticPropertyName="label" staticPropertyValue="First" />
+                    </jf:flexObject>
+                    <jf:flexObject>
+                    	<jf:flexObjectStaticProperty staticPropertyName="label" staticPropertyValue="Second" />
+                    </jf:flexObject>
+                </jf:flexDataProvider>
+            </jf:flexHorizontalList>
+        </jf:flexApplication>
         
     </h:form>
     

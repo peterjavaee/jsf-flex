@@ -28,13 +28,13 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlVSlider" height="500" width="800">
-    		<jf:mxmlVSlider labels="Am a simple VSlider" fillColors="33FFFF" />
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexVSlider" height="500" width="800">
+    		<jf:flexVSlider labels="Am a simple VSlider" fillColors="33FFFF" />
+    	</jf:flexApplication>
     	
     </h:form>
     

@@ -28,11 +28,11 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
-    	<jf:mxmlApplication mxmlPackageName="mxmlLinkButton" height="500" width="800">
-    		<jf:mxmlScript>
+    	<jf:flexApplication mxmlPackageName="flexLinkButton" height="500" width="800">
+    		<jf:flexScript>
 	        	
 		    	import mx.controls.Alert;
 		    	
@@ -40,9 +40,9 @@
 		    		Alert.show("LinkButton has been clicked");
 		    	}
 		    	
-		    </jf:mxmlScript>
-    		<jf:mxmlLinkButton label="To Link to something" buttonDown="linkButtonClicked();" />
-    	</jf:mxmlApplication>
+		    </jf:flexScript>
+    		<jf:flexLinkButton label="To Link to something" buttonDown="linkButtonClicked();" />
+    	</jf:flexApplication>
     </h:form>
     
 </f:view>

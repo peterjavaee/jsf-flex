@@ -28,13 +28,13 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlSwfLoader" height="500" width="800">
-    		<jf:mxmlLabel text="Due to lack of swf file for loading, please refer to Adobe's example. Maybe later." />
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexSwfLoader" height="500" width="800">
+    		<jf:flexLabel text="Due to lack of swf file for loading, please refer to Adobe's example. Maybe later." />
+    	</jf:flexApplication>
     	
     </h:form>
     

@@ -16,25 +16,25 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.examples.mxml.overallExample;
+package com.googlecode.jsfFlex.examples.flex.overallExample;
 
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * @author Ji Hoon Kim
  */
-public final class MXMLFaceletOverallExampleBean extends MXMLOverallExampleBean {
+public final class FlexFaceletOverallExampleBean extends MXMLOverallExampleBean {
 	
 	private static final long serialVersionUID = 1940801309822597786L;
 	
 	private List<LabelBeanEntry> _reallySimpleArray;
 	private List<XMLBeanEntry> _xmlBeanEntries;
 	
-	public MXMLFaceletOverallExampleBean(){
+	public FlexFaceletOverallExampleBean(){
 		super();
 		
 		_reallySimpleArray = new LinkedList<LabelBeanEntry>();
@@ -167,12 +167,12 @@ public final class MXMLFaceletOverallExampleBean extends MXMLOverallExampleBean 
         
         @Override
 		public int hashCode() {
-			int hashCodeVal = MXMLConstants.HASH_CODE_INIT_VALUE;
-			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _data.hashCode();
-			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _groupName.hashCode();
-			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _label.hashCode();
-			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _nodeName.hashCode();
-			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _type.hashCode();
+			int hashCodeVal = FlexConstants.HASH_CODE_INIT_VALUE;
+			hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _data.hashCode();
+			hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _groupName.hashCode();
+			hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _label.hashCode();
+			hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _nodeName.hashCode();
+			hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _type.hashCode();
 			return hashCodeVal;
 		}
 		

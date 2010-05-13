@@ -28,21 +28,21 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlButtonScript" height="500" width="800">
-    		<jf:mxmlScript>
+    	<jf:flexApplication mxmlPackageName="flexButtonScript" height="500" width="800">
+    		<jf:flexScript>
 	        	import mx.controls.Alert;
 		    	
 		    	private function buttonMe():void {
 		    		Alert.show("I have been buttoned");
 		    	}
 		    	
-		    </jf:mxmlScript>
-    		<jf:mxmlButton label="Button example" buttonDown="buttonMe();"/>
-    	</jf:mxmlApplication>
+		    </jf:flexScript>
+    		<jf:flexButton label="Button example" buttonDown="buttonMe();"/>
+    	</jf:flexApplication>
     	
     </h:form>
     

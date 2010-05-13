@@ -28,12 +28,12 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlMenuBar" height="500" width="800">
-    		<jf:mxmlScript>
+    	<jf:flexApplication mxmlPackageName="flexMenuBar" height="500" width="800">
+    		<jf:flexScript>
 	        	
 		    	import mx.collections.XMLListCollection;
 		    	
@@ -56,9 +56,9 @@
 				[Bindable]
 				public var complexStructCollection:XMLListCollection = new XMLListCollection(complexStruct);
 				
-		    </jf:mxmlScript>
-    		<jf:mxmlMenuBar dataProvider="{complexStructCollection}" labelField="@label" />
-    	</jf:mxmlApplication>
+		    </jf:flexScript>
+    		<jf:flexMenuBar dataProvider="{complexStructCollection}" labelField="@label" />
+    	</jf:flexApplication>
     	
     </h:form>
     

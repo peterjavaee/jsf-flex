@@ -28,13 +28,13 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlTextArea" height="500" width="800">
-    		<jf:mxmlTextArea text="#{mxmlOverallBean.textAreaText}" />
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexTextArea" height="500" width="800">
+    		<jf:flexTextArea text="#{flexOverallBean.textAreaText}" />
+    	</jf:flexApplication>
     	
     </h:form>
     

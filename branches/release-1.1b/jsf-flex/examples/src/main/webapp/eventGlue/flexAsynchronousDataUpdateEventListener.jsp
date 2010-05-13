@@ -28,18 +28,18 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlAsynchronousDataUpdateEventListener" height="500" width="800">
-    		<jf:mxmlNumericStepper id="srcComp" minimum="0" maximum="10" value="#{mxmlOverallBean.numericStepperValue}" />
+    	<jf:flexApplication mxmlPackageName="flexAsynchronousDataUpdateEventListener" height="500" width="800">
+    		<jf:flexNumericStepper id="srcComp" minimum="0" maximum="10" value="#{flexOverallBean.numericStepperValue}" />
     		
-    		<jf:mxmlTextInput id="tgtComp" text="#{mxmlOverallBean.textInputText}" />
+    		<jf:flexTextInput id="tgtComp" text="#{flexOverallBean.textInputText}" />
     		
-    		<jf:mxmlAsynchronousDataUpdateEventListener eventHandlerTgtId="tgtComp" eventHandlerSrcId="srcComp"
-    				eventListener="change" asynchronousEventGlueHandler="#{mxmlOverallBean.asyncDataUpdateListener}"/>
-    	</jf:mxmlApplication>
+    		<jf:flexAsynchronousDataUpdateEventListener eventHandlerTgtId="tgtComp" eventHandlerSrcId="srcComp"
+    				eventListener="change" asynchronousEventGlueHandler="#{flexOverallBean.asyncDataUpdateListener}"/>
+    	</jf:flexApplication>
     	
     </h:form>
     

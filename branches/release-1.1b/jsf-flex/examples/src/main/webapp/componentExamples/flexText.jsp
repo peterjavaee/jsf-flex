@@ -28,13 +28,13 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-		<jf:mxmlApplication mxmlPackageName="mxmlText" height="500" width="800">
-    		<jf:mxmlText text="Random text for show." />
-    	</jf:mxmlApplication>
+		<jf:flexApplication mxmlPackageName="flexText" height="500" width="800">
+    		<jf:flexText text="Random text for show." />
+    	</jf:flexApplication>
     	
     </h:form>
     

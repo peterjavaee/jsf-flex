@@ -28,16 +28,16 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlTile" height="500" width="800">
-    		<jf:mxmlTile>
-		        <jf:mxmlLabel text="First label for tile example." />
-		        <jf:mxmlLabel text="Second label for tile example." />
-		    </jf:mxmlTile>
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexTile" height="500" width="800">
+    		<jf:flexTile>
+		        <jf:flexLabel text="First label for tile example." />
+		        <jf:flexLabel text="Second label for tile example." />
+		    </jf:flexTile>
+    	</jf:flexApplication>
     	
     </h:form>
     

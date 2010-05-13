@@ -28,19 +28,19 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlList" height="500" width="800">
-    		<jf:mxmlScript>
+    	<jf:flexApplication mxmlPackageName="flexList" height="500" width="800">
+    		<jf:flexScript>
 	        	
 		    	[Bindable]
 				public var reallySimpleArray:Array = ["First", "Second", "Third"];
 				
-		    </jf:mxmlScript>
-    		<jf:mxmlList width="100" dataProvider="{reallySimpleArray}" selectedIndex="#{mxmlOverallBean.listSelectedIndex}" />
-    	</jf:mxmlApplication>
+		    </jf:flexScript>
+    		<jf:flexList width="100" dataProvider="{reallySimpleArray}" selectedIndex="#{flexOverallBean.listSelectedIndex}" />
+    	</jf:flexApplication>
     	
     </h:form>
     

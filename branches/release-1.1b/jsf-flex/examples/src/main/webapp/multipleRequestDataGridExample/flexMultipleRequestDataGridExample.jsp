@@ -38,7 +38,7 @@
 </head>
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
 	
 	<h:form>
     	<div class="descriptionStyle">
@@ -49,19 +49,19 @@
         </div>
         <br />
         
-	    <jf:mxmlApplication mxmlPackageName="mxmlMultipleRequestDataGridExample" height="500" width="800" errorColor="#B80000" errorFontSize="13">
+	    <jf:flexApplication mxmlPackageName="flexMultipleRequestDataGridExample" height="500" width="800" errorColor="#B80000" errorFontSize="13">
 			
-			<jf:mxmlDataGrid bindingBeanList="#{multipleRequestDataGridExample.largeDataEntries}" width="100%" rowCount="10" 
+			<jf:flexDataGrid bindingBeanList="#{multipleRequestDataGridExample.largeDataEntries}" width="100%" rowCount="10" 
 								resizableColumns="true" editable="true">
-				<jf:mxmlColumns>
-					<jf:mxmlDataGridColumn dataField="firstColumnEntry" headerText="First Column Entry" />
-					<jf:mxmlDataGridColumn dataField="secondColumnEntry" headerText="Second Column Entry">
+				<jf:flexColumns>
+					<jf:flexDataGridColumn dataField="firstColumnEntry" headerText="First Column Entry" />
+					<jf:flexDataGridColumn dataField="secondColumnEntry" headerText="Second Column Entry">
 						<f:convertNumber />
-					</jf:mxmlDataGridColumn>
-				</jf:mxmlColumns>
-			</jf:mxmlDataGrid>
+					</jf:flexDataGridColumn>
+				</jf:flexColumns>
+			</jf:flexDataGrid>
 			
-	    </jf:mxmlApplication>
+	    </jf:flexApplication>
     
     </h:form>
 </f:view>

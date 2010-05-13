@@ -28,13 +28,13 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlRichTextEditor" height="500" width="800">
-    		<jf:mxmlRichTextEditor textBinding="htmlText" htmlText="#{mxmlOverallBean.richTextEditorHtmlText}" />
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexRichTextEditor" height="500" width="800">
+    		<jf:flexRichTextEditor textBinding="htmlText" htmlText="#{flexOverallBean.richTextEditorHtmlText}" />
+    	</jf:flexApplication>
     	
     </h:form>
     

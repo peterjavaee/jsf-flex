@@ -28,13 +28,13 @@
 
 <body>
 
-<f:view renderKitId="MXML_BASIC">
+<f:view renderKitId="FLEX_BASIC">
     
     <h:form>
     	
-    	<jf:mxmlApplication mxmlPackageName="mxmlDateField" height="500" width="800">
-    		<jf:mxmlDateField text="#{mxmlOverallBean.dateFieldText}" width="100" />
-    	</jf:mxmlApplication>
+    	<jf:flexApplication mxmlPackageName="flexDateField" height="500" width="800">
+    		<jf:flexDateField text="#{flexOverallBean.dateFieldText}" width="100" />
+    	</jf:flexApplication>
     	
     </h:form>
     
