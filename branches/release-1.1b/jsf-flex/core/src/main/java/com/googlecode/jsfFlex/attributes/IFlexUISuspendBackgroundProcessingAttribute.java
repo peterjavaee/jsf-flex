@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="suspendBackgroundProcessing", returnType="java.lang.String", longDesc="If true, blocks all background processing while the effect is playing.")
 @JSFComponent
-public interface _MXMLUISuspendBackgroundProcessingAttribute {
+public interface IFlexUISuspendBackgroundProcessingAttribute {
     
 }

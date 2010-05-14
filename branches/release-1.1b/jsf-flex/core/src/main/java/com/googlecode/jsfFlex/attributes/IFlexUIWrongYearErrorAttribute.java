@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="wrongYearError", returnType="java.lang.String", longDesc="Error message when the year is invalid.")
 @JSFComponent
-public interface _MXMLUIWrongYearErrorAttribute {
+public interface IFlexUIWrongYearErrorAttribute {
     
 }

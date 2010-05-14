@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="allowedFormatChars", returnType="java.lang.String", longDesc="The set of formatting characters allowed.")
 @JSFComponent
-public interface _MXMLUIAllowedFormatCharsAttribute {
+public interface IFlexUIAllowedFormatCharsAttribute {
     
 }

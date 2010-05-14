@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="itemOpening", returnType="java.lang.String", longDesc="Dispatched when a branch open or close is initiated.")
 @JSFComponent
-public interface _MXMLUIItemOpeningAttribute {
+public interface IFlexUIItemOpeningAttribute {
     
 }

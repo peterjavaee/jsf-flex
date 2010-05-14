@@ -20,23 +20,23 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRowCount;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRowCountAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlHorizontalList",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIHorizontalList",
-        type                =   "com.googlecode.jsfFlex.MXMLUIHorizontalList",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIHorizontalListTag",
-        family              =   "javax.faces.MXMLInput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLHorizontalList",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+        name                =   "jf:flexHorizontalList",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIHorizontalList",
+        type                =   "com.googlecode.jsfFlex.FlexUIHorizontalList",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIHorizontalListTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexHorizontalList",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
 )
-public abstract class AbstractMXMLUIHorizontalList 
-						extends com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase
-						implements _MXMLUIListBaseAttributes, _MXMLUIDataProviderAttribute, _MXMLUIRowCount {
+public abstract class AbstractFlexUIHorizontalList 
+						extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase
+						implements IFlexUIListBaseAttributes, IFlexUIDataProviderAttribute, IFlexUIRowCountAttribute {
 	
 }

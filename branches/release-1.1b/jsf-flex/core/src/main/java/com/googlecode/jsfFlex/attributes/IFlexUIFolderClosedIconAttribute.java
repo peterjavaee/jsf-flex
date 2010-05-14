@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="folderClosedIcon", returnType="java.lang.String", longDesc="Specifies the folder closed icon for a branch item of the tree.")
 @JSFComponent
-public interface _MXMLUIFolderClosedIconAttribute {
+public interface IFlexUIFolderClosedIconAttribute {
     
 }

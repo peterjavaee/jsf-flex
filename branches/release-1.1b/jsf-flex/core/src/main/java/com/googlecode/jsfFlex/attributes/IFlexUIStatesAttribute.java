@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="states", returnType="java.lang.String", longDesc="The view states that are defined for this component.")
 @JSFComponent
-public interface _MXMLUIStatesAttribute {
+public interface IFlexUIStatesAttribute {
     
 }

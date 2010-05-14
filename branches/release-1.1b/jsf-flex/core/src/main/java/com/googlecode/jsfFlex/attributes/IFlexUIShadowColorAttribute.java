@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="shadowColor", returnType="java.lang.String", longDesc="The shadow color of the line.")
 @JSFComponent
-public interface _MXMLUIShadowColorAttribute {
+public interface IFlexUIShadowColorAttribute {
     
 }

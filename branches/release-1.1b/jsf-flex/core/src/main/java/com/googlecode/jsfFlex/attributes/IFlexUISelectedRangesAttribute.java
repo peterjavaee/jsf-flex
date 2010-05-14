@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="selectedRanges", returnType="java.lang.String", longDesc="Selected date ranges.")
 @JSFComponent
-public interface _MXMLUISelectedRangesAttribute {
+public interface IFlexUISelectedRangesAttribute {
     
 }

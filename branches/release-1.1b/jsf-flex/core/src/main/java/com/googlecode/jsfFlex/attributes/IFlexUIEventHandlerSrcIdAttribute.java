@@ -25,7 +25,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface _MXMLUIEventHandlerSrcIdAttribute {
+public interface IFlexUIEventHandlerSrcIdAttribute {
     
     /**
      * The id of the source component.

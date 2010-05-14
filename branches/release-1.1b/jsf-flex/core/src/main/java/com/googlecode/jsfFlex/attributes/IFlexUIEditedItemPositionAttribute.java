@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="editedItemPosition", returnType="java.lang.String", longDesc="The column and row index of the item renderer for the data provider item being edited, if any.")
 @JSFComponent
-public interface _MXMLUIEditedItemPositionAttribute {
+public interface IFlexUIEditedItemPositionAttribute {
     
 }

@@ -25,30 +25,30 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Ji Hoon Kim
  */
-public abstract class JsfFlexResource {
+public abstract class AbstractJsfFlexResource {
 	
 	public static final String JSF_FLEX_SCRIPT_RESOURCE_REQUEST_PREFIX = "jsfFlexResourceRequest";
 	
-	JsfFlexResource(){
+	AbstractJsfFlexResource(){
 		super();
 	}
 	
-	private static ThreadLocal<? super JsfFlexResource> _currentResourceInstance = new ThreadLocal<JsfFlexResource>()
+	private static ThreadLocal<? super AbstractJsfFlexResource> _currentResourceInstance = new ThreadLocal<AbstractJsfFlexResource>()
     {
-        protected JsfFlexResource initialValue()
+        protected AbstractJsfFlexResource initialValue()
         {
             return null;
         }
     };
     
-    public static synchronized JsfFlexResource getInstance(){
-		JsfFlexResource instance = null;
+    public static synchronized AbstractJsfFlexResource getInstance(){
+		AbstractJsfFlexResource instance = null;
         
 		if(_currentResourceInstance.get() == null){
 			instance = new JsfFlexResourceImpl();
 			_currentResourceInstance.set(instance);
 		}else{
-			instance = JsfFlexResource.class.cast( _currentResourceInstance.get() );
+			instance = AbstractJsfFlexResource.class.cast( _currentResourceInstance.get() );
 		}
         
 		return instance;

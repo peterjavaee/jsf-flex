@@ -28,7 +28,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface _MXMLUIBatchColumnDataRetrievalSize {
+public interface IFlexUIBatchColumnDataRetrievalSizeAttribute {
 	
 	/**
 	 * Size denoting how many elements to retrieve by http service. If not defined will default to 50.

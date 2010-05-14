@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="enabled", returnType="java.lang.String", longDesc="Whether the component can accept user interaction.")
 @JSFComponent
-public interface _MXMLUIEnabledAttribute {
+public interface IFlexUIEnabledAttribute {
     
 }

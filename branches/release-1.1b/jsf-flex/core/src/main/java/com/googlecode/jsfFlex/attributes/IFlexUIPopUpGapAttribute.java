@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="popUpGap", returnType="java.lang.String", longDesc="Number of vertical pixels between the PopUpButton and the specified popup UIComponent.")
 @JSFComponent
-public interface _MXMLUIPopUpGapAttribute {
+public interface IFlexUIPopUpGapAttribute {
     
 }

@@ -33,33 +33,33 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBatchColumnDataRetrievalSize;
-import com.googlecode.jsfFlex.attributes._MXMLUIBindingBeanClassNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBindingBeanListAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditableAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRowCount;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIBatchColumnDataRetrievalSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBindingBeanClassNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBindingBeanListAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRowCountAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedIndexAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlDataGrid",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIDataGrid",
-        type                =   "com.googlecode.jsfFlex.MXMLUIDataGrid",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIDataGridTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLDataGrid"
+        name                =   "jf:flexDataGrid",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIDataGrid",
+        type                =   "com.googlecode.jsfFlex.FlexUIDataGrid",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIDataGridTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexDataGrid"
 )
-public abstract class AbstractMXMLUIDataGrid 
-                        extends MXMLUISimpleBase
-                        implements _MXMLUIDataGridAttributes, _MXMLUIBindingBeanListAttribute, _MXMLUIBindingBeanClassNameAttribute,
-                        _MXMLUIBatchColumnDataRetrievalSize, _MXMLUIEditableAttribute, _MXMLUIDataProviderAttribute, 
-                        _MXMLUIRowCount, _MXMLUISelectedIndexAttribute {
+public abstract class AbstractFlexUIDataGrid 
+                        extends AbstractFlexUISimpleBase
+                        implements IFlexUIDataGridAttributes, IFlexUIBindingBeanListAttribute, IFlexUIBindingBeanClassNameAttribute,
+                        IFlexUIBatchColumnDataRetrievalSizeAttribute, IFlexUIEditableAttribute, IFlexUIDataProviderAttribute, 
+                        IFlexUIRowCountAttribute, IFlexUISelectedIndexAttribute {
     
-    private final static Log _log = LogFactory.getLog(AbstractMXMLUIDataGrid.class);
+    private final static Log _log = LogFactory.getLog(AbstractFlexUIDataGrid.class);
     
     private static final Integer ZERO_BATCH_COLUMN_DATA_RETRIEVAL_SIZE = Integer.valueOf(0);
     
@@ -81,10 +81,10 @@ public abstract class AbstractMXMLUIDataGrid
     
     private static final String DELETE_INDICES_KEY = "deleteIndices";
     
-    private Map<String, AbstractMXMLUIDataGridColumn> _dataGridColumnComponentMapping;
+    private Map<String, AbstractFlexUIDataGridColumn> _dataGridColumnComponentMapping;
     
     {
-        _dataGridColumnComponentMapping = new HashMap<String, AbstractMXMLUIDataGridColumn>();
+        _dataGridColumnComponentMapping = new HashMap<String, AbstractFlexUIDataGridColumn>();
     }
     
     public List<String> getFormatedColumnData() {
@@ -115,7 +115,7 @@ public abstract class AbstractMXMLUIDataGrid
         
         _log.debug("Parsed start + end index are [ " + parsedStartIndex + ", " + parsedEndIndex + " ] with dataSize : " + dataSize + " for component : " + getId());
         
-        AbstractMXMLUIDataGridColumn dataGridColumnComponent = _dataGridColumnComponentMapping.get(columnDataField);
+        AbstractFlexUIDataGridColumn dataGridColumnComponent = _dataGridColumnComponentMapping.get(columnDataField);
         
         List<String> formatedColumnData;
         
@@ -132,7 +132,7 @@ public abstract class AbstractMXMLUIDataGrid
         Map<String, String> requestMap = context.getExternalContext().getRequestParameterMap();
         
         String columnDataField = requestMap.get(COLUMN_DATA_FIELD_KEY);
-        AbstractMXMLUIDataGridColumn dataGridColumnComponent = _dataGridColumnComponentMapping.get(columnDataField);
+        AbstractFlexUIDataGridColumn dataGridColumnComponent = _dataGridColumnComponentMapping.get(columnDataField);
         
         _log.info("Update requested for dataField : " + columnDataField + " for component : " + getId());
         
@@ -188,7 +188,7 @@ public abstract class AbstractMXMLUIDataGrid
                     
                     _log.debug("Setting dataField : " + currDataGridColumnDataField + " with value : " + currDataFieldValue + 
                                     " for class : " + beanEntryInstance.getClass().getName() + " for component : " + getId());
-                    AbstractMXMLUIDataGridColumn currDataGridColumnComponent = _dataGridColumnComponentMapping.get(currDataGridColumnDataField);
+                    AbstractFlexUIDataGridColumn currDataGridColumnComponent = _dataGridColumnComponentMapping.get(currDataGridColumnDataField);
                     currDataGridColumnComponent.setDataField(context, beanEntryInstance, currDataFieldValue);
                     
                 }
@@ -294,7 +294,7 @@ public abstract class AbstractMXMLUIDataGrid
         
         _log.info("Requested sort of data entries with columnDataFieldToSortBy : " + columnDataFieldToSortBy + " sortAscending : " + sortAscending + " for component : " + getId());
         
-        AbstractMXMLUIDataGridColumn dataGridColumnComponent = _dataGridColumnComponentMapping.get(columnDataFieldToSortBy);
+        AbstractFlexUIDataGridColumn dataGridColumnComponent = _dataGridColumnComponentMapping.get(columnDataFieldToSortBy);
         Comparator<Object> dataFieldComparator = sortAscending ? dataGridColumnComponent.getAscendingComparator() : 
                                                                             dataGridColumnComponent.getDescendingComparator();
         
@@ -315,8 +315,8 @@ public abstract class AbstractMXMLUIDataGrid
          * adding the component to the map for future asynchronous request by
          * DataGridColumnServiceRequest.as 
          * 
-         * instances of AbstractMXMLUIDataGridColumn to _dataGridColumnComponents Map
-         * will be added by AbstractMXMLUIColumns
+         * instances of AbstractFlexUIDataGridColumn to _dataGridColumnComponents Map
+         * will be added by AbstractFlexUIColumns
          */
         Map<String, Object> sessionMap = context.getExternalContext().getSessionMap();
         sessionMap.put(getId(), this);
@@ -373,7 +373,7 @@ public abstract class AbstractMXMLUIDataGrid
         return maxDataPartitionIndex;
     }
     
-    public Map<String, AbstractMXMLUIDataGridColumn> getDataGridColumnComponentMapping(){
+    public Map<String, AbstractFlexUIDataGridColumn> getDataGridColumnComponentMapping(){
         return _dataGridColumnComponentMapping;
     }
     

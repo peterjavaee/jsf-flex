@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="verticalScrollPosition", returnType="java.lang.String", longDesc="The current position of the vertical scroll bar.")
 @JSFComponent
-public interface _MXMLUIVerticalScrollPositionAttribute {
+public interface IFlexUIVerticalScrollPositionAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="trackHeight", returnType="java.lang.String", longDesc="The height of the track in pixels.")
 @JSFComponent
-public interface _MXMLUITrackHeightAttribute {
+public interface IFlexUITrackHeightAttribute {
     
 }

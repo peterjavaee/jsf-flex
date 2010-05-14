@@ -20,21 +20,21 @@ package com.googlecode.jsfFlex.container.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlCanvas",
-        clazz               =   "com.googlecode.jsfFlex.container.ext.MXMLUICanvas",
-        type                =   "com.googlecode.jsfFlex.MXMLUICanvas",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.MXMLUICanvasTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLCanvas"
+        name                =   "jf:flexCanvas",
+        clazz               =   "com.googlecode.jsfFlex.container.ext.FlexUICanvas",
+        type                =   "com.googlecode.jsfFlex.FlexUICanvas",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.FlexUICanvasTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexCanvas"
 )
-public abstract class AbstractMXMLUICanvas 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIContainerAttributes {
+public abstract class AbstractFlexUICanvas 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIContainerAttributes {
 	
 }

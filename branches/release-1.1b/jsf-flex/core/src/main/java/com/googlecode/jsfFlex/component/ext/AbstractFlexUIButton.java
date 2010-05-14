@@ -22,24 +22,24 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUICommandBase;
-import com.googlecode.jsfFlex.shared.adapter._MXMLEvent;
-import com.googlecode.jsfFlex.shared.util.MXMLJsfUtil;
+import com.googlecode.jsfFlex.component.AbstractFlexUICommandBase;
+import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
+import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
 
 /**
  * @author Ji Hoon Kim
  */ 
 @JSFComponent(
-        name                =   "jf:mxmlButton",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIButton",
-        type                =   "com.googlecode.jsfFlex.MXMLUIButton",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIButtonTag",
-        family              =   "javax.faces.MXMLCommandBase",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLButton"
+        name                =   "jf:flexButton",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIButton",
+        type                =   "com.googlecode.jsfFlex.FlexUIButton",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIButtonTag",
+        family              =   "javax.faces.FlexCommandBase",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexButton"
 )
-public abstract class AbstractMXMLUIButton 
-						extends MXMLUICommandBase
-						implements _MXMLUIButtonAttributes {
+public abstract class AbstractFlexUIButton 
+						extends AbstractFlexUICommandBase
+						implements IFlexUIButtonAttributes {
     
     private static final String EVENT_HANDLER_EVENT_NAME = "buttonDown";
     
@@ -49,11 +49,11 @@ public abstract class AbstractMXMLUIButton
     
     public String getEventHandlerTgtId() {
         FacesContext currInstance = FacesContext.getCurrentInstance();
-        return MXMLJsfUtil.retrieveFormId(getClientId(currInstance));
+        return FlexJsfUtil.retrieveFormId(getClientId(currInstance));
     }
     
-    public _MXMLEvent.EVENT_HANDLER_TYPE getEventHandlerType() {
-        return _MXMLEvent.EVENT_HANDLER_TYPE.SUBMIT_FORM_EVENT_HANDLER;
+    public IFlexEvent.EVENT_HANDLER_TYPE getEventHandlerType() {
+        return IFlexEvent.EVENT_HANDLER_TYPE.SUBMIT_FORM_EVENT_HANDLER;
     }
     
     public String getEventHandlerEventName() {

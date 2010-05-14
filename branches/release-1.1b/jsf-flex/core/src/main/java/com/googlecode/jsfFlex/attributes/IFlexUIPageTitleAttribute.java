@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="pageTitle", returnType="java.lang.String", longDesc="Specifies a string that appears in the title bar of the browser.")
 @JSFComponent
-public interface _MXMLUIPageTitleAttribute {
+public interface IFlexUIPageTitleAttribute {
     
 }

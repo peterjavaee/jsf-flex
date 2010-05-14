@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="headerRenderer", returnType="java.lang.String", longDesc="The class factory for item renderer instances that display the column header for the column.")
 @JSFComponent
-public interface _MXMLUIHeaderRendererAttribute {
+public interface IFlexUIHeaderRendererAttribute {
     
 }

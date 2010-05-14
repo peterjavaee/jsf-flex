@@ -23,7 +23,7 @@ package com.googlecode.jsfFlex.shared.util;
  * 
  * @author Ji Hoon Kim
  */
-public final class MXMLAttributeConstants {
+public final class FlexAttributeConstants {
 	
 	public static final String SCRIPT_ELEM = "script";
 	public static final String SCRIPT_TYPE_ATTR = "type";
@@ -55,7 +55,7 @@ public final class MXMLAttributeConstants {
 	public static final String SRC_ATTR = "src";
 	public static final String SCRIPT_TYPE_TEXT_JAVASCRIPT = "text/javascript";
 	
-	private MXMLAttributeConstants(){
+	private FlexAttributeConstants(){
 		super();
 	}
 	

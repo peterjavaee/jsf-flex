@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="labelFunction", returnType="java.lang.String", longDesc="User-supplied function to run on each item to determine its label.")
 @JSFComponent
-public interface _MXMLUILabelFunctionAttribute {
+public interface IFlexUILabelFunctionAttribute {
 	
 }

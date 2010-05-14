@@ -25,26 +25,26 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLButtonTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexButtonTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLInput",
-		type="com.googlecode.jsfFlex.MXMLRadioButton"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexInput",
+		type="com.googlecode.jsfFlex.FlexRadioButton"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="RadioButton",
-		mxmlComponentPackage="mx.controls",
-		mxmlComponentNodeAttributes={
-				@FlexComponentNodeAttribute(
+@IJsfFlexAttributeProperties(
+		componentName="RadioButton",
+		componentPackage="mx.controls",
+		componentNodeAttributes={
+				@IFlexComponentNodeAttribute(
 						htmlType="input",
 						typeAttributeValue="hidden",
 						isValueDynamic=true,
@@ -53,7 +53,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						nameAttributeValue="groupName",
 						isNameDynamic=true,
 						nameAppend="_selectedValue"),
-				@FlexComponentNodeAttribute(
+				@IFlexComponentNodeAttribute(
 						htmlType="input",
 						typeAttributeValue="hidden",
 						valueAttributeValue="selected",
@@ -66,23 +66,23 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="groupName", byMethod=true),
-				@JsfFlexAttribute(attribute="value", byMethod=true),
-                @JsfFlexAttribute(attribute="disabledIconColor"),
-                @JsfFlexAttribute(attribute="iconColor")
+				@IJsfFlexAttribute(attribute="groupName", byMethod=true),
+				@IJsfFlexAttribute(attribute="value", byMethod=true),
+                @IJsfFlexAttribute(attribute="disabledIconColor"),
+                @IJsfFlexAttribute(attribute="iconColor")
 		}
 )
-public final class MXMLRadioButtonRenderer extends MXMLButtonTemplateRenderer {
+public final class FlexRadioButtonRenderer extends AbstractFlexButtonTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLRadioButtonRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLRadioButtonRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexRadioButtonRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexRadioButtonRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

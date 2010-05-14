@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="displayDisclosureIcon", returnType="java.lang.String", longDesc="Controls the creation and visibility of disclosure icons in the navigation tree.")
 @JSFComponent
-public interface _MXMLUIDisplayDisclosureIconAttribute {
+public interface IFlexUIDisplayDisclosureIconAttribute {
     
 }

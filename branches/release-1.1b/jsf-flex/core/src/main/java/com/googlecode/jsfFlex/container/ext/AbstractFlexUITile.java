@@ -20,21 +20,21 @@ package com.googlecode.jsfFlex.container.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlTile",
-        clazz               =   "com.googlecode.jsfFlex.container.ext.MXMLUITile",
-        type                =   "com.googlecode.jsfFlex.MXMLUITile",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.MXMLUITileTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLTile"
+        name                =   "jf:flexTile",
+        clazz               =   "com.googlecode.jsfFlex.container.ext.FlexUITile",
+        type                =   "com.googlecode.jsfFlex.FlexUITile",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.FlexUITileTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexTile"
 )
-public abstract class AbstractMXMLUITile 
-						extends MXMLUISimpleBase 
-						implements _MXMLUITileAttributes {
+public abstract class AbstractFlexUITile 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUITileAttributes {
 	
 }

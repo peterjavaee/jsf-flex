@@ -25,7 +25,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface _MXMLUIGroupNameAttribute {
+public interface IFlexUIGroupNameAttribute {
     
     /**
      * Specifies the name of the group to which this RadioButton control belongs, or specifies the value of the id property of a RadioButtonGroup control if this RadioButton is part of agroup defined by a RadioButtonGroup control.

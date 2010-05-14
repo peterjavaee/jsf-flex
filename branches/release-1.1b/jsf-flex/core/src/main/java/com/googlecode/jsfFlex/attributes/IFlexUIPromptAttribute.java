@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="prompt", returnType="java.lang.String", longDesc="The prompt for the ComboBox control.")
 @JSFComponent
-public interface _MXMLUIPromptAttribute {
+public interface IFlexUIPromptAttribute {
     
 }

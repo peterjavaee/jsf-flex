@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="sortFontStyle", returnType="java.lang.String", longDesc="The font style used by the AdvancedDataGridSortItemRenderer class to render the sort icon in the column header.")
 @JSFComponent
-public interface _MXMLUISortFontStyleAttribute {
+public interface IFlexUISortFontStyleAttribute {
     
 }

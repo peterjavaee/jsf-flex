@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="selectedField", returnType="java.lang.String", longDesc="The name of the field in the data property which specifies the value of the Button control's selected property.")
 @JSFComponent
-public interface _MXMLUISelectedFieldAttribute {
+public interface IFlexUISelectedFieldAttribute {
     
 }

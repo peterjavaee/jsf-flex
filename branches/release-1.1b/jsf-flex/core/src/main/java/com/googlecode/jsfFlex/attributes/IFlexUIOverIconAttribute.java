@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="overIcon", returnType="java.lang.String", longDesc="Name of the class to use as the icon when the button is not selected and the mouse is over the control.")
 @JSFComponent
-public interface _MXMLUIOverIconAttribute {
+public interface IFlexUIOverIconAttribute {
     
 }

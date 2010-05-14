@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="treeColumn", returnType="java.lang.String", longDesc="The column in which the tree is displayed.")
 @JSFComponent
-public interface _MXMLUITreeColumnAttribute {
+public interface IFlexUITreeColumnAttribute {
     
 }

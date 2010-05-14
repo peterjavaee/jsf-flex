@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="prevMonthSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the previous month arrow.")
 @JSFComponent
-public interface _MXMLUIPrevMonthSkinAttribute {
+public interface IFlexUIPrevMonthSkinAttribute {
     
 }

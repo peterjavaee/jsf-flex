@@ -21,22 +21,22 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlWipeLeft",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIWipeLeft",
-        type                =   "com.googlecode.jsfFlex.MXMLUIWipeLeft",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIWipeLeftTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLWipeLeft"
+        name                =   "jf:flexWipeLeft",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIWipeLeft",
+        type                =   "com.googlecode.jsfFlex.FlexUIWipeLeft",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIWipeLeftTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexWipeLeft"
 )
-public abstract class AbstractMXMLUIWipeLeft 
-                                    extends MXMLUISimpleBase 
-                                    implements _MXMLUIMaskEffectAttributes {
+public abstract class AbstractFlexUIWipeLeft 
+                                    extends AbstractFlexUISimpleBase 
+                                    implements IFlexUIMaskEffectAttributes {
 
     /**
      * Id of the component.

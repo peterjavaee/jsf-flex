@@ -30,7 +30,7 @@ import java.lang.annotation.Target;
 @Documented
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.SOURCE)
-public @interface FlexComponentNodeAttribute {
+public @interface IFlexComponentNodeAttribute {
 	
 	String htmlType();
 	

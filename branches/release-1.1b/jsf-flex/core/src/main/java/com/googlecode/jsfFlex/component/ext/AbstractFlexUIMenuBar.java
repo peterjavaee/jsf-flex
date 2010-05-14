@@ -20,81 +20,81 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundAlphaAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICornerRadiusAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataDescriptorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFillAlphasAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFillColorsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontAntiAliasTypeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontGridFitTypeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSharpnessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSizeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontStyleAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontThicknessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontWeightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHighlightAlphasAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIconFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemClickAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemDownSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemOverSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemRollOutAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemRollOverAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemUpSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILabelFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILabelFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILeadingAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMenuBarItemRendererAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMenuHideAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMenuShowAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMenuStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMenubarItemsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMenusAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRollOverColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectionColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShowRootAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextAlignAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextDecorationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextIndentAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundAlphaAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICornerRadiusAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataDescriptorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisabledColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFillAlphasAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFillColorsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusAlphaAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusRoundedCornersAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontAntiAliasTypeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontFamilyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontGridFitTypeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontSharpnessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontStyleAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontThicknessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontWeightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHighlightAlphasAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIconFieldAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemClickAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemDownSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemOverSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemRollOutAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemRollOverAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemUpSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILabelFieldAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILabelFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILeadingAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMenuBarItemRendererAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMenuHideAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMenuShowAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMenuStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMenubarItemsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMenusAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRollOverColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedIndexAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectionColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShowRootAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextAlignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextDecorationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextIndentAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlMenuBar",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIMenuBar",
-        type                =   "com.googlecode.jsfFlex.MXMLUIMenuBar",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIMenuBarTag",
-        family              =   "javax.faces.MXMLSimpleBase",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLMenuBar"
+        name                =   "jf:flexMenuBar",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIMenuBar",
+        type                =   "com.googlecode.jsfFlex.FlexUIMenuBar",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIMenuBarTag",
+        family              =   "javax.faces.FlexSimpleBase",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexMenuBar"
 )
-public abstract class AbstractMXMLUIMenuBar 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIBaseAttributes, _MXMLUIDataDescriptorAttribute, _MXMLUIDataProviderAttribute, 
-                        _MXMLUIIconFieldAttribute, _MXMLUILabelFieldAttribute, _MXMLUILabelFunctionAttribute, _MXMLUIMenuBarItemRendererAttribute, 
-                        _MXMLUIMenubarItemsAttribute, _MXMLUIMenusAttribute, _MXMLUISelectedIndexAttribute, 
-                        _MXMLUIShowRootAttribute, _MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundColorAttribute, 
-                        _MXMLUIBackgroundSkinAttribute, _MXMLUIBorderColorAttribute, _MXMLUIColorAttribute, 
-                        _MXMLUICornerRadiusAttribute, _MXMLUIDisabledColorAttribute, _MXMLUIFillAlphasAttribute, 
-                        _MXMLUIFillColorsAttribute, _MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, 
-                        _MXMLUIFontAntiAliasTypeAttribute, _MXMLUIFontFamilyAttribute, _MXMLUIFontGridFitTypeAttribute, 
-                        _MXMLUIFontSharpnessAttribute, _MXMLUIFontSizeAttribute, _MXMLUIFontStyleAttribute, 
-                        _MXMLUIFontThicknessAttribute, _MXMLUIFontWeightAttribute, _MXMLUIHighlightAlphasAttribute, 
-                        _MXMLUIItemDownSkinAttribute, _MXMLUIItemOverSkinAttribute, _MXMLUIItemUpSkinAttribute, 
-                        _MXMLUILeadingAttribute, _MXMLUIMenuStyleNameAttribute, _MXMLUIRollOverColorAttribute, _MXMLUISelectionColorAttribute, 
-                        _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, 
-                        _MXMLUIItemClickAttribute, _MXMLUIItemRollOutAttribute, _MXMLUIItemRollOverAttribute, 
-                        _MXMLUIMenuHideAttribute, _MXMLUIMenuShowAttribute {
+public abstract class AbstractFlexUIMenuBar 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIBaseAttributes, IFlexUIDataDescriptorAttribute, IFlexUIDataProviderAttribute, 
+                        IFlexUIIconFieldAttribute, IFlexUILabelFieldAttribute, IFlexUILabelFunctionAttribute, IFlexUIMenuBarItemRendererAttribute, 
+                        IFlexUIMenubarItemsAttribute, IFlexUIMenusAttribute, IFlexUISelectedIndexAttribute, 
+                        IFlexUIShowRootAttribute, IFlexUIBackgroundAlphaAttribute, IFlexUIBackgroundColorAttribute, 
+                        IFlexUIBackgroundSkinAttribute, IFlexUIBorderColorAttribute, IFlexUIColorAttribute, 
+                        IFlexUICornerRadiusAttribute, IFlexUIDisabledColorAttribute, IFlexUIFillAlphasAttribute, 
+                        IFlexUIFillColorsAttribute, IFlexUIFocusAlphaAttribute, IFlexUIFocusRoundedCornersAttribute, 
+                        IFlexUIFontAntiAliasTypeAttribute, IFlexUIFontFamilyAttribute, IFlexUIFontGridFitTypeAttribute, 
+                        IFlexUIFontSharpnessAttribute, IFlexUIFontSizeAttribute, IFlexUIFontStyleAttribute, 
+                        IFlexUIFontThicknessAttribute, IFlexUIFontWeightAttribute, IFlexUIHighlightAlphasAttribute, 
+                        IFlexUIItemDownSkinAttribute, IFlexUIItemOverSkinAttribute, IFlexUIItemUpSkinAttribute, 
+                        IFlexUILeadingAttribute, IFlexUIMenuStyleNameAttribute, IFlexUIRollOverColorAttribute, IFlexUISelectionColorAttribute, 
+                        IFlexUITextAlignAttribute, IFlexUITextDecorationAttribute, IFlexUITextIndentAttribute, 
+                        IFlexUIItemClickAttribute, IFlexUIItemRollOutAttribute, IFlexUIItemRollOverAttribute, 
+                        IFlexUIMenuHideAttribute, IFlexUIMenuShowAttribute {
 	
 }

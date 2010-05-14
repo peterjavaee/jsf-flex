@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="disclosureClosedIcon", returnType="java.lang.String", longDesc="Specifies the icon that is displayed next to a parent item that is closed so that its children are not displayed (the subtree is collapsed).")
 @JSFComponent
-public interface _MXMLUIDisclosureClosedIconAttribute {
+public interface IFlexUIDisclosureClosedIconAttribute {
     
 }

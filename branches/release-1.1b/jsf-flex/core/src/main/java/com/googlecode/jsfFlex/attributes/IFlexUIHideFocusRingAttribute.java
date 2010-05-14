@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="hideFocusRing", returnType="java.lang.String", longDesc="Determines whether the effect should hide the focus ring when starting the effect.")
 @JSFComponent
-public interface _MXMLUIHideFocusRingAttribute {
+public interface IFlexUIHideFocusRingAttribute {
     
 }

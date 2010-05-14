@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="columnWidth", returnType="java.lang.String", longDesc="The width of the control's columns.")
 @JSFComponent
-public interface _MXMLUIColumnWidthAttribute {
+public interface IFlexUIColumnWidthAttribute {
     
 }

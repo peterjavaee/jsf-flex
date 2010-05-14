@@ -26,58 +26,58 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.component.ext.data.ext.AbstractMXMLUIXMLList;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.component.ext.data.ext.AbstractFlexUIXMLList;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLSimple",
-		type="com.googlecode.jsfFlex.MXMLXMLList"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexSimple",
+		type="com.googlecode.jsfFlex.FlexXMLList"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="XMLList",
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentName="XMLList",
+		componentNodeAttributes={},
 		
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="id", byMethod=true)
+				@IJsfFlexAttribute(attribute="id", byMethod=true)
 		}
 )
-public final class MXMLXMLListRenderer extends MXMLComponentBaseRenderer {
+public final class FlexXMLListRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLXMLListRenderer.class, componentObj, null);
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexXMLListRenderer.class, componentObj, null);
 		
 	}
 	
 	@Override
 	public void encodeEnd(FacesContext context, UIComponent componentObj) throws IOException {
 		
-		AbstractMXMLUIXMLList componentMXML = AbstractMXMLUIXMLList.class.cast( componentObj );
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
+		AbstractFlexUIXMLList componentFlex = AbstractFlexUIXMLList.class.cast( componentObj );
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		
-		String currBodyContentFilePath = componentMXML.getCurrBodyContentFilePath();
+		String currBodyContentFilePath = componentFlex.getCurrBodyContentFilePath();
 		String bodyContent = null;
 		
 		if(currBodyContentFilePath != null){
-			Writer bodyContentWriter = componentMXML.getCurrBodyContentBufferedWriter();
+			Writer bodyContentWriter = componentFlex.getCurrBodyContentBufferedWriter();
 			
 			bodyContentWriter.flush();
 			bodyContentWriter.close();
-			bodyContent = writer.readFileContent(componentMXML.getCurrBodyContentFilePath());
+			bodyContent = writer.readFileContent(componentFlex.getCurrBodyContentFilePath());
 			
 		}
 		
-		writer.createPreMxml(componentMXML, MXMLXMLListRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentFlex, FlexXMLListRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				bodyContent);
 		
 		super.encodeEnd(context, componentObj);

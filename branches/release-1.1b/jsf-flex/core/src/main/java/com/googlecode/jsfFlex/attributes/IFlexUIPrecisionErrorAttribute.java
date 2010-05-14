@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="precisionError", returnType="java.lang.String", longDesc="Error message when the value has a precision that exceeds the value defined by the precision property.")
 @JSFComponent
-public interface _MXMLUIPrecisionErrorAttribute {
+public interface IFlexUIPrecisionErrorAttribute {
     
 }

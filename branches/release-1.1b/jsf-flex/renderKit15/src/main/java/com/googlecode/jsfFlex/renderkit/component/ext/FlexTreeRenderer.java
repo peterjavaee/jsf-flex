@@ -25,26 +25,26 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLListTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexListTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLInput",
-		type="com.googlecode.jsfFlex.MXMLTree"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexInput",
+		type="com.googlecode.jsfFlex.FlexTree"
 )
 @JsfFlexAttributeProperties(
-		mxmlComponentName="Tree",
-		mxmlComponentPackage="mx.controls",
-		mxmlComponentNodeAttributes={
-				@FlexComponentNodeAttribute(
+		componentName="Tree",
+		componentPackage="mx.controls",
+		componentNodeAttributes={
+				@IFlexComponentNodeAttribute(
 						htmlType="input",
 						typeAttributeValue="hidden",
 						valueAttributeValue="selectedIndex",
@@ -57,36 +57,36 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="dataDescriptor"),
-				@JsfFlexAttribute(attribute="firstVisibleItem"),
-				@JsfFlexAttribute(attribute="itemIcons"),
-				@JsfFlexAttribute(attribute="openItems"),
-				@JsfFlexAttribute(attribute="showRoot"),
-				@JsfFlexAttribute(attribute="defaultLeafIcon"),
-				@JsfFlexAttribute(attribute="depthColors"),
-				@JsfFlexAttribute(attribute="disclosureClosedIcon"),
-				@JsfFlexAttribute(attribute="disclosureOpenIcon"),
-				@JsfFlexAttribute(attribute="folderClosedIcon"),
-				@JsfFlexAttribute(attribute="folderOpenIcon"),
-				@JsfFlexAttribute(attribute="indentation"),
-				@JsfFlexAttribute(attribute="openDuration"),
-				@JsfFlexAttribute(attribute="openEasingFunction"),
-				@JsfFlexAttribute(attribute="itemClose"),
-				@JsfFlexAttribute(attribute="itemOpen"),
-				@JsfFlexAttribute(attribute="itemOpening")
+				@IJsfFlexAttribute(attribute="dataDescriptor"),
+				@IJsfFlexAttribute(attribute="firstVisibleItem"),
+				@IJsfFlexAttribute(attribute="itemIcons"),
+				@IJsfFlexAttribute(attribute="openItems"),
+				@IJsfFlexAttribute(attribute="showRoot"),
+				@IJsfFlexAttribute(attribute="defaultLeafIcon"),
+				@IJsfFlexAttribute(attribute="depthColors"),
+				@IJsfFlexAttribute(attribute="disclosureClosedIcon"),
+				@IJsfFlexAttribute(attribute="disclosureOpenIcon"),
+				@IJsfFlexAttribute(attribute="folderClosedIcon"),
+				@IJsfFlexAttribute(attribute="folderOpenIcon"),
+				@IJsfFlexAttribute(attribute="indentation"),
+				@IJsfFlexAttribute(attribute="openDuration"),
+				@IJsfFlexAttribute(attribute="openEasingFunction"),
+				@IJsfFlexAttribute(attribute="itemClose"),
+				@IJsfFlexAttribute(attribute="itemOpen"),
+				@IJsfFlexAttribute(attribute="itemOpening")
 		}
 )
-public final class MXMLTreeRenderer extends MXMLListTemplateRenderer {
+public final class FlexTreeRenderer extends AbstractFlexListTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLTreeRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLTreeRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexTreeRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexTreeRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

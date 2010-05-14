@@ -20,26 +20,26 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIShadowColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIStrokeColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIStrokeWidthAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUIShadowColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIStrokeColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIStrokeWidthAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlHRule",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIHRule",
-        type                =   "com.googlecode.jsfFlex.MXMLUIHRule",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIHRuleTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLHRule"
+        name                =   "jf:flexHRule",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIHRule",
+        type                =   "com.googlecode.jsfFlex.FlexUIHRule",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIHRuleTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexHRule"
 )
-public abstract class AbstractMXMLUIHRule 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIBaseAttributes, _MXMLUIShadowColorAttribute, _MXMLUIStrokeWidthAttribute, 
-                        _MXMLUIStrokeColorAttribute {
+public abstract class AbstractFlexUIHRule 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIBaseAttributes, IFlexUIShadowColorAttribute, IFlexUIStrokeWidthAttribute, 
+                        IFlexUIStrokeColorAttribute {
 	
 }

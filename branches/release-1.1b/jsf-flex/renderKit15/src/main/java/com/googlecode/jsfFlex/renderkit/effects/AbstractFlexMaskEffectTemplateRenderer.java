@@ -23,39 +23,39 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-        mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+        componentNodeAttributes={},
         
         jsfFlexAttributes={
-                @JsfFlexAttribute(attribute="createMaskFunction"),
-                @JsfFlexAttribute(attribute="moveEasingFunction"),
-                @JsfFlexAttribute(attribute="scaleEasingFunction"),
-                @JsfFlexAttribute(attribute="scaleXFrom"),
-                @JsfFlexAttribute(attribute="scaleXTo"),
-                @JsfFlexAttribute(attribute="scaleYFrom"),
-                @JsfFlexAttribute(attribute="scaleYTo"),
-                @JsfFlexAttribute(attribute="show"),
-                @JsfFlexAttribute(attribute="xFrom"),
-                @JsfFlexAttribute(attribute="xTo"),
-                @JsfFlexAttribute(attribute="yFrom"),
-                @JsfFlexAttribute(attribute="yTo")
+                @IJsfFlexAttribute(attribute="createMaskFunction"),
+                @IJsfFlexAttribute(attribute="moveEasingFunction"),
+                @IJsfFlexAttribute(attribute="scaleEasingFunction"),
+                @IJsfFlexAttribute(attribute="scaleXFrom"),
+                @IJsfFlexAttribute(attribute="scaleXTo"),
+                @IJsfFlexAttribute(attribute="scaleYFrom"),
+                @IJsfFlexAttribute(attribute="scaleYTo"),
+                @IJsfFlexAttribute(attribute="show"),
+                @IJsfFlexAttribute(attribute="xFrom"),
+                @IJsfFlexAttribute(attribute="xTo"),
+                @IJsfFlexAttribute(attribute="yFrom"),
+                @IJsfFlexAttribute(attribute="yTo")
         }
 )
-public abstract class MXMLMaskEffectTemplateRenderer extends MXMLEffectTemplateRenderer {
+public abstract class AbstractFlexMaskEffectTemplateRenderer extends AbstractFlexEffectTemplateRenderer {
 
     @Override
     public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
         super.encodeBegin(context, componentObj);
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-        writer.mapFields(MXMLMaskEffectTemplateRenderer.class, componentObj, null);
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+        writer.mapFields(AbstractFlexMaskEffectTemplateRenderer.class, componentObj, null);
         
     }
     

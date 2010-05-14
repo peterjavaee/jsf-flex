@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="selectedTabTextStyleName", returnType="java.lang.String", longDesc="Name of CSS style declaration that specifies styles for the text of the selected tab.")
 @JSFComponent
-public interface _MXMLUISelectedTabTextStyleNameAttribute {
+public interface IFlexUISelectedTabTextStyleNameAttribute {
     
 }

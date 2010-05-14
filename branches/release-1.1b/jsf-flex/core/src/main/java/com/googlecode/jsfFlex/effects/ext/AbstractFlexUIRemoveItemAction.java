@@ -20,21 +20,21 @@ package com.googlecode.jsfFlex.effects.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlRemoveItemAction",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIRemoveItemAction",
-        type                =   "com.googlecode.jsfFlex.MXMLUIRemoveItemAction",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIRemoveItemActionTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLRemoveItemAction"
+        name                =   "jf:flexRemoveItemAction",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIRemoveItemAction",
+        type                =   "com.googlecode.jsfFlex.FlexUIRemoveItemAction",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIRemoveItemActionTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexRemoveItemAction"
 )
-public abstract class AbstractMXMLUIRemoveItemAction 
-                                extends MXMLUISimpleBase 
-                                implements _MXMLUIEffectAttributes {
+public abstract class AbstractFlexUIRemoveItemAction 
+                                extends AbstractFlexUISimpleBase 
+                                implements IFlexUIEffectAttributes {
     
 }

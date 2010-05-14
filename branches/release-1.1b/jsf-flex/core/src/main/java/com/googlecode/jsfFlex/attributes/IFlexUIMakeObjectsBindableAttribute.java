@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="makeObjectsBindable", returnType="java.lang.String", longDesc="When this value is true, anonymous objects returned are forced to bindable objects.")
 @JSFComponent
-public interface _MXMLUIMakeObjectsBindableAttribute {
+public interface IFlexUIMakeObjectsBindableAttribute {
     
 }

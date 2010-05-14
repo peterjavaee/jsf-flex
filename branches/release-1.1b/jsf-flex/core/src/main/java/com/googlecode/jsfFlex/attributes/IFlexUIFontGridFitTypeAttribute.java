@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="fontGridFitType", returnType="java.lang.String", longDesc="Sets the gridFitType property of internal TextFields that represent text in Flex controls.")
 @JSFComponent
-public interface _MXMLUIFontGridFitTypeAttribute {
+public interface IFlexUIFontGridFitTypeAttribute {
     
 }

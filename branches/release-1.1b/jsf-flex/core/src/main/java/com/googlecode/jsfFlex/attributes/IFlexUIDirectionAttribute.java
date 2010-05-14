@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="direction", returnType="java.lang.String", longDesc="Direction in which the fill of the ProgressBar expands toward completion.")
 @JSFComponent
-public interface _MXMLUIDirectionAttribute {
+public interface IFlexUIDirectionAttribute {
 	
 }

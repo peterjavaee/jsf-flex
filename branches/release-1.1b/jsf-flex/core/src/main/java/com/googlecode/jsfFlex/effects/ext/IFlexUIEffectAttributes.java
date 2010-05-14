@@ -20,28 +20,28 @@ package com.googlecode.jsfFlex.effects.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUICustomFilterAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDurationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEffectEndAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEffectStartAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFilterAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHideFocusRingAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPerElementOffsetAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRepeatCountAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRepeatDelayAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIStartDelayAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISuspendBackgroundProcessingAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITargetAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITargetsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICustomFilterAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDurationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEffectEndAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEffectStartAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFilterAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHideFocusRingAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPerElementOffsetAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRepeatCountAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRepeatDelayAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIStartDelayAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISuspendBackgroundProcessingAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITargetAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITargetsAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIEffectAttributes extends 
-                    _MXMLUICustomFilterAttribute, _MXMLUIDurationAttribute, _MXMLUIFilterAttribute,_MXMLUIHideFocusRingAttribute, 
-                    _MXMLUIPerElementOffsetAttribute, _MXMLUIRepeatCountAttribute, _MXMLUIRepeatDelayAttribute, _MXMLUIStartDelayAttribute, 
-                    _MXMLUISuspendBackgroundProcessingAttribute, _MXMLUITargetAttribute, _MXMLUITargetsAttribute, _MXMLUIEffectEndAttribute, 
-                    _MXMLUIEffectStartAttribute {
+interface IFlexUIEffectAttributes extends 
+                    IFlexUICustomFilterAttribute, IFlexUIDurationAttribute, IFlexUIFilterAttribute,IFlexUIHideFocusRingAttribute, 
+                    IFlexUIPerElementOffsetAttribute, IFlexUIRepeatCountAttribute, IFlexUIRepeatDelayAttribute, IFlexUIStartDelayAttribute, 
+                    IFlexUISuspendBackgroundProcessingAttribute, IFlexUITargetAttribute, IFlexUITargetsAttribute, IFlexUIEffectEndAttribute, 
+                    IFlexUIEffectStartAttribute {
     
 }

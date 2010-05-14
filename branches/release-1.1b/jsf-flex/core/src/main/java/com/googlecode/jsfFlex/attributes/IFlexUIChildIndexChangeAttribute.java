@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="childIndexChange", returnType="java.lang.String", longDesc="Dispatched after the index (among the container children) of a container child changes.")
 @JSFComponent
-public interface _MXMLUIChildIndexChangeAttribute {
+public interface IFlexUIChildIndexChangeAttribute {
     
 }

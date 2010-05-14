@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="securityError", returnType="java.lang.String", longDesc="Dispatched when a security error occurs while content is loading.")
 @JSFComponent
-public interface _MXMLUISecurityErrorAttribute {
+public interface IFlexUISecurityErrorAttribute {
     
 }

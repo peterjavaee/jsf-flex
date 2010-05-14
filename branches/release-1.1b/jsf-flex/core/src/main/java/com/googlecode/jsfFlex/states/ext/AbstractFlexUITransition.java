@@ -21,25 +21,25 @@ package com.googlecode.jsfFlex.states.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIEffectAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFromStateAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIToStateAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIEffectAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFromStateAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIToStateAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlTransition",
-        clazz               =   "com.googlecode.jsfFlex.states.ext.MXMLUITransition",
-        type                =   "com.googlecode.jsfFlex.MXMLUITransition",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.states.ext.MXMLUITransitionTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLTransition"
+        name                =   "jf:flexTransition",
+        clazz               =   "com.googlecode.jsfFlex.states.ext.FlexUITransition",
+        type                =   "com.googlecode.jsfFlex.FlexUITransition",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.states.ext.FlexUITransitionTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexTransition"
 )
-public abstract class AbstractMXMLUITransition 
-						extends MXMLUISimpleBase 
-                        implements _MXMLUIEffectAttribute, _MXMLUIFromStateAttribute, _MXMLUIToStateAttribute {
+public abstract class AbstractFlexUITransition 
+						extends AbstractFlexUISimpleBase 
+                        implements IFlexUIEffectAttribute, IFlexUIFromStateAttribute, IFlexUIToStateAttribute {
 	
 	/**
 	 * Id of the component.

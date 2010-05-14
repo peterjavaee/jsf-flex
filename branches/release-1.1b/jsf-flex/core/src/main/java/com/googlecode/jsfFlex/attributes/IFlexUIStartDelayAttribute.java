@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="startDelay", returnType="java.lang.String", longDesc="Amount of time, in milliseconds, to wait before starting the effect.")
 @JSFComponent
-public interface _MXMLUIStartDelayAttribute {
+public interface IFlexUIStartDelayAttribute {
     
 }

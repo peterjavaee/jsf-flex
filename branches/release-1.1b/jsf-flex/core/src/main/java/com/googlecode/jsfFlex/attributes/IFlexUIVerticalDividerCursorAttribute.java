@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="verticalDividerCursor", returnType="java.lang.String", longDesc="The cursor skin for a vertical DividedBox.")
 @JSFComponent
-public interface _MXMLUIVerticalDividerCursorAttribute {
+public interface IFlexUIVerticalDividerCursorAttribute {
     
 }

@@ -21,25 +21,25 @@ package com.googlecode.jsfFlex.states.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUINameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITargetAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIValueAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUINameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITargetAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIValueAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlSetStyle",
-        clazz               =   "com.googlecode.jsfFlex.states.ext.MXMLUISetStyle",
-        type                =   "com.googlecode.jsfFlex.MXMLUISetStyle",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.states.ext.MXMLUISetStyleTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLSetStyle"
+        name                =   "jf:flexSetStyle",
+        clazz               =   "com.googlecode.jsfFlex.states.ext.FlexUISetStyle",
+        type                =   "com.googlecode.jsfFlex.FlexUISetStyle",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.states.ext.FlexUISetStyleTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexSetStyle"
 )
-public abstract class AbstractMXMLUISetStyle 
-						extends MXMLUISimpleBase 
-                        implements _MXMLUINameAttribute, _MXMLUITargetAttribute, _MXMLUIValueAttribute {
+public abstract class AbstractFlexUISetStyle 
+						extends AbstractFlexUISimpleBase 
+                        implements IFlexUINameAttribute, IFlexUITargetAttribute, IFlexUIValueAttribute {
 	
 	/**
 	 * Id of the component.

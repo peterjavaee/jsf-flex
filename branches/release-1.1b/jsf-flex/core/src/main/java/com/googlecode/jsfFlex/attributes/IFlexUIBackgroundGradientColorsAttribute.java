@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="backgroundGradientColors", returnType="java.lang.String", longDesc="Specifies the colors used to tint the background gradient fill of the application.")
 @JSFComponent
-public interface _MXMLUIBackgroundGradientColorsAttribute {
+public interface IFlexUIBackgroundGradientColorsAttribute {
 
 }

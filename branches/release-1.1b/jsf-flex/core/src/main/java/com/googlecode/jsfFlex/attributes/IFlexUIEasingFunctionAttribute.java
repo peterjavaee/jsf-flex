@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="easingFunction", returnType="java.lang.String", longDesc="The easing function for the animation.")
 @JSFComponent
-public interface _MXMLUIEasingFunctionAttribute {
+public interface IFlexUIEasingFunctionAttribute {
     
 }

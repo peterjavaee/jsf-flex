@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="kerning", returnType="java.lang.String", longDesc="A Boolean value that indicates whether kerning is enabled (true) or disabled (false). Kerning adjusts the gap between certain character pairs to improve readability, and should be used only when necessary, such as with headings in large fonts.")
 @JSFComponent
-public interface _MXMLUIKerningAttribute {
+public interface IFlexUIKerningAttribute {
     
 }

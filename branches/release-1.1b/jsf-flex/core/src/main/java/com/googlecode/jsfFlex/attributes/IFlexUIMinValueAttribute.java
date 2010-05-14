@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="minValue", returnType="java.lang.String", longDesc="Minimum value for a valid number.")
 @JSFComponent
-public interface _MXMLUIMinValueAttribute {
+public interface IFlexUIMinValueAttribute {
     
 }

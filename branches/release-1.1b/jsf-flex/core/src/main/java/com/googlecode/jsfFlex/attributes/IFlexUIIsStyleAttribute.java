@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="isStyle", returnType="java.lang.String", longDesc="If true, the property attribute is a style and you set it by using the setStyle() method.")
 @JSFComponent
-public interface _MXMLUIIsStyleAttribute {
+public interface IFlexUIIsStyleAttribute {
     
 }

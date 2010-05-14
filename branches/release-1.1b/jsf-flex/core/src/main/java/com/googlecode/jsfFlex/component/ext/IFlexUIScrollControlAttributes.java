@@ -20,63 +20,63 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundAlphaAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundImageAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundSizeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderSidesAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderStyleAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderThicknessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICornerRadiusAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDropShadowColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDropShadowEnabledAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSizeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontStyleAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontWeightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalScrollBarStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalScrollPolicyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalScrollPositionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILeadingAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILiveScrollingAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMaxHorizontalScrollPositionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMaxVerticalScrollPositionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRepeatDelayAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRepeatIntervalAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIScrollAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIScrollTipFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShadowDirectionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShadowDistanceAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShowScrollTipsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextAlignAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextDecorationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextIndentAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalScrollBarStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalScrollPolicyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalScrollPositionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundAlphaAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundImageAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderSidesAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderStyleAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderThicknessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICornerRadiusAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisabledColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDropShadowColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDropShadowEnabledAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontFamilyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontStyleAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontWeightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalScrollBarStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalScrollPolicyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalScrollPositionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILeadingAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILiveScrollingAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMaxHorizontalScrollPositionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMaxVerticalScrollPositionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRepeatDelayAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRepeatIntervalAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIScrollAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIScrollTipFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShadowDirectionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShadowDistanceAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShowScrollTipsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextAlignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextDecorationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextIndentAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalScrollBarStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalScrollPolicyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalScrollPositionAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIScrollControlAttributes 
-                    extends _MXMLUIBorderAttribute, _MXMLUIHorizontalScrollPolicyAttribute, _MXMLUIHorizontalScrollPositionAttribute, 
-                    _MXMLUILiveScrollingAttribute, _MXMLUIMaxHorizontalScrollPositionAttribute, _MXMLUIMaxVerticalScrollPositionAttribute, 
-                    _MXMLUIScrollTipFunctionAttribute, _MXMLUIShowScrollTipsAttribute, _MXMLUIVerticalScrollPolicyAttribute, 
-                    _MXMLUIVerticalScrollPositionAttribute, _MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundColorAttribute, 
-                    _MXMLUIBackgroundImageAttribute, _MXMLUIBackgroundSizeAttribute, _MXMLUIBorderColorAttribute, 
-                    _MXMLUIBorderSidesAttribute, _MXMLUIBorderSkinAttribute, _MXMLUIBorderStyleAttribute, _MXMLUIBorderThicknessAttribute, 
-                    _MXMLUIColorAttribute, _MXMLUICornerRadiusAttribute, _MXMLUIDisabledColorAttribute, _MXMLUIDropShadowColorAttribute, 
-                    _MXMLUIDropShadowEnabledAttribute, _MXMLUIFontFamilyAttribute, _MXMLUIFontSizeAttribute, _MXMLUIFontStyleAttribute, 
-                    _MXMLUIFontWeightAttribute, _MXMLUIHorizontalScrollBarStyleNameAttribute, _MXMLUILeadingAttribute, 
-                    _MXMLUIRepeatDelayAttribute, _MXMLUIRepeatIntervalAttribute, _MXMLUIShadowDirectionAttribute, _MXMLUIShadowDistanceAttribute, 
-                    _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, _MXMLUIVerticalScrollBarStyleNameAttribute, 
-                    _MXMLUIScrollAttribute, _MXMLUIBaseAttributes {
+interface IFlexUIScrollControlAttributes 
+                    extends IFlexUIBorderAttribute, IFlexUIHorizontalScrollPolicyAttribute, IFlexUIHorizontalScrollPositionAttribute, 
+                    IFlexUILiveScrollingAttribute, IFlexUIMaxHorizontalScrollPositionAttribute, IFlexUIMaxVerticalScrollPositionAttribute, 
+                    IFlexUIScrollTipFunctionAttribute, IFlexUIShowScrollTipsAttribute, IFlexUIVerticalScrollPolicyAttribute, 
+                    IFlexUIVerticalScrollPositionAttribute, IFlexUIBackgroundAlphaAttribute, IFlexUIBackgroundColorAttribute, 
+                    IFlexUIBackgroundImageAttribute, IFlexUIBackgroundSizeAttribute, IFlexUIBorderColorAttribute, 
+                    IFlexUIBorderSidesAttribute, IFlexUIBorderSkinAttribute, IFlexUIBorderStyleAttribute, IFlexUIBorderThicknessAttribute, 
+                    IFlexUIColorAttribute, IFlexUICornerRadiusAttribute, IFlexUIDisabledColorAttribute, IFlexUIDropShadowColorAttribute, 
+                    IFlexUIDropShadowEnabledAttribute, IFlexUIFontFamilyAttribute, IFlexUIFontSizeAttribute, IFlexUIFontStyleAttribute, 
+                    IFlexUIFontWeightAttribute, IFlexUIHorizontalScrollBarStyleNameAttribute, IFlexUILeadingAttribute, 
+                    IFlexUIRepeatDelayAttribute, IFlexUIRepeatIntervalAttribute, IFlexUIShadowDirectionAttribute, IFlexUIShadowDistanceAttribute, 
+                    IFlexUITextAlignAttribute, IFlexUITextDecorationAttribute, IFlexUITextIndentAttribute, IFlexUIVerticalScrollBarStyleNameAttribute, 
+                    IFlexUIScrollAttribute, IFlexUIBaseAttributes {
 	
 }

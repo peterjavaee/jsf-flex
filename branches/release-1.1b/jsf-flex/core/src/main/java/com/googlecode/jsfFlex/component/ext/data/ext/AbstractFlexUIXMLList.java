@@ -20,26 +20,26 @@ package com.googlecode.jsfFlex.component.ext.data.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.ext.data.MXMLUIXMLContainerBase;
+import com.googlecode.jsfFlex.component.ext.data.AbstractFlexUIXMLContainerBase;
 
 /**
  * <ul>
  * This component can have as its direct children components of :
- * 		<li> AbstractMXMLUIXMLListEntries </li>
- * 		<li> AbstractMXMLUIXMLStaticElement </li>
+ * 		<li> AbstractFlexUIXMLListEntries </li>
+ * 		<li> AbstractFlexUIXMLStaticElement </li>
  * </ul>
  * 
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlXMLList",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.MXMLUIXMLList",
-        type                =   "com.googlecode.jsfFlex.MXMLUIXMLList",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.data.ext.MXMLUIXMLListTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLXMLList"
+        name                =   "jf:flexXMLList",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.FlexUIXMLList",
+        type                =   "com.googlecode.jsfFlex.FlexUIXMLList",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.data.ext.FlexUIXMLListTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexXMLList"
 )
-public abstract class AbstractMXMLUIXMLList 
-						extends MXMLUIXMLContainerBase {
+public abstract class AbstractFlexUIXMLList 
+						extends AbstractFlexUIXMLContainerBase {
 	
 }

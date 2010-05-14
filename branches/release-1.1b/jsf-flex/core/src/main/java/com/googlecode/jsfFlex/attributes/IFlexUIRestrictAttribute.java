@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="restrict", returnType="java.lang.String", longDesc="Set of characters that a user can or cannot enter into the text field.")
 @JSFComponent
-public interface _MXMLUIRestrictAttribute {
+public interface IFlexUIRestrictAttribute {
 	
 }

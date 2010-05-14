@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="slideDuration", returnType="java.lang.String", longDesc="Duration in milliseconds for the sliding animation when you click on the track to move a thumb.")
 @JSFComponent
-public interface _MXMLUISlideDurationAttribute {
+public interface IFlexUISlideDurationAttribute {
     
 }

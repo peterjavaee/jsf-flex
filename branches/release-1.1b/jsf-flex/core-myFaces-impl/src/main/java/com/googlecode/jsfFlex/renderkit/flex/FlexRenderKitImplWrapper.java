@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.renderkit.mxml;
+package com.googlecode.jsfFlex.renderkit.flex;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -32,14 +32,14 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderK
 /**
  * @author Ji Hoon Kim
  */
-@JSFRenderKit(renderKitId   =   "MXML_BASIC")
-public class MXMLRenderKitImplWrapper extends MXMLRenderKitImpl {
+@JSFRenderKit(renderKitId   =   "FLEX_BASIC")
+public class FlexRenderKitImplWrapper extends FlexRenderKitImpl {
 	
-	private final static Log _log = LogFactory.getLog(MXMLRenderKitImplWrapper.class);
+	private final static Log _log = LogFactory.getLog(FlexRenderKitImplWrapper.class);
 	
 	private final List<RenderKit> _additionalRenderKits;
 	
-    public MXMLRenderKitImplWrapper(){
+    public FlexRenderKitImplWrapper(){
 		super();
 		_additionalRenderKits = new LinkedList<RenderKit>();
 	}

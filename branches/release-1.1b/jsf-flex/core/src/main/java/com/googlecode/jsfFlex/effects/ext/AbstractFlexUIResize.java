@@ -21,31 +21,31 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIHeightByAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHeightFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHeightToAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHideChildrenTargetsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIWidthByAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIWidthFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIWidthToAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIHeightByAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHeightFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHeightToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHideChildrenTargetsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIWidthByAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIWidthFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIWidthToAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlResize",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIResize",
-        type                =   "com.googlecode.jsfFlex.MXMLUIResize",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIResizeTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLResize"
+        name                =   "jf:flexResize",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIResize",
+        type                =   "com.googlecode.jsfFlex.FlexUIResize",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIResizeTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexResize"
 )
-public abstract class AbstractMXMLUIResize 
-                                extends MXMLUISimpleBase 
-                                implements _MXMLUITweenEffectAttributes, _MXMLUIWidthFromAttribute, _MXMLUIHeightFromAttribute, 
-                                _MXMLUIWidthToAttribute, _MXMLUIHeightToAttribute, _MXMLUIWidthByAttribute, _MXMLUIHeightByAttribute, 
-                                _MXMLUIHideChildrenTargetsAttribute {
+public abstract class AbstractFlexUIResize 
+                                extends AbstractFlexUISimpleBase 
+                                implements IFlexUITweenEffectAttributes, IFlexUIWidthFromAttribute, IFlexUIHeightFromAttribute, 
+                                IFlexUIWidthToAttribute, IFlexUIHeightToAttribute, IFlexUIWidthByAttribute, IFlexUIHeightByAttribute, 
+                                IFlexUIHideChildrenTargetsAttribute {
 
     /**
      * Id of the component.

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="rollOverEffect", returnType="java.lang.String", longDesc="Played when the user rolls the mouse over the component.")
 @JSFComponent
-public interface _MXMLUIRollOverEffectAttribute {
+public interface IFlexUIRollOverEffectAttribute {
     
 }

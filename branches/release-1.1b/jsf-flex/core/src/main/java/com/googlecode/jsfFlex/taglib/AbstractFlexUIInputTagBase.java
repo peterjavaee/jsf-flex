@@ -35,9 +35,9 @@ import org.apache.commons.logging.LogFactory;
  * 
  * @author Ji Hoon Kim
  */
-public abstract class MXMLUIInputTagBase extends MXMLUIComponentTagBase {
+public abstract class AbstractFlexUIInputTagBase extends AbstractFlexUIComponentTagBase {
 	
-	private final static Log _log = LogFactory.getLog(MXMLUIInputTagBase.class);
+	private final static Log _log = LogFactory.getLog(AbstractFlexUIInputTagBase.class);
 	
 	private static final Class[] VALIDATOR_ARGS = {FacesContext.class, UIComponent.class, Object.class};
 	private static final Class[] VALUE_LISTENER_ARGS = {ValueChangeEvent.class};

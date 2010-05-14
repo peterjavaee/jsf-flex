@@ -23,31 +23,31 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="enabled"),
-				@JsfFlexAttribute(attribute="listener"),
-				@JsfFlexAttribute(attribute="property"),
-				@JsfFlexAttribute(attribute="required"),
-				@JsfFlexAttribute(attribute="requiredFieldError"),
-				@JsfFlexAttribute(attribute="source"),
-				@JsfFlexAttribute(attribute="trigger"),
-				@JsfFlexAttribute(attribute="triggerEvent")
+				@IJsfFlexAttribute(attribute="enabled"),
+				@IJsfFlexAttribute(attribute="listener"),
+				@IJsfFlexAttribute(attribute="property"),
+				@IJsfFlexAttribute(attribute="required"),
+				@IJsfFlexAttribute(attribute="requiredFieldError"),
+				@IJsfFlexAttribute(attribute="source"),
+				@IJsfFlexAttribute(attribute="trigger"),
+				@IJsfFlexAttribute(attribute="triggerEvent")
 		}
 )
-public abstract class MXMLValidatorTemplateRenderer extends MXMLComponentRenderer {
+public abstract class AbstractFlexValidatorTemplateRenderer extends AbstractFlexComponentRenderer {
 	
 	private static final String VALIDATION_MANAGER_IMPORT = "com.googlecode.jsfFlex.communication.validator.ValidationManager";
 	
@@ -55,10 +55,10 @@ public abstract class MXMLValidatorTemplateRenderer extends MXMLComponentRendere
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLValidatorTemplateRenderer.class, componentObj, null);
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(AbstractFlexValidatorTemplateRenderer.class, componentObj, null);
 		
-		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
 		AdditionalApplicationScriptContent additionalAppScriptContent = mxmlContext.getAdditionalAppScriptContent();
 		additionalAppScriptContent.addValidationManagerValidatorId(componentObj.getId());
 		

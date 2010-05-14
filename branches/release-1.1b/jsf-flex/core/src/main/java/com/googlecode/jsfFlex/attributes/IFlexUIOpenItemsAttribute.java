@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="openItems", returnType="java.lang.String", longDesc="The items that have been opened or set opened.")
 @JSFComponent
-public interface _MXMLUIOpenItemsAttribute {
+public interface IFlexUIOpenItemsAttribute {
     
 }

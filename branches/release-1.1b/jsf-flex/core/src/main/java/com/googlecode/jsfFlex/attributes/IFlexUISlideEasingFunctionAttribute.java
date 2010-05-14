@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="slideEasingFunction", returnType="java.lang.String", longDesc="Tweening function used by the sliding animation when you click on the track to move a thumb.")
 @JSFComponent
-public interface _MXMLUISlideEasingFunctionAttribute {
+public interface IFlexUISlideEasingFunctionAttribute {
     
 }

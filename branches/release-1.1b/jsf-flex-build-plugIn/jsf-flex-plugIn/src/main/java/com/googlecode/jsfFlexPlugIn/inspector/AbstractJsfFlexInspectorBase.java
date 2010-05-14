@@ -25,41 +25,41 @@ import java.util.Map;
 /**
  * @author Ji Hoon Kim
  */
-public abstract class _JsfFlexInspectorBase {
+public abstract class AbstractJsfFlexInspectorBase {
 	
 	private final String _dirPath;
-	private final List<_JsfFlexInspectListener> _jsfFlexInspectListeners;
+	private final List<IJsfFlexInspectListener> _jsfFlexInspectListeners;
 	
-	public _JsfFlexInspectorBase(){
+	public AbstractJsfFlexInspectorBase(){
 		super();
 		_dirPath = null;
 	}
 	
-	public _JsfFlexInspectorBase(String dirPath){
+	public AbstractJsfFlexInspectorBase(String dirPath){
 		super();
 		_dirPath = dirPath;
 	}
 	
 	{
-		_jsfFlexInspectListeners = new LinkedList<_JsfFlexInspectListener>();
+		_jsfFlexInspectListeners = new LinkedList<IJsfFlexInspectListener>();
 	}
 	
 	protected String getDirPath(){
 		return _dirPath;
 	}
 	
-	public synchronized void addInspectListener(_JsfFlexInspectListener callBack){
+	public synchronized void addInspectListener(IJsfFlexInspectListener callBack){
 		_jsfFlexInspectListeners.add(callBack);
 	}
 	
 	protected synchronized void inspectFileFinished(List<Map<String, ? extends Object>> inspectedList, String inspectedFileName, String inspectedPackage){
-		for(_JsfFlexInspectListener inspectedCallBack : _jsfFlexInspectListeners){
+		for(IJsfFlexInspectListener inspectedCallBack : _jsfFlexInspectListeners){
 			inspectedCallBack.inspectFileFinished(inspectedList, inspectedFileName, inspectedPackage);
 		}
 	}
 	
 	protected synchronized void inspectionCompleted(){
-		for(_JsfFlexInspectListener inspectedCallBack : _jsfFlexInspectListeners){
+		for(IJsfFlexInspectListener inspectedCallBack : _jsfFlexInspectListeners){
 			inspectedCallBack.inspectionCompleted();
 		}
 	}

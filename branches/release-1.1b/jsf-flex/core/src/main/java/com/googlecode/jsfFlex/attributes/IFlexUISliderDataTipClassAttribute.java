@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="sliderDataTipClass", returnType="java.lang.String", longDesc="A reference to the class to use for the data tip.")
 @JSFComponent
-public interface _MXMLUISliderDataTipClassAttribute {
+public interface IFlexUISliderDataTipClassAttribute {
     
 }

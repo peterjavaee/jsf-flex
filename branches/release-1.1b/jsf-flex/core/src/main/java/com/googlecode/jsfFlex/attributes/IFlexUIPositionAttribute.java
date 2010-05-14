@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="position", returnType="java.lang.String", longDesc="The position of the child in the display list, relative to the object specified by the relativeTo property.")
 @JSFComponent
-public interface _MXMLUIPositionAttribute {
+public interface IFlexUIPositionAttribute {
     
 }

@@ -20,31 +20,31 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFirstTabStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILastTabStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedTabTextStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITabHeightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITabStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITabWidthAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFirstTabStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILastTabStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedIndexAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedTabTextStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITabHeightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITabStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITabWidthAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlTabBar",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUITabBar",
-        type                =   "com.googlecode.jsfFlex.MXMLUITabBar",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUITabBarTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLTabBar"
+        name                =   "jf:flexTabBar",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUITabBar",
+        type                =   "com.googlecode.jsfFlex.FlexUITabBar",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUITabBarTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexTabBar"
 )
-public abstract class AbstractMXMLUITabBar 
-						extends MXMLUISimpleBase
-						implements _MXMLUIToggleButtonBarAttributes, _MXMLUIFirstTabStyleNameAttribute, _MXMLUILastTabStyleNameAttribute, 
-                        _MXMLUISelectedTabTextStyleNameAttribute, _MXMLUITabHeightAttribute, _MXMLUITabStyleNameAttribute, 
-                        _MXMLUITabWidthAttribute, _MXMLUIDataProviderAttribute, _MXMLUISelectedIndexAttribute {
+public abstract class AbstractFlexUITabBar 
+						extends AbstractFlexUISimpleBase
+						implements IFlexUIToggleButtonBarAttributes, IFlexUIFirstTabStyleNameAttribute, IFlexUILastTabStyleNameAttribute, 
+                        IFlexUISelectedTabTextStyleNameAttribute, IFlexUITabHeightAttribute, IFlexUITabStyleNameAttribute, 
+                        IFlexUITabWidthAttribute, IFlexUIDataProviderAttribute, IFlexUISelectedIndexAttribute {
 	
 }

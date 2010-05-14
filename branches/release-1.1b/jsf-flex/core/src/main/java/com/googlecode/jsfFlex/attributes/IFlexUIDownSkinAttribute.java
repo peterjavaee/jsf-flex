@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="downSkin", returnType="java.lang.String", longDesc="Name of the classto use as the skin for the background and border when the user holdsdown the mouse button.")
 @JSFComponent
-public interface _MXMLUIDownSkinAttribute {
+public interface IFlexUIDownSkinAttribute {
     
 }

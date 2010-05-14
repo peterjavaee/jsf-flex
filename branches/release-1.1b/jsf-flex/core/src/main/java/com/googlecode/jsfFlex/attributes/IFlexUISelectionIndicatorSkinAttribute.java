@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="selectionIndicatorSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the highlight area of the currently selected date in the DateChooser control.")
 @JSFComponent
-public interface _MXMLUISelectionIndicatorSkinAttribute {
+public interface IFlexUISelectionIndicatorSkinAttribute {
     
 }

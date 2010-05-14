@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="conversion", returnType="java.lang.String", longDesc="Number used to convert incoming current bytes loaded value and the total bytes loaded values.")
 @JSFComponent
-public interface _MXMLUIConversionAttribute {
+public interface IFlexUIConversionAttribute {
     
 }

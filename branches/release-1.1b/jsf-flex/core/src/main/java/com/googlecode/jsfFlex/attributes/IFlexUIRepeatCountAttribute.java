@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="repeatCount", returnType="java.lang.String", longDesc="Number of times to repeat the effect.")
 @JSFComponent
-public interface _MXMLUIRepeatCountAttribute {
+public interface IFlexUIRepeatCountAttribute {
     
 }

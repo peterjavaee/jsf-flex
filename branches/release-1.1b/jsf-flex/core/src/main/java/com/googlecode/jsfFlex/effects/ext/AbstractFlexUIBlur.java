@@ -21,27 +21,27 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBlurXFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBlurXToAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBlurYFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBlurYToAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIBlurXFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBlurXToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBlurYFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBlurYToAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlBlur",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIBlur",
-        type                =   "com.googlecode.jsfFlex.MXMLUIBlur",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIBlurTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLBlur"
+        name                =   "jf:flexBlur",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIBlur",
+        type                =   "com.googlecode.jsfFlex.FlexUIBlur",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIBlurTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexBlur"
 )
-public abstract class AbstractMXMLUIBlur 
-                            extends MXMLUISimpleBase 
-                            implements _MXMLUIEffectAttributes, _MXMLUIBlurXFromAttribute, _MXMLUIBlurXToAttribute,
-                            _MXMLUIBlurYFromAttribute, _MXMLUIBlurYToAttribute {
+public abstract class AbstractFlexUIBlur 
+                            extends AbstractFlexUISimpleBase 
+                            implements IFlexUIEffectAttributes, IFlexUIBlurXFromAttribute, IFlexUIBlurXToAttribute,
+                            IFlexUIBlurYFromAttribute, IFlexUIBlurYToAttribute {
     
     /**
      * Id of the component.

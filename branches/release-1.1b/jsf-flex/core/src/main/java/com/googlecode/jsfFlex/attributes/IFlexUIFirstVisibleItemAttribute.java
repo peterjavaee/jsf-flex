@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="firstVisibleItem", returnType="java.lang.String", longDesc="The item that is currently displayed in the top row of the tree.")
 @JSFComponent
-public interface _MXMLUIFirstVisibleItemAttribute {
+public interface IFlexUIFirstVisibleItemAttribute {
     
 }

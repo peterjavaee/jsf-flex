@@ -25,35 +25,35 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLLabelTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexLabelTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLOutput",
-		type="com.googlecode.jsfFlex.MXMLLabel"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexOutput",
+		type="com.googlecode.jsfFlex.FlexLabel"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="Label",
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentName="Label",
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={}
 )
-public final class MXMLLabelRenderer extends MXMLLabelTemplateRenderer {
+public final class FlexLabelRenderer extends AbstractFlexLabelTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.createPreMxml(componentMXML, MXMLLabelRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.createPreMxml(componentFlex, FlexLabelRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="removedElementOffset", returnType="java.lang.String", longDesc="The offset in milliseconds between the effects applied to the renderers representing multiple items deleted at the same time.")
 @JSFComponent
-public interface _MXMLUIRemovedElementOffsetAttribute {
+public interface IFlexUIRemovedElementOffsetAttribute {
     
 }

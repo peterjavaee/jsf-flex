@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dropShadowEnabled", returnType="java.lang.String", longDesc="Boolean property that specifies whether the component has a visible drop shadow.")
 @JSFComponent
-public interface _MXMLUIDropShadowEnabledAttribute {
+public interface IFlexUIDropShadowEnabledAttribute {
     
 }

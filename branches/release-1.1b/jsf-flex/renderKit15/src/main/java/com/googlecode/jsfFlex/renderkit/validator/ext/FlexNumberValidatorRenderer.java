@@ -25,54 +25,54 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.renderkit.validator.MXMLValidatorTemplateRenderer;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.renderkit.validator.AbstractFlexValidatorTemplateRenderer;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLSimple",
-		type="com.googlecode.jsfFlex.MXMLNumberValidator"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexSimple",
+		type="com.googlecode.jsfFlex.FlexNumberValidator"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="NumberValidator",
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentName="NumberValidator",
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="allowNegative"),
-				@JsfFlexAttribute(attribute="decimalPointCountError"),
-				@JsfFlexAttribute(attribute="decimalSeparator"),
-				@JsfFlexAttribute(attribute="domain"),
-				@JsfFlexAttribute(attribute="exceedsMaxError"),
-				@JsfFlexAttribute(attribute="integerError"),
-				@JsfFlexAttribute(attribute="invalidCharError"),
-				@JsfFlexAttribute(attribute="invalidFormatCharsError"),
-				@JsfFlexAttribute(attribute="lowerThanMinError"),
-				@JsfFlexAttribute(attribute="maxValue"),
-				@JsfFlexAttribute(attribute="minValue"),
-				@JsfFlexAttribute(attribute="negativeError"),
-				@JsfFlexAttribute(attribute="precision"),
-				@JsfFlexAttribute(attribute="precisionError"),
-				@JsfFlexAttribute(attribute="separationError"),
-				@JsfFlexAttribute(attribute="thousandsSeparator")
+				@IJsfFlexAttribute(attribute="allowNegative"),
+				@IJsfFlexAttribute(attribute="decimalPointCountError"),
+				@IJsfFlexAttribute(attribute="decimalSeparator"),
+				@IJsfFlexAttribute(attribute="domain"),
+				@IJsfFlexAttribute(attribute="exceedsMaxError"),
+				@IJsfFlexAttribute(attribute="integerError"),
+				@IJsfFlexAttribute(attribute="invalidCharError"),
+				@IJsfFlexAttribute(attribute="invalidFormatCharsError"),
+				@IJsfFlexAttribute(attribute="lowerThanMinError"),
+				@IJsfFlexAttribute(attribute="maxValue"),
+				@IJsfFlexAttribute(attribute="minValue"),
+				@IJsfFlexAttribute(attribute="negativeError"),
+				@IJsfFlexAttribute(attribute="precision"),
+				@IJsfFlexAttribute(attribute="precisionError"),
+				@IJsfFlexAttribute(attribute="separationError"),
+				@IJsfFlexAttribute(attribute="thousandsSeparator")
 		}
 )
-public final class MXMLNumberValidatorRenderer extends MXMLValidatorTemplateRenderer {
+public final class FlexNumberValidatorRenderer extends AbstractFlexValidatorTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-        _MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLNumberValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLNumberValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexNumberValidatorRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexNumberValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

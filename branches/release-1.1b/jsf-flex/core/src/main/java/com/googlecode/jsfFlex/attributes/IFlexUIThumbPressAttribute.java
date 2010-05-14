@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="thumbPress", returnType="java.lang.String", longDesc="Dispatched when the slider's thumb is pressed, meaning the user presses the mouse button over the thumb.")
 @JSFComponent
-public interface _MXMLUIThumbPressAttribute {
+public interface IFlexUIThumbPressAttribute {
     
 }

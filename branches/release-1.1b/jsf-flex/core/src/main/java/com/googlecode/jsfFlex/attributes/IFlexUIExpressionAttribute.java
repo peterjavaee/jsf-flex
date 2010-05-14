@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="expression", returnType="java.lang.String", longDesc="The regular expression to use for validation.")
 @JSFComponent
-public interface _MXMLUIExpressionAttribute {
+public interface IFlexUIExpressionAttribute {
     
 }

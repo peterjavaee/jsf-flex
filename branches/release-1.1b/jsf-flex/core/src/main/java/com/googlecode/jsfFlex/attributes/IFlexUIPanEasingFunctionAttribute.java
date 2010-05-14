@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="panEasingFunction", returnType="java.lang.String", longDesc="The easing function for the pan effect.")
 @JSFComponent
-public interface _MXMLUIPanEasingFunctionAttribute {
+public interface IFlexUIPanEasingFunctionAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="focusAlpha", returnType="java.lang.String", longDesc="Specifies the alpha transparency value of the focus skin.")
 @JSFComponent
-public interface _MXMLUIFocusAlphaAttribute {
+public interface IFlexUIFocusAlphaAttribute {
 	
 }

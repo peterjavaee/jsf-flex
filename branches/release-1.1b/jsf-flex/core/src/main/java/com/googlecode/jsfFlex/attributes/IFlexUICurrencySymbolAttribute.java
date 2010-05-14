@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="currencySymbol", returnType="java.lang.String", longDesc="Character to use as a currency symbol for a formatted number.")
 @JSFComponent
-public interface _MXMLUICurrencySymbolAttribute {
+public interface IFlexUICurrencySymbolAttribute {
     
 }

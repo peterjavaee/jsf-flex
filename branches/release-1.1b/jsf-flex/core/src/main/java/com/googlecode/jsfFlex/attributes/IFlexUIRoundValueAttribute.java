@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="roundValue", returnType="java.lang.String", longDesc="If true, round off the interpolated tweened value to the nearest integer.")
 @JSFComponent
-public interface _MXMLUIRoundValueAttribute {
+public interface IFlexUIRoundValueAttribute {
     
 }

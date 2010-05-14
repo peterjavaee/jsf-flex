@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="measuredWidth", returnType="java.lang.String", longDesc="The default width of the component, in pixels.")
 @JSFComponent
-public interface _MXMLUIMeasuredWidthAttribute {
+public interface IFlexUIMeasuredWidthAttribute {
     
 }

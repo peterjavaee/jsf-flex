@@ -25,83 +25,83 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLSimpleBase",
-		type="com.googlecode.jsfFlex.MXMLMenuBar"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexSimpleBase",
+		type="com.googlecode.jsfFlex.FlexMenuBar"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="MenuBar",
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentName="MenuBar",
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="dataDescriptor"),
-				@JsfFlexAttribute(attribute="dataProvider", byMethod=true),
-				@JsfFlexAttribute(attribute="iconField"),
-				@JsfFlexAttribute(attribute="labelField"),
-				@JsfFlexAttribute(attribute="labelFunction"),
-                @JsfFlexAttribute(attribute="menuBarItemRenderer"),
-				@JsfFlexAttribute(attribute="menubarItems"),
-				@JsfFlexAttribute(attribute="menus"),
-				@JsfFlexAttribute(attribute="selectedIndex", byMethod=true),
-				@JsfFlexAttribute(attribute="showRoot"),
-				@JsfFlexAttribute(attribute="backgroundAlpha"),
-				@JsfFlexAttribute(attribute="backgroundColor"),
-				@JsfFlexAttribute(attribute="backgroundSkin"),
-				@JsfFlexAttribute(attribute="borderColor"),
-				@JsfFlexAttribute(attribute="color"),
-				@JsfFlexAttribute(attribute="cornerRadius"),
-				@JsfFlexAttribute(attribute="disabledColor"),
-				@JsfFlexAttribute(attribute="fillAlphas"),
-				@JsfFlexAttribute(attribute="fillColors"),
-				@JsfFlexAttribute(attribute="focusAlpha"),
-				@JsfFlexAttribute(attribute="focusRoundedCorners"),
-				@JsfFlexAttribute(attribute="fontAntiAliasType"),
-				@JsfFlexAttribute(attribute="fontFamily"),
-				@JsfFlexAttribute(attribute="fontGridFitType"),
-				@JsfFlexAttribute(attribute="fontSharpness"),
-				@JsfFlexAttribute(attribute="fontSize"),
-				@JsfFlexAttribute(attribute="fontStyle"),
-				@JsfFlexAttribute(attribute="fontThickness"),
-				@JsfFlexAttribute(attribute="fontWeight"),
-				@JsfFlexAttribute(attribute="highlightAlphas"),
-				@JsfFlexAttribute(attribute="itemDownSkin"),
-				@JsfFlexAttribute(attribute="itemOverSkin"),
-				@JsfFlexAttribute(attribute="itemUpSkin"),
-				@JsfFlexAttribute(attribute="leading"),
-                @JsfFlexAttribute(attribute="menuStyleName"),
-                @JsfFlexAttribute(attribute="rollOverColor"),
-				@JsfFlexAttribute(attribute="selectionColor"),
-				@JsfFlexAttribute(attribute="textAlign"),
-				@JsfFlexAttribute(attribute="textDecoration"),
-				@JsfFlexAttribute(attribute="textIndent"),
-				@JsfFlexAttribute(attribute="itemClick"),
-				@JsfFlexAttribute(attribute="itemRollOut"),
-				@JsfFlexAttribute(attribute="itemRollOver"),
-				@JsfFlexAttribute(attribute="menuHide"),
-				@JsfFlexAttribute(attribute="menuShow")
+				@IJsfFlexAttribute(attribute="dataDescriptor"),
+				@IJsfFlexAttribute(attribute="dataProvider", byMethod=true),
+				@IJsfFlexAttribute(attribute="iconField"),
+				@IJsfFlexAttribute(attribute="labelField"),
+				@IJsfFlexAttribute(attribute="labelFunction"),
+                @IJsfFlexAttribute(attribute="menuBarItemRenderer"),
+				@IJsfFlexAttribute(attribute="menubarItems"),
+				@IJsfFlexAttribute(attribute="menus"),
+				@IJsfFlexAttribute(attribute="selectedIndex", byMethod=true),
+				@IJsfFlexAttribute(attribute="showRoot"),
+				@IJsfFlexAttribute(attribute="backgroundAlpha"),
+				@IJsfFlexAttribute(attribute="backgroundColor"),
+				@IJsfFlexAttribute(attribute="backgroundSkin"),
+				@IJsfFlexAttribute(attribute="borderColor"),
+				@IJsfFlexAttribute(attribute="color"),
+				@IJsfFlexAttribute(attribute="cornerRadius"),
+				@IJsfFlexAttribute(attribute="disabledColor"),
+				@IJsfFlexAttribute(attribute="fillAlphas"),
+				@IJsfFlexAttribute(attribute="fillColors"),
+				@IJsfFlexAttribute(attribute="focusAlpha"),
+				@IJsfFlexAttribute(attribute="focusRoundedCorners"),
+				@IJsfFlexAttribute(attribute="fontAntiAliasType"),
+				@IJsfFlexAttribute(attribute="fontFamily"),
+				@IJsfFlexAttribute(attribute="fontGridFitType"),
+				@IJsfFlexAttribute(attribute="fontSharpness"),
+				@IJsfFlexAttribute(attribute="fontSize"),
+				@IJsfFlexAttribute(attribute="fontStyle"),
+				@IJsfFlexAttribute(attribute="fontThickness"),
+				@IJsfFlexAttribute(attribute="fontWeight"),
+				@IJsfFlexAttribute(attribute="highlightAlphas"),
+				@IJsfFlexAttribute(attribute="itemDownSkin"),
+				@IJsfFlexAttribute(attribute="itemOverSkin"),
+				@IJsfFlexAttribute(attribute="itemUpSkin"),
+				@IJsfFlexAttribute(attribute="leading"),
+                @IJsfFlexAttribute(attribute="menuStyleName"),
+                @IJsfFlexAttribute(attribute="rollOverColor"),
+				@IJsfFlexAttribute(attribute="selectionColor"),
+				@IJsfFlexAttribute(attribute="textAlign"),
+				@IJsfFlexAttribute(attribute="textDecoration"),
+				@IJsfFlexAttribute(attribute="textIndent"),
+				@IJsfFlexAttribute(attribute="itemClick"),
+				@IJsfFlexAttribute(attribute="itemRollOut"),
+				@IJsfFlexAttribute(attribute="itemRollOver"),
+				@IJsfFlexAttribute(attribute="menuHide"),
+				@IJsfFlexAttribute(attribute="menuShow")
 		}
 )
-public final class MXMLMenuBarRenderer extends MXMLComponentRenderer {
+public final class FlexMenuBarRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLMenuBarRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLMenuBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexMenuBarRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexMenuBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

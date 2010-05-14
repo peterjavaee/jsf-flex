@@ -20,19 +20,19 @@ package com.googlecode.jsfFlex.shared.tasks;
 
 import java.util.List;
 
-import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.shared.adapter.IFlexApplicationContract;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
-public interface _FlexTaskRunner extends _TaskRunner {
+public interface IFlexTaskRunner extends ITaskRunner {
 	
 	void makeDirectory(String directoryToCreate);
 	
 	void deleteResources(String resourceToDelete, boolean isDirectory, String queueTaskId);
 	
-	void writeBodyContent(_MXMLContract componentMXML);
+	void writeBodyContent(IFlexContract componentMXML);
 	
 	void replaceTokenWithValue(String targetAbsolutePath, String valueToReplaceWith, String tokenReplace);
 	
@@ -46,7 +46,7 @@ public interface _FlexTaskRunner extends _TaskRunner {
 	
 	void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath, String queueTaskId);
 	
-	void createSWF(String mxmlFile, String swfPath, _MXMLApplicationContract componentMXML, String flexSDKRootPath, String locale, String localePath, String queueTaskId);
+	void createSWF(String mxmlFile, String swfPath, IFlexApplicationContract componentMXML, String flexSDKRootPath, String locale, String localePath, String queueTaskId);
 	
     void copyLocale(String locale, String flexSDKRootPath, String queueTaskId);
     

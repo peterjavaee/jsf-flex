@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="noMatchError", returnType="java.lang.String", longDesc="Error message when there are no matches to the regular expression.")
 @JSFComponent
-public interface _MXMLUINoMatchErrorAttribute {
+public interface IFlexUINoMatchErrorAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dataChange", returnType="java.lang.String", longDesc="Dispatched when the data property changes.")
 @JSFComponent
-public interface _MXMLUIDataChangeAttribute {
+public interface IFlexUIDataChangeAttribute {
 	
 }

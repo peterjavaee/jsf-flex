@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="enterState", returnType="java.lang.String", longDesc="Dispatched after the component has returned to the root view state.")
 @JSFComponent
-public interface _MXMLUIEnterStateAttribute {
+public interface IFlexUIEnterStateAttribute {
     
 }

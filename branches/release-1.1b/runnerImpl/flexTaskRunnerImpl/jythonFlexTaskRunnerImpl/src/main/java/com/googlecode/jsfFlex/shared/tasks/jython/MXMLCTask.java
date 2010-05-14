@@ -26,13 +26,13 @@ import org.python.core.PyObject;
 import org.python.core.PyString;
 import org.python.util.PythonInterpreter;
 
-import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.adapter.IFlexApplicationContract;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * @author Ji Hoon Kim
  */
-public final class MXMLCTask extends _JythonBaseTask {
+public final class MXMLCTask extends AbstractJythonBaseTask {
 	
 	private static final String PYTHON_EXECUTION_FILE = "commandExecuteTask.py";
 	
@@ -67,7 +67,7 @@ public final class MXMLCTask extends _JythonBaseTask {
 	
 	private String _file;
 	private String _outputPath;
-	private _MXMLApplicationContract _componentMXML;
+	private IFlexApplicationContract _componentMXML;
 	private String _flexSDKRootPath;
 	
 	private String _locale;
@@ -77,7 +77,7 @@ public final class MXMLCTask extends _JythonBaseTask {
 		super();
 	}
 	
-	public MXMLCTask(String file, String outputpath, _MXMLApplicationContract componentMXML, String flexSDKRootPath){
+	public MXMLCTask(String file, String outputpath, IFlexApplicationContract componentMXML, String flexSDKRootPath){
 		_file = file;
 		_outputPath = outputpath;
 		_componentMXML = componentMXML;
@@ -86,22 +86,22 @@ public final class MXMLCTask extends _JythonBaseTask {
 	
 	void build() {
 		
-		String commandToExecute = MXMLConstants.WINDOWS_SYSTEM ? _flexSDKRootPath + WINDOWS_EXEC : _flexSDKRootPath + NON_WINDOWS_SHELL;
+		String commandToExecute = FlexConstants.WINDOWS_SYSTEM ? _flexSDKRootPath + WINDOWS_EXEC : _flexSDKRootPath + NON_WINDOWS_SHELL;
 		Vector<String> commandArguments = getCommandArguments();
 		
 		PyObject commandExecuteTaskObject = _commandExecuteTaskClass.__call__(new PyString(commandToExecute), 
 																		new PyList(commandArguments));
-		_jythonTask = _JythonTaskPerformer.class.cast( commandExecuteTaskObject.__tojava__(_JythonTaskPerformer.class) );
+		_jythonTask = IJythonTaskPerformer.class.cast( commandExecuteTaskObject.__tojava__(IJythonTaskPerformer.class) );
 	}
 	
 	private Vector<String> getCommandArguments(){
 		
 		Vector<String> commandArguments = new Vector<String>();
 		
-		commandArguments.add(FILE_PROPERTY + MXMLConstants.STRING_QUOTE + _file + MXMLConstants.STRING_QUOTE);
+		commandArguments.add(FILE_PROPERTY + FlexConstants.STRING_QUOTE + _file + FlexConstants.STRING_QUOTE);
 		
 		if(_outputPath != null){
-			commandArguments.add(OUTPUT_ARG_SYNTAX + MXMLConstants.STRING_QUOTE + _outputPath + MXMLConstants.STRING_QUOTE);
+			commandArguments.add(OUTPUT_ARG_SYNTAX + FlexConstants.STRING_QUOTE + _outputPath + FlexConstants.STRING_QUOTE);
 		}
 		
 		if(_componentMXML.isAccessible()){
@@ -118,17 +118,17 @@ public final class MXMLCTask extends _JythonBaseTask {
 			if(_componentMXML.getSourcePath() != null){
 				
                 for(String currSourcePath : _componentMXML.getSourcePath()){
-					sourcePathVal.append(MXMLConstants.STRING_QUOTE);
+					sourcePathVal.append(FlexConstants.STRING_QUOTE);
 					sourcePathVal.append(currSourcePath);
-					sourcePathVal.append(MXMLConstants.STRING_QUOTE);
+					sourcePathVal.append(FlexConstants.STRING_QUOTE);
 					sourcePathVal.append(" ");
 				}
 			}
 			
 			if(_localePath != null){
-				sourcePathVal.append(MXMLConstants.STRING_QUOTE);
+				sourcePathVal.append(FlexConstants.STRING_QUOTE);
 				sourcePathVal.append(_localePath);
-				sourcePathVal.append(MXMLConstants.STRING_QUOTE);
+				sourcePathVal.append(FlexConstants.STRING_QUOTE);
 			}
 			
 			commandArguments.add(SOURCE_PATH_ARG_SYNTAX + sourcePathVal.toString());
@@ -138,9 +138,9 @@ public final class MXMLCTask extends _JythonBaseTask {
             
             StringBuilder externalLibraryPath = new StringBuilder();
             for(String currExternalLibraryPath : _componentMXML.getExternalLibraryPath()){
-                externalLibraryPath.append(MXMLConstants.STRING_QUOTE);
+                externalLibraryPath.append(FlexConstants.STRING_QUOTE);
                 externalLibraryPath.append(currExternalLibraryPath);
-                externalLibraryPath.append(MXMLConstants.STRING_QUOTE);
+                externalLibraryPath.append(FlexConstants.STRING_QUOTE);
                 externalLibraryPath.append(" ");
             }
 			commandArguments.add(EXTERNAL_LIBRARY_PATH + externalLibraryPath.toString());
@@ -150,9 +150,9 @@ public final class MXMLCTask extends _JythonBaseTask {
             
             StringBuilder runtimeSharedLibrary = new StringBuilder();
             for(String currRuntimeSharedLibrary : _componentMXML.getRuntimeSharedLibraries()){
-                runtimeSharedLibrary.append(MXMLConstants.STRING_QUOTE);
+                runtimeSharedLibrary.append(FlexConstants.STRING_QUOTE);
                 runtimeSharedLibrary.append(currRuntimeSharedLibrary);
-                runtimeSharedLibrary.append(MXMLConstants.STRING_QUOTE);
+                runtimeSharedLibrary.append(FlexConstants.STRING_QUOTE);
                 runtimeSharedLibrary.append(" ");
             }
 			commandArguments.add(RUNTIME_SHARED_LIBRARIES + runtimeSharedLibrary.toString());
@@ -179,7 +179,7 @@ public final class MXMLCTask extends _JythonBaseTask {
 		}
 		
 		if(_componentMXML.getLoadConfig() != null){
-			commandArguments.add(LOAD_CONFIG_ARG_SYNTAX + MXMLConstants.STRING_QUOTE + _componentMXML.getLoadConfig() + MXMLConstants.STRING_QUOTE);
+			commandArguments.add(LOAD_CONFIG_ARG_SYNTAX + FlexConstants.STRING_QUOTE + _componentMXML.getLoadConfig() + FlexConstants.STRING_QUOTE);
 		}
 		
 		if(_componentMXML.getTitle() != null){

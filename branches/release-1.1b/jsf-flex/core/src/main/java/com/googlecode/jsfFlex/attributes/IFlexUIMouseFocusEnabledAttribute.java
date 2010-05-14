@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="mouseFocusEnabled", returnType="java.lang.String", longDesc="Whether you can receive focus when clicked on.")
 @JSFComponent
-public interface _MXMLUIMouseFocusEnabledAttribute {
+public interface IFlexUIMouseFocusEnabledAttribute {
     
 }

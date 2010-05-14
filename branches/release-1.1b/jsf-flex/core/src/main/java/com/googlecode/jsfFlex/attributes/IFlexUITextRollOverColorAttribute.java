@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="textRollOverColor", returnType="java.lang.String", longDesc="Text color of the label as the user moves the mouse pointer over the button.")
 @JSFComponent
-public interface _MXMLUITextRollOverColorAttribute {
+public interface IFlexUITextRollOverColorAttribute {
     
 }

@@ -20,25 +20,25 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditableAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRowCount;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRowCountAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlList",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIList",
-        type                =   "com.googlecode.jsfFlex.MXMLUIList",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIListTag",
-        family              =   "javax.faces.MXMLInput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLList",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+        name                =   "jf:flexList",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIList",
+        type                =   "com.googlecode.jsfFlex.FlexUIList",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIListTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexList",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
 )
-public abstract class AbstractMXMLUIList 
-						extends com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase
-						implements _MXMLUIListAttributes, _MXMLUIEditableAttribute, _MXMLUIDataProviderAttribute, 
-                        _MXMLUIRowCount {
+public abstract class AbstractFlexUIList 
+						extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase
+						implements IFlexUIListAttributes, IFlexUIEditableAttribute, IFlexUIDataProviderAttribute, 
+                        IFlexUIRowCountAttribute {
 	
 }

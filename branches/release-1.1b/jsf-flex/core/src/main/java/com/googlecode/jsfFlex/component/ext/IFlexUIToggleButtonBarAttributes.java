@@ -20,15 +20,15 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedButtonTextStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIToggleOnClickAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedButtonTextStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIToggleOnClickAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIToggleButtonBarAttributes 
-                extends _MXMLUIToggleOnClickAttribute, _MXMLUISelectedButtonTextStyleNameAttribute, 
-                _MXMLUIButtonBarAttributes {
+interface IFlexUIToggleButtonBarAttributes 
+                extends IFlexUIToggleOnClickAttribute, IFlexUISelectedButtonTextStyleNameAttribute, 
+                IFlexUIButtonBarAttributes {
     
 }

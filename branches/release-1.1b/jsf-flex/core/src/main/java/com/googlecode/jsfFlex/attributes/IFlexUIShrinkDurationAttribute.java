@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="shrinkDuration", returnType="java.lang.String", longDesc="The duration in milliseconds applied to renderers for added and removed items.")
 @JSFComponent
-public interface _MXMLUIShrinkDurationAttribute {
+public interface IFlexUIShrinkDurationAttribute {
     
 }

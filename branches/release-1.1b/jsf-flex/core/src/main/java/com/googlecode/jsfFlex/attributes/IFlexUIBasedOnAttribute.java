@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="basedOn", returnType="java.lang.String", longDesc="The name of the view state upon which this view state is based, or null if this view state is not based on a named view state.")
 @JSFComponent
-public interface _MXMLUIBasedOnAttribute {
+public interface IFlexUIBasedOnAttribute {
     
 }

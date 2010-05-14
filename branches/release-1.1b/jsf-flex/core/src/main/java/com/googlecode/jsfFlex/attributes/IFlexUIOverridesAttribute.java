@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="overrides", returnType="java.lang.String", longDesc="The overrides for this view state, as an Array of objects that implement the IOverride interface.")
 @JSFComponent
-public interface _MXMLUIOverridesAttribute {
+public interface IFlexUIOverridesAttribute {
     
 }

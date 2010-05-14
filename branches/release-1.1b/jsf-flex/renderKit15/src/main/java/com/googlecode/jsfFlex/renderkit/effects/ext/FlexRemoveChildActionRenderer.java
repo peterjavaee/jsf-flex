@@ -25,39 +25,39 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.effects.MXMLEffectTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.effects.AbstractFlexEffectTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-        renderKitId="MXML_BASIC",
-        family="javax.faces.MXMLSimple",
-        type="com.googlecode.jsfFlex.MXMLRemoveChildAction"
+        renderKitId="FLEX_BASIC",
+        family="javax.faces.FlexSimple",
+        type="com.googlecode.jsfFlex.FlexRemoveChildAction"
 )
-@JsfFlexAttributeProperties(
-        mxmlComponentName="RemoveChildAction",
-        mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+        componentName="RemoveChildAction",
+        componentNodeAttributes={},
 
         jsfFlexAttributes={
-                @JsfFlexAttribute(attribute="id", byMethod=true)
+                @IJsfFlexAttribute(attribute="id", byMethod=true)
         }
 )
-public final class MXMLRemoveChildActionRenderer extends MXMLEffectTemplateRenderer {
+public final class FlexRemoveChildActionRenderer extends AbstractFlexEffectTemplateRenderer {
 
     @Override
     public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
         super.encodeBegin(context, componentObj);
         
-        _MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-        writer.mapFields(MXMLRemoveChildActionRenderer.class, componentObj, null);
-        writer.createPreMxml(componentMXML, MXMLRemoveChildActionRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+        writer.mapFields(FlexRemoveChildActionRenderer.class, componentObj, null);
+        writer.createPreMxml(componentFlex, FlexRemoveChildActionRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
                 null);
         
     }

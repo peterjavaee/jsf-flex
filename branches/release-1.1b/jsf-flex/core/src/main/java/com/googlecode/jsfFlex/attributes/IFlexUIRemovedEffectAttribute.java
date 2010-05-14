@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="removedEffect", returnType="java.lang.String", longDesc="Played when the component is removed from a Container.")
 @JSFComponent
-public interface _MXMLUIRemovedEffectAttribute {
+public interface IFlexUIRemovedEffectAttribute {
     
 }

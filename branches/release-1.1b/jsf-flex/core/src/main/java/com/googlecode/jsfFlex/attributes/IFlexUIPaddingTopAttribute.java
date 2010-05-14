@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="paddingTop", returnType="java.lang.String", longDesc="Number of pixels between the container's top border and the top of its content area.")
 @JSFComponent
-public interface _MXMLUIPaddingTopAttribute {
+public interface IFlexUIPaddingTopAttribute {
     
 }

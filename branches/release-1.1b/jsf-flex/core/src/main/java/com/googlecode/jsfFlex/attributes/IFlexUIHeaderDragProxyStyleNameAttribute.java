@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="headerDragProxyStyleName", returnType="java.lang.String", longDesc="The name of a CSS style declaration for controlling aspects of the appearance of column when the user is dragging it to another location.")
 @JSFComponent
-public interface _MXMLUIHeaderDragProxyStyleNameAttribute {
+public interface IFlexUIHeaderDragProxyStyleNameAttribute {
     
 }

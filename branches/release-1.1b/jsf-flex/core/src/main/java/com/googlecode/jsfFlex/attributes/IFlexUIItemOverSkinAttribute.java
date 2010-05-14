@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="itemOverSkin", returnType="java.lang.String", longDesc="The skin when focus is over a MenuBar item either.")
 @JSFComponent
-public interface _MXMLUIItemOverSkinAttribute {
+public interface IFlexUIItemOverSkinAttribute {
     
 }

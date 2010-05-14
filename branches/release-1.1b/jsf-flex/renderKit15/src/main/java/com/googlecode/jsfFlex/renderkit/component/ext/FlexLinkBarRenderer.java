@@ -25,46 +25,46 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLNavBarTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexNavBarTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLSimple",
-		type="com.googlecode.jsfFlex.MXMLLinkBar"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexSimple",
+		type="com.googlecode.jsfFlex.FlexLinkBar"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="LinkBar",
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentName="LinkBar",
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-                @JsfFlexAttribute(attribute="linkButtonStyleName"),
-				@JsfFlexAttribute(attribute="rollOverColor"),
-				@JsfFlexAttribute(attribute="selectionColor"),
-				@JsfFlexAttribute(attribute="separatorColor"),
-				@JsfFlexAttribute(attribute="separatorSkin"),
-				@JsfFlexAttribute(attribute="separatorWidth"),
-				@JsfFlexAttribute(attribute="textRollOverColor"),
-				@JsfFlexAttribute(attribute="textSelectedColor")
+                @IJsfFlexAttribute(attribute="linkButtonStyleName"),
+				@IJsfFlexAttribute(attribute="rollOverColor"),
+				@IJsfFlexAttribute(attribute="selectionColor"),
+				@IJsfFlexAttribute(attribute="separatorColor"),
+				@IJsfFlexAttribute(attribute="separatorSkin"),
+				@IJsfFlexAttribute(attribute="separatorWidth"),
+				@IJsfFlexAttribute(attribute="textRollOverColor"),
+				@IJsfFlexAttribute(attribute="textSelectedColor")
 		}
 )
-public final class MXMLLinkBarRenderer extends MXMLNavBarTemplateRenderer {
+public final class FlexLinkBarRenderer extends AbstractFlexNavBarTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLLinkBarRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLLinkBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexLinkBarRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexLinkBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

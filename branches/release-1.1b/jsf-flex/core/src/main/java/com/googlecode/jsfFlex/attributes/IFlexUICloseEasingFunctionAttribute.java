@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="closeEasingFunction", returnType="java.lang.String", longDesc="Easing function to control component tweening.")
 @JSFComponent
-public interface _MXMLUICloseEasingFunctionAttribute {
+public interface IFlexUICloseEasingFunctionAttribute {
     
 }

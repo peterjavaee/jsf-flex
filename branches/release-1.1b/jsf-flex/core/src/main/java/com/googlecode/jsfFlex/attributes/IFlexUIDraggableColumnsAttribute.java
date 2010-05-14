@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="draggableColumns", returnType="java.lang.String", longDesc="A flag that indicates whether the user is allowed to reorder columns.")
 @JSFComponent
-public interface _MXMLUIDraggableColumnsAttribute {
+public interface IFlexUIDraggableColumnsAttribute {
     
 }

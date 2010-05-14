@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="decimalSeparatorTo", returnType="java.lang.String", longDesc="Decimal separator character to use when outputting formatted decimal numbers.")
 @JSFComponent
-public interface _MXMLUIDecimalSeparatorToAttribute {
+public interface IFlexUIDecimalSeparatorToAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="border", returnType="java.lang.String", longDesc="The border object.")
 @JSFComponent
-public interface _MXMLUIBorderAttribute {
+public interface IFlexUIBorderAttribute {
     
 }

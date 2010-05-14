@@ -25,24 +25,24 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.render.Renderer;
 
-import com.googlecode.jsfFlex.shared.adapter._MXMLEvent;
-import com.googlecode.jsfFlex.shared.adapter._MXMLEvent.EVENT_HANDLER_TYPE;
-import com.googlecode.jsfFlex.shared.adapter._MXMLEvent.EVENT_HANDLER_TYPE.ACTION_SCRIPT_IMPORT;
+import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
+import com.googlecode.jsfFlex.shared.adapter.IFlexEvent.EVENT_HANDLER_TYPE;
+import com.googlecode.jsfFlex.shared.adapter.IFlexEvent.EVENT_HANDLER_TYPE.ACTION_SCRIPT_IMPORT;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 
 /**
  * @author Ji Hoon Kim
  */
-public abstract class MXMLAsynchronousEventGlueTemplateRenderer extends Renderer {
+public abstract class AbstractFlexAsynchronousEventGlueTemplateRenderer extends Renderer {
     
     @Override
     public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
         super.encodeBegin(context, componentObj);
         
-        MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+        AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
         
-        _MXMLEvent mxmlEvent = _MXMLEvent.class.cast( componentObj );
+        IFlexEvent mxmlEvent = IFlexEvent.class.cast( componentObj );
         EVENT_HANDLER_TYPE eventHandlerType = mxmlEvent.getEventHandlerType();
         AdditionalApplicationScriptContent additionalApplicationScriptContent = mxmlContext.getAdditionalAppScriptContent();
         EnumSet<ACTION_SCRIPT_IMPORT> actionScriptImports = eventHandlerType.getActionScriptImports();

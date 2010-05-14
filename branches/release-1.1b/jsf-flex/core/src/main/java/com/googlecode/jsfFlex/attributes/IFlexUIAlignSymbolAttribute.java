@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="alignSymbol", returnType="java.lang.String", longDesc="Aligns currency symbol to the left side or the right side of the formatted number.")
 @JSFComponent
-public interface _MXMLUIAlignSymbolAttribute {
+public interface IFlexUIAlignSymbolAttribute {
     
 }

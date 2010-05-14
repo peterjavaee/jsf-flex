@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="displayItemsExpanded", returnType="java.lang.String", longDesc="If true, expand the navigation tree to show all items.")
 @JSFComponent
-public interface _MXMLUIDisplayItemsExpandedAttribute {
+public interface IFlexUIDisplayItemsExpandedAttribute {
     
 }

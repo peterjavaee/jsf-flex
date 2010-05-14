@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="showToday", returnType="java.lang.String", longDesc="If true, specifies that today is highlighted in the DateChooser control.")
 @JSFComponent
-public interface _MXMLUIShowTodayAttribute {
+public interface IFlexUIShowTodayAttribute {
     
 }

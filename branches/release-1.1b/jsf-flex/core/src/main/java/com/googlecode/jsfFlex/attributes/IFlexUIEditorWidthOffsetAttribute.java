@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="editorWidthOffset", returnType="java.lang.String", longDesc="The width of the item editor, in pixels, relative to the size of the item renderer.")
 @JSFComponent
-public interface _MXMLUIEditorWidthOffsetAttribute {
+public interface IFlexUIEditorWidthOffsetAttribute {
     
 }

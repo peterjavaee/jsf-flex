@@ -24,25 +24,25 @@ import java.util.Properties;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
+import com.googlecode.jsfFlex.renderkit.annotationDocletParser.AbstractAnnotationDocletParser;
 
 /**
- * Each implementation of _RunnerFactory should return a String specifying the package class<br>
+ * Each implementation of AbstractRunnerFactory should return a String specifying the package class<br>
  * for each of the following interfaces :<br>
  * <ul>
- *     <li> _CommonTaskRunner
- *     <li> _FileManipulatorTaskRunner
- *     <li> _FlexTaskRunner
- *     <li> _AnnotationDocletParser
+ *     <li> ICommonTaskRunner
+ *     <li> AbstractFileManipulatorTaskRunner
+ *     <li> IFlexTaskRunner
+ *     <li> AbstractAnnotationDocletParser
  * </ul>
  * 
  * @author Ji Hoon Kim
  */
-public abstract class _RunnerFactory {
+public abstract class AbstractRunnerFactory {
 	
-    private final static Log _log = LogFactory.getLog(_RunnerFactory.class);
+    private final static Log _log = LogFactory.getLog(AbstractRunnerFactory.class);
     
-	private static final _RunnerFactory INSTANCE;
+	private static final AbstractRunnerFactory INSTANCE;
 	
 	private static final String RUNNER_FACTORY_IMPL_PROPERTIES = "runnerFactoryImpl.properties";
 	
@@ -66,7 +66,7 @@ public abstract class _RunnerFactory {
 		Properties runnerFactoryImplProperties = new Properties();
 		
 		try{
-			runnerFactoryImplProperties.load(_RunnerFactory.class.getResourceAsStream(RUNNER_FACTORY_IMPL_PROPERTIES));
+			runnerFactoryImplProperties.load(AbstractRunnerFactory.class.getResourceAsStream(RUNNER_FACTORY_IMPL_PROPERTIES));
 		}catch(IOException ioExcept){
 			throw new RuntimeException("Exception thrown when loading of " + RUNNER_FACTORY_IMPL_PROPERTIES, ioExcept);
 		}
@@ -113,7 +113,7 @@ public abstract class _RunnerFactory {
 			throw new RuntimeException(errorMessage(ANNOTATION_DOCLET_PARSER_IMPL_PACKAGE_CLASS, classNotFound), classNotFound);
 		}
 		
-		INSTANCE = new _RunnerFactory(){
+		INSTANCE = new AbstractRunnerFactory(){
 			
 			String getAnnotationDocletParserImplPackage() {
 				return ANNOTATION_DOCLET_PARSER_IMPL_PACKAGE_CLASS;
@@ -134,20 +134,20 @@ public abstract class _RunnerFactory {
 		
 	}
 	
-	private _RunnerFactory(){
+	private AbstractRunnerFactory(){
 		super();
 	}
 	
-	public static final _RunnerFactory getInstance(){
+	public static final AbstractRunnerFactory getInstance(){
 		return INSTANCE;
 	}
 	
-	public final _CommonTaskRunner getCommonTaskRunnerImpl(){
+	public final ICommonTaskRunner getCommonTaskRunnerImpl(){
 		
-		_CommonTaskRunner specificInstance = null;
+		ICommonTaskRunner specificInstance = null;
 		
 		try{
-			specificInstance = _CommonTaskRunner.class.cast( COMMON_TASK_RUNNER_IMPL_CLASS.newInstance() );
+			specificInstance = ICommonTaskRunner.class.cast( COMMON_TASK_RUNNER_IMPL_CLASS.newInstance() );
 		}catch(IllegalAccessException illegalAccess){
 			throw new RuntimeException(errorMessage(getCommonTaskRunnerImplPackage(), illegalAccess), illegalAccess);
 		}catch(InstantiationException instantiation){
@@ -157,12 +157,12 @@ public abstract class _RunnerFactory {
 		return specificInstance;
 	}
 	
-	public final _FileManipulatorTaskRunner getFileManipulatorTaskRunnerImpl(){
+	public final AbstractFileManipulatorTaskRunner getFileManipulatorTaskRunnerImpl(){
 		
-		_FileManipulatorTaskRunner specificInstance = null;
+		AbstractFileManipulatorTaskRunner specificInstance = null;
 		
 		try{
-			specificInstance = _FileManipulatorTaskRunner.class.cast( FILE_MANIPULATOR_TASK_RUNNER_IMPL_CLASS.newInstance() );
+			specificInstance = AbstractFileManipulatorTaskRunner.class.cast( FILE_MANIPULATOR_TASK_RUNNER_IMPL_CLASS.newInstance() );
 		}catch(IllegalAccessException illegalAccess){
 			throw new RuntimeException(errorMessage(getFileManipulatorTaskRunnerImplPackage(), illegalAccess), illegalAccess);
 		}catch(InstantiationException instantiation){
@@ -172,12 +172,12 @@ public abstract class _RunnerFactory {
 		return specificInstance;
 	}
 	
-	public final _FlexTaskRunner getFlexTaskRunnerImpl(){
+	public final IFlexTaskRunner getFlexTaskRunnerImpl(){
 		
-		_FlexTaskRunner specificInstance = null;
+		IFlexTaskRunner specificInstance = null;
 		
 		try{
-			specificInstance = _FlexTaskRunner.class.cast( FLEX_TASK_RUNNER_IMPL_CLASS.newInstance() );
+			specificInstance = IFlexTaskRunner.class.cast( FLEX_TASK_RUNNER_IMPL_CLASS.newInstance() );
 		}catch(IllegalAccessException illegalAccess){
 			throw new RuntimeException(errorMessage(getFlexTaskRunnerImplPackage(), illegalAccess), illegalAccess);
 		}catch(InstantiationException instantiation){
@@ -187,12 +187,12 @@ public abstract class _RunnerFactory {
 		return specificInstance;
 	}
 	
-	public final _AnnotationDocletParser getAnnotationDocletParserImpl(){
+	public final AbstractAnnotationDocletParser getAnnotationDocletParserImpl(){
 		
-		_AnnotationDocletParser specificInstance = null;
+		AbstractAnnotationDocletParser specificInstance = null;
 		
 		try{
-			specificInstance = _AnnotationDocletParser.class.cast( ANNOTATION_DOCLET_PARSER_IMPL_CLASS.newInstance() );
+			specificInstance = AbstractAnnotationDocletParser.class.cast( ANNOTATION_DOCLET_PARSER_IMPL_CLASS.newInstance() );
 		}catch(IllegalAccessException illegalAccess){
 			throw new RuntimeException(errorMessage(getAnnotationDocletParserImplPackage(), illegalAccess), illegalAccess);
 		}catch(InstantiationException instantiation){
@@ -207,8 +207,8 @@ public abstract class _RunnerFactory {
         
         classFindErrorMessage.append("Following package class could not be found : " + packageClass);
         classFindErrorMessage.append(". If the application is not being ran in productionMode, please ensure to " +
-                "include three jar files to the classpath that contain _CommonTaskRunner, _FileManipulatorTaskRunner, " + 
-                "and _FlexTaskRunner implementations respectively.");
+                "include three jar files to the classpath that contain ICommonTaskRunner, AbstractFileManipulatorTaskRunner, " + 
+                "and IFlexTaskRunner implementations respectively.");
         
         return classFindErrorMessage.toString();
     }

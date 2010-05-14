@@ -24,7 +24,7 @@ import java.util.Map;
 /**
  * @author Ji Hoon Kim
  */
-public interface _MXMLApplicationContract extends _MXMLContract {
+public interface IFlexApplicationContract extends IFlexContract {
 	
 	Collection<String> getSourcePath();
     

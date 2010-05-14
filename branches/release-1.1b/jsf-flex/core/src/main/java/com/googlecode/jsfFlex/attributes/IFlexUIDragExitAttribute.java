@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dragExit", returnType="java.lang.String", longDesc="Dispatched by the component when the user drags outside the component, but does not drop the data onto the target.")
 @JSFComponent
-public interface _MXMLUIDragExitAttribute {
+public interface IFlexUIDragExitAttribute {
     
 }

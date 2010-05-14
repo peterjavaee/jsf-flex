@@ -20,17 +20,17 @@ package com.googlecode.jsfFlex.renderkit.eventGlue.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.eventGlue.MXMLAsynchronousEventGlueTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.eventGlue.AbstractFlexAsynchronousEventGlueTemplateRenderer;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-        renderKitId="MXML_BASIC",
-        family="javax.faces.MXMLEventListener",
-        type="com.googlecode.jsfFlex.MXMLAsynchronousDataUpdateEventListener"
+        renderKitId="FLEX_BASIC",
+        family="javax.faces.FlexEventListener",
+        type="com.googlecode.jsfFlex.FlexAsynchronousDataUpdateEventListener"
 )
-public final class MXMLAsynchronousDataUpdateEventListenerRenderer 
-                        extends MXMLAsynchronousEventGlueTemplateRenderer {
+public final class FlexAsynchronousDataUpdateEventListenerRenderer 
+                        extends AbstractFlexAsynchronousEventGlueTemplateRenderer {
     
 }

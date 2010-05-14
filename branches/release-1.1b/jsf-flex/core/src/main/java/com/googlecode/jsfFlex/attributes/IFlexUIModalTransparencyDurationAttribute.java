@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="modalTransparencyDuration", returnType="java.lang.String", longDesc="Duration, in milliseconds, of the modal transparency effect that plays when a modal window opens or closes. The default value is 100.")
 @JSFComponent
-public interface _MXMLUIModalTransparencyDurationAttribute {
+public interface IFlexUIModalTransparencyDurationAttribute {
     
 }

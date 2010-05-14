@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="verticalLineScrollSize", returnType="java.lang.String", longDesc="Number of pixels to scroll when the up- or down-arrow button in the verticalscroll bar is pressed.")
 @JSFComponent
-public interface _MXMLUIVerticalLineScrollSizeAttribute {
+public interface IFlexUIVerticalLineScrollSizeAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="textDecoration", returnType="java.lang.String", longDesc="Determines whether the text is underlined.")
 @JSFComponent
-public interface _MXMLUITextDecorationAttribute {
+public interface IFlexUITextDecorationAttribute {
     
 }

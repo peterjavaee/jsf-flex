@@ -25,7 +25,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface _MXMLUISelectedAttribute {
+public interface IFlexUISelectedAttribute {
 	
 	/**
 	 * Indicates whether a toggle button is toggled on (true) or off (false).

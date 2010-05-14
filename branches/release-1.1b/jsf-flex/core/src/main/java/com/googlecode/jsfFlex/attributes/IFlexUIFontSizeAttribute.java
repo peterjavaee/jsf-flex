@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="fontSize", returnType="java.lang.String", longDesc="Height of the text, in pixels.")
 @JSFComponent
-public interface _MXMLUIFontSizeAttribute {
+public interface IFlexUIFontSizeAttribute {
     
 }

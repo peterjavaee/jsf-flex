@@ -24,23 +24,23 @@ import java.util.Map;
 import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.component.ext.data.MXMLUIXMLContainerBase;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
+import com.googlecode.jsfFlex.component.ext.data.AbstractFlexUIXMLContainerBase;
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 
 /**
  * @author Ji Hoon Kim
  */
-public abstract class MXMLUIXMLElementBase 
-						extends MXMLUIDataObjectBase {
+public abstract class AbstractFlexUIXMLElementBase 
+						extends AbstractFlexUIDataObjectBase {
 	
 	protected String _xmlElementEndTag;
 	
 	public void encodeEnd(FacesContext context) throws IOException {
 		super.encodeEnd(context);
 		
-		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
 		Map<String, ? super UIComponentBase> temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
-		MXMLUIXMLContainerBase currXMLContainerRef = MXMLUIXMLContainerBase.class.cast( temporaryResourceMap.get(MXMLUIXMLContainerBase.CURR_MXML_UI_XML_CONTAINER_KEY) );
+		AbstractFlexUIXMLContainerBase currXMLContainerRef = AbstractFlexUIXMLContainerBase.class.cast( temporaryResourceMap.get(AbstractFlexUIXMLContainerBase.CURR_MXML_UI_XML_CONTAINER_KEY) );
 		
 		currXMLContainerRef.getCurrBodyContentBufferedWriter().write(_xmlElementEndTag);
 		

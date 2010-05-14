@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dividerColor", returnType="java.lang.String", longDesc="Color of the dividers when the user presses or drags the dividers if the liveDragging property is set to false.")
 @JSFComponent
-public interface _MXMLUIDividerColorAttribute {
+public interface IFlexUIDividerColorAttribute {
     
 }

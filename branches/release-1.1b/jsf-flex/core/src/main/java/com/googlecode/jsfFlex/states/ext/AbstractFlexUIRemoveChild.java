@@ -21,23 +21,23 @@ package com.googlecode.jsfFlex.states.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUITargetAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUITargetAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlRemoveChild",
-        clazz               =   "com.googlecode.jsfFlex.states.ext.MXMLUIRemoveChild",
-        type                =   "com.googlecode.jsfFlex.MXMLUIRemoveChild",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.states.ext.MXMLUIRemoveChildTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLRemoveChild"
+        name                =   "jf:flexRemoveChild",
+        clazz               =   "com.googlecode.jsfFlex.states.ext.FlexUIRemoveChild",
+        type                =   "com.googlecode.jsfFlex.FlexUIRemoveChild",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.states.ext.FlexUIRemoveChildTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexRemoveChild"
 )
-public abstract class AbstractMXMLUIRemoveChild 
-						extends MXMLUISimpleBase 
-                        implements _MXMLUITargetAttribute {
+public abstract class AbstractFlexUIRemoveChild 
+						extends AbstractFlexUISimpleBase 
+                        implements IFlexUITargetAttribute {
 	
 	/**
 	 * Id of the component.

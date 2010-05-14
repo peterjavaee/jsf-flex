@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="doubleClickEnabled", returnType="java.lang.String", longDesc="Specifies whether the UIComponent object receives doubleClick events.")
 @JSFComponent
-public interface _MXMLUIDoubleClickEnabledAttribute {
+public interface IFlexUIDoubleClickEnabledAttribute {
     
 }

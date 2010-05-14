@@ -25,21 +25,21 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBindingBeanListAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBindingBeanListAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIDataListEntriesBase",
-        type                =   "com.googlecode.jsfFlex.MXMLUIDataListEntriesBase",
-        family              =   "javax.faces.MXMLProperty",
-        desc                =   "Base component for DataList Entries MXMLProperty component",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.properties.FlexUIDataListEntriesBase",
+        type                =   "com.googlecode.jsfFlex.FlexUIDataListEntriesBase",
+        family              =   "javax.faces.FlexProperty",
+        desc                =   "Base component for DataList Entries FlexProperty component",
         template            =   true
 )
-public abstract class _MXMLUIDataListEntriesBase 
+public abstract class AbstractFlexUIDataListEntriesBase 
 						extends UIComponentBase 
-						implements _MXMLUIBindingBeanListAttribute {
+						implements IFlexUIBindingBeanListAttribute {
 	
 	public void encodeChildren(FacesContext context) throws IOException {
 		
@@ -48,7 +48,7 @@ public abstract class _MXMLUIDataListEntriesBase
 			for(Object currBeanRef : getBindingBeanList()){
 				
 				for(javax.faces.component.UIComponent currChild : getChildren()){
-					MXMLUIDataObjectBase currComponent = MXMLUIDataObjectBase.class.cast( currChild );
+					FlexUIDataObjectBase currComponent = FlexUIDataObjectBase.class.cast( currChild );
 					
 					currComponent.setCurrBeanRef(currBeanRef);
 					currComponent.encodeBegin(context);

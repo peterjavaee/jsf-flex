@@ -22,14 +22,14 @@ import org.python.core.PyException;
 import org.python.core.PyObject;
 
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.shared.tasks._Task;
+import com.googlecode.jsfFlex.shared.tasks.AbstractTask;
 
 /**
  * @author Ji Hoon Kim
  */
-abstract class _JythonBaseTask extends _Task {
+abstract class AbstractJythonBaseTask extends AbstractTask {
 	
-	protected _JythonTaskPerformer _jythonTask;
+	protected IJythonTaskPerformer _jythonTask;
 	
 	protected void performTask() {
 		

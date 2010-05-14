@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="titleIcon", returnType="java.lang.String", longDesc="The icon displayed in the title bar.")
 @JSFComponent
-public interface _MXMLUITitleIconAttribute {
+public interface IFlexUITitleIconAttribute {
     
 }

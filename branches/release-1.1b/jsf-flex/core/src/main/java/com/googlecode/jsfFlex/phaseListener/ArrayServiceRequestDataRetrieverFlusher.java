@@ -45,7 +45,7 @@ import com.googlecode.jsfFlex.shared.util.JSONConverter;
  * 
  * @author Ji Hoon Kim
  */
-final class ArrayServiceRequestDataRetrieverFlusher extends _ServiceRequestDataRetrieverFlusher {
+final class ArrayServiceRequestDataRetrieverFlusher extends AbstractServiceRequestDataRetrieverFlusher {
     
     private static final String ERROR_CONVERTING_JSON_ARRAY_TO_XML = "Error while converting JSONArray to XML";
     

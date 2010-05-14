@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="rendererIsEditor", returnType="java.lang.String", longDesc="A flag that indicates that the item renderer is also an item editor.")
 @JSFComponent
-public interface _MXMLUIRendererIsEditorAttribute {
+public interface IFlexUIRendererIsEditorAttribute {
     
 }

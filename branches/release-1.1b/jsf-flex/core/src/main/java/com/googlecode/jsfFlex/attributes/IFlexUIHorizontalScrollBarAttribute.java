@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="horizontalScrollBar", returnType="java.lang.String", longDesc="The horizontal scrollbar used in this container.")
 @JSFComponent
-public interface _MXMLUIHorizontalScrollBarAttribute {
+public interface IFlexUIHorizontalScrollBarAttribute {
     
 }

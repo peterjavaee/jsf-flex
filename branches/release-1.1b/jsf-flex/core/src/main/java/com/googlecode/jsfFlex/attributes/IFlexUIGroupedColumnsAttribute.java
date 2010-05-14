@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="groupedColumns", returnType="java.lang.String", longDesc="An Array that defines the hierarchy of AdvancedDataGridColumn instances when performing column grouping.")
 @JSFComponent
-public interface _MXMLUIGroupedColumnsAttribute {
+public interface IFlexUIGroupedColumnsAttribute {
     
 }

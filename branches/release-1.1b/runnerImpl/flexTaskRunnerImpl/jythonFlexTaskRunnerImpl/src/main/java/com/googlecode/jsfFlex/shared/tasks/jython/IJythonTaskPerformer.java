@@ -23,7 +23,7 @@ import org.python.core.PyException;
 /**
  * @author Ji Hoon Kim
  */
-public interface _JythonTaskPerformer {
+public interface IJythonTaskPerformer {
 	
 	void performTask() throws PyException;
 	

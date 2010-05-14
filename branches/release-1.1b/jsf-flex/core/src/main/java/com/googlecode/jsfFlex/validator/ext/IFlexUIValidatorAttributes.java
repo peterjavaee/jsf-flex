@@ -20,22 +20,22 @@ package com.googlecode.jsfFlex.validator.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIEnabledAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIListenerAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPropertyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRequiredAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRequiredFieldErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISourceAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITriggerAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITriggerEventAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEnabledAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIListenerAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPropertyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRequiredAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRequiredFieldErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISourceAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITriggerAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITriggerEventAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIValidatorAttributes 
-                extends _MXMLUIEnabledAttribute, _MXMLUIListenerAttribute, _MXMLUIPropertyAttribute, 
-                _MXMLUIRequiredAttribute, _MXMLUIRequiredFieldErrorAttribute, _MXMLUISourceAttribute, 
-                _MXMLUITriggerAttribute, _MXMLUITriggerEventAttribute {
+interface IFlexUIValidatorAttributes 
+                extends IFlexUIEnabledAttribute, IFlexUIListenerAttribute, IFlexUIPropertyAttribute, 
+                IFlexUIRequiredAttribute, IFlexUIRequiredFieldErrorAttribute, IFlexUISourceAttribute, 
+                IFlexUITriggerAttribute, IFlexUITriggerEventAttribute {
 	
 }

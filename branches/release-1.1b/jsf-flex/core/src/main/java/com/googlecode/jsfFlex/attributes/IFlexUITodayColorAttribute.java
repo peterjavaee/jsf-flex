@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="todayColor", returnType="java.lang.String", longDesc="Color of the background of today's date. The default value is 0x2B333C.")
 @JSFComponent
-public interface _MXMLUITodayColorAttribute {
+public interface IFlexUITodayColorAttribute {
     
 }

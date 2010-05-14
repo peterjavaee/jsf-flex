@@ -21,28 +21,28 @@ package com.googlecode.jsfFlex.states.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUICreationPolicyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPositionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRelativeToAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITargetAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITargetFactoryAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUICreationPolicyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPositionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRelativeToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITargetAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITargetFactoryAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlAddChild",
-        clazz               =   "com.googlecode.jsfFlex.states.ext.MXMLUIAddChild",
-        type                =   "com.googlecode.jsfFlex.MXMLUIAddChild",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.states.ext.MXMLUIAddChildTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLAddChild"
+        name                =   "jf:flexAddChild",
+        clazz               =   "com.googlecode.jsfFlex.states.ext.FlexUIAddChild",
+        type                =   "com.googlecode.jsfFlex.FlexUIAddChild",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.states.ext.FlexUIAddChildTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexAddChild"
 )
-public abstract class AbstractMXMLUIAddChild 
-						extends MXMLUISimpleBase 
-                        implements _MXMLUITargetAttribute, _MXMLUITargetFactoryAttribute, _MXMLUICreationPolicyAttribute, 
-                        _MXMLUIPositionAttribute, _MXMLUIRelativeToAttribute {
+public abstract class AbstractFlexUIAddChild 
+						extends AbstractFlexUISimpleBase 
+                        implements IFlexUITargetAttribute, IFlexUITargetFactoryAttribute, IFlexUICreationPolicyAttribute, 
+                        IFlexUIPositionAttribute, IFlexUIRelativeToAttribute {
 	
 	/**
 	 * Id of the component.

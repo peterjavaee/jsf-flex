@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="menus", returnType="java.lang.String", longDesc="An Array containing the Menu objects for this MenuBar.")
 @JSFComponent
-public interface _MXMLUIMenusAttribute {
+public interface IFlexUIMenusAttribute {
     
 }

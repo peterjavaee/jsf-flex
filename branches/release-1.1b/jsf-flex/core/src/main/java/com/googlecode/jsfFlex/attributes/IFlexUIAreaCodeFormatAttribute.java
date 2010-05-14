@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="areaCodeFormat", returnType="java.lang.String", longDesc="Default format for the area code when the areacode property is rendered by a seven-digit format.")
 @JSFComponent
-public interface _MXMLUIAreaCodeFormatAttribute {
+public interface IFlexUIAreaCodeFormatAttribute {
     
 }

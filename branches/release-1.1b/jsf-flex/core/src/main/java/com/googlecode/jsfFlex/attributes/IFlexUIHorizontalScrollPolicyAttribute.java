@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="horizontalScrollPolicy", returnType="java.lang.String", longDesc="Specifies whether the horizontal scroll bar is always present,always absent, or automatically added when needed.")
 @JSFComponent
-public interface _MXMLUIHorizontalScrollPolicyAttribute {
+public interface IFlexUIHorizontalScrollPolicyAttribute {
     
 }

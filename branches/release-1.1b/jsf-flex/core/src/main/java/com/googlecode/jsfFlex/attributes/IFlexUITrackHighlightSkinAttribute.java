@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="trackHighlightSkin", returnType="java.lang.String", longDesc="The skin for the slider track when it is selected.")
 @JSFComponent
-public interface _MXMLUITrackHighlightSkinAttribute {
+public interface IFlexUITrackHighlightSkinAttribute {
     
 }

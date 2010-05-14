@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="unload", returnType="java.lang.String", longDesc="Dispatched when a loaded object is removed, or when a second load is performed by the same SWFLoader control and the original content is removed prior to the new load beginning.")
 @JSFComponent
-public interface _MXMLUIUnloadAttribute {
+public interface IFlexUIUnloadAttribute {
     
 }

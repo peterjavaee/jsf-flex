@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="lockedRowCount", returnType="java.lang.String", longDesc="The index of the first row in the control that scrolls.")
 @JSFComponent
-public interface _MXMLUILockedRowCountAttribute {
+public interface IFlexUILockedRowCountAttribute {
     
 }

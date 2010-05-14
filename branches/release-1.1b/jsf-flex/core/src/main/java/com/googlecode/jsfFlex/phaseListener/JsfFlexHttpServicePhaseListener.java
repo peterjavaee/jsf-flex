@@ -52,11 +52,11 @@ public class JsfFlexHttpServicePhaseListener implements PhaseListener {
 	private static final String SERVLET_RAW_RESULT_FORMAT = "raw";
 	private static final String SERVLET_XML_RESULT_FORMAT = "xml";
 	
-    private static final _ServiceRequestDataRetrieverFlusher ARRAY_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new ArrayServiceRequestDataRetrieverFlusher();
-	private static final _ServiceRequestDataRetrieverFlusher NAME_VALUE_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new NameValueServiceRequestDataRetrieverFlusher();
-    private static final _ServiceRequestDataRetrieverFlusher OBJECT_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new ObjectServiceRequestDataRetrieverFlusher();
-	private static final _ServiceRequestDataRetrieverFlusher RAW_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new RawServiceRequestDataRetrieverFlusher();
-	private static final _ServiceRequestDataRetrieverFlusher XML_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new XMLServiceRequestDataRetrieverFlusher();
+    private static final AbstractServiceRequestDataRetrieverFlusher ARRAY_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new ArrayServiceRequestDataRetrieverFlusher();
+	private static final AbstractServiceRequestDataRetrieverFlusher NAME_VALUE_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new NameValueServiceRequestDataRetrieverFlusher();
+    private static final AbstractServiceRequestDataRetrieverFlusher OBJECT_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new ObjectServiceRequestDataRetrieverFlusher();
+	private static final AbstractServiceRequestDataRetrieverFlusher RAW_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new RawServiceRequestDataRetrieverFlusher();
+	private static final AbstractServiceRequestDataRetrieverFlusher XML_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new XMLServiceRequestDataRetrieverFlusher();
 	
 	public void afterPhase(PhaseEvent event) {
 		FacesContext context = event.getFacesContext();
@@ -86,7 +86,7 @@ public class JsfFlexHttpServicePhaseListener implements PhaseListener {
         logMessage.append(servletReturnMethod);
         logMessage.append(" ] ");
         _log.info(logMessage.toString());
-		_ServiceRequestDataRetrieverFlusher serviceRequestDataRetrieverFlusher = null;
+		AbstractServiceRequestDataRetrieverFlusher serviceRequestDataRetrieverFlusher = null;
 		
         if(servletReturnMethod.equals(SERVLET_ARRAY_RESULT_FORMAT)){
             serviceRequestDataRetrieverFlusher = ARRAY_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER;

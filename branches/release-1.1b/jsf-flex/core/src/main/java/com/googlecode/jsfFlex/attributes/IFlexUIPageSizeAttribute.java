@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="pageSize", returnType="java.lang.String", longDesc="The number of lines equivalent to one page.")
 @JSFComponent
-public interface _MXMLUIPageSizeAttribute {
+public interface IFlexUIPageSizeAttribute {
     
 }

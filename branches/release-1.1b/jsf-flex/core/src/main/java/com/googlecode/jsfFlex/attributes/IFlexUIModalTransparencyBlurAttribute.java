@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="modalTransparencyBlur", returnType="java.lang.String", longDesc="The blur applied to the application while a modal window is open. A Blur effects oftens the details of an image. The default value is 3.")
 @JSFComponent
-public interface _MXMLUIModalTransparencyBlurAttribute {
+public interface IFlexUIModalTransparencyBlurAttribute {
     
 }

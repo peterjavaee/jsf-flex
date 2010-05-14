@@ -25,26 +25,26 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComboBaseTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComboBaseTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLInput",
-		type="com.googlecode.jsfFlex.MXMLColorPicker"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexInput",
+		type="com.googlecode.jsfFlex.FlexColorPicker"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="ColorPicker",
-		mxmlComponentPackage="mx.controls",
-		mxmlComponentNodeAttributes={
-				@FlexComponentNodeAttribute(
+@IJsfFlexAttributeProperties(
+		componentName="ColorPicker",
+		componentPackage="mx.controls",
+		componentNodeAttributes={
+				@IFlexComponentNodeAttribute(
 						htmlType="input",
 						typeAttributeValue="hidden",
 						valueAttributeValue="selectedColor",
@@ -57,60 +57,60 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="colorField"),
-				@JsfFlexAttribute(attribute="labelField"),
-				@JsfFlexAttribute(attribute="showTextField"),
-				@JsfFlexAttribute(attribute="borderColor"),
-				@JsfFlexAttribute(attribute="closeDuration"),
-				@JsfFlexAttribute(attribute="closeEasingFunction"),
-				@JsfFlexAttribute(attribute="color"),
-                @JsfFlexAttribute(attribute="disabledIconColor"),
-				@JsfFlexAttribute(attribute="fillAlphas"),
-				@JsfFlexAttribute(attribute="fillColors"),
-				@JsfFlexAttribute(attribute="focusAlpha"),
-				@JsfFlexAttribute(attribute="focusRoundedCorners"),
-				@JsfFlexAttribute(attribute="fontAntiAliasType"),
-				@JsfFlexAttribute(attribute="fontFamily"),
-				@JsfFlexAttribute(attribute="fontGridFitType"),
-				@JsfFlexAttribute(attribute="fontSharpness"),
-				@JsfFlexAttribute(attribute="fontSize"),
-				@JsfFlexAttribute(attribute="fontStyle"),
-				@JsfFlexAttribute(attribute="fontThickness"),
-				@JsfFlexAttribute(attribute="fontWeight"),
-				@JsfFlexAttribute(attribute="highlightAlphas"),
-                @JsfFlexAttribute(attribute="iconColor"),
-                @JsfFlexAttribute(attribute="leading"),
-                @JsfFlexAttribute(attribute="openDuration"),
-				@JsfFlexAttribute(attribute="openEasingFunction"),
-				@JsfFlexAttribute(attribute="paddingBottom"),
-				@JsfFlexAttribute(attribute="paddingLeft"),
-				@JsfFlexAttribute(attribute="paddingRight"),
-				@JsfFlexAttribute(attribute="paddingTop"),
-				@JsfFlexAttribute(attribute="swatchBorderColor"),
-				@JsfFlexAttribute(attribute="swatchBorderSize"),
-				@JsfFlexAttribute(attribute="swatchPanelStyleName"),
-				@JsfFlexAttribute(attribute="textAlign"),
-				@JsfFlexAttribute(attribute="textDecoration"),
-				@JsfFlexAttribute(attribute="textIndent"),
-				@JsfFlexAttribute(attribute="change"),
-				@JsfFlexAttribute(attribute="close"),
-				@JsfFlexAttribute(attribute="enter"),
-				@JsfFlexAttribute(attribute="itemRollOut"),
-				@JsfFlexAttribute(attribute="itemRollOver"),
-				@JsfFlexAttribute(attribute="open")
+				@IJsfFlexAttribute(attribute="colorField"),
+				@IJsfFlexAttribute(attribute="labelField"),
+				@IJsfFlexAttribute(attribute="showTextField"),
+				@IJsfFlexAttribute(attribute="borderColor"),
+				@IJsfFlexAttribute(attribute="closeDuration"),
+				@IJsfFlexAttribute(attribute="closeEasingFunction"),
+				@IJsfFlexAttribute(attribute="color"),
+                @IJsfFlexAttribute(attribute="disabledIconColor"),
+				@IJsfFlexAttribute(attribute="fillAlphas"),
+				@IJsfFlexAttribute(attribute="fillColors"),
+				@IJsfFlexAttribute(attribute="focusAlpha"),
+				@IJsfFlexAttribute(attribute="focusRoundedCorners"),
+				@IJsfFlexAttribute(attribute="fontAntiAliasType"),
+				@IJsfFlexAttribute(attribute="fontFamily"),
+				@IJsfFlexAttribute(attribute="fontGridFitType"),
+				@IJsfFlexAttribute(attribute="fontSharpness"),
+				@IJsfFlexAttribute(attribute="fontSize"),
+				@IJsfFlexAttribute(attribute="fontStyle"),
+				@IJsfFlexAttribute(attribute="fontThickness"),
+				@IJsfFlexAttribute(attribute="fontWeight"),
+				@IJsfFlexAttribute(attribute="highlightAlphas"),
+                @IJsfFlexAttribute(attribute="iconColor"),
+                @IJsfFlexAttribute(attribute="leading"),
+                @IJsfFlexAttribute(attribute="openDuration"),
+				@IJsfFlexAttribute(attribute="openEasingFunction"),
+				@IJsfFlexAttribute(attribute="paddingBottom"),
+				@IJsfFlexAttribute(attribute="paddingLeft"),
+				@IJsfFlexAttribute(attribute="paddingRight"),
+				@IJsfFlexAttribute(attribute="paddingTop"),
+				@IJsfFlexAttribute(attribute="swatchBorderColor"),
+				@IJsfFlexAttribute(attribute="swatchBorderSize"),
+				@IJsfFlexAttribute(attribute="swatchPanelStyleName"),
+				@IJsfFlexAttribute(attribute="textAlign"),
+				@IJsfFlexAttribute(attribute="textDecoration"),
+				@IJsfFlexAttribute(attribute="textIndent"),
+				@IJsfFlexAttribute(attribute="change"),
+				@IJsfFlexAttribute(attribute="close"),
+				@IJsfFlexAttribute(attribute="enter"),
+				@IJsfFlexAttribute(attribute="itemRollOut"),
+				@IJsfFlexAttribute(attribute="itemRollOver"),
+				@IJsfFlexAttribute(attribute="open")
 		}
 )
-public final class MXMLColorPickerRenderer extends MXMLComboBaseTemplateRenderer {
+public final class FlexColorPickerRenderer extends AbstractFlexComboBaseTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLColorPickerRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLColorPickerRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexColorPickerRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexColorPickerRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

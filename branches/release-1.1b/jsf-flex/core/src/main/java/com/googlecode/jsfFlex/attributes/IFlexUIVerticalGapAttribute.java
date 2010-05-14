@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="verticalGap", returnType="java.lang.String", longDesc="Vertical gap.")
 @JSFComponent
-public interface _MXMLUIVerticalGapAttribute {
+public interface IFlexUIVerticalGapAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="wrongDayError", returnType="java.lang.String", longDesc="Error message when the day is invalid.")
 @JSFComponent
-public interface _MXMLUIWrongDayErrorAttribute {
+public interface IFlexUIWrongDayErrorAttribute {
     
 }

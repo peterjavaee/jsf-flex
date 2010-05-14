@@ -20,22 +20,22 @@ package com.googlecode.jsfFlex.container.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUITitleAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUITitleAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlPanel",
-        clazz               =   "com.googlecode.jsfFlex.container.ext.MXMLUIPanel",
-        type                =   "com.googlecode.jsfFlex.MXMLUIPanel",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.MXMLUIPanelTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLPanel"
+        name                =   "jf:flexPanel",
+        clazz               =   "com.googlecode.jsfFlex.container.ext.FlexUIPanel",
+        type                =   "com.googlecode.jsfFlex.FlexUIPanel",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.FlexUIPanelTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexPanel"
 )
-public abstract class AbstractMXMLUIPanel 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIPanelAttributes, _MXMLUITitleAttribute{
+public abstract class AbstractFlexUIPanel 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIPanelAttributes, IFlexUITitleAttribute{
 	
 }

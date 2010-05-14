@@ -27,13 +27,13 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIStaticPropertyBase",
-        type                =   "com.googlecode.jsfFlex.MXMLUIStaticPropertyBase",
-        family              =   "javax.faces.MXMLProperty",
-        desc                =   "Base component for static MXMLProperty component",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.properties.FlexUIStaticPropertyBase",
+        type                =   "com.googlecode.jsfFlex.FlexUIStaticPropertyBase",
+        family              =   "javax.faces.FlexProperty",
+        desc                =   "Base component for static FlexProperty component",
         template            =   true
 )
-public abstract class _MXMLUIStaticPropertyBase 
+public abstract class AbstractFlexUIStaticPropertyBase 
 						extends UIComponentBase {
 	
 	/**

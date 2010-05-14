@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="requiredFieldError", returnType="java.lang.String", longDesc="Error message when a value is missing and the required property is true.")
 @JSFComponent
-public interface _MXMLUIRequiredFieldErrorAttribute {
+public interface IFlexUIRequiredFieldErrorAttribute {
     
 }

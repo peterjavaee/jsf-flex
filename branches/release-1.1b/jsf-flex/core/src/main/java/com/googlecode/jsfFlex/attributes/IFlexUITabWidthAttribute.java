@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="tabWidth", returnType="java.lang.String", longDesc="Width of each tab, in pixels.")
 @JSFComponent
-public interface _MXMLUITabWidthAttribute {
+public interface IFlexUITabWidthAttribute {
     
 }

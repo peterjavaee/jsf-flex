@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="menuShow", returnType="java.lang.String", longDesc="Dispatched when a menu or submenu opens, or the mouse pointer rolls over an item with no drop-down menu.")
 @JSFComponent
-public interface _MXMLUIMenuShowAttribute {
+public interface IFlexUIMenuShowAttribute {
     
 }

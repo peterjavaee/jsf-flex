@@ -21,7 +21,7 @@ package com.googlecode.jsfFlex.shared.model.beans;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * @author Ji Hoon Kim
@@ -70,9 +70,9 @@ abstract class AbstractAsynchronousEventBean {
     
     @Override
     public int hashCode() {
-        int hashCodeVal = MXMLConstants.HASH_CODE_INIT_VALUE;
-        hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _sourceComponentId.hashCode();
-        hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _targetComponentId.hashCode();
+        int hashCodeVal = FlexConstants.HASH_CODE_INIT_VALUE;
+        hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _sourceComponentId.hashCode();
+        hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _targetComponentId.hashCode();
         
         return hashCodeVal;
     }

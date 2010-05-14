@@ -25,41 +25,41 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.container.MXMLBoxTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.container.AbstractFlexBoxTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLSimple",
-		type="com.googlecode.jsfFlex.MXMLApplicationControlBar"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexSimple",
+		type="com.googlecode.jsfFlex.FlexApplicationControlBar"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="ApplicationControlBar",
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentName="ApplicationControlBar",
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="dock"),
-				@JsfFlexAttribute(attribute="fillAlphas"),
-				@JsfFlexAttribute(attribute="fillColors")
+				@IJsfFlexAttribute(attribute="dock"),
+				@IJsfFlexAttribute(attribute="fillAlphas"),
+				@IJsfFlexAttribute(attribute="fillColors")
 		}
 )
-public final class MXMLApplicationControlBarRenderer extends MXMLBoxTemplateRenderer {
+public final class FlexApplicationControlBarRenderer extends AbstractFlexBoxTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-        _MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLApplicationControlBarRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLApplicationControlBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexApplicationControlBarRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexApplicationControlBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

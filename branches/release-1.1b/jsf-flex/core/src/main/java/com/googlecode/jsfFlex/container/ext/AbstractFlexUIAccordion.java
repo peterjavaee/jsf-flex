@@ -24,47 +24,47 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIChangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFillAlphasAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFillColorsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHeaderHeightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHeaderRendererAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHeaderStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHistoryManagementEnabledAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalGapAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOpenDurationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOpenEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIResizeToContentAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedFillColorsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextRollOverColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextSelectedColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalGapAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIChangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFillAlphasAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFillColorsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusAlphaAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusRoundedCornersAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHeaderHeightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHeaderRendererAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHeaderStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHistoryManagementEnabledAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalGapAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOpenDurationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOpenEasingFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIResizeToContentAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedFillColorsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextRollOverColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextSelectedColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalGapAttribute;
 
 /**
  * Since Accordion is written to maintain it's state [which container is chosen], it
- * will extend directly from MXMLUIInputBase and not of a Container
+ * will extend directly from FlexUISelectedIndexBase and not of a Container
  * 
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlAccordion",
-        clazz               =   "com.googlecode.jsfFlex.container.ext.MXMLUIAccordion",
-        type                =   "com.googlecode.jsfFlex.MXMLUIAccordion",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.MXMLUIAccordionTag",
-        family              =   "javax.faces.MXMLInput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLAccordion",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+        name                =   "jf:flexAccordion",
+        clazz               =   "com.googlecode.jsfFlex.container.ext.FlexUIAccordion",
+        type                =   "com.googlecode.jsfFlex.FlexUIAccordion",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.FlexUIAccordionTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexAccordion",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
 )
-public abstract class AbstractMXMLUIAccordion 
-						extends com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase
-						implements _MXMLUIContainerAttributes, _MXMLUIHeaderRendererAttribute, _MXMLUIHistoryManagementEnabledAttribute,
-                        _MXMLUIResizeToContentAttribute, _MXMLUIFillAlphasAttribute, _MXMLUIFillColorsAttribute, 
-                        _MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, _MXMLUIHeaderHeightAttribute, 
-                        _MXMLUIHeaderStyleNameAttribute, _MXMLUIHorizontalGapAttribute, _MXMLUIOpenDurationAttribute, 
-                        _MXMLUIOpenEasingFunctionAttribute, _MXMLUISelectedFillColorsAttribute, _MXMLUITextRollOverColorAttribute, 
-                        _MXMLUITextSelectedColorAttribute, _MXMLUIVerticalGapAttribute, _MXMLUIChangeAttribute {
+public abstract class AbstractFlexUIAccordion 
+						extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase
+						implements IFlexUIContainerAttributes, IFlexUIHeaderRendererAttribute, IFlexUIHistoryManagementEnabledAttribute,
+                        IFlexUIResizeToContentAttribute, IFlexUIFillAlphasAttribute, IFlexUIFillColorsAttribute, 
+                        IFlexUIFocusAlphaAttribute, IFlexUIFocusRoundedCornersAttribute, IFlexUIHeaderHeightAttribute, 
+                        IFlexUIHeaderStyleNameAttribute, IFlexUIHorizontalGapAttribute, IFlexUIOpenDurationAttribute, 
+                        IFlexUIOpenEasingFunctionAttribute, IFlexUISelectedFillColorsAttribute, IFlexUITextRollOverColorAttribute, 
+                        IFlexUITextSelectedColorAttribute, IFlexUIVerticalGapAttribute, IFlexUIChangeAttribute {
 	
 	public void encodeBegin(FacesContext context) throws IOException {
 		/*

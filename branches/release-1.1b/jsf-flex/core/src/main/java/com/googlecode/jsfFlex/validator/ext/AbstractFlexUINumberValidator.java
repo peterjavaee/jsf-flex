@@ -20,46 +20,46 @@ package com.googlecode.jsfFlex.validator.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIAllowNegativeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDecimalPointCountErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDecimalSeparatorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDomainAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIExceedsMaxErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIntegerErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIInvalidCharErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIInvalidFormatCharsErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILowerThanMinErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMaxValueAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMinValueAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUINegativeErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPrecisionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPrecisionErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISeparationErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIThousandsSeparatorAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIAllowNegativeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDecimalPointCountErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDecimalSeparatorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDomainAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIExceedsMaxErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIntegerErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIInvalidCharErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIInvalidFormatCharsErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILowerThanMinErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMaxValueAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMinValueAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUINegativeErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPrecisionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPrecisionErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISeparationErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIThousandsSeparatorAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
- * One thing to note about MXML Formatter and Validator is that they are not actually converters or validators<br>
+ * One thing to note about Flex Formatter and Validator is that they are not actually converters or validators<br>
  * respectively but actually are components. This is so because they perform the formatting and validation<br>
  * as Flex components on the client side and not on the server side.<br>
  * 
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlNumberValidator",
-        clazz               =   "com.googlecode.jsfFlex.validator.ext.MXMLUINumberValidator",
-        type                =   "com.googlecode.jsfFlex.MXMLUINumberValidator",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.validator.ext.MXMLUINumberValidatorTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLNumberValidator"
+        name                =   "jf:flexNumberValidator",
+        clazz               =   "com.googlecode.jsfFlex.validator.ext.FlexUINumberValidator",
+        type                =   "com.googlecode.jsfFlex.FlexUINumberValidator",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.validator.ext.FlexUINumberValidatorTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexNumberValidator"
 )
-public abstract class AbstractMXMLUINumberValidator 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIValidatorAttributes, _MXMLUIAllowNegativeAttribute, _MXMLUIDecimalPointCountErrorAttribute, 
-                        _MXMLUIDecimalSeparatorAttribute, _MXMLUIDomainAttribute, _MXMLUIExceedsMaxErrorAttribute, 
-                        _MXMLUIIntegerErrorAttribute, _MXMLUIInvalidCharErrorAttribute, _MXMLUIInvalidFormatCharsErrorAttribute, 
-                        _MXMLUILowerThanMinErrorAttribute, _MXMLUIMaxValueAttribute, _MXMLUIMinValueAttribute, 
-                        _MXMLUINegativeErrorAttribute, _MXMLUIPrecisionAttribute, _MXMLUIPrecisionErrorAttribute, 
-                        _MXMLUISeparationErrorAttribute, _MXMLUIThousandsSeparatorAttribute {
+public abstract class AbstractFlexUINumberValidator 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIValidatorAttributes, IFlexUIAllowNegativeAttribute, IFlexUIDecimalPointCountErrorAttribute, 
+                        IFlexUIDecimalSeparatorAttribute, IFlexUIDomainAttribute, IFlexUIExceedsMaxErrorAttribute, 
+                        IFlexUIIntegerErrorAttribute, IFlexUIInvalidCharErrorAttribute, IFlexUIInvalidFormatCharsErrorAttribute, 
+                        IFlexUILowerThanMinErrorAttribute, IFlexUIMaxValueAttribute, IFlexUIMinValueAttribute, 
+                        IFlexUINegativeErrorAttribute, IFlexUIPrecisionAttribute, IFlexUIPrecisionErrorAttribute, 
+                        IFlexUISeparationErrorAttribute, IFlexUIThousandsSeparatorAttribute {
 	
 }

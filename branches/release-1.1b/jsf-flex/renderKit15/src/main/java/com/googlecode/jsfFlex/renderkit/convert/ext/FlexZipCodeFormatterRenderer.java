@@ -25,39 +25,39 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.convert.MXMLFormatterTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.convert.AbstractFlexFormatterTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLSimple",
-		type="com.googlecode.jsfFlex.MXMLZipCodeFormatter"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexSimple",
+		type="com.googlecode.jsfFlex.FlexZipCodeFormatter"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="ZipCodeFormatter",
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentName="ZipCodeFormatter",
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="formatString")
+				@IJsfFlexAttribute(attribute="formatString")
 		}
 )
-public final class MXMLZipCodeFormatterRenderer extends MXMLFormatterTemplateRenderer {
+public final class FlexZipCodeFormatterRenderer extends AbstractFlexFormatterTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-        _MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLZipCodeFormatterRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLZipCodeFormatterRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexZipCodeFormatterRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexZipCodeFormatterRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="right", returnType="java.lang.String", longDesc="The horizontal distance in pixels from the right edge of the component to the right edge of its parent container.")
 @JSFComponent
-public interface _MXMLUIRightAttribute {
+public interface IFlexUIRightAttribute {
     
 }

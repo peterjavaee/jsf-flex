@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="backgroundGradientAlphas", returnType="java.lang.String", longDesc="Specifies the alpha transparency values used for the background gradient fill of the application.")
 @JSFComponent
-public interface _MXMLUIBackgroundGradientAlphasAttribute {
+public interface IFlexUIBackgroundGradientAlphasAttribute {
     
 }

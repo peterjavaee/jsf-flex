@@ -25,26 +25,26 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLSliderTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexSliderTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLInput",
-		type="com.googlecode.jsfFlex.MXMLVSlider"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexInput",
+		type="com.googlecode.jsfFlex.FlexVSlider"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="VSlider",
-		mxmlComponentPackage="mx.controls",
-		mxmlComponentNodeAttributes={
-				@FlexComponentNodeAttribute(
+@IJsfFlexAttributeProperties(
+		componentName="VSlider",
+		componentPackage="mx.controls",
+		componentNodeAttributes={
+				@IFlexComponentNodeAttribute(
 						htmlType="input",
 						typeAttributeValue="hidden",
 						valueAttributeValue="value",
@@ -57,19 +57,19 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		},
 
 		jsfFlexAttributes={
-                @JsfFlexAttribute(attribute="dataTipPlacement")      
+                @IJsfFlexAttribute(attribute="dataTipPlacement")      
         }
 )
-public final class MXMLVSliderRenderer extends MXMLSliderTemplateRenderer {
+public final class FlexVSliderRenderer extends AbstractFlexSliderTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.createPreMxml(componentMXML, MXMLVSliderRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.createPreMxml(componentFlex, FlexVSliderRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

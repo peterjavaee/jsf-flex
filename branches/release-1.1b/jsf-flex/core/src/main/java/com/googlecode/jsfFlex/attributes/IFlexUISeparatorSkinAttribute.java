@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="separatorSkin", returnType="java.lang.String", longDesc="Seperator symbol between LinkButton controls in the LinkBar.")
 @JSFComponent
-public interface _MXMLUISeparatorSkinAttribute {
+public interface IFlexUISeparatorSkinAttribute {
     
 }

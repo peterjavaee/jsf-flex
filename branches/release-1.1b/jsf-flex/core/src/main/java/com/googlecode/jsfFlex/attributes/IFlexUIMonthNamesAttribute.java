@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="monthNames", returnType="java.lang.String", longDesc="Names of the months displayed at the top of the DateChooser control.")
 @JSFComponent
-public interface _MXMLUIMonthNamesAttribute {
+public interface IFlexUIMonthNamesAttribute {
     
 }

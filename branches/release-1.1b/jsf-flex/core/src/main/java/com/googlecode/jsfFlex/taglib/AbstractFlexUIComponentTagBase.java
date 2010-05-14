@@ -39,9 +39,9 @@ import org.apache.commons.logging.LogFactory;
  * 
  * @author Ji Hoon Kim
  */
-public abstract class MXMLUIComponentTagBase extends UIComponentELTag {
+public abstract class AbstractFlexUIComponentTagBase extends UIComponentELTag {
 	
-	private final static Log _log = LogFactory.getLog(MXMLUIComponentTagBase.class);
+	private final static Log _log = LogFactory.getLog(AbstractFlexUIComponentTagBase.class);
 	
 	private static final String CONVERTER_ATTR = "converter";
 	private static final String VALUE_ATTR = "value";

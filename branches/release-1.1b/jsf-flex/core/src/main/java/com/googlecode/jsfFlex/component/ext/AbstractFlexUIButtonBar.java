@@ -20,23 +20,23 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedIndexAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlButtonBar",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIButtonBar",
-        type                =   "com.googlecode.jsfFlex.MXMLUIButtonBar",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIButtonBarTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLButtonBar"
+        name                =   "jf:flexButtonBar",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIButtonBar",
+        type                =   "com.googlecode.jsfFlex.FlexUIButtonBar",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIButtonBarTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexButtonBar"
 )
-public abstract class AbstractMXMLUIButtonBar 
-							extends MXMLUISimpleBase 
-							implements _MXMLUIButtonBarAttributes, _MXMLUIDataProviderAttribute, _MXMLUISelectedIndexAttribute {
+public abstract class AbstractFlexUIButtonBar 
+							extends AbstractFlexUISimpleBase 
+							implements IFlexUIButtonBarAttributes, IFlexUIDataProviderAttribute, IFlexUISelectedIndexAttribute {
     
 }

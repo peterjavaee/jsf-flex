@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="xmlDecode", returnType="java.lang.String", longDesc="ActionScript function used to decode a service result from XML.")
 @JSFComponent
-public interface _MXMLUIXmlDecodeAttribute {
+public interface IFlexUIXmlDecodeAttribute {
     
 }

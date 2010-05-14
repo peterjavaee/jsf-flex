@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="initialize", returnType="java.lang.String", longDesc="Dispatched when the component has finished its construction and has all initialization properties set.")
 @JSFComponent
-public interface _MXMLUIInitializeAttribute {
+public interface IFlexUIInitializeAttribute {
     
 }

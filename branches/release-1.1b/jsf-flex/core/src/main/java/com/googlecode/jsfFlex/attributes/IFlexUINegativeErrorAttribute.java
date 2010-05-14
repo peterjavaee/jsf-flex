@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="negativeError", returnType="java.lang.String", longDesc="Error message when the value is negative and the allowNegative property is false.")
 @JSFComponent
-public interface _MXMLUINegativeErrorAttribute {
+public interface IFlexUINegativeErrorAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="loops", returnType="java.lang.String", longDesc="The number of times to play the sound in a loop, where a value of 0 means play the effect once, a value of 1 means play the effect twice, and so on.")
 @JSFComponent
-public interface _MXMLUILoopsAttribute {
+public interface IFlexUILoopsAttribute {
     
 }

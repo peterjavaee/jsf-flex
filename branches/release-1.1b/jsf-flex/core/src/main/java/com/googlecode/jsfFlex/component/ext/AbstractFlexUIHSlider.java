@@ -20,23 +20,23 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIDataTipPlacementAttribute;
-import com.googlecode.jsfFlex.component.MXMLUIValueBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataTipPlacementAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUIValueBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlHSlider",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIHSlider",
-        type                =   "com.googlecode.jsfFlex.MXMLUIHSlider",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIHSliderTag",
-        family              =   "javax.faces.MXMLInput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLHSlider",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+        name                =   "jf:flexHSlider",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIHSlider",
+        type                =   "com.googlecode.jsfFlex.FlexUIHSlider",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIHSliderTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexHSlider",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
 )
-public abstract class AbstractMXMLUIHSlider 
-						extends MXMLUIValueBase
-						implements _MXMLUISliderAttributes, _MXMLUIDataTipPlacementAttribute {
+public abstract class AbstractFlexUIHSlider 
+						extends AbstractFlexUIValueBase
+						implements IFlexUISliderAttributes, IFlexUIDataTipPlacementAttribute {
 	
 }

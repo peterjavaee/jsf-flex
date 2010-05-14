@@ -26,9 +26,9 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
+import com.googlecode.jsfFlex.shared.adapter.IFlexApplicationContract;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 import com.googlecode.jsfFlex.shared.tasks.ant.CopyLocaleTask;
 import com.googlecode.jsfFlex.shared.tasks.ant.DeleteTask;
 import com.googlecode.jsfFlex.shared.tasks.ant.EchoTask;
@@ -38,14 +38,14 @@ import com.googlecode.jsfFlex.shared.tasks.ant.MkdirTask;
 import com.googlecode.jsfFlex.shared.tasks.ant.RenameTask;
 import com.googlecode.jsfFlex.shared.tasks.ant.ReplaceTextTask;
 import com.googlecode.jsfFlex.shared.tasks.ant.SWCTask;
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
- * An implementation of _FlexTaskRunner using ANT.<br>
+ * An implementation of IFlexTaskRunner using ANT.<br>
  * 
  * @author Ji Hoon Kim
  */
-final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRunner {
+final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements IFlexTaskRunner {
 	
 	private final static Log _log = LogFactory.getLog(AntFlexTaskRunnerImpl.class);
 	
@@ -89,7 +89,7 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
 		copyFile(targetAbsolutePath, copyTo, null);
 	}
 	
-	public void createSWF(String mxmlFile, String swfPath, _MXMLApplicationContract componentMXML, String flexSDKRootPath, String locale, String localePath, String queueTaskId) {
+	public void createSWF(String mxmlFile, String swfPath, IFlexApplicationContract componentMXML, String flexSDKRootPath, String locale, String localePath, String queueTaskId) {
 		MXMLCTask swfCreator = new MXMLCTask(mxmlFile, swfPath, componentMXML, flexSDKRootPath).locale(locale).localePath(localePath);
 		if(queueTaskId != null){
             queueFutureTask(queueTaskId, swfCreator);
@@ -216,18 +216,18 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements _FlexTaskRun
         addTask(addUIComponentTemplate);
 	}
 	
-	public void writeBodyContent(_MXMLContract componentMXML) {
+	public void writeBodyContent(IFlexContract componentMXML) {
 		
-		Object stringBodyContent = componentMXML.getAttributes().get(MXMLConstants.TAG_BODY_CONTENT_ATTR);
+		Object stringBodyContent = componentMXML.getAttributes().get(FlexConstants.TAG_BODY_CONTENT_ATTR);
 		String stringBodyContentToReplace = stringBodyContent == null ? "" : (String) stringBodyContent;
 		ReplaceTextTask writeBodyContent = new ReplaceTextTask(componentMXML.getAbsolutePathToPreMxmlFile());
-		writeBodyContent.addTokenValue(MXMLConstants.TAG_BODY_CONTENT_TOKEN, stringBodyContentToReplace);
+		writeBodyContent.addTokenValue(FlexConstants.TAG_BODY_CONTENT_TOKEN, stringBodyContentToReplace);
 		writeBodyContent.multiLineReplace(true);
         addTask(writeBodyContent);
 	}
 	
-	public final _FileManipulatorTaskRunner getFileManipulatorTaskRunner(){
-		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+	public final AbstractFileManipulatorTaskRunner getFileManipulatorTaskRunner(){
+		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
 		return mxmlContext.getFileManipulatorRunner();
 	}
 		

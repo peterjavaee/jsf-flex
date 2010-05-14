@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="headerText", returnType="java.lang.String", longDesc="Text for the header of this column.")
 @JSFComponent
-public interface _MXMLUIHeaderTextAttribute {
+public interface IFlexUIHeaderTextAttribute {
     
 }

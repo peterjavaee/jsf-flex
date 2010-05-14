@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="missingPeriodInDomainError", returnType="java.lang.String", longDesc="Error message when there is no period in the domain.")
 @JSFComponent
-public interface _MXMLUIMissingPeriodInDomainErrorAttribute {
+public interface IFlexUIMissingPeriodInDomainErrorAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="sortDescending", returnType="java.lang.String", longDesc="A flag that indicates, if the column is the field used the sort the dataprovider, whether the sort is in descending order.")
 @JSFComponent
-public interface _MXMLUISortDescendingAttribute {
+public interface IFlexUISortDescendingAttribute {
     
 }

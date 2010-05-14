@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dataTipPrecision", returnType="java.lang.String", longDesc="Number of decimal places to use for the data tip text.")
 @JSFComponent
-public interface _MXMLUIDataTipPrecisionAttribute {
+public interface IFlexUIDataTipPrecisionAttribute {
     
 }

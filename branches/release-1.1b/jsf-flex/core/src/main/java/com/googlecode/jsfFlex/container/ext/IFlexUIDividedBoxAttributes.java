@@ -20,27 +20,27 @@ package com.googlecode.jsfFlex.container.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIDividerAffordanceAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDividerAlphaAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDividerColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDividerDragAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDividerPressAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDividerReleaseAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDividerSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDividerThicknessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalDividerCursorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILiveDraggingAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIResizeToContentAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalDividerCursorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDividerAffordanceAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDividerAlphaAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDividerColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDividerDragAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDividerPressAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDividerReleaseAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDividerSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDividerThicknessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalDividerCursorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILiveDraggingAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIResizeToContentAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalDividerCursorAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIDividedBoxAttributes 
-            extends _MXMLUILiveDraggingAttribute, _MXMLUIResizeToContentAttribute, _MXMLUIDividerAffordanceAttribute, 
-            _MXMLUIDividerAlphaAttribute, _MXMLUIDividerColorAttribute, _MXMLUIDividerSkinAttribute, _MXMLUIDividerThicknessAttribute, 
-            _MXMLUIHorizontalDividerCursorAttribute, _MXMLUIVerticalDividerCursorAttribute, _MXMLUIDividerPressAttribute, 
-            _MXMLUIDividerDragAttribute, _MXMLUIDividerReleaseAttribute, _MXMLUIBoxAttributes {
+interface IFlexUIDividedBoxAttributes 
+            extends IFlexUILiveDraggingAttribute, IFlexUIResizeToContentAttribute, IFlexUIDividerAffordanceAttribute, 
+            IFlexUIDividerAlphaAttribute, IFlexUIDividerColorAttribute, IFlexUIDividerSkinAttribute, IFlexUIDividerThicknessAttribute, 
+            IFlexUIHorizontalDividerCursorAttribute, IFlexUIVerticalDividerCursorAttribute, IFlexUIDividerPressAttribute, 
+            IFlexUIDividerDragAttribute, IFlexUIDividerReleaseAttribute, IFlexUIBoxAttributes {
     
 }

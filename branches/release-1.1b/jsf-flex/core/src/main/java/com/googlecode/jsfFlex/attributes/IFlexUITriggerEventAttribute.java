@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="triggerEvent", returnType="java.lang.String", longDesc="Specifies the event that triggers the validation.")
 @JSFComponent
-public interface _MXMLUITriggerEventAttribute {
+public interface IFlexUITriggerEventAttribute {
     
 }

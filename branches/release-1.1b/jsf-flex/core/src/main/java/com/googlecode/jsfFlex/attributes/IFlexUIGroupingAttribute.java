@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="grouping", returnType="java.lang.String", longDesc="Specifies the Grouping instance applied to the source data.")
 @JSFComponent
-public interface _MXMLUIGroupingAttribute {
+public interface IFlexUIGroupingAttribute {
     
 }

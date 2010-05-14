@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="fromState", returnType="java.lang.String", longDesc="A String specifying the view state that your are changing from when you apply the transition.")
 @JSFComponent
-public interface _MXMLUIFromStateAttribute {
+public interface IFlexUIFromStateAttribute {
     
 }

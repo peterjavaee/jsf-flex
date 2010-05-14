@@ -23,39 +23,39 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="liveDragging"),
-				@JsfFlexAttribute(attribute="resizeToContent"),
-				@JsfFlexAttribute(attribute="dividerAffordance"),
-				@JsfFlexAttribute(attribute="dividerAlpha"),
-				@JsfFlexAttribute(attribute="dividerColor"),
-				@JsfFlexAttribute(attribute="dividerSkin"),
-				@JsfFlexAttribute(attribute="dividerThickness"),
-				@JsfFlexAttribute(attribute="horizontalDividerCursor"),
-				@JsfFlexAttribute(attribute="verticalDividerCursor"),
-				@JsfFlexAttribute(attribute="dividerPress"),
-				@JsfFlexAttribute(attribute="dividerDrag"),
-				@JsfFlexAttribute(attribute="dividerRelease")
+				@IJsfFlexAttribute(attribute="liveDragging"),
+				@IJsfFlexAttribute(attribute="resizeToContent"),
+				@IJsfFlexAttribute(attribute="dividerAffordance"),
+				@IJsfFlexAttribute(attribute="dividerAlpha"),
+				@IJsfFlexAttribute(attribute="dividerColor"),
+				@IJsfFlexAttribute(attribute="dividerSkin"),
+				@IJsfFlexAttribute(attribute="dividerThickness"),
+				@IJsfFlexAttribute(attribute="horizontalDividerCursor"),
+				@IJsfFlexAttribute(attribute="verticalDividerCursor"),
+				@IJsfFlexAttribute(attribute="dividerPress"),
+				@IJsfFlexAttribute(attribute="dividerDrag"),
+				@IJsfFlexAttribute(attribute="dividerRelease")
 		}
 )
-public abstract class MXMLDividedBoxTemplateRenderer extends MXMLBoxTemplateRenderer {
+public abstract class AbstractFlexDividedBoxTemplateRenderer extends AbstractFlexBoxTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLDividedBoxTemplateRenderer.class, componentObj, null);
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(AbstractFlexDividedBoxTemplateRenderer.class, componentObj, null);
 		
 	}
 	

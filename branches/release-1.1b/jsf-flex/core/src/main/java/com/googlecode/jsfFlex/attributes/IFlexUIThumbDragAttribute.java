@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="thumbDrag", returnType="java.lang.String", longDesc="Dispatched when the slider's thumb is pressed and then moved by the mouse.")
 @JSFComponent
-public interface _MXMLUIThumbDragAttribute {
+public interface IFlexUIThumbDragAttribute {
     
 }

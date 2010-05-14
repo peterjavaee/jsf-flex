@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="blurYFrom", returnType="java.lang.String", longDesc="The starting amount of vertical blur.")
 @JSFComponent
-public interface _MXMLUIBlurYFromAttribute {
+public interface IFlexUIBlurYFromAttribute {
     
 }

@@ -21,7 +21,7 @@ package com.googlecode.jsfFlex.shared.tasks;
 /**
  * @author Ji Hoon Kim
  */
-public abstract class _Task {
+public abstract class AbstractTask {
 	
 	protected abstract void performTask();
 	

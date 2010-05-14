@@ -23,29 +23,29 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.MXMLRendererBase;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
+import com.googlecode.jsfFlex.renderkit.FlexRendererBase;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 
 /**
  * @author Ji Hoon Kim
  */
-public abstract class MXMLComponentBaseRenderer extends MXMLRendererBase {
+public abstract class AbstractFlexComponentBaseRenderer extends FlexRendererBase {
 	
 	@Override
 	public void encodeEnd(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeEnd(context, componentObj);
 		
-		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
 		if(mxmlContext.isProductionEnv()){
 			return;
 		}
 		
-		_MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		
-		writer.getFlexTaskRunner().writeBodyContent(componentMXML);
+		writer.getFlexTaskRunner().writeBodyContent(componentFlex);
         
 	}
 	

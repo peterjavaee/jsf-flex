@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="monthProperty", returnType="java.lang.String", longDesc="Name of the month property to validate.")
 @JSFComponent
-public interface _MXMLUIMonthPropertyAttribute {
+public interface IFlexUIMonthPropertyAttribute {
     
 }

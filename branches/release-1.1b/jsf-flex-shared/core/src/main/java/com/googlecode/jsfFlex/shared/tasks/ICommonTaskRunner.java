@@ -3,7 +3,7 @@ package com.googlecode.jsfFlex.shared.tasks;
 import java.io.File;
 import java.io.InputStream;
 
-public interface _CommonTaskRunner extends _TaskRunner {
+public interface ICommonTaskRunner extends ITaskRunner {
 	
 	void unZipArchiveRelative(String file, String dest, String queueTaskId);
 	

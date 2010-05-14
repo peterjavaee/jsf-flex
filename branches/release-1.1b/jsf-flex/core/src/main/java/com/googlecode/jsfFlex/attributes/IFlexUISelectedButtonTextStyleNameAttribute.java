@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="selectedButtonTextStyleName", returnType="java.lang.String", longDesc="Name of CSS style declaration that specifies styles for the text of the selected button.")
 @JSFComponent
-public interface _MXMLUISelectedButtonTextStyleNameAttribute {
+public interface IFlexUISelectedButtonTextStyleNameAttribute {
 	
 }

@@ -24,16 +24,16 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlPopUpButton",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIPopUpButton",
-        type                =   "com.googlecode.jsfFlex.MXMLUIPopUpButton",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIPopUpButtonTag",
-        family              =   "javax.faces.MXMLInput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLPopUpButton",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+        name                =   "jf:flexPopUpButton",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIPopUpButton",
+        type                =   "com.googlecode.jsfFlex.FlexUIPopUpButton",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIPopUpButtonTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexPopUpButton",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
 )
-public abstract class AbstractMXMLUIPopUpButton 
-							extends com.googlecode.jsfFlex.component.MXMLUISelectedBase 
-							implements _MXMLUIPopUpButtonAttributes {
+public abstract class AbstractFlexUIPopUpButton 
+							extends com.googlecode.jsfFlex.component.FlexUISelectedBase 
+							implements IFlexUIPopUpButtonAttributes {
 	
 }

@@ -25,26 +25,26 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.container.MXMLViewStackTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.container.AbstractFlexViewStackTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLInput",
-		type="com.googlecode.jsfFlex.MXMLTabNavigator"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexInput",
+		type="com.googlecode.jsfFlex.FlexTabNavigator"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="TabNavigator",
-		mxmlComponentPackage="mx.containers",
-		mxmlComponentNodeAttributes={
-				@FlexComponentNodeAttribute(
+@IJsfFlexAttributeProperties(
+		componentName="TabNavigator",
+		componentPackage="mx.containers",
+		componentNodeAttributes={
+				@IFlexComponentNodeAttribute(
 						htmlType="input",
 						typeAttributeValue="hidden",
 						valueAttributeValue="selectedIndex",
@@ -57,31 +57,31 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="fillAlphas"),
-				@JsfFlexAttribute(attribute="fillColors"),
-				@JsfFlexAttribute(attribute="firstTabStyleName"),
-				@JsfFlexAttribute(attribute="focusAlpha"),
-				@JsfFlexAttribute(attribute="focusRoundedCorners"),
-				@JsfFlexAttribute(attribute="horizontalAlign"),
-				@JsfFlexAttribute(attribute="lastTabStyleName"),
-				@JsfFlexAttribute(attribute="selectedTabTextStyleName"),
-				@JsfFlexAttribute(attribute="tabHeight"),
-                @JsfFlexAttribute(attribute="tabOffset"),
-				@JsfFlexAttribute(attribute="tabStyleName"),
-				@JsfFlexAttribute(attribute="tabWidth")
+				@IJsfFlexAttribute(attribute="fillAlphas"),
+				@IJsfFlexAttribute(attribute="fillColors"),
+				@IJsfFlexAttribute(attribute="firstTabStyleName"),
+				@IJsfFlexAttribute(attribute="focusAlpha"),
+				@IJsfFlexAttribute(attribute="focusRoundedCorners"),
+				@IJsfFlexAttribute(attribute="horizontalAlign"),
+				@IJsfFlexAttribute(attribute="lastTabStyleName"),
+				@IJsfFlexAttribute(attribute="selectedTabTextStyleName"),
+				@IJsfFlexAttribute(attribute="tabHeight"),
+                @IJsfFlexAttribute(attribute="tabOffset"),
+				@IJsfFlexAttribute(attribute="tabStyleName"),
+				@IJsfFlexAttribute(attribute="tabWidth")
 		}
 )
-public final class MXMLTabNavigatorRenderer extends MXMLViewStackTemplateRenderer {
+public final class FlexTabNavigatorRenderer extends AbstractFlexViewStackTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-        _MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLTabNavigatorRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLTabNavigatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexTabNavigatorRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexTabNavigatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

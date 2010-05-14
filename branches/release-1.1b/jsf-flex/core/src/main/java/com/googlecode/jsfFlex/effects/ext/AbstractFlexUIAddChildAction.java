@@ -21,26 +21,26 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIIndexAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPositionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRelativeToAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIIndexAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPositionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRelativeToAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlAddChildAction",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIAddChildAction",
-        type                =   "com.googlecode.jsfFlex.MXMLUIAddChildAction",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIAddChildActionTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLAddChildAction"
+        name                =   "jf:flexAddChildAction",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIAddChildAction",
+        type                =   "com.googlecode.jsfFlex.FlexUIAddChildAction",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIAddChildActionTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexAddChildAction"
 )
-public abstract class AbstractMXMLUIAddChildAction 
-                            extends MXMLUISimpleBase 
-                            implements _MXMLUIEffectAttributes, _MXMLUIIndexAttribute, _MXMLUIRelativeToAttribute, 
-                            _MXMLUIPositionAttribute {
+public abstract class AbstractFlexUIAddChildAction 
+                            extends AbstractFlexUISimpleBase 
+                            implements IFlexUIEffectAttributes, IFlexUIIndexAttribute, IFlexUIRelativeToAttribute, 
+                            IFlexUIPositionAttribute {
     
     /**
      * Id of the component.

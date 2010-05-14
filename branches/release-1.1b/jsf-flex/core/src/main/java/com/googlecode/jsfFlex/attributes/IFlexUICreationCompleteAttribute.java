@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="creationComplete", returnType="java.lang.String", longDesc="Dispatched when the component has finished its construction, property processing, measuring, layout, and drawing.")
 @JSFComponent
-public interface _MXMLUICreationCompleteAttribute {
+public interface IFlexUICreationCompleteAttribute {
     
 }

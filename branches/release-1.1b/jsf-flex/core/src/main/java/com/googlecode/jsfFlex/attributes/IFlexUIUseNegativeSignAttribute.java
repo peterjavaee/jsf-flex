@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="useNegativeSign", returnType="java.lang.String", longDesc="If true, format a negative number by preceding it with a minus '-' sign.")
 @JSFComponent
-public interface _MXMLUIUseNegativeSignAttribute {
+public interface IFlexUIUseNegativeSignAttribute {
     
 }

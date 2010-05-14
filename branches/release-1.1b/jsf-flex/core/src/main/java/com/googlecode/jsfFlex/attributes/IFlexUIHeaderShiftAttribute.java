@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="headerShift", returnType="java.lang.String", longDesc="Dispatched when the user releases the mouse button on a column header after having dragged the column to a new location resulting in shifting the column to a new index.")
 @JSFComponent
-public interface _MXMLUIHeaderShiftAttribute {
+public interface IFlexUIHeaderShiftAttribute {
     
 }

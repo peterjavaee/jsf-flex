@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="rowSpan", returnType="java.lang.String", longDesc="Number of rows of the Grid container spanned by the cell.")
 @JSFComponent
-public interface _MXMLUIRowSpanAttribute {
+public interface IFlexUIRowSpanAttribute {
     
 }

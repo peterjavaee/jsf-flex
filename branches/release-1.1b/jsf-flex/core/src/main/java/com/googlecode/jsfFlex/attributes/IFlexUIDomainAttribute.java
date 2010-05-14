@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="domain", returnType="java.lang.String", longDesc="Type to be validated.")
 @JSFComponent
-public interface _MXMLUIDomainAttribute {
+public interface IFlexUIDomainAttribute {
     
 }

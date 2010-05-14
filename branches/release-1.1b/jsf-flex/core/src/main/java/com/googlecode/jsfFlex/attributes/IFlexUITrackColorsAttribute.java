@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="trackColors", returnType="java.lang.String", longDesc="The colors of the track, as an array of two colors.")
 @JSFComponent
-public interface _MXMLUITrackColorsAttribute {
+public interface IFlexUITrackColorsAttribute {
     
 }

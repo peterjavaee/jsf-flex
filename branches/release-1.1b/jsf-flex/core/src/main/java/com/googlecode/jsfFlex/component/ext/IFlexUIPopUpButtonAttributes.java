@@ -20,31 +20,31 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIArrowButtonWidthAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICloseAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICloseDurationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICloseEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledIconColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIconColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOpenAlwaysAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOpenAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOpenDurationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOpenEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPopUpAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPopUpDownSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPopUpGapAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPopUpIconAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPopUpOverSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIArrowButtonWidthAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICloseAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICloseDurationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICloseEasingFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisabledIconColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIconColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOpenAlwaysAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOpenAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOpenDurationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOpenEasingFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPopUpAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPopUpDownSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPopUpGapAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPopUpIconAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPopUpOverSkinAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIPopUpButtonAttributes 
-                extends _MXMLUIOpenAlwaysAttribute, _MXMLUIPopUpAttribute, _MXMLUIArrowButtonWidthAttribute, 
-                _MXMLUICloseDurationAttribute, _MXMLUICloseEasingFunctionAttribute, _MXMLUIDisabledIconColorAttribute, 
-                _MXMLUIIconColorAttribute, _MXMLUIOpenDurationAttribute, _MXMLUIOpenEasingFunctionAttribute, _MXMLUIPopUpDownSkinAttribute, 
-                _MXMLUIPopUpGapAttribute, _MXMLUIPopUpIconAttribute, _MXMLUIPopUpOverSkinAttribute, _MXMLUICloseAttribute, 
-                _MXMLUIOpenAttribute, _MXMLUIButtonAttributes {
+interface IFlexUIPopUpButtonAttributes 
+                extends IFlexUIOpenAlwaysAttribute, IFlexUIPopUpAttribute, IFlexUIArrowButtonWidthAttribute, 
+                IFlexUICloseDurationAttribute, IFlexUICloseEasingFunctionAttribute, IFlexUIDisabledIconColorAttribute, 
+                IFlexUIIconColorAttribute, IFlexUIOpenDurationAttribute, IFlexUIOpenEasingFunctionAttribute, IFlexUIPopUpDownSkinAttribute, 
+                IFlexUIPopUpGapAttribute, IFlexUIPopUpIconAttribute, IFlexUIPopUpOverSkinAttribute, IFlexUICloseAttribute, 
+                IFlexUIOpenAttribute, IFlexUIButtonAttributes {
     
 }

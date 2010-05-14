@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="autoBandWidthDetection", returnType="java.lang.String", longDesc="Specifies whether the VideoDisplay control should use the built-in automatic bandwidth detection feature.")
 @JSFComponent
-public interface _MXMLUIAutoBandWidthDetectionAttribute {
+public interface IFlexUIAutoBandWidthDetectionAttribute {
     
 }

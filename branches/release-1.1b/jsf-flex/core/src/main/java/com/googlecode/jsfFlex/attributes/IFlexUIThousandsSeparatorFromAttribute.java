@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="thousandsSeparatorFrom", returnType="java.lang.String", longDesc="Character to use as the thousands separator in the input String.")
 @JSFComponent
-public interface _MXMLUIThousandsSeparatorFromAttribute {
+public interface IFlexUIThousandsSeparatorFromAttribute {
     
 }

@@ -21,27 +21,27 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIAngleFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIAngleToAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOriginXAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOriginYAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIAngleFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIAngleToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOriginXAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOriginYAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlRotate",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIRotate",
-        type                =   "com.googlecode.jsfFlex.MXMLUIRotate",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIRotateTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLRotate"
+        name                =   "jf:flexRotate",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIRotate",
+        type                =   "com.googlecode.jsfFlex.FlexUIRotate",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIRotateTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexRotate"
 )
-public abstract class AbstractMXMLUIRotate 
-                                extends MXMLUISimpleBase 
-                                implements _MXMLUITweenEffectAttributes, _MXMLUIAngleFromAttribute, _MXMLUIAngleToAttribute, 
-                                _MXMLUIOriginXAttribute, _MXMLUIOriginYAttribute {
+public abstract class AbstractFlexUIRotate 
+                                extends AbstractFlexUISimpleBase 
+                                implements IFlexUITweenEffectAttributes, IFlexUIAngleFromAttribute, IFlexUIAngleToAttribute, 
+                                IFlexUIOriginXAttribute, IFlexUIOriginYAttribute {
 
     /**
      * Id of the component.

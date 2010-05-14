@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dropdownFactory", returnType="java.lang.String", longDesc="The IFactory that creates a ListBase-derived instance to use as the drop-down.")
 @JSFComponent
-public interface _MXMLUIDropdownFactoryAttribute {
+public interface IFlexUIDropdownFactoryAttribute {
     
 }

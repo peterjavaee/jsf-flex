@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="scriptTimeLimit", returnType="java.lang.String", longDesc="Specifies the maximum duration, in seconds, that an ActionScript event handler can execute beforethe Flash Player assumes that it is hung, and aborts it.")
 @JSFComponent
-public interface _MXMLUIScriptTimeLimitAttribute {
+public interface IFlexUIScriptTimeLimitAttribute {
     
 }

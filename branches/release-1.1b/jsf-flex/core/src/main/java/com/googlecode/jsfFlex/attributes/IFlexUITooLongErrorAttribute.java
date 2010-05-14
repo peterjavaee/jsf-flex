@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="tooLongError", returnType="java.lang.String", longDesc="Error message when the String is longer than the maxLength property.")
 @JSFComponent
-public interface _MXMLUITooLongErrorAttribute {
+public interface IFlexUITooLongErrorAttribute {
     
 }

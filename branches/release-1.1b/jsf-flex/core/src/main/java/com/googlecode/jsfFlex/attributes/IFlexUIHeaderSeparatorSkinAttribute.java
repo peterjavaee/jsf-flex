@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="headerSeparatorSkin", returnType="java.lang.String", longDesc="The skin that defines the appearance of the separators between column headers in a DataGrid.")
 @JSFComponent
-public interface _MXMLUIHeaderSeparatorSkinAttribute {
+public interface IFlexUIHeaderSeparatorSkinAttribute {
     
 }

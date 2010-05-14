@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="menuHide", returnType="java.lang.String", longDesc="Dispatched when a menu or submenu closes.")
 @JSFComponent
-public interface _MXMLUIMenuHideAttribute {
+public interface IFlexUIMenuHideAttribute {
     
 }

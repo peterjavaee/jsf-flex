@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="moveEasingFunction", returnType="java.lang.String", longDesc="Easing function to use for moving the mask.")
 @JSFComponent
-public interface _MXMLUIMoveEasingFunctionAttribute {
+public interface IFlexUIMoveEasingFunctionAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dividerRelease", returnType="java.lang.String", longDesc="Dispatched when the user releases a divider.")
 @JSFComponent
-public interface _MXMLUIDividerReleaseAttribute {
+public interface IFlexUIDividerReleaseAttribute {
     
 }

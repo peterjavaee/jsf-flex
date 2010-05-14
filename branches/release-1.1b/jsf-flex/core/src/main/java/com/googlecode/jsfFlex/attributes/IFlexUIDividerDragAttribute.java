@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dividerDrag", returnType="java.lang.String", longDesc="Dispatched multiple times as the user drags any divider.")
 @JSFComponent
-public interface _MXMLUIDividerDragAttribute {
+public interface IFlexUIDividerDragAttribute {
     
 }

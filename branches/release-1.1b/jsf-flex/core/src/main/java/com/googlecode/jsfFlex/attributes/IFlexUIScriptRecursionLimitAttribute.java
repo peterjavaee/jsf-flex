@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="scriptRecursionLimit", returnType="java.lang.String", longDesc="Specifies the maximum depth of the Adobe Flash Player call stack before Flash Player stops.")
 @JSFComponent
-public interface _MXMLUIScriptRecursionLimitAttribute {
+public interface IFlexUIScriptRecursionLimitAttribute {
     
 }

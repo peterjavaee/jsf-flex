@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="duration", returnType="java.lang.String", longDesc="Duration of the effect in milliseconds.")
 @JSFComponent
-public interface _MXMLUIDurationAttribute {
+public interface IFlexUIDurationAttribute {
     
 }

@@ -23,7 +23,7 @@ import java.util.Collection;
 /**
  * @author Ji Hoon Kim
  */
-public interface _TaskRunner {
+public interface ITaskRunner {
 	
     public enum QUEUE_TASK_ID {
         DELETE_RESOURCES, COPY_FILE, COPY_FILE_SET, 
@@ -36,13 +36,13 @@ public interface _TaskRunner {
         
     }
     
-	void addTask(_Task toAdd);
+	void addTask(AbstractTask toAdd);
 	
-	void addTasks(Collection<_Task> tasksToAdd);
+	void addTasks(Collection<AbstractTask> tasksToAdd);
 	
 	void execute();
     
-    void queueFutureTask(String taskName, _Task toAdd);
+    void queueFutureTask(String taskName, AbstractTask toAdd);
     
     boolean isTaskDone(String taskName);
     

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="includeInLayout", returnType="java.lang.String", longDesc="Specifies whether this component is included in the layout of the parent container.")
 @JSFComponent
-public interface _MXMLUIIncludeInLayoutAttribute {
+public interface IFlexUIIncludeInLayoutAttribute {
     
 }

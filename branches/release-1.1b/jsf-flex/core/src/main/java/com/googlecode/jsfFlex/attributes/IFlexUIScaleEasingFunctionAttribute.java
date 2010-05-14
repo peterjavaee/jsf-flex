@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="scaleEasingFunction", returnType="java.lang.String", longDesc="Easing function to use for scaling the mask.")
 @JSFComponent
-public interface _MXMLUIScaleEasingFunctionAttribute {
+public interface IFlexUIScaleEasingFunctionAttribute {
     
 }

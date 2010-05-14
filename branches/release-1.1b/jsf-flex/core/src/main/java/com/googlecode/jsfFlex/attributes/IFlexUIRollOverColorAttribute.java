@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="rollOverColor", returnType="java.lang.String", longDesc="The rollOverColor of the drop-down list.")
 @JSFComponent
-public interface _MXMLUIRollOverColorAttribute {
+public interface IFlexUIRollOverColorAttribute {
     
 }

@@ -20,30 +20,30 @@ package com.googlecode.jsfFlex.effects.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFadeInDurationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFadeOutDurationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIGrowDurationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRemovedElementOffsetAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShrinkDurationAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFadeInDurationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFadeOutDurationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIGrowDurationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRemovedElementOffsetAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShrinkDurationAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlDefaultListEffect",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIDefaultListEffect",
-        type                =   "com.googlecode.jsfFlex.MXMLUIDefaultListEffect",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIDefaultListEffectTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLDefaultListEffect"
+        name                =   "jf:flexDefaultListEffect",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIDefaultListEffect",
+        type                =   "com.googlecode.jsfFlex.FlexUIDefaultListEffect",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIDefaultListEffectTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexDefaultListEffect"
 )
-public abstract class AbstractMXMLUIDefaultListEffect 
-                            extends MXMLUISimpleBase 
-                            implements _MXMLUIParallelAttributes, _MXMLUIColorAttribute, _MXMLUIFadeInDurationAttribute, 
-                            _MXMLUIFadeOutDurationAttribute, _MXMLUIGrowDurationAttribute, _MXMLUIRemovedElementOffsetAttribute, 
-                            _MXMLUIShrinkDurationAttribute {
+public abstract class AbstractFlexUIDefaultListEffect 
+                            extends AbstractFlexUISimpleBase 
+                            implements IFlexUIParallelAttributes, IFlexUIColorAttribute, IFlexUIFadeInDurationAttribute, 
+                            IFlexUIFadeOutDurationAttribute, IFlexUIGrowDurationAttribute, IFlexUIRemovedElementOffsetAttribute, 
+                            IFlexUIShrinkDurationAttribute {
     
     
     

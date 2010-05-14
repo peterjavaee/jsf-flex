@@ -23,22 +23,22 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
 /**
  * <ul>
  * This should be a child component of :
- * 		<li> AbstractMXMLUIXMLList </li>
- * 		<li> AbstractMXMLUIXML </li>
- * 		<li> AbstractMXMLUIXMLStaticElement <li>
+ * 		<li> AbstractFlexUIXMLList </li>
+ * 		<li> AbstractFlexUIXML </li>
+ * 		<li> AbstractFlexUIXMLStaticElement <li>
  * 
- * and should have MXMLUIXMLElementBase as its children.
+ * and should have AbstractFlexUIXMLElementBase as its children.
  *
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlXMLListEntries",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.MXMLUIXMLListEntries",
-        type                =   "com.googlecode.jsfFlex.MXMLUIXMLListEntries",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.data.ext.properties.ext.MXMLUIXMLListEntriesTag",
-        family              =   "javax.faces.MXMLProperty"
+        name                =   "jf:flexXMLListEntries",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.FlexUIXMLListEntries",
+        type                =   "com.googlecode.jsfFlex.FlexUIXMLListEntries",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.data.ext.properties.ext.FlexUIXMLListEntriesTag",
+        family              =   "javax.faces.FlexProperty"
 )
-public abstract class AbstractMXMLUIXMLListEntries 
-						extends com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIDataListEntriesBase {
+public abstract class AbstractFlexUIXMLListEntries 
+						extends com.googlecode.jsfFlex.component.ext.data.ext.properties.FlexUIDataListEntriesBase {
 	
 }

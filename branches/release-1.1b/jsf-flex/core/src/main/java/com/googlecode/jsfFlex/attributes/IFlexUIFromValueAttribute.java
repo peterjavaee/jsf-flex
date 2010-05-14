@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="fromValue", returnType="java.lang.String", longDesc="The starting value of the property for the effect.")
 @JSFComponent
-public interface _MXMLUIFromValueAttribute {
+public interface IFlexUIFromValueAttribute {
     
 }

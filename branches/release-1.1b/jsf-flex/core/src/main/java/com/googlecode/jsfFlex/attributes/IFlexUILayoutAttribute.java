@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="layout", returnType="java.lang.String", longDesc="Specifies the layout mechanism used for this application.")
 @JSFComponent
-public interface _MXMLUILayoutAttribute {
+public interface IFlexUILayoutAttribute {
     
 }

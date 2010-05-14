@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="borderCapColor", returnType="java.lang.String", longDesc="Specifies borderCapColor.")
 @JSFComponent
-public interface _MXMLUIBorderCapColorAttribute {
+public interface IFlexUIBorderCapColorAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="listener", returnType="java.lang.String", longDesc="Specifies the validation listener.")
 @JSFComponent
-public interface _MXMLUIListenerAttribute {
+public interface IFlexUIListenerAttribute {
     
 }

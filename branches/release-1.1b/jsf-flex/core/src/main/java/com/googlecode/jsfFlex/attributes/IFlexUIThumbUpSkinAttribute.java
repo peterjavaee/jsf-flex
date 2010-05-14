@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="thumbUpSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the thumb of the scroll bar.")
 @JSFComponent
-public interface _MXMLUIThumbUpSkinAttribute {
+public interface IFlexUIThumbUpSkinAttribute {
     
 }

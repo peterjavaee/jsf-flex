@@ -27,7 +27,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface _MXMLUIComponentAttributesAttribute {
+public interface IFlexUIComponentAttributesAttribute {
     
     /**
      * Map of attribute names provided as keys and values provided as values.

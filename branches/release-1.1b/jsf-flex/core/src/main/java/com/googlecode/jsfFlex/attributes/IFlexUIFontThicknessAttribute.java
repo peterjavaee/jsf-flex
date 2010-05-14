@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="fontThickness", returnType="java.lang.String", longDesc="Sets the thickness property of internal TextFields that represent text in Flex controls.")
 @JSFComponent
-public interface _MXMLUIFontThicknessAttribute {
+public interface IFlexUIFontThicknessAttribute {
     
 }

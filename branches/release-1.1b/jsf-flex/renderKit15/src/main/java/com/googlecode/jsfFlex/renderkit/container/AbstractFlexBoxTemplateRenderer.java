@@ -23,32 +23,32 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="direction"),
-				@JsfFlexAttribute(attribute="horizontalAlign"),
-				@JsfFlexAttribute(attribute="horizontalGap"),
-				@JsfFlexAttribute(attribute="verticalAlign"),
-				@JsfFlexAttribute(attribute="verticalGap")
+				@IJsfFlexAttribute(attribute="direction"),
+				@IJsfFlexAttribute(attribute="horizontalAlign"),
+				@IJsfFlexAttribute(attribute="horizontalGap"),
+				@IJsfFlexAttribute(attribute="verticalAlign"),
+				@IJsfFlexAttribute(attribute="verticalGap")
 		}
 )
-public abstract class MXMLBoxTemplateRenderer extends MXMLContainerTemplateRenderer {
+public abstract class AbstractFlexBoxTemplateRenderer extends AbstractFlexContainerTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLBoxTemplateRenderer.class, componentObj, null);
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(AbstractFlexBoxTemplateRenderer.class, componentObj, null);
 		
 	}
 	

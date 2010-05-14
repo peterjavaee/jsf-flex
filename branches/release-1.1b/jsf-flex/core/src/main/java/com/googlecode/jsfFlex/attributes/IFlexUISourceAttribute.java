@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="source", returnType="java.lang.String", longDesc="Specifies the content to load.")
 @JSFComponent
-public interface _MXMLUISourceAttribute {
+public interface IFlexUISourceAttribute {
     
 }

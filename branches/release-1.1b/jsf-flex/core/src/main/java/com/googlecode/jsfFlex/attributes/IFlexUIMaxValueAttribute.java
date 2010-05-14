@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="maxValue", returnType="java.lang.String", longDesc="Maximum value for a valid number.")
 @JSFComponent
-public interface _MXMLUIMaxValueAttribute {
+public interface IFlexUIMaxValueAttribute {
     
 }

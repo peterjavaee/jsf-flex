@@ -21,22 +21,22 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlPause",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIPause",
-        type                =   "com.googlecode.jsfFlex.MXMLUIPause",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIPauseTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLPause"
+        name                =   "jf:flexPause",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIPause",
+        type                =   "com.googlecode.jsfFlex.FlexUIPause",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIPauseTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexPause"
 )
-public abstract class AbstractMXMLUIPause 
-                            extends MXMLUISimpleBase 
-                            implements _MXMLUITweenEffectAttributes {
+public abstract class AbstractFlexUIPause 
+                            extends AbstractFlexUISimpleBase 
+                            implements IFlexUITweenEffectAttributes {
     
     /**
      * Id of the component.

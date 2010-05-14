@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="maintainAspectRatio", returnType="java.lang.String", longDesc="If true, specifies to display the image with the same ratio of height to width as the original image.")
 @JSFComponent
-public interface _MXMLUIMaintainAspectRatioAttribute {
+public interface IFlexUIMaintainAspectRatioAttribute {
     
 }

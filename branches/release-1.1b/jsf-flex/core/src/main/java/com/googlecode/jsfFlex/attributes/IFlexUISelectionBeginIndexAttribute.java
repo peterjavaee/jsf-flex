@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="selectionBeginIndex", returnType="java.lang.String", longDesc="The zero-based character index value of the first character in the current selection.")
 @JSFComponent
-public interface _MXMLUISelectionBeginIndexAttribute {
+public interface IFlexUISelectionBeginIndexAttribute {
     
 }

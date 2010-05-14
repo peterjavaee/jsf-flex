@@ -27,43 +27,43 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.component.ext.data.MXMLUIXMLContainerBase;
-import com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIXMLElementBase;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
+import com.googlecode.jsfFlex.component.ext.data.AbstractFlexUIXMLContainerBase;
+import com.googlecode.jsfFlex.component.ext.data.ext.properties.AbstractFlexUIXMLElementBase;
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.util.ReflectionHelperUtil;
 
 /**
- * Since this component is out of the norm in relation to writing MXML content, it will perform <br>
- * the write of MXML content within the component rather than within a Renderer [meaning Renderer does <br>
- * not exist for this component]. Also when stated that it is writing MXML content, it technically is <br>
- * writing to MXMLUIDataContainerBase's BufferedWriter. <br>
+ * Since this component is out of the norm in relation to writing Flex content, it will perform <br>
+ * the write of Flex content within the component rather than within a Renderer [meaning Renderer does <br>
+ * not exist for this component]. Also when stated that it is writing Flex content, it technically is <br>
+ * writing to AbstractFlexUIDataContainerBase's BufferedWriter. <br>
  * 
  * <ul>
  * This component can have following type of children :
- * 		<li> AbstractMXMLUIXMLAttribute </li>
- * 		<li> AbstractMXMLUIXMLStaticAttribute </li>
- * 		<li> AbstractMXMLUIXMLListEntries </li>
+ * 		<li> AbstractFlexUIXMLAttribute </li>
+ * 		<li> AbstractFlexUIXMLStaticAttribute </li>
+ * 		<li> AbstractFlexUIXMLListEntries </li>
  * </ul>
  * 
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlXMLElement",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.MXMLUIXMLElement",
-        type                =   "com.googlecode.jsfFlex.MXMLUIXMLElement",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.data.ext.properties.ext.MXMLUIXMLElementTag",
-        family              =   "javax.faces.MXMLProperty"
+        name                =   "jf:flexXMLElement",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.FlexUIXMLElement",
+        type                =   "com.googlecode.jsfFlex.FlexUIXMLElement",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.data.ext.properties.ext.FlexUIXMLElementTag",
+        family              =   "javax.faces.FlexProperty"
 )
-public abstract class AbstractMXMLUIXMLElement 
-						extends MXMLUIXMLElementBase {
+public abstract class AbstractFlexUIXMLElement 
+						extends AbstractFlexUIXMLElementBase {
 	
 	public void encodeBegin(FacesContext context) throws IOException {
 		super.encodeBegin(context);
 		
-		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
 		Map<String, ? super UIComponentBase> temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
-		MXMLUIXMLContainerBase currXMLContainerBaseRef = MXMLUIXMLContainerBase.class.cast( temporaryResourceMap.get(MXMLUIXMLContainerBase.CURR_MXML_UI_XML_CONTAINER_KEY) );
+		AbstractFlexUIXMLContainerBase currXMLContainerBaseRef = AbstractFlexUIXMLContainerBase.class.cast( temporaryResourceMap.get(AbstractFlexUIXMLContainerBase.CURR_FLEX_UI_XML_CONTAINER_KEY) );
 		
 		StringBuilder xmlElementStartTagBuffer = new StringBuilder();
 		
@@ -74,7 +74,7 @@ public abstract class AbstractMXMLUIXMLElement
 		
 	}
 	
-	private String processXMLTagDynamically(MXMLUIXMLContainerBase currXMLListRef){
+	private String processXMLTagDynamically(AbstractFlexUIXMLContainerBase currXMLListRef){
 		
 		final String GET_NODE_NAME_METHOD_NAME = getNodeName() != null ? "get" + getNodeName().substring(0, 1).toUpperCase() + getNodeName().substring(1) : null;
 		final String GET_NODE_VALUE_METHOD_NAME = getNodeValue() != null ? "get" + getNodeValue().substring(0, 1).toUpperCase() + getNodeName().substring(1) : null;

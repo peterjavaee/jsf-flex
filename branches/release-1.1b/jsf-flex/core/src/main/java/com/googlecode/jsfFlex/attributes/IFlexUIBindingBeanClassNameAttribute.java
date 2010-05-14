@@ -25,7 +25,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface _MXMLUIBindingBeanClassNameAttribute {
+public interface IFlexUIBindingBeanClassNameAttribute {
 	
 	/**
 	 * If additional beans can be added to the component and binding bean list size is 0, this attribute will be used to create additional beans to be added to the list. If the bean list size is > 0, then the first entry's className will be used to construct additional beans to be added to the list.

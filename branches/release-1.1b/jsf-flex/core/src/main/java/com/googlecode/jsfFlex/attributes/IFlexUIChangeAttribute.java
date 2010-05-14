@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="change", returnType="java.lang.String", longDesc="Dispatched when the selectedIndex or selectedItem property changes as a result of user interaction.")
 @JSFComponent
-public interface _MXMLUIChangeAttribute {
+public interface IFlexUIChangeAttribute {
 	
 }

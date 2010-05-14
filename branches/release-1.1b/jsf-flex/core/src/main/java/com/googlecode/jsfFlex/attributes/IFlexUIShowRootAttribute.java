@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="showRoot", returnType="java.lang.String", longDesc="A Boolean flag that specifies whether to display the data provider's root node.")
 @JSFComponent
-public interface _MXMLUIShowRootAttribute {
+public interface IFlexUIShowRootAttribute {
     
 }

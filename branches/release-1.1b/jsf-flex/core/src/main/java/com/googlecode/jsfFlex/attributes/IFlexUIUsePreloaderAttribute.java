@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="usePreloader", returnType="java.lang.String", longDesc="If true, specifies to display the application preloader.")
 @JSFComponent
-public interface _MXMLUIUsePreloaderAttribute {
+public interface IFlexUIUsePreloaderAttribute {
     
 }

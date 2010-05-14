@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="arrowButtonWidth", returnType="java.lang.String", longDesc="Width of the arrow button in pixels.")
 @JSFComponent
-public interface _MXMLUIArrowButtonWidthAttribute {
+public interface IFlexUIArrowButtonWidthAttribute {
     
 }

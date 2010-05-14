@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="showDataTip", returnType="java.lang.String", longDesc="If set to true, show a data tip during user interaction containing the current value of the slider.")
 @JSFComponent
-public interface _MXMLUIShowDataTipAttribute {
+public interface IFlexUIShowDataTipAttribute {
     
 }

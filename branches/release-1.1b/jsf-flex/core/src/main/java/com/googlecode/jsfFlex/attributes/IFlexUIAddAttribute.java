@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="add", returnType="java.lang.String", longDesc="Dispatched when the component is added to a container as a content child by using the addChild() or addChildAt() method.")
 @JSFComponent
-public interface _MXMLUIAddAttribute {
+public interface IFlexUIAddAttribute {
     
 }

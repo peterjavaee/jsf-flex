@@ -24,24 +24,24 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIColSpanAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRowSpanAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIColSpanAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRowSpanAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlGridItem",
-        clazz               =   "com.googlecode.jsfFlex.container.ext.MXMLUIGridItem",
-        type                =   "com.googlecode.jsfFlex.MXMLUIGridItem",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.MXMLUIGridItemTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLGridItem"
+        name                =   "jf:flexGridItem",
+        clazz               =   "com.googlecode.jsfFlex.container.ext.FlexUIGridItem",
+        type                =   "com.googlecode.jsfFlex.FlexUIGridItem",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.FlexUIGridItemTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexGridItem"
 )
-public abstract class AbstractMXMLUIGridItem 
-                        extends MXMLUISimpleBase 
-                        implements _MXMLUIBoxAttributes, _MXMLUIRowSpanAttribute, _MXMLUIColSpanAttribute {
+public abstract class AbstractFlexUIGridItem 
+                        extends AbstractFlexUISimpleBase 
+                        implements IFlexUIBoxAttributes, IFlexUIRowSpanAttribute, IFlexUIColSpanAttribute {
     
     public void encodeBegin(FacesContext context) throws IOException {
         /*

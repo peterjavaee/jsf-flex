@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="trackMargin", returnType="java.lang.String", longDesc="The size of the track margins, in pixels.")
 @JSFComponent
-public interface _MXMLUITrackMarginAttribute {
+public interface IFlexUITrackMarginAttribute {
     
 }

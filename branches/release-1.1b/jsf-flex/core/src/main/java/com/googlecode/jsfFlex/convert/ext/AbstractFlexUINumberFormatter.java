@@ -20,35 +20,35 @@ package com.googlecode.jsfFlex.convert.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIDecimalSeparatorFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDecimalSeparatorToAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPrecisionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRoundingAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIThousandsSeparatorFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIThousandsSeparatorToAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUseNegativeSignAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUseThousandsSeparatorAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIDecimalSeparatorFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDecimalSeparatorToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPrecisionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRoundingAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIThousandsSeparatorFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIThousandsSeparatorToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUseNegativeSignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUseThousandsSeparatorAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
- * One thing to note about MXML Formatter and Validator is that they are not actually converters or validators<br>
+ * One thing to note about Flex Formatter and Validator is that they are not actually converters or validators<br>
  * respectively but actually are components. This is so because they perform the formatting and validation<br>
  * as Flex components on the client side and not on the server side.<br> 
  * 
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlNumberFormatter",
-        clazz               =   "com.googlecode.jsfFlex.convert.ext.MXMLUINumberFormatter",
-        type                =   "com.googlecode.jsfFlex.MXMLUINumberFormatter",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.convert.ext.MXMLUINumberFormatterTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLNumberFormatter"
+        name                =   "jf:flexNumberFormatter",
+        clazz               =   "com.googlecode.jsfFlex.convert.ext.FlexUINumberFormatter",
+        type                =   "com.googlecode.jsfFlex.FlexUINumberFormatter",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.convert.ext.FlexUINumberFormatterTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexNumberFormatter"
 )
-public abstract class AbstractMXMLUINumberFormatter 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIFormatter, _MXMLUIDecimalSeparatorFromAttribute, _MXMLUIDecimalSeparatorToAttribute, 
-                        _MXMLUIPrecisionAttribute, _MXMLUIRoundingAttribute, _MXMLUIThousandsSeparatorFromAttribute, 
-                        _MXMLUIThousandsSeparatorToAttribute, _MXMLUIUseNegativeSignAttribute, _MXMLUIUseThousandsSeparatorAttribute {
+public abstract class AbstractFlexUINumberFormatter 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIFormatter, IFlexUIDecimalSeparatorFromAttribute, IFlexUIDecimalSeparatorToAttribute, 
+                        IFlexUIPrecisionAttribute, IFlexUIRoundingAttribute, IFlexUIThousandsSeparatorFromAttribute, 
+                        IFlexUIThousandsSeparatorToAttribute, IFlexUIUseNegativeSignAttribute, IFlexUIUseThousandsSeparatorAttribute {
 	
 }

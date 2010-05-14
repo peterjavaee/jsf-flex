@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="formatString", returnType="java.lang.String", longDesc="The mask pattern.")
 @JSFComponent
-public interface _MXMLUIFormatStringAttribute {
+public interface IFlexUIFormatStringAttribute {
     
 }

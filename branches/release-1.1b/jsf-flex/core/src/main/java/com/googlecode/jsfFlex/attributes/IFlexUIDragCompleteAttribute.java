@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dragComplete", returnType="java.lang.String", longDesc="Dispatched by the drag initiator (the component that is the source of the data being dragged) when the drag operation completes, either when you drop the dragged data onto a drop target or when you end the drag-and-drop operation without performing a drop.")
 @JSFComponent
-public interface _MXMLUIDragCompleteAttribute {
+public interface IFlexUIDragCompleteAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="tickColor", returnType="java.lang.String", longDesc="The color of the tick marks.")
 @JSFComponent
-public interface _MXMLUITickColorAttribute {
+public interface IFlexUITickColorAttribute {
     
 }

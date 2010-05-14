@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="progressInterval", returnType="java.lang.String", longDesc="Specifies the amount of time, in milliseconds, between each progress event.")
 @JSFComponent
-public interface _MXMLUIProgressIntervalAttribute {
+public interface IFlexUIProgressIntervalAttribute {
     
 }

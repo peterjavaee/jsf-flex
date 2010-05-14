@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="brokenImageSkin", returnType="java.lang.String", longDesc="Name of the class to use as the SWFLoader skin if the control can not load the content.")
 @JSFComponent
-public interface _MXMLUIBrokenImageSkinAttribute {
+public interface IFlexUIBrokenImageSkinAttribute {
     
 }

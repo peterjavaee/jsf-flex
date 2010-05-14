@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="scrollTipFunction", returnType="java.lang.String", longDesc="A function that computes the string to be displayed as the ScrollTip.")
 @JSFComponent
-public interface _MXMLUIScrollTipFunctionAttribute {
+public interface IFlexUIScrollTipFunctionAttribute {
     
 }

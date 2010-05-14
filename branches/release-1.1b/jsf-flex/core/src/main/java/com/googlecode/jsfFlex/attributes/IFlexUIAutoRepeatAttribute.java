@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="autoRepeat", returnType="java.lang.String", longDesc="Specifies whether to dispatch repeated buttonDown events if the user holds down the mouse button.")
 @JSFComponent
-public interface _MXMLUIAutoRepeatAttribute {
+public interface IFlexUIAutoRepeatAttribute {
     
 }

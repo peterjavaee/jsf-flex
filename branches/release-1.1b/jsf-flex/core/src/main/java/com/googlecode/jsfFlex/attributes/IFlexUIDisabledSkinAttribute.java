@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="disabledSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the background and border when the control is disabled.")
 @JSFComponent
-public interface _MXMLUIDisabledSkinAttribute {
+public interface IFlexUIDisabledSkinAttribute {
     
 }

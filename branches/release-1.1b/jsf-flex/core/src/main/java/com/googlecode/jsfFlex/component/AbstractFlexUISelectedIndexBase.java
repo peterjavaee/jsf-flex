@@ -22,7 +22,7 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
+import com.googlecode.jsfFlex.attributes.FlexUISelectedIndexAttribute;
 
 /**
  * This class will process the needed actions of setting and retrieving of "selectedIndex" attribute<br>
@@ -31,17 +31,17 @@ import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        clazz       =   "com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase",
-        type        =   "com.googlecode.jsfFlex.MXMLUISelectedIndexBase",
-        family      =   "javax.faces.MXMLUISelectedIndexBase",
-        desc        =   "Base component for MXMLInput components that contain selectedIndex attribute",
+        clazz       =   "com.googlecode.jsfFlex.component.FlexUISelectedIndexBase",
+        type        =   "com.googlecode.jsfFlex.FlexUISelectedIndexBase",
+        family      =   "javax.faces.FlexUISelectedIndexBase",
+        desc        =   "Base component for FlexInput components that contain selectedIndex attribute",
         template    =   true
 )
-public abstract class _MXMLUISelectedIndexBase 
-						extends MXMLUIInputBase 
-						implements _MXMLUISelectedIndexAttribute {
+public abstract class AbstractFlexUISelectedIndexBase 
+						extends AbstractUIInputBase 
+						implements FlexUISelectedIndexAttribute {
 
-	private final static org.apache.commons.logging.Log _log = org.apache.commons.logging.LogFactory.getLog(MXMLUISelectedIndexBase.class);
+	private final static org.apache.commons.logging.Log _log = org.apache.commons.logging.LogFactory.getLog(FlexUISelectedIndexBase.class);
 	
 	private static final String SELECTED_INDEX_ID_APPENDED = "_selectedIndex";
 	private static final String SELECTED_INDEX_ATTR = "selectedIndex";

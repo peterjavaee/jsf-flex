@@ -20,21 +20,21 @@ package com.googlecode.jsfFlex.effects.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlUnconstrainItemAction",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIUnconstrainItemAction",
-        type                =   "com.googlecode.jsfFlex.MXMLUIUnconstrainItemAction",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIUnconstrainItemActionTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLUnconstrainItemAction"
+        name                =   "jf:flexUnconstrainItemAction",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIUnconstrainItemAction",
+        type                =   "com.googlecode.jsfFlex.FlexUIUnconstrainItemAction",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIUnconstrainItemActionTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexUnconstrainItemAction"
 )
-public abstract class AbstractMXMLUIUnconstrainItemAction 
-                                    extends MXMLUISimpleBase
-                                    implements _MXMLUIEffectAttributes {
+public abstract class AbstractFlexUIUnconstrainItemAction 
+                                    extends AbstractFlexUISimpleBase
+                                    implements IFlexUIEffectAttributes {
     
 }

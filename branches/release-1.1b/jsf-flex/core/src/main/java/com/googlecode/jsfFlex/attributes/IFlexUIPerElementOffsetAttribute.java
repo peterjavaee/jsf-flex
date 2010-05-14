@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="perElementOffset", returnType="java.lang.String", longDesc="Additional delay, in milliseconds, for effect targets after the first target of the effect.")
 @JSFComponent
-public interface _MXMLUIPerElementOffsetAttribute {
+public interface IFlexUIPerElementOffsetAttribute {
     
 }

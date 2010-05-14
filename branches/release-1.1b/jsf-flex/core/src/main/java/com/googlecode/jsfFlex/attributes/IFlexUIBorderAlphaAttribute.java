@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="borderAlpha", returnType="java.lang.String", longDesc="Alpha of the title bar, control bar and sides of the Panel. The default value is 0.4.")
 @JSFComponent
-public interface _MXMLUIBorderAlphaAttribute {
+public interface IFlexUIBorderAlphaAttribute {
     
 }

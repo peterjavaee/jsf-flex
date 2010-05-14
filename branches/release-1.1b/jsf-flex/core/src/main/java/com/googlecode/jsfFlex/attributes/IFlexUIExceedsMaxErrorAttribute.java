@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="exceedsMaxError", returnType="java.lang.String", longDesc="Error message when the value exceeds the maxValue property.")
 @JSFComponent
-public interface _MXMLUIExceedsMaxErrorAttribute {
+public interface IFlexUIExceedsMaxErrorAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="selectionEndIndex", returnType="java.lang.String", longDesc="The zero-based index of the position after the last character in the current selection(equivalent to the one-based index of the last character).")
 @JSFComponent
-public interface _MXMLUISelectionEndIndexAttribute {
+public interface IFlexUISelectionEndIndexAttribute {
     
 }

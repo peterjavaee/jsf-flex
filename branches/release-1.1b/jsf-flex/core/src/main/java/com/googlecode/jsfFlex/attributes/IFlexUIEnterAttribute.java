@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="enter", returnType="java.lang.String", longDesc="Dispatched if the editable property is set to true and the user presses the Enter key while typing in the editable text field.")
 @JSFComponent
-public interface _MXMLUIEnterAttribute {
+public interface IFlexUIEnterAttribute {
 	
 }

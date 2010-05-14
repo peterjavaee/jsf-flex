@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="fadeOutDuration", returnType="java.lang.String", longDesc="The duration in milliseconds used for fading out renderers for added and removed items.")
 @JSFComponent
-public interface _MXMLUIFadeOutDurationAttribute {
+public interface IFlexUIFadeOutDurationAttribute {
     
 }

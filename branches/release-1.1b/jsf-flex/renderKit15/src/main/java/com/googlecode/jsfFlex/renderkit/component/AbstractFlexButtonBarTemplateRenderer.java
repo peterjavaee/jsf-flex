@@ -23,34 +23,34 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="buttonHeight"),
-				@JsfFlexAttribute(attribute="buttonStyleName"),
-				@JsfFlexAttribute(attribute="buttonWidth"),
-				@JsfFlexAttribute(attribute="firstButtonStyleName"),
-				@JsfFlexAttribute(attribute="focusAlpha"),
-				@JsfFlexAttribute(attribute="focusRoundedCorners"),
-				@JsfFlexAttribute(attribute="lastButtonStyleName")
+				@IJsfFlexAttribute(attribute="buttonHeight"),
+				@IJsfFlexAttribute(attribute="buttonStyleName"),
+				@IJsfFlexAttribute(attribute="buttonWidth"),
+				@IJsfFlexAttribute(attribute="firstButtonStyleName"),
+				@IJsfFlexAttribute(attribute="focusAlpha"),
+				@IJsfFlexAttribute(attribute="focusRoundedCorners"),
+				@IJsfFlexAttribute(attribute="lastButtonStyleName")
 		}
 )
-public abstract class MXMLButtonBarTemplateRenderer extends MXMLNavBarTemplateRenderer {
+public abstract class AbstractFlexButtonBarTemplateRenderer extends AbstractFlexNavBarTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLButtonBarTemplateRenderer.class, componentObj, null);
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(AbstractFlexButtonBarTemplateRenderer.class, componentObj, null);
 		
 	}
 	

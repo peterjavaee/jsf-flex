@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="popUpOverSkin", returnType="java.lang.String", longDesc="Skin class for the popUpOver state (over arrowButton) of the background and border.")
 @JSFComponent
-public interface _MXMLUIPopUpOverSkinAttribute {
+public interface IFlexUIPopUpOverSkinAttribute {
     
 }

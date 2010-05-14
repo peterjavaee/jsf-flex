@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="toolTipField", returnType="java.lang.String", longDesc="Name of the the field in the dataProvider object to display as the tooltip label.")
 @JSFComponent
-public interface _MXMLUIToolTipFieldAttribute {
+public interface IFlexUIToolTipFieldAttribute {
 	
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="buttonDown", returnType="java.lang.String", longDesc="Dispatched when the user presses the Button control.")
 @JSFComponent
-public interface _MXMLUIButtonDownAttribute {
+public interface IFlexUIButtonDownAttribute {
     
 }

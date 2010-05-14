@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="itemRenderer", returnType="java.lang.String", longDesc="IFactory that generates the instances that displays the data for the drop-down list of the control.")
 @JSFComponent
-public interface _MXMLUIItemRendererAttribute {
+public interface IFlexUIItemRendererAttribute {
     
 }

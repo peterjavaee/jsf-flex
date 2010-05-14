@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="filterFunction", returnType="java.lang.String", longDesc="A function that the view will use to eliminate items that do not match the function's criteria.")
 @JSFComponent
-public interface _MXMLUIFilterFunctionAttribute {
+public interface IFlexUIFilterFunctionAttribute {
     
 }

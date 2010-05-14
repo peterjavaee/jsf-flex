@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="labelOffset", returnType="java.lang.String", longDesc="The y-position offset (if direction is horizontal) or x-position offset (if direction is vertical) of the labels relative to the track.")
 @JSFComponent
-public interface _MXMLUILabelOffsetAttribute {
+public interface IFlexUILabelOffsetAttribute {
     
 }

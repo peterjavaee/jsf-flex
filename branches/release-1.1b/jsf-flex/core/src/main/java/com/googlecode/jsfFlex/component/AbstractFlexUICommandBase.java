@@ -32,14 +32,14 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
-import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexResource;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.shared.adapter._MXMLEvent;
-import com.googlecode.jsfFlex.shared.adapter._MXMLEvent.EVENT_HANDLER_TYPE.JAVA_SCRIPT_IMPORT;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
-import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.renderkit.annotationDocletParser.AbstractAnnotationDocletParser;
+import com.googlecode.jsfFlex.renderkit.html.util.AbstractJsfFlexResource;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
+import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
+import com.googlecode.jsfFlex.shared.adapter.IFlexEvent.EVENT_HANDLER_TYPE.JAVA_SCRIPT_IMPORT;
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
+import com.googlecode.jsfFlex.shared.tasks.AbstractRunnerFactory;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * This component should be used as the base action of the component if the component<br>
@@ -49,15 +49,15 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        type    =   "com.googlecode.jsfFlex.MXMLUICommandBase",
-        family  =   "javax.faces.MXMLCommandBase",
-        desc    =   "Base component for MXMLCommand components"
+        type    =   "com.googlecode.jsfFlex.FlexUICommandBase",
+        family  =   "javax.faces.FlexCommandBase",
+        desc    =   "Base component for FlexCommand components"
 )
-public abstract class MXMLUICommandBase 
+public abstract class AbstractFlexUICommandBase 
                             extends UICommand 
-                            implements _MXMLContract, _MXMLEvent {
+                            implements IFlexContract, IFlexEvent {
     
-    private _AnnotationDocletParser _annotationDocletParserInstance;
+    private AbstractAnnotationDocletParser _annotationDocletParserInstance;
     
     private String _absolutePathToPreMxmlFile;
     
@@ -65,12 +65,12 @@ public abstract class MXMLUICommandBase
     private String _parentPreMxmlIdentifier;
     /*
      * below two variables dictate the depth and the height of this component
-     * in reference to the top component which should be of MXMLApplication. 
+     * in reference to the top component which should be of FlexApplication. 
      */
     private int _majorLevel = -1;
     private int _minorLevel = -1;
     
-    public MXMLUICommandBase(){
+    public AbstractFlexUICommandBase(){
         super();
     }
     
@@ -78,11 +78,11 @@ public abstract class MXMLUICommandBase
         return null;
     }
     
-    public synchronized _AnnotationDocletParser getAnnotationDocletParserInstance(){
+    public synchronized AbstractAnnotationDocletParser getAnnotationDocletParserInstance(){
         
         if(_annotationDocletParserInstance == null){
-            MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-            _RunnerFactory runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
+            AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
+            AbstractRunnerFactory runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
             _annotationDocletParserInstance = runnerFactoryInstance.getAnnotationDocletParserImpl();
         }
         
@@ -91,7 +91,7 @@ public abstract class MXMLUICommandBase
     
     public void encodeBegin(FacesContext context) throws IOException {
         
-        MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+        AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
         
         if(mxmlContext.isProductionEnv()){
             //means no need to create preMxml files
@@ -102,11 +102,11 @@ public abstract class MXMLUICommandBase
         if(getAction() != null || getActionExpression() != null || getActionListener() != null){
             
             EVENT_HANDLER_TYPE eventHandlerType = getEventHandlerType();
-            JsfFlexResource jsfFlexResource = JsfFlexResource.getInstance();
+            AbstractJsfFlexResource jsfFlexResource = AbstractJsfFlexResource.getInstance();
             EnumSet<JAVA_SCRIPT_IMPORT> javaScriptImports = eventHandlerType.getJavaScriptImports();
             
             for(JAVA_SCRIPT_IMPORT currJSImport : javaScriptImports){
-                jsfFlexResource.addResource(MXMLUICommandBase.class, currJSImport.getJavaScriptImport());
+                jsfFlexResource.addResource(AbstractFlexUICommandBase.class, currJSImport.getJavaScriptImport());
             }
             
         }
@@ -125,8 +125,8 @@ public abstract class MXMLUICommandBase
     }
     
     public void processDecodes(FacesContext context) {
-        String mode = context.getExternalContext().getInitParameter(MXMLConstants.CONFIG_MODE_NAME);
-        if(mode == null || mode.equals(MXMLConstants.PRODUCTION_MODE)){
+        String mode = context.getExternalContext().getInitParameter(FlexConstants.CONFIG_MODE_NAME);
+        if(mode == null || mode.equals(FlexConstants.PRODUCTION_MODE)){
             //need to dataBind so set back to true
             setRendered(true);
         }

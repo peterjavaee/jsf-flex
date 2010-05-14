@@ -25,42 +25,42 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.convert.MXMLFormatterTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.convert.AbstractFlexFormatterTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLSimple",
-		type="com.googlecode.jsfFlex.MXMLPhoneFormatter"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexSimple",
+		type="com.googlecode.jsfFlex.FlexPhoneFormatter"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="PhoneFormatter",
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentName="PhoneFormatter",
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="areaCode"),
-				@JsfFlexAttribute(attribute="areaCodeFormat"),
-				@JsfFlexAttribute(attribute="formatString"),
-				@JsfFlexAttribute(attribute="validPatternChars")
+				@IJsfFlexAttribute(attribute="areaCode"),
+				@IJsfFlexAttribute(attribute="areaCodeFormat"),
+				@IJsfFlexAttribute(attribute="formatString"),
+				@IJsfFlexAttribute(attribute="validPatternChars")
 		}
 )
-public final class MXMLPhoneFormatterRenderer extends MXMLFormatterTemplateRenderer {
+public final class FlexPhoneFormatterRenderer extends AbstractFlexFormatterTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-        _MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLPhoneFormatterRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLPhoneFormatterRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexPhoneFormatterRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexPhoneFormatterRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

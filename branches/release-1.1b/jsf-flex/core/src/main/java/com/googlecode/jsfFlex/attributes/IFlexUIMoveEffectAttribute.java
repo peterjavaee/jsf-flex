@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="moveEffect", returnType="java.lang.String", longDesc="Played when the component is moved.")
 @JSFComponent
-public interface _MXMLUIMoveEffectAttribute {
+public interface IFlexUIMoveEffectAttribute {
     
 }

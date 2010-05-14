@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="progress", returnType="java.lang.String", longDesc="Dispatched when content is loading.")
 @JSFComponent
-public interface _MXMLUIProgressAttribute {
+public interface IFlexUIProgressAttribute {
     
 }

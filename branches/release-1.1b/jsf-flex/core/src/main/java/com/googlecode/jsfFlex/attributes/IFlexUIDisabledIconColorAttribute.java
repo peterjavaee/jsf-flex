@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="disabledIconColor", returnType="java.lang.String", longDesc="Color of text in the component if it is disabled.")
 @JSFComponent
-public interface _MXMLUIDisabledIconColorAttribute {
+public interface IFlexUIDisabledIconColorAttribute {
     
 }

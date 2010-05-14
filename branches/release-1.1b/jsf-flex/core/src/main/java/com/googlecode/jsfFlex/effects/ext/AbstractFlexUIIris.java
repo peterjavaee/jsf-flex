@@ -21,22 +21,22 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlIris",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIIris",
-        type                =   "com.googlecode.jsfFlex.MXMLUIIris",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIIrisTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLIris"
+        name                =   "jf:flexIris",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIIris",
+        type                =   "com.googlecode.jsfFlex.FlexUIIris",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIIrisTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexIris"
 )
-public abstract class AbstractMXMLUIIris 
-                                extends MXMLUISimpleBase 
-                                implements _MXMLUIMaskEffectAttributes {
+public abstract class AbstractFlexUIIris 
+                                extends AbstractFlexUISimpleBase 
+                                implements IFlexUIMaskEffectAttributes {
 
     /**
      * Id of the component.

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="tickValues", returnType="java.lang.String", longDesc="The positions of the tick marks on the slider.")
 @JSFComponent
-public interface _MXMLUITickValuesAttribute {
+public interface IFlexUITickValuesAttribute {
     
 }

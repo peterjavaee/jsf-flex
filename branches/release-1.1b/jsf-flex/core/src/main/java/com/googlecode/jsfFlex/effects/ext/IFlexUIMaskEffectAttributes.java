@@ -20,27 +20,27 @@ package com.googlecode.jsfFlex.effects.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUICreateMaskFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMoveEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIScaleEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIScaleXFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIScaleXToAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIScaleYFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIScaleYToAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShowAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIXFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIXToAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIYFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIYToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICreateMaskFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMoveEasingFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIScaleEasingFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIScaleXFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIScaleXToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIScaleYFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIScaleYToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShowAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIXFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIXToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIYFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIYToAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIMaskEffectAttributes
-                        extends _MXMLUIEffectAttributes, _MXMLUICreateMaskFunctionAttribute, _MXMLUIMoveEasingFunctionAttribute, 
-                        _MXMLUIScaleEasingFunctionAttribute, _MXMLUIScaleXFromAttribute, _MXMLUIScaleXToAttribute, 
-                        _MXMLUIScaleYFromAttribute, _MXMLUIScaleYToAttribute, _MXMLUIShowAttribute, _MXMLUIXFromAttribute, 
-                        _MXMLUIXToAttribute, _MXMLUIYFromAttribute, _MXMLUIYToAttribute {
+interface IFlexUIMaskEffectAttributes
+                        extends IFlexUIEffectAttributes, IFlexUICreateMaskFunctionAttribute, IFlexUIMoveEasingFunctionAttribute, 
+                        IFlexUIScaleEasingFunctionAttribute, IFlexUIScaleXFromAttribute, IFlexUIScaleXToAttribute, 
+                        IFlexUIScaleYFromAttribute, IFlexUIScaleYToAttribute, IFlexUIShowAttribute, IFlexUIXFromAttribute, 
+                        IFlexUIXToAttribute, IFlexUIYFromAttribute, IFlexUIYToAttribute {
     
 }

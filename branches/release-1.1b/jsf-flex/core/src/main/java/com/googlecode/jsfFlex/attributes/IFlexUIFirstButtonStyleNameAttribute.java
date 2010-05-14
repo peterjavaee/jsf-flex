@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="firstButtonStyleName", returnType="java.lang.String", longDesc="Name of CSS style declaration that specifies styles for the first button.")
 @JSFComponent
-public interface _MXMLUIFirstButtonStyleNameAttribute {
+public interface IFlexUIFirstButtonStyleNameAttribute {
     
 }

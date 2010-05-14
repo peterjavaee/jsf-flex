@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dataTipFormatFunction", returnType="java.lang.String", longDesc="Callback function that formats the data tip text.")
 @JSFComponent
-public interface _MXMLUIDataTipFormatFunctionAttribute {
+public interface IFlexUIDataTipFormatFunctionAttribute {
     
 }

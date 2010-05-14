@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="stepSize", returnType="java.lang.String", longDesc="Non-zero unit of change between values.")
 @JSFComponent
-public interface _MXMLUIStepSizeAttribute {
+public interface IFlexUIStepSizeAttribute {
     
 }

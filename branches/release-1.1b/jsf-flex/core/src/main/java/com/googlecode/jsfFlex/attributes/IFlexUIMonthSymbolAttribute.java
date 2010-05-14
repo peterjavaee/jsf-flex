@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="monthSymbol", returnType="java.lang.String", longDesc="This property is appended to the end of the value specified by the monthNames property to define the names of the months displayed at the top of the DateChooser control.")
 @JSFComponent
-public interface _MXMLUIMonthSymbolAttribute {
+public interface IFlexUIMonthSymbolAttribute {
     
 }

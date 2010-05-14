@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="index", returnType="java.lang.String", longDesc="The index of the child within the parent.")
 @JSFComponent
-public interface _MXMLUIIndexAttribute {
+public interface IFlexUIIndexAttribute {
     
 }

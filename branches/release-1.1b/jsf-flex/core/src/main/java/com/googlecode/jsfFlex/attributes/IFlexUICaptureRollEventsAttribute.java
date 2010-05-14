@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="captureRollEvents", returnType="java.lang.String", longDesc="If true, prevents Flex from dispatching the rollOut and rollOver events if the mouse has not moved.")
 @JSFComponent
-public interface _MXMLUICaptureRollEventsAttribute {
+public interface IFlexUICaptureRollEventsAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="moveDuration", returnType="java.lang.String", longDesc="The duration in milliseconds applied to renderers for items moved in the control as part of the effect.")
 @JSFComponent
-public interface _MXMLUIMoveDurationAttribute {
+public interface IFlexUIMoveDurationAttribute {
     
 }

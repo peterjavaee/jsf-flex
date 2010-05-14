@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="thumbCount", returnType="java.lang.String", longDesc="The number of thumbs allowed on the slider.")
 @JSFComponent
-public interface _MXMLUIThumbCountAttribute {
+public interface IFlexUIThumbCountAttribute {
     
 }

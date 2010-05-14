@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="concurrency", returnType="java.lang.String", longDesc="Value that indicates how to handle multiple calls to the same service.")
 @JSFComponent
-public interface _MXMLUIConcurrencyAttribute {
+public interface IFlexUIConcurrencyAttribute {
     
 }

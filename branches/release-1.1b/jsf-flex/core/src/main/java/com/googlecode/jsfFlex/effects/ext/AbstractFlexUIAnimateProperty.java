@@ -21,28 +21,28 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIFromValueAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIsStyleAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPropertyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRoundValueAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIToValueAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIFromValueAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIsStyleAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPropertyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRoundValueAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIToValueAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlAnimateProperty",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIAnimateProperty",
-        type                =   "com.googlecode.jsfFlex.MXMLUIAnimateProperty",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIAnimatePropertyTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLAnimateProperty"
+        name                =   "jf:flexAnimateProperty",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIAnimateProperty",
+        type                =   "com.googlecode.jsfFlex.FlexUIAnimateProperty",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIAnimatePropertyTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexAnimateProperty"
 )
-public abstract class AbstractMXMLUIAnimateProperty 
-                            extends MXMLUISimpleBase 
-                            implements _MXMLUIEffectAttributes, _MXMLUIFromValueAttribute, _MXMLUIIsStyleAttribute,
-                            _MXMLUIPropertyAttribute, _MXMLUIRoundValueAttribute, _MXMLUIToValueAttribute {
+public abstract class AbstractFlexUIAnimateProperty 
+                            extends AbstractFlexUISimpleBase 
+                            implements IFlexUIEffectAttributes, IFlexUIFromValueAttribute, IFlexUIIsStyleAttribute,
+                            IFlexUIPropertyAttribute, IFlexUIRoundValueAttribute, IFlexUIToValueAttribute {
 
     /**
      * Id of the component.

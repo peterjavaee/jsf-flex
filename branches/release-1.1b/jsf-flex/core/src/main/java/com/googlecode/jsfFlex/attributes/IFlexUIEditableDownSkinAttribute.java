@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="editableDownSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the background and border when the user holds down the mouse button, and the editable property is true.")
 @JSFComponent
-public interface _MXMLUIEditableDownSkinAttribute {
+public interface IFlexUIEditableDownSkinAttribute {
     
 }

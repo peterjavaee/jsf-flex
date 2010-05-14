@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="folderOpenIcon", returnType="java.lang.String", longDesc="Specifies the folder open icon for a branch item of the tree.")
 @JSFComponent
-public interface _MXMLUIFolderOpenIconAttribute {
+public interface IFlexUIFolderOpenIconAttribute {
     
 }

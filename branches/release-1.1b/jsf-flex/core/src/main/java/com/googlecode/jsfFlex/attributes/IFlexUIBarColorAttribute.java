@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="barColor", returnType="java.lang.String", longDesc="Determines the color of a ProgressBar.")
 @JSFComponent
-public interface _MXMLUIBarColorAttribute {
+public interface IFlexUIBarColorAttribute {
 	
 }

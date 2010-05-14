@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="wrongUSFormatError", returnType="java.lang.String", longDesc="Error message for an incorrectly formatted ZIP code.")
 @JSFComponent
-public interface _MXMLUIWrongUSFormatErrorAttribute {
+public interface IFlexUIWrongUSFormatErrorAttribute {
     
 }

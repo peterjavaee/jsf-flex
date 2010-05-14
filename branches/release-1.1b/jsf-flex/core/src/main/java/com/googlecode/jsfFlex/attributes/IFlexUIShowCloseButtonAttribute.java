@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="showCloseButton", returnType="java.lang.String", longDesc="Whether to display a Close button in the TitleWindow container.")
 @JSFComponent
-public interface _MXMLUIShowCloseButtonAttribute {
+public interface IFlexUIShowCloseButtonAttribute {
     
 }

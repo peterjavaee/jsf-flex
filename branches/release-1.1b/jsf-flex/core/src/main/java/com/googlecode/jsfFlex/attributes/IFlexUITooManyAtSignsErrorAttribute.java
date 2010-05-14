@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="tooManyAtSignsError", returnType="java.lang.String", longDesc="Error message when there is more than one at sign in the e-mail address.")
 @JSFComponent
-public interface _MXMLUITooManyAtSignsErrorAttribute {
+public interface IFlexUITooManyAtSignsErrorAttribute {
     
 }

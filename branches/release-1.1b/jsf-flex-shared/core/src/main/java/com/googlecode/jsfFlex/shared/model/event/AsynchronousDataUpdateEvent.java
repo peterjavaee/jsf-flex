@@ -18,12 +18,12 @@
  */
 package com.googlecode.jsfFlex.shared.model.event;
 
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * @author Ji Hoon Kim
  */
-public class AsynchronousDataUpdateEvent extends Event {
+public class AsynchronousDataUpdateEvent extends AbstractEvent {
     
     private final String _alteredAttribute;
     private final String _alteredValue;
@@ -60,8 +60,8 @@ public class AsynchronousDataUpdateEvent extends Event {
     @Override
     public int hashCode() {
         int hashCodeVal = super.hashCode();
-        hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _alteredValue.hashCode();
-        hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _alteredAttribute.hashCode();
+        hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _alteredValue.hashCode();
+        hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _alteredAttribute.hashCode();
         
         return hashCodeVal;
     }

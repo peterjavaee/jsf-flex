@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="thumbIcon", returnType="java.lang.String", longDesc="Name of the class to use as the icon for the thumb of the scroll bar.")
 @JSFComponent
-public interface _MXMLUIThumbIconAttribute {
+public interface IFlexUIThumbIconAttribute {
     
 }

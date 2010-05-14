@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="liveScrolling", returnType="java.lang.String", longDesc="A flag that indicates whether scrolling is live as the scrollbar thumb is moved or the view is not updated until the thumb is released.")
 @JSFComponent
-public interface _MXMLUILiveScrollingAttribute {
+public interface IFlexUILiveScrollingAttribute {
     
 }

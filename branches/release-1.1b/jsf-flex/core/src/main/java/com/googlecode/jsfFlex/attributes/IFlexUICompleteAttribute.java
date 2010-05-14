@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="complete", returnType="java.lang.String", longDesc="Dispatched when content loading is complete.")
 @JSFComponent
-public interface _MXMLUICompleteAttribute {
+public interface IFlexUICompleteAttribute {
     
 }

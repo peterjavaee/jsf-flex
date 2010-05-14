@@ -18,8 +18,8 @@
  */
 package com.googlecode.jsfFlex.shared.beans.additionalScriptContent;
 
-import com.googlecode.jsfFlex.shared.adapter._MXMLEvent;
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * @author Ji Hoon Kim
@@ -31,11 +31,11 @@ public final class EventHandler {
     private final String _srcId;
     private final String _tgtId;
     private final String _evtHandlerId;
-    private final _MXMLEvent.EVENT_HANDLER_TYPE _eventType;
+    private final IFlexEvent.EVENT_HANDLER_TYPE _eventType;
     private final String _eventName;
     private final String _collectedUniqueId;
     
-    EventHandler(String srcId, String tgtId, String evtHandlerId, _MXMLEvent.EVENT_HANDLER_TYPE eventType, String eventName){
+    EventHandler(String srcId, String tgtId, String evtHandlerId, IFlexEvent.EVENT_HANDLER_TYPE eventType, String eventName){
         super();
         _srcId = srcId;
         _tgtId = tgtId;
@@ -54,7 +54,7 @@ public final class EventHandler {
     public String getEventName(){
         return _eventName;
     }
-    public _MXMLEvent.EVENT_HANDLER_TYPE getEventType(){
+    public IFlexEvent.EVENT_HANDLER_TYPE getEventType(){
         return _eventType;
     }
     public String getSrcId(){
@@ -80,11 +80,11 @@ public final class EventHandler {
     
     @Override
     public int hashCode() {
-        int hashCodeVal = MXMLConstants.HASH_CODE_INIT_VALUE;
-        hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _srcId.hashCode();
-        hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _tgtId.hashCode();
-        hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _eventType.toString().hashCode();
-        hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _eventName.hashCode();
+        int hashCodeVal = FlexConstants.HASH_CODE_INIT_VALUE;
+        hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _srcId.hashCode();
+        hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _tgtId.hashCode();
+        hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _eventType.toString().hashCode();
+        hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _eventName.hashCode();
         
         return super.hashCode();
     }

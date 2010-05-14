@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="inner", returnType="java.lang.String", longDesc="Specifies whether the glow is an inner glow.")
 @JSFComponent
-public interface _MXMLUIInnerAttribute {
+public interface IFlexUIInnerAttribute {
     
 }

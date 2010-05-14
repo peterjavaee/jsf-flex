@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="disclosureOpenIcon", returnType="java.lang.String", longDesc="Specifies the icon that is displayed next to a parent item that is open so that its children are displayed.")
 @JSFComponent
-public interface _MXMLUIDisclosureOpenIconAttribute {
+public interface IFlexUIDisclosureOpenIconAttribute {
     
 }

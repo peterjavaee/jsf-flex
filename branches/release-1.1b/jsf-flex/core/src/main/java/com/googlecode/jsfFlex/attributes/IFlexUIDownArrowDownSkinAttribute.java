@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="downArrowDownSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the up arrow when the arrow is enabled and a user presses the mouse button over the arrow.")
 @JSFComponent
-public interface _MXMLUIDownArrowDownSkinAttribute {
+public interface IFlexUIDownArrowDownSkinAttribute {
     
 }

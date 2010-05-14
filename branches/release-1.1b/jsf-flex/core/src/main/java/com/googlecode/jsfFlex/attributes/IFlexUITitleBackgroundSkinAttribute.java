@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="titleBackgroundSkin", returnType="java.lang.String", longDesc="The title background skin.")
 @JSFComponent
-public interface _MXMLUITitleBackgroundSkinAttribute {
+public interface IFlexUITitleBackgroundSkinAttribute {
     
 }

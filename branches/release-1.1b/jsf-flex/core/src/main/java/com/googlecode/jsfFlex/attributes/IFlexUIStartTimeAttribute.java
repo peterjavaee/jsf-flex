@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="startTime", returnType="java.lang.String", longDesc="The initial position in the MP3 file, in milliseconds, at which playback should start.")
 @JSFComponent
-public interface _MXMLUIStartTimeAttribute {
+public interface IFlexUIStartTimeAttribute {
     
 }

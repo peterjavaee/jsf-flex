@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="lineScrollSize", returnType="java.lang.String", longDesc="Amount to scroll when an arrow button is pressed, in pixels.")
 @JSFComponent
-public interface _MXMLUILineScrollSizeAttribute {
+public interface IFlexUILineScrollSizeAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="cuePointManagerClass", returnType="java.lang.String", longDesc="Cue point manager to use.")
 @JSFComponent
-public interface _MXMLUICuePointManagerClassAttribute {
+public interface IFlexUICuePointManagerClassAttribute {
     
 }

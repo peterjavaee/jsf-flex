@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="scaleY", returnType="java.lang.String", longDesc="Number that specifies the vertical scaling percentage.")
 @JSFComponent
-public interface _MXMLUIScaleYAttribute {
+public interface IFlexUIScaleYAttribute {
     
 }

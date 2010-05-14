@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="allowDisjointSelection", returnType="java.lang.String", longDesc="If true, specifies that non-contiguous(disjoint) selection is allowed in the control.")
 @JSFComponent
-public interface _MXMLUIAllowDisjointSelectionAttribute {
+public interface IFlexUIAllowDisjointSelectionAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="inputFormat", returnType="java.lang.String", longDesc="The date format to validate the value against.")
 @JSFComponent
-public interface _MXMLUIInputFormatAttribute {
+public interface IFlexUIInputFormatAttribute {
     
 }

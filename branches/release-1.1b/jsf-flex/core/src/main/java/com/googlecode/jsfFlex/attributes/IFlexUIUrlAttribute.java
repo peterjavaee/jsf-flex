@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="url", returnType="java.lang.String", longDesc="Location of the service.")
 @JSFComponent
-public interface _MXMLUIUrlAttribute {
+public interface IFlexUIUrlAttribute {
     
 }

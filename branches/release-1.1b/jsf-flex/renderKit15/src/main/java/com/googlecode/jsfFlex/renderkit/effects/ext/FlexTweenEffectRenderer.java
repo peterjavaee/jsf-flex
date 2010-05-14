@@ -25,35 +25,35 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.effects.MXMLTweenEffectTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.effects.AbstractFlexTweenEffectTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-        renderKitId="MXML_BASIC",
-        family="javax.faces.MXMLSimple",
-        type="com.googlecode.jsfFlex.MXMLTweenEffect"
+        renderKitId="FLEX_BASIC",
+        family="javax.faces.FlexSimple",
+        type="com.googlecode.jsfFlex.FlexTweenEffect"
 )
-@JsfFlexAttributeProperties(
-        mxmlComponentName="TweenEffect",
-        mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+        componentName="TweenEffect",
+        componentNodeAttributes={},
 
         jsfFlexAttributes={}
 )
-public final class MXMLTweenEffectRenderer extends MXMLTweenEffectTemplateRenderer {
+public final class FlexTweenEffectRenderer extends AbstractFlexTweenEffectTemplateRenderer {
 
     @Override
     public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
         super.encodeBegin(context, componentObj);
         
-        _MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-        writer.createPreMxml(componentMXML, MXMLTweenEffectRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+        writer.createPreMxml(componentFlex, FlexTweenEffectRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
                 null);
         
     }

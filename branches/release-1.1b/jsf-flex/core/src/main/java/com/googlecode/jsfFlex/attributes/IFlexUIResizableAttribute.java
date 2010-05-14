@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="resizable", returnType="java.lang.String", longDesc="A flag that indicates whether the user is allowed to resize the width of the column.")
 @JSFComponent
-public interface _MXMLUIResizableAttribute {
+public interface IFlexUIResizableAttribute {
     
 }

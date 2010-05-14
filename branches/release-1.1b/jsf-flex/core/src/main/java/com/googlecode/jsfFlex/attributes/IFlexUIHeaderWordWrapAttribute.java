@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="headerWordWrap", returnType="java.lang.String", longDesc="A flag that indicates whether text in the header will be word wrapped if it doesn't fit on one line.")
 @JSFComponent
-public interface _MXMLUIHeaderWordWrapAttribute {
+public interface IFlexUIHeaderWordWrapAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="flags", returnType="java.lang.String", longDesc="The regular expression flags to use when matching.")
 @JSFComponent
-public interface _MXMLUIFlagsAttribute {
+public interface IFlexUIFlagsAttribute {
     
 }

@@ -21,39 +21,39 @@ package com.googlecode.jsfFlex.component.ext.service.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIConcurrencyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIContentTypeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDestinationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFaultAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMakeObjectsBindableAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMethodAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIResultAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIResultFormatAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShowBusyCursorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUrlAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUseProxyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIXmlDecodeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIXmlEncodeAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIConcurrencyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIContentTypeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDestinationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFaultAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMakeObjectsBindableAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMethodAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIResultAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIResultFormatAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShowBusyCursorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUrlAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUseProxyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIXmlDecodeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIXmlEncodeAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlHTTPService",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.service.ext.MXMLUIHTTPService",
-        type                =   "com.googlecode.jsfFlex.MXMLUIHTTPService",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.service.ext.MXMLUIHTTPServiceTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLHTTPService"
+        name                =   "jf:flexHTTPService",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.service.ext.FlexUIHTTPService",
+        type                =   "com.googlecode.jsfFlex.FlexUIHTTPService",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.service.ext.FlexUIHTTPServiceTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexHTTPService"
 )
-public abstract class AbstractMXMLUIHTTPService 
-						extends MXMLUISimpleBase 
-                        implements _MXMLUIConcurrencyAttribute, _MXMLUIContentTypeAttribute, _MXMLUIDestinationAttribute, 
-                        _MXMLUIMethodAttribute, _MXMLUIResultFormatAttribute, _MXMLUIShowBusyCursorAttribute, 
-                        _MXMLUIMakeObjectsBindableAttribute, _MXMLUIUrlAttribute, _MXMLUIUseProxyAttribute, 
-                        _MXMLUIXmlEncodeAttribute, _MXMLUIXmlDecodeAttribute, _MXMLUIFaultAttribute, 
-                        _MXMLUIResultAttribute {
+public abstract class AbstractFlexUIHTTPService 
+						extends AbstractFlexUISimpleBase 
+                        implements IFlexUIConcurrencyAttribute, IFlexUIContentTypeAttribute, IFlexUIDestinationAttribute, 
+                        IFlexUIMethodAttribute, IFlexUIResultFormatAttribute, IFlexUIShowBusyCursorAttribute, 
+                        IFlexUIMakeObjectsBindableAttribute, IFlexUIUrlAttribute, IFlexUIUseProxyAttribute, 
+                        IFlexUIXmlEncodeAttribute, IFlexUIXmlDecodeAttribute, IFlexUIFaultAttribute, 
+                        IFlexUIResultAttribute {
     
     /**
      * Id of the component.

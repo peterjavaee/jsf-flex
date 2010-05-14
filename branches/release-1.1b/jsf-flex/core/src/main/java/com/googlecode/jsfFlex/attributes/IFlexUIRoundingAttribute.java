@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="rounding", returnType="java.lang.String", longDesc="How to round the number.")
 @JSFComponent
-public interface _MXMLUIRoundingAttribute {
+public interface IFlexUIRoundingAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="panFrom", returnType="java.lang.String", longDesc="Initial pan of the Sound object.")
 @JSFComponent
-public interface _MXMLUIPanFromAttribute {
+public interface IFlexUIPanFromAttribute {
     
 }

@@ -26,12 +26,12 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIAsynchronousEventGlueHandler;
-import com.googlecode.jsfFlex.attributes._MXMLUIEventHandlerSrcIdAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEventHandlerTgtIdAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEventListener;
-import com.googlecode.jsfFlex.eventGlue._MXMLUIAsynchronousEventGlueBase;
-import com.googlecode.jsfFlex.shared.adapter._MXMLEvent;
+import com.googlecode.jsfFlex.attributes.IFlexUIAsynchronousEventGlueHandlerAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEventHandlerSrcIdAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEventHandlerTgtIdAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEventListenerAttribute;
+import com.googlecode.jsfFlex.eventGlue.AbstractFlexUIAsynchronousEventGlueBase;
+import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
 import com.googlecode.jsfFlex.shared.model.beans.AsynchronousDataUpdateEventBean;
 import com.googlecode.jsfFlex.shared.model.event.AsynchronousDataUpdateEvent;
 
@@ -39,19 +39,19 @@ import com.googlecode.jsfFlex.shared.model.event.AsynchronousDataUpdateEvent;
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlAsynchronousDataUpdateEventListener",
-        clazz               =   "com.googlecode.jsfFlex.eventGlue.ext.MXMLUIAsynchronousDataUpdateEventListener",
-        type                =   "com.googlecode.jsfFlex.MXMLUIAsynchronousDataUpdateEventListener",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.eventGlue.ext.MXMLUIAsynchronousDataUpdateEventListenerTag",
-        family              =   "javax.faces.MXMLEventListener",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLAsynchronousDataUpdateEventListener"
+        name                =   "jf:flexAsynchronousDataUpdateEventListener",
+        clazz               =   "com.googlecode.jsfFlex.eventGlue.ext.FlexUIAsynchronousDataUpdateEventListener",
+        type                =   "com.googlecode.jsfFlex.FlexUIAsynchronousDataUpdateEventListener",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.eventGlue.ext.FlexUIAsynchronousDataUpdateEventListenerTag",
+        family              =   "javax.faces.FlexEventListener",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexAsynchronousDataUpdateEventListener"
 )
-public abstract class AbstractMXMLUIAsynchronousDataUpdateEventListener 
-                            extends _MXMLUIAsynchronousEventGlueBase 
-                            implements _MXMLUIAsynchronousEventGlueHandler, _MXMLUIEventListener, _MXMLUIEventHandlerSrcIdAttribute,  
-                            _MXMLUIEventHandlerTgtIdAttribute {
+public abstract class AbstractFlexUIAsynchronousDataUpdateEventListener 
+                            extends AbstractFlexUIAsynchronousEventGlueBase 
+                            implements IFlexUIAsynchronousEventGlueHandlerAttribute, IFlexUIEventListenerAttribute, IFlexUIEventHandlerSrcIdAttribute,  
+                            IFlexUIEventHandlerTgtIdAttribute {
     
-    private final static Log _log = LogFactory.getLog(AbstractMXMLUIAsynchronousDataUpdateEventListener.class);
+    private final static Log _log = LogFactory.getLog(AbstractFlexUIAsynchronousDataUpdateEventListener.class);
     
     private static final String DATA_UPDATE_ATTRIBUTE_ATTR = "DATA_UPDATE_ATTRIBUTE";
     private static final String DATA_UPDATE_VALUE_ATTR = "DATA_UPDATE_VALUE";
@@ -84,8 +84,8 @@ public abstract class AbstractMXMLUIAsynchronousDataUpdateEventListener
         return result.formatResponseToJSON();
     }
     
-    public _MXMLEvent.EVENT_HANDLER_TYPE getEventHandlerType() {
-        return _MXMLEvent.EVENT_HANDLER_TYPE.DATA_UPDATE_EVENT_HANDLER;
+    public IFlexEvent.EVENT_HANDLER_TYPE getEventHandlerType() {
+        return IFlexEvent.EVENT_HANDLER_TYPE.DATA_UPDATE_EVENT_HANDLER;
     }
     
     public String getEventHandlerEventName() {

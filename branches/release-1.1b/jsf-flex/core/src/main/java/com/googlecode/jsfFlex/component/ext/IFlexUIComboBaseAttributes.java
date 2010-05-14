@@ -20,30 +20,30 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDownSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditableDisabledSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditableDownSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditableOverSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditableUpSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIImeModeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOverSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRestrictAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedItemAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextInputStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUpSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisabledSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDownSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditableDisabledSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditableDownSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditableOverSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditableUpSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIImeModeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOverSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRestrictAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedItemAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextInputStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUpSkinAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIComboBaseAttributes 
-                        extends _MXMLUIImeModeAttribute, _MXMLUIRestrictAttribute, _MXMLUISelectedItemAttribute,
-                        _MXMLUIDisabledSkinAttribute, _MXMLUIDownSkinAttribute, _MXMLUIEditableDisabledSkinAttribute, 
-                        _MXMLUIEditableDownSkinAttribute, _MXMLUIEditableOverSkinAttribute, _MXMLUIEditableUpSkinAttribute,
-                        _MXMLUIOverSkinAttribute, _MXMLUITextInputStyleNameAttribute, _MXMLUIUpSkinAttribute, 
-                        _MXMLUIBaseAttributes {
+interface IFlexUIComboBaseAttributes 
+                        extends IFlexUIImeModeAttribute, IFlexUIRestrictAttribute, IFlexUISelectedItemAttribute,
+                        IFlexUIDisabledSkinAttribute, IFlexUIDownSkinAttribute, IFlexUIEditableDisabledSkinAttribute, 
+                        IFlexUIEditableDownSkinAttribute, IFlexUIEditableOverSkinAttribute, IFlexUIEditableUpSkinAttribute,
+                        IFlexUIOverSkinAttribute, IFlexUITextInputStyleNameAttribute, IFlexUIUpSkinAttribute, 
+                        IFlexUIBaseAttributes {
     
     String getDataProvider();
     

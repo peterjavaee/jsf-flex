@@ -25,26 +25,26 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLInput",
-		type="com.googlecode.jsfFlex.MXMLTextInput"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexInput",
+		type="com.googlecode.jsfFlex.FlexTextInput"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="TextInput",
-		mxmlComponentPackage="mx.controls",
-		mxmlComponentNodeAttributes={
-				@FlexComponentNodeAttribute(
+@IJsfFlexAttributeProperties(
+		componentName="TextInput",
+		componentPackage="mx.controls",
+		componentNodeAttributes={
+				@IFlexComponentNodeAttribute(
 						htmlType="input",
 						typeAttributeValue="hidden",
 						valueAttributeValue="text",
@@ -54,7 +54,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						nameAttributeValue="id",
 						isNameDynamic=true,
 						nameAppend="_text"),
-				@FlexComponentNodeAttribute(
+				@IFlexComponentNodeAttribute(
 						htmlType="input",
 						typeAttributeValue="hidden",
 						valueAttributeValue="htmlText",
@@ -67,65 +67,65 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="condenseWhite"),
-				@JsfFlexAttribute(attribute="data"),
-				@JsfFlexAttribute(attribute="displayAsPassword"),
-				@JsfFlexAttribute(attribute="editable", byMethod=true),
-				@JsfFlexAttribute(attribute="horizontalScrollPosition"),
-				@JsfFlexAttribute(attribute="imeMode"),
-				@JsfFlexAttribute(attribute="listData"),
-				@JsfFlexAttribute(attribute="maxChars"),
-				@JsfFlexAttribute(attribute="restrict"),
-				@JsfFlexAttribute(attribute="selectionBeginIndex"),
-				@JsfFlexAttribute(attribute="selectionEndIndex"),
-				@JsfFlexAttribute(attribute="backgroundAlpha"),
-				@JsfFlexAttribute(attribute="backgroundColor"),
-				@JsfFlexAttribute(attribute="backgroundImage"),
-				@JsfFlexAttribute(attribute="backgroundSize"),
-				@JsfFlexAttribute(attribute="borderColor"),
-				@JsfFlexAttribute(attribute="borderSides"),
-				@JsfFlexAttribute(attribute="borderSkin"),
-				@JsfFlexAttribute(attribute="borderStyle"),
-				@JsfFlexAttribute(attribute="borderThickness"),
-				@JsfFlexAttribute(attribute="color"),
-				@JsfFlexAttribute(attribute="cornerRadius"),
-				@JsfFlexAttribute(attribute="disabledColor"),
-				@JsfFlexAttribute(attribute="dropShadowColor"),
-				@JsfFlexAttribute(attribute="dropShadowEnabled"),
-				@JsfFlexAttribute(attribute="focusAlpha"),
-				@JsfFlexAttribute(attribute="focusRoundedCorners"),
-				@JsfFlexAttribute(attribute="fontAntiAliasType"),
-				@JsfFlexAttribute(attribute="fontFamily"),
-				@JsfFlexAttribute(attribute="fontGridFitType"),
-				@JsfFlexAttribute(attribute="fontSharpness"),
-				@JsfFlexAttribute(attribute="fontSize"),
-				@JsfFlexAttribute(attribute="fontStyle"),
-				@JsfFlexAttribute(attribute="fontThickness"),
-				@JsfFlexAttribute(attribute="fontWeight"),
-				@JsfFlexAttribute(attribute="paddingLeft"),
-				@JsfFlexAttribute(attribute="paddingRight"),
-				@JsfFlexAttribute(attribute="shadowDirection"),
-				@JsfFlexAttribute(attribute="shadowDistance"),
-				@JsfFlexAttribute(attribute="textAlign"),
-				@JsfFlexAttribute(attribute="textDecoration"),
-				@JsfFlexAttribute(attribute="textIndent"),
-				@JsfFlexAttribute(attribute="change"),
-				@JsfFlexAttribute(attribute="dataChange"),
-				@JsfFlexAttribute(attribute="enter"),
-				@JsfFlexAttribute(attribute="textInput")
+				@IJsfFlexAttribute(attribute="condenseWhite"),
+				@IJsfFlexAttribute(attribute="data"),
+				@IJsfFlexAttribute(attribute="displayAsPassword"),
+				@IJsfFlexAttribute(attribute="editable", byMethod=true),
+				@IJsfFlexAttribute(attribute="horizontalScrollPosition"),
+				@IJsfFlexAttribute(attribute="imeMode"),
+				@IJsfFlexAttribute(attribute="listData"),
+				@IJsfFlexAttribute(attribute="maxChars"),
+				@IJsfFlexAttribute(attribute="restrict"),
+				@IJsfFlexAttribute(attribute="selectionBeginIndex"),
+				@IJsfFlexAttribute(attribute="selectionEndIndex"),
+				@IJsfFlexAttribute(attribute="backgroundAlpha"),
+				@IJsfFlexAttribute(attribute="backgroundColor"),
+				@IJsfFlexAttribute(attribute="backgroundImage"),
+				@IJsfFlexAttribute(attribute="backgroundSize"),
+				@IJsfFlexAttribute(attribute="borderColor"),
+				@IJsfFlexAttribute(attribute="borderSides"),
+				@IJsfFlexAttribute(attribute="borderSkin"),
+				@IJsfFlexAttribute(attribute="borderStyle"),
+				@IJsfFlexAttribute(attribute="borderThickness"),
+				@IJsfFlexAttribute(attribute="color"),
+				@IJsfFlexAttribute(attribute="cornerRadius"),
+				@IJsfFlexAttribute(attribute="disabledColor"),
+				@IJsfFlexAttribute(attribute="dropShadowColor"),
+				@IJsfFlexAttribute(attribute="dropShadowEnabled"),
+				@IJsfFlexAttribute(attribute="focusAlpha"),
+				@IJsfFlexAttribute(attribute="focusRoundedCorners"),
+				@IJsfFlexAttribute(attribute="fontAntiAliasType"),
+				@IJsfFlexAttribute(attribute="fontFamily"),
+				@IJsfFlexAttribute(attribute="fontGridFitType"),
+				@IJsfFlexAttribute(attribute="fontSharpness"),
+				@IJsfFlexAttribute(attribute="fontSize"),
+				@IJsfFlexAttribute(attribute="fontStyle"),
+				@IJsfFlexAttribute(attribute="fontThickness"),
+				@IJsfFlexAttribute(attribute="fontWeight"),
+				@IJsfFlexAttribute(attribute="paddingLeft"),
+				@IJsfFlexAttribute(attribute="paddingRight"),
+				@IJsfFlexAttribute(attribute="shadowDirection"),
+				@IJsfFlexAttribute(attribute="shadowDistance"),
+				@IJsfFlexAttribute(attribute="textAlign"),
+				@IJsfFlexAttribute(attribute="textDecoration"),
+				@IJsfFlexAttribute(attribute="textIndent"),
+				@IJsfFlexAttribute(attribute="change"),
+				@IJsfFlexAttribute(attribute="dataChange"),
+				@IJsfFlexAttribute(attribute="enter"),
+				@IJsfFlexAttribute(attribute="textInput")
 		}
 )
-public final class MXMLTextInputRenderer extends MXMLComponentRenderer {
+public final class FlexTextInputRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLTextInputRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLTextInputRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexTextInputRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexTextInputRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

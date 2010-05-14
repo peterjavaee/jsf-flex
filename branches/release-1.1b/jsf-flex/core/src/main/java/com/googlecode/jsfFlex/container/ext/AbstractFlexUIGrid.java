@@ -20,21 +20,21 @@ package com.googlecode.jsfFlex.container.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlGrid",
-        clazz               =   "com.googlecode.jsfFlex.container.ext.MXMLUIGrid",
-        type                =   "com.googlecode.jsfFlex.MXMLUIGrid",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.MXMLUIGridTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLGrid"
+        name                =   "jf:flexGrid",
+        clazz               =   "com.googlecode.jsfFlex.container.ext.FlexUIGrid",
+        type                =   "com.googlecode.jsfFlex.FlexUIGrid",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.FlexUIGridTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexGrid"
 )
-public abstract class AbstractMXMLUIGrid 
-                        extends MXMLUISimpleBase 
-                        implements _MXMLUIBoxAttributes {
+public abstract class AbstractFlexUIGrid 
+                        extends AbstractFlexUISimpleBase 
+                        implements IFlexUIBoxAttributes {
     
 }

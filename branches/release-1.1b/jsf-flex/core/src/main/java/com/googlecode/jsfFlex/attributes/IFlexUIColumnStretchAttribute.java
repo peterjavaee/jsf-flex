@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="columnStretch", returnType="java.lang.String", longDesc="Dispatched when a user changes the width of a column, indicating that the amount of data displayed in that column may have changed.")
 @JSFComponent
-public interface _MXMLUIColumnStretchAttribute {
+public interface IFlexUIColumnStretchAttribute {
     
 }

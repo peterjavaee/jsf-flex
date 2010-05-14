@@ -20,23 +20,23 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledIconColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIconColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisabledIconColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIconColorAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlCheckBox",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUICheckBox",
-        type                =   "com.googlecode.jsfFlex.MXMLUICheckBox",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUICheckBoxTag",
-        family              =   "javax.faces.MXMLInput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLCheckBox",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+        name                =   "jf:flexCheckBox",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUICheckBox",
+        type                =   "com.googlecode.jsfFlex.FlexUICheckBox",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUICheckBoxTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexCheckBox",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
 )
-public abstract class AbstractMXMLUICheckBox 
-						extends com.googlecode.jsfFlex.component.MXMLUISelectedBase 
-						implements _MXMLUIButtonAttributes, _MXMLUIDisabledIconColorAttribute, _MXMLUIIconColorAttribute {
+public abstract class AbstractFlexUICheckBox 
+						extends com.googlecode.jsfFlex.component.FlexUISelectedBase 
+						implements IFlexUIButtonAttributes, IFlexUIDisabledIconColorAttribute, IFlexUIIconColorAttribute {
 	
 }

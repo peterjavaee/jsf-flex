@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="x", returnType="java.lang.String", longDesc="Number that specifies the component's horizontal position, in pixels, within its parent container.")
 @JSFComponent
-public interface _MXMLUIXAttribute {
+public interface IFlexUIXAttribute {
     
 }

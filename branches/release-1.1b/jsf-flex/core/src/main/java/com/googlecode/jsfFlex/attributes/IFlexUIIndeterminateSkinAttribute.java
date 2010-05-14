@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="indeterminateSkin", returnType="java.lang.String", longDesc="Skin style for an indeterminate progress bar.")
 @JSFComponent
-public interface _MXMLUIIndeterminateSkinAttribute {
+public interface IFlexUIIndeterminateSkinAttribute {
     
 }

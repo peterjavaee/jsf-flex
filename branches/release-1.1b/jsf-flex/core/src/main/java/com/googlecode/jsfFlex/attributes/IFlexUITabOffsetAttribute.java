@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="tabOffset", returnType="java.lang.String", longDesc="The horizontal offset, in pixels, of the tab bar from the left edge of the TabNavigator container.")
 @JSFComponent
-public interface _MXMLUITabOffsetAttribute {
+public interface IFlexUITabOffsetAttribute {
     
 }

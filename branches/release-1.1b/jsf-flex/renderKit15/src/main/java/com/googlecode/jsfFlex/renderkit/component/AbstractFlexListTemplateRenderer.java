@@ -23,45 +23,45 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="editable", byMethod=true),
-				@JsfFlexAttribute(attribute="editedItemPosition"),
-				@JsfFlexAttribute(attribute="editorDataField"),
-				@JsfFlexAttribute(attribute="editorHeightOffset"),
-				@JsfFlexAttribute(attribute="editorUsesEnterKey"),
-				@JsfFlexAttribute(attribute="editorWidthOffset"),
-				@JsfFlexAttribute(attribute="editorXOffset"),
-				@JsfFlexAttribute(attribute="editorYOffset"),
-				@JsfFlexAttribute(attribute="imeMode"),
-				@JsfFlexAttribute(attribute="itemEditor"),
-				@JsfFlexAttribute(attribute="itemEditorInstance"),
-				@JsfFlexAttribute(attribute="rendererIsEditor"),
-				@JsfFlexAttribute(attribute="backgroundDisabledColor"),
-				@JsfFlexAttribute(attribute="itemEditBegin"),
-				@JsfFlexAttribute(attribute="itemEditEnd"),
-				@JsfFlexAttribute(attribute="itemEditBeginning"),
-				@JsfFlexAttribute(attribute="itemFocusIn"),
-				@JsfFlexAttribute(attribute="itemFocusOut")
+				@IJsfFlexAttribute(attribute="editable", byMethod=true),
+				@IJsfFlexAttribute(attribute="editedItemPosition"),
+				@IJsfFlexAttribute(attribute="editorDataField"),
+				@IJsfFlexAttribute(attribute="editorHeightOffset"),
+				@IJsfFlexAttribute(attribute="editorUsesEnterKey"),
+				@IJsfFlexAttribute(attribute="editorWidthOffset"),
+				@IJsfFlexAttribute(attribute="editorXOffset"),
+				@IJsfFlexAttribute(attribute="editorYOffset"),
+				@IJsfFlexAttribute(attribute="imeMode"),
+				@IJsfFlexAttribute(attribute="itemEditor"),
+				@IJsfFlexAttribute(attribute="itemEditorInstance"),
+				@IJsfFlexAttribute(attribute="rendererIsEditor"),
+				@IJsfFlexAttribute(attribute="backgroundDisabledColor"),
+				@IJsfFlexAttribute(attribute="itemEditBegin"),
+				@IJsfFlexAttribute(attribute="itemEditEnd"),
+				@IJsfFlexAttribute(attribute="itemEditBeginning"),
+				@IJsfFlexAttribute(attribute="itemFocusIn"),
+				@IJsfFlexAttribute(attribute="itemFocusOut")
 		}
 )
-public abstract class MXMLListTemplateRenderer extends MXMLListBaseTemplateRenderer {
+public abstract class AbstractFlexListTemplateRenderer extends AbstractFlexListBaseTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLListTemplateRenderer.class, componentObj, null);
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(AbstractFlexListTemplateRenderer.class, componentObj, null);
 		
 	}
 	

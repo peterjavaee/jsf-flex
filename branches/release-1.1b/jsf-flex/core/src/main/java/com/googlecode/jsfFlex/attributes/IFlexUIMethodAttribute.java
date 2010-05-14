@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="method", returnType="java.lang.String", longDesc="HTTP method for sending the request.")
 @JSFComponent
-public interface _MXMLUIMethodAttribute {
+public interface IFlexUIMethodAttribute {
     
 }

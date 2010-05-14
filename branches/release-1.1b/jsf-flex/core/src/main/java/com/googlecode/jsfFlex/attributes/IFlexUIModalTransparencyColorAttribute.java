@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="modalTransparencyColor", returnType="java.lang.String", longDesc="Color of the modal overlay layer. This style is used in conjunction with the modalTransparency style to determine the colorization applied to the application when a modal window is open. The default value is #DDDDDD.")
 @JSFComponent
-public interface _MXMLUIModalTransparencyColorAttribute {
+public interface IFlexUIModalTransparencyColorAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="focusThickness", returnType="java.lang.String", longDesc="Thickness, in pixels, of the focus rectangle outline.")
 @JSFComponent
-public interface _MXMLUIFocusThicknessAttribute {
+public interface IFlexUIFocusThicknessAttribute {
     
 }

@@ -33,62 +33,62 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIApplicationCompleteAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundGradientAlphasAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundGradientColorsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIControlBarAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFrameRateAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHistoryManagementEnabledAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalAlignAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalGapAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILayoutAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIModalTransparencyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIModalTransparencyBlurAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIModalTransparencyColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIModalTransparencyDurationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPageTitleAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPreloaderAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIResetHistoryAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIScriptRecursionLimitAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIScriptTimeLimitAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITitleAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUsePreloaderAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalAlignAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalGapAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIViewSourceURLAttribute;
-import com.googlecode.jsfFlex.container.ext._MXMLUIContainerAttributes;
-import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
-import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexResource;
-import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
+import com.googlecode.jsfFlex.attributes.IFlexUIApplicationCompleteAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundGradientAlphasAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundGradientColorsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIControlBarAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFrameRateAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHistoryManagementEnabledAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalAlignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalGapAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILayoutAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIModalTransparencyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIModalTransparencyBlurAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIModalTransparencyColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIModalTransparencyDurationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPageTitleAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPreloaderAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIResetHistoryAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIScriptRecursionLimitAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIScriptTimeLimitAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITitleAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUsePreloaderAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalAlignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalGapAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIViewSourceURLAttribute;
+import com.googlecode.jsfFlex.container.ext.IFlexUIContainerAttributes;
+import com.googlecode.jsfFlex.renderkit.annotationDocletParser.AbstractAnnotationDocletParser;
+import com.googlecode.jsfFlex.renderkit.html.util.AbstractJsfFlexResource;
+import com.googlecode.jsfFlex.shared.adapter.IFlexApplicationContract;
 import com.googlecode.jsfFlex.shared.beans.others.JsfFlexFlashApplicationConfiguration;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
-import com.googlecode.jsfFlex.shared.context.MxmlContextImpl;
-import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
+import com.googlecode.jsfFlex.shared.context.FlexContextImpl;
+import com.googlecode.jsfFlex.shared.tasks.AbstractRunnerFactory;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlApplication",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIApplication",
-        type                =   "com.googlecode.jsfFlex.MXMLUIApplication",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIApplicationTag",
-        family              =   "javax.faces.MXMLApplication",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLApplication"
+        name                =   "jf:flexApplication",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIApplication",
+        type                =   "com.googlecode.jsfFlex.FlexUIApplication",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIApplicationTag",
+        family              =   "javax.faces.FlexApplication",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexApplication"
 )
-public abstract class AbstractMXMLUIApplication 
+public abstract class AbstractFlexUIApplication 
 						extends UIComponentBase 
-						implements _MXMLUIContainerAttributes, _MXMLApplicationContract, _MXMLUIControlBarAttribute, 
-                        _MXMLUIFrameRateAttribute, _MXMLUIHistoryManagementEnabledAttribute, _MXMLUILayoutAttribute, 
-                        _MXMLUIPageTitleAttribute, _MXMLUIPreloaderAttribute, _MXMLUIResetHistoryAttribute, _MXMLUIScriptRecursionLimitAttribute, 
-                        _MXMLUIScriptTimeLimitAttribute, _MXMLUIUsePreloaderAttribute, _MXMLUIViewSourceURLAttribute, 
-                        _MXMLUIBackgroundGradientAlphasAttribute, _MXMLUIBackgroundGradientColorsAttribute, 
-                        _MXMLUIHorizontalAlignAttribute, _MXMLUIHorizontalGapAttribute, _MXMLUIModalTransparencyAttribute, 
-                        _MXMLUIModalTransparencyBlurAttribute, _MXMLUIModalTransparencyColorAttribute, _MXMLUIModalTransparencyDurationAttribute, 
-                        _MXMLUIVerticalAlignAttribute, _MXMLUIVerticalGapAttribute, _MXMLUIApplicationCompleteAttribute, 
-                        _MXMLUIErrorAttribute, _MXMLUITitleAttribute {
+						implements IFlexUIContainerAttributes, IFlexApplicationContract, IFlexUIControlBarAttribute, 
+                        IFlexUIFrameRateAttribute, IFlexUIHistoryManagementEnabledAttribute, IFlexUILayoutAttribute, 
+                        IFlexUIPageTitleAttribute, IFlexUIPreloaderAttribute, IFlexUIResetHistoryAttribute, IFlexUIScriptRecursionLimitAttribute, 
+                        IFlexUIScriptTimeLimitAttribute, IFlexUIUsePreloaderAttribute, IFlexUIViewSourceURLAttribute, 
+                        IFlexUIBackgroundGradientAlphasAttribute, IFlexUIBackgroundGradientColorsAttribute, 
+                        IFlexUIHorizontalAlignAttribute, IFlexUIHorizontalGapAttribute, IFlexUIModalTransparencyAttribute, 
+                        IFlexUIModalTransparencyBlurAttribute, IFlexUIModalTransparencyColorAttribute, IFlexUIModalTransparencyDurationAttribute, 
+                        IFlexUIVerticalAlignAttribute, IFlexUIVerticalGapAttribute, IFlexUIApplicationCompleteAttribute, 
+                        IFlexUIErrorAttribute, IFlexUITitleAttribute {
 	
 	private static final String JSF_FLEX_COMMUNICATOR_CORE_JS = "jsfFlexCommunicatorCore.js";
 	private static final String JSF_FLEX_COMMUNICATOR_LOGGER_JS = "jsfFlexCommunicatorLogger.js";
@@ -100,7 +100,7 @@ public abstract class AbstractMXMLUIApplication
 	private static final String MX_DEFAULT_XMLNS_URL = "http://www.adobe.com/2006/mxml";
     private static final String INITIALIZE_CALL = "initializeApp(event);";
 	
-    private _AnnotationDocletParser _annotationDocletParserInstance;
+    private AbstractAnnotationDocletParser _annotationDocletParserInstance;
     
     private String _absolutePathToPreMxmlFile;
 	
@@ -108,7 +108,7 @@ public abstract class AbstractMXMLUIApplication
 	private String _parentPreMxmlIdentifier;
 	/*
 	 * below two variables dictate the depth and the height of this component
-	 * in reference to the top component which should be of MXMLApplication. 
+	 * in reference to the top component which should be of FlexApplication. 
 	 */
 	private int _majorLevel = -1;
 	private int _minorLevel = -1;
@@ -143,11 +143,11 @@ public abstract class AbstractMXMLUIApplication
             }
         }
         
-		String mode = context.getExternalContext().getInitParameter(MXMLConstants.CONFIG_MODE_NAME);
-		MxmlContext mxmlContext = new MxmlContextImpl(getMxmlPackageName(), mode, this);
+		String mode = context.getExternalContext().getInitParameter(FlexConstants.CONFIG_MODE_NAME);
+		AbstractFlexContext mxmlContext = new FlexContextImpl(getMxmlPackageName(), mode, this);
         
 		String webContextPath = context.getExternalContext().getRequestContextPath();
-        String swfWebPath = webContextPath + "/" + MXMLConstants.SWF_DIRECTORY_NAME + "/";
+        String swfWebPath = webContextPath + "/" + FlexConstants.SWF_DIRECTORY_NAME + "/";
 		String applicationSwfWebPath = swfWebPath + getMxmlPackageName() + "/";
         mxmlContext.setSwfWebPath(swfWebPath);
 		mxmlContext.setApplicationSwfWebPath(applicationSwfWebPath);
@@ -158,7 +158,7 @@ public abstract class AbstractMXMLUIApplication
 		init = (init == null) ? INITIALIZE_CALL : init + " " + INITIALIZE_CALL;
 		getAttributes().put(INITIALIZE_ATTR, init);
 		
-		String localeWebContextRelativePath = context.getExternalContext().getInitParameter(MXMLConstants.LOCALE_WEB_CONTEXT_RELATIVE_PATH);
+		String localeWebContextRelativePath = context.getExternalContext().getInitParameter(FlexConstants.LOCALE_WEB_CONTEXT_RELATIVE_PATH);
 		if(localeWebContextRelativePath != null){
 			mxmlContext.setLocaleWebContextPath(_applicationPath + File.separatorChar + localeWebContextRelativePath + File.separatorChar);
 		}
@@ -168,27 +168,27 @@ public abstract class AbstractMXMLUIApplication
 			//do not need to create preMXML, MXML, and SWF files
 			
 		}else{
-			String mxmlPath = _applicationPath + File.separatorChar + MXMLConstants.MXML_DIRECTORY_NAME + File.separatorChar +
+			String mxmlPath = _applicationPath + File.separatorChar + FlexConstants.FLEX_DIRECTORY_NAME + File.separatorChar +
 									getMxmlPackageName() + File.separatorChar;
-            String swfPath = _applicationPath + File.separatorChar + MXMLConstants.SWF_DIRECTORY_NAME + File.separatorChar;
-            String applicationSwfPath = swfPath + getMxmlPackageName() + File.separatorChar + getMxmlPackageName() + MXMLConstants.SWF_FILE_EXT;
+            String swfPath = _applicationPath + File.separatorChar + FlexConstants.SWF_DIRECTORY_NAME + File.separatorChar;
+            String applicationSwfPath = swfPath + getMxmlPackageName() + File.separatorChar + getMxmlPackageName() + FlexConstants.SWF_FILE_EXT;
 			
 			/*
 			 * 	The above swfBasePath will hold placeholder of where swf-source-files's source-file[s] will be echoed to.
 			 * 	The files that will be echoed can be found in mxmlConstants.xml and are simply the contents that will be used
 			 * 	by the system's ActionScripts.
 			 */
-			String flexSDKPath = _applicationPath + File.separatorChar + MXMLConstants.FLEX_SDK_DIRECTORY_NAME + File.separatorChar;
+			String flexSDKPath = _applicationPath + File.separatorChar + FlexConstants.FLEX_SDK_DIRECTORY_NAME + File.separatorChar;
 			
-            String swcPath = _applicationPath + File.separatorChar + MXMLConstants.SWC_DIRECTORY_NAME + File.separatorChar;
-			String jsfFlexSwcPath = swcPath + MXMLConstants.JSF_FLEX_MAIN_SWC_DIRECTORY_NAME + File.separatorChar;
+            String swcPath = _applicationPath + File.separatorChar + FlexConstants.SWC_DIRECTORY_NAME + File.separatorChar;
+			String jsfFlexSwcPath = swcPath + FlexConstants.JSF_FLEX_MAIN_SWC_DIRECTORY_NAME + File.separatorChar;
 			
 			//externalLibraryPath will contain .swc file
-			String swcFileAbsolutePath = jsfFlexSwcPath + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWC_FILE_EXT;
+			String swcFileAbsolutePath = jsfFlexSwcPath + FlexConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + FlexConstants.SWC_FILE_EXT;
             addExternalLibraryPath(swcFileAbsolutePath);
 			
 			//runtimeSharedLibrary has to be relative to the Web root path file
-			String jsfFlexMainSwcWebpath = swfWebPath + MXMLConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + MXMLConstants.SWF_FILE_EXT;
+			String jsfFlexMainSwcWebpath = swfWebPath + FlexConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + FlexConstants.SWF_FILE_EXT;
             addRuntimeSharedLibrary(jsfFlexMainSwcWebpath);
 			
 			mxmlContext.setFlexSDKPath(flexSDKPath);
@@ -200,30 +200,30 @@ public abstract class AbstractMXMLUIApplication
 			
 			//set the attributes for jsfFlexFlashApplicationConfiguration
 			JsfFlexFlashApplicationConfiguration jsfFlexFlashApplicationConfiguration = mxmlContext.getJsfFlexFlashApplicationConfiguration();
-			String flashToJavaScriptLogLevel = context.getExternalContext().getInitParameter(MXMLConstants.FLASH_TO_JAVASCRIPT_LOG_LEVEL_NAME);
+			String flashToJavaScriptLogLevel = context.getExternalContext().getInitParameter(FlexConstants.FLASH_TO_JAVASCRIPT_LOG_LEVEL_NAME);
 			if(flashToJavaScriptLogLevel == null){
 				
-				flashToJavaScriptLogLevel = context.getExternalContext().getInitParameter(MXMLConstants.CONFIG_MODE_NAME);
-				if(flashToJavaScriptLogLevel.equals(MXMLConstants.PRODUCTION_MODE)){
-					flashToJavaScriptLogLevel = MXMLConstants.FLASH_TO_JAVASCRIPT_LOG_WARN_LEVEL;
+				flashToJavaScriptLogLevel = context.getExternalContext().getInitParameter(FlexConstants.CONFIG_MODE_NAME);
+				if(flashToJavaScriptLogLevel.equals(FlexConstants.PRODUCTION_MODE)){
+					flashToJavaScriptLogLevel = FlexConstants.FLASH_TO_JAVASCRIPT_LOG_WARN_LEVEL;
 				}else{
-					flashToJavaScriptLogLevel = MXMLConstants.FLASH_TO_JAVASCRIPT_LOG_LOG_LEVEL;
+					flashToJavaScriptLogLevel = FlexConstants.FLASH_TO_JAVASCRIPT_LOG_LOG_LEVEL;
 				}
 			}
 			
-			if(flashToJavaScriptLogLevel.equals(MXMLConstants.FLASH_TO_JAVASCRIPT_LOG_LOG_LEVEL)){
+			if(flashToJavaScriptLogLevel.equals(FlexConstants.FLASH_TO_JAVASCRIPT_LOG_LOG_LEVEL)){
 				jsfFlexFlashApplicationConfiguration.setFlashToJavaScriptLogMode("1");
-			}else if(flashToJavaScriptLogLevel.equals(MXMLConstants.FLASH_TO_JAVASCRIPT_LOG_DEBUG_LEVEL)){
+			}else if(flashToJavaScriptLogLevel.equals(FlexConstants.FLASH_TO_JAVASCRIPT_LOG_DEBUG_LEVEL)){
 				jsfFlexFlashApplicationConfiguration.setFlashToJavaScriptLogMode("2");
-			}else if(flashToJavaScriptLogLevel.equals(MXMLConstants.FLASH_TO_JAVASCRIPT_LOG_INFO_LEVEL)){
+			}else if(flashToJavaScriptLogLevel.equals(FlexConstants.FLASH_TO_JAVASCRIPT_LOG_INFO_LEVEL)){
 				jsfFlexFlashApplicationConfiguration.setFlashToJavaScriptLogMode("3");
-			}else if(flashToJavaScriptLogLevel.equals(MXMLConstants.FLASH_TO_JAVASCRIPT_LOG_WARN_LEVEL)){
+			}else if(flashToJavaScriptLogLevel.equals(FlexConstants.FLASH_TO_JAVASCRIPT_LOG_WARN_LEVEL)){
 				jsfFlexFlashApplicationConfiguration.setFlashToJavaScriptLogMode("4");
 			}else {
 				jsfFlexFlashApplicationConfiguration.setFlashToJavaScriptLogMode("5");
 			}
 			
-			String preMxmlPath = _applicationPath + File.separatorChar + MXMLConstants.PREMXML_DIRECTORY_NAME + File.separatorChar +
+			String preMxmlPath = _applicationPath + File.separatorChar + FlexConstants.PREMXML_DIRECTORY_NAME + File.separatorChar +
 										getMxmlPackageName() + File.separatorChar;
 			mxmlContext.setPreMxmlPath(preMxmlPath);
 			
@@ -237,7 +237,7 @@ public abstract class AbstractMXMLUIApplication
 	
 	public void encodeEnd(FacesContext context) throws IOException {
 		
-		JsfFlexResource jsfFlexResource = JsfFlexResource.getInstance();
+		AbstractJsfFlexResource jsfFlexResource = AbstractJsfFlexResource.getInstance();
 		jsfFlexResource.addResource(getClass(), JSF_FLEX_COMMUNICATOR_CORE_JS);
 		jsfFlexResource.addResource(getClass(), JSF_FLEX_COMMUNICATOR_LOGGER_JS);
 		
@@ -248,11 +248,11 @@ public abstract class AbstractMXMLUIApplication
     	return null;
     }
 	
-	public synchronized _AnnotationDocletParser getAnnotationDocletParserInstance(){
+	public synchronized AbstractAnnotationDocletParser getAnnotationDocletParserInstance(){
 		
 		if(_annotationDocletParserInstance == null){
-			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-			_RunnerFactory runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
+			AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
+			AbstractRunnerFactory runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
 			_annotationDocletParserInstance = runnerFactoryInstance.getAnnotationDocletParserImpl();
 		}
 		

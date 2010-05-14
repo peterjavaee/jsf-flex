@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="upIcon", returnType="java.lang.String", longDesc="Name of the class to use as the icon when a toggle button is not selected and the mouse is not over the button.")
 @JSFComponent
-public interface _MXMLUIUpIconAttribute {
+public interface IFlexUIUpIconAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="preloader", returnType="java.lang.String", longDesc="Specifies the path of a SWC component class or ActionScript component class that defines a custom progress bar.")
 @JSFComponent
-public interface _MXMLUIPreloaderAttribute {
+public interface IFlexUIPreloaderAttribute {
     
 }

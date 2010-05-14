@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="rewind", returnType="java.lang.String", longDesc="Dispatched when the control autorewinds.")
 @JSFComponent
-public interface _MXMLUIRewindAttribute {
+public interface IFlexUIRewindAttribute {
     
 }

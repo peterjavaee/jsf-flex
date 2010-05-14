@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dayListener", returnType="java.lang.String", longDesc="The component that listens for the validation result for the day subfield.")
 @JSFComponent
-public interface _MXMLUIDayListenerAttribute {
+public interface IFlexUIDayListenerAttribute {
     
 }

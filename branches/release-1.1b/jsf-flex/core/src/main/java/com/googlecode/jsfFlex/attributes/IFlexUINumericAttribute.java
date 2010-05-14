@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="numeric", returnType="java.lang.String", longDesc="Specifies that if the field being sorted contains numeric (Number/int/uint) values, or String representations of numeric values, the comparitor uses a numeric comparison.")
 @JSFComponent
-public interface _MXMLUINumericAttribute {
+public interface IFlexUINumericAttribute {
     
 }

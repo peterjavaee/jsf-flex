@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="integerError", returnType="java.lang.String", longDesc="Error message when the number must be an integer, as defined by the domain property.")
 @JSFComponent
-public interface _MXMLUIIntegerErrorAttribute {
+public interface IFlexUIIntegerErrorAttribute {
     
 }

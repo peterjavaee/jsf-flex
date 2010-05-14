@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="paddingRight", returnType="java.lang.String", longDesc="Number of pixels between the container's right border and the right edge of its content area.")
 @JSFComponent
-public interface _MXMLUIPaddingRightAttribute {
+public interface IFlexUIPaddingRightAttribute {
     
 }

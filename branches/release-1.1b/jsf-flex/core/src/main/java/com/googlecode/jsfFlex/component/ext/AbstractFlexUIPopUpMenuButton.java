@@ -20,30 +20,30 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIDataDescriptorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIconFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIconFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILabelFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILabelFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShowRootAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataDescriptorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIconFieldAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIconFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILabelFieldAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILabelFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShowRootAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlPopUpMenuButton",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIPopUpMenuButton",
-        type                =   "com.googlecode.jsfFlex.MXMLUIPopUpMenuButton",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIPopUpMenuButtonTag",
-        family              =   "javax.faces.MXMLInput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLPopUpMenuButton",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+        name                =   "jf:flexPopUpMenuButton",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIPopUpMenuButton",
+        type                =   "com.googlecode.jsfFlex.FlexUIPopUpMenuButton",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIPopUpMenuButtonTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexPopUpMenuButton",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
 )
-public abstract class AbstractMXMLUIPopUpMenuButton 
-						extends com.googlecode.jsfFlex.component.MXMLUISelectedBase
-						implements _MXMLUIPopUpButtonAttributes, _MXMLUIDataDescriptorAttribute, _MXMLUIDataProviderAttribute, 
-                        _MXMLUIIconFieldAttribute, _MXMLUIIconFunctionAttribute, _MXMLUILabelFieldAttribute, 
-                        _MXMLUILabelFunctionAttribute, _MXMLUIShowRootAttribute {
+public abstract class AbstractFlexUIPopUpMenuButton 
+						extends com.googlecode.jsfFlex.component.FlexUISelectedBase
+						implements IFlexUIPopUpButtonAttributes, IFlexUIDataDescriptorAttribute, IFlexUIDataProviderAttribute, 
+                        IFlexUIIconFieldAttribute, IFlexUIIconFunctionAttribute, IFlexUILabelFieldAttribute, 
+                        IFlexUILabelFunctionAttribute, IFlexUIShowRootAttribute {
 	
 }

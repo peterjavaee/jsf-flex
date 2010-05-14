@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="widthTo", returnType="java.lang.String", longDesc="Final width, in pixels.")
 @JSFComponent
-public interface _MXMLUIWidthToAttribute {
+public interface IFlexUIWidthToAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="backgroundSkin", returnType="java.lang.String", longDesc="The background skin of the MenuBar control.")
 @JSFComponent
-public interface _MXMLUIBackgroundSkinAttribute {
+public interface IFlexUIBackgroundSkinAttribute {
     
 }

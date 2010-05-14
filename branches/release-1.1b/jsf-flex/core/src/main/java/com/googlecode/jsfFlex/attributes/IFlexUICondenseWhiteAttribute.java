@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="condenseWhite", returnType="java.lang.String", longDesc="Specifies whether extra white space (spaces, line breaks, and so on) should be removed in a control with HTML text.")
 @JSFComponent
-public interface _MXMLUICondenseWhiteAttribute {
+public interface IFlexUICondenseWhiteAttribute {
     
 }

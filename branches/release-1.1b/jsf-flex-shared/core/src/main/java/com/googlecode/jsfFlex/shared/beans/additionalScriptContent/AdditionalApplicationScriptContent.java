@@ -24,8 +24,8 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
-import com.googlecode.jsfFlex.shared.adapter._MXMLEvent;
+import com.googlecode.jsfFlex.shared.adapter.IFlexApplicationContract;
+import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
 
 /**
  * @author Ji Hoon Kim
@@ -38,7 +38,7 @@ public final class AdditionalApplicationScriptContent {
     private final Set<SimpleDataProviderSetter> _simpleDataProviderSetter;
 	private final ValidationManagerScriptContent _validationManagerScriptContent;
 	
-	public AdditionalApplicationScriptContent(String currMxml, _MXMLApplicationContract currApplicationContract){
+	public AdditionalApplicationScriptContent(String currMxml, IFlexApplicationContract currApplicationContract){
 		super();
 		_actionScriptImports = new LinkedHashSet<String>();
         _dataGridScriptContent = new HashMap<String, DataGridScriptContent>();
@@ -65,7 +65,7 @@ public final class AdditionalApplicationScriptContent {
 		dataGridScriptContentInstance.addDataGridColumnContent(dataGridColumnId, dataField, columnEditable);
 	}
     
-	public void addEventHandler(String srcId, String tgtId, String evtHandlerId, _MXMLEvent.EVENT_HANDLER_TYPE eventType, String eventName){
+	public void addEventHandler(String srcId, String tgtId, String evtHandlerId, IFlexEvent.EVENT_HANDLER_TYPE eventType, String eventName){
         _eventHandlers.add(new EventHandler(srcId, tgtId, evtHandlerId, eventType, eventName));
     }
     

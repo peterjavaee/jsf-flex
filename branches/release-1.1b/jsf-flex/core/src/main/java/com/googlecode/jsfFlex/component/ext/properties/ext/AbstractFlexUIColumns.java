@@ -27,33 +27,33 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-import com.googlecode.jsfFlex.component.ext.AbstractMXMLUIDataGrid;
-import com.googlecode.jsfFlex.component.ext.AbstractMXMLUIDataGridColumn;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
+import com.googlecode.jsfFlex.component.ext.AbstractFlexUIDataGrid;
+import com.googlecode.jsfFlex.component.ext.AbstractFlexUIDataGridColumn;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlColumns",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.properties.ext.MXMLUIColumns",
-        type                =   "com.googlecode.jsfFlex.MXMLUIColumns",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.properties.ext.MXMLUIColumnsTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLColumns"
+        name                =   "jf:flexColumns",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.properties.ext.FlexUIColumns",
+        type                =   "com.googlecode.jsfFlex.FlexUIColumns",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.properties.ext.FlexUIColumnsTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexColumns"
 )
-public abstract class AbstractMXMLUIColumns 
-                        extends MXMLUISimpleBase {
+public abstract class AbstractFlexUIColumns 
+                        extends AbstractFlexUISimpleBase {
     
     public void encodeEnd(FacesContext context) throws IOException {
         super.encodeEnd(context);
         
-        AbstractMXMLUIDataGrid dataGridComponent = (AbstractMXMLUIDataGrid) getParent();
-        Map<String, AbstractMXMLUIDataGridColumn> dataGridColumnComponentMapping = dataGridComponent.getDataGridColumnComponentMapping();
+        AbstractFlexUIDataGrid dataGridComponent = AbstractFlexUIDataGrid.class.cast( getParent() );
+        Map<String, AbstractFlexUIDataGridColumn> dataGridColumnComponentMapping = dataGridComponent.getDataGridColumnComponentMapping();
         
         List<UIComponent> dataGridColumnComponents = getChildren();
         for(UIComponent currChild : dataGridColumnComponents){
-            AbstractMXMLUIDataGridColumn currDataGridColumnComponent = AbstractMXMLUIDataGridColumn.class.cast( currChild );
+            AbstractFlexUIDataGridColumn currDataGridColumnComponent = AbstractFlexUIDataGridColumn.class.cast( currChild );
             dataGridColumnComponentMapping.put(currDataGridColumnComponent.getDataField(), currDataGridColumnComponent);
         }
         

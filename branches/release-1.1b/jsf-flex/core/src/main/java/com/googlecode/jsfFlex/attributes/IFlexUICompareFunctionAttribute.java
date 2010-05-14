@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="compareFunction", returnType="java.lang.String", longDesc="The method used to compare items when sorting.")
 @JSFComponent
-public interface _MXMLUICompareFunctionAttribute {
+public interface IFlexUICompareFunctionAttribute {
     
 }

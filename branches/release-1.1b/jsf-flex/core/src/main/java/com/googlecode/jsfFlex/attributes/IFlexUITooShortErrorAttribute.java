@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="tooShortError", returnType="java.lang.String", longDesc="Error message when the string is shorter than the minLength property.")
 @JSFComponent
-public interface _MXMLUITooShortErrorAttribute {
+public interface IFlexUITooShortErrorAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="sortItemRenderer", returnType="java.lang.String", longDesc="The sort item renderer to be used to display the sort icon in the column header.")
 @JSFComponent
-public interface _MXMLUISortItemRendererAttribute {
+public interface IFlexUISortItemRendererAttribute {
     
 }

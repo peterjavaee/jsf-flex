@@ -24,7 +24,7 @@ import java.util.Map;
 /**
  * @author Ji Hoon Kim
  */
-public interface _JsfFlexInspectListener {
+public interface IJsfFlexInspectListener {
 	
 	void inspectFileFinished(List<Map<String, ? extends Object>> inspectedList, String sourceInspected, String packageName);
 	

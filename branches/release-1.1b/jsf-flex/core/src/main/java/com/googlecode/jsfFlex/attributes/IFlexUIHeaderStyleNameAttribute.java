@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="headerStyleName", returnType="java.lang.String", longDesc="The name of a CSS style declaration for controlling other aspects of the appearance of the column headers.")
 @JSFComponent
-public interface _MXMLUIHeaderStyleNameAttribute {
+public interface IFlexUIHeaderStyleNameAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="formatError", returnType="java.lang.String", longDesc="Error message when the inputFormat property is not in the correct format.")
 @JSFComponent
-public interface _MXMLUIFormatErrorAttribute {
+public interface IFlexUIFormatErrorAttribute {
     
 }

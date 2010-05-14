@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="showHeaders", returnType="java.lang.String", longDesc="A flag that indicates whether the control should show column headers.")
 @JSFComponent
-public interface _MXMLUIShowHeadersAttribute {
+public interface IFlexUIShowHeadersAttribute {
 	
 }

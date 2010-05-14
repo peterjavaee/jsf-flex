@@ -26,38 +26,38 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
-import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.renderkit.annotationDocletParser.AbstractAnnotationDocletParser;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
+import com.googlecode.jsfFlex.shared.tasks.AbstractRunnerFactory;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * This component should be used as the base action of the component if the component<br>
- * does not require any preservation of values during the post-back phase [i.e. AbstractMXMLUIVideoDisplay].<br>
+ * does not require any preservation of values during the post-back phase [i.e. AbstractFlexUIVideoDisplay].<br>
  * 
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        type    =   "com.googlecode.jsfFlex.MXMLUISimpleBase",
-        family  =   "javax.faces.MXMLUISimpleBase",
-        desc    =   "Base component for MXMLSimple components"
+        type    =   "com.googlecode.jsfFlex.FlexUISimpleBase",
+        family  =   "javax.faces.FlexUISimpleBase",
+        desc    =   "Base component for FlexSimple components"
 )
-public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLContract {
+public abstract class AbstractFlexUISimpleBase extends UIComponentBase implements IFlexContract {
 	
-	private _AnnotationDocletParser _annotationDocletParserInstance;
+	private AbstractAnnotationDocletParser _annotationDocletParserInstance;
 	
 	private String _absolutePathToPreMxmlFile;
 	private String _preMxmlIdentifier;
 	private String _parentPreMxmlIdentifier;
 	/*
 	 * below two variables dictate the depth and the height of this component
-	 * in reference to the top component which should be of MXMLApplication. 
+	 * in reference to the top component which should be of FlexApplication. 
 	 */
 	private int _majorLevel = -1;
 	private int _minorLevel = -1;
 
-	public MXMLUISimpleBase(){
+	public AbstractFlexUISimpleBase(){
 		super();
 	}
 	
@@ -65,11 +65,11 @@ public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLC
     	return null;
     }
 
-	public synchronized _AnnotationDocletParser getAnnotationDocletParserInstance(){
+	public synchronized AbstractAnnotationDocletParser getAnnotationDocletParserInstance(){
 		
 		if(_annotationDocletParserInstance == null){
-			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-			_RunnerFactory runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
+			AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
+			AbstractRunnerFactory runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
 			_annotationDocletParserInstance = runnerFactoryInstance.getAnnotationDocletParserImpl();
 		}
 		
@@ -78,7 +78,7 @@ public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLC
 	
 	public void encodeBegin(FacesContext context) throws IOException {
 		
-		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
 		if(mxmlContext.isProductionEnv()){
 			//means no need to create preMxml files
 			setRendered(false);
@@ -88,8 +88,8 @@ public abstract class MXMLUISimpleBase extends UIComponentBase implements _MXMLC
 	}
 	
 	public void processDecodes(FacesContext context) {
-		String mode = context.getExternalContext().getInitParameter(MXMLConstants.CONFIG_MODE_NAME);
-		if(mode == null || mode.equals(MXMLConstants.PRODUCTION_MODE)){
+		String mode = context.getExternalContext().getInitParameter(FlexConstants.CONFIG_MODE_NAME);
+		if(mode == null || mode.equals(FlexConstants.PRODUCTION_MODE)){
 			//need to dataBind so set back to true
 			setRendered(true);
 		}

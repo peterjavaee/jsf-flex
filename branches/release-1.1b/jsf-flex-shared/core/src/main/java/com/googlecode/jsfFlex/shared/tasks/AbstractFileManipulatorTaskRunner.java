@@ -37,9 +37,9 @@ import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 /**
  * @author Ji Hoon Kim
  */
-public abstract class _FileManipulatorTaskRunner extends TaskRunnerImpl {
+public abstract class AbstractFileManipulatorTaskRunner extends TaskRunnerImpl {
 	
-	private final static Log _log = LogFactory.getLog(_FileManipulatorTaskRunner.class);
+	private final static Log _log = LogFactory.getLog(AbstractFileManipulatorTaskRunner.class);
 	
 	public abstract void createFileContent(String filePath, String templateFile, Properties initProperties, Map<String, ? extends Object> tokenMap);
 	

@@ -23,41 +23,41 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-        mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+        componentNodeAttributes={},
 
         jsfFlexAttributes={
-                @JsfFlexAttribute(attribute="customFilter"),
-                @JsfFlexAttribute(attribute="duration"),
-                @JsfFlexAttribute(attribute="filter"),
-                @JsfFlexAttribute(attribute="hideFocusRing"),
-                @JsfFlexAttribute(attribute="perElementOffset"),
-                @JsfFlexAttribute(attribute="repeatCount"),
-                @JsfFlexAttribute(attribute="repeatDelay"),
-                @JsfFlexAttribute(attribute="startDelay"),
-                @JsfFlexAttribute(attribute="suspendBackgroundProcessing"),
-                @JsfFlexAttribute(attribute="target"),
-                @JsfFlexAttribute(attribute="targets"),
-                @JsfFlexAttribute(attribute="effectEnd"),
-                @JsfFlexAttribute(attribute="effectStart")
+                @IJsfFlexAttribute(attribute="customFilter"),
+                @IJsfFlexAttribute(attribute="duration"),
+                @IJsfFlexAttribute(attribute="filter"),
+                @IJsfFlexAttribute(attribute="hideFocusRing"),
+                @IJsfFlexAttribute(attribute="perElementOffset"),
+                @IJsfFlexAttribute(attribute="repeatCount"),
+                @IJsfFlexAttribute(attribute="repeatDelay"),
+                @IJsfFlexAttribute(attribute="startDelay"),
+                @IJsfFlexAttribute(attribute="suspendBackgroundProcessing"),
+                @IJsfFlexAttribute(attribute="target"),
+                @IJsfFlexAttribute(attribute="targets"),
+                @IJsfFlexAttribute(attribute="effectEnd"),
+                @IJsfFlexAttribute(attribute="effectStart")
         }
 )
-public abstract class MXMLEffectTemplateRenderer extends MXMLComponentBaseRenderer {
+public abstract class AbstractFlexEffectTemplateRenderer extends AbstractFlexComponentBaseRenderer {
 
     @Override
     public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
         super.encodeBegin(context, componentObj);
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-        writer.mapFields(MXMLEffectTemplateRenderer.class, componentObj, null);
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+        writer.mapFields(AbstractFlexEffectTemplateRenderer.class, componentObj, null);
         
     }
     

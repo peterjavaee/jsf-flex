@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="validateAsString", returnType="java.lang.String", longDesc="Determines how to validate the value.")
 @JSFComponent
-public interface _MXMLUIValidateAsStringAttribute {
+public interface IFlexUIValidateAsStringAttribute {
     
 }

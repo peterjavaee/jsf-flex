@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="cachePolicy", returnType="java.lang.String", longDesc="Specifies the bitmap caching policy for this object.")
 @JSFComponent
-public interface _MXMLUICachePolicyAttribute {
+public interface IFlexUICachePolicyAttribute {
     
 }

@@ -21,25 +21,25 @@ package com.googlecode.jsfFlex.states.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBasedOnAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUINameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOverridesAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIBasedOnAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUINameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOverridesAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlState",
-        clazz               =   "com.googlecode.jsfFlex.states.ext.MXMLUIState",
-        type                =   "com.googlecode.jsfFlex.MXMLUIState",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.states.ext.MXMLUIStateTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLState"
+        name                =   "jf:flexState",
+        clazz               =   "com.googlecode.jsfFlex.states.ext.FlexUIState",
+        type                =   "com.googlecode.jsfFlex.FlexUIState",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.states.ext.FlexUIStateTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexState"
 )
-public abstract class AbstractMXMLUIState 
-						extends MXMLUISimpleBase 
-                        implements _MXMLUIBasedOnAttribute, _MXMLUINameAttribute, _MXMLUIOverridesAttribute {
+public abstract class AbstractFlexUIState 
+						extends AbstractFlexUISimpleBase 
+                        implements IFlexUIBasedOnAttribute, IFlexUINameAttribute, IFlexUIOverridesAttribute {
 	
 	/**
 	 * Id of the component.

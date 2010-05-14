@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="heightTo", returnType="java.lang.String", longDesc="Final height, in pixels.")
 @JSFComponent
-public interface _MXMLUIHeightToAttribute {
+public interface IFlexUIHeightToAttribute {
     
 }

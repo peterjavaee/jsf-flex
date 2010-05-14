@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="styleSheet", returnType="java.lang.String", longDesc="A flash.text.StyleSheet object that can perform rendering on the TextArea control's text.")
 @JSFComponent
-public interface _MXMLUIStyleSheetAttribute {
+public interface IFlexUIStyleSheetAttribute {
     
 }

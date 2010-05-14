@@ -29,7 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Ji Hoon Kim
  */
-final class XMLServiceRequestDataRetrieverFlusher extends _ServiceRequestDataRetrieverFlusher {
+final class XMLServiceRequestDataRetrieverFlusher extends AbstractServiceRequestDataRetrieverFlusher {
 	
 	XMLServiceRequestDataRetrieverFlusher(){
 		super();

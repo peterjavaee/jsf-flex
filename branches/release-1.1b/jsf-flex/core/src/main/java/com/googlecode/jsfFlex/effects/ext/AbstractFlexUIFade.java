@@ -21,24 +21,24 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIAlphaFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIAlphaToAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIAlphaFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIAlphaToAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlFade",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIFade",
-        type                =   "com.googlecode.jsfFlex.MXMLUIFade",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIFadeTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLFade"
+        name                =   "jf:flexFade",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIFade",
+        type                =   "com.googlecode.jsfFlex.FlexUIFade",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIFadeTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexFade"
 )
-public abstract class AbstractMXMLUIFade 
-                                extends MXMLUISimpleBase 
-                                implements _MXMLUITweenEffectAttributes, _MXMLUIAlphaFromAttribute, _MXMLUIAlphaToAttribute {
+public abstract class AbstractFlexUIFade 
+                                extends AbstractFlexUISimpleBase 
+                                implements IFlexUITweenEffectAttributes, IFlexUIAlphaFromAttribute, IFlexUIAlphaToAttribute {
     
     /**
      * Id of the component.

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dropIndicatorSkin", returnType="java.lang.String", longDesc="The skin to use to indicate where a dragged item can be dropped.")
 @JSFComponent
-public interface _MXMLUIDropIndicatorSkinAttribute {
+public interface IFlexUIDropIndicatorSkinAttribute {
     
 }

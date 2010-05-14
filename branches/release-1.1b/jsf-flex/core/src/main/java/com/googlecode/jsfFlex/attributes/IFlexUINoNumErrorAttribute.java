@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="noNumError", returnType="java.lang.String", longDesc="Error message when the cardNumber field is empty.")
 @JSFComponent
-public interface _MXMLUINoNumErrorAttribute {
+public interface IFlexUINoNumErrorAttribute {
     
 }

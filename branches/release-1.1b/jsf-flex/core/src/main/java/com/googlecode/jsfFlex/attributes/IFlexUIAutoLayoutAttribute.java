@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="autoLayout", returnType="java.lang.String", longDesc="If true, measurement and layout are done when the position or size of a child is changed.")
 @JSFComponent
-public interface _MXMLUIAutoLayoutAttribute {
+public interface IFlexUIAutoLayoutAttribute {
     
 }

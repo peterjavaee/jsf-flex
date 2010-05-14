@@ -23,34 +23,34 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.container.MXMLBoxTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.container.AbstractFlexBoxTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="dataProvider", byMethod=true),
-				@JsfFlexAttribute(attribute="iconField"),
-				@JsfFlexAttribute(attribute="labelField"),
-				@JsfFlexAttribute(attribute="selectedIndex", byMethod=true),
-				@JsfFlexAttribute(attribute="toolTipField"),
-				@JsfFlexAttribute(attribute="itemClick")
+				@IJsfFlexAttribute(attribute="dataProvider", byMethod=true),
+				@IJsfFlexAttribute(attribute="iconField"),
+				@IJsfFlexAttribute(attribute="labelField"),
+				@IJsfFlexAttribute(attribute="selectedIndex", byMethod=true),
+				@IJsfFlexAttribute(attribute="toolTipField"),
+				@IJsfFlexAttribute(attribute="itemClick")
 		}
 )
-public abstract class MXMLNavBarTemplateRenderer extends MXMLBoxTemplateRenderer {
+public abstract class AbstractFlexNavBarTemplateRenderer extends AbstractFlexBoxTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLNavBarTemplateRenderer.class, componentObj, null);
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(AbstractFlexNavBarTemplateRenderer.class, componentObj, null);
 		
 	}
 	

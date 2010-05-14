@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="backgroundAttachment", returnType="java.lang.String", longDesc="If a background image is specified, this style specifies whether it is fixed with regard to the viewport (fixed) or scrolls along with the content (scroll).The default value is scroll.")
 @JSFComponent
-public interface _MXMLUIBackgroundAttachmentAttribute {
+public interface IFlexUIBackgroundAttachmentAttribute {
     
 }

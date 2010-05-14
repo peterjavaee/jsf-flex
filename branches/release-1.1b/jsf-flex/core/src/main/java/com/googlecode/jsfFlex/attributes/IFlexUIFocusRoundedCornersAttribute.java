@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="focusRoundedCorners", returnType="java.lang.String", longDesc="Specifies which corners of the focus rectangle should be rounded. This value is a space-separated String that can contain any combination of tl, tr, bl  and br. For example, to specify that the right side corners should be rounded, but the left side corners should be square, use tr br. The cornerRadius style property specifies the radius of the rounded corners. The default value depends on the component class; if not overridden for the class,default value is tl tr bl br.")
 @JSFComponent
-public interface _MXMLUIFocusRoundedCornersAttribute {
+public interface IFlexUIFocusRoundedCornersAttribute {
 	
 }

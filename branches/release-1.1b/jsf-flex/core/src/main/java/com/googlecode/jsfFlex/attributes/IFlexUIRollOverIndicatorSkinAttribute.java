@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="rollOverIndicatorSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the highlight area of the date when the user holds the mouse pointer over a date in the DateChooser control.")
 @JSFComponent
-public interface _MXMLUIRollOverIndicatorSkinAttribute {
+public interface IFlexUIRollOverIndicatorSkinAttribute {
     
 }

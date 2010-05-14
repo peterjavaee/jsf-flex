@@ -20,30 +20,30 @@ package com.googlecode.jsfFlex.convert.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIAreaCodeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIAreaCodeFormatAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFormatStringAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIValidPatternCharsAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIAreaCodeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIAreaCodeFormatAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFormatStringAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIValidPatternCharsAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
- * One thing to note about MXML Formatter and Validator is that they are not actually converters or validators<br>
+ * One thing to note about Flex Formatter and Validator is that they are not actually converters or validators<br>
  * respectively but actually are components. This is so because they perform the formatting and validation<br>
  * as Flex components on the client side and not on the server side.<br> 
  * 				
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlPhoneFormatter",
-        clazz               =   "com.googlecode.jsfFlex.convert.ext.MXMLUIPhoneFormatter",
-        type                =   "com.googlecode.jsfFlex.MXMLUIPhoneFormatter",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.convert.ext.MXMLUIPhoneFormatterTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLPhoneFormatter"
+        name                =   "jf:flexPhoneFormatter",
+        clazz               =   "com.googlecode.jsfFlex.convert.ext.FlexUIPhoneFormatter",
+        type                =   "com.googlecode.jsfFlex.FlexUIPhoneFormatter",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.convert.ext.FlexUIPhoneFormatterTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexPhoneFormatter"
 )
-public abstract class AbstractMXMLUIPhoneFormatter 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIFormatter, _MXMLUIAreaCodeAttribute, _MXMLUIAreaCodeFormatAttribute, 
-                        _MXMLUIFormatStringAttribute, _MXMLUIValidPatternCharsAttribute {
+public abstract class AbstractFlexUIPhoneFormatter 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIFormatter, IFlexUIAreaCodeAttribute, IFlexUIAreaCodeFormatAttribute, 
+                        IFlexUIFormatStringAttribute, IFlexUIValidPatternCharsAttribute {
 	
 }

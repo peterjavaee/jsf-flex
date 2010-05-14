@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="init", returnType="java.lang.String", longDesc="Dispatched when the properties and methods of a loaded SWF file are accessible.")
 @JSFComponent
-public interface _MXMLUIInitAttribute {
+public interface IFlexUIInitAttribute {
     
 }

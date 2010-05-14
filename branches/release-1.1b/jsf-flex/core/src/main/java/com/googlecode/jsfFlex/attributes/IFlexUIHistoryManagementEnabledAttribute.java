@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="historyManagementEnabled", returnType="java.lang.String", longDesc="If true, enables history management within this ViewStack container.")
 @JSFComponent
-public interface _MXMLUIHistoryManagementEnabledAttribute {
+public interface IFlexUIHistoryManagementEnabledAttribute {
     
 }

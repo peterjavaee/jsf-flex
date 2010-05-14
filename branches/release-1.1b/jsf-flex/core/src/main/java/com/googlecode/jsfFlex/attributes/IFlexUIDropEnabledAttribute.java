@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dropEnabled", returnType="java.lang.String", longDesc="A flag that indicates whether dragged items can be dropped onto the control.")
 @JSFComponent
-public interface _MXMLUIDropEnabledAttribute {
+public interface IFlexUIDropEnabledAttribute {
     
 }

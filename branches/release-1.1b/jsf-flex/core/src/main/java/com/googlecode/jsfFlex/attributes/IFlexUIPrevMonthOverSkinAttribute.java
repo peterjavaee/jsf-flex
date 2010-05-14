@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="prevMonthOverSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the previous month arrow when the user holds the mouse pointer over the arrow.")
 @JSFComponent
-public interface _MXMLUIPrevMonthOverSkinAttribute {
+public interface IFlexUIPrevMonthOverSkinAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="backgroundAlpha", returnType="java.lang.String", longDesc="Alpha level of the color defined by the backgroundColor property.")
 @JSFComponent
-public interface _MXMLUIBackgroundAlphaAttribute {
+public interface IFlexUIBackgroundAlphaAttribute {
 	
 }

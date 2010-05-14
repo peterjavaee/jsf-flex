@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="itemFocusIn", returnType="java.lang.String", longDesc="Dispatched when an item renderer gets focus, which can occur if the user clicks on an item in the List control or navigates to the item using a keyboard.")
 @JSFComponent
-public interface _MXMLUIItemFocusInAttribute {
+public interface IFlexUIItemFocusInAttribute {
     
 }

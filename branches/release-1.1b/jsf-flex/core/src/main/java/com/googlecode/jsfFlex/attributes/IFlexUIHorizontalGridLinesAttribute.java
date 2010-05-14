@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="horizontalGridLines", returnType="java.lang.String", longDesc="A flag that indicates whether to show horizontal grid lines between the rows.")
 @JSFComponent
-public interface _MXMLUIHorizontalGridLinesAttribute {
+public interface IFlexUIHorizontalGridLinesAttribute {
     
 }

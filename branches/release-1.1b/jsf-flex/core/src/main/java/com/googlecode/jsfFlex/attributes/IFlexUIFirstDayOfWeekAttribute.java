@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="firstDayOfWeek", returnType="java.lang.String", longDesc="Number representing the day of the week to display in the first column of the control.")
 @JSFComponent
-public interface _MXMLUIFirstDayOfWeekAttribute {
+public interface IFlexUIFirstDayOfWeekAttribute {
     
 }

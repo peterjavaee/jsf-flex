@@ -23,17 +23,17 @@ import java.io.PrintStream;
 import org.apache.tools.ant.DefaultLogger;
 import org.apache.tools.ant.Project;
 
-import com.googlecode.jsfFlex.shared.tasks._Task;
+import com.googlecode.jsfFlex.shared.tasks.AbstractTask;
 
 /**
  * @author Ji Hoon Kim
  */
-abstract class AntBaseTask extends _Task {
+abstract class AbstractAntBaseTask extends AbstractTask {
 	
 	Project _taskProject;
 	private DefaultLogger _consoleLogger;
 	
-	AntBaseTask(){
+	AbstractAntBaseTask(){
 		super();
 		_taskProject = new Project();
 		_consoleLogger = new DefaultLogger();

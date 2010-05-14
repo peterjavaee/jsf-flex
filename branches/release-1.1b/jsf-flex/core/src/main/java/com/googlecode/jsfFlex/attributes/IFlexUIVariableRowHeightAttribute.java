@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="variableRowHeight", returnType="java.lang.String", longDesc="A flag that indicates whether the individual rows can have different height.")
 @JSFComponent
-public interface _MXMLUIVariableRowHeightAttribute {
+public interface IFlexUIVariableRowHeightAttribute {
     
 }

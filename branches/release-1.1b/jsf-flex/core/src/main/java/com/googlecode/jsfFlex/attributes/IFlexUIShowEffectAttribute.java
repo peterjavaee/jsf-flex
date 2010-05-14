@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="showEffect", returnType="java.lang.String", longDesc="Played when the component becomes visible.")
 @JSFComponent
-public interface _MXMLUIShowEffectAttribute {
+public interface IFlexUIShowEffectAttribute {
     
 }

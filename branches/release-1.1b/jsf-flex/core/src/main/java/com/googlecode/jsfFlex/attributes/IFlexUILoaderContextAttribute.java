@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="loaderContext", returnType="java.lang.String", longDesc="A LoaderContext object to use to load the content.")
 @JSFComponent
-public interface _MXMLUILoaderContextAttribute {
+public interface IFlexUILoaderContextAttribute {
     
 }

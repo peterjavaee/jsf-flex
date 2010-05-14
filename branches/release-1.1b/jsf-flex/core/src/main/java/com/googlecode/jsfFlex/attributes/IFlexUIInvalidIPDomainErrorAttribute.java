@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="invalidIPDomainError", returnType="java.lang.String", longDesc="Error message when the IP domain is invalid.")
 @JSFComponent
-public interface _MXMLUIInvalidIPDomainErrorAttribute {
+public interface IFlexUIInvalidIPDomainErrorAttribute {
     
 }

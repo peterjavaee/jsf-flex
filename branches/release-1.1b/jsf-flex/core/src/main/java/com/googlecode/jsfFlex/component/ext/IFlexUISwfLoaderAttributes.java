@@ -20,40 +20,40 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIAutoLoadAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIBrokenImageBorderSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBrokenImageSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICompleteAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICompleteEffectAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalAlignAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHttpStatusAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIInitAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIoErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILoadForCompatibilityAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILoaderContextAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMaintainAspectRatioAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOpenAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIProgressAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIScaleContentAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISecurityErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShowBusyCursorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISourceAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITrustContentAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUnloadAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalAlignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIAutoLoadAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUIBrokenImageBorderSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBrokenImageSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICompleteAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICompleteEffectAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalAlignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHttpStatusAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIInitAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIoErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILoadForCompatibilityAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILoaderContextAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMaintainAspectRatioAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOpenAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIProgressAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIScaleContentAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISecurityErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShowBusyCursorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISourceAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITrustContentAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUnloadAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalAlignAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUISwfLoaderAttributes 
-                extends _MXMLUIAutoLoadAttribute, _MXMLUILoaderContextAttribute, _MXMLUILoadForCompatibilityAttribute, 
-                _MXMLUIMaintainAspectRatioAttribute, _MXMLUIScaleContentAttribute, _MXMLUIShowBusyCursorAttribute, 
-                _MXMLUISourceAttribute, _MXMLUITrustContentAttribute, _MXMLUIBrokenImageBorderSkinAttribute, 
-                _MXMLUIBrokenImageSkinAttribute, _MXMLUIHorizontalAlignAttribute, _MXMLUIVerticalAlignAttribute, 
-                _MXMLUICompleteEffectAttribute, _MXMLUICompleteAttribute, _MXMLUIHttpStatusAttribute, 
-                _MXMLUIInitAttribute, _MXMLUIIoErrorAttribute, _MXMLUIOpenAttribute, _MXMLUIProgressAttribute, 
-                _MXMLUISecurityErrorAttribute, _MXMLUIUnloadAttribute, _MXMLUIBaseAttributes {
+interface IFlexUISwfLoaderAttributes 
+                extends IFlexUIAutoLoadAttribute, IFlexUILoaderContextAttribute, IFlexUILoadForCompatibilityAttribute, 
+                IFlexUIMaintainAspectRatioAttribute, IFlexUIScaleContentAttribute, IFlexUIShowBusyCursorAttribute, 
+                IFlexUISourceAttribute, IFlexUITrustContentAttribute, IFlexUIBrokenImageBorderSkinAttribute, 
+                IFlexUIBrokenImageSkinAttribute, IFlexUIHorizontalAlignAttribute, IFlexUIVerticalAlignAttribute, 
+                IFlexUICompleteEffectAttribute, IFlexUICompleteAttribute, IFlexUIHttpStatusAttribute, 
+                IFlexUIInitAttribute, IFlexUIIoErrorAttribute, IFlexUIOpenAttribute, IFlexUIProgressAttribute, 
+                IFlexUISecurityErrorAttribute, IFlexUIUnloadAttribute, IFlexUIBaseAttributes {
     
 }

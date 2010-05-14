@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="parseFunction", returnType="java.lang.String", longDesc="Function used to parse the date entered as text in the text field area of the DateField control and return a Date object to the control.")
 @JSFComponent
-public interface _MXMLUIParseFunctionAttribute {
+public interface IFlexUIParseFunctionAttribute {
     
 }

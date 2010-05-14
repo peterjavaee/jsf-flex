@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="itemRollOver", returnType="java.lang.String", longDesc="Dispatched when the user rolls the mouse over a drop-down list item.")
 @JSFComponent
-public interface _MXMLUIItemRollOverAttribute {
+public interface IFlexUIItemRollOverAttribute {
     
 }

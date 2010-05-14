@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="alphaTo", returnType="java.lang.String", longDesc="Final transparency level between 0.0 and 1.0, where 0.0 means transparent and 1.0 means fully opaque.")
 @JSFComponent
-public interface _MXMLUIAlphaToAttribute {
+public interface IFlexUIAlphaToAttribute {
     
 }

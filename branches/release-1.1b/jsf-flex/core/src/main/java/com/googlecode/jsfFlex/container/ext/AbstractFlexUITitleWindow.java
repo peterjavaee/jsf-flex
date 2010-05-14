@@ -20,23 +20,23 @@ package com.googlecode.jsfFlex.container.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIShowCloseButtonAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITitleAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIShowCloseButtonAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITitleAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlTitleWindow",
-        clazz               =   "com.googlecode.jsfFlex.container.ext.MXMLUITitleWindow",
-        type                =   "com.googlecode.jsfFlex.MXMLUITitleWindow",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.MXMLUITitleWindowTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLTitleWindow"
+        name                =   "jf:flexTitleWindow",
+        clazz               =   "com.googlecode.jsfFlex.container.ext.FlexUITitleWindow",
+        type                =   "com.googlecode.jsfFlex.FlexUITitleWindow",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.FlexUITitleWindowTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexTitleWindow"
 )
-public abstract class AbstractMXMLUITitleWindow 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIPanelAttributes, _MXMLUIShowCloseButtonAttribute, _MXMLUITitleAttribute {
+public abstract class AbstractFlexUITitleWindow 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIPanelAttributes, IFlexUIShowCloseButtonAttribute, IFlexUITitleAttribute {
 	
 }

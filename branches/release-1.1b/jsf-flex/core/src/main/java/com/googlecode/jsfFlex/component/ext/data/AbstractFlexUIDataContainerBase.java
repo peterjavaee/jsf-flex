@@ -29,14 +29,14 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 
 /**
  * @author Ji Hoon Kim
  */
-public abstract class MXMLUIDataContainerBase 
-						extends MXMLUISimpleBase {
+public abstract class AbstractFlexUIDataContainerBase 
+						extends AbstractFlexUISimpleBase {
 	
 	private static final String TO_BE_CREATED_BODY_CONTENT_FILE_SUFFIX = "BodyContent.tmp";
 	
@@ -45,7 +45,7 @@ public abstract class MXMLUIDataContainerBase
 	
 	public void encodeChildren(FacesContext context) throws IOException {
 		
-		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
 		
 		_currBodyContentFilePath = mxmlContext.getPreMxmlPath() + getClass().getSimpleName() + getId() + 
 										TO_BE_CREATED_BODY_CONTENT_FILE_SUFFIX;

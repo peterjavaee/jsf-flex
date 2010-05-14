@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="listData", returnType="java.lang.String", longDesc="When a component is used as a drop-in item renderer or drop-in item editor, Flex initializesthe listData property of the component with the appropriate data from the list control.")
 @JSFComponent
-public interface _MXMLUIListDataAttribute {
+public interface IFlexUIListDataAttribute {
     
 }

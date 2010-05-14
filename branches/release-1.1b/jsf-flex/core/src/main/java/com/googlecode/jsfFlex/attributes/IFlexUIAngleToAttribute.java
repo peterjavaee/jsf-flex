@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="angleTo", returnType="java.lang.String", longDesc="The ending angle of rotation of the target object, expressed in degrees.")
 @JSFComponent
-public interface _MXMLUIAngleToAttribute {
+public interface IFlexUIAngleToAttribute {
     
 }

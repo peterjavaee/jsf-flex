@@ -23,60 +23,60 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="layout"),
-				@JsfFlexAttribute(attribute="status"),
-				@JsfFlexAttribute(attribute="title", byMethod=true),
-				@JsfFlexAttribute(attribute="titleIcon"),
-				@JsfFlexAttribute(attribute="borderAlpha"),
-				@JsfFlexAttribute(attribute="borderThicknessBottom"),
-				@JsfFlexAttribute(attribute="borderThicknessLeft"),
-				@JsfFlexAttribute(attribute="borderThicknessRight"),
-				@JsfFlexAttribute(attribute="borderThicknessTop"),
-                @JsfFlexAttribute(attribute="closeButtonDisabledSkin"),
-                @JsfFlexAttribute(attribute="closeButtonDownSkin"),
-                @JsfFlexAttribute(attribute="closeButtonOverSkin"),
-                @JsfFlexAttribute(attribute="closeButtonUpSkin"),
-                @JsfFlexAttribute(attribute="controlBarStyleName"),
-				@JsfFlexAttribute(attribute="footerColors"),
-				@JsfFlexAttribute(attribute="headerColors"),
-				@JsfFlexAttribute(attribute="headerHeight"),
-				@JsfFlexAttribute(attribute="highlightAlphas"),
-				@JsfFlexAttribute(attribute="horizontalAlign"),
-				@JsfFlexAttribute(attribute="horizontalGap"),
-				@JsfFlexAttribute(attribute="modalTransparency"),
-				@JsfFlexAttribute(attribute="modalTransparencyBlur"),
-				@JsfFlexAttribute(attribute="modalTransparencyColor"),
-				@JsfFlexAttribute(attribute="modalTransparencyDuration"),
-				@JsfFlexAttribute(attribute="roundedBottomCorners"),
-				@JsfFlexAttribute(attribute="statusStyleName"),
-				@JsfFlexAttribute(attribute="titleBackgroundSkin"),
-				@JsfFlexAttribute(attribute="titleStyleName"),
-				@JsfFlexAttribute(attribute="verticalAlign"),
-				@JsfFlexAttribute(attribute="verticalGap"),
-				@JsfFlexAttribute(attribute="resizeEndEffect"),
-				@JsfFlexAttribute(attribute="resizeStartEffect"),
-                @JsfFlexAttribute(attribute="close")
+				@IJsfFlexAttribute(attribute="layout"),
+				@IJsfFlexAttribute(attribute="status"),
+				@IJsfFlexAttribute(attribute="title", byMethod=true),
+				@IJsfFlexAttribute(attribute="titleIcon"),
+				@IJsfFlexAttribute(attribute="borderAlpha"),
+				@IJsfFlexAttribute(attribute="borderThicknessBottom"),
+				@IJsfFlexAttribute(attribute="borderThicknessLeft"),
+				@IJsfFlexAttribute(attribute="borderThicknessRight"),
+				@IJsfFlexAttribute(attribute="borderThicknessTop"),
+                @IJsfFlexAttribute(attribute="closeButtonDisabledSkin"),
+                @IJsfFlexAttribute(attribute="closeButtonDownSkin"),
+                @IJsfFlexAttribute(attribute="closeButtonOverSkin"),
+                @IJsfFlexAttribute(attribute="closeButtonUpSkin"),
+                @IJsfFlexAttribute(attribute="controlBarStyleName"),
+				@IJsfFlexAttribute(attribute="footerColors"),
+				@IJsfFlexAttribute(attribute="headerColors"),
+				@IJsfFlexAttribute(attribute="headerHeight"),
+				@IJsfFlexAttribute(attribute="highlightAlphas"),
+				@IJsfFlexAttribute(attribute="horizontalAlign"),
+				@IJsfFlexAttribute(attribute="horizontalGap"),
+				@IJsfFlexAttribute(attribute="modalTransparency"),
+				@IJsfFlexAttribute(attribute="modalTransparencyBlur"),
+				@IJsfFlexAttribute(attribute="modalTransparencyColor"),
+				@IJsfFlexAttribute(attribute="modalTransparencyDuration"),
+				@IJsfFlexAttribute(attribute="roundedBottomCorners"),
+				@IJsfFlexAttribute(attribute="statusStyleName"),
+				@IJsfFlexAttribute(attribute="titleBackgroundSkin"),
+				@IJsfFlexAttribute(attribute="titleStyleName"),
+				@IJsfFlexAttribute(attribute="verticalAlign"),
+				@IJsfFlexAttribute(attribute="verticalGap"),
+				@IJsfFlexAttribute(attribute="resizeEndEffect"),
+				@IJsfFlexAttribute(attribute="resizeStartEffect"),
+                @IJsfFlexAttribute(attribute="close")
 		}
 )
-public abstract class MXMLPanelTemplateRenderer extends MXMLContainerTemplateRenderer {
+public abstract class AbstractFlexPanelTemplateRenderer extends AbstractFlexContainerTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLPanelTemplateRenderer.class, componentObj, null);
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(AbstractFlexPanelTemplateRenderer.class, componentObj, null);
 		
 	}
 	

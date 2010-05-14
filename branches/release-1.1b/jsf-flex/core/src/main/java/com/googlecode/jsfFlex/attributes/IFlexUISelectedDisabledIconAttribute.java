@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="selectedDisabledIcon", returnType="java.lang.String", longDesc="Name of the class to use as the icon when the button is selected and disabled.")
 @JSFComponent
-public interface _MXMLUISelectedDisabledIconAttribute {
+public interface IFlexUISelectedDisabledIconAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="tabStyleName", returnType="java.lang.String", longDesc="Name of CSS style declaration that specifies styles for the tabs.")
 @JSFComponent
-public interface _MXMLUITabStyleNameAttribute {
+public interface IFlexUITabStyleNameAttribute {
     
 }

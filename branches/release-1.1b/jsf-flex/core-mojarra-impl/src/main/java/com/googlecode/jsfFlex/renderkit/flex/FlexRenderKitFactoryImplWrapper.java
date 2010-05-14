@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.renderkit.mxml;
+package com.googlecode.jsfFlex.renderkit.flex;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -30,17 +30,17 @@ import com.sun.faces.renderkit.RenderKitFactoryImpl;
 /**
  * @author Ji Hoon Kim
  */
-public class MXMLRenderKitFactoryImplWrapper extends RenderKitFactoryImpl {
+public class FlexRenderKitFactoryImplWrapper extends RenderKitFactoryImpl {
     
-    private final static Log _log = LogFactory.getLog(MXMLRenderKitFactoryImplWrapper.class);
+    private final static Log _log = LogFactory.getLog(FlexRenderKitFactoryImplWrapper.class);
     
-    private static final String MXML_RENDER_KIT_ID = "MXML_BASIC";
+    private static final String FLEX_RENDER_KIT_ID = "FLEX_BASIC";
     
     private static final List<RenderKit> _additionalRenderKitList = new LinkedList<RenderKit>();
     
-    private MXMLRenderKitImplWrapper _mxmlRenderKit;
+    private FlexRenderKitImplWrapper _mxmlRenderKit;
     
-    public MXMLRenderKitFactoryImplWrapper(){
+    public FlexRenderKitFactoryImplWrapper(){
         super();
     }
     
@@ -54,13 +54,13 @@ public class MXMLRenderKitFactoryImplWrapper extends RenderKitFactoryImpl {
         }
         
         //HACK for now, TODO implement it better later
-        if(renderKitId.equals(MXML_RENDER_KIT_ID)){
-            _mxmlRenderKit = MXMLRenderKitImplWrapper.class.cast( renderKit );
+        if(renderKitId.equals(FLEX_RENDER_KIT_ID)){
+            _mxmlRenderKit = FlexRenderKitImplWrapper.class.cast( renderKit );
             _mxmlRenderKit.addRenderKitList(_additionalRenderKitList);
             _additionalRenderKitList.clear();
         }else{
             
-            _log.info("Adding renderKitId [ " + renderKitId + " ] as additional search renderKits for " + MXML_RENDER_KIT_ID);
+            _log.info("Adding renderKitId [ " + renderKitId + " ] as additional search renderKits for " + FLEX_RENDER_KIT_ID);
             
             if(_mxmlRenderKit != null){
                 _mxmlRenderKit.addRenderKit(renderKit);

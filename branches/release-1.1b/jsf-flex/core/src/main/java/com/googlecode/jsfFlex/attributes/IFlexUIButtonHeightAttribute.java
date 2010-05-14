@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="buttonHeight", returnType="java.lang.String", longDesc="Height of each button, in pixels.")
 @JSFComponent
-public interface _MXMLUIButtonHeightAttribute {
+public interface IFlexUIButtonHeightAttribute {
     
 }

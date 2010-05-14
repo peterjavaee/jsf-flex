@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="trackSkin", returnType="java.lang.String", longDesc="Skin style for the progress indicator track.")
 @JSFComponent
-public interface _MXMLUITrackSkinAttribute {
+public interface IFlexUITrackSkinAttribute {
     
 }

@@ -20,80 +20,80 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBarColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBarSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICompleteAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICompleteEffectAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIConversionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontAntiAliasTypeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontGridFitTypeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSharpnessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSizeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontStyleAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontThicknessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontWeightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHideAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalGapAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIndeterminateAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIndeterminateMoveIntervalAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIndeterminateSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILabelAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILabelPlacementAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILabelWidthAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILeadingAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMaskSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMaximumAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMinimumAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIModeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingLeftAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingRightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIProgressAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShowAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISourceAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextAlignAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextDecorationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextIndentAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIThemeColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITrackColorsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITrackHeightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITrackSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalGapAttribute;
-import com.googlecode.jsfFlex.component.MXMLUIValueBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIBarColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBarSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICompleteAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICompleteEffectAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIConversionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisabledColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontAntiAliasTypeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontFamilyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontGridFitTypeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontSharpnessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontStyleAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontThicknessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontWeightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHideAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalGapAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIndeterminateAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIndeterminateMoveIntervalAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIndeterminateSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILabelAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILabelPlacementAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILabelWidthAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILeadingAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMaskSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMaximumAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMinimumAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIModeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingLeftAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingRightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIProgressAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShowAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISourceAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextAlignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextDecorationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextIndentAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIThemeColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITrackColorsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITrackHeightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITrackSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalGapAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUIValueBase;
 
 /**
- * Note though MXMLUIProgressBar extends MXMLUIValueBase, it will simply retrieve the value during the post-back phase<br>
+ * Note though FlexUIProgressBar extends AbstractFlexUIValueBase, it will simply retrieve the value during the post-back phase<br>
  * and NOT set the field of the Flex component as this field is read only.<br>
  * 
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlProgressBar",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIProgressBar",
-        type                =   "com.googlecode.jsfFlex.MXMLUIProgressBar",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIProgressBarTag",
-        family              =   "javax.faces.MXMLInput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLProgressBar",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+        name                =   "jf:flexProgressBar",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIProgressBar",
+        type                =   "com.googlecode.jsfFlex.FlexUIProgressBar",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIProgressBarTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexProgressBar",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
 )
-public abstract class AbstractMXMLUIProgressBar 
-						extends MXMLUIValueBase 
-						implements _MXMLUIBaseAttributes, _MXMLUIConversionAttribute, _MXMLUIIndeterminateAttribute, 
-                        _MXMLUILabelAttribute, _MXMLUILabelPlacementAttribute, _MXMLUIMaximumAttribute, _MXMLUIMinimumAttribute, 
-                        _MXMLUIModeAttribute, _MXMLUISourceAttribute, _MXMLUIBarColorAttribute, _MXMLUIBarSkinAttribute, 
-                        _MXMLUIBorderColorAttribute, _MXMLUIColorAttribute, _MXMLUIDisabledColorAttribute, _MXMLUIFontAntiAliasTypeAttribute, 
-                        _MXMLUIFontFamilyAttribute, _MXMLUIFontGridFitTypeAttribute, _MXMLUIFontSharpnessAttribute, 
-                        _MXMLUIFontSizeAttribute, _MXMLUIFontThicknessAttribute, _MXMLUIFontStyleAttribute, _MXMLUIFontWeightAttribute, 
-                        _MXMLUIHorizontalGapAttribute, _MXMLUIIndeterminateMoveIntervalAttribute, _MXMLUIIndeterminateSkinAttribute, 
-                        _MXMLUILabelWidthAttribute, _MXMLUILeadingAttribute, _MXMLUIMaskSkinAttribute, _MXMLUIPaddingLeftAttribute, 
-                        _MXMLUIPaddingRightAttribute, _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, 
-                        _MXMLUITextIndentAttribute, _MXMLUIThemeColorAttribute, _MXMLUITrackColorsAttribute, _MXMLUITrackHeightAttribute, 
-                        _MXMLUITrackSkinAttribute, _MXMLUIVerticalGapAttribute, _MXMLUICompleteAttribute, _MXMLUIHideAttribute, 
-                        _MXMLUIProgressAttribute, _MXMLUIShowAttribute, _MXMLUICompleteEffectAttribute {
+public abstract class AbstractFlexUIProgressBar 
+						extends AbstractFlexUIValueBase 
+						implements IFlexUIBaseAttributes, IFlexUIConversionAttribute, IFlexUIIndeterminateAttribute, 
+                        IFlexUILabelAttribute, IFlexUILabelPlacementAttribute, IFlexUIMaximumAttribute, IFlexUIMinimumAttribute, 
+                        IFlexUIModeAttribute, IFlexUISourceAttribute, IFlexUIBarColorAttribute, IFlexUIBarSkinAttribute, 
+                        IFlexUIBorderColorAttribute, IFlexUIColorAttribute, IFlexUIDisabledColorAttribute, IFlexUIFontAntiAliasTypeAttribute, 
+                        IFlexUIFontFamilyAttribute, IFlexUIFontGridFitTypeAttribute, IFlexUIFontSharpnessAttribute, 
+                        IFlexUIFontSizeAttribute, IFlexUIFontThicknessAttribute, IFlexUIFontStyleAttribute, IFlexUIFontWeightAttribute, 
+                        IFlexUIHorizontalGapAttribute, IFlexUIIndeterminateMoveIntervalAttribute, IFlexUIIndeterminateSkinAttribute, 
+                        IFlexUILabelWidthAttribute, IFlexUILeadingAttribute, IFlexUIMaskSkinAttribute, IFlexUIPaddingLeftAttribute, 
+                        IFlexUIPaddingRightAttribute, IFlexUITextAlignAttribute, IFlexUITextDecorationAttribute, 
+                        IFlexUITextIndentAttribute, IFlexUIThemeColorAttribute, IFlexUITrackColorsAttribute, IFlexUITrackHeightAttribute, 
+                        IFlexUITrackSkinAttribute, IFlexUIVerticalGapAttribute, IFlexUICompleteAttribute, IFlexUIHideAttribute, 
+                        IFlexUIProgressAttribute, IFlexUIShowAttribute, IFlexUICompleteEffectAttribute {
 	
 	protected void populateComponentInitValues(){
 		

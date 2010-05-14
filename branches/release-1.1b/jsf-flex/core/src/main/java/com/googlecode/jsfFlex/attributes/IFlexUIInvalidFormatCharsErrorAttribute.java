@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="invalidFormatCharsError", returnType="java.lang.String", longDesc="Error message when the value contains invalid format characters, which means that it contains a digit or minus sign (-) as a separator character, or it contains two or more consecutive separator characters.")
 @JSFComponent
-public interface _MXMLUIInvalidFormatCharsErrorAttribute {
+public interface IFlexUIInvalidFormatCharsErrorAttribute {
     
 }

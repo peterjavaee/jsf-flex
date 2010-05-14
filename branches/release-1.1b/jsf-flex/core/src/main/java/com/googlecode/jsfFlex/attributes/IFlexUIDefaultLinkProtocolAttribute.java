@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="defaultLinkProtocol", returnType="java.lang.String", longDesc="The default protocol string to use at the start of link text.")
 @JSFComponent
-public interface _MXMLUIDefaultLinkProtocolAttribute {
+public interface IFlexUIDefaultLinkProtocolAttribute {
     
 }

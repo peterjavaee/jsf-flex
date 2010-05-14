@@ -25,54 +25,54 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.effects.MXMLEffectTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.effects.AbstractFlexEffectTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-        renderKitId="MXML_BASIC",
-        family="javax.faces.MXMLSimple",
-        type="com.googlecode.jsfFlex.MXMLSoundEffect"
+        renderKitId="FLEX_BASIC",
+        family="javax.faces.FlexSimple",
+        type="com.googlecode.jsfFlex.FlexSoundEffect"
 )
-@JsfFlexAttributeProperties(
-        mxmlComponentName="SoundEffect",
-        mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+        componentName="SoundEffect",
+        componentNodeAttributes={},
 
         jsfFlexAttributes={
-                @JsfFlexAttribute(attribute="id", byMethod=true),
-                @JsfFlexAttribute(attribute="autoLoad"),
-                @JsfFlexAttribute(attribute="bufferTime"),
-                @JsfFlexAttribute(attribute="loops"),
-                @JsfFlexAttribute(attribute="panEasingFunction"),
-                @JsfFlexAttribute(attribute="panFrom"),
-                @JsfFlexAttribute(attribute="source"),
-                @JsfFlexAttribute(attribute="startTime"),
-                @JsfFlexAttribute(attribute="useDuration"),
-                @JsfFlexAttribute(attribute="volumeEasingFunction"),
-                @JsfFlexAttribute(attribute="volumeFrom"),
-                @JsfFlexAttribute(attribute="volumeTo"),
-                @JsfFlexAttribute(attribute="complete"),
-                @JsfFlexAttribute(attribute="id3"),
-                @JsfFlexAttribute(attribute="ioError"),
-                @JsfFlexAttribute(attribute="progress")
+                @IJsfFlexAttribute(attribute="id", byMethod=true),
+                @IJsfFlexAttribute(attribute="autoLoad"),
+                @IJsfFlexAttribute(attribute="bufferTime"),
+                @IJsfFlexAttribute(attribute="loops"),
+                @IJsfFlexAttribute(attribute="panEasingFunction"),
+                @IJsfFlexAttribute(attribute="panFrom"),
+                @IJsfFlexAttribute(attribute="source"),
+                @IJsfFlexAttribute(attribute="startTime"),
+                @IJsfFlexAttribute(attribute="useDuration"),
+                @IJsfFlexAttribute(attribute="volumeEasingFunction"),
+                @IJsfFlexAttribute(attribute="volumeFrom"),
+                @IJsfFlexAttribute(attribute="volumeTo"),
+                @IJsfFlexAttribute(attribute="complete"),
+                @IJsfFlexAttribute(attribute="id3"),
+                @IJsfFlexAttribute(attribute="ioError"),
+                @IJsfFlexAttribute(attribute="progress")
         }
 )
-public final class MXMLSoundEffectRenderer extends MXMLEffectTemplateRenderer {
+public final class FlexSoundEffectRenderer extends AbstractFlexEffectTemplateRenderer {
 
     @Override
     public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
         super.encodeBegin(context, componentObj);
         
-        _MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-        writer.mapFields(MXMLSoundEffectRenderer.class, componentObj, null);
-        writer.createPreMxml(componentMXML, MXMLSoundEffectRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+        writer.mapFields(FlexSoundEffectRenderer.class, componentObj, null);
+        writer.createPreMxml(componentFlex, FlexSoundEffectRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
                 null);
         
     }

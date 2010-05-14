@@ -27,40 +27,40 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.component.ext.data.MXMLUIXMLContainerBase;
-import com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIXMLElementBase;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
+import com.googlecode.jsfFlex.component.ext.data.AbstractFlexUIXMLContainerBase;
+import com.googlecode.jsfFlex.component.ext.data.ext.properties.AbstractFlexUIXMLElementBase;
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 
 /**
- * Since this component is out of the norm in relation to writing MXML content, it will perform <br>
- * the write of MXML content within the component rather than within a Renderer [meaning Renderer does <br>
- * not exist for this component]. Also when stated that it is writing MXML content, it technically is <br>
- * writing to MXMLUIDataContainerBase's BufferedWriter.<br>
+ * Since this component is out of the norm in relation to writing Flex content, it will perform <br>
+ * the write of Flex content within the component rather than within a Renderer [meaning Renderer does <br>
+ * not exist for this component]. Also when stated that it is writing Flex content, it technically is <br>
+ * writing to AbstractFlexUIDataContainerBase's BufferedWriter.<br>
  * 
  * <ul>
  * This component can have following types of children :
- * 		<li> AbstractMXMLUIXMLStaticAttribute </li>
- * 		<li> AbstractMXMLUIXMLListEntries </li>
+ * 		<li> AbstractFlexUIXMLStaticAttribute </li>
+ * 		<li> AbstractFlexUIXMLListEntries </li>
  * </ul>
  * 
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlXMLStaticElement",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.MXMLUIXMLStaticElement",
-        type                =   "com.googlecode.jsfFlex.MXMLUIXMLStaticElement",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.data.ext.properties.ext.MXMLUIXMLStaticElementTag",
-        family              =   "javax.faces.MXMLProperty"
+        name                =   "jf:flexXMLStaticElement",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.FlexUIXMLStaticElement",
+        type                =   "com.googlecode.jsfFlex.FlexUIXMLStaticElement",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.data.ext.properties.ext.FlexUIXMLStaticElementTag",
+        family              =   "javax.faces.FlexProperty"
 )
-public abstract class AbstractMXMLUIXMLStaticElement 
-						extends MXMLUIXMLElementBase {
+public abstract class AbstractFlexUIXMLStaticElement 
+						extends AbstractFlexUIXMLElementBase {
 	
 	public void encodeBegin(FacesContext context) throws IOException {
 		super.encodeBegin(context);
 		
-		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
 		Map<String, ? super UIComponentBase> temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
-		MXMLUIXMLContainerBase currXMLContainerBaseRef = (MXMLUIXMLContainerBase) temporaryResourceMap.get(MXMLUIXMLContainerBase.CURR_MXML_UI_XML_CONTAINER_KEY);
+		AbstractFlexUIXMLContainerBase currXMLContainerBaseRef = AbstractFlexUIXMLContainerBase.class.cast( temporaryResourceMap.get(AbstractFlexUIXMLContainerBase.CURR_FLEX_UI_XML_CONTAINER_KEY) );
 		
 		StringBuilder xmlElementStartTagBuffer = new StringBuilder();
 		

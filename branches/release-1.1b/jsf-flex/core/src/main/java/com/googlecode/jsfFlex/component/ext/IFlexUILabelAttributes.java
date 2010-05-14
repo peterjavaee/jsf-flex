@@ -20,44 +20,44 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICondenseWhiteAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataChangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontAntiAliasTypeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontGridFitTypeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSharpnessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSizeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontStyleAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontThicknessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontWeightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIListDataAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingBottomAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingLeftAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingRightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingTopAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectableAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIStyleSheetAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextAlignAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextDecorationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextIndentAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITruncateToFitAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUIColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICondenseWhiteAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataChangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisabledColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontAntiAliasTypeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontFamilyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontGridFitTypeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontSharpnessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontStyleAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontThicknessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontWeightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIListDataAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingBottomAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingLeftAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingRightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingTopAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectableAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIStyleSheetAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextAlignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextDecorationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextIndentAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITruncateToFitAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUILabelAttributes 
-            extends _MXMLUICondenseWhiteAttribute, _MXMLUIDataAttribute, _MXMLUIListDataAttribute, _MXMLUISelectableAttribute, 
-            _MXMLUITruncateToFitAttribute, _MXMLUIColorAttribute, _MXMLUIDisabledColorAttribute, _MXMLUIFontAntiAliasTypeAttribute, 
-            _MXMLUIFontFamilyAttribute, _MXMLUIFontGridFitTypeAttribute, _MXMLUIFontSharpnessAttribute, _MXMLUIFontSizeAttribute,
-            _MXMLUIFontStyleAttribute, _MXMLUIFontThicknessAttribute, _MXMLUIFontWeightAttribute, _MXMLUIPaddingLeftAttribute, 
-            _MXMLUIPaddingRightAttribute, _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, 
-            _MXMLUIDataChangeAttribute, _MXMLUIPaddingTopAttribute, _MXMLUIPaddingBottomAttribute, _MXMLUIStyleSheetAttribute, 
-            _MXMLUIBaseAttributes {
+interface IFlexUILabelAttributes 
+            extends IFlexUICondenseWhiteAttribute, IFlexUIDataAttribute, IFlexUIListDataAttribute, IFlexUISelectableAttribute, 
+            IFlexUITruncateToFitAttribute, IFlexUIColorAttribute, IFlexUIDisabledColorAttribute, IFlexUIFontAntiAliasTypeAttribute, 
+            IFlexUIFontFamilyAttribute, IFlexUIFontGridFitTypeAttribute, IFlexUIFontSharpnessAttribute, IFlexUIFontSizeAttribute,
+            IFlexUIFontStyleAttribute, IFlexUIFontThicknessAttribute, IFlexUIFontWeightAttribute, IFlexUIPaddingLeftAttribute, 
+            IFlexUIPaddingRightAttribute, IFlexUITextAlignAttribute, IFlexUITextDecorationAttribute, IFlexUITextIndentAttribute, 
+            IFlexUIDataChangeAttribute, IFlexUIPaddingTopAttribute, IFlexUIPaddingBottomAttribute, IFlexUIStyleSheetAttribute, 
+            IFlexUIBaseAttributes {
     
     String getHtmlText();
     

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="fontWeight", returnType="java.lang.String", longDesc="Determines whether the text is boldface.")
 @JSFComponent
-public interface _MXMLUIFontWeightAttribute {
+public interface IFlexUIFontWeightAttribute {
     
 }

@@ -20,14 +20,14 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIHeaderHeightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShowHeadersAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHeaderHeightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShowHeadersAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIDataGridBaseAttributes 
-            extends _MXMLUIHeaderHeightAttribute, _MXMLUIShowHeadersAttribute, _MXMLUIListBaseAttributes {
+interface IFlexUIDataGridBaseAttributes 
+            extends IFlexUIHeaderHeightAttribute, IFlexUIShowHeadersAttribute, IFlexUIListBaseAttributes {
     
 }

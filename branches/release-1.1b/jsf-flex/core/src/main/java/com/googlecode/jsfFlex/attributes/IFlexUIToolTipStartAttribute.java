@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="toolTipStart", returnType="java.lang.String", longDesc="Dispatched by a component whose toolTip property is set, as soon as the user moves the mouse over it.")
 @JSFComponent
-public interface _MXMLUIToolTipStartAttribute {
+public interface IFlexUIToolTipStartAttribute {
     
 }

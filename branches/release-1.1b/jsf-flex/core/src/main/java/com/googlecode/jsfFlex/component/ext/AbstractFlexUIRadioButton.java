@@ -26,27 +26,27 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledIconColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIGroupNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIconColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedValueAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisabledIconColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIGroupNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIconColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedValueAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlRadioButton",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIRadioButton",
-        type                =   "com.googlecode.jsfFlex.MXMLUIRadioButton",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIRadioButtonTag",
-        family              =   "javax.faces.MXMLInput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLRadioButton",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+        name                =   "jf:flexRadioButton",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIRadioButton",
+        type                =   "com.googlecode.jsfFlex.FlexUIRadioButton",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIRadioButtonTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexRadioButton",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
 )
-public abstract class AbstractMXMLUIRadioButton 
-						extends com.googlecode.jsfFlex.component.MXMLUISelectedBase
-						implements _MXMLUIButtonAttributes, _MXMLUIGroupNameAttribute, _MXMLUISelectedValueAttribute,
-                        _MXMLUIDisabledIconColorAttribute, _MXMLUIIconColorAttribute {
+public abstract class AbstractFlexUIRadioButton 
+						extends com.googlecode.jsfFlex.component.FlexUISelectedBase
+						implements IFlexUIButtonAttributes, IFlexUIGroupNameAttribute, IFlexUISelectedValueAttribute,
+                        IFlexUIDisabledIconColorAttribute, IFlexUIIconColorAttribute {
 	
 	private static final String SELECTED_VALUE_ATTR = "selectedValue";
 	private static final String SELECTED_VALUE_ID_APPENDED = "_selectedValue";

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="bufferTime", returnType="java.lang.String", longDesc="Number of seconds of video to buffer in memory before starting to play the video file.")
 @JSFComponent
-public interface _MXMLUIBufferTimeAttribute {
+public interface IFlexUIBufferTimeAttribute {
     
 }

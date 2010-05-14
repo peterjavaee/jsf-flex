@@ -20,23 +20,23 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRowCount;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRowCountAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlTileList",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUITileList",
-        type                =   "com.googlecode.jsfFlex.MXMLUITileList",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUITileListTag",
-        family              =   "javax.faces.MXMLInput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLTileList",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+        name                =   "jf:flexTileList",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUITileList",
+        type                =   "com.googlecode.jsfFlex.FlexUITileList",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUITileListTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexTileList",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
 )
-public abstract class AbstractMXMLUITileList 
-						extends com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase
-						implements _MXMLUIListBaseAttributes, _MXMLUIDataProviderAttribute, _MXMLUIRowCount {
+public abstract class AbstractFlexUITileList 
+						extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase
+						implements IFlexUIListBaseAttributes, IFlexUIDataProviderAttribute, IFlexUIRowCountAttribute {
 	
 }

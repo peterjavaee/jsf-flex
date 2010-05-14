@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="invalidCharError", returnType="java.lang.String", longDesc="Error message when the value contains invalid characters.")
 @JSFComponent
-public interface _MXMLUIInvalidCharErrorAttribute {
+public interface IFlexUIInvalidCharErrorAttribute {
     
 }

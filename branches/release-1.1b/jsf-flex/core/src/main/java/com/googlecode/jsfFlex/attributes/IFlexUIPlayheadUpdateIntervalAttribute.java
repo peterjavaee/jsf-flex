@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="playheadUpdateInterval", returnType="java.lang.String", longDesc="Specifies the amount of time, in milliseconds, between each playheadUpdate event.")
 @JSFComponent
-public interface _MXMLUIPlayheadUpdateIntervalAttribute {
+public interface IFlexUIPlayheadUpdateIntervalAttribute {
     
 }

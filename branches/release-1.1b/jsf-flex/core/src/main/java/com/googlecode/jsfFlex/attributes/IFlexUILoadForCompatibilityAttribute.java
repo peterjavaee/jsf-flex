@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="loadForCompatibility", returnType="java.lang.String", longDesc="A flag that indicates whether the content is loaded so that it can interoperate with applications built with a different verion of the Flex compiler.")
 @JSFComponent
-public interface _MXMLUILoadForCompatibilityAttribute {
+public interface IFlexUILoadForCompatibilityAttribute {
     
 }

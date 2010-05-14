@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="cardTypeProperty", returnType="java.lang.String", longDesc="Name of the card type property to validate.")
 @JSFComponent
-public interface _MXMLUICardTypePropertyAttribute {
+public interface IFlexUICardTypePropertyAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dragEnter", returnType="java.lang.String", longDesc="Dispatched by a component when the user moves the mouse over the component during a drag operation.")
 @JSFComponent
-public interface _MXMLUIDragEnterAttribute {
+public interface IFlexUIDragEnterAttribute {
     
 }

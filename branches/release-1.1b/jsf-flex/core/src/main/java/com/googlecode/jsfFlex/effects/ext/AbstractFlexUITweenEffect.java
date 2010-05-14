@@ -20,21 +20,21 @@ package com.googlecode.jsfFlex.effects.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlTweenEffect",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUITweenEffect",
-        type                =   "com.googlecode.jsfFlex.MXMLUITweenEffect",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUITweenEffectTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLTweenEffect"
+        name                =   "jf:flexTweenEffect",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUITweenEffect",
+        type                =   "com.googlecode.jsfFlex.FlexUITweenEffect",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUITweenEffectTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexTweenEffect"
 )
-public abstract class AbstractMXMLUITweenEffect 
-                                extends MXMLUISimpleBase 
-                                implements _MXMLUITweenEffectAttributes {
+public abstract class AbstractFlexUITweenEffect 
+                                extends AbstractFlexUISimpleBase 
+                                implements IFlexUITweenEffectAttributes {
     
 }

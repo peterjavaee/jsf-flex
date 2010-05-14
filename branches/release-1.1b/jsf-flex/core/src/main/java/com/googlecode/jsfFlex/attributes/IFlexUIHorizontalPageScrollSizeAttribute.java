@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="horizontalPageScrollSize", returnType="java.lang.String", longDesc="Number of pixels to move when the track in the horizontal scroll bar is pressed.")
 @JSFComponent
-public interface _MXMLUIHorizontalPageScrollSizeAttribute {
+public interface IFlexUIHorizontalPageScrollSizeAttribute {
     
 }

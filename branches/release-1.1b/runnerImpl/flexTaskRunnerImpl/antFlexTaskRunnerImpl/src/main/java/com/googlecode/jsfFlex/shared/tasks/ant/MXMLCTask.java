@@ -25,14 +25,14 @@ import org.apache.tools.ant.Target;
 import org.apache.tools.ant.taskdefs.ExecTask;
 import org.apache.tools.ant.types.Commandline.Argument;
 
-import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
+import com.googlecode.jsfFlex.shared.adapter.IFlexApplicationContract;
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * @author Ji Hoon Kim
  */
-public final class MXMLCTask extends AntBaseTask {
+public final class MXMLCTask extends AbstractAntBaseTask {
 	
 	private static final String WINDOWS_EXEC = "bin" + File.separatorChar + "mxmlc.exe";
 	private static final String NON_WINDOWS_SHELL = "bin" + File.separatorChar + "mxmlc.sh";
@@ -62,13 +62,13 @@ public final class MXMLCTask extends AntBaseTask {
 	
 	private final String _file;
 	private final String _outputPath;
-	private final _MXMLApplicationContract _componentMXML;
+	private final IFlexApplicationContract _componentMXML;
 	private final String _flexSDKRootPath;
 	
 	private String _locale;
 	private String _localePath;
 	
-	public MXMLCTask(String file, String outputPath, _MXMLApplicationContract componentMXML, String flexSDKRootPath){
+	public MXMLCTask(String file, String outputPath, IFlexApplicationContract componentMXML, String flexSDKRootPath){
 		_file = file;
 		_outputPath = outputPath;
 		_componentMXML = componentMXML;
@@ -91,18 +91,18 @@ public final class MXMLCTask extends AntBaseTask {
 		
 		//TODO : Implement it better later
 		Argument arg;
-		if(MXMLConstants.WINDOWS_SYSTEM){
+		if(FlexConstants.WINDOWS_SYSTEM){
 			_mxmlcTask.setExecutable(_flexSDKRootPath + WINDOWS_EXEC);
 		}else{
 			_mxmlcTask.setExecutable(_flexSDKRootPath + NON_WINDOWS_SHELL);
 		}
 		
 		arg = _mxmlcTask.createArg();
-		arg.setLine(FILE_PROPERTY + MXMLConstants.STRING_QUOTE + _file + MXMLConstants.STRING_QUOTE);
+		arg.setLine(FILE_PROPERTY + FlexConstants.STRING_QUOTE + _file + FlexConstants.STRING_QUOTE);
 		
 		if(_outputPath != null){
 			arg = _mxmlcTask.createArg();
-			arg.setLine(OUTPUT_ARG_SYNTAX + MXMLConstants.STRING_QUOTE + _outputPath + MXMLConstants.STRING_QUOTE);
+			arg.setLine(OUTPUT_ARG_SYNTAX + FlexConstants.STRING_QUOTE + _outputPath + FlexConstants.STRING_QUOTE);
 		}
 		
 		if(_componentMXML.isAccessible()){
@@ -121,17 +121,17 @@ public final class MXMLCTask extends AntBaseTask {
 			if(_componentMXML.getSourcePath() != null){
                 
 				for(String currPath : _componentMXML.getSourcePath()){
-					sourcePathVal.append(MXMLConstants.STRING_QUOTE);
+					sourcePathVal.append(FlexConstants.STRING_QUOTE);
 					sourcePathVal.append(currPath);
-					sourcePathVal.append(MXMLConstants.STRING_QUOTE);
+					sourcePathVal.append(FlexConstants.STRING_QUOTE);
 					sourcePathVal.append(" ");
 				}
 			}
 			
 			if(_localePath != null){
-				sourcePathVal.append(MXMLConstants.STRING_QUOTE);
+				sourcePathVal.append(FlexConstants.STRING_QUOTE);
 				sourcePathVal.append(_localePath);
-				sourcePathVal.append(MXMLConstants.STRING_QUOTE);
+				sourcePathVal.append(FlexConstants.STRING_QUOTE);
 			}
 			
 			arg = _mxmlcTask.createArg();
@@ -143,9 +143,9 @@ public final class MXMLCTask extends AntBaseTask {
             
             StringBuilder externalLibraryPath = new StringBuilder();
             for(String currExternalLibraryPath : _componentMXML.getExternalLibraryPath()){
-                externalLibraryPath.append(MXMLConstants.STRING_QUOTE);
+                externalLibraryPath.append(FlexConstants.STRING_QUOTE);
                 externalLibraryPath.append(currExternalLibraryPath);
-                externalLibraryPath.append(MXMLConstants.STRING_QUOTE);
+                externalLibraryPath.append(FlexConstants.STRING_QUOTE);
                 externalLibraryPath.append(" ");
             }
 			arg.setLine(EXTERNAL_LIBRARY_PATH + externalLibraryPath.toString());
@@ -156,9 +156,9 @@ public final class MXMLCTask extends AntBaseTask {
             
             StringBuilder runtimeSharedLibrary = new StringBuilder();
             for(String currRuntimeSharedLibrary : _componentMXML.getRuntimeSharedLibraries()){
-                runtimeSharedLibrary.append(MXMLConstants.STRING_QUOTE);
+                runtimeSharedLibrary.append(FlexConstants.STRING_QUOTE);
                 runtimeSharedLibrary.append(currRuntimeSharedLibrary);
-                runtimeSharedLibrary.append(MXMLConstants.STRING_QUOTE);
+                runtimeSharedLibrary.append(FlexConstants.STRING_QUOTE);
                 runtimeSharedLibrary.append(" ");
             }
 			arg.setLine(RUNTIME_SHARED_LIBRARIES + runtimeSharedLibrary.toString());
@@ -189,7 +189,7 @@ public final class MXMLCTask extends AntBaseTask {
 		
 		if(_componentMXML.getLoadConfig() != null){
 			arg = _mxmlcTask.createArg();
-			arg.setValue(LOAD_CONFIG_ARG_SYNTAX + MXMLConstants.STRING_QUOTE + _componentMXML.getLoadConfig() + MXMLConstants.STRING_QUOTE);
+			arg.setValue(LOAD_CONFIG_ARG_SYNTAX + FlexConstants.STRING_QUOTE + _componentMXML.getLoadConfig() + FlexConstants.STRING_QUOTE);
 		}
 		
 		if(_componentMXML.getTitle() != null){

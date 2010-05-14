@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="colorField", returnType="java.lang.String", longDesc="Name of the field in the objects of the dataProvider Array that specifies the hexadecimal values of the colors that the swatch panel displays.")
 @JSFComponent
-public interface _MXMLUIColorFieldAttribute {
+public interface IFlexUIColorFieldAttribute {
     
 }

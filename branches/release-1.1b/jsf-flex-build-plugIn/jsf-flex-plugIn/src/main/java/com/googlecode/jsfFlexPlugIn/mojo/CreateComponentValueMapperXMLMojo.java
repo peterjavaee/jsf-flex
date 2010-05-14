@@ -36,9 +36,9 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
 
-import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectListener;
-import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectorBase;
-import com.googlecode.jsfFlexPlugIn.parser._JsfFlexParserListener;
+import com.googlecode.jsfFlexPlugIn.inspector.IJsfFlexInspectListener;
+import com.googlecode.jsfFlexPlugIn.inspector.AbstractJsfFlexInspectorBase;
+import com.googlecode.jsfFlexPlugIn.parser.IJsfFlexParserListener;
 import com.googlecode.jsfFlexPlugIn.parser.velocity.JsfFlexVelocityParser;
 import com.googlecode.jsfFlexPlugIn.utils.tasks.ReplaceText;
 import com.thoughtworks.qdox.JavaDocBuilder;
@@ -55,7 +55,7 @@ import static com.googlecode.jsfFlexPlugIn.utils.JsfFlexBuildPluginUtil.*;
  * @author Ji Hoon Kim
  */
 public final class CreateComponentValueMapperXMLMojo extends AbstractMojo 
-											   implements _JsfFlexInspectListener, _JsfFlexParserListener {
+											   implements IJsfFlexInspectListener, IJsfFlexParserListener {
 	
 	private static final String MXML_COMPONENT_PACKAGE_KEY = "mxmlComponentPackage";
 	private static final String MXML_COMPONENT_NAME_KEY = "mxmlComponentName";
@@ -89,7 +89,7 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
     
     private final Set<ClassInfo> _classInfoSet;
     
-    private _JsfFlexInspectorBase _jsfFlexInspector;
+    private AbstractJsfFlexInspectorBase _jsfFlexInspector;
     private JsfFlexVelocityParser _jsfFlexVelocityParser;
     
     public CreateComponentValueMapperXMLMojo() {
@@ -116,7 +116,7 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 		_jsfFlexVelocityParser.init();
 		_jsfFlexVelocityParser.addParserListener(this);
 		
-		_jsfFlexInspector = new _JsfFlexInspectorBase(currDirPath){
+		_jsfFlexInspector = new AbstractJsfFlexInspectorBase(currDirPath){
             
             private static final String JSF_FLEX_ATTRIBUTE_PROPERTIES_ANNOTATION_NAME = "com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties";
             private static final String MXML_COMPONENT_NODE_ATTRIBUTES_KEY = "mxmlComponentNodeAttributes";

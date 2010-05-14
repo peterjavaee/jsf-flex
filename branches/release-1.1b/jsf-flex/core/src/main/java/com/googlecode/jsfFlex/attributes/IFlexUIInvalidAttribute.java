@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="invalid", returnType="java.lang.String", longDesc="Dispatched when a component is monitored by a Validator and the validation failed.")
 @JSFComponent
-public interface _MXMLUIInvalidAttribute {
+public interface IFlexUIInvalidAttribute {
     
 }

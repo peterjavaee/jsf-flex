@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="editableUpSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the background and border when the mouse is not over the control, and the editable property is true.")
 @JSFComponent
-public interface _MXMLUIEditableUpSkinAttribute {
+public interface IFlexUIEditableUpSkinAttribute {
     
 }

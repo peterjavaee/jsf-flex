@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="allowThumbOverlap", returnType="java.lang.String", longDesc="If set to false, then each thumb can only be moved to the edge of the adjacent thumb.")
 @JSFComponent
-public interface _MXMLUIAllowThumbOverlapAttribute {
+public interface IFlexUIAllowThumbOverlapAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="measuredHeight", returnType="java.lang.String", longDesc="The default height of the component, in pixels.")
 @JSFComponent
-public interface _MXMLUIMeasuredHeightAttribute {
+public interface IFlexUIMeasuredHeightAttribute {
     
 }

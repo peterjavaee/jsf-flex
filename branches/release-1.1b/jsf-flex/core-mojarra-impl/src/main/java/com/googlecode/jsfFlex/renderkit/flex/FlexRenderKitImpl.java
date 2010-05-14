@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.renderkit.mxml;
+package com.googlecode.jsfFlex.renderkit.flex;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -36,26 +36,26 @@ import javax.faces.render.ResponseStateManager;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseStateManagerImpl;
-import com.googlecode.jsfFlex.renderkit.mxml.MXMLResponseWriterImpl;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.renderkit.flex.FlexResponseStateManagerImpl;
+import com.googlecode.jsfFlex.renderkit.flex.FlexResponseWriterImpl;
 
 /**
  * @author Ji Hoon Kim
  */
-class MXMLRenderKitImpl extends RenderKit {
+class FlexRenderKitImpl extends RenderKit {
 	
-	private static final Log _log = LogFactory.getLog(MXMLRenderKitImpl.class);
+	private static final Log _log = LogFactory.getLog(FlexRenderKitImpl.class);
 	
 	private static final String DEFAULT_CHAR_ENCODING = "ISO-8859-1";
 	
 	private final Map<String, Map<String, Renderer>> _renderers;
 	private final ResponseStateManager _responseStateManager;
 	
-	MXMLRenderKitImpl(){
+	FlexRenderKitImpl(){
 		super();
 		_renderers = new HashMap<String, Map<String, Renderer>>();
-		_responseStateManager = new MXMLResponseStateManagerImpl();
+		_responseStateManager = new FlexResponseStateManagerImpl();
 	}
 	
 	public void addRenderer(String family, String rendererType, Renderer renderer) {
@@ -90,7 +90,7 @@ class MXMLRenderKitImpl extends RenderKit {
 		Renderer renderer = null;
 		Map<String, Renderer> rendererTypeMap = _renderers.get(family);
 		if(rendererTypeMap == null){
-			_log.info("Empty entry within getRenderes as MXML component for family [ " + family + " ] rendererType [ " + rendererType + " ], will look in other RenderKits ");
+			_log.info("Empty entry within getRenderes as Flex component for family [ " + family + " ] rendererType [ " + rendererType + " ], will look in other RenderKits ");
 		}else{
 			renderer = rendererTypeMap.get(rendererType); 
 		}
@@ -126,13 +126,13 @@ class MXMLRenderKitImpl extends RenderKit {
 	}
 	
 	public ResponseWriter createResponseWriter(Writer writer, String contentTypeListString, String characterEncoding){
-		String selectedContentType = MXMLRenderKitImplHelper.selectContentType(contentTypeListString);
+		String selectedContentType = FlexRenderKitImplHelper.selectContentType(contentTypeListString);
 		
         if(characterEncoding==null){
             characterEncoding = DEFAULT_CHAR_ENCODING;
         }
         
-        AbstractMXMLResponseWriter mxmlResponseWriter = new MXMLResponseWriterImpl(writer, selectedContentType, characterEncoding);
+        AbstractFlexResponseWriter mxmlResponseWriter = new FlexResponseWriterImpl(writer, selectedContentType, characterEncoding);
         
         return mxmlResponseWriter;
 	}
@@ -141,7 +141,7 @@ class MXMLRenderKitImpl extends RenderKit {
 		return _responseStateManager;
 	}
 	
-	private static final class MXMLRenderKitImplHelper {
+	private static final class FlexRenderKitImplHelper {
 		
 		private static final String HTML_CONTENT_TYPE = "text/html";
 	    private static final String TEXT_ANY_CONTENT_TYPE = "text/*";

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="editorDataField", returnType="java.lang.String", longDesc="The name of the property of the item editor that contains the new data for the list item.")
 @JSFComponent
-public interface _MXMLUIEditorDataFieldAttribute {
+public interface IFlexUIEditorDataFieldAttribute {
     
 }

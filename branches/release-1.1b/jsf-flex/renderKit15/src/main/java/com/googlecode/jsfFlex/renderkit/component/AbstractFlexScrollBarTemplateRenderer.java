@@ -23,55 +23,55 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="direction"),
-				@JsfFlexAttribute(attribute="lineScrollSize"),
-				@JsfFlexAttribute(attribute="maxScrollPosition"),
-				@JsfFlexAttribute(attribute="minScrollPosition"),
-				@JsfFlexAttribute(attribute="pageScrollSize"),
-				@JsfFlexAttribute(attribute="pageSize"),
-				@JsfFlexAttribute(attribute="scrollPosition"),
-				@JsfFlexAttribute(attribute="borderColor"),
-				@JsfFlexAttribute(attribute="cornerRadius"),
-				@JsfFlexAttribute(attribute="downArrowDisabledSkin"),
-				@JsfFlexAttribute(attribute="downArrowDownSkin"),
-				@JsfFlexAttribute(attribute="downArrowOverSkin"),
-				@JsfFlexAttribute(attribute="downArrowUpSkin"),
-				@JsfFlexAttribute(attribute="fillAlphas"),
-				@JsfFlexAttribute(attribute="fillColors"),
-				@JsfFlexAttribute(attribute="highlightAlphas"),
-                @JsfFlexAttribute(attribute="iconColor"),
-                @JsfFlexAttribute(attribute="thumbDownSkin"),
-				@JsfFlexAttribute(attribute="thumbIcon"),
-                @JsfFlexAttribute(attribute="thumbOffset"),
-				@JsfFlexAttribute(attribute="thumbOverSkin"),
-				@JsfFlexAttribute(attribute="thumbUpSkin"),
-				@JsfFlexAttribute(attribute="trackColors"),
-				@JsfFlexAttribute(attribute="trackSkin"),
-				@JsfFlexAttribute(attribute="upArrowDisabledSkin"),
-				@JsfFlexAttribute(attribute="upArrowDownSkin"),
-				@JsfFlexAttribute(attribute="upArrowOverSkin"),
-				@JsfFlexAttribute(attribute="upArrowUpSkin")
+				@IJsfFlexAttribute(attribute="direction"),
+				@IJsfFlexAttribute(attribute="lineScrollSize"),
+				@IJsfFlexAttribute(attribute="maxScrollPosition"),
+				@IJsfFlexAttribute(attribute="minScrollPosition"),
+				@IJsfFlexAttribute(attribute="pageScrollSize"),
+				@IJsfFlexAttribute(attribute="pageSize"),
+				@IJsfFlexAttribute(attribute="scrollPosition"),
+				@IJsfFlexAttribute(attribute="borderColor"),
+				@IJsfFlexAttribute(attribute="cornerRadius"),
+				@IJsfFlexAttribute(attribute="downArrowDisabledSkin"),
+				@IJsfFlexAttribute(attribute="downArrowDownSkin"),
+				@IJsfFlexAttribute(attribute="downArrowOverSkin"),
+				@IJsfFlexAttribute(attribute="downArrowUpSkin"),
+				@IJsfFlexAttribute(attribute="fillAlphas"),
+				@IJsfFlexAttribute(attribute="fillColors"),
+				@IJsfFlexAttribute(attribute="highlightAlphas"),
+                @IJsfFlexAttribute(attribute="iconColor"),
+                @IJsfFlexAttribute(attribute="thumbDownSkin"),
+				@IJsfFlexAttribute(attribute="thumbIcon"),
+                @IJsfFlexAttribute(attribute="thumbOffset"),
+				@IJsfFlexAttribute(attribute="thumbOverSkin"),
+				@IJsfFlexAttribute(attribute="thumbUpSkin"),
+				@IJsfFlexAttribute(attribute="trackColors"),
+				@IJsfFlexAttribute(attribute="trackSkin"),
+				@IJsfFlexAttribute(attribute="upArrowDisabledSkin"),
+				@IJsfFlexAttribute(attribute="upArrowDownSkin"),
+				@IJsfFlexAttribute(attribute="upArrowOverSkin"),
+				@IJsfFlexAttribute(attribute="upArrowUpSkin")
 		}
 )
-public abstract class MXMLScrollBarTemplateRenderer extends MXMLComponentRenderer {
+public abstract class AbstractFlexScrollBarTemplateRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLScrollBarTemplateRenderer.class, componentObj, null);
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(AbstractFlexScrollBarTemplateRenderer.class, componentObj, null);
 		
 	}
 	

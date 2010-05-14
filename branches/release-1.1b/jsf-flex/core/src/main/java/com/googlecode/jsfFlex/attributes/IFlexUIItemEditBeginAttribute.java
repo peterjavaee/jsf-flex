@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="itemEditBegin", returnType="java.lang.String", longDesc="Dispatched when the editedItemPosition property has been set and the item can be edited.")
 @JSFComponent
-public interface _MXMLUIItemEditBeginAttribute {
+public interface IFlexUIItemEditBeginAttribute {
     
 }

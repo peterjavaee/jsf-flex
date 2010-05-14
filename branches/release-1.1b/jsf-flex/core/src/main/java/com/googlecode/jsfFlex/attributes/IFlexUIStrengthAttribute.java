@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="strength", returnType="java.lang.String", longDesc="The strength of the imprint or spread.")
 @JSFComponent
-public interface _MXMLUIStrengthAttribute {
+public interface IFlexUIStrengthAttribute {
     
 }

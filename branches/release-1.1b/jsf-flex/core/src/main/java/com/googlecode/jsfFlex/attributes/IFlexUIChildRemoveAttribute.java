@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="childRemove", returnType="java.lang.String", longDesc="Dispatched before a child of a container is removed.")
 @JSFComponent
-public interface _MXMLUIChildRemoveAttribute {
+public interface IFlexUIChildRemoveAttribute {
     
 }

@@ -23,53 +23,53 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="condenseWhite"),
-				@JsfFlexAttribute(attribute="data"),
-				@JsfFlexAttribute(attribute="htmlText", byMethod=true),
-				@JsfFlexAttribute(attribute="listData"),
-				@JsfFlexAttribute(attribute="selectable"),
-				@JsfFlexAttribute(attribute="text", byMethod=true),
-				@JsfFlexAttribute(attribute="truncateToFit"),
-				@JsfFlexAttribute(attribute="color"),
-				@JsfFlexAttribute(attribute="disabledColor"),
-				@JsfFlexAttribute(attribute="fontAntiAliasType"),
-				@JsfFlexAttribute(attribute="fontFamily"),
-				@JsfFlexAttribute(attribute="fontGridFitType"),
-				@JsfFlexAttribute(attribute="fontSharpness"),
-				@JsfFlexAttribute(attribute="fontSize"),
-				@JsfFlexAttribute(attribute="fontStyle"),
-				@JsfFlexAttribute(attribute="fontThickness"),
-				@JsfFlexAttribute(attribute="fontWeight"),
-				@JsfFlexAttribute(attribute="paddingLeft"),
-				@JsfFlexAttribute(attribute="paddingRight"),
-                @JsfFlexAttribute(attribute="paddingTop"),
-                @JsfFlexAttribute(attribute="paddingBottom"),
-                @JsfFlexAttribute(attribute="styleSheet"),
-				@JsfFlexAttribute(attribute="textAlign"),
-				@JsfFlexAttribute(attribute="textDecoration"),
-				@JsfFlexAttribute(attribute="textIndent"),
-				@JsfFlexAttribute(attribute="dataChange")
+				@IJsfFlexAttribute(attribute="condenseWhite"),
+				@IJsfFlexAttribute(attribute="data"),
+				@IJsfFlexAttribute(attribute="htmlText", byMethod=true),
+				@IJsfFlexAttribute(attribute="listData"),
+				@IJsfFlexAttribute(attribute="selectable"),
+				@IJsfFlexAttribute(attribute="text", byMethod=true),
+				@IJsfFlexAttribute(attribute="truncateToFit"),
+				@IJsfFlexAttribute(attribute="color"),
+				@IJsfFlexAttribute(attribute="disabledColor"),
+				@IJsfFlexAttribute(attribute="fontAntiAliasType"),
+				@IJsfFlexAttribute(attribute="fontFamily"),
+				@IJsfFlexAttribute(attribute="fontGridFitType"),
+				@IJsfFlexAttribute(attribute="fontSharpness"),
+				@IJsfFlexAttribute(attribute="fontSize"),
+				@IJsfFlexAttribute(attribute="fontStyle"),
+				@IJsfFlexAttribute(attribute="fontThickness"),
+				@IJsfFlexAttribute(attribute="fontWeight"),
+				@IJsfFlexAttribute(attribute="paddingLeft"),
+				@IJsfFlexAttribute(attribute="paddingRight"),
+                @IJsfFlexAttribute(attribute="paddingTop"),
+                @IJsfFlexAttribute(attribute="paddingBottom"),
+                @IJsfFlexAttribute(attribute="styleSheet"),
+				@IJsfFlexAttribute(attribute="textAlign"),
+				@IJsfFlexAttribute(attribute="textDecoration"),
+				@IJsfFlexAttribute(attribute="textIndent"),
+				@IJsfFlexAttribute(attribute="dataChange")
 		}
 )
-public abstract class MXMLLabelTemplateRenderer extends MXMLComponentRenderer {
+public abstract class AbstractFlexLabelTemplateRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLLabelTemplateRenderer.class, componentObj, null);
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(AbstractFlexLabelTemplateRenderer.class, componentObj, null);
 		
 	}
 	

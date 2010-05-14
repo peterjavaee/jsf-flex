@@ -20,49 +20,49 @@ package com.googlecode.jsfFlex.validator.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIAllowedFormatCharsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDayListenerAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDayPropertyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDaySourceAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFormatErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIInputFormatAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIInvalidCharErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMonthListenerAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMonthPropertyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMonthSourceAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIValidateAsStringAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIWrongDayErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIWrongLengthErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIWrongMonthErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIWrongYearErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIYearListenerAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIYearPropertyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIYearSourceAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIAllowedFormatCharsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDayListenerAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDayPropertyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDaySourceAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFormatErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIInputFormatAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIInvalidCharErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMonthListenerAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMonthPropertyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMonthSourceAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIValidateAsStringAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIWrongDayErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIWrongLengthErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIWrongMonthErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIWrongYearErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIYearListenerAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIYearPropertyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIYearSourceAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
- * One thing to note about MXML Formatter and Validator is that they are not actually converters or validators<br>
+ * One thing to note about Flex Formatter and Validator is that they are not actually converters or validators<br>
  * respectively but actually are components. This is so because they perform the formatting and validation<br>
  * as Flex components on the client side and not on the server side.<br>
  * 
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlDateValidator",
-        clazz               =   "com.googlecode.jsfFlex.validator.ext.MXMLUIDateValidator",
-        type                =   "com.googlecode.jsfFlex.MXMLUIDateValidator",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.validator.ext.MXMLUIDateValidatorTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLDateValidator"
+        name                =   "jf:flexDateValidator",
+        clazz               =   "com.googlecode.jsfFlex.validator.ext.FlexUIDateValidator",
+        type                =   "com.googlecode.jsfFlex.FlexUIDateValidator",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.validator.ext.FlexUIDateValidatorTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexDateValidator"
 )
-public abstract class AbstractMXMLUIDateValidator 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIValidatorAttributes, _MXMLUIAllowedFormatCharsAttribute, _MXMLUIDayListenerAttribute, 
-                        _MXMLUIDayPropertyAttribute, _MXMLUIDaySourceAttribute, _MXMLUIFormatErrorAttribute, 
-                        _MXMLUIInputFormatAttribute, _MXMLUIInvalidCharErrorAttribute, _MXMLUIMonthListenerAttribute, 
-                        _MXMLUIMonthPropertyAttribute, _MXMLUIMonthSourceAttribute, _MXMLUIValidateAsStringAttribute, 
-                        _MXMLUIWrongDayErrorAttribute, _MXMLUIWrongLengthErrorAttribute, _MXMLUIWrongMonthErrorAttribute, 
-                        _MXMLUIWrongYearErrorAttribute, _MXMLUIYearListenerAttribute, _MXMLUIYearPropertyAttribute, 
-                        _MXMLUIYearSourceAttribute {
+public abstract class AbstractFlexUIDateValidator 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIValidatorAttributes, IFlexUIAllowedFormatCharsAttribute, IFlexUIDayListenerAttribute, 
+                        IFlexUIDayPropertyAttribute, IFlexUIDaySourceAttribute, IFlexUIFormatErrorAttribute, 
+                        IFlexUIInputFormatAttribute, IFlexUIInvalidCharErrorAttribute, IFlexUIMonthListenerAttribute, 
+                        IFlexUIMonthPropertyAttribute, IFlexUIMonthSourceAttribute, IFlexUIValidateAsStringAttribute, 
+                        IFlexUIWrongDayErrorAttribute, IFlexUIWrongLengthErrorAttribute, IFlexUIWrongMonthErrorAttribute, 
+                        IFlexUIWrongYearErrorAttribute, IFlexUIYearListenerAttribute, IFlexUIYearPropertyAttribute, 
+                        IFlexUIYearSourceAttribute {
 	
 }

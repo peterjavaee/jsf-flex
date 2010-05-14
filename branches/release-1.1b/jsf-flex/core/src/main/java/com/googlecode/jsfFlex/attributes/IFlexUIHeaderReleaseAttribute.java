@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="headerRelease", returnType="java.lang.String", longDesc="Dispatched when the user releases the mouse button on a column header to request the control to sort the grid contents based on the contents of the column.")
 @JSFComponent
-public interface _MXMLUIHeaderReleaseAttribute {
+public interface IFlexUIHeaderReleaseAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="effectStart", returnType="java.lang.String", longDesc="Dispatched just before an effect starts.")
 @JSFComponent
-public interface _MXMLUIEffectStartAttribute {
+public interface IFlexUIEffectStartAttribute {
     
 }

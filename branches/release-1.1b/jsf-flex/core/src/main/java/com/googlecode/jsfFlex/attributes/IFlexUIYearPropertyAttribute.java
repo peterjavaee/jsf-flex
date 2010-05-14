@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="yearProperty", returnType="java.lang.String", longDesc="Name of the year property to validate.")
 @JSFComponent
-public interface _MXMLUIYearPropertyAttribute {
+public interface IFlexUIYearPropertyAttribute {
     
 }

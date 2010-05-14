@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="closeButtonUpSkin", returnType="java.lang.String", longDesc="The close button up skin.")
 @JSFComponent
-public interface _MXMLUICloseButtonUpSkinAttribute {
+public interface IFlexUICloseButtonUpSkinAttribute {
     
 }

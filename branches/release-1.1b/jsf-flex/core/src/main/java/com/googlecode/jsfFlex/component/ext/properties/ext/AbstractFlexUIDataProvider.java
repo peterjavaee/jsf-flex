@@ -20,20 +20,20 @@ package com.googlecode.jsfFlex.component.ext.properties.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlDataProvider",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.properties.ext.MXMLUIDataProvider",
-        type                =   "com.googlecode.jsfFlex.MXMLUIDataProvider",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.properties.ext.MXMLUIDataProviderTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLDataProvider"
+        name                =   "jf:flexDataProvider",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.properties.ext.FlexUIDataProvider",
+        type                =   "com.googlecode.jsfFlex.FlexUIDataProvider",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.properties.ext.FlexUIDataProviderTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexDataProvider"
 )
-public abstract class AbstractMXMLUIDataProvider 
-						extends MXMLUISimpleBase {
+public abstract class AbstractFlexUIDataProvider 
+						extends AbstractFlexUISimpleBase {
 	
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="groupIconFunction", returnType="java.lang.String", longDesc="A user-supplied callback function to run on each group item to determine its branch icon in the navigation tree.")
 @JSFComponent
-public interface _MXMLUIGroupIconFunctionAttribute {
+public interface IFlexUIGroupIconFunctionAttribute {
     
 }

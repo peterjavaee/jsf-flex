@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="required", returnType="java.lang.String", longDesc="If true, specifies that a missing or empty value causes a validation error.")
 @JSFComponent
-public interface _MXMLUIRequiredAttribute {
+public interface IFlexUIRequiredAttribute {
     
 }

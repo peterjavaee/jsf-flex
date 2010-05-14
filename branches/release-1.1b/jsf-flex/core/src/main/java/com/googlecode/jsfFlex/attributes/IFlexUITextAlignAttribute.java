@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="textAlign", returnType="java.lang.String", longDesc="Alignment of text within a container.")
 @JSFComponent
-public interface _MXMLUITextAlignAttribute {
+public interface IFlexUITextAlignAttribute {
     
 }

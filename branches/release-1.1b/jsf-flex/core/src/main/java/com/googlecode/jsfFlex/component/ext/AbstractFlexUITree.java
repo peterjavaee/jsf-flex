@@ -20,47 +20,47 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIDataDescriptorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDefaultLeafIconAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDepthColorsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisclosureClosedIconAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisclosureOpenIconAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditableAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFirstVisibleItemAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFolderClosedIconAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFolderOpenIconAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIndentationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemCloseAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemIconsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemOpenAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemOpeningAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOpenDurationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOpenEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOpenItemsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRowCount;
-import com.googlecode.jsfFlex.attributes._MXMLUIShowRootAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataDescriptorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDefaultLeafIconAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDepthColorsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisclosureClosedIconAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisclosureOpenIconAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFirstVisibleItemAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFolderClosedIconAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFolderOpenIconAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIndentationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemCloseAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemIconsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemOpenAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemOpeningAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOpenDurationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOpenEasingFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOpenItemsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRowCountAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShowRootAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlTree",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUITree",
-        type                =   "com.googlecode.jsfFlex.MXMLUITree",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUITreeTag",
-        family              =   "javax.faces.MXMLInput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLTree",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+        name                =   "jf:flexTree",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUITree",
+        type                =   "com.googlecode.jsfFlex.FlexUITree",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUITreeTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexTree",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
 )
-public abstract class AbstractMXMLUITree 
-						extends com.googlecode.jsfFlex.component.MXMLUISelectedIndexBase
-						implements _MXMLUIListAttributes, _MXMLUIDataDescriptorAttribute, _MXMLUIFirstVisibleItemAttribute, 
-                        _MXMLUIItemIconsAttribute, _MXMLUIOpenItemsAttribute, _MXMLUIShowRootAttribute, _MXMLUIDefaultLeafIconAttribute,
-                        _MXMLUIDepthColorsAttribute, _MXMLUIDisclosureClosedIconAttribute, _MXMLUIDisclosureOpenIconAttribute, 
-                        _MXMLUIFolderClosedIconAttribute, _MXMLUIFolderOpenIconAttribute, _MXMLUIIndentationAttribute, 
-                        _MXMLUIOpenDurationAttribute, _MXMLUIOpenEasingFunctionAttribute, _MXMLUIItemCloseAttribute, 
-                        _MXMLUIItemOpenAttribute, _MXMLUIItemOpeningAttribute, _MXMLUIEditableAttribute, 
-                        _MXMLUIDataProviderAttribute, _MXMLUIRowCount {
+public abstract class AbstractFlexUITree 
+						extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase
+						implements IFlexUIListAttributes, IFlexUIDataDescriptorAttribute, IFlexUIFirstVisibleItemAttribute, 
+                        IFlexUIItemIconsAttribute, IFlexUIOpenItemsAttribute, IFlexUIShowRootAttribute, IFlexUIDefaultLeafIconAttribute,
+                        IFlexUIDepthColorsAttribute, IFlexUIDisclosureClosedIconAttribute, IFlexUIDisclosureOpenIconAttribute, 
+                        IFlexUIFolderClosedIconAttribute, IFlexUIFolderOpenIconAttribute, IFlexUIIndentationAttribute, 
+                        IFlexUIOpenDurationAttribute, IFlexUIOpenEasingFunctionAttribute, IFlexUIItemCloseAttribute, 
+                        IFlexUIItemOpenAttribute, IFlexUIItemOpeningAttribute, IFlexUIEditableAttribute, 
+                        IFlexUIDataProviderAttribute, IFlexUIRowCount {
 	
 }

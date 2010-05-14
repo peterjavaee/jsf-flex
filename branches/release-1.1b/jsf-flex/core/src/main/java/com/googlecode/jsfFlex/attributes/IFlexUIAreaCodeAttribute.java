@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="areaCode", returnType="java.lang.String", longDesc="Area code number added to a seven-digit United States format phone number to form a 10-digit phone number.")
 @JSFComponent
-public interface _MXMLUIAreaCodeAttribute {
+public interface IFlexUIAreaCodeAttribute {
     
 }

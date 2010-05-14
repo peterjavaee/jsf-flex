@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dividerAlpha", returnType="java.lang.String", longDesc="The alpha value that determines the transparency of the dividers.")
 @JSFComponent
-public interface _MXMLUIDividerAlphaAttribute {
+public interface IFlexUIDividerAlphaAttribute {
     
 }

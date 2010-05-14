@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="todayStyleName", returnType="java.lang.String", longDesc="Name of the style sheet definition to configure the appearance of the current day's numeric text, which is highlighted in the control when the showToday property is true. Specify a color style to change the font color. If omitted, the current day text inherits the text styles of the control.")
 @JSFComponent
-public interface _MXMLUITodayStyleNameAttribute {
+public interface IFlexUITodayStyleNameAttribute {
     
 }

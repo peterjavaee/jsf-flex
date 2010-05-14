@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="fault", returnType="java.lang.String", longDesc="Dispatched when an HTTPService call fails.")
 @JSFComponent
-public interface _MXMLUIFaultAttribute {
+public interface IFlexUIFaultAttribute {
     
 }

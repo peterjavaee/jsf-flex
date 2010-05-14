@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="indentation", returnType="java.lang.String", longDesc="Indentation for each tree level, in pixels.")
 @JSFComponent
-public interface _MXMLUIIndentationAttribute {
+public interface IFlexUIIndentationAttribute {
     
 }

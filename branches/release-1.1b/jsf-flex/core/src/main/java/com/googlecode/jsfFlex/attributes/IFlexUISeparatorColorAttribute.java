@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="separatorColor", returnType="java.lang.String", longDesc="Separator color used by the default separator skin.")
 @JSFComponent
-public interface _MXMLUISeparatorColorAttribute {
+public interface IFlexUISeparatorColorAttribute {
     
 }

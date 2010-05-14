@@ -29,42 +29,42 @@ import javax.faces.component.UIComponentBase;
 
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.shared.adapter.IFlexApplicationContract;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
 import com.googlecode.jsfFlex.shared.beans.others.JsfFlexFlashApplicationConfiguration;
-import com.googlecode.jsfFlex.shared.tasks._CommonTaskRunner;
-import com.googlecode.jsfFlex.shared.tasks._FileManipulatorTaskRunner;
-import com.googlecode.jsfFlex.shared.tasks._FlexTaskRunner;
-import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.tasks.ICommonTaskRunner;
+import com.googlecode.jsfFlex.shared.tasks.AbstractFileManipulatorTaskRunner;
+import com.googlecode.jsfFlex.shared.tasks.IFlexTaskRunner;
+import com.googlecode.jsfFlex.shared.tasks.AbstractRunnerFactory;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
- * An implementation of MxmlContext which will instantiate and store all the needed data structures<br>
+ * An implementation of AbstractFlexContext which will instantiate and store all the needed data structures<br>
  * and instantiate and store the implementation of following interfaces :<br>
  * <ul>
- *     <li> _FileManipulatorTaskRunner
- *     <li> _FlexTaskRunner
- *     <li> _CommonTaskRunner
+ *     <li> AbstractFileManipulatorTaskRunner
+ *     <li> IFlexTaskRunner
+ *     <li> ICommonTaskRunner
  * </ul>
- * Also it will set the current MxmlContextImpl to the ThreadLocal.<br>
+ * Also it will set the current FlexContextImpl to the ThreadLocal.<br>
  * 
  * @author Ji Hoon Kim
  */
-public class MxmlContextImpl extends MxmlContext {
+public class FlexContextImpl extends AbstractFlexContext {
 	
 	private final String _currMxml;
 	
 	private final List<JSONObject> _applicationInitValueList;
-	private final Map<Integer, Set<_MXMLContract>> _preMxmlCompMap;
+	private final Map<Integer, Set<IFlexContract>> _preMxmlCompMap;
 	private final Map<String, ? super UIComponentBase> _temporaryResourceMap;
 	private final AdditionalApplicationScriptContent _additionalAppScriptContent;
 	private final JsfFlexFlashApplicationConfiguration _jsfFlexFlashApplicationConfiguration;
 	
-	private final _RunnerFactory _runnerFactoryInstance;
-	private final _CommonTaskRunner _commonRunner;
-	private final _FileManipulatorTaskRunner _fileManipulatorRunner;
-	private final _FlexTaskRunner _flexRunner;
+	private final AbstractRunnerFactory _runnerFactoryInstance;
+	private final ICommonTaskRunner _commonRunner;
+	private final AbstractFileManipulatorTaskRunner _fileManipulatorRunner;
+	private final IFlexTaskRunner _flexRunner;
 	
 	private boolean _productionEnv;
 	
@@ -80,25 +80,25 @@ public class MxmlContextImpl extends MxmlContext {
     private String _swfWebPath;
 	private String _webContextPath;
 	
-	public MxmlContextImpl(String currMxml, String mode, _MXMLApplicationContract currApplicationContract){
+	public FlexContextImpl(String currMxml, String mode, IFlexApplicationContract currApplicationContract){
 		super();
 		_currMxml = currMxml;
 		_applicationInitValueList = new LinkedList<JSONObject>();
-		_preMxmlCompMap = new TreeMap<Integer, Set<_MXMLContract>>();
+		_preMxmlCompMap = new TreeMap<Integer, Set<IFlexContract>>();
 		_temporaryResourceMap = new HashMap<String, UIComponentBase>();
 		_additionalAppScriptContent = new AdditionalApplicationScriptContent(_currMxml, currApplicationContract);
 		_jsfFlexFlashApplicationConfiguration = new JsfFlexFlashApplicationConfiguration();
 		
         if(mode != null){
-            _productionEnv = mode.equals(MXMLConstants.PRODUCTION_MODE);
+            _productionEnv = mode.equals(FlexConstants.PRODUCTION_MODE);
         }
         
-        _runnerFactoryInstance = _RunnerFactory.getInstance();
+        _runnerFactoryInstance = AbstractRunnerFactory.getInstance();
         _commonRunner = !_productionEnv ? _runnerFactoryInstance.getCommonTaskRunnerImpl() : null;
         _fileManipulatorRunner = !_productionEnv ? _runnerFactoryInstance.getFileManipulatorTaskRunnerImpl() : null;
         _flexRunner = !_productionEnv ? _runnerFactoryInstance.getFlexTaskRunnerImpl() : null;
         
-		MxmlContext.setCurrentInstance(this);
+		AbstractFlexContext.setCurrentInstance(this);
 	}
 	
 	public String getCurrMxml() {
@@ -107,7 +107,7 @@ public class MxmlContextImpl extends MxmlContext {
 	public List<JSONObject> getApplicationInitValueList() {
 		return _applicationInitValueList;
 	}
-	public Map<Integer, Set<_MXMLContract>> getPreMxmlCompMap() {
+	public Map<Integer, Set<IFlexContract>> getPreMxmlCompMap() {
 		return _preMxmlCompMap;
 	}
 	public Map<String, ? super UIComponentBase> getTemporaryResourceMap() {
@@ -119,16 +119,16 @@ public class MxmlContextImpl extends MxmlContext {
 	public JsfFlexFlashApplicationConfiguration getJsfFlexFlashApplicationConfiguration() {
 		return _jsfFlexFlashApplicationConfiguration;
 	}
-	public _RunnerFactory getRunnerFactoryInstance() {
+	public AbstractRunnerFactory getRunnerFactoryInstance() {
 		return _runnerFactoryInstance;
 	}
-	public _CommonTaskRunner getCommonRunner() {
+	public ICommonTaskRunner getCommonRunner() {
 		return _commonRunner;
 	}
-	public _FileManipulatorTaskRunner getFileManipulatorRunner() {
+	public AbstractFileManipulatorTaskRunner getFileManipulatorRunner() {
 		return _fileManipulatorRunner;
 	}
-	public _FlexTaskRunner getFlexRunner() {
+	public IFlexTaskRunner getFlexRunner() {
 		return _flexRunner;
 	}
 	

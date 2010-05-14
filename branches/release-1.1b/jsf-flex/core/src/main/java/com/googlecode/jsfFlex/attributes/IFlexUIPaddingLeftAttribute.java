@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="paddingLeft", returnType="java.lang.String", longDesc="Number of pixels between the container's left border and the left edge of its content area.")
 @JSFComponent
-public interface _MXMLUIPaddingLeftAttribute {
+public interface IFlexUIPaddingLeftAttribute {
     
 }

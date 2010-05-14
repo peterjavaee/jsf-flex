@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="alternatingItemColors", returnType="java.lang.String", longDesc="The set of BackgroundColors for drop-down list rows in an alternating pattern.")
 @JSFComponent
-public interface _MXMLUIAlternatingItemColorsAttribute {
+public interface IFlexUIAlternatingItemColorsAttribute {
     
 }

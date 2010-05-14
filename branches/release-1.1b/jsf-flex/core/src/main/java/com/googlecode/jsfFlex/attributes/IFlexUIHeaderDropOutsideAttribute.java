@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="headerDropOutside", returnType="java.lang.String", longDesc="Dispatched when the user drops a column outside of its column group.")
 @JSFComponent
-public interface _MXMLUIHeaderDropOutsideAttribute {
+public interface IFlexUIHeaderDropOutsideAttribute {
     
 }

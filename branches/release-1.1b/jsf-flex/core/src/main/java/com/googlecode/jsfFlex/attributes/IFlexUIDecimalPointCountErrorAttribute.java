@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="decimalPointCountError", returnType="java.lang.String", longDesc="Error message when the decimal separator character occurs more than once.")
 @JSFComponent
-public interface _MXMLUIDecimalPointCountErrorAttribute {
+public interface IFlexUIDecimalPointCountErrorAttribute {
     
 }

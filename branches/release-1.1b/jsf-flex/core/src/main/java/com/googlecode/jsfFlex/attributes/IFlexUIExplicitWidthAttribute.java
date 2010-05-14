@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="explicitWidth", returnType="java.lang.String", longDesc="Number that specifies the explicit width of the component, in pixels, in the component's coordinates.")
 @JSFComponent
-public interface _MXMLUIExplicitWidthAttribute {
+public interface IFlexUIExplicitWidthAttribute {
     
 }

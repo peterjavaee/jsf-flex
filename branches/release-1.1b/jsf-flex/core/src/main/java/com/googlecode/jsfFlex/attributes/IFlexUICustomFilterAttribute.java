@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="customFilter", returnType="java.lang.String", longDesc="Specifies a custom filter object, of type EffectTargetFilter, used by the effect to determine the targets on which to play the effect.")
 @JSFComponent
-public interface _MXMLUICustomFilterAttribute {
+public interface IFlexUICustomFilterAttribute {
     
 }

@@ -20,17 +20,17 @@ package com.googlecode.jsfFlex.component.ext.data.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUICollectionChangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFilterFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIListAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISortAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICollectionChangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFilterFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIListAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISortAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIListCollectionViewAttributes 
-                extends _MXMLUIFilterFunctionAttribute, _MXMLUIListAttribute, _MXMLUISortAttribute,
-                _MXMLUICollectionChangeAttribute {
+interface IFlexUIListCollectionViewAttributes 
+                extends IFlexUIFilterFunctionAttribute, IFlexUIListAttribute, IFlexUISortAttribute,
+                IFlexUICollectionChangeAttribute {
     
 }

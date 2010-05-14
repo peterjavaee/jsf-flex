@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="autoRewind", returnType="java.lang.String", longDesc="Specifies whether the FLV file should be rewound to the first frame when play stops, either by calling the stop() method or by reaching the end of the stream.")
 @JSFComponent
-public interface _MXMLUIAutoRewindAttribute {
+public interface IFlexUIAutoRewindAttribute {
     
 }

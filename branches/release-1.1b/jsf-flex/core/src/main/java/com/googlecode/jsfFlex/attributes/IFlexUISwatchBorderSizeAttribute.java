@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="swatchBorderSize", returnType="java.lang.String", longDesc="Size of the outlines of the swatches' borders.")
 @JSFComponent
-public interface _MXMLUISwatchBorderSizeAttribute {
+public interface IFlexUISwatchBorderSizeAttribute {
     
 }

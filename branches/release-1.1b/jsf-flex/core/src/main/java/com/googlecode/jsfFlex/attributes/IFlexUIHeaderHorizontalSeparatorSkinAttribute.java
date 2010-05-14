@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="headerHorizontalSeparatorSkin", returnType="java.lang.String", longDesc="The class to use as the skin that defines the appearance of the separator between a column group and its children columns/column group headers in a AdvancedDataGrid control.")
 @JSFComponent
-public interface _MXMLUIHeaderHorizontalSeparatorSkinAttribute {
+public interface IFlexUIHeaderHorizontalSeparatorSkinAttribute {
     
 }

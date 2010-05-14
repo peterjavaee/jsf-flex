@@ -20,25 +20,25 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIRepeatDelayAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRepeatIntervalAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIScrollAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIRepeatDelayAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRepeatIntervalAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIScrollAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlHScrollBar",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIHScrollBar",
-        type                =   "com.googlecode.jsfFlex.MXMLUIHScrollBar",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIHScrollBarTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLHScrollBar"
+        name                =   "jf:flexHScrollBar",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIHScrollBar",
+        type                =   "com.googlecode.jsfFlex.FlexUIHScrollBar",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIHScrollBarTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexHScrollBar"
 )
-public abstract class AbstractMXMLUIHScrollBar 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIScrollBarAttributes, _MXMLUIRepeatDelayAttribute, _MXMLUIRepeatIntervalAttribute, 
-                        _MXMLUIScrollAttribute {
+public abstract class AbstractFlexUIHScrollBar 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIScrollBarAttributes, IFlexUIRepeatDelayAttribute, IFlexUIRepeatIntervalAttribute, 
+                        IFlexUIScrollAttribute {
 	
 }

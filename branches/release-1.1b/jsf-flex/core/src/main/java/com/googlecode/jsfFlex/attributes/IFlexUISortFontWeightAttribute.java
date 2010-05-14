@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="sortFontWeight", returnType="java.lang.String", longDesc="The font weight used by the AdvancedDataGridSortItemRenderer class to render the sort icon in the column header.")
 @JSFComponent
-public interface _MXMLUISortFontWeightAttribute {
+public interface IFlexUISortFontWeightAttribute {
     
 }

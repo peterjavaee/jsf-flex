@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="selectedItem", returnType="java.lang.String", longDesc="The item in the data provider at the selectedIndex.")
 @JSFComponent
-public interface _MXMLUISelectedItemAttribute {
+public interface IFlexUISelectedItemAttribute {
 	
 }

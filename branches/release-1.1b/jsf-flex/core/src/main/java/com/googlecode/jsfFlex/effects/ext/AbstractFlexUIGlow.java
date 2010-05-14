@@ -21,34 +21,34 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIAlphaFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIAlphaToAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBlurXFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBlurXToAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBlurYFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBlurYToAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIInnerAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIKnockoutAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIStrengthAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIAlphaFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIAlphaToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBlurXFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBlurXToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBlurYFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBlurYToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIInnerAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIKnockoutAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIStrengthAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlGlow",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIGlow",
-        type                =   "com.googlecode.jsfFlex.MXMLUIGlow",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIGlowTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLGlow"
+        name                =   "jf:flexGlow",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIGlow",
+        type                =   "com.googlecode.jsfFlex.FlexUIGlow",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIGlowTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexGlow"
 )
-public abstract class AbstractMXMLUIGlow 
-                                extends MXMLUISimpleBase 
-                                implements _MXMLUITweenEffectAttributes, _MXMLUIAlphaFromAttribute, _MXMLUIAlphaToAttribute, 
-                                _MXMLUIBlurXFromAttribute, _MXMLUIBlurXToAttribute, _MXMLUIBlurYFromAttribute, _MXMLUIBlurYToAttribute, 
-                                _MXMLUIColorAttribute, _MXMLUIInnerAttribute, _MXMLUIKnockoutAttribute, _MXMLUIStrengthAttribute {
+public abstract class AbstractFlexUIGlow 
+                                extends AbstractFlexUISimpleBase 
+                                implements IFlexUITweenEffectAttributes, IFlexUIAlphaFromAttribute, IFlexUIAlphaToAttribute, 
+                                IFlexUIBlurXFromAttribute, IFlexUIBlurXToAttribute, IFlexUIBlurYFromAttribute, IFlexUIBlurYToAttribute, 
+                                IFlexUIColorAttribute, IFlexUIInnerAttribute, IFlexUIKnockoutAttribute, IFlexUIStrengthAttribute {
 
     /**
      * Id of the component.

@@ -19,21 +19,21 @@
 package com.googlecode.jsfFlex.shared.util;
 
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * This Util class will provide functionalities that are need by JSF Flex classes
  * 
  * @author Ji Hoon Kim
  */
-public final class MXMLJsfUtil {
+public final class FlexJsfUtil {
     
     private final static String WINDOWS_LINE_FEED = "\r\n";
     private final static String UNIX_LINE_FEED = "\n";
     
     private final static String LINE_FEED_ESCAPER = "LINE_FEED";
     
-    private MXMLJsfUtil(){
+    private FlexJsfUtil(){
         super();
     }
     
@@ -60,9 +60,9 @@ public final class MXMLJsfUtil {
         
         try{
             
-            return java.net.URLEncoder.encode(toEscape, MXMLConstants.UTF_8_ENCODING);
+            return java.net.URLEncoder.encode(toEscape, FlexConstants.UTF_8_ENCODING);
         }catch(java.io.UnsupportedEncodingException unsupportedEncodingExcept){
-            throw new ComponentBuildException("UnsupportedEncoding of " + MXMLConstants.UTF_8_ENCODING + ", in another words this " +
+            throw new ComponentBuildException("UnsupportedEncoding of " + FlexConstants.UTF_8_ENCODING + ", in another words this " +
                                                 "shouldn't happen", unsupportedEncodingExcept);
         }
         

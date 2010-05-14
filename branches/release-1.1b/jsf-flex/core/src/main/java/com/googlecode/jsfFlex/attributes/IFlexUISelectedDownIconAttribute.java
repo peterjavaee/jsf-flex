@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="selectedDownIcon", returnType="java.lang.String", longDesc="Name of the class to use as the icon when the button is selected and the mouse button is down.")
 @JSFComponent
-public interface _MXMLUISelectedDownIconAttribute {
+public interface IFlexUISelectedDownIconAttribute {
     
 }

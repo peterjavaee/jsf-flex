@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="openDuration", returnType="java.lang.String", longDesc="Length of an open transition, in milliseconds.")
 @JSFComponent
-public interface _MXMLUIOpenDurationAttribute {
+public interface IFlexUIOpenDurationAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="maskSkin", returnType="java.lang.String", longDesc="Skin style for the mask of the determinate and indeterminate bars.")
 @JSFComponent
-public interface _MXMLUIMaskSkinAttribute {
+public interface IFlexUIMaskSkinAttribute {
     
 }

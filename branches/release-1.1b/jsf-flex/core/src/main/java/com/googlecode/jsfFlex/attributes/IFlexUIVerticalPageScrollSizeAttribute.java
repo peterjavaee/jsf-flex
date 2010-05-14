@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="verticalPageScrollSize", returnType="java.lang.String", longDesc="Number of pixels to scroll when the track in the vertical scroll bar is pressed.")
 @JSFComponent
-public interface _MXMLUIVerticalPageScrollSizeAttribute {
+public interface IFlexUIVerticalPageScrollSizeAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="destination", returnType="java.lang.String", longDesc="An HTTPService destination name in the services-config.xml file.")
 @JSFComponent
-public interface _MXMLUIDestinationAttribute {
+public interface IFlexUIDestinationAttribute {
     
 }

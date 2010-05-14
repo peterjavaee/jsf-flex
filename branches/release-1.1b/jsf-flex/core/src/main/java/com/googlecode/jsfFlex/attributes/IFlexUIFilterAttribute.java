@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="filter", returnType="java.lang.String", longDesc="Specifies an algorithm for filtering targets for an effect.")
 @JSFComponent
-public interface _MXMLUIFilterAttribute {
+public interface IFlexUIFilterAttribute {
     
 }

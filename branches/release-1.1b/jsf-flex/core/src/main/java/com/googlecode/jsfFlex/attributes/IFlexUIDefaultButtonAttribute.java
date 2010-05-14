@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="defaultButton", returnType="java.lang.String", longDesc="The Button control designated as the default button for the container.")
 @JSFComponent
-public interface _MXMLUIDefaultButtonAttribute {
+public interface IFlexUIDefaultButtonAttribute {
     
 }

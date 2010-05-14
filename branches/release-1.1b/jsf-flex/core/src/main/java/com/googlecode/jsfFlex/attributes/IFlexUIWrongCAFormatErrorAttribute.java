@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="wrongCAFormatError", returnType="java.lang.String", longDesc="Error message for an invalid Canadian postal code.")
 @JSFComponent
-public interface _MXMLUIWrongCAFormatErrorAttribute {
+public interface IFlexUIWrongCAFormatErrorAttribute {
     
 }

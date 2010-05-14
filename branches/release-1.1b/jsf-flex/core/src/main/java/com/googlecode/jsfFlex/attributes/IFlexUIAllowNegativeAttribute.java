@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="allowNegative", returnType="java.lang.String", longDesc="Specifies whether negative numbers are permitted.")
 @JSFComponent
-public interface _MXMLUIAllowNegativeAttribute {
+public interface IFlexUIAllowNegativeAttribute {
     
 }

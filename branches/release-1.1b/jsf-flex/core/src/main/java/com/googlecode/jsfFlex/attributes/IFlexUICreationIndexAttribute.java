@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="creationIndex", returnType="java.lang.String", longDesc="Specifies the order to instantiate and draw the children of the container.")
 @JSFComponent
-public interface _MXMLUICreationIndexAttribute {
+public interface IFlexUICreationIndexAttribute {
     
 }

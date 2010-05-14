@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="barSkin", returnType="java.lang.String", longDesc="Skin style for a determinate progress bar.")
 @JSFComponent
-public interface _MXMLUIBarSkinAttribute {
+public interface IFlexUIBarSkinAttribute {
     
 }

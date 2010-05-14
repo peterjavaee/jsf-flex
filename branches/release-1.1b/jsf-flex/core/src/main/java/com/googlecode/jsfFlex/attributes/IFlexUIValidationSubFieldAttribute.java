@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="validationSubField", returnType="java.lang.String", longDesc="Used by a validator to associate a subfield with this component.")
 @JSFComponent
-public interface _MXMLUIValidationSubFieldAttribute {
+public interface IFlexUIValidationSubFieldAttribute {
     
 }

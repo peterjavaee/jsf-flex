@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="formatter", returnType="java.lang.String", longDesc="An instance of a subclasses of mx.formatters.Formatter.")
 @JSFComponent
-public interface _MXMLUIFormatterAttribute {
+public interface IFlexUIFormatterAttribute {
     
 }

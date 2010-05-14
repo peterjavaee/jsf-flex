@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="focusOutEffect", returnType="java.lang.String", longDesc="Played when the component loses keyboard focus.")
 @JSFComponent
-public interface _MXMLUIFocusOutEffectAttribute {
+public interface IFlexUIFocusOutEffectAttribute {
     
 }

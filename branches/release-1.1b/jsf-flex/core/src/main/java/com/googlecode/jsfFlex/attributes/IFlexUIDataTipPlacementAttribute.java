@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dataTipPlacement", returnType="java.lang.String", longDesc="The location of the data tip relative to the thumb.")
 @JSFComponent
-public interface _MXMLUIDataTipPlacementAttribute {
+public interface IFlexUIDataTipPlacementAttribute {
 	
 }

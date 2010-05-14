@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="itemEditorInstance", returnType="java.lang.String", longDesc="A reference to the currently active instance of the item editor, if it exists.")
 @JSFComponent
-public interface _MXMLUIItemEditorInstanceAttribute {
+public interface IFlexUIItemEditorInstanceAttribute {
     
 }

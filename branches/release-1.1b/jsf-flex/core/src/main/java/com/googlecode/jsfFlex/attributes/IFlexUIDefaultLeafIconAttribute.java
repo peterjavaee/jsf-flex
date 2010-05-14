@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="defaultLeafIcon", returnType="java.lang.String", longDesc="Specifies the default icon for a leaf item.")
 @JSFComponent
-public interface _MXMLUIDefaultLeafIconAttribute {
+public interface IFlexUIDefaultLeafIconAttribute {
     
 }

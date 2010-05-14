@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="iconColor", returnType="java.lang.String", longDesc="The color for the icon in a skin.")
 @JSFComponent
-public interface _MXMLUIIconColorAttribute {
+public interface IFlexUIIconColorAttribute {
     
 }

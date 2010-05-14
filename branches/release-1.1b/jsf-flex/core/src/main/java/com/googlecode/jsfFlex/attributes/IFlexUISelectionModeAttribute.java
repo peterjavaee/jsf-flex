@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="selectionMode", returnType="java.lang.String", longDesc="The selection mode of the control.")
 @JSFComponent
-public interface _MXMLUISelectionModeAttribute {
+public interface IFlexUISelectionModeAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="horizontalGridLineColor", returnType="java.lang.String", longDesc="The color of the horizontal grid lines.")
 @JSFComponent
-public interface _MXMLUIHorizontalGridLineColorAttribute {
+public interface IFlexUIHorizontalGridLineColorAttribute {
     
 }

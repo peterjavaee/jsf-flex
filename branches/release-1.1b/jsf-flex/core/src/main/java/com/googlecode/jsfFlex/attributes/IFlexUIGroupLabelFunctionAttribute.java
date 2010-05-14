@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="groupLabelFunction", returnType="java.lang.String", longDesc="A callback function to run on each item to determine its label in the navigation tree.")
 @JSFComponent
-public interface _MXMLUIGroupLabelFunctionAttribute {
+public interface IFlexUIGroupLabelFunctionAttribute {
     
 }

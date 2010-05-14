@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="repeatDelay", returnType="java.lang.String", longDesc="Number of milliseconds to wait.")
 @JSFComponent
-public interface _MXMLUIRepeatDelayAttribute {
+public interface IFlexUIRepeatDelayAttribute {
     
 }

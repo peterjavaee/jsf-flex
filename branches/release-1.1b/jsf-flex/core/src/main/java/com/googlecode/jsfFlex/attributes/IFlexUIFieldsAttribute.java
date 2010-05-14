@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="fields", returnType="java.lang.String", longDesc="An Array of GroupingField objects that specifies the fields used to group the data.")
 @JSFComponent
-public interface _MXMLUIFieldsAttribute {
+public interface IFlexUIFieldsAttribute {
     
 }

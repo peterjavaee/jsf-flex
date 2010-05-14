@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="linkButtonStyleName", returnType="java.lang.String", longDesc="Name of CSS style declaration that specifies the styles to use for the link button navigation items.")
 @JSFComponent
-public interface _MXMLUILinkButtonStyleNameAttribute {
+public interface IFlexUILinkButtonStyleNameAttribute {
     
 }

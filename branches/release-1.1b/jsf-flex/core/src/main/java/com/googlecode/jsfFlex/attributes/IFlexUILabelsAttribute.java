@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="labels", returnType="java.lang.String", longDesc="An array of strings used for the slider labels.")
 @JSFComponent
-public interface _MXMLUILabelsAttribute {
+public interface IFlexUILabelsAttribute {
     
 }

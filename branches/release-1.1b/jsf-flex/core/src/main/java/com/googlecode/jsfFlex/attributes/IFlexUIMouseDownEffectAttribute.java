@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="mouseDownEffect", returnType="java.lang.String", longDesc="Played when the user presses the mouse button while over the component.")
 @JSFComponent
-public interface _MXMLUIMouseDownEffectAttribute {
+public interface IFlexUIMouseDownEffectAttribute {
     
 }

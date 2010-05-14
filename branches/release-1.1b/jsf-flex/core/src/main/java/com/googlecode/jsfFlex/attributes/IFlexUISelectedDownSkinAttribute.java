@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="selectedDownSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the background and border when a toggle button is selected and the mouse button is down.")
 @JSFComponent
-public interface _MXMLUISelectedDownSkinAttribute {
+public interface IFlexUISelectedDownSkinAttribute {
     
 }

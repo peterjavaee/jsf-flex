@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="labelField", returnType="java.lang.String", longDesc="The name of the field in the data provider items to display as the label.")
 @JSFComponent
-public interface _MXMLUILabelFieldAttribute {
+public interface IFlexUILabelFieldAttribute {
 	
 }

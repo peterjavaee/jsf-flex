@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="id3", returnType="java.lang.String", longDesc="Dispatched when ID3 data is available for an MP3 sound file.")
 @JSFComponent
-public interface _MXMLUIId3Attribute {
+public interface IFlexUIId3Attribute {
     
 }

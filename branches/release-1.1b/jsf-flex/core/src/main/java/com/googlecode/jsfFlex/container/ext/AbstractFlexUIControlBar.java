@@ -20,21 +20,21 @@ package com.googlecode.jsfFlex.container.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlControlBar",
-        clazz               =   "com.googlecode.jsfFlex.container.ext.MXMLUIControlBar",
-        type                =   "com.googlecode.jsfFlex.MXMLUIControlBar",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.MXMLUIControlBarTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLControlBar"
+        name                =   "jf:flexControlBar",
+        clazz               =   "com.googlecode.jsfFlex.container.ext.FlexUIControlBar",
+        type                =   "com.googlecode.jsfFlex.FlexUIControlBar",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.FlexUIControlBarTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexControlBar"
 )
-public abstract class AbstractMXMLUIControlBar 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIBoxAttributes {
+public abstract class AbstractFlexUIControlBar 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIBoxAttributes {
 	
 }

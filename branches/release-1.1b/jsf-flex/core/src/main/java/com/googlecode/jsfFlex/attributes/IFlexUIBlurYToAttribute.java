@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="blurYTo", returnType="java.lang.String", longDesc="The ending amount of vertical blur.")
 @JSFComponent
-public interface _MXMLUIBlurYToAttribute {
+public interface IFlexUIBlurYToAttribute {
     
 }

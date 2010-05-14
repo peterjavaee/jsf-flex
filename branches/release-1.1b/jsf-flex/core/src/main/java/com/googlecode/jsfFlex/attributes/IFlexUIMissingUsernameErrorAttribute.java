@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="missingUsernameError", returnType="java.lang.String", longDesc="Error message when there is no username.")
 @JSFComponent
-public interface _MXMLUIMissingUsernameErrorAttribute {
+public interface IFlexUIMissingUsernameErrorAttribute {
     
 }

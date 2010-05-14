@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="selectedFillColors", returnType="java.lang.String", longDesc="The two colors used to tint the background of the component when inits selected state.")
 @JSFComponent
-public interface _MXMLUISelectedFillColorsAttribute {
+public interface IFlexUISelectedFillColorsAttribute {
     
 }

@@ -20,21 +20,21 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlSwfLoader",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUISwfLoader",
-        type                =   "com.googlecode.jsfFlex.MXMLUISwfLoader",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUISwfLoaderTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLSWFLoader"
+        name                =   "jf:flexSwfLoader",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUISwfLoader",
+        type                =   "com.googlecode.jsfFlex.FlexUISwfLoader",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUISwfLoaderTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexSWFLoader"
 )
-public abstract class AbstractMXMLUISwfLoader 
-						extends MXMLUISimpleBase 
-						implements _MXMLUISwfLoaderAttributes {
+public abstract class AbstractFlexUISwfLoader 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUISwfLoaderAttributes {
 	
 }

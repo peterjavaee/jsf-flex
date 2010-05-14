@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="fontSharpness", returnType="java.lang.String", longDesc="Sets the sharpness property of internal TextFields that represent text in Flex controls.")
 @JSFComponent
-public interface _MXMLUIFontSharpnessAttribute {
+public interface IFlexUIFontSharpnessAttribute {
     
 }

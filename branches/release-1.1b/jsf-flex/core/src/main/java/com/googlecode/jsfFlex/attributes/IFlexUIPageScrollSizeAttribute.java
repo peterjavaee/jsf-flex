@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="pageScrollSize", returnType="java.lang.String", longDesc="Amount to move the scroll thumb when the scroll bar track is pressed, in pixels.")
 @JSFComponent
-public interface _MXMLUIPageScrollSizeAttribute {
+public interface IFlexUIPageScrollSizeAttribute {
     
 }

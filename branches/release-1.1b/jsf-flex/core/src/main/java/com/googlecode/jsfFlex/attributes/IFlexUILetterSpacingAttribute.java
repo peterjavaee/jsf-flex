@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="letterSpacing", returnType="java.lang.String", longDesc="The number of additional pixels to appear between each character.")
 @JSFComponent
-public interface _MXMLUILetterSpacingAttribute {
+public interface IFlexUILetterSpacingAttribute {
     
 }

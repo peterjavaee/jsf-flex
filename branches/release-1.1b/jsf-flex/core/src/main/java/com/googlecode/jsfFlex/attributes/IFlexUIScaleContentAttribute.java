@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="scaleContent", returnType="java.lang.String", longDesc="If true, the content scales to fit the SWFLoader control.")
 @JSFComponent
-public interface _MXMLUIScaleContentAttribute {
+public interface IFlexUIScaleContentAttribute {
     
 }

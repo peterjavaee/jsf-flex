@@ -20,21 +20,21 @@ package com.googlecode.jsfFlex.container.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIDirectionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalAlignAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalGapAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITileHeightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITileWidthAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalAlignAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalGapAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDirectionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalAlignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalGapAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITileHeightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITileWidthAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalAlignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalGapAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUITileAttributes 
-                extends _MXMLUIDirectionAttribute, _MXMLUITileHeightAttribute, _MXMLUITileWidthAttribute, 
-                _MXMLUIHorizontalAlignAttribute, _MXMLUIHorizontalGapAttribute, _MXMLUIVerticalAlignAttribute, 
-                _MXMLUIVerticalGapAttribute, _MXMLUIContainerAttributes {
+interface IFlexUITileAttributes 
+                extends IFlexUIDirectionAttribute, IFlexUITileHeightAttribute, IFlexUITileWidthAttribute, 
+                IFlexUIHorizontalAlignAttribute, IFlexUIHorizontalGapAttribute, IFlexUIVerticalAlignAttribute, 
+                IFlexUIVerticalGapAttribute, IFlexUIContainerAttributes {
     
 }

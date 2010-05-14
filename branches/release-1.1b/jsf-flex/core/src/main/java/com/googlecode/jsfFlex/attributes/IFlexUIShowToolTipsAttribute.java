@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="showToolTips", returnType="java.lang.String", longDesc="Specifies whether to display tooltips for the text formatting controls.")
 @JSFComponent
-public interface _MXMLUIShowToolTipsAttribute {
+public interface IFlexUIShowToolTipsAttribute {
     
 }

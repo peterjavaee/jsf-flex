@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="open", returnType="java.lang.String", longDesc="Dispatched when the color swatch panel opens.")
 @JSFComponent
-public interface _MXMLUIOpenAttribute {
+public interface IFlexUIOpenAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="labelWidth", returnType="java.lang.String", longDesc="The width of the label in pixels.")
 @JSFComponent
-public interface _MXMLUILabelWidthAttribute {
+public interface IFlexUILabelWidthAttribute {
     
 }

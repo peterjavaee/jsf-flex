@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="mouseUpEffect", returnType="java.lang.String", longDesc="Played when the user releases the mouse button while over the component.")
 @JSFComponent
-public interface _MXMLUIMouseUpEffectAttribute {
+public interface IFlexUIMouseUpEffectAttribute {
     
 }

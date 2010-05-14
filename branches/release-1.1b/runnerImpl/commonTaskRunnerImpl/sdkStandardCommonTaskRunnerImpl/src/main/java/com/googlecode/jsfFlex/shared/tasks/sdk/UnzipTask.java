@@ -31,12 +31,12 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.shared.tasks._Task;
+import com.googlecode.jsfFlex.shared.tasks.AbstractTask;
 
 /**
  * @author Ji Hoon Kim
  */
-public final class UnzipTask extends _Task {
+public final class UnzipTask extends AbstractTask {
 	
 	private final static Log _log = LogFactory.getLog(UnzipTask.class);
 	

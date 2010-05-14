@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="separatorWidth", returnType="java.lang.String", longDesc="Separator pixel width, in pixels.")
 @JSFComponent
-public interface _MXMLUISeparatorWidthAttribute {
+public interface IFlexUISeparatorWidthAttribute {
     
 }

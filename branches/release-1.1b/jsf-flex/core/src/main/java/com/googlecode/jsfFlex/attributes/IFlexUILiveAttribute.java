@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="live", returnType="java.lang.String", longDesc="Specifies whether the control is streaming a live feed.")
 @JSFComponent
-public interface _MXMLUILiveAttribute {
+public interface IFlexUILiveAttribute {
     
 }

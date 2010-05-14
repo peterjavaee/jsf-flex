@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="fontFamily", returnType="java.lang.String", longDesc="Name of the font to use.")
 @JSFComponent
-public interface _MXMLUIFontFamilyAttribute {
+public interface IFlexUIFontFamilyAttribute {
 	
 }

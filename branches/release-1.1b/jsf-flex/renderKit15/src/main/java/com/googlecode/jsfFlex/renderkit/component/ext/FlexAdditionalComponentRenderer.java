@@ -31,22 +31,22 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.component.ext.AbstractMXMLUIAdditionalComponent;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.component.ext.AbstractFlexUIAdditionalComponent;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-        renderKitId="MXML_BASIC",
-        family="javax.faces.MXMLSimple",
-        type="com.googlecode.jsfFlex.MXMLAdditionalComponent"
+        renderKitId="FLEX_BASIC",
+        family="javax.faces.FlexSimple",
+        type="com.googlecode.jsfFlex.FlexAdditionalComponent"
 )
-public final class MXMLAdditionalComponentRenderer extends MXMLComponentBaseRenderer {
+public final class FlexAdditionalComponentRenderer extends AbstractFlexComponentBaseRenderer {
     
-    private final static Log _log = LogFactory.getLog(MXMLAdditionalComponentRenderer.class);
+    private final static Log _log = LogFactory.getLog(FlexAdditionalComponentRenderer.class);
     
     /* 
      * Have to take care of attributes in a form of a HACK. So will fetch the corresponding component's attributes from a Map<br>
@@ -56,8 +56,8 @@ public final class MXMLAdditionalComponentRenderer extends MXMLComponentBaseRend
     public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
         super.encodeBegin(context, componentObj);
         
-        AbstractMXMLUIAdditionalComponent additionalComponent = AbstractMXMLUIAdditionalComponent.class.cast( componentObj );
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
+        AbstractFlexUIAdditionalComponent additionalComponent = AbstractFlexUIAdditionalComponent.class.cast( componentObj );
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         
         Map<String, ? super Object> componentAttributes = additionalComponent.getComponentAttributes();
         if(componentAttributes != null){

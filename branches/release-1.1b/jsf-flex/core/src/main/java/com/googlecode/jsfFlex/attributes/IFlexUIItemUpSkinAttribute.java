@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="itemUpSkin", returnType="java.lang.String", longDesc="The skin when a MenuBar item is not selected.")
 @JSFComponent
-public interface _MXMLUIItemUpSkinAttribute {
+public interface IFlexUIItemUpSkinAttribute {
     
 }

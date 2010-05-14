@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="headerColors", returnType="java.lang.String", longDesc="An array of two colors used to draw the header background gradient.")
 @JSFComponent
-public interface _MXMLUIHeaderColorsAttribute {
+public interface IFlexUIHeaderColorsAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="zoomHeightTo", returnType="java.lang.String", longDesc="Number that represents the scale at which to complete the height zoom, as a percent between 0.01 and 1.0.")
 @JSFComponent
-public interface _MXMLUIZoomHeightToAttribute {
+public interface IFlexUIZoomHeightToAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dateChooserStyleName", returnType="java.lang.String", longDesc="Name of the CSS Style declaration to use for the styles for the DateChooser control's drop-down list.")
 @JSFComponent
-public interface _MXMLUIDateChooserStyleNameAttribute {
+public interface IFlexUIDateChooserStyleNameAttribute {
     
 }

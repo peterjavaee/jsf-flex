@@ -25,7 +25,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface _MXMLUISelectedColorAttribute {
+public interface IFlexUISelectedColorAttribute {
     
     /**
      * The value of the currently selected color in the SwatchPanel object.

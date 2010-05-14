@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="idleTimeout", returnType="java.lang.String", longDesc="Specifies the amount of time, in milliseconds, that the connection is idle (playing is paused or stopped) before the connection to the Flash Media Server is stopped.")
 @JSFComponent
-public interface _MXMLUIIdleTimeoutAttribute {
+public interface IFlexUIIdleTimeoutAttribute {
     
 }

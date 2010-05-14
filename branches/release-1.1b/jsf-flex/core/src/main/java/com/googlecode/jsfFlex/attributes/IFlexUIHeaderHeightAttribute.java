@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="headerHeight", returnType="java.lang.String", longDesc="The height of the header cell of the column, in pixels.")
 @JSFComponent
-public interface _MXMLUIHeaderHeightAttribute {
+public interface IFlexUIHeaderHeightAttribute {
 	
 }

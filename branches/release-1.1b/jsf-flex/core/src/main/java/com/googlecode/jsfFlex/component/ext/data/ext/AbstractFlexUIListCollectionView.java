@@ -21,22 +21,22 @@ package com.googlecode.jsfFlex.component.ext.data.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlListCollectionView",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.MXMLUIListCollectionView",
-        type                =   "com.googlecode.jsfFlex.MXMLUIListCollectionView",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.data.ext.MXMLUIListCollectionViewTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLListCollectionView"
+        name                =   "jf:flexListCollectionView",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.FlexUIListCollectionView",
+        type                =   "com.googlecode.jsfFlex.FlexUIListCollectionView",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.data.ext.FlexUIListCollectionViewTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexListCollectionView"
 )
-public abstract class AbstractMXMLUIListCollectionView 
-							extends MXMLUISimpleBase 
-                            implements _MXMLUIListCollectionViewAttributes {
+public abstract class AbstractFlexUIListCollectionView 
+							extends AbstractFlexUISimpleBase 
+                            implements IFlexUIListCollectionViewAttributes {
 	
 	/**
 	 * Id of the component.

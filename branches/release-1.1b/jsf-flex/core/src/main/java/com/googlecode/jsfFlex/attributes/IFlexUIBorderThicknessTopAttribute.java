@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="borderThicknessTop", returnType="java.lang.String", longDesc="Thickness of the top border of the Panel.")
 @JSFComponent
-public interface _MXMLUIBorderThicknessTopAttribute {
+public interface IFlexUIBorderThicknessTopAttribute {
     
 }

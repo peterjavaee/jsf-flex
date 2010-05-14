@@ -21,31 +21,31 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUICaptureRollEventsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOriginXAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOriginYAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIZoomHeightFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIZoomHeightToAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIZoomWidthFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIZoomWidthToAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUICaptureRollEventsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOriginXAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOriginYAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIZoomHeightFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIZoomHeightToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIZoomWidthFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIZoomWidthToAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlZoom",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIZoom",
-        type                =   "com.googlecode.jsfFlex.MXMLUIZoom",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIZoomTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLZoom"
+        name                =   "jf:flexZoom",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIZoom",
+        type                =   "com.googlecode.jsfFlex.FlexUIZoom",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIZoomTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexZoom"
 )
-public abstract class AbstractMXMLUIZoom 
-                                extends MXMLUISimpleBase 
-                                implements _MXMLUITweenEffectAttributes, _MXMLUICaptureRollEventsAttribute, _MXMLUIOriginXAttribute, 
-                                _MXMLUIOriginYAttribute, _MXMLUIZoomWidthFromAttribute, _MXMLUIZoomWidthToAttribute, 
-                                _MXMLUIZoomHeightFromAttribute, _MXMLUIZoomHeightToAttribute {
+public abstract class AbstractFlexUIZoom 
+                                extends AbstractFlexUISimpleBase 
+                                implements IFlexUITweenEffectAttributes, IFlexUICaptureRollEventsAttribute, IFlexUIOriginXAttribute, 
+                                IFlexUIOriginYAttribute, IFlexUIZoomWidthFromAttribute, IFlexUIZoomWidthToAttribute, 
+                                IFlexUIZoomHeightFromAttribute, IFlexUIZoomHeightToAttribute {
 
     /**
      * Id of the component.

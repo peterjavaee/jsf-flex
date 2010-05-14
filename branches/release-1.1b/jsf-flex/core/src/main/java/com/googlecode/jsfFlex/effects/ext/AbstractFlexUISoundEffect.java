@@ -21,41 +21,41 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIAutoLoadAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBufferTimeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICompleteAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIId3Attribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIoErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILoopsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPanEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPanFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIProgressAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISourceAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIStartTimeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUseDurationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVolumeEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVolumeFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVolumeToAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIAutoLoadAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBufferTimeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICompleteAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIId3Attribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIoErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILoopsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPanEasingFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPanFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIProgressAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISourceAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIStartTimeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUseDurationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVolumeEasingFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVolumeFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVolumeToAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlSoundEffect",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUISoundEffect",
-        type                =   "com.googlecode.jsfFlex.MXMLUISoundEffect",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUISoundEffectTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLSoundEffect"
+        name                =   "jf:flexSoundEffect",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUISoundEffect",
+        type                =   "com.googlecode.jsfFlex.FlexUISoundEffect",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUISoundEffectTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexSoundEffect"
 )
-public abstract class AbstractMXMLUISoundEffect 
-                                extends MXMLUISimpleBase 
-                                implements _MXMLUIEffectAttributes, _MXMLUIAutoLoadAttribute, _MXMLUIBufferTimeAttribute, 
-                                _MXMLUILoopsAttribute, _MXMLUIPanEasingFunctionAttribute, _MXMLUIPanFromAttribute, _MXMLUISourceAttribute, 
-                                _MXMLUIStartTimeAttribute, _MXMLUIUseDurationAttribute, _MXMLUIVolumeEasingFunctionAttribute, 
-                                _MXMLUIVolumeFromAttribute, _MXMLUIVolumeToAttribute, _MXMLUICompleteAttribute, _MXMLUIId3Attribute, 
-                                _MXMLUIIoErrorAttribute, _MXMLUIProgressAttribute {
+public abstract class AbstractFlexUISoundEffect 
+                                extends AbstractFlexUISimpleBase 
+                                implements IFlexUIEffectAttributes, IFlexUIAutoLoadAttribute, IFlexUIBufferTimeAttribute, 
+                                IFlexUILoopsAttribute, IFlexUIPanEasingFunctionAttribute, IFlexUIPanFromAttribute, IFlexUISourceAttribute, 
+                                IFlexUIStartTimeAttribute, IFlexUIUseDurationAttribute, IFlexUIVolumeEasingFunctionAttribute, 
+                                IFlexUIVolumeFromAttribute, IFlexUIVolumeToAttribute, IFlexUICompleteAttribute, IFlexUIId3Attribute, 
+                                IFlexUIIoErrorAttribute, IFlexUIProgressAttribute {
 
     /**
      * Id of the component.

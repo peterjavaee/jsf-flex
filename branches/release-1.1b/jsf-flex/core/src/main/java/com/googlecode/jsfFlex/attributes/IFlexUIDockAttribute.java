@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dock", returnType="java.lang.String", longDesc="If true, specifies that the ApplicationControlBar should be docked to the top of the application.")
 @JSFComponent
-public interface _MXMLUIDockAttribute {
+public interface IFlexUIDockAttribute {
     
 }

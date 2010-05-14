@@ -20,27 +20,27 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIDefaultLinkProtocolAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShowControlBarAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShowToolTipsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITitleAttribute;
-import com.googlecode.jsfFlex.container.ext._MXMLUIPanelAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUIDefaultLinkProtocolAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShowControlBarAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShowToolTipsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITitleAttribute;
+import com.googlecode.jsfFlex.container.ext.IFlexUIPanelAttributes;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlRichTextEditor",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIRichTextEditor",
-        type                =   "com.googlecode.jsfFlex.MXMLUIRichTextEditor",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIRichTextEditorTag",
-        family              =   "javax.faces.MXMLInput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLRichTextEditor",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+        name                =   "jf:flexRichTextEditor",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIRichTextEditor",
+        type                =   "com.googlecode.jsfFlex.FlexUIRichTextEditor",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIRichTextEditorTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexRichTextEditor",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
 )
-public abstract class AbstractMXMLUIRichTextEditor 
-						extends com.googlecode.jsfFlex.component.MXMLUIHtmlTextInputBase 
-						implements _MXMLUIPanelAttributes, _MXMLUIDefaultLinkProtocolAttribute, _MXMLUIShowControlBarAttribute, 
-                        _MXMLUIShowToolTipsAttribute, _MXMLUITitleAttribute {
+public abstract class AbstractFlexUIRichTextEditor 
+						extends com.googlecode.jsfFlex.component.FlexUIHtmlTextInputBase 
+						implements IFlexUIPanelAttributes, IFlexUIDefaultLinkProtocolAttribute, IFlexUIShowControlBarAttribute, 
+                        IFlexUIShowToolTipsAttribute, IFlexUITitleAttribute {
 	
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="borderColor", returnType="java.lang.String", longDesc="Color of the border.")
 @JSFComponent
-public interface _MXMLUIBorderColorAttribute {
+public interface IFlexUIBorderColorAttribute {
 	
 }

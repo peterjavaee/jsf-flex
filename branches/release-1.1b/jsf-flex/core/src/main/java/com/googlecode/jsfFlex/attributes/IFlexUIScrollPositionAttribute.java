@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="scrollPosition", returnType="java.lang.String", longDesc="Number that represents the current scroll position.")
 @JSFComponent
-public interface _MXMLUIScrollPositionAttribute {
+public interface IFlexUIScrollPositionAttribute {
     
 }

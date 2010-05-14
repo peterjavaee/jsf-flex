@@ -23,44 +23,44 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="openAlways"),
-				@JsfFlexAttribute(attribute="popUp"),
-				@JsfFlexAttribute(attribute="arrowButtonWidth"),
-				@JsfFlexAttribute(attribute="closeDuration"),
-				@JsfFlexAttribute(attribute="closeEasingFunction"),
-                @JsfFlexAttribute(attribute="disabledIconColor"),
-                @JsfFlexAttribute(attribute="iconColor"),
-                @JsfFlexAttribute(attribute="disabledIconColor"),
-                @JsfFlexAttribute(attribute="iconColor"),
-				@JsfFlexAttribute(attribute="openDuration"),
-				@JsfFlexAttribute(attribute="openEasingFunction"),
-				@JsfFlexAttribute(attribute="popUpDownSkin"),
-				@JsfFlexAttribute(attribute="popUpGap"),
-				@JsfFlexAttribute(attribute="popUpIcon"),
-				@JsfFlexAttribute(attribute="popUpOverSkin"),
-				@JsfFlexAttribute(attribute="close"),
-				@JsfFlexAttribute(attribute="open")
+				@IJsfFlexAttribute(attribute="openAlways"),
+				@IJsfFlexAttribute(attribute="popUp"),
+				@IJsfFlexAttribute(attribute="arrowButtonWidth"),
+				@IJsfFlexAttribute(attribute="closeDuration"),
+				@IJsfFlexAttribute(attribute="closeEasingFunction"),
+                @IJsfFlexAttribute(attribute="disabledIconColor"),
+                @IJsfFlexAttribute(attribute="iconColor"),
+                @IJsfFlexAttribute(attribute="disabledIconColor"),
+                @IJsfFlexAttribute(attribute="iconColor"),
+				@IJsfFlexAttribute(attribute="openDuration"),
+				@IJsfFlexAttribute(attribute="openEasingFunction"),
+				@IJsfFlexAttribute(attribute="popUpDownSkin"),
+				@IJsfFlexAttribute(attribute="popUpGap"),
+				@IJsfFlexAttribute(attribute="popUpIcon"),
+				@IJsfFlexAttribute(attribute="popUpOverSkin"),
+				@IJsfFlexAttribute(attribute="close"),
+				@IJsfFlexAttribute(attribute="open")
 		}
 )
-public abstract class MXMLPopUpButtonTemplateRenderer extends MXMLButtonTemplateRenderer {
+public abstract class AbstractFlexPopUpButtonTemplateRenderer extends AbstractFlexButtonTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLPopUpButtonTemplateRenderer.class, componentObj, null);
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(AbstractFlexPopUpButtonTemplateRenderer.class, componentObj, null);
 		
 	}
 	

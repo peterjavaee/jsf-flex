@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="thumbOffset", returnType="java.lang.String", longDesc="The y-position offset (if direction is horizontal) or x-position offset (if direction is vertical) of the thumb relative to the track.")
 @JSFComponent
-public interface _MXMLUIThumbOffsetAttribute {
+public interface IFlexUIThumbOffsetAttribute {
     
 }

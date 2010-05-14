@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="creationPolicy", returnType="java.lang.String", longDesc="The creation policy for this child.")
 @JSFComponent
-public interface _MXMLUICreationPolicyAttribute {
+public interface IFlexUICreationPolicyAttribute {
     
 }

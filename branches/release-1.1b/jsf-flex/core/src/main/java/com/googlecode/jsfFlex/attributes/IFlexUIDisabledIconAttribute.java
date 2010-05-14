@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="disabledIcon", returnType="java.lang.String", longDesc="Name of the class to use as the icon when the button is not disabled.")
 @JSFComponent
-public interface _MXMLUIDisabledIconAttribute {
+public interface IFlexUIDisabledIconAttribute {
     
 }

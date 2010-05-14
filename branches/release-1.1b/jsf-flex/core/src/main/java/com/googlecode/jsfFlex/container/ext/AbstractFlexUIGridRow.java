@@ -24,22 +24,22 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlGridRow",
-        clazz               =   "com.googlecode.jsfFlex.container.ext.MXMLUIGridRow",
-        type                =   "com.googlecode.jsfFlex.MXMLUIGridRow",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.MXMLUIGridRowTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLGridRow"
+        name                =   "jf:flexGridRow",
+        clazz               =   "com.googlecode.jsfFlex.container.ext.FlexUIGridRow",
+        type                =   "com.googlecode.jsfFlex.FlexUIGridRow",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.FlexUIGridRowTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexGridRow"
 )
-public abstract class AbstractMXMLUIGridRow 
-                        extends MXMLUISimpleBase 
-                        implements _MXMLUIBoxAttributes {
+public abstract class AbstractFlexUIGridRow 
+                        extends AbstractFlexUISimpleBase 
+                        implements IFlexUIBoxAttributes {
     
     public void encodeBegin(FacesContext context) throws IOException {
         /*

@@ -36,21 +36,21 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.container.MXMLContainerTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.container.AbstractFlexContainerTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexApplicationContract;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
 import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
-import com.googlecode.jsfFlex.shared.util.MXMLAttributeConstants;
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
-import com.googlecode.jsfFlex.shared.util.MXMLJsfUtil;
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
+import com.googlecode.jsfFlex.shared.util.FlexAttributeConstants;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
+import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
 
 /**
- * Aside from its normal task of mapping the field to the Set and creating the preMxml file, MXMLApplicationRenderer has<br>
+ * Aside from its normal task of mapping the field to the Set and creating the preMxml file, FlexApplicationRenderer has<br>
  * an added responsibility of :<br>
  * <ul>
  *     <li> merging preMxml file into a single preMxml file.
@@ -66,53 +66,53 @@ import com.googlecode.jsfFlex.shared.util.MXMLJsfUtil;
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLApplication",
-		type="com.googlecode.jsfFlex.MXMLApplication"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexApplication",
+		type="com.googlecode.jsfFlex.FlexApplication"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="Application",
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentName="Application",
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="controlBar"),
-				@JsfFlexAttribute(attribute="frameRate"),
-                @JsfFlexAttribute(attribute="historyManagementEnabled"),
-				@JsfFlexAttribute(attribute="layout"),
-				@JsfFlexAttribute(attribute="pageTitle"),
-				@JsfFlexAttribute(attribute="preloader"),
-				@JsfFlexAttribute(attribute="resetHistory"),
-				@JsfFlexAttribute(attribute="scriptRecursionLimit"),
-				@JsfFlexAttribute(attribute="scriptTimeLimit"),
-				@JsfFlexAttribute(attribute="usePreloader"),
-				@JsfFlexAttribute(attribute="viewSourceURL"),
-				@JsfFlexAttribute(attribute="backgroundGradientAlphas"),
-				@JsfFlexAttribute(attribute="backgroundGradientColors"),
-				@JsfFlexAttribute(attribute="horizontalAlign"),
-				@JsfFlexAttribute(attribute="horizontalGap"),
-				@JsfFlexAttribute(attribute="modalTransparency"),
-				@JsfFlexAttribute(attribute="modalTransparencyBlur"),
-				@JsfFlexAttribute(attribute="modalTransparencyColor"),
-				@JsfFlexAttribute(attribute="modalTransparencyDuration"),
-				@JsfFlexAttribute(attribute="verticalAlign"),
-				@JsfFlexAttribute(attribute="verticalGap"),
-				@JsfFlexAttribute(attribute="applicationComplete"),
-				@JsfFlexAttribute(attribute="error")
+				@IJsfFlexAttribute(attribute="controlBar"),
+				@IJsfFlexAttribute(attribute="frameRate"),
+                @IJsfFlexAttribute(attribute="historyManagementEnabled"),
+				@IJsfFlexAttribute(attribute="layout"),
+				@IJsfFlexAttribute(attribute="pageTitle"),
+				@IJsfFlexAttribute(attribute="preloader"),
+				@IJsfFlexAttribute(attribute="resetHistory"),
+				@IJsfFlexAttribute(attribute="scriptRecursionLimit"),
+				@IJsfFlexAttribute(attribute="scriptTimeLimit"),
+				@IJsfFlexAttribute(attribute="usePreloader"),
+				@IJsfFlexAttribute(attribute="viewSourceURL"),
+				@IJsfFlexAttribute(attribute="backgroundGradientAlphas"),
+				@IJsfFlexAttribute(attribute="backgroundGradientColors"),
+				@IJsfFlexAttribute(attribute="horizontalAlign"),
+				@IJsfFlexAttribute(attribute="horizontalGap"),
+				@IJsfFlexAttribute(attribute="modalTransparency"),
+				@IJsfFlexAttribute(attribute="modalTransparencyBlur"),
+				@IJsfFlexAttribute(attribute="modalTransparencyColor"),
+				@IJsfFlexAttribute(attribute="modalTransparencyDuration"),
+				@IJsfFlexAttribute(attribute="verticalAlign"),
+				@IJsfFlexAttribute(attribute="verticalGap"),
+				@IJsfFlexAttribute(attribute="applicationComplete"),
+				@IJsfFlexAttribute(attribute="error")
 		}
 )
-public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer {
+public final class FlexApplicationRenderer extends AbstractFlexContainerTemplateRenderer {
 	
-	private final static Log _log = LogFactory.getLog(MXMLApplicationRenderer.class);
+	private final static Log _log = LogFactory.getLog(FlexApplicationRenderer.class);
 	
-	private static final String MXML_APPLICATION_BODY_TEMPLATE  = "MXMLApplicationBody.vm";
+	private static final String FLEX_APPLICATION_BODY_TEMPLATE  = "FlexApplicationBody.vm";
 	
 	private static final String TO_BE_CREATED_ADDITIONAL_APP_SCRIPT_CONTENT_TEMPLATE_SUFFIX = "AdditionalAppScriptContent.tmp";
 	private static final String ADDITIONAL_APPLICATION_SCRIPT_CONTENT_TOKEN = "additionalApplicationScriptContent";
 	
-	private final MXMLApplicationHTMLRenderer _mxmlApplicationHtmlRenderer;
+	private final FlexApplicationHTMLRenderer _mxmlApplicationHtmlRenderer;
 	
 	{
-		_mxmlApplicationHtmlRenderer = new MXMLApplicationHTMLRenderer();
+		_mxmlApplicationHtmlRenderer = new FlexApplicationHTMLRenderer();
 	}
 	
 	@Override
@@ -120,29 +120,29 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		_MXMLApplicationContract componentMXML = _MXMLApplicationContract.class.cast( componentObj );
-		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		IFlexApplicationContract componentFlex = IFlexApplicationContract.class.cast( componentObj );
+		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
         
         if(mxmlContext.isProductionEnv()){
             return;
         }
         
-        writer.unZipFlexSDK(componentMXML);
+        writer.unZipFlexSDK(componentFlex);
         
 		/*
-		 * special case for MXMLApplication to filter out attribute "id"
+		 * special case for FlexApplication to filter out attribute "id"
 		 * In Flex, id attribute is not allowed on the root tag of a component
 		 */
 		
-		componentMXML.getAnnotationDocletParserInstance().getTokenValueSet().remove(new TokenValue("id", null));
-		writer.mapFields(MXMLApplicationRenderer.class, componentObj, null);
+		componentFlex.getAnnotationDocletParserInstance().getTokenValueSet().remove(new TokenValue("id", null));
+		writer.mapFields(FlexApplicationRenderer.class, componentObj, null);
 		
 		/*
 		 * Place in xmlns provided by the user + default for Flex application
 		 */
-        Set<TokenValue> tokenValueSet = componentMXML.getAnnotationDocletParserInstance().getTokenValueSet(); 
-        Map<String, String> xmlnsMap = componentMXML.getXmlnsMap();
+        Set<TokenValue> tokenValueSet = componentFlex.getAnnotationDocletParserInstance().getTokenValueSet(); 
+        Map<String, String> xmlnsMap = componentFlex.getXmlnsMap();
         for(String currXmlnsKey : xmlnsMap.keySet()){
             String currXmlnsValue = xmlnsMap.get(currXmlnsKey);
             tokenValueSet.add(new TokenValue(currXmlnsKey, currXmlnsValue));
@@ -153,11 +153,11 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 	@Override
 	public void encodeEnd(FacesContext context, UIComponent componentObj) throws IOException {
 		
-		_MXMLApplicationContract componentMXML = _MXMLApplicationContract.class.cast( componentObj );
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
+		IFlexApplicationContract componentFlex = IFlexApplicationContract.class.cast( componentObj );
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		
-		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-		String mxmlFile = mxmlContext.getMxmlPath() + mxmlContext.getCurrMxml() + MXMLConstants.MXML_FILE_EXT;
+		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
+		String mxmlFile = mxmlContext.getMxmlPath() + mxmlContext.getCurrMxml() + FlexConstants.MXML_FILE_EXT;
 		Map<String, String> multiLingualSupportMap = writer.getMultiLingualSupportMap();
 		
 		if(!mxmlContext.isProductionEnv()){
@@ -168,29 +168,29 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			String filePath = mxmlContext.getPreMxmlPath() + mxmlContext.getCurrMxml() + TO_BE_CREATED_ADDITIONAL_APP_SCRIPT_CONTENT_TEMPLATE_SUFFIX;
 			Map<String, AdditionalApplicationScriptContent> tokenMap = new HashMap<String, AdditionalApplicationScriptContent>();
 			tokenMap.put(ADDITIONAL_APPLICATION_SCRIPT_CONTENT_TOKEN, additionalAppScriptContent);
-			writer.createFileContent(filePath, MXML_APPLICATION_BODY_TEMPLATE, null, tokenMap);
+			writer.createFileContent(filePath, FLEX_APPLICATION_BODY_TEMPLATE, null, tokenMap);
 			
 			String bodyContent = writer.readFileContent(filePath);
-			writer.createPreMxml(componentMXML, MXMLApplicationRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), bodyContent);
+			writer.createPreMxml(componentFlex, FlexApplicationRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), bodyContent);
 			/* End of creating application body content dynamicall */
 			
-			Map<Integer, Set<_MXMLContract>> preMxmlMap = mxmlContext.getPreMxmlCompMap();
+			Map<Integer, Set<IFlexContract>> preMxmlMap = mxmlContext.getPreMxmlCompMap();
 			
 			if(preMxmlMap.keySet().size() > 0){
 				
 				//Application must be a top component with others as children component
 				for(Integer currMajor : preMxmlMap.keySet()){
-					Set<_MXMLContract> siblingSet = preMxmlMap.get(currMajor);
+					Set<IFlexContract> siblingSet = preMxmlMap.get(currMajor);
 					
-					for(_MXMLContract currComp : siblingSet){
+					for(IFlexContract currComp : siblingSet){
 					    
 						if(currComp.getMinorLevel() == 0){
-							writer.replaceTokenWithValue(componentMXML.getAbsolutePathToPreMxmlFile(), writer.readFileContent(currComp.getAbsolutePathToPreMxmlFile()), 
+							writer.replaceTokenWithValue(componentFlex.getAbsolutePathToPreMxmlFile(), writer.readFileContent(currComp.getAbsolutePathToPreMxmlFile()), 
 									writer.childReplaceTokenWithPreMxmlIdentifier(currComp));
 							
 							_log.debug("Replacing token with value as a child for " + currComp.getAbsolutePathToPreMxmlFile());
 						}else{
-							writer.replaceTokenWithValue(componentMXML.getAbsolutePathToPreMxmlFile(), writer.readFileContent(currComp.getAbsolutePathToPreMxmlFile()), 
+							writer.replaceTokenWithValue(componentFlex.getAbsolutePathToPreMxmlFile(), writer.readFileContent(currComp.getAbsolutePathToPreMxmlFile()), 
 									writer.siblingReplaceTokenWithPreMxmlIdentifier(currComp));
 							_log.debug("Replacing token with value as a sibling for " + currComp.getAbsolutePathToPreMxmlFile());
 						}
@@ -199,7 +199,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 					
 				}
 				
-				writer.processCreateSwf(mxmlFile, componentMXML, multiLingualSupportMap);
+				writer.processCreateSwf(mxmlFile, componentFlex, multiLingualSupportMap);
 				
 			}
 			//finished with all tasks, so clear all future tasks if they have not been cleared yet
@@ -210,7 +210,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		
 	}
 	
-	private final class MXMLApplicationHTMLRenderer {
+	private final class FlexApplicationHTMLRenderer {
 		
 		private static final String APP_ID = "appId";
 		private static final String NAMING_CONTAINER_PREFIX = "namingContainerPrefix";
@@ -222,17 +222,17 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		
 		private void renderHtmlContent(FacesContext context, UIComponent component, Map<String, String> multiLingualSupportMap) throws IOException {
 			
-			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-			com.googlecode.jsfFlex.component.ext.MXMLUIApplication appComponent = 
-                                        com.googlecode.jsfFlex.component.ext.MXMLUIApplication.class.cast( component );
+			AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
+			com.googlecode.jsfFlex.component.ext.FlexUIApplication appComponent = 
+                                        com.googlecode.jsfFlex.component.ext.FlexUIApplication.class.cast( component );
 			
-			Map<Integer, Set<_MXMLContract>> preMxmlCompMap = mxmlContext.getPreMxmlCompMap();
+			Map<Integer, Set<IFlexContract>> preMxmlCompMap = mxmlContext.getPreMxmlCompMap();
 			preMxmlCompMap.clear();
 			
 			ResponseWriter writer = context.getResponseWriter();
 			
-			writer.startElement(MXMLAttributeConstants.SCRIPT_ELEM, component);
-			writer.writeAttribute(MXMLAttributeConstants.SCRIPT_TYPE_ATTR, MXMLAttributeConstants.SCRIPT_TYPE_TEXT_JAVASCRIPT, null);
+			writer.startElement(FlexAttributeConstants.SCRIPT_ELEM, component);
+			writer.writeAttribute(FlexAttributeConstants.SCRIPT_TYPE_ATTR, FlexAttributeConstants.SCRIPT_TYPE_TEXT_JAVASCRIPT, null);
 			
 			//print out the JSON objects here
 			StringBuilder toWrite = new StringBuilder();
@@ -252,7 +252,7 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
             toWrite.append(JS_COMMUNICATION_CORE_PAGE_LOAD_NS);
             toWrite.append(", null, false, true);");
 			writer.write(toWrite.toString());
-			writer.endElement(MXMLAttributeConstants.SCRIPT_ELEM);
+			writer.endElement(FlexAttributeConstants.SCRIPT_ELEM);
 			
 			String swfFile = getLocaleSwfFile(mxmlContext, context, appComponent, multiLingualSupportMap);
 			
@@ -260,14 +260,14 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			
 		}
 		
-		private String getLocaleSwfFile(MxmlContext mxmlContext, FacesContext context, 
-											com.googlecode.jsfFlex.component.ext.MXMLUIApplication appComponent, Map<String, String> multiLingualSupportMap){
+		private String getLocaleSwfFile(AbstractFlexContext mxmlContext, FacesContext context, 
+											com.googlecode.jsfFlex.component.ext.FlexUIApplication appComponent, Map<String, String> multiLingualSupportMap){
 			
 			String localeWebContextPath = mxmlContext.getLocaleWebContextPath();
 			String swfFile = null;
 			
 			if(localeWebContextPath == null){
-				swfFile = mxmlContext.getApplicationSwfWebPath() + appComponent.getMxmlPackageName() + MXMLConstants.SWF_FILE_EXT;
+				swfFile = mxmlContext.getApplicationSwfWebPath() + appComponent.getMxmlPackageName() + FlexConstants.SWF_FILE_EXT;
 			}else{
 				
 				Locale preferredLocale = context.getExternalContext().getRequestLocale();
@@ -279,17 +279,17 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 				countryMatch = countryMatch == null ? "" : countryMatch.toUpperCase().trim();
 				int countryMatchLength = countryMatch.length();
 				
-				String defaultLocale = context.getExternalContext().getInitParameter(MXMLConstants.DEFAULT_LOCALE);
+				String defaultLocale = context.getExternalContext().getInitParameter(FlexConstants.DEFAULT_LOCALE);
 				defaultLocale = defaultLocale != null ? defaultLocale : "";
 				String defaultLocalePath = mxmlContext.getApplicationSwfWebPath() + appComponent.getMxmlPackageName() + 
-											MXMLConstants.SWF_FILE_NAME_LOCALE_SEPARATOR + defaultLocale + MXMLConstants.SWF_FILE_EXT;
+											FlexConstants.SWF_FILE_NAME_LOCALE_SEPARATOR + defaultLocale + FlexConstants.SWF_FILE_EXT;
 				String closestMatch = null;
 				for(String currCountryLocale : multiLingualSupportMap.keySet()){
 					String currCountryLocaleMatch = currCountryLocale.toUpperCase().trim();
 					
 					if(currCountryLocaleMatch.indexOf(languageMatch) == 0){
 						closestMatch = mxmlContext.getApplicationSwfWebPath() + appComponent.getMxmlPackageName() + 
-											MXMLConstants.SWF_FILE_NAME_LOCALE_SEPARATOR + currCountryLocale + MXMLConstants.SWF_FILE_EXT;
+											FlexConstants.SWF_FILE_NAME_LOCALE_SEPARATOR + currCountryLocale + FlexConstants.SWF_FILE_EXT;
 						
 						int matchIndex = currCountryLocaleMatch.indexOf(countryMatch);
 						if((matchIndex > -1 && (matchIndex + countryMatchLength) == currCountryLocaleMatch.length())){
@@ -309,40 +309,40 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 			return swfFile;
 		}
 		
-		private void writeHTMLSWF(ResponseWriter writer, com.googlecode.jsfFlex.component.ext.MXMLUIApplication appComponent, 
+		private void writeHTMLSWF(ResponseWriter writer, com.googlecode.jsfFlex.component.ext.FlexUIApplication appComponent, 
 									String swfFile) throws IOException{
 			
-			Object heightO = appComponent.getAttributes().get(MXMLAttributeConstants.HEIGHT_ATTR);
-			Object widthO = appComponent.getAttributes().get(MXMLAttributeConstants.WIDTH_ATTR);
+			Object heightO = appComponent.getAttributes().get(FlexAttributeConstants.HEIGHT_ATTR);
+			Object widthO = appComponent.getAttributes().get(FlexAttributeConstants.WIDTH_ATTR);
 			
 			String height = (heightO == null) ? "100%" : String.class.cast( heightO );
 			String width = (widthO == null) ? "100%" : String.class.cast( widthO );
 			
 			writer.startElement("object", appComponent);
 			
-			writer.writeAttribute(MXMLAttributeConstants.ID_ATTR, appComponent.getMxmlPackageName(), null);
-			writer.writeAttribute("classid", MXMLConstants.CLASS_ID, null);
-			writer.writeAttribute("codebase", MXMLConstants.CODE_BASE, null);
-			writer.writeAttribute(MXMLAttributeConstants.HEIGHT_ATTR, height, null);
-			writer.writeAttribute(MXMLAttributeConstants.WIDTH_ATTR, width, null);
+			writer.writeAttribute(FlexAttributeConstants.ID_ATTR, appComponent.getMxmlPackageName(), null);
+			writer.writeAttribute("classid", FlexConstants.CLASS_ID, null);
+			writer.writeAttribute("codebase", FlexConstants.CODE_BASE, null);
+			writer.writeAttribute(FlexAttributeConstants.HEIGHT_ATTR, height, null);
+			writer.writeAttribute(FlexAttributeConstants.WIDTH_ATTR, width, null);
 			
 			writer.startElement("param", appComponent);
-			writer.writeAttribute(MXMLAttributeConstants.NAME_ATTR, "src", null);
-			writer.writeAttribute(MXMLAttributeConstants.VALUE_ATTR, swfFile, null);
+			writer.writeAttribute(FlexAttributeConstants.NAME_ATTR, "src", null);
+			writer.writeAttribute(FlexAttributeConstants.VALUE_ATTR, swfFile, null);
 			writer.endElement("param");
 			
 			writer.startElement("param", appComponent);
-			writer.writeAttribute(MXMLAttributeConstants.NAME_ATTR, "allowScriptAccess", null);
-			writer.writeAttribute(MXMLAttributeConstants.VALUE_ATTR, "sameDomain", null);
+			writer.writeAttribute(FlexAttributeConstants.NAME_ATTR, "allowScriptAccess", null);
+			writer.writeAttribute(FlexAttributeConstants.VALUE_ATTR, "sameDomain", null);
 			writer.endElement("param");
 			
 			writer.startElement("embed", appComponent);
-			writer.writeAttribute(MXMLAttributeConstants.NAME_ATTR, appComponent.getMxmlPackageName(), null);
+			writer.writeAttribute(FlexAttributeConstants.NAME_ATTR, appComponent.getMxmlPackageName(), null);
 			writer.writeAttribute("allowScriptAccess", "sameDomain", null);
-			writer.writeAttribute("pluginspage", MXMLConstants.PLUGINS_PAGE, null);
-			writer.writeAttribute(MXMLAttributeConstants.SRC_ATTR, swfFile, null);
-			writer.writeAttribute(MXMLAttributeConstants.HEIGHT_ATTR, height, null);
-			writer.writeAttribute(MXMLAttributeConstants.WIDTH_ATTR, width, null);
+			writer.writeAttribute("pluginspage", FlexConstants.PLUGINS_PAGE, null);
+			writer.writeAttribute(FlexAttributeConstants.SRC_ATTR, swfFile, null);
+			writer.writeAttribute(FlexAttributeConstants.HEIGHT_ATTR, height, null);
+			writer.writeAttribute(FlexAttributeConstants.WIDTH_ATTR, width, null);
 			writer.endElement("embed");
 			
 			writer.endElement("object");
@@ -351,14 +351,14 @@ public final class MXMLApplicationRenderer extends MXMLContainerTemplateRenderer
 		
 		private String getComponentInitValues(FacesContext context, UIComponent component) {
 			
-			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+			AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
 			List<JSONObject> applicationInitValueList = mxmlContext.getApplicationInitValueList();
 			
 			JSONObject flashAppObject = new JSONObject();
 			
 			try{
 				flashAppObject.put(APP_ID, mxmlContext.getCurrMxml());
-				flashAppObject.put(NAMING_CONTAINER_PREFIX, MXMLJsfUtil.retrieveFormId( component.getClientId(context) ));
+				flashAppObject.put(NAMING_CONTAINER_PREFIX, FlexJsfUtil.retrieveFormId( component.getClientId(context) ));
 				
 				if(applicationInitValueList.size() > 0){
 					

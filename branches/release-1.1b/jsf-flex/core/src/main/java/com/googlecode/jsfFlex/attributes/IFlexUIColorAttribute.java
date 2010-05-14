@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="color", returnType="java.lang.String", longDesc="Color of text in the component")
 @JSFComponent
-public interface _MXMLUIColorAttribute {
+public interface IFlexUIColorAttribute {
 	
 }

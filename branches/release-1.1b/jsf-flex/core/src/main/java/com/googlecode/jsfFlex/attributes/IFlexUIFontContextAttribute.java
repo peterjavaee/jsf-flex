@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="fontContext", returnType="java.lang.String", longDesc="The module factory that provides the font context for this component.")
 @JSFComponent
-public interface _MXMLUIFontContextAttribute {
+public interface IFlexUIFontContextAttribute {
     
 }

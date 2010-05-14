@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="status", returnType="java.lang.String", longDesc="Text in the status area of the title bar.")
 @JSFComponent
-public interface _MXMLUIStatusAttribute {
+public interface IFlexUIStatusAttribute {
     
 }

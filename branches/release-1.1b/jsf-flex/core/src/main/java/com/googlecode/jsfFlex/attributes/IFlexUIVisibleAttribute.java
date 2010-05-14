@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="visible", returnType="java.lang.String", longDesc="A flag that indicates whethe the column is visible.")
 @JSFComponent
-public interface _MXMLUIVisibleAttribute {
+public interface IFlexUIVisibleAttribute {
     
 }

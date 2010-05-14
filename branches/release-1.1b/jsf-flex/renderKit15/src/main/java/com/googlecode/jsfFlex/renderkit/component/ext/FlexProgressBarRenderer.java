@@ -25,26 +25,26 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLInput",
-		type="com.googlecode.jsfFlex.MXMLProgressBar"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexInput",
+		type="com.googlecode.jsfFlex.FlexProgressBar"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="ProgressBar",
-		mxmlComponentPackage="mx.controls",
-		mxmlComponentNodeAttributes={
-				@FlexComponentNodeAttribute(
+@IJsfFlexAttributeProperties(
+		componentName="ProgressBar",
+		componentPackage="mx.controls",
+		componentNodeAttributes={
+				@IFlexComponentNodeAttribute(
 						htmlType="input",
 						typeAttributeValue="hidden",
 						valueAttributeValue="value",
@@ -57,62 +57,62 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="conversion"),
-				@JsfFlexAttribute(attribute="direction"),
-				@JsfFlexAttribute(attribute="indeterminate"),
-				@JsfFlexAttribute(attribute="label"),
-				@JsfFlexAttribute(attribute="labelPlacement"),
-				@JsfFlexAttribute(attribute="maximum"),
-				@JsfFlexAttribute(attribute="minimum"),
-				@JsfFlexAttribute(attribute="mode"),
-				@JsfFlexAttribute(attribute="source"),
-				@JsfFlexAttribute(attribute="barColor"),
-				@JsfFlexAttribute(attribute="barSkin"),
-				@JsfFlexAttribute(attribute="borderColor"),
-				@JsfFlexAttribute(attribute="color"),
-				@JsfFlexAttribute(attribute="disabledColor"),
-				@JsfFlexAttribute(attribute="fontAntiAliasType"),
-				@JsfFlexAttribute(attribute="fontFamily"),
-				@JsfFlexAttribute(attribute="fontGridFitType"),
-				@JsfFlexAttribute(attribute="fontSharpness"),
-				@JsfFlexAttribute(attribute="fontSize"),
-				@JsfFlexAttribute(attribute="fontThickness"),
-				@JsfFlexAttribute(attribute="fontStyle"),
-				@JsfFlexAttribute(attribute="fontWeight"),
-				@JsfFlexAttribute(attribute="horizontalGap"),
-                @JsfFlexAttribute(attribute="indeterminateMoveInterval"),
-                @JsfFlexAttribute(attribute="indeterminateSkin"),
-				@JsfFlexAttribute(attribute="labelWidth"),
-                @JsfFlexAttribute(attribute="leading"),
-                @JsfFlexAttribute(attribute="maskSkin"),
-                @JsfFlexAttribute(attribute="paddingLeft"),
-				@JsfFlexAttribute(attribute="paddingRight"),
-				@JsfFlexAttribute(attribute="textAlign"),
-				@JsfFlexAttribute(attribute="textDecoration"),
-				@JsfFlexAttribute(attribute="textIndent"),
-				@JsfFlexAttribute(attribute="themeColor"),
-				@JsfFlexAttribute(attribute="trackColors"),
-				@JsfFlexAttribute(attribute="trackHeight"),
-				@JsfFlexAttribute(attribute="trackSkin"),
-				@JsfFlexAttribute(attribute="verticalGap"),
-				@JsfFlexAttribute(attribute="complete"),
-				@JsfFlexAttribute(attribute="hide"),
-				@JsfFlexAttribute(attribute="progress"),
-				@JsfFlexAttribute(attribute="show"),
-				@JsfFlexAttribute(attribute="completeEffect")
+				@IJsfFlexAttribute(attribute="conversion"),
+				@IJsfFlexAttribute(attribute="direction"),
+				@IJsfFlexAttribute(attribute="indeterminate"),
+				@IJsfFlexAttribute(attribute="label"),
+				@IJsfFlexAttribute(attribute="labelPlacement"),
+				@IJsfFlexAttribute(attribute="maximum"),
+				@IJsfFlexAttribute(attribute="minimum"),
+				@IJsfFlexAttribute(attribute="mode"),
+				@IJsfFlexAttribute(attribute="source"),
+				@IJsfFlexAttribute(attribute="barColor"),
+				@IJsfFlexAttribute(attribute="barSkin"),
+				@IJsfFlexAttribute(attribute="borderColor"),
+				@IJsfFlexAttribute(attribute="color"),
+				@IJsfFlexAttribute(attribute="disabledColor"),
+				@IJsfFlexAttribute(attribute="fontAntiAliasType"),
+				@IJsfFlexAttribute(attribute="fontFamily"),
+				@IJsfFlexAttribute(attribute="fontGridFitType"),
+				@IJsfFlexAttribute(attribute="fontSharpness"),
+				@IJsfFlexAttribute(attribute="fontSize"),
+				@IJsfFlexAttribute(attribute="fontThickness"),
+				@IJsfFlexAttribute(attribute="fontStyle"),
+				@IJsfFlexAttribute(attribute="fontWeight"),
+				@IJsfFlexAttribute(attribute="horizontalGap"),
+                @IJsfFlexAttribute(attribute="indeterminateMoveInterval"),
+                @IJsfFlexAttribute(attribute="indeterminateSkin"),
+				@IJsfFlexAttribute(attribute="labelWidth"),
+                @IJsfFlexAttribute(attribute="leading"),
+                @IJsfFlexAttribute(attribute="maskSkin"),
+                @IJsfFlexAttribute(attribute="paddingLeft"),
+				@IJsfFlexAttribute(attribute="paddingRight"),
+				@IJsfFlexAttribute(attribute="textAlign"),
+				@IJsfFlexAttribute(attribute="textDecoration"),
+				@IJsfFlexAttribute(attribute="textIndent"),
+				@IJsfFlexAttribute(attribute="themeColor"),
+				@IJsfFlexAttribute(attribute="trackColors"),
+				@IJsfFlexAttribute(attribute="trackHeight"),
+				@IJsfFlexAttribute(attribute="trackSkin"),
+				@IJsfFlexAttribute(attribute="verticalGap"),
+				@IJsfFlexAttribute(attribute="complete"),
+				@IJsfFlexAttribute(attribute="hide"),
+				@IJsfFlexAttribute(attribute="progress"),
+				@IJsfFlexAttribute(attribute="show"),
+				@IJsfFlexAttribute(attribute="completeEffect")
 		}
 )
-public final class MXMLProgressBarRenderer extends MXMLComponentRenderer {
+public final class FlexProgressBarRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLProgressBarRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLProgressBarRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexProgressBarRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexProgressBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

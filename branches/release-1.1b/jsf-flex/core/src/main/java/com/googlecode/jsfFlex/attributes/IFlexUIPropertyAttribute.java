@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="property", returnType="java.lang.String", longDesc="A String specifying the name of the property of the source object that contains the value to validate.")
 @JSFComponent
-public interface _MXMLUIPropertyAttribute {
+public interface IFlexUIPropertyAttribute {
     
 }

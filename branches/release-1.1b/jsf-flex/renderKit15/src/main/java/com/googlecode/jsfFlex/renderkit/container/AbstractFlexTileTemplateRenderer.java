@@ -23,34 +23,34 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="direction"),
-				@JsfFlexAttribute(attribute="tileHeight"),
-				@JsfFlexAttribute(attribute="tileWidth"),
-				@JsfFlexAttribute(attribute="horizontalAlign"),
-				@JsfFlexAttribute(attribute="horizontalGap"),
-				@JsfFlexAttribute(attribute="verticalAlign"),
-				@JsfFlexAttribute(attribute="verticalGap")
+				@IJsfFlexAttribute(attribute="direction"),
+				@IJsfFlexAttribute(attribute="tileHeight"),
+				@IJsfFlexAttribute(attribute="tileWidth"),
+				@IJsfFlexAttribute(attribute="horizontalAlign"),
+				@IJsfFlexAttribute(attribute="horizontalGap"),
+				@IJsfFlexAttribute(attribute="verticalAlign"),
+				@IJsfFlexAttribute(attribute="verticalGap")
 		}
 )
-public abstract class MXMLTileTemplateRenderer extends MXMLContainerTemplateRenderer {
+public abstract class AbstractFlexTileTemplateRenderer extends AbstractFlexContainerTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLTileTemplateRenderer.class, componentObj, null);
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(AbstractFlexTileTemplateRenderer.class, componentObj, null);
 		
 	}
 	

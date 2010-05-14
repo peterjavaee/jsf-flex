@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dropDownStyleName", returnType="java.lang.String", longDesc="The name of a CSSStyleDeclaration to be used by the drop-down list.")
 @JSFComponent
-public interface _MXMLUIDropDownStyleNameAttribute {
+public interface IFlexUIDropDownStyleNameAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="closeButtonDisabledSkin", returnType="java.lang.String", longDesc="The close button disabled skin.")
 @JSFComponent
-public interface _MXMLUICloseButtonDisabledSkinAttribute {
+public interface IFlexUICloseButtonDisabledSkinAttribute {
     
 }

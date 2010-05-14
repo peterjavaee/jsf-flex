@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="upArrowUpSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the Up arrow when the arrow is enabled and the mouse pointer is not on the arrow.")
 @JSFComponent
-public interface _MXMLUIUpArrowUpSkinAttribute {
+public interface IFlexUIUpArrowUpSkinAttribute {
     
 }

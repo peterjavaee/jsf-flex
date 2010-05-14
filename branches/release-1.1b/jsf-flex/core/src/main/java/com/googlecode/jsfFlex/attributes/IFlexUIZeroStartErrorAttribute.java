@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="zeroStartError", returnType="java.lang.String", longDesc="Error message when the value contains an invalid Social Security number.")
 @JSFComponent
-public interface _MXMLUIZeroStartErrorAttribute {
+public interface IFlexUIZeroStartErrorAttribute {
     
 }

@@ -30,14 +30,14 @@ import java.lang.annotation.Target;
 @Documented
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface JsfFlexAttributeProperties {
+public @interface IJsfFlexAttributeProperties {
 	
-	JsfFlexAttribute[] jsfFlexAttributes();
+	IJsfFlexAttribute[] jsfFlexAttributes();
 	
-	FlexComponentNodeAttribute[] mxmlComponentNodeAttributes();
+	IFlexComponentNodeAttribute[] componentNodeAttributes();
 	
-	String mxmlComponentPackage() default "";
+	String componentPackage() default "";
 	
-	String mxmlComponentName() default "";
+	String componentName() default "";
 	
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="percentHeight", returnType="java.lang.String", longDesc="Number that specifies the height of a component as a percentage of its parent's size.")
 @JSFComponent
-public interface _MXMLUIPercentHeightAttribute {
+public interface IFlexUIPercentHeightAttribute {
     
 }

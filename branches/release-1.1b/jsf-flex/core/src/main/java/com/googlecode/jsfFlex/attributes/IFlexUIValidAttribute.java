@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="valid", returnType="java.lang.String", longDesc="Dispatched when a component is monitored by a Validator and the validation succeeded.")
 @JSFComponent
-public interface _MXMLUIValidAttribute {
+public interface IFlexUIValidAttribute {
     
 }

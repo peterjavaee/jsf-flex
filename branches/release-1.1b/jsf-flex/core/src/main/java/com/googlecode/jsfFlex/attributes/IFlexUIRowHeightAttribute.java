@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="rowHeight", returnType="java.lang.String", longDesc="The height of the rows in pixels.")
 @JSFComponent
-public interface _MXMLUIRowHeightAttribute {
+public interface IFlexUIRowHeightAttribute {
     
 }

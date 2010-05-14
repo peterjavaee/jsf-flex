@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="tweenEnd", returnType="java.lang.String", longDesc="Dispatched when the tween effect ends.")
 @JSFComponent
-public interface _MXMLUITweenEndAttribute {
+public interface IFlexUITweenEndAttribute {
     
 }

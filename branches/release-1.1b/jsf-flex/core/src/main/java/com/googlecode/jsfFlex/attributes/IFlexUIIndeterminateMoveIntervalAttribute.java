@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="indeterminateMoveInterval", returnType="java.lang.String", longDesc="The number of pixels to move the indeterminate progress bar for each indeterminate loop.")
 @JSFComponent
-public interface _MXMLUIIndeterminateMoveIntervalAttribute {
+public interface IFlexUIIndeterminateMoveIntervalAttribute {
     
 }

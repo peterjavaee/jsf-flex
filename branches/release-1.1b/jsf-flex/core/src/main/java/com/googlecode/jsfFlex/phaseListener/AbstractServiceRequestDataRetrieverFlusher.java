@@ -28,7 +28,7 @@ import javax.servlet.ServletException;
 /**
  * @author Ji Hoon Kim
  */
-abstract class _ServiceRequestDataRetrieverFlusher {
+abstract class AbstractServiceRequestDataRetrieverFlusher {
 	
     static final String XML_CONTENT_TYPE = "text/xml";
     

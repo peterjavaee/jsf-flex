@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="iconFunction", returnType="java.lang.String", longDesc="A user-supplied function to run on each item to determine its icon.")
 @JSFComponent
-public interface _MXMLUIIconFunctionAttribute {
+public interface IFlexUIIconFunctionAttribute {
     
 }

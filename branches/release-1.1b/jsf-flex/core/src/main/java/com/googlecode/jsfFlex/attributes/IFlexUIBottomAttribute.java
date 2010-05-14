@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="bottom", returnType="java.lang.String", longDesc="The vertical distance in pixels from the lower edge of the component to the lower edge of its parent container.")
 @JSFComponent
-public interface _MXMLUIBottomAttribute {
+public interface IFlexUIBottomAttribute {
     
 }

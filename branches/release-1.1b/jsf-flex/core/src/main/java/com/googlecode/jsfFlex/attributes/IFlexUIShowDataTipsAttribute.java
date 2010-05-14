@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="showDataTips", returnType="java.lang.String", longDesc="A flag that indicates whether dataTips are displayed for text in the rows.")
 @JSFComponent
-public interface _MXMLUIShowDataTipsAttribute {
+public interface IFlexUIShowDataTipsAttribute {
     
 }

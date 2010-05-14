@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="styleName", returnType="java.lang.String", longDesc="The class style used by this component.")
 @JSFComponent
-public interface _MXMLUIStyleNameAttribute {
+public interface IFlexUIStyleNameAttribute {
     
 }

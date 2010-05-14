@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="wrongLengthError", returnType="java.lang.String", longDesc="Error message when the field contains the wrong number of digits for the specified type.")
 @JSFComponent
-public interface _MXMLUIWrongLengthErrorAttribute {
+public interface IFlexUIWrongLengthErrorAttribute {
     
 }

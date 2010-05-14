@@ -25,45 +25,45 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLPopUpButtonTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexPopUpButtonTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLInput",
-		type="com.googlecode.jsfFlex.MXMLPopUpMenuButton"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexInput",
+		type="com.googlecode.jsfFlex.FlexPopUpMenuButton"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="PopUpMenuButton",
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentName="PopUpMenuButton",
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="dataDescriptor"),
-				@JsfFlexAttribute(attribute="dataProvider", byMethod=true),
-                @JsfFlexAttribute(attribute="iconField"),
-                @JsfFlexAttribute(attribute="iconFunction"),
-                @JsfFlexAttribute(attribute="labelField"),
-				@JsfFlexAttribute(attribute="labelFunction"),
-				@JsfFlexAttribute(attribute="showRoot")
+				@IJsfFlexAttribute(attribute="dataDescriptor"),
+				@IJsfFlexAttribute(attribute="dataProvider", byMethod=true),
+                @IJsfFlexAttribute(attribute="iconField"),
+                @IJsfFlexAttribute(attribute="iconFunction"),
+                @IJsfFlexAttribute(attribute="labelField"),
+				@IJsfFlexAttribute(attribute="labelFunction"),
+				@IJsfFlexAttribute(attribute="showRoot")
 		}
 )
-public final class MXMLPopUpMenuButtonRenderer extends MXMLPopUpButtonTemplateRenderer {
+public final class FlexPopUpMenuButtonRenderer extends AbstractFlexPopUpButtonTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLPopUpMenuButtonRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLPopUpMenuButtonRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexPopUpMenuButtonRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexPopUpMenuButtonRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

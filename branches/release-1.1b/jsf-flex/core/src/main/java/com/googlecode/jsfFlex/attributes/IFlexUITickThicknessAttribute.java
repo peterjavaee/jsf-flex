@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="tickThickness", returnType="java.lang.String", longDesc="The thickness in pixels of the tick marks.")
 @JSFComponent
-public interface _MXMLUITickThicknessAttribute {
+public interface IFlexUITickThicknessAttribute {
     
 }

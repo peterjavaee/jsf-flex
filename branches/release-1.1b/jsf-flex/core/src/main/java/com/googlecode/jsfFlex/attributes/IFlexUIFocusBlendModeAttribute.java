@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="focusBlendMode", returnType="java.lang.String", longDesc="Blend mode used by the focus rectangle.")
 @JSFComponent
-public interface _MXMLUIFocusBlendModeAttribute {
+public interface IFlexUIFocusBlendModeAttribute {
     
 }

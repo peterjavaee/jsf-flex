@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="descending", returnType="java.lang.String", longDesc="Set to true if the sort for this field should be in descending order.")
 @JSFComponent
-public interface _MXMLUIDescendingAttribute {
+public interface IFlexUIDescendingAttribute {
     
 }

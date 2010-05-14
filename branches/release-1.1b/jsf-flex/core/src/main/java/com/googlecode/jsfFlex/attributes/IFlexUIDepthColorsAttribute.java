@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="depthColors", returnType="java.lang.String", longDesc="Array of colors used in the Tree control, in descending order.")
 @JSFComponent
-public interface _MXMLUIDepthColorsAttribute {
+public interface IFlexUIDepthColorsAttribute {
     
 }

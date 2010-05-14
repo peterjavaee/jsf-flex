@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="leading", returnType="java.lang.String", longDesc="Additional vertical space between lines of text.")
 @JSFComponent
-public interface _MXMLUILeadingAttribute {
+public interface IFlexUILeadingAttribute {
 	
 }

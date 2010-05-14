@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="minColumnWidth", returnType="java.lang.String", longDesc="The minimum width of the columns, in pixels.")
 @JSFComponent
-public interface _MXMLUIMinColumnWidthAttribute {
+public interface IFlexUIMinColumnWidthAttribute {
     
 }

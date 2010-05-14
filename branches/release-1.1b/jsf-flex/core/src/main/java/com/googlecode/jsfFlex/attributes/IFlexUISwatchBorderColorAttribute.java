@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="swatchBorderColor", returnType="java.lang.String", longDesc="Color of the swatches' borders.")
 @JSFComponent
-public interface _MXMLUISwatchBorderColorAttribute {
+public interface IFlexUISwatchBorderColorAttribute {
     
 }

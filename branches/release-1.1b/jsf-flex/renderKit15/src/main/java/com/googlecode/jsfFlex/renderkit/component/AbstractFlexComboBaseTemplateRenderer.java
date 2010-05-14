@@ -23,43 +23,43 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="dataProvider", byMethod=true),
-				@JsfFlexAttribute(attribute="editable", byMethod=true),
-				@JsfFlexAttribute(attribute="imeMode"),
-				@JsfFlexAttribute(attribute="restrict"),
-				@JsfFlexAttribute(attribute="selectedIndex", byMethod=true),
-				@JsfFlexAttribute(attribute="selectedItem"),
-                @JsfFlexAttribute(attribute="text", byMethod=true),
-				@JsfFlexAttribute(attribute="disabledSkin"),
-				@JsfFlexAttribute(attribute="downSkin"),
-				@JsfFlexAttribute(attribute="editableDisabledSkin"),
-				@JsfFlexAttribute(attribute="editableDownSkin"),
-				@JsfFlexAttribute(attribute="editableOverSkin"),
-				@JsfFlexAttribute(attribute="editableUpSkin"),
-				@JsfFlexAttribute(attribute="overSkin"),
-                @JsfFlexAttribute(attribute="textInputStyleName"),
-				@JsfFlexAttribute(attribute="upSkin")
+				@IJsfFlexAttribute(attribute="dataProvider", byMethod=true),
+				@IJsfFlexAttribute(attribute="editable", byMethod=true),
+				@IJsfFlexAttribute(attribute="imeMode"),
+				@IJsfFlexAttribute(attribute="restrict"),
+				@IJsfFlexAttribute(attribute="selectedIndex", byMethod=true),
+				@IJsfFlexAttribute(attribute="selectedItem"),
+                @IJsfFlexAttribute(attribute="text", byMethod=true),
+				@IJsfFlexAttribute(attribute="disabledSkin"),
+				@IJsfFlexAttribute(attribute="downSkin"),
+				@IJsfFlexAttribute(attribute="editableDisabledSkin"),
+				@IJsfFlexAttribute(attribute="editableDownSkin"),
+				@IJsfFlexAttribute(attribute="editableOverSkin"),
+				@IJsfFlexAttribute(attribute="editableUpSkin"),
+				@IJsfFlexAttribute(attribute="overSkin"),
+                @IJsfFlexAttribute(attribute="textInputStyleName"),
+				@IJsfFlexAttribute(attribute="upSkin")
 		}
 )
-public abstract class MXMLComboBaseTemplateRenderer extends MXMLComponentRenderer {
+public abstract class AbstractFlexComboBaseTemplateRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLComboBaseTemplateRenderer.class, componentObj, null);
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(AbstractFlexComboBaseTemplateRenderer.class, componentObj, null);
 		
 	}
 	

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="columnResizeSkin", returnType="java.lang.String", longDesc="The class to use as the skin for a column that is being resized.")
 @JSFComponent
-public interface _MXMLUIColumnResizeSkinAttribute {
+public interface IFlexUIColumnResizeSkinAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="sliderThumbClass", returnType="java.lang.String", longDesc="A reference to the class to use for each thumb.")
 @JSFComponent
-public interface _MXMLUISliderThumbClassAttribute {
+public interface IFlexUISliderThumbClassAttribute {
     
 }

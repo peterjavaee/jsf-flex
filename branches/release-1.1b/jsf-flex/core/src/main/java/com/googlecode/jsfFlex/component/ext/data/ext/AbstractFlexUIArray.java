@@ -23,25 +23,25 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
 /**
  * <ul>
  * This component can have as its direct children components of :
- * 		<li> AbstractMXMLUIObjectListEntries </li>
- * 		<li> AbstractMXMLUIObjectElement </li>
+ * 		<li> AbstractFlexUIObjectListEntries </li>
+ * 		<li> AbstractFlexUIObjectElement </li>
  * </ul>
  * 
- * To have nesting of objects, one should have jf:mxmlObjectElement and <br>
- * jf:mxmlObjectListEntries tags as this component's children which have <br>
- * jf:mxmlObjectProperty or jf:mxmlObjectStaticProperty tag for properties. <br> 
+ * To have nesting of objects, one should have jf:flexObjectElement and <br>
+ * jf:flexObjectListEntries tags as this component's children which have <br>
+ * jf:flexObjectProperty or jf:flexObjectStaticProperty tag for properties. <br> 
  * 
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlArray",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.MXMLUIArray",
-        type                =   "com.googlecode.jsfFlex.MXMLUIArray",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.data.ext.MXMLUIArrayTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLArray"
+        name                =   "jf:flexArray",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.FlexUIArray",
+        type                =   "com.googlecode.jsfFlex.FlexUIArray",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.data.ext.FlexUIArrayTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexArray"
 )
-public abstract class AbstractMXMLUIArray 
-						extends AbstractMXMLUIObject {
+public abstract class AbstractFlexUIArray 
+						extends AbstractFlexUIObject {
 	
 }

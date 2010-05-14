@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="scroll", returnType="java.lang.String", longDesc="Dispatched when the user manually scrolls the container.")
 @JSFComponent
-public interface _MXMLUIScrollAttribute {
+public interface IFlexUIScrollAttribute {
 	
 }

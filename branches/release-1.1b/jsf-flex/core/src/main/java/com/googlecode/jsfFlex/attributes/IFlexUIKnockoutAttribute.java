@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="knockout", returnType="java.lang.String", longDesc="Specifies whether the object has a knockout effect.")
 @JSFComponent
-public interface _MXMLUIKnockoutAttribute {
+public interface IFlexUIKnockoutAttribute {
     
 }

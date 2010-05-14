@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="effect", returnType="java.lang.String", longDesc="The Effect object to play when you apply the transition.")
 @JSFComponent
-public interface _MXMLUIEffectAttribute {
+public interface IFlexUIEffectAttribute {
     
 }

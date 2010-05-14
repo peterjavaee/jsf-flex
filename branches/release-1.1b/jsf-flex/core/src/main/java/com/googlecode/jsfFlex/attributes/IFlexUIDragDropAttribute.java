@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dragDrop", returnType="java.lang.String", longDesc="Dispatched by the drop target when the user releases the mouse over it.")
 @JSFComponent
-public interface _MXMLUIDragDropAttribute {
+public interface IFlexUIDragDropAttribute {
     
 }

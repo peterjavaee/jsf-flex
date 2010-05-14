@@ -28,31 +28,31 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIAsynchronousEventGlueHandler;
-import com.googlecode.jsfFlex.attributes._MXMLUIEventListener;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
-import com.googlecode.jsfFlex.renderkit.html.util.JsfFlexResource;
-import com.googlecode.jsfFlex.shared.adapter._MXMLEvent;
-import com.googlecode.jsfFlex.shared.adapter._MXMLEvent.EVENT_HANDLER_TYPE.JAVA_SCRIPT_IMPORT;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
+import com.googlecode.jsfFlex.attributes.IFlexUIAsynchronousEventGlueHandlerAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEventListenerAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
+import com.googlecode.jsfFlex.renderkit.html.util.AbstractJsfFlexResource;
+import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
+import com.googlecode.jsfFlex.shared.adapter.IFlexEvent.EVENT_HANDLER_TYPE.JAVA_SCRIPT_IMPORT;
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        type    =   "com.googlecode.jsfFlex.MXMLUIAsynchronousEventGlueBase",
-        family  =   "javax.faces.MXMLUIAsynchronousEventGlueBase",
-        desc    =   "Base component for MXMLAsynchronousEventGlue components."
+        type    =   "com.googlecode.jsfFlex.FlexUIAsynchronousEventGlueBase",
+        family  =   "javax.faces.FlexUIAsynchronousEventGlueBase",
+        desc    =   "Base component for FlexAsynchronousEventGlue components."
 )
-public abstract class _MXMLUIAsynchronousEventGlueBase 
-                            extends MXMLUISimpleBase 
-                            implements _MXMLEvent, _MXMLUIAsynchronousEventGlueHandler, _MXMLUIEventListener {
+public abstract class AbstractFlexUIAsynchronousEventGlueBase 
+                            extends AbstractFlexUISimpleBase 
+                            implements IFlexEvent, IFlexUIAsynchronousEventGlueHandlerAttribute, IFlexUIEventListenerAttribute {
     
     public abstract JSONObject ayncProcessRequest() throws JSONException;
     
     public void encodeBegin(FacesContext context) throws IOException {
         
-        MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+        AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
         
         if(mxmlContext.isProductionEnv()){
             //means no need to create preMxml files
@@ -61,7 +61,7 @@ public abstract class _MXMLUIAsynchronousEventGlueBase
         
         if(getAsynchronousEventGlueHandler() != null){
             EVENT_HANDLER_TYPE eventHandlerType = getEventHandlerType();
-            JsfFlexResource jsfFlexResource = JsfFlexResource.getInstance();
+            AbstractJsfFlexResource jsfFlexResource = AbstractJsfFlexResource.getInstance();
             EnumSet<JAVA_SCRIPT_IMPORT> javaScriptImports = eventHandlerType.getJavaScriptImports();
             
             for(JAVA_SCRIPT_IMPORT currJSImport : javaScriptImports){

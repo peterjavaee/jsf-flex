@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="itemDownSkin", returnType="java.lang.String", longDesc="The skin when a MenuBar item is selected.")
 @JSFComponent
-public interface _MXMLUIItemDownSkinAttribute {
+public interface IFlexUIItemDownSkinAttribute {
     
 }

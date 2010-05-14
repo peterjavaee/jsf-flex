@@ -24,7 +24,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIParallelAttributes 
-                        extends _MXMLUIEffectAttributes{
+interface IFlexUIParallelAttributes 
+                        extends IFlexUIEffectAttributes{
     
 }

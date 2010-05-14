@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="displayedYear", returnType="java.lang.String", longDesc="Used together with the displayedMonth property, the displayedYear property specifies the month displayed in the control.")
 @JSFComponent
-public interface _MXMLUIDisplayedYearAttribute {
+public interface IFlexUIDisplayedYearAttribute {
     
 }

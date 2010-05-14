@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="relativeTo", returnType="java.lang.String", longDesc="The object relative to.")
 @JSFComponent
-public interface _MXMLUIRelativeToAttribute {
+public interface IFlexUIRelativeToAttribute {
     
 }

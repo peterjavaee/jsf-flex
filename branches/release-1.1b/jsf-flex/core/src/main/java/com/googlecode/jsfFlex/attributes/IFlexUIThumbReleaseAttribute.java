@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="thumbRelease", returnType="java.lang.String", longDesc="Dispatched when the slider's thumb is released, meaning the user releases the mouse button after a thumbPress event.")
 @JSFComponent
-public interface _MXMLUIThumbReleaseAttribute {
+public interface IFlexUIThumbReleaseAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="maxScrollPosition", returnType="java.lang.String", longDesc="Number which represents the maximum scroll position.")
 @JSFComponent
-public interface _MXMLUIMaxScrollPositionAttribute {
+public interface IFlexUIMaxScrollPositionAttribute {
     
 }

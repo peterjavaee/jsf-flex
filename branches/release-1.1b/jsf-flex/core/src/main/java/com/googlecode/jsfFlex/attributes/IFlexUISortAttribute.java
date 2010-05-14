@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="sort", returnType="java.lang.String", longDesc="The Sort that will be applied to the ICollectionView.")
 @JSFComponent
-public interface _MXMLUISortAttribute {
+public interface IFlexUISortAttribute {
     
 }

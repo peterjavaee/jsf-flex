@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="cardTypeListener", returnType="java.lang.String", longDesc="The component that listens for the validation result for the card type subfield.")
 @JSFComponent
-public interface _MXMLUICardTypeListenerAttribute {
+public interface IFlexUICardTypeListenerAttribute {
     
 }

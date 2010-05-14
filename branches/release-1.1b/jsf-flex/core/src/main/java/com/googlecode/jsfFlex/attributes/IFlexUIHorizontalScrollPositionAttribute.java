@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="horizontalScrollPosition", returnType="java.lang.String", longDesc="The current position of the horizontal scroll bar.")
 @JSFComponent
-public interface _MXMLUIHorizontalScrollPositionAttribute {
+public interface IFlexUIHorizontalScrollPositionAttribute {
 	
 }

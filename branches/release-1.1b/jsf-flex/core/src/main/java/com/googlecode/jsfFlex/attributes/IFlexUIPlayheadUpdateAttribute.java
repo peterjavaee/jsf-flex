@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="playheadUpdate", returnType="java.lang.String", longDesc="Dispatched every 0.25 seconds while the video is playing.")
 @JSFComponent
-public interface _MXMLUIPlayheadUpdateAttribute {
+public interface IFlexUIPlayheadUpdateAttribute {
     
 }

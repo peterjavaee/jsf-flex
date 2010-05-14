@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="toolTipHide", returnType="java.lang.String", longDesc="Dispatched by the component when its ToolTip is about to be hidden.")
 @JSFComponent
-public interface _MXMLUIToolTipHideAttribute {
+public interface IFlexUIToolTipHideAttribute {
     
 }

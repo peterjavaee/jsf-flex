@@ -22,7 +22,7 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUITextAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextAttribute;
 
 /**
  * This class will process the needed actions of setting and retrieving of "text" attribute<br>
@@ -31,17 +31,17 @@ import com.googlecode.jsfFlex.attributes._MXMLUITextAttribute;
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        clazz       =   "com.googlecode.jsfFlex.component.MXMLUITextInputBase",
-        type        =   "com.googlecode.jsfFlex.MXMLUITextInputBase",
-        family      =   "javax.faces.MXMLUITextInputBase",
-        desc        =   "Base component for MXMLInput components that contain text attribute",
+        clazz       =   "com.googlecode.jsfFlex.component.FlexUITextInputBase",
+        type        =   "com.googlecode.jsfFlex.FlexUITextInputBase",
+        family      =   "javax.faces.FlexUITextInputBase",
+        desc        =   "Base component for FlexInput components that contain text attribute",
         template    =   true
 )
-public abstract class _MXMLUITextInputBase 
-							extends MXMLUIInputBase 
-							implements _MXMLUITextAttribute {
+public abstract class AbstractFlexUITextInputBase 
+							extends AbstractUIInputBase 
+							implements IFlexUITextAttribute {
 	
-	private final static org.apache.commons.logging.Log _log = org.apache.commons.logging.LogFactory.getLog(MXMLUITextInputBase.class);
+	private final static org.apache.commons.logging.Log _log = org.apache.commons.logging.LogFactory.getLog(FlexUITextInputBase.class);
 	
 	private static final String TEXT_ATTR = "text";
 	private static final String TEXT_ID_APPENDED = "_text";
@@ -51,7 +51,7 @@ public abstract class _MXMLUITextInputBase
 	protected void populateComponentInitValues(){
 		try{
 			if(getText() != null){
-				getInitValue().put(VALUE, com.googlecode.jsfFlex.shared.util.MXMLJsfUtil.escapeCharacters( getText() ));
+				getInitValue().put(VALUE, com.googlecode.jsfFlex.shared.util.FlexJsfUtil.escapeCharacters( getText() ));
 			}
 		}catch(org.json.JSONException jsonException){
 			_log.info("Error while formatting to JSON content", jsonException);

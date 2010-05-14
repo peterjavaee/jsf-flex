@@ -21,24 +21,24 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIAlphaFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIAlphaToAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIAlphaFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIAlphaToAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlDissolve",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIDissolve",
-        type                =   "com.googlecode.jsfFlex.MXMLUIDissolve",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIDissolveTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLDissolve"
+        name                =   "jf:flexDissolve",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIDissolve",
+        type                =   "com.googlecode.jsfFlex.FlexUIDissolve",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIDissolveTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexDissolve"
 )
-public abstract class AbstractMXMLUIDissolve 
-                                extends MXMLUISimpleBase 
-                                implements _MXMLUITweenEffectAttributes, _MXMLUIAlphaFromAttribute, _MXMLUIAlphaToAttribute {
+public abstract class AbstractFlexUIDissolve 
+                                extends AbstractFlexUISimpleBase 
+                                implements IFlexUITweenEffectAttributes, IFlexUIAlphaFromAttribute, IFlexUIAlphaToAttribute {
     
     /**
      * Id of the component.

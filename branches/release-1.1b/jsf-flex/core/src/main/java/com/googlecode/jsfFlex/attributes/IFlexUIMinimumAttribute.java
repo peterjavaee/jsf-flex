@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="minimum", returnType="java.lang.String", longDesc="Minimum value of the NumericStepper.")
 @JSFComponent
-public interface _MXMLUIMinimumAttribute {
+public interface IFlexUIMinimumAttribute {
     
 }

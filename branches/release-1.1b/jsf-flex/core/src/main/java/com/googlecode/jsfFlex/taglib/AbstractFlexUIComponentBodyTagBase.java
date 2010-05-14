@@ -23,15 +23,15 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyContent;
 import javax.servlet.jsp.tagext.BodyTag;
 
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
- * This tag captures the contents of the JSP tag as an attribute of MXMLConstants.TAG_BODY_CONTENT_ATTR.<br>
+ * This tag captures the contents of the JSP tag as an attribute of FlexConstants.TAG_BODY_CONTENT_ATTR.<br>
  * This will enable writing of ActionScript contents as body of mxmlScript JSP tag.<br>
  * 
  * @author Ji Hoon Kim
  */
-public abstract class MXMLUIComponentBodyTagBase extends UIComponentELTag {
+public abstract class AbstractFlexUIComponentBodyTagBase extends UIComponentELTag {
 	
 	private String _scriptContent;
 	
@@ -48,7 +48,7 @@ public abstract class MXMLUIComponentBodyTagBase extends UIComponentELTag {
         {
         	setScriptContent(bodyContent.getString());
         	bodyContent.clearBody();
-        	getComponentInstance().getAttributes().put(MXMLConstants.TAG_BODY_CONTENT_ATTR, _scriptContent);
+        	getComponentInstance().getAttributes().put(FlexConstants.TAG_BODY_CONTENT_ATTR, _scriptContent);
         }
         return super.doAfterBody();
     }

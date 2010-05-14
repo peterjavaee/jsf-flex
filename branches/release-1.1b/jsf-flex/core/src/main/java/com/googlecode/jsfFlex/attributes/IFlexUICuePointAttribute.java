@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="cuePoint", returnType="java.lang.String", longDesc="Dispatched when the value of a cue point's time property is equal to the current playhead location.")
 @JSFComponent
-public interface _MXMLUICuePointAttribute {
+public interface IFlexUICuePointAttribute {
     
 }

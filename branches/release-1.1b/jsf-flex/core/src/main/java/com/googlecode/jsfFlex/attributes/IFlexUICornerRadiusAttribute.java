@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="cornerRadius", returnType="java.lang.String", longDesc="Radius of component corners.")
 @JSFComponent
-public interface _MXMLUICornerRadiusAttribute {
+public interface IFlexUICornerRadiusAttribute {
 	
 }

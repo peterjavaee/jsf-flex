@@ -25,26 +25,26 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComboBaseTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComboBaseTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLInput",
-		type="com.googlecode.jsfFlex.MXMLComboBox"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexInput",
+		type="com.googlecode.jsfFlex.FlexComboBox"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="ComboBox",
-		mxmlComponentPackage="mx.controls",
-		mxmlComponentNodeAttributes={
-				@FlexComponentNodeAttribute(
+@IJsfFlexAttributeProperties(
+		componentName="ComboBox",
+		componentPackage="mx.controls",
+		componentNodeAttributes={
+				@IFlexComponentNodeAttribute(
 						htmlType="input",
 						typeAttributeValue="hidden",
 						valueAttributeValue="text",
@@ -54,7 +54,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						nameAttributeValue="id",
 						isNameDynamic=true,
 						nameAppend="_text"),
-				@FlexComponentNodeAttribute(
+				@IFlexComponentNodeAttribute(
 						htmlType="input",
 						typeAttributeValue="hidden",
 						valueAttributeValue="selectedIndex",
@@ -67,76 +67,76 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="dropdownFactory"),
-				@JsfFlexAttribute(attribute="dropdownWidth"),
-				@JsfFlexAttribute(attribute="itemRenderer"),
-				@JsfFlexAttribute(attribute="labelField"),
-				@JsfFlexAttribute(attribute="labelFunction"),
-				@JsfFlexAttribute(attribute="prompt"),
-				@JsfFlexAttribute(attribute="rowCount", byMethod=true),
-				@JsfFlexAttribute(attribute="alternatingItemColors"),
-				@JsfFlexAttribute(attribute="arrowButtonWidth"),
-				@JsfFlexAttribute(attribute="borderColor"),
-				@JsfFlexAttribute(attribute="borderThickness"),
-				@JsfFlexAttribute(attribute="closeDuration"),
-				@JsfFlexAttribute(attribute="closeEasingFunction"),
-				@JsfFlexAttribute(attribute="color"),
-				@JsfFlexAttribute(attribute="cornerRadius"),
-				@JsfFlexAttribute(attribute="disabledColor"),
-                @JsfFlexAttribute(attribute="disabledIconColor"),
-				@JsfFlexAttribute(attribute="dropDownBorderColor"),
-				@JsfFlexAttribute(attribute="dropDownStyleName"),
-				@JsfFlexAttribute(attribute="fillAlphas"),
-				@JsfFlexAttribute(attribute="fillColors"),
-				@JsfFlexAttribute(attribute="focusAlpha"),
-				@JsfFlexAttribute(attribute="focusRoundedCorners"),
-				@JsfFlexAttribute(attribute="fontAntiAliasType"),
-				@JsfFlexAttribute(attribute="fontFamily"),
-				@JsfFlexAttribute(attribute="fontGridFitType"),
-				@JsfFlexAttribute(attribute="fontSharpness"),
-				@JsfFlexAttribute(attribute="fontSize"),
-				@JsfFlexAttribute(attribute="fontStyle"),
-				@JsfFlexAttribute(attribute="fontThickness"),
-				@JsfFlexAttribute(attribute="fontWeight"),
-				@JsfFlexAttribute(attribute="highlightAlphas"),
-                @JsfFlexAttribute(attribute="iconColor"),
-				@JsfFlexAttribute(attribute="leading"),
-				@JsfFlexAttribute(attribute="openDuration"),
-				@JsfFlexAttribute(attribute="openEasingFunction"),
-                @JsfFlexAttribute(attribute="paddingTop"),
-                @JsfFlexAttribute(attribute="paddingBottom"),
-				@JsfFlexAttribute(attribute="paddingLeft"),
-				@JsfFlexAttribute(attribute="paddingRight"),
-				@JsfFlexAttribute(attribute="rollOverColor"),
-				@JsfFlexAttribute(attribute="selectionColor"),
-				@JsfFlexAttribute(attribute="selectionDuration"),
-				@JsfFlexAttribute(attribute="selectionEasingFunction"),
-				@JsfFlexAttribute(attribute="textAlign"),
-				@JsfFlexAttribute(attribute="textDecoration"),
-				@JsfFlexAttribute(attribute="textIndent"),
-				@JsfFlexAttribute(attribute="textRollOverColor"),
-				@JsfFlexAttribute(attribute="textSelectedColor"),
-				@JsfFlexAttribute(attribute="change"),
-				@JsfFlexAttribute(attribute="close"),
-				@JsfFlexAttribute(attribute="dataChange"),
-				@JsfFlexAttribute(attribute="enter"),
-				@JsfFlexAttribute(attribute="itemRollOut"),
-				@JsfFlexAttribute(attribute="itemRollOver"),
-				@JsfFlexAttribute(attribute="open"),
-				@JsfFlexAttribute(attribute="scroll")
+				@IJsfFlexAttribute(attribute="dropdownFactory"),
+				@IJsfFlexAttribute(attribute="dropdownWidth"),
+				@IJsfFlexAttribute(attribute="itemRenderer"),
+				@IJsfFlexAttribute(attribute="labelField"),
+				@IJsfFlexAttribute(attribute="labelFunction"),
+				@IJsfFlexAttribute(attribute="prompt"),
+				@IJsfFlexAttribute(attribute="rowCount", byMethod=true),
+				@IJsfFlexAttribute(attribute="alternatingItemColors"),
+				@IJsfFlexAttribute(attribute="arrowButtonWidth"),
+				@IJsfFlexAttribute(attribute="borderColor"),
+				@IJsfFlexAttribute(attribute="borderThickness"),
+				@IJsfFlexAttribute(attribute="closeDuration"),
+				@IJsfFlexAttribute(attribute="closeEasingFunction"),
+				@IJsfFlexAttribute(attribute="color"),
+				@IJsfFlexAttribute(attribute="cornerRadius"),
+				@IJsfFlexAttribute(attribute="disabledColor"),
+                @IJsfFlexAttribute(attribute="disabledIconColor"),
+				@IJsfFlexAttribute(attribute="dropDownBorderColor"),
+				@IJsfFlexAttribute(attribute="dropDownStyleName"),
+				@IJsfFlexAttribute(attribute="fillAlphas"),
+				@IJsfFlexAttribute(attribute="fillColors"),
+				@IJsfFlexAttribute(attribute="focusAlpha"),
+				@IJsfFlexAttribute(attribute="focusRoundedCorners"),
+				@IJsfFlexAttribute(attribute="fontAntiAliasType"),
+				@IJsfFlexAttribute(attribute="fontFamily"),
+				@IJsfFlexAttribute(attribute="fontGridFitType"),
+				@IJsfFlexAttribute(attribute="fontSharpness"),
+				@IJsfFlexAttribute(attribute="fontSize"),
+				@IJsfFlexAttribute(attribute="fontStyle"),
+				@IJsfFlexAttribute(attribute="fontThickness"),
+				@IJsfFlexAttribute(attribute="fontWeight"),
+				@IJsfFlexAttribute(attribute="highlightAlphas"),
+                @IJsfFlexAttribute(attribute="iconColor"),
+				@IJsfFlexAttribute(attribute="leading"),
+				@IJsfFlexAttribute(attribute="openDuration"),
+				@IJsfFlexAttribute(attribute="openEasingFunction"),
+                @IJsfFlexAttribute(attribute="paddingTop"),
+                @IJsfFlexAttribute(attribute="paddingBottom"),
+				@IJsfFlexAttribute(attribute="paddingLeft"),
+				@IJsfFlexAttribute(attribute="paddingRight"),
+				@IJsfFlexAttribute(attribute="rollOverColor"),
+				@IJsfFlexAttribute(attribute="selectionColor"),
+				@IJsfFlexAttribute(attribute="selectionDuration"),
+				@IJsfFlexAttribute(attribute="selectionEasingFunction"),
+				@IJsfFlexAttribute(attribute="textAlign"),
+				@IJsfFlexAttribute(attribute="textDecoration"),
+				@IJsfFlexAttribute(attribute="textIndent"),
+				@IJsfFlexAttribute(attribute="textRollOverColor"),
+				@IJsfFlexAttribute(attribute="textSelectedColor"),
+				@IJsfFlexAttribute(attribute="change"),
+				@IJsfFlexAttribute(attribute="close"),
+				@IJsfFlexAttribute(attribute="dataChange"),
+				@IJsfFlexAttribute(attribute="enter"),
+				@IJsfFlexAttribute(attribute="itemRollOut"),
+				@IJsfFlexAttribute(attribute="itemRollOver"),
+				@IJsfFlexAttribute(attribute="open"),
+				@IJsfFlexAttribute(attribute="scroll")
 		}
 )
-public final class MXMLComboBoxRenderer extends MXMLComboBaseTemplateRenderer {
+public final class FlexComboBoxRenderer extends AbstractFlexComboBaseTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLComboBoxRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLComboBoxRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexComboBoxRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexComboBoxRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

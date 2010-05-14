@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="lowerThanMinError", returnType="java.lang.String", longDesc="Error message when the value is less than minValue.")
 @JSFComponent
-public interface _MXMLUILowerThanMinErrorAttribute {
+public interface IFlexUILowerThanMinErrorAttribute {
     
 }

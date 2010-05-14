@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dragEnabled", returnType="java.lang.String", longDesc="A flag that indicates whether you can dragitems out of this control and drop them on other controls.")
 @JSFComponent
-public interface _MXMLUIDragEnabledAttribute {
+public interface IFlexUIDragEnabledAttribute {
     
 }

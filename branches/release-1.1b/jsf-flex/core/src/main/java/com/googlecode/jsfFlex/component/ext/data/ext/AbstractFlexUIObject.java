@@ -20,36 +20,36 @@ package com.googlecode.jsfFlex.component.ext.data.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.ext.data.MXMLUIDataContainerBase;
+import com.googlecode.jsfFlex.component.ext.data.AbstractFlexUIDataContainerBase;
 
 /**
  * <ul>
  * This component can have as its direct children components of :
- * 		<li> AbstractMXMLUIObjectListEntries </li>
- * 		<li> AbstractMXMLUIObjectElement </li>
+ * 		<li> AbstractFlexUIObjectListEntries </li>
+ * 		<li> AbstractFlexUIObjectElement </li>
  * </ul>
  * 
- * To have nesting of objects, one should have jf:mxmlObjectElement and <br>
- * jf:mxmlObjectListEntries tags as this component's children which have <br>
- * jf:mxmlObjectProperty or jf:mxmlObjectStaticProperty tag for properties. <br> 
+ * To have nesting of objects, one should have jf:flexObjectElement and <br>
+ * jf:flexObjectListEntries tags as this component's children which have <br>
+ * jf:flexObjectProperty or jf:flexObjectStaticProperty tag for properties. <br> 
  * 
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlObject",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.MXMLUIObject",
-        type                =   "com.googlecode.jsfFlex.MXMLUIObject",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.data.ext.MXMLUIObjectTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLObject"
+        name                =   "jf:flexObject",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.FlexUIObject",
+        type                =   "com.googlecode.jsfFlex.FlexUIObject",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.data.ext.FlexUIObjectTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexObject"
 )
-public abstract class AbstractMXMLUIObject 
-						extends MXMLUIDataContainerBase {
+public abstract class AbstractFlexUIObject 
+						extends AbstractFlexUIDataContainerBase {
 	
-	public static final String CURR_MXML_UI_OBJECT_CONTAINER_KEY = "currMXMLUIObjectContainerKey";
+	public static final String CURR_FLEX_UI_OBJECT_CONTAINER_KEY = "currFlexUIObjectContainerKey";
 	
 	protected String getTemporaryMapDataContainerKey(){
-		return CURR_MXML_UI_OBJECT_CONTAINER_KEY;
+		return CURR_FLEX_UI_OBJECT_CONTAINER_KEY;
 	}
 	
 }

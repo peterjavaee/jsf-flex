@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="thumbOverSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the thumb of the scroll bar when the mouse pointer is over the thumb.")
 @JSFComponent
-public interface _MXMLUIThumbOverSkinAttribute {
+public interface IFlexUIThumbOverSkinAttribute {
     
 }

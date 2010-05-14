@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="offscreenExtraRowsOrColumns", returnType="java.lang.String", longDesc="The target number of extra rows or columns of item renderers to be used in the layout of the control.")
 @JSFComponent
-public interface _MXMLUIOffscreenExtraRowsOrColumnsAttribute {
+public interface IFlexUIOffscreenExtraRowsOrColumnsAttribute {
     
 }

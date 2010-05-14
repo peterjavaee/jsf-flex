@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="fillAlphas", returnType="java.lang.String", longDesc="Alphas used for the background fill of controls.")
 @JSFComponent
-public interface _MXMLUIFillAlphasAttribute {
+public interface IFlexUIFillAlphasAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="resizeEndEffect", returnType="java.lang.String", longDesc="Specifies the effect to play after a Resize effect finishes playing.")
 @JSFComponent
-public interface _MXMLUIResizeEndEffectAttribute {
+public interface IFlexUIResizeEndEffectAttribute {
     
 }

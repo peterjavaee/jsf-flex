@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="controlBar", returnType="java.lang.String", longDesc="The ApplicationControlBar for this Application.")
 @JSFComponent
-public interface _MXMLUIControlBarAttribute {
+public interface IFlexUIControlBarAttribute {
     
 }

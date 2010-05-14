@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="resize", returnType="java.lang.String", longDesc="Dispatched when the component is resized.")
 @JSFComponent
-public interface _MXMLUIResizeAttribute {
+public interface IFlexUIResizeAttribute {
     
 }

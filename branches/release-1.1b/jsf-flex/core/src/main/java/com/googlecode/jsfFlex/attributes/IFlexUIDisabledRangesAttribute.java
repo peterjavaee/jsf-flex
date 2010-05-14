@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="disabledRanges", returnType="java.lang.String", longDesc="Disables single and multiple days.")
 @JSFComponent
-public interface _MXMLUIDisabledRangesAttribute {
+public interface IFlexUIDisabledRangesAttribute {
     
 }

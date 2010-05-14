@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="volumeEasingFunction", returnType="java.lang.String", longDesc="The easing function for the volume effect.")
 @JSFComponent
-public interface _MXMLUIVolumeEasingFunctionAttribute {
+public interface IFlexUIVolumeEasingFunctionAttribute {
     
 }

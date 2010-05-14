@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="textSelectedColor", returnType="java.lang.String", longDesc="Text color of the label as the user presses it.")
 @JSFComponent
-public interface _MXMLUITextSelectedColorAttribute {
+public interface IFlexUITextSelectedColorAttribute {
     
 }

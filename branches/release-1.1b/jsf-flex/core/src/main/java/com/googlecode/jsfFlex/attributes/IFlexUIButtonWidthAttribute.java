@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="buttonWidth", returnType="java.lang.String", longDesc="Width of each button, in pixels.")
 @JSFComponent
-public interface _MXMLUIButtonWidthAttribute {
+public interface IFlexUIButtonWidthAttribute {
     
 }

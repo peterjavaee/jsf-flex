@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="targetFactory", returnType="java.lang.String", longDesc="The target factory.")
 @JSFComponent
-public interface _MXMLUITargetFactoryAttribute {
+public interface IFlexUITargetFactoryAttribute {
     
 }

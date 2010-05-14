@@ -25,81 +25,81 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLInput",
-		type="com.googlecode.jsfFlex.MXMLDataGridColumn"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexInput",
+		type="com.googlecode.jsfFlex.FlexDataGridColumn"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="DataGridColumn",
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentName="DataGridColumn",
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="dataField", byMethod=true),
-				@JsfFlexAttribute(attribute="dataTipField"),
-				@JsfFlexAttribute(attribute="dataTipFunction"),
-				@JsfFlexAttribute(attribute="editable", byMethod=true),
-				@JsfFlexAttribute(attribute="editorDataField"),
-				@JsfFlexAttribute(attribute="editorHeightOffset"),
-				@JsfFlexAttribute(attribute="editorUsesEnterKey"),
-				@JsfFlexAttribute(attribute="editorWidthOffset"),
-				@JsfFlexAttribute(attribute="editorXOffset"),
-				@JsfFlexAttribute(attribute="editorYOffset"),
-				@JsfFlexAttribute(attribute="headerRenderer"),
-				@JsfFlexAttribute(attribute="headerText"),
-				@JsfFlexAttribute(attribute="headerWordWrap"),
-				@JsfFlexAttribute(attribute="imeMode"),
-				@JsfFlexAttribute(attribute="itemEditor"),
-				@JsfFlexAttribute(attribute="itemRenderer"),
-				@JsfFlexAttribute(attribute="labelFunction"),
-				@JsfFlexAttribute(attribute="minWidth"),
-				@JsfFlexAttribute(attribute="rendererIsEditor"),
-				@JsfFlexAttribute(attribute="resizable"),
-				@JsfFlexAttribute(attribute="showDataTips"),
-				@JsfFlexAttribute(attribute="sortable"),
-				@JsfFlexAttribute(attribute="sortCompareFunction"),
-				@JsfFlexAttribute(attribute="sortDescending"),
-				@JsfFlexAttribute(attribute="visible"),
-				@JsfFlexAttribute(attribute="wordWrap"),
-				@JsfFlexAttribute(attribute="backgroundColor"),
-				@JsfFlexAttribute(attribute="color"),
-				@JsfFlexAttribute(attribute="disabledColor"),
-				@JsfFlexAttribute(attribute="fontAntiAliasType"),
-				@JsfFlexAttribute(attribute="fontFamily"),
-				@JsfFlexAttribute(attribute="fontGridFitType"),
-				@JsfFlexAttribute(attribute="fontSharpness"),
-				@JsfFlexAttribute(attribute="fontSize"),
-				@JsfFlexAttribute(attribute="fontStyle"),
-				@JsfFlexAttribute(attribute="fontThickness"),
-				@JsfFlexAttribute(attribute="fontWeight"),
-				@JsfFlexAttribute(attribute="headerStyleName"),
-				@JsfFlexAttribute(attribute="paddingLeft"),
-				@JsfFlexAttribute(attribute="paddingRight"),
-				@JsfFlexAttribute(attribute="textAlign"),
-				@JsfFlexAttribute(attribute="textDecoration"),
-				@JsfFlexAttribute(attribute="textIndent")
+				@IJsfFlexAttribute(attribute="dataField", byMethod=true),
+				@IJsfFlexAttribute(attribute="dataTipField"),
+				@IJsfFlexAttribute(attribute="dataTipFunction"),
+				@IJsfFlexAttribute(attribute="editable", byMethod=true),
+				@IJsfFlexAttribute(attribute="editorDataField"),
+				@IJsfFlexAttribute(attribute="editorHeightOffset"),
+				@IJsfFlexAttribute(attribute="editorUsesEnterKey"),
+				@IJsfFlexAttribute(attribute="editorWidthOffset"),
+				@IJsfFlexAttribute(attribute="editorXOffset"),
+				@IJsfFlexAttribute(attribute="editorYOffset"),
+				@IJsfFlexAttribute(attribute="headerRenderer"),
+				@IJsfFlexAttribute(attribute="headerText"),
+				@IJsfFlexAttribute(attribute="headerWordWrap"),
+				@IJsfFlexAttribute(attribute="imeMode"),
+				@IJsfFlexAttribute(attribute="itemEditor"),
+				@IJsfFlexAttribute(attribute="itemRenderer"),
+				@IJsfFlexAttribute(attribute="labelFunction"),
+				@IJsfFlexAttribute(attribute="minWidth"),
+				@IJsfFlexAttribute(attribute="rendererIsEditor"),
+				@IJsfFlexAttribute(attribute="resizable"),
+				@IJsfFlexAttribute(attribute="showDataTips"),
+				@IJsfFlexAttribute(attribute="sortable"),
+				@IJsfFlexAttribute(attribute="sortCompareFunction"),
+				@IJsfFlexAttribute(attribute="sortDescending"),
+				@IJsfFlexAttribute(attribute="visible"),
+				@IJsfFlexAttribute(attribute="wordWrap"),
+				@IJsfFlexAttribute(attribute="backgroundColor"),
+				@IJsfFlexAttribute(attribute="color"),
+				@IJsfFlexAttribute(attribute="disabledColor"),
+				@IJsfFlexAttribute(attribute="fontAntiAliasType"),
+				@IJsfFlexAttribute(attribute="fontFamily"),
+				@IJsfFlexAttribute(attribute="fontGridFitType"),
+				@IJsfFlexAttribute(attribute="fontSharpness"),
+				@IJsfFlexAttribute(attribute="fontSize"),
+				@IJsfFlexAttribute(attribute="fontStyle"),
+				@IJsfFlexAttribute(attribute="fontThickness"),
+				@IJsfFlexAttribute(attribute="fontWeight"),
+				@IJsfFlexAttribute(attribute="headerStyleName"),
+				@IJsfFlexAttribute(attribute="paddingLeft"),
+				@IJsfFlexAttribute(attribute="paddingRight"),
+				@IJsfFlexAttribute(attribute="textAlign"),
+				@IJsfFlexAttribute(attribute="textDecoration"),
+				@IJsfFlexAttribute(attribute="textIndent")
 		}
 )
-public final class MXMLDataGridColumnRenderer extends MXMLComponentBaseRenderer {
+public final class FlexDataGridColumnRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLDataGridColumnRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLDataGridColumnRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexDataGridColumnRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexDataGridColumnRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

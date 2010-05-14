@@ -25,75 +25,75 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLSimple",
-		type="com.googlecode.jsfFlex.MXMLVideoDisplay"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexSimple",
+		type="com.googlecode.jsfFlex.FlexVideoDisplay"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="VideoDisplay",
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentName="VideoDisplay",
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="autoBandWidthDetection"),
-				@JsfFlexAttribute(attribute="autoPlay"),
-				@JsfFlexAttribute(attribute="autoRewind"),
-				@JsfFlexAttribute(attribute="bufferTime"),
-				@JsfFlexAttribute(attribute="cuePointManagerClass"),
-				@JsfFlexAttribute(attribute="cuePoints"),
-				@JsfFlexAttribute(attribute="idleTimeout"),
-				@JsfFlexAttribute(attribute="live"),
-				@JsfFlexAttribute(attribute="maintainAspectRatio"),
-				@JsfFlexAttribute(attribute="playheadTime"),
-				@JsfFlexAttribute(attribute="playheadUpdateInterval"),
-				@JsfFlexAttribute(attribute="progressInterval"),
-				@JsfFlexAttribute(attribute="source"),
-				@JsfFlexAttribute(attribute="totalTime"),
-				@JsfFlexAttribute(attribute="volume"),
-				@JsfFlexAttribute(attribute="backgroundAlpha"),
-				@JsfFlexAttribute(attribute="backgroundColor"),
-				@JsfFlexAttribute(attribute="backgroundImage"),
-				@JsfFlexAttribute(attribute="backgroundSize"),
-				@JsfFlexAttribute(attribute="borderColor"),
-				@JsfFlexAttribute(attribute="borderSides"),
-				@JsfFlexAttribute(attribute="borderSkin"),
-				@JsfFlexAttribute(attribute="borderStyle"),
-				@JsfFlexAttribute(attribute="borderThickness"),
-				@JsfFlexAttribute(attribute="cornerRadius"),
-				@JsfFlexAttribute(attribute="dropShadowColor"),
-				@JsfFlexAttribute(attribute="dropShadowEnabled"),
-				@JsfFlexAttribute(attribute="shadowDirection"),
-				@JsfFlexAttribute(attribute="shadowDistance"),
-				@JsfFlexAttribute(attribute="close"),
-				@JsfFlexAttribute(attribute="complete"),
-				@JsfFlexAttribute(attribute="cuePoint"),
-				@JsfFlexAttribute(attribute="playheadUpdate"),
-				@JsfFlexAttribute(attribute="progress"),
-				@JsfFlexAttribute(attribute="ready"),
-				@JsfFlexAttribute(attribute="rewind"),
-				@JsfFlexAttribute(attribute="stateChange")
+				@IJsfFlexAttribute(attribute="autoBandWidthDetection"),
+				@IJsfFlexAttribute(attribute="autoPlay"),
+				@IJsfFlexAttribute(attribute="autoRewind"),
+				@IJsfFlexAttribute(attribute="bufferTime"),
+				@IJsfFlexAttribute(attribute="cuePointManagerClass"),
+				@IJsfFlexAttribute(attribute="cuePoints"),
+				@IJsfFlexAttribute(attribute="idleTimeout"),
+				@IJsfFlexAttribute(attribute="live"),
+				@IJsfFlexAttribute(attribute="maintainAspectRatio"),
+				@IJsfFlexAttribute(attribute="playheadTime"),
+				@IJsfFlexAttribute(attribute="playheadUpdateInterval"),
+				@IJsfFlexAttribute(attribute="progressInterval"),
+				@IJsfFlexAttribute(attribute="source"),
+				@IJsfFlexAttribute(attribute="totalTime"),
+				@IJsfFlexAttribute(attribute="volume"),
+				@IJsfFlexAttribute(attribute="backgroundAlpha"),
+				@IJsfFlexAttribute(attribute="backgroundColor"),
+				@IJsfFlexAttribute(attribute="backgroundImage"),
+				@IJsfFlexAttribute(attribute="backgroundSize"),
+				@IJsfFlexAttribute(attribute="borderColor"),
+				@IJsfFlexAttribute(attribute="borderSides"),
+				@IJsfFlexAttribute(attribute="borderSkin"),
+				@IJsfFlexAttribute(attribute="borderStyle"),
+				@IJsfFlexAttribute(attribute="borderThickness"),
+				@IJsfFlexAttribute(attribute="cornerRadius"),
+				@IJsfFlexAttribute(attribute="dropShadowColor"),
+				@IJsfFlexAttribute(attribute="dropShadowEnabled"),
+				@IJsfFlexAttribute(attribute="shadowDirection"),
+				@IJsfFlexAttribute(attribute="shadowDistance"),
+				@IJsfFlexAttribute(attribute="close"),
+				@IJsfFlexAttribute(attribute="complete"),
+				@IJsfFlexAttribute(attribute="cuePoint"),
+				@IJsfFlexAttribute(attribute="playheadUpdate"),
+				@IJsfFlexAttribute(attribute="progress"),
+				@IJsfFlexAttribute(attribute="ready"),
+				@IJsfFlexAttribute(attribute="rewind"),
+				@IJsfFlexAttribute(attribute="stateChange")
 		}
 )
-public final class MXMLVideoDisplayRenderer extends MXMLComponentRenderer {
+public final class FlexVideoDisplayRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLVideoDisplayRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLVideoDisplayRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexVideoDisplayRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexVideoDisplayRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

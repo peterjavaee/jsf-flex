@@ -20,24 +20,24 @@ package com.googlecode.jsfFlex.container.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUIViewStackBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUIViewStackBase;
 
 /**
- * Since ViewStack is written to maintain it's state, it will extend directly from MXMLUIInputBase
+ * Since ViewStack is written to maintain it's state, it will extend directly from AbstractUIViewStackBase
  * 
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlViewStack",
-        clazz               =   "com.googlecode.jsfFlex.container.ext.MXMLUIViewStack",
-        type                =   "com.googlecode.jsfFlex.MXMLUIViewStack",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.MXMLUIViewStackTag",
-        family              =   "javax.faces.MXMLInput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLViewStack",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+        name                =   "jf:flexViewStack",
+        clazz               =   "com.googlecode.jsfFlex.container.ext.FlexUIViewStack",
+        type                =   "com.googlecode.jsfFlex.FlexUIViewStack",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.FlexUIViewStackTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexViewStack",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
 )
-public abstract class AbstractMXMLUIViewStack 
-						extends MXMLUIViewStackBase
-						implements _MXMLUIViewStackAttributes {
+public abstract class AbstractFlexUIViewStack 
+						extends AbstractFlexUIViewStackBase
+						implements IFlexUIViewStackAttributes {
 	
 }

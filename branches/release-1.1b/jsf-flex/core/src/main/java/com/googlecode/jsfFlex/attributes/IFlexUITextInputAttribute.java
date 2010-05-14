@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="textInput", returnType="java.lang.String", longDesc="Dispatched when the user types, deletes, or pastes text into the control.")
 @JSFComponent
-public interface _MXMLUITextInputAttribute {
+public interface IFlexUITextInputAttribute {
     
 }

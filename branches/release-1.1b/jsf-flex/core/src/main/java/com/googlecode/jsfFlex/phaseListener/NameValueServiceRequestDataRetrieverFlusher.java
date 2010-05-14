@@ -30,7 +30,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Ji Hoon Kim
  */
-final class NameValueServiceRequestDataRetrieverFlusher extends _ServiceRequestDataRetrieverFlusher {
+final class NameValueServiceRequestDataRetrieverFlusher extends AbstractServiceRequestDataRetrieverFlusher {
 	
 	private static final String PLAIN_CONTENT_TYPE = "text/plain";
 	

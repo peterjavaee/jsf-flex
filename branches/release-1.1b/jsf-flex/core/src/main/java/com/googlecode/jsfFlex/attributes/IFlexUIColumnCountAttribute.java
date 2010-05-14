@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="columnCount", returnType="java.lang.String", longDesc="The number of columns to be displayed in a TileList control or items in aHorizontalList control.")
 @JSFComponent
-public interface _MXMLUIColumnCountAttribute {
+public interface IFlexUIColumnCountAttribute {
 	
 }

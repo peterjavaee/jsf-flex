@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="verticalScrollBarStyleName", returnType="java.lang.String", longDesc="The name of the vertical scrollbar style.")
 @JSFComponent
-public interface _MXMLUIVerticalScrollBarStyleNameAttribute {
+public interface IFlexUIVerticalScrollBarStyleNameAttribute {
     
 }

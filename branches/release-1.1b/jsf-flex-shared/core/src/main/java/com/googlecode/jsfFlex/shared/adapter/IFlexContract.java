@@ -22,16 +22,16 @@ import java.util.Map;
 
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
+import com.googlecode.jsfFlex.renderkit.annotationDocletParser.AbstractAnnotationDocletParser;
 
 /**
  * @author Ji Hoon Kim
  */
-public interface _MXMLContract {
+public interface IFlexContract {
 	
 	Map<String, Object> getAttributes();
 	
-	_AnnotationDocletParser getAnnotationDocletParserInstance();
+	AbstractAnnotationDocletParser getAnnotationDocletParserInstance();
 	
 	String getAbsolutePathToPreMxmlFile();
 	void setAbsolutePathToPreMxmlFile(String absolutePathToPreMxmlFile);

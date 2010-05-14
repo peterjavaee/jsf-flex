@@ -20,92 +20,92 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIAutoRepeatAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIButtonDownAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIChangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICornerRadiusAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataChangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledIconAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDownIconAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDownSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEmphasizedAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFillAlphasAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFillColorsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontAntiAliasTypeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontContextAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontGridFitTypeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSharpnessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSizeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontStyleAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontThicknessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontWeightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHighlightAlphasAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalGapAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIconAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIKerningAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILabelAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILabelPlacementAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILeadingAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILetterSpacingAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOverIconAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOverSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingBottomAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingLeftAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingRightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingTopAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRepeatDelayAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRepeatIntervalAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedDisabledIconAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedDisabledSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedDownIconAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedDownSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedOverIconAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedOverSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedUpIconAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedUpSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIStickyHighlightingAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextAlignAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextDecorationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextIndentAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextRollOverColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextSelectedColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIToggleAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUpIconAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUpSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalGapAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIAutoRepeatAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIButtonDownAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIChangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICornerRadiusAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataChangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisabledColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisabledIconAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisabledSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDownIconAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDownSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEmphasizedAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFillAlphasAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFillColorsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusAlphaAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusRoundedCornersAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontAntiAliasTypeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontContextAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontFamilyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontGridFitTypeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontSharpnessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontStyleAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontThicknessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontWeightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHighlightAlphasAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalGapAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIconAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIKerningAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILabelAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILabelPlacementAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILeadingAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILetterSpacingAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOverIconAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOverSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingBottomAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingLeftAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingRightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingTopAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRepeatDelayAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRepeatIntervalAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedDisabledIconAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedDisabledSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedDownIconAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedDownSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedFieldAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedOverIconAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedOverSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedUpIconAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedUpSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIStickyHighlightingAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextAlignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextDecorationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextIndentAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextRollOverColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextSelectedColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIToggleAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUpIconAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUpSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalGapAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIButtonAttributes 
-                    extends _MXMLUIAutoRepeatAttribute, _MXMLUIEmphasizedAttribute, _MXMLUILabelAttribute, 
-                    _MXMLUILabelPlacementAttribute, _MXMLUISelectedFieldAttribute, _MXMLUIStickyHighlightingAttribute,
-                    _MXMLUIToggleAttribute, _MXMLUIBorderColorAttribute, _MXMLUIColorAttribute, _MXMLUICornerRadiusAttribute,
-                    _MXMLUIDisabledColorAttribute, _MXMLUIDisabledIconAttribute, _MXMLUIDisabledSkinAttribute, 
-                    _MXMLUIDownIconAttribute, _MXMLUIDownSkinAttribute, _MXMLUIFillAlphasAttribute, _MXMLUIFillColorsAttribute,
-                    _MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, _MXMLUIFontAntiAliasTypeAttribute, 
-                    _MXMLUIFontFamilyAttribute, _MXMLUIFontGridFitTypeAttribute, _MXMLUIFontSharpnessAttribute, 
-                    _MXMLUIFontSizeAttribute, _MXMLUIFontStyleAttribute, _MXMLUIFontThicknessAttribute, _MXMLUIFontWeightAttribute, 
-                    _MXMLUIHighlightAlphasAttribute, _MXMLUIHorizontalGapAttribute, _MXMLUIIconAttribute, _MXMLUILeadingAttribute, 
-                    _MXMLUIOverIconAttribute, _MXMLUIOverSkinAttribute, _MXMLUIPaddingBottomAttribute, _MXMLUIPaddingLeftAttribute, 
-                    _MXMLUIPaddingRightAttribute, _MXMLUIPaddingTopAttribute, _MXMLUIRepeatDelayAttribute, _MXMLUIRepeatIntervalAttribute, 
-                    _MXMLUISelectedDisabledIconAttribute, _MXMLUISelectedDisabledSkinAttribute, _MXMLUISelectedDownIconAttribute, 
-                    _MXMLUISelectedDownSkinAttribute, _MXMLUISelectedOverIconAttribute, _MXMLUISelectedOverSkinAttribute, 
-                    _MXMLUISelectedUpIconAttribute, _MXMLUISelectedUpSkinAttribute, _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, 
-                    _MXMLUITextIndentAttribute, _MXMLUITextRollOverColorAttribute, _MXMLUITextSelectedColorAttribute, 
-                    _MXMLUIUpIconAttribute, _MXMLUIUpSkinAttribute, _MXMLUIVerticalGapAttribute, _MXMLUIButtonDownAttribute, 
-                    _MXMLUIChangeAttribute, _MXMLUIDataChangeAttribute, _MXMLUIFontContextAttribute, _MXMLUIKerningAttribute, 
-                    _MXMLUILetterSpacingAttribute, _MXMLUISkinAttribute, _MXMLUIBaseAttributes {
+interface IFlexUIButtonAttributes 
+                    extends IFlexUIAutoRepeatAttribute, IFlexUIEmphasizedAttribute, IFlexUILabelAttribute, 
+                    IFlexUILabelPlacementAttribute, IFlexUISelectedFieldAttribute, IFlexUIStickyHighlightingAttribute,
+                    IFlexUIToggleAttribute, IFlexUIBorderColorAttribute, IFlexUIColorAttribute, IFlexUICornerRadiusAttribute,
+                    IFlexUIDisabledColorAttribute, IFlexUIDisabledIconAttribute, IFlexUIDisabledSkinAttribute, 
+                    IFlexUIDownIconAttribute, IFlexUIDownSkinAttribute, IFlexUIFillAlphasAttribute, IFlexUIFillColorsAttribute,
+                    IFlexUIFocusAlphaAttribute, IFlexUIFocusRoundedCornersAttribute, IFlexUIFontAntiAliasTypeAttribute, 
+                    IFlexUIFontFamilyAttribute, IFlexUIFontGridFitTypeAttribute, IFlexUIFontSharpnessAttribute, 
+                    IFlexUIFontSizeAttribute, IFlexUIFontStyleAttribute, IFlexUIFontThicknessAttribute, IFlexUIFontWeightAttribute, 
+                    IFlexUIHighlightAlphasAttribute, IFlexUIHorizontalGapAttribute, IFlexUIIconAttribute, IFlexUILeadingAttribute, 
+                    IFlexUIOverIconAttribute, IFlexUIOverSkinAttribute, IFlexUIPaddingBottomAttribute, IFlexUIPaddingLeftAttribute, 
+                    IFlexUIPaddingRightAttribute, IFlexUIPaddingTopAttribute, IFlexUIRepeatDelayAttribute, IFlexUIRepeatIntervalAttribute, 
+                    IFlexUISelectedDisabledIconAttribute, IFlexUISelectedDisabledSkinAttribute, IFlexUISelectedDownIconAttribute, 
+                    IFlexUISelectedDownSkinAttribute, IFlexUISelectedOverIconAttribute, IFlexUISelectedOverSkinAttribute, 
+                    IFlexUISelectedUpIconAttribute, IFlexUISelectedUpSkinAttribute, IFlexUITextAlignAttribute, IFlexUITextDecorationAttribute, 
+                    IFlexUITextIndentAttribute, IFlexUITextRollOverColorAttribute, IFlexUITextSelectedColorAttribute, 
+                    IFlexUIUpIconAttribute, IFlexUIUpSkinAttribute, IFlexUIVerticalGapAttribute, IFlexUIButtonDownAttribute, 
+                    IFlexUIChangeAttribute, IFlexUIDataChangeAttribute, IFlexUIFontContextAttribute, IFlexUIKerningAttribute, 
+                    IFlexUILetterSpacingAttribute, IFlexUISkinAttribute, IFlexUIBaseAttributes {
     
 }

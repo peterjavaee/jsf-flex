@@ -24,98 +24,98 @@ import java.util.EnumSet;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLEvent;
-import com.googlecode.jsfFlex.shared.adapter._MXMLEvent.EVENT_HANDLER_TYPE;
-import com.googlecode.jsfFlex.shared.adapter._MXMLEvent.EVENT_HANDLER_TYPE.ACTION_SCRIPT_IMPORT;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
+import com.googlecode.jsfFlex.shared.adapter.IFlexEvent.EVENT_HANDLER_TYPE;
+import com.googlecode.jsfFlex.shared.adapter.IFlexEvent.EVENT_HANDLER_TYPE.ACTION_SCRIPT_IMPORT;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="autoRepeat"),
-				@JsfFlexAttribute(attribute="emphasized"),
-                @JsfFlexAttribute(attribute="fontContext"),
-				@JsfFlexAttribute(attribute="label"),
-				@JsfFlexAttribute(attribute="labelPlacement"),
-				@JsfFlexAttribute(attribute="selectedField"),
-				@JsfFlexAttribute(attribute="stickyHighlighting"),
-				@JsfFlexAttribute(attribute="toggle"),
-				@JsfFlexAttribute(attribute="borderColor"),
-				@JsfFlexAttribute(attribute="color"),
-				@JsfFlexAttribute(attribute="cornerRadius"),
-				@JsfFlexAttribute(attribute="disabledColor"),
-				@JsfFlexAttribute(attribute="disabledIcon"),
-				@JsfFlexAttribute(attribute="disabledSkin"),
-				@JsfFlexAttribute(attribute="downIcon"),
-				@JsfFlexAttribute(attribute="downSkin"),
-				@JsfFlexAttribute(attribute="fillAlphas"),
-				@JsfFlexAttribute(attribute="fillColors"),
-				@JsfFlexAttribute(attribute="focusAlpha"),
-				@JsfFlexAttribute(attribute="focusRoundedCorners"),
-				@JsfFlexAttribute(attribute="fontAntiAliasType"),
-				@JsfFlexAttribute(attribute="fontFamily"),
-				@JsfFlexAttribute(attribute="fontGridFitType"),
-				@JsfFlexAttribute(attribute="fontSharpness"),
-				@JsfFlexAttribute(attribute="fontSize"),
-				@JsfFlexAttribute(attribute="fontStyle"),
-				@JsfFlexAttribute(attribute="fontThickness"),
-				@JsfFlexAttribute(attribute="fontWeight"),
-				@JsfFlexAttribute(attribute="highlightAlphas"),
-				@JsfFlexAttribute(attribute="horizontalGap"),
-				@JsfFlexAttribute(attribute="icon"),
-                @JsfFlexAttribute(attribute="kerning"),
-				@JsfFlexAttribute(attribute="leading"),
-                @JsfFlexAttribute(attribute="letterSpacing"),
-				@JsfFlexAttribute(attribute="overIcon"),
-				@JsfFlexAttribute(attribute="overSkin"),
-				@JsfFlexAttribute(attribute="paddingBottom"),
-				@JsfFlexAttribute(attribute="paddingLeft"),
-				@JsfFlexAttribute(attribute="paddingRight"),
-				@JsfFlexAttribute(attribute="paddingTop"),
-				@JsfFlexAttribute(attribute="repeatDelay"),
-				@JsfFlexAttribute(attribute="repeatInterval"),
-				@JsfFlexAttribute(attribute="selectedDisabledIcon"),
-				@JsfFlexAttribute(attribute="selectedDisabledSkin"),
-				@JsfFlexAttribute(attribute="selectedDownIcon"),
-				@JsfFlexAttribute(attribute="selectedDownSkin"),
-				@JsfFlexAttribute(attribute="selectedOverIcon"),
-				@JsfFlexAttribute(attribute="selectedOverSkin"),
-				@JsfFlexAttribute(attribute="selectedUpIcon"),
-				@JsfFlexAttribute(attribute="selectedUpSkin"),
-                @JsfFlexAttribute(attribute="skin"),
-				@JsfFlexAttribute(attribute="textAlign"),
-				@JsfFlexAttribute(attribute="textDecoration"),
-				@JsfFlexAttribute(attribute="textIndent"),
-				@JsfFlexAttribute(attribute="textRollOverColor"),
-				@JsfFlexAttribute(attribute="textSelectedColor"),
-				@JsfFlexAttribute(attribute="upIcon"),
-				@JsfFlexAttribute(attribute="upSkin"),
-				@JsfFlexAttribute(attribute="verticalGap"),
-				@JsfFlexAttribute(attribute="buttonDown"),
-				@JsfFlexAttribute(attribute="change"),
-				@JsfFlexAttribute(attribute="dataChange")
+				@IJsfFlexAttribute(attribute="autoRepeat"),
+				@IJsfFlexAttribute(attribute="emphasized"),
+                @IJsfFlexAttribute(attribute="fontContext"),
+				@IJsfFlexAttribute(attribute="label"),
+				@IJsfFlexAttribute(attribute="labelPlacement"),
+				@IJsfFlexAttribute(attribute="selectedField"),
+				@IJsfFlexAttribute(attribute="stickyHighlighting"),
+				@IJsfFlexAttribute(attribute="toggle"),
+				@IJsfFlexAttribute(attribute="borderColor"),
+				@IJsfFlexAttribute(attribute="color"),
+				@IJsfFlexAttribute(attribute="cornerRadius"),
+				@IJsfFlexAttribute(attribute="disabledColor"),
+				@IJsfFlexAttribute(attribute="disabledIcon"),
+				@IJsfFlexAttribute(attribute="disabledSkin"),
+				@IJsfFlexAttribute(attribute="downIcon"),
+				@IJsfFlexAttribute(attribute="downSkin"),
+				@IJsfFlexAttribute(attribute="fillAlphas"),
+				@IJsfFlexAttribute(attribute="fillColors"),
+				@IJsfFlexAttribute(attribute="focusAlpha"),
+				@IJsfFlexAttribute(attribute="focusRoundedCorners"),
+				@IJsfFlexAttribute(attribute="fontAntiAliasType"),
+				@IJsfFlexAttribute(attribute="fontFamily"),
+				@IJsfFlexAttribute(attribute="fontGridFitType"),
+				@IJsfFlexAttribute(attribute="fontSharpness"),
+				@IJsfFlexAttribute(attribute="fontSize"),
+				@IJsfFlexAttribute(attribute="fontStyle"),
+				@IJsfFlexAttribute(attribute="fontThickness"),
+				@IJsfFlexAttribute(attribute="fontWeight"),
+				@IJsfFlexAttribute(attribute="highlightAlphas"),
+				@IJsfFlexAttribute(attribute="horizontalGap"),
+				@IJsfFlexAttribute(attribute="icon"),
+                @IJsfFlexAttribute(attribute="kerning"),
+				@IJsfFlexAttribute(attribute="leading"),
+                @IJsfFlexAttribute(attribute="letterSpacing"),
+				@IJsfFlexAttribute(attribute="overIcon"),
+				@IJsfFlexAttribute(attribute="overSkin"),
+				@IJsfFlexAttribute(attribute="paddingBottom"),
+				@IJsfFlexAttribute(attribute="paddingLeft"),
+				@IJsfFlexAttribute(attribute="paddingRight"),
+				@IJsfFlexAttribute(attribute="paddingTop"),
+				@IJsfFlexAttribute(attribute="repeatDelay"),
+				@IJsfFlexAttribute(attribute="repeatInterval"),
+				@IJsfFlexAttribute(attribute="selectedDisabledIcon"),
+				@IJsfFlexAttribute(attribute="selectedDisabledSkin"),
+				@IJsfFlexAttribute(attribute="selectedDownIcon"),
+				@IJsfFlexAttribute(attribute="selectedDownSkin"),
+				@IJsfFlexAttribute(attribute="selectedOverIcon"),
+				@IJsfFlexAttribute(attribute="selectedOverSkin"),
+				@IJsfFlexAttribute(attribute="selectedUpIcon"),
+				@IJsfFlexAttribute(attribute="selectedUpSkin"),
+                @IJsfFlexAttribute(attribute="skin"),
+				@IJsfFlexAttribute(attribute="textAlign"),
+				@IJsfFlexAttribute(attribute="textDecoration"),
+				@IJsfFlexAttribute(attribute="textIndent"),
+				@IJsfFlexAttribute(attribute="textRollOverColor"),
+				@IJsfFlexAttribute(attribute="textSelectedColor"),
+				@IJsfFlexAttribute(attribute="upIcon"),
+				@IJsfFlexAttribute(attribute="upSkin"),
+				@IJsfFlexAttribute(attribute="verticalGap"),
+				@IJsfFlexAttribute(attribute="buttonDown"),
+				@IJsfFlexAttribute(attribute="change"),
+				@IJsfFlexAttribute(attribute="dataChange")
 		}
 )
-public abstract class MXMLButtonTemplateRenderer extends MXMLComponentRenderer {
+public abstract class AbstractFlexButtonTemplateRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-        MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLButtonTemplateRenderer.class, componentObj, null);
+        AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(AbstractFlexButtonTemplateRenderer.class, componentObj, null);
 		
-		if(componentObj instanceof _MXMLEvent){
-            _MXMLEvent mxmlEvent = _MXMLEvent.class.cast( componentObj );
+		if(componentObj instanceof IFlexEvent){
+            IFlexEvent mxmlEvent = IFlexEvent.class.cast( componentObj );
             EVENT_HANDLER_TYPE eventHandlerType = mxmlEvent.getEventHandlerType();
             AdditionalApplicationScriptContent additionalApplicationScriptContent = mxmlContext.getAdditionalAppScriptContent();
             EnumSet<ACTION_SCRIPT_IMPORT> actionScriptImports = eventHandlerType.getActionScriptImports();

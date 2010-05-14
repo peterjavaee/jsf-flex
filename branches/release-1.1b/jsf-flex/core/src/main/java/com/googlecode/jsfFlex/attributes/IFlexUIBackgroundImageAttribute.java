@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="backgroundImage", returnType="java.lang.String", longDesc="Background image of a component.")
 @JSFComponent
-public interface _MXMLUIBackgroundImageAttribute {
+public interface IFlexUIBackgroundImageAttribute {
     
 }

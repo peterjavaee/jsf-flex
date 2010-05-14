@@ -30,102 +30,102 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderThicknessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIChangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICloseAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICornerRadiusAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataChangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDateChooserStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDayNamesAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledDaysAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledRangesAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisplayedMonthAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisplayedYearAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDropdownFactoryAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditableAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFillAlphasAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFillColorsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFirstDayOfWeekAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontAntiAliasTypeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontGridFitTypeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSharpnessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSizeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontStyleAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontThicknessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontWeightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFormatStringAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHeaderColorsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHeaderStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHighlightAlphasAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIconColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILabelFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILeadingAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMaxYearAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMinYearAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMonthNamesAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMonthSymbolAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOpenAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingLeftAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingRightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIParseFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRollOverColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIScrollAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectableRangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedDateAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectionColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShowTodayAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextAlignAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextDecorationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextIndentAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITodayColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITodayStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIWeekDayStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIYearNavigationEnabledAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIYearSymbolAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderThicknessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIChangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICloseAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICornerRadiusAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataChangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDateChooserStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDayNamesAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisabledColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisabledDaysAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisabledRangesAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisplayedMonthAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisplayedYearAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDropdownFactoryAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFillAlphasAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFillColorsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFirstDayOfWeekAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusAlphaAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusRoundedCornersAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontAntiAliasTypeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontFamilyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontGridFitTypeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontSharpnessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontStyleAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontThicknessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontWeightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFormatStringAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHeaderColorsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHeaderStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHighlightAlphasAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIconColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILabelFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILeadingAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMaxYearAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMinYearAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMonthNamesAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMonthSymbolAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOpenAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingLeftAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingRightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIParseFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRollOverColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIScrollAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectableRangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedDateAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedIndexAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectionColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShowTodayAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextAlignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextDecorationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextIndentAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITodayColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITodayStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIWeekDayStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIYearNavigationEnabledAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIYearSymbolAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlDateField",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIDateField",
-        type                =   "com.googlecode.jsfFlex.MXMLUIDateField",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIDateFieldTag",
-        family              =   "javax.faces.MXMLInput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLDateField",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+        name                =   "jf:flexDateField",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIDateField",
+        type                =   "com.googlecode.jsfFlex.FlexUIDateField",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIDateFieldTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexDateField",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
 )
-public abstract class AbstractMXMLUIDateField 
-						extends com.googlecode.jsfFlex.component.MXMLUITextInputBase 
-						implements _MXMLUIComboBaseAttributes, _MXMLUIDayNamesAttribute, _MXMLUIDisabledDaysAttribute, 
-                        _MXMLUIDisabledRangesAttribute, _MXMLUIDisplayedMonthAttribute, _MXMLUIDisplayedYearAttribute, 
-                        _MXMLUIDropdownFactoryAttribute, _MXMLUIFirstDayOfWeekAttribute, _MXMLUIFormatStringAttribute, 
-                        _MXMLUILabelFunctionAttribute, _MXMLUIMaxYearAttribute, _MXMLUIMinYearAttribute, _MXMLUIMonthNamesAttribute, 
-                        _MXMLUIMonthSymbolAttribute, _MXMLUIParseFunctionAttribute, _MXMLUISelectableRangeAttribute, 
-                        _MXMLUISelectedDateAttribute, _MXMLUIShowTodayAttribute, _MXMLUIYearNavigationEnabledAttribute, 
-                        _MXMLUIYearSymbolAttribute, _MXMLUIBorderColorAttribute, _MXMLUIBorderThicknessAttribute, _MXMLUIColorAttribute, 
-                        _MXMLUICornerRadiusAttribute, _MXMLUIDateChooserStyleNameAttribute, _MXMLUIDisabledColorAttribute, 
-                        _MXMLUIFillAlphasAttribute, _MXMLUIFillColorsAttribute, _MXMLUIFocusAlphaAttribute, 
-                        _MXMLUIFocusRoundedCornersAttribute, _MXMLUIFontAntiAliasTypeAttribute, _MXMLUIFontFamilyAttribute, 
-                        _MXMLUIFontGridFitTypeAttribute, _MXMLUIFontSharpnessAttribute, _MXMLUIFontSizeAttribute, 
-                        _MXMLUIFontStyleAttribute, _MXMLUIFontThicknessAttribute, _MXMLUIFontWeightAttribute, _MXMLUIIconColorAttribute,
-                        _MXMLUIHeaderColorsAttribute, _MXMLUIHeaderStyleNameAttribute, _MXMLUIHighlightAlphasAttribute, 
-                        _MXMLUILeadingAttribute, _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, 
-                        _MXMLUIRollOverColorAttribute, _MXMLUISelectionColorAttribute, _MXMLUITextAlignAttribute, 
-                        _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, _MXMLUITodayColorAttribute, 
-                        _MXMLUITodayStyleNameAttribute, _MXMLUIWeekDayStyleNameAttribute, _MXMLUIChangeAttribute, 
-                        _MXMLUICloseAttribute, _MXMLUIDataChangeAttribute, _MXMLUIOpenAttribute, _MXMLUIScrollAttribute,
-                        _MXMLUIDataProviderAttribute, _MXMLUIEditableAttribute, _MXMLUISelectedIndexAttribute {
+public abstract class AbstractFlexUIDateField 
+						extends com.googlecode.jsfFlex.component.FlexUITextInputBase 
+						implements IFlexUIComboBaseAttributes, IFlexUIDayNamesAttribute, IFlexUIDisabledDaysAttribute, 
+                        IFlexUIDisabledRangesAttribute, IFlexUIDisplayedMonthAttribute, IFlexUIDisplayedYearAttribute, 
+                        IFlexUIDropdownFactoryAttribute, IFlexUIFirstDayOfWeekAttribute, IFlexUIFormatStringAttribute, 
+                        IFlexUILabelFunctionAttribute, IFlexUIMaxYearAttribute, IFlexUIMinYearAttribute, IFlexUIMonthNamesAttribute, 
+                        IFlexUIMonthSymbolAttribute, IFlexUIParseFunctionAttribute, IFlexUISelectableRangeAttribute, 
+                        IFlexUISelectedDateAttribute, IFlexUIShowTodayAttribute, IFlexUIYearNavigationEnabledAttribute, 
+                        IFlexUIYearSymbolAttribute, IFlexUIBorderColorAttribute, IFlexUIBorderThicknessAttribute, IFlexUIColorAttribute, 
+                        IFlexUICornerRadiusAttribute, IFlexUIDateChooserStyleNameAttribute, IFlexUIDisabledColorAttribute, 
+                        IFlexUIFillAlphasAttribute, IFlexUIFillColorsAttribute, IFlexUIFocusAlphaAttribute, 
+                        IFlexUIFocusRoundedCornersAttribute, IFlexUIFontAntiAliasTypeAttribute, IFlexUIFontFamilyAttribute, 
+                        IFlexUIFontGridFitTypeAttribute, IFlexUIFontSharpnessAttribute, IFlexUIFontSizeAttribute, 
+                        IFlexUIFontStyleAttribute, IFlexUIFontThicknessAttribute, IFlexUIFontWeightAttribute, IFlexUIIconColorAttribute,
+                        IFlexUIHeaderColorsAttribute, IFlexUIHeaderStyleNameAttribute, IFlexUIHighlightAlphasAttribute, 
+                        IFlexUILeadingAttribute, IFlexUIPaddingLeftAttribute, IFlexUIPaddingRightAttribute, 
+                        IFlexUIRollOverColorAttribute, IFlexUISelectionColorAttribute, IFlexUITextAlignAttribute, 
+                        IFlexUITextDecorationAttribute, IFlexUITextIndentAttribute, IFlexUITodayColorAttribute, 
+                        IFlexUITodayStyleNameAttribute, IFlexUIWeekDayStyleNameAttribute, IFlexUIChangeAttribute, 
+                        IFlexUICloseAttribute, IFlexUIDataChangeAttribute, IFlexUIOpenAttribute, IFlexUIScrollAttribute,
+                        IFlexUIDataProviderAttribute, IFlexUIEditableAttribute, IFlexUISelectedIndexAttribute {
 	
-    private final static Log _log = LogFactory.getLog(AbstractMXMLUIDateField.class);
+    private final static Log _log = LogFactory.getLog(AbstractFlexUIDateField.class);
     
     private static final String SELECTED_DATE_ATTR = "selectedDate";
     private static final String SELECTED_DATE_ID_APPENDED = "_selectedDate";

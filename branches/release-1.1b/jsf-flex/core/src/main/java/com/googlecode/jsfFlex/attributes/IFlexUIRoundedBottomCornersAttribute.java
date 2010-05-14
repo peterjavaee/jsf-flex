@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="roundedBottomCorners", returnType="java.lang.String", longDesc="Flag to enable rounding for the bottom two corners of the container.")
 @JSFComponent
-public interface _MXMLUIRoundedBottomCornersAttribute {
+public interface IFlexUIRoundedBottomCornersAttribute {
     
 }

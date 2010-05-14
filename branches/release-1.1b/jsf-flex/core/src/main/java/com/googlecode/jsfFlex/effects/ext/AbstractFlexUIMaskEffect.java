@@ -20,21 +20,21 @@ package com.googlecode.jsfFlex.effects.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlMaskEffect",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIMaskEffect",
-        type                =   "com.googlecode.jsfFlex.MXMLUIMaskEffect",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIMaskEffectTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLMaskEffect"
+        name                =   "jf:flexMaskEffect",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIMaskEffect",
+        type                =   "com.googlecode.jsfFlex.FlexUIMaskEffect",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIMaskEffectTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexMaskEffect"
 )
-public abstract class AbstractMXMLUIMaskEffect 
-                                extends MXMLUISimpleBase 
-                                implements _MXMLUIMaskEffectAttributes {
+public abstract class AbstractFlexUIMaskEffect 
+                                extends AbstractFlexUISimpleBase 
+                                implements IFlexUIMaskEffectAttributes {
     
 }

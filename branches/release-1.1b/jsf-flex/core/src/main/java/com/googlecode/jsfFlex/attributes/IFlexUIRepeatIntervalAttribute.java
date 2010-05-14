@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="repeatInterval", returnType="java.lang.String", longDesc="Number of milliseconds in the actions.")
 @JSFComponent
-public interface _MXMLUIRepeatIntervalAttribute {
+public interface IFlexUIRepeatIntervalAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="toolTipEnd", returnType="java.lang.String", longDesc="Dispatched by the component when its ToolTip has been hidden and will be discarded soon.")
 @JSFComponent
-public interface _MXMLUIToolTipEndAttribute {
+public interface IFlexUIToolTipEndAttribute {
     
 }

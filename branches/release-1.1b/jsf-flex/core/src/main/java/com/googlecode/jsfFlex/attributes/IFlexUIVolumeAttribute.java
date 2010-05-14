@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="volume", returnType="java.lang.String", longDesc="The volume level, specified as an value between 0 and 1.")
 @JSFComponent
-public interface _MXMLUIVolumeAttribute {
+public interface IFlexUIVolumeAttribute {
     
 }

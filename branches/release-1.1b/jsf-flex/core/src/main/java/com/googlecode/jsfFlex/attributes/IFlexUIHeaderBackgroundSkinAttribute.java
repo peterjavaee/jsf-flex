@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="headerBackgroundSkin", returnType="java.lang.String", longDesc="The class to use as the skin that defines the appearance of the background of the column headers in a AdvancedDataGrid control.")
 @JSFComponent
-public interface _MXMLUIHeaderBackgroundSkinAttribute {
+public interface IFlexUIHeaderBackgroundSkinAttribute {
     
 }

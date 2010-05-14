@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="nextMonthDownSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the next month arrow when the user presses the mouse button down on the arrow.")
 @JSFComponent
-public interface _MXMLUINextMonthDownSkinAttribute {
+public interface IFlexUINextMonthDownSkinAttribute {
     
 }

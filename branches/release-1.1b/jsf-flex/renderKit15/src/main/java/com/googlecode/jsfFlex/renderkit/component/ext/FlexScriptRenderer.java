@@ -25,47 +25,46 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLSimple",
-		type="com.googlecode.jsfFlex.MXMLScript"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexSimple",
+		type="com.googlecode.jsfFlex.FlexScript"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="Script",
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentName="Script",
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={}
 )
-public final class MXMLScriptRenderer extends MXMLComponentBaseRenderer {
+public final class FlexScriptRenderer extends AbstractFlexComponentBaseRenderer {
 	
-	private static final String MXML_SCRIPT_BODY_TEMPLATE;
+	private static final String FLEX_SCRIPT_BODY_TEMPLATE;
 	
 	static{
 		//TODO : find a better method to implement the below tasks
-		String packageName = MXMLScriptRenderer.class.getPackage().getName();
+		String packageName = FlexScriptRenderer.class.getPackage().getName();
 		packageName = packageName.replace('.', '/');
-		MXML_SCRIPT_BODY_TEMPLATE = packageName + "/templates/MXMLScriptBody.template";
+		FLEX_SCRIPT_BODY_TEMPLATE = packageName + "/templates/FlexScriptBody.template";
 	}
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		
-		String bodyContent = writer.getComponentTemplate(MXMLScriptRenderer.class.getClassLoader(), 
-				MXML_SCRIPT_BODY_TEMPLATE);
+		String bodyContent = writer.getComponentTemplate(FlexScriptRenderer.class.getClassLoader(), FLEX_SCRIPT_BODY_TEMPLATE);
 
-		writer.createPreMxml(componentMXML, MXMLScriptRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		writer.createPreMxml(componentFlex, FlexScriptRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				bodyContent);
 		
 	}

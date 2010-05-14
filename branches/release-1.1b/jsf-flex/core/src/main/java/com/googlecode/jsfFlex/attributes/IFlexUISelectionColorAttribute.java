@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="selectionColor", returnType="java.lang.String", longDesc="The selectionColor of the drop-down list.")
 @JSFComponent
-public interface _MXMLUISelectionColorAttribute {
+public interface IFlexUISelectionColorAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="groupRowHeight", returnType="java.lang.String", longDesc="The height of the grouped row, in pixels.")
 @JSFComponent
-public interface _MXMLUIGroupRowHeightAttribute {
+public interface IFlexUIGroupRowHeightAttribute {
     
 }

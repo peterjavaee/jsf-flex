@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="groupingObjectFunction", returnType="java.lang.String", longDesc="A callback function to run on each group node to determine the grouping object.")
 @JSFComponent
-public interface _MXMLUIGroupingObjectFunctionAttribute {
+public interface IFlexUIGroupingObjectFunctionAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="invalidNumberError", returnType="java.lang.String", longDesc="Error message when the credit card number is invalid.")
 @JSFComponent
-public interface _MXMLUIInvalidNumberErrorAttribute {
+public interface IFlexUIInvalidNumberErrorAttribute {
     
 }

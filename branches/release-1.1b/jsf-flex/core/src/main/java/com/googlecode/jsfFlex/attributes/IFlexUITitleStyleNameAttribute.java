@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="titleStyleName", returnType="java.lang.String", longDesc="Style declaration name for the text in the title bar.")
 @JSFComponent
-public interface _MXMLUITitleStyleNameAttribute {
+public interface IFlexUITitleStyleNameAttribute {
     
 }

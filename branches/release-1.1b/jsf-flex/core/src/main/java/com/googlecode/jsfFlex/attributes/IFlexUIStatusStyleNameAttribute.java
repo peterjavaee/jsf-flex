@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="statusStyleName", returnType="java.lang.String", longDesc="Style declaration name for the status in the title bar.")
 @JSFComponent
-public interface _MXMLUIStatusStyleNameAttribute {
+public interface IFlexUIStatusStyleNameAttribute {
     
 }

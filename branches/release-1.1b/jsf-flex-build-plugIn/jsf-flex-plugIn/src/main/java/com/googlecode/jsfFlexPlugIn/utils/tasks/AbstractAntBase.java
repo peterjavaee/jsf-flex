@@ -26,12 +26,12 @@ import org.apache.tools.ant.Project;
 /**
  * @author Ji Hoon Kim
  */
-abstract class AntBase {
+abstract class AbstractAntBase {
 	
 	Project _taskProject;
 	private DefaultLogger _consoleLogger;
 	
-	AntBase(){
+    AbstractAntBase(){
 		super();
 		_taskProject = new Project();
 		_consoleLogger = new DefaultLogger();

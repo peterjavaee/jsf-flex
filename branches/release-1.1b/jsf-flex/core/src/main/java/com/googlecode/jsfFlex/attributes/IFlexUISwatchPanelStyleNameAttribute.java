@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="swatchPanelStyleName", returnType="java.lang.String", longDesc="Name of the class selector that defines style properties for the swatch panel.")
 @JSFComponent
-public interface _MXMLUISwatchPanelStyleNameAttribute {
+public interface IFlexUISwatchPanelStyleNameAttribute {
     
 }

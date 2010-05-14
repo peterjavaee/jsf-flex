@@ -34,11 +34,11 @@ import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.tasks.velocity.EvaluateTemplateTask;
 
 /**
- * A Velocity implementation of _FileManipulatorTaskRunner interface.<br>
+ * A Velocity implementation of AbstractFileManipulatorTaskRunner interface.<br>
  * 
  * @author Ji Hoon Kim
  */
-final class VelocityFileManipulatorTaskRunnerImpl extends _FileManipulatorTaskRunner {
+final class VelocityFileManipulatorTaskRunnerImpl extends AbstractFileManipulatorTaskRunner {
 	
 	private final static String JSF_FLEX_LOG_TAG = "jsf-flex";
 	private final static String JSF_FLEX_TEMPLATE = "jsf-flex-template.vm";

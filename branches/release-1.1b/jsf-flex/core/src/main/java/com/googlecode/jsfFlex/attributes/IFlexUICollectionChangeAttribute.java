@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="collectionChange", returnType="java.lang.String", longDesc="Dispatched when the ICollectionView has been updated in some way.")
 @JSFComponent
-public interface _MXMLUICollectionChangeAttribute {
+public interface IFlexUICollectionChangeAttribute {
     
 }

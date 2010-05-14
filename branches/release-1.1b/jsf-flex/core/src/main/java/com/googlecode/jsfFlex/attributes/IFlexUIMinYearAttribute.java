@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="minYear", returnType="java.lang.String", longDesc="The first year selectable in the control.")
 @JSFComponent
-public interface _MXMLUIMinYearAttribute {
+public interface IFlexUIMinYearAttribute {
     
 }

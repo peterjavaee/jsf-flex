@@ -20,23 +20,23 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIHtmlTextAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextAttribute;
-import com.googlecode.jsfFlex.component.MXMLUIOutputBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIHtmlTextAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUIOutputBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlLabel",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUILabel",
-        type                =   "com.googlecode.jsfFlex.MXMLUILabel",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUILabelTag",
-        family              =   "javax.faces.MXMLOutput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLLabel"
+        name                =   "jf:flexLabel",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUILabel",
+        type                =   "com.googlecode.jsfFlex.FlexUILabel",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUILabelTag",
+        family              =   "javax.faces.FlexOutput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexLabel"
 )
-public abstract class AbstractMXMLUILabel 
-						extends MXMLUIOutputBase 
-						implements _MXMLUILabelAttributes, _MXMLUIHtmlTextAttribute, _MXMLUITextAttribute {
+public abstract class AbstractFlexUILabel 
+						extends AbstractFlexUIOutputBase 
+						implements IFlexUILabelAttributes, IFlexUIHtmlTextAttribute, IFlexUITextAttribute {
 	
 }

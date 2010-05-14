@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="strokeWidth", returnType="java.lang.String", longDesc="The thickness of the rule in pixels.")
 @JSFComponent
-public interface _MXMLUIStrokeWidthAttribute {
+public interface IFlexUIStrokeWidthAttribute {
     
 }

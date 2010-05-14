@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="fontAntiAliasType", returnType="java.lang.String", longDesc="Sets the antiAliasType property of internal TextFields.")
 @JSFComponent
-public interface _MXMLUIFontAntiAliasTypeAttribute {
+public interface IFlexUIFontAntiAliasTypeAttribute {
     
 }

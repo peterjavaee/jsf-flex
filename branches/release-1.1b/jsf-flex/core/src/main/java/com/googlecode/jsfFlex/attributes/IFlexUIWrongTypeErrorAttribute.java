@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="wrongTypeError", returnType="java.lang.String", longDesc="Error message the cardType field contains an invalid credit card type.")
 @JSFComponent
-public interface _MXMLUIWrongTypeErrorAttribute {
+public interface IFlexUIWrongTypeErrorAttribute {
     
 }

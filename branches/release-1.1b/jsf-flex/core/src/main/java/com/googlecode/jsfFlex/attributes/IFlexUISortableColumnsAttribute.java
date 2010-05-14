@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="sortableColumns", returnType="java.lang.String", longDesc="A flag that indicates whether the user can sort the data provider items by clicking on a column header cell.")
 @JSFComponent
-public interface _MXMLUISortableColumnsAttribute {
+public interface IFlexUISortableColumnsAttribute {
     
 }

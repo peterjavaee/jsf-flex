@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="result", returnType="java.lang.String", longDesc="Dispatched when an HTTPService call returns successfully.")
 @JSFComponent
-public interface _MXMLUIResultAttribute {
+public interface IFlexUIResultAttribute {
     
 }

@@ -20,18 +20,18 @@ package com.googlecode.jsfFlex.container.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIChangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHistoryManagementEnabledAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalGapAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIResizeToContentAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalGapAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIChangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHistoryManagementEnabledAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalGapAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIResizeToContentAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalGapAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIViewStackAttributes 
-                extends _MXMLUIHistoryManagementEnabledAttribute, _MXMLUIResizeToContentAttribute, _MXMLUIHorizontalGapAttribute, 
-                _MXMLUIVerticalGapAttribute, _MXMLUIChangeAttribute, _MXMLUIContainerAttributes {
+interface IFlexUIViewStackAttributes 
+                extends IFlexUIHistoryManagementEnabledAttribute, IFlexUIResizeToContentAttribute, IFlexUIHorizontalGapAttribute, 
+                IFlexUIVerticalGapAttribute, IFlexUIChangeAttribute, IFlexUIContainerAttributes {
     
 }

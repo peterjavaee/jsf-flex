@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="tickLength", returnType="java.lang.String", longDesc="The length in pixels of the tick marks.")
 @JSFComponent
-public interface _MXMLUITickLengthAttribute {
+public interface IFlexUITickLengthAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="borderThicknessBottom", returnType="java.lang.String", longDesc="Thickness of the bottom border of the Panel control.")
 @JSFComponent
-public interface _MXMLUIBorderThicknessBottomAttribute {
+public interface IFlexUIBorderThicknessBottomAttribute {
     
 }

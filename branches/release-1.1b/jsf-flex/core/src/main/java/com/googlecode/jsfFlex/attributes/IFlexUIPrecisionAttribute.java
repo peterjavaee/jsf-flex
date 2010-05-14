@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="precision", returnType="java.lang.String", longDesc="Number of decimal places to include in the output String.")
 @JSFComponent
-public interface _MXMLUIPrecisionAttribute {
+public interface IFlexUIPrecisionAttribute {
     
 }

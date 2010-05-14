@@ -34,12 +34,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * @author Ji Hoon Kim
  */
-class JsfFlexResourceImpl extends JsfFlexResource {
+class JsfFlexResourceImpl extends AbstractJsfFlexResource {
 	
 	private static final Log _log = LogFactory.getLog(JsfFlexResourceImpl.class);
 	
@@ -140,10 +140,10 @@ class JsfFlexResourceImpl extends JsfFlexResource {
 			super();
 			_jsfFlexComponent = jsfFlexComponent;
 			_resourceName = resourceName;
-			int hashCodeVal = MXMLConstants.HASH_CODE_INIT_VALUE;
-			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _jsfFlexComponent.getPackage().getName().hashCode();
-			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _jsfFlexComponent.getName().hashCode();
-			hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _resourceName.hashCode();
+			int hashCodeVal = FlexConstants.HASH_CODE_INIT_VALUE;
+			hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _jsfFlexComponent.getPackage().getName().hashCode();
+			hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _jsfFlexComponent.getName().hashCode();
+			hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _resourceName.hashCode();
 			HASH_CODE_VAL = hashCodeVal;
 		}
 		

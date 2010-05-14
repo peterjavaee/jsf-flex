@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="autoLoad", returnType="java.lang.String", longDesc="If true, the content loads automatically.")
 @JSFComponent
-public interface _MXMLUIAutoLoadAttribute {
+public interface IFlexUIAutoLoadAttribute {
     
 }

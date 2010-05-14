@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="itemEditor", returnType="java.lang.String", longDesc="A class factory for the instances of the item editor to use for the column, when it is editable.")
 @JSFComponent
-public interface _MXMLUIItemEditorAttribute {
+public interface IFlexUIItemEditorAttribute {
     
 }

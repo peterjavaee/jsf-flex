@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="useDuration", returnType="java.lang.String", longDesc="If true, stop the effect after the time specified by the duration property has elapsed.")
 @JSFComponent
-public interface _MXMLUIUseDurationAttribute {
+public interface IFlexUIUseDurationAttribute {
     
 }

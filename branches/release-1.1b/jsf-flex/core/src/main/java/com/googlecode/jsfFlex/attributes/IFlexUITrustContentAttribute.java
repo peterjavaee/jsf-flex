@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="trustContent", returnType="java.lang.String", longDesc="If true, the content is loaded into your security domain.")
 @JSFComponent
-public interface _MXMLUITrustContentAttribute {
+public interface IFlexUITrustContentAttribute {
 
 }

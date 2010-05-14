@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="httpStatus", returnType="java.lang.String", longDesc="Dispatched when a network request is made over HTTP and Flash Player can detect the HTTP status code.")
 @JSFComponent
-public interface _MXMLUIHttpStatusAttribute {
+public interface IFlexUIHttpStatusAttribute {
     
 }

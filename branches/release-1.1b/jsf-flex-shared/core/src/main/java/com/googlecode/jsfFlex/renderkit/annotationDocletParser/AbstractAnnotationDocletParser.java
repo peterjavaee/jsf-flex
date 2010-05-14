@@ -23,20 +23,20 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 
 /**
  * @author Ji Hoon Kim
  */
-public abstract class _AnnotationDocletParser {
+public abstract class AbstractAnnotationDocletParser {
 	
 	static final String BY_ATTRIBUTE = "byAttribute";
 	
 	private Set<TokenValue> _tokenValueSet;
 	
-	_AnnotationDocletParser(){
+	AbstractAnnotationDocletParser(){
 		super();
 	}
 	
@@ -63,12 +63,12 @@ public abstract class _AnnotationDocletParser {
 	public abstract void mapComponentFields(Class mapClass, Object componentObj, 
 												String replaceMappingXML);
 	
-    enum MXML_MAPPER {
+    enum FLEX_MAPPER {
         
-        MXML_ATTRIBUTE_MAPPER {
+        FLEX_ATTRIBUTE_MAPPER {
             TokenValue mapField(String tokenName, Object componentObj) {
-                //this class must have Object passed in as a MXMLContract
-                _MXMLContract comp = _MXMLContract.class.cast( componentObj );
+                //this class must have Object passed in as a IFlexContract
+                IFlexContract comp = IFlexContract.class.cast( componentObj );
                 Map<String, Object> attributeMap = comp.getAttributes();
                 Object obj;
                 
@@ -80,7 +80,7 @@ public abstract class _AnnotationDocletParser {
             };
         },
         
-        MXML_METHOD_MAPPER {
+        FLEX_METHOD_MAPPER {
             
             TokenValue mapField(String tokenName, Object componentObj) {
                 

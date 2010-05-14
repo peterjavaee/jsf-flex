@@ -21,22 +21,22 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlSequence",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUISequence",
-        type                =   "com.googlecode.jsfFlex.MXMLUISequence",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUISequenceTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLSequence"
+        name                =   "jf:flexSequence",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUISequence",
+        type                =   "com.googlecode.jsfFlex.FlexUISequence",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUISequenceTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexSequence"
 )
-public abstract class AbstractMXMLUISequence 
-                                extends MXMLUISimpleBase 
-                                implements _MXMLUIEffectAttributes {
+public abstract class AbstractFlexUISequence 
+                                extends AbstractFlexUISimpleBase 
+                                implements IFlexUIEffectAttributes {
     
     /**
      * Id of the component.

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="disabledOverlayAlpha", returnType="java.lang.String", longDesc="The alpha value for the overlay that is placed on top of the container when it is disabled.")
 @JSFComponent
-public interface _MXMLUIDisabledOverlayAlphaAttribute {
+public interface IFlexUIDisabledOverlayAlphaAttribute {
     
 }

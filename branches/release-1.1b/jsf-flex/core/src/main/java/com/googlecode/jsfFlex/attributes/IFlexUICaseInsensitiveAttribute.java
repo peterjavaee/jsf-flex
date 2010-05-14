@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="caseInsensitive", returnType="java.lang.String", longDesc="Set to true if the sort for this field should be case-insensitive.")
 @JSFComponent
-public interface _MXMLUICaseInsensitiveAttribute {
+public interface IFlexUICaseInsensitiveAttribute {
     
 }

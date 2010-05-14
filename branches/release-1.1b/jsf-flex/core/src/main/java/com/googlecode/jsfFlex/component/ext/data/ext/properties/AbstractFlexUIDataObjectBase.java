@@ -32,7 +32,7 @@ import com.googlecode.jsfFlex.shared.util.ReflectionHelperUtil;
 /**
  * @author Ji Hoon Kim
  */
-public abstract class MXMLUIDataObjectBase 
+public abstract class AbstractFlexUIDataObjectBase 
 						extends UIComponentBase {
 	
 	private List<? super UIComponent> subComponentPropertyList;
@@ -43,8 +43,8 @@ public abstract class MXMLUIDataObjectBase
 		
 		for(UIComponent currChild : getChildren()){
 			
-			if(!(currChild instanceof MXMLUIDynamicPropertyBase || 
-					currChild instanceof MXMLUIStaticPropertyBase)){
+			if(!(currChild instanceof FlexUIDynamicPropertyBase || 
+					currChild instanceof FlexUIStaticPropertyBase)){
 				currChild.encodeBegin(context);
 				currChild.encodeChildren(context);
 				currChild.encodeEnd(context);
@@ -76,8 +76,8 @@ public abstract class MXMLUIDataObjectBase
 		
 		StringBuilder property = new StringBuilder();
 		
-		if(currProperty instanceof MXMLUIDynamicPropertyBase){
-			MXMLUIDynamicPropertyBase currDynamicProperty = MXMLUIDynamicPropertyBase.class.cast( currProperty );
+		if(currProperty instanceof FlexUIDynamicPropertyBase){
+			FlexUIDynamicPropertyBase currDynamicProperty = FlexUIDynamicPropertyBase.class.cast( currProperty );
 			
 			String propertyName = currDynamicProperty.getProperty();
 			String propertyMethodName = currDynamicProperty.getPropertyMethodName();
@@ -95,8 +95,8 @@ public abstract class MXMLUIDataObjectBase
 				throw new ComponentBuildException("Exception was triggered while invoking " + propertyMethodName, reflectionException);
 			}
 			
-		}else if(currProperty instanceof MXMLUIStaticPropertyBase){
-			MXMLUIStaticPropertyBase currStaticProperty = MXMLUIStaticPropertyBase.class.cast( currProperty );
+		}else if(currProperty instanceof FlexUIStaticPropertyBase){
+			FlexUIStaticPropertyBase currStaticProperty = FlexUIStaticPropertyBase.class.cast( currProperty );
 			
 			property.append(" ");
 			property.append(currStaticProperty.getStaticPropertyName());
@@ -114,8 +114,8 @@ public abstract class MXMLUIDataObjectBase
 			subComponentPropertyList = new LinkedList<UIComponent>();
 			
 			for(UIComponent currInstance : getChildren()){
-				if(currInstance instanceof MXMLUIDynamicPropertyBase || 
-						currInstance instanceof MXMLUIStaticPropertyBase){
+				if(currInstance instanceof FlexUIDynamicPropertyBase || 
+						currInstance instanceof FlexUIStaticPropertyBase){
 					subComponentPropertyList.add(currInstance);
 				}
 			}

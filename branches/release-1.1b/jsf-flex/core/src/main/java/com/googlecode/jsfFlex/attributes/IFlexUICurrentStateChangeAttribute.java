@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="currentStateChange", returnType="java.lang.String", longDesc="Dispatched after the view state has changed.")
 @JSFComponent
-public interface _MXMLUICurrentStateChangeAttribute {
+public interface IFlexUICurrentStateChangeAttribute {
     
 }

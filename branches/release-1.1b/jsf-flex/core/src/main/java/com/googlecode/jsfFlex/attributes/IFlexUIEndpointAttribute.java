@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="endpoint", returnType="java.lang.String", longDesc="This property allows the developer to quickly specify an endpoint for a RemoteObject destination without referring to a services configuration file at compile time or programmatically creating a ChannelSet.")
 @JSFComponent
-public interface _MXMLUIEndpointAttribute {
+public interface IFlexUIEndpointAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="shadowDistance", returnType="java.lang.String", longDesc="Distance of the drop shadow.")
 @JSFComponent
-public interface _MXMLUIShadowDistanceAttribute {
+public interface IFlexUIShadowDistanceAttribute {
     
 }

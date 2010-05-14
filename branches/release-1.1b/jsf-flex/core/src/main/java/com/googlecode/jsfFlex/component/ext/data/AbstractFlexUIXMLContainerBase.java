@@ -21,13 +21,13 @@ package com.googlecode.jsfFlex.component.ext.data;
 /**
  * @author Ji Hoon Kim
  */
-public abstract class MXMLUIXMLContainerBase 
-						extends MXMLUIDataContainerBase {
+public abstract class AbstractFlexUIXMLContainerBase 
+						extends AbstractFlexUIDataContainerBase {
 	
-	public static final String CURR_MXML_UI_XML_CONTAINER_KEY = "currMXMLUIXMLContainerKey";
+	public static final String CURR_FLEX_UI_XML_CONTAINER_KEY = "currFlexUIXMLContainerKey";
 	
 	protected String getTemporaryMapDataContainerKey(){
-		return CURR_MXML_UI_XML_CONTAINER_KEY;
+		return CURR_FLEX_UI_XML_CONTAINER_KEY;
 	}
 	
 }

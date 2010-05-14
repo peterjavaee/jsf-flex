@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="strokeColor", returnType="java.lang.String", longDesc="The color of the line.")
 @JSFComponent
-public interface _MXMLUIStrokeColorAttribute {
+public interface IFlexUIStrokeColorAttribute {
     
 }

@@ -20,26 +20,26 @@ package com.googlecode.jsfFlex.effects.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFadeInDurationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFadeOutDurationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMoveDurationAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFadeInDurationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFadeOutDurationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMoveDurationAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlDefaultTileListEffect",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIDefaultTileListEffect",
-        type                =   "com.googlecode.jsfFlex.MXMLUIDefaultTileListEffect",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIDefaultTileListEffectTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLDefaultTileListEffect"
+        name                =   "jf:flexDefaultTileListEffect",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIDefaultTileListEffect",
+        type                =   "com.googlecode.jsfFlex.FlexUIDefaultTileListEffect",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIDefaultTileListEffectTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexDefaultTileListEffect"
 )
-public abstract class AbstractMXMLUIDefaultTileListEffect 
-                            extends MXMLUISimpleBase 
-                            implements _MXMLUIParallelAttributes, _MXMLUIColorAttribute, _MXMLUIFadeInDurationAttribute, 
-                            _MXMLUIFadeOutDurationAttribute, _MXMLUIMoveDurationAttribute {
+public abstract class AbstractFlexUIDefaultTileListEffect 
+                            extends AbstractFlexUISimpleBase 
+                            implements IFlexUIParallelAttributes, IFlexUIColorAttribute, IFlexUIFadeInDurationAttribute, 
+                            IFlexUIFadeOutDurationAttribute, IFlexUIMoveDurationAttribute {
     
 }

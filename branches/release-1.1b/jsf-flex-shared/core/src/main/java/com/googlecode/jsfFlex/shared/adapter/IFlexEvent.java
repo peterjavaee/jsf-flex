@@ -23,7 +23,7 @@ import java.util.EnumSet;
 /**
  * @author Ji Hoon Kim
  */
-public interface _MXMLEvent {
+public interface IFlexEvent {
     
     public enum EVENT_HANDLER_TYPE {
         SUBMIT_FORM_EVENT_HANDLER("SubmitFormEventHandler", EnumSet.of(ACTION_SCRIPT_IMPORT.SUBMIT_FORM_EVENT_HANDLER_AS, 

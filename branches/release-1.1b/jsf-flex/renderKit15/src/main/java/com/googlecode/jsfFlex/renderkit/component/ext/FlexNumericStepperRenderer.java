@@ -25,26 +25,26 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLInput",
-		type="com.googlecode.jsfFlex.MXMLNumericStepper"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexInput",
+		type="com.googlecode.jsfFlex.FlexNumericStepper"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="NumericStepper",
-		mxmlComponentPackage="mx.controls",
-		mxmlComponentNodeAttributes={
-				@FlexComponentNodeAttribute(
+@IJsfFlexAttributeProperties(
+		componentName="NumericStepper",
+		componentPackage="mx.controls",
+		componentNodeAttributes={
+				@IFlexComponentNodeAttribute(
 						htmlType="input",
 						typeAttributeValue="hidden",
 						valueAttributeValue="value",
@@ -57,69 +57,69 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="imeMode"),
-				@JsfFlexAttribute(attribute="maxChars"),
-				@JsfFlexAttribute(attribute="maximum"),
-				@JsfFlexAttribute(attribute="minimum"),
-				@JsfFlexAttribute(attribute="stepSize"),
-                @JsfFlexAttribute(attribute="backgroundAlpha"),
-				@JsfFlexAttribute(attribute="backgroundColor"),
-				@JsfFlexAttribute(attribute="backgroundImage"),
-				@JsfFlexAttribute(attribute="backgroundSize"),
-				@JsfFlexAttribute(attribute="borderCapColor"),
-				@JsfFlexAttribute(attribute="borderColor"),
-				@JsfFlexAttribute(attribute="borderSides"),
-				@JsfFlexAttribute(attribute="borderSkin"),
-				@JsfFlexAttribute(attribute="borderStyle"),
-				@JsfFlexAttribute(attribute="borderThickness"),
-				@JsfFlexAttribute(attribute="color"),
-				@JsfFlexAttribute(attribute="cornerRadius"),
-				@JsfFlexAttribute(attribute="disabledColor"),
-				@JsfFlexAttribute(attribute="downArrowDisabledSkin"),
-				@JsfFlexAttribute(attribute="downArrowDownSkin"),
-				@JsfFlexAttribute(attribute="downArrowOverSkin"),
-				@JsfFlexAttribute(attribute="downArrowUpSkin"),
-				@JsfFlexAttribute(attribute="dropShadowEnabled"),
-				@JsfFlexAttribute(attribute="dropShadowColor"),
-				@JsfFlexAttribute(attribute="focusAlpha"),
-				@JsfFlexAttribute(attribute="focusRoundedCorners"),
-				@JsfFlexAttribute(attribute="fontAntiAliasType"),
-				@JsfFlexAttribute(attribute="fontFamily"),
-				@JsfFlexAttribute(attribute="fontGridFitType"),
-				@JsfFlexAttribute(attribute="fontSharpness"),
-				@JsfFlexAttribute(attribute="fontSize"),
-				@JsfFlexAttribute(attribute="fontStyle"),
-				@JsfFlexAttribute(attribute="fontThickness"),
-				@JsfFlexAttribute(attribute="fontWeight"),
-				@JsfFlexAttribute(attribute="highlightAlphas"),
-                @JsfFlexAttribute(attribute="iconColor"),
-                @JsfFlexAttribute(attribute="leading"),
-				@JsfFlexAttribute(attribute="paddingLeft"),
-				@JsfFlexAttribute(attribute="paddingRight"),
-				@JsfFlexAttribute(attribute="shadowDirection"),
-				@JsfFlexAttribute(attribute="shadowDistance"),
-				@JsfFlexAttribute(attribute="textAlign"),
-				@JsfFlexAttribute(attribute="textDecoration"),
-				@JsfFlexAttribute(attribute="textIndent"),
-				@JsfFlexAttribute(attribute="upArrowDisabledSkin"),
-				@JsfFlexAttribute(attribute="upArrowDownSkin"),
-				@JsfFlexAttribute(attribute="upArrowOverSkin"),
-				@JsfFlexAttribute(attribute="upArrowUpSkin"),
-				@JsfFlexAttribute(attribute="change"),
-				@JsfFlexAttribute(attribute="dataChange")
+				@IJsfFlexAttribute(attribute="imeMode"),
+				@IJsfFlexAttribute(attribute="maxChars"),
+				@IJsfFlexAttribute(attribute="maximum"),
+				@IJsfFlexAttribute(attribute="minimum"),
+				@IJsfFlexAttribute(attribute="stepSize"),
+                @IJsfFlexAttribute(attribute="backgroundAlpha"),
+				@IJsfFlexAttribute(attribute="backgroundColor"),
+				@IJsfFlexAttribute(attribute="backgroundImage"),
+				@IJsfFlexAttribute(attribute="backgroundSize"),
+				@IJsfFlexAttribute(attribute="borderCapColor"),
+				@IJsfFlexAttribute(attribute="borderColor"),
+				@IJsfFlexAttribute(attribute="borderSides"),
+				@IJsfFlexAttribute(attribute="borderSkin"),
+				@IJsfFlexAttribute(attribute="borderStyle"),
+				@IJsfFlexAttribute(attribute="borderThickness"),
+				@IJsfFlexAttribute(attribute="color"),
+				@IJsfFlexAttribute(attribute="cornerRadius"),
+				@IJsfFlexAttribute(attribute="disabledColor"),
+				@IJsfFlexAttribute(attribute="downArrowDisabledSkin"),
+				@IJsfFlexAttribute(attribute="downArrowDownSkin"),
+				@IJsfFlexAttribute(attribute="downArrowOverSkin"),
+				@IJsfFlexAttribute(attribute="downArrowUpSkin"),
+				@IJsfFlexAttribute(attribute="dropShadowEnabled"),
+				@IJsfFlexAttribute(attribute="dropShadowColor"),
+				@IJsfFlexAttribute(attribute="focusAlpha"),
+				@IJsfFlexAttribute(attribute="focusRoundedCorners"),
+				@IJsfFlexAttribute(attribute="fontAntiAliasType"),
+				@IJsfFlexAttribute(attribute="fontFamily"),
+				@IJsfFlexAttribute(attribute="fontGridFitType"),
+				@IJsfFlexAttribute(attribute="fontSharpness"),
+				@IJsfFlexAttribute(attribute="fontSize"),
+				@IJsfFlexAttribute(attribute="fontStyle"),
+				@IJsfFlexAttribute(attribute="fontThickness"),
+				@IJsfFlexAttribute(attribute="fontWeight"),
+				@IJsfFlexAttribute(attribute="highlightAlphas"),
+                @IJsfFlexAttribute(attribute="iconColor"),
+                @IJsfFlexAttribute(attribute="leading"),
+				@IJsfFlexAttribute(attribute="paddingLeft"),
+				@IJsfFlexAttribute(attribute="paddingRight"),
+				@IJsfFlexAttribute(attribute="shadowDirection"),
+				@IJsfFlexAttribute(attribute="shadowDistance"),
+				@IJsfFlexAttribute(attribute="textAlign"),
+				@IJsfFlexAttribute(attribute="textDecoration"),
+				@IJsfFlexAttribute(attribute="textIndent"),
+				@IJsfFlexAttribute(attribute="upArrowDisabledSkin"),
+				@IJsfFlexAttribute(attribute="upArrowDownSkin"),
+				@IJsfFlexAttribute(attribute="upArrowOverSkin"),
+				@IJsfFlexAttribute(attribute="upArrowUpSkin"),
+				@IJsfFlexAttribute(attribute="change"),
+				@IJsfFlexAttribute(attribute="dataChange")
 		}
 )
-public final class MXMLNumericStepperRenderer extends MXMLComponentRenderer {
+public final class FlexNumericStepperRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLNumericStepperRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLNumericStepperRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexNumericStepperRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexNumericStepperRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="maxHorizontalScrollPosition", returnType="java.lang.String", longDesc="The maximum value for the horizontalScrollPosition property.")
 @JSFComponent
-public interface _MXMLUIMaxHorizontalScrollPositionAttribute {
+public interface IFlexUIMaxHorizontalScrollPositionAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="yearSource", returnType="java.lang.String", longDesc="Object that contains the value of the year field.")
 @JSFComponent
-public interface _MXMLUIYearSourceAttribute {
+public interface IFlexUIYearSourceAttribute {
     
 }

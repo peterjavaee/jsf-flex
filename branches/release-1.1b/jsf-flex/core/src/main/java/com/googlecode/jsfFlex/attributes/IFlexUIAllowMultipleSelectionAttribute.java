@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="allowMultipleSelection", returnType="java.lang.String", longDesc="A flag that indicates whether you can allow more than one item to be selected at the same time.")
 @JSFComponent
-public interface _MXMLUIAllowMultipleSelectionAttribute {
+public interface IFlexUIAllowMultipleSelectionAttribute {
 	
 }

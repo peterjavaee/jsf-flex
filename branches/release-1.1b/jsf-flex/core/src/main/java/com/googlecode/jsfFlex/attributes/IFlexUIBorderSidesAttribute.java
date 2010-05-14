@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="borderSides", returnType="java.lang.String", longDesc="Bounding box sides. A space-delimited String that specifies the sides of the border to show.")
 @JSFComponent
-public interface _MXMLUIBorderSidesAttribute {
+public interface IFlexUIBorderSidesAttribute {
     
 }

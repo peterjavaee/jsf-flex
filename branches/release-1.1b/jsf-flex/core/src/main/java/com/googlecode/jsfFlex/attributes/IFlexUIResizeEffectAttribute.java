@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="resizeEffect", returnType="java.lang.String", longDesc="Played when the component is resized.")
 @JSFComponent
-public interface _MXMLUIResizeEffectAttribute {
+public interface IFlexUIResizeEffectAttribute {
     
 }

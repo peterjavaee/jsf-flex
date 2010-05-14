@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="toggleOnClick", returnType="java.lang.String", longDesc="Specifies whether the currently selected button can be deselected by the user.")
 @JSFComponent
-public interface _MXMLUIToggleOnClickAttribute {
+public interface IFlexUIToggleOnClickAttribute {
 	
 }

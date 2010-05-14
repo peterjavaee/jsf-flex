@@ -20,42 +20,42 @@ package com.googlecode.jsfFlex.validator.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIAllowedFormatCharsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICardNumberListenerAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICardNumberPropertyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICardNumberSourceAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICardTypeListenerAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICardTypePropertyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICardTypeSourceAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIInvalidCharErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIInvalidNumberErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUINoNumErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUINoTypeErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIWrongLengthErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIWrongTypeErrorAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIAllowedFormatCharsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICardNumberListenerAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICardNumberPropertyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICardNumberSourceAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICardTypeListenerAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICardTypePropertyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICardTypeSourceAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIInvalidCharErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIInvalidNumberErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUINoNumErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUINoTypeErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIWrongLengthErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIWrongTypeErrorAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
- * One thing to note about MXML Formatter and Validator is that they are not actually converters or validators<br>
+ * One thing to note about Flex Formatter and Validator is that they are not actually converters or validators<br>
  * respectively but actually are components. This is so because they perform the formatting and validation<br>
  * as Flex components on the client side and not on the server side.<br>
  * 	
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlCreditCardValidator",
-        clazz               =   "com.googlecode.jsfFlex.validator.ext.MXMLUICreditCardValidator",
-        type                =   "com.googlecode.jsfFlex.MXMLUICreditCardValidator",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.validator.ext.MXMLUICreditCardValidatorTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLCreditCardValidator"
+        name                =   "jf:flexCreditCardValidator",
+        clazz               =   "com.googlecode.jsfFlex.validator.ext.FlexUICreditCardValidator",
+        type                =   "com.googlecode.jsfFlex.FlexUICreditCardValidator",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.validator.ext.FlexUICreditCardValidatorTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexCreditCardValidator"
 )
-public abstract class AbstractMXMLUICreditCardValidator 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIValidatorAttributes, _MXMLUIAllowedFormatCharsAttribute, _MXMLUICardNumberListenerAttribute, 
-                        _MXMLUICardNumberPropertyAttribute, _MXMLUICardNumberSourceAttribute, _MXMLUICardTypeListenerAttribute, 
-                        _MXMLUICardTypePropertyAttribute, _MXMLUICardTypeSourceAttribute, _MXMLUIInvalidCharErrorAttribute, 
-                        _MXMLUIInvalidNumberErrorAttribute, _MXMLUINoNumErrorAttribute, _MXMLUINoTypeErrorAttribute, 
-                        _MXMLUIWrongLengthErrorAttribute, _MXMLUIWrongTypeErrorAttribute {
+public abstract class AbstractFlexUICreditCardValidator 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIValidatorAttributes, IFlexUIAllowedFormatCharsAttribute, IFlexUICardNumberListenerAttribute, 
+                        IFlexUICardNumberPropertyAttribute, IFlexUICardNumberSourceAttribute, IFlexUICardTypeListenerAttribute, 
+                        IFlexUICardTypePropertyAttribute, IFlexUICardTypeSourceAttribute, IFlexUIInvalidCharErrorAttribute, 
+                        IFlexUIInvalidNumberErrorAttribute, IFlexUINoNumErrorAttribute, IFlexUINoTypeErrorAttribute, 
+                        IFlexUIWrongLengthErrorAttribute, IFlexUIWrongTypeErrorAttribute {
 	
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="summaries", returnType="java.lang.String", longDesc="Array of SummaryRow instances that define any root-level data summaries.")
 @JSFComponent
-public interface _MXMLUISummariesAttribute {
+public interface IFlexUISummariesAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="decimalSeparator", returnType="java.lang.String", longDesc="The character used to separate the whole from the fractional part of the number.")
 @JSFComponent
-public interface _MXMLUIDecimalSeparatorAttribute {
+public interface IFlexUIDecimalSeparatorAttribute {
     
 }

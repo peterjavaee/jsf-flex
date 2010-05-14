@@ -21,32 +21,32 @@ package com.googlecode.jsfFlex.component.ext.service.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIConcurrencyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDestinationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEndpointAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFaultAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMakeObjectsBindableAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIResultAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShowBusyCursorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISourceAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIConcurrencyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDestinationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEndpointAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFaultAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMakeObjectsBindableAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIResultAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShowBusyCursorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISourceAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
         name                =   "jf:mxmlRemoteObject",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.service.ext.MXMLUIRemoteObject",
-        type                =   "com.googlecode.jsfFlex.MXMLUIRemoteObject",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.service.ext.MXMLUIRemoteObjectTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLRemoteObject"
+        clazz               =   "com.googlecode.jsfFlex.component.ext.service.ext.FlexUIRemoteObject",
+        type                =   "com.googlecode.jsfFlex.FlexUIRemoteObject",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.service.ext.FlexUIRemoteObjectTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexRemoteObject"
 )
-public abstract class AbstractMXMLUIRemoteObject 
-						extends MXMLUISimpleBase 
-                        implements _MXMLUIConcurrencyAttribute, _MXMLUIDestinationAttribute, _MXMLUIEndpointAttribute, 
-                        _MXMLUIShowBusyCursorAttribute, _MXMLUISourceAttribute, _MXMLUIMakeObjectsBindableAttribute, 
-                        _MXMLUIFaultAttribute, _MXMLUIResultAttribute {
+public abstract class AbstractFlexUIRemoteObject 
+						extends AbstractFlexUISimpleBase 
+                        implements IFlexUIConcurrencyAttribute, IFlexUIDestinationAttribute, IFlexUIEndpointAttribute, 
+                        IFlexUIShowBusyCursorAttribute, IFlexUISourceAttribute, IFlexUIMakeObjectsBindableAttribute, 
+                        IFlexUIFaultAttribute, IFlexUIResultAttribute {
     
     /**
      * Id of the component.

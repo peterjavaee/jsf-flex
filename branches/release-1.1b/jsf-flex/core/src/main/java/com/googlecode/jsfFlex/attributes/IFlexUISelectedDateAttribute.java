@@ -27,7 +27,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface _MXMLUISelectedDateAttribute {
+public interface IFlexUISelectedDateAttribute {
     
     /**
      * Date selected in the control.

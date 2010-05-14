@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="popUpDownSkin", returnType="java.lang.String", longDesc="Skin class for the popUpDown state (when arrowButton is in down state) of the background and border.")
 @JSFComponent
-public interface _MXMLUIPopUpDownSkinAttribute {
+public interface IFlexUIPopUpDownSkinAttribute {
     
 }

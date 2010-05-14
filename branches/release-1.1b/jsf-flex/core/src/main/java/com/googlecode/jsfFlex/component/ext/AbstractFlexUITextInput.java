@@ -20,83 +20,83 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundAlphaAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundImageAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundSizeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderSidesAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderStyleAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderThicknessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIChangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICondenseWhiteAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICornerRadiusAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataChangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisplayAsPasswordAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDropShadowColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDropShadowEnabledAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditableAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEnterAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontAntiAliasTypeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontGridFitTypeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSharpnessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSizeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontStyleAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontThicknessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontWeightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalScrollPositionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIImeModeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIListDataAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMaxCharsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingLeftAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingRightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRestrictAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectionBeginIndexAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectionEndIndexAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShadowDirectionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShadowDistanceAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextAlignAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextDecorationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextIndentAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextInputAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundAlphaAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundImageAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderSidesAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderStyleAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderThicknessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIChangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICondenseWhiteAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICornerRadiusAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataChangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisabledColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisplayAsPasswordAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDropShadowColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDropShadowEnabledAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEnterAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusAlphaAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusRoundedCornersAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontAntiAliasTypeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontFamilyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontGridFitTypeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontSharpnessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontStyleAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontThicknessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontWeightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalScrollPositionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIImeModeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIListDataAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMaxCharsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingLeftAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingRightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRestrictAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectionBeginIndexAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectionEndIndexAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShadowDirectionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShadowDistanceAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextAlignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextDecorationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextIndentAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextInputAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlTextInput",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUITextInput",
-        type                =   "com.googlecode.jsfFlex.MXMLUITextInput",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUITextInputTag",
-        family              =   "javax.faces.MXMLInput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLTextInput",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+        name                =   "jf:flexTextInput",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUITextInput",
+        type                =   "com.googlecode.jsfFlex.FlexUITextInput",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUITextInputTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexTextInput",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
 )
-public abstract class AbstractMXMLUITextInput 
-						extends com.googlecode.jsfFlex.component.MXMLUIHtmlTextInputBase
-						implements _MXMLUIBaseAttributes, _MXMLUICondenseWhiteAttribute, _MXMLUIDataAttribute, 
-                        _MXMLUIDisplayAsPasswordAttribute, _MXMLUIEditableAttribute, _MXMLUIHorizontalScrollPositionAttribute, 
-                        _MXMLUIImeModeAttribute, _MXMLUIListDataAttribute, _MXMLUIMaxCharsAttribute, _MXMLUIRestrictAttribute, 
-                        _MXMLUISelectionBeginIndexAttribute, _MXMLUISelectionEndIndexAttribute, _MXMLUIBackgroundAlphaAttribute, 
-                        _MXMLUIBackgroundColorAttribute, _MXMLUIBackgroundImageAttribute, _MXMLUIBackgroundSizeAttribute, 
-                        _MXMLUIBorderColorAttribute, _MXMLUIBorderSidesAttribute, _MXMLUIBorderSkinAttribute, 
-                        _MXMLUIBorderStyleAttribute, _MXMLUIBorderThicknessAttribute, _MXMLUIColorAttribute, 
-                        _MXMLUICornerRadiusAttribute, _MXMLUIDisabledColorAttribute, _MXMLUIDropShadowColorAttribute, 
-                        _MXMLUIDropShadowEnabledAttribute, _MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, 
-                        _MXMLUIFontAntiAliasTypeAttribute, _MXMLUIFontFamilyAttribute, _MXMLUIFontGridFitTypeAttribute, 
-                        _MXMLUIFontSharpnessAttribute, _MXMLUIFontSizeAttribute, _MXMLUIFontStyleAttribute, 
-                        _MXMLUIFontThicknessAttribute, _MXMLUIFontWeightAttribute, _MXMLUIPaddingLeftAttribute, 
-                        _MXMLUIPaddingRightAttribute, _MXMLUIShadowDirectionAttribute, _MXMLUIShadowDistanceAttribute, 
-                        _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, 
-                        _MXMLUIChangeAttribute, _MXMLUIDataChangeAttribute, _MXMLUIEnterAttribute, 
-                        _MXMLUITextInputAttribute {
+public abstract class AbstractFlexUITextInput 
+						extends com.googlecode.jsfFlex.component.FlexUIHtmlTextInputBase
+						implements IFlexUIBaseAttributes, IFlexUICondenseWhiteAttribute, IFlexUIDataAttribute, 
+                        IFlexUIDisplayAsPasswordAttribute, IFlexUIEditableAttribute, IFlexUIHorizontalScrollPositionAttribute, 
+                        IFlexUIImeModeAttribute, IFlexUIListDataAttribute, IFlexUIMaxCharsAttribute, IFlexUIRestrictAttribute, 
+                        IFlexUISelectionBeginIndexAttribute, IFlexUISelectionEndIndexAttribute, IFlexUIBackgroundAlphaAttribute, 
+                        IFlexUIBackgroundColorAttribute, IFlexUIBackgroundImageAttribute, IFlexUIBackgroundSizeAttribute, 
+                        IFlexUIBorderColorAttribute, IFlexUIBorderSidesAttribute, IFlexUIBorderSkinAttribute, 
+                        IFlexUIBorderStyleAttribute, IFlexUIBorderThicknessAttribute, IFlexUIColorAttribute, 
+                        IFlexUICornerRadiusAttribute, IFlexUIDisabledColorAttribute, IFlexUIDropShadowColorAttribute, 
+                        IFlexUIDropShadowEnabledAttribute, IFlexUIFocusAlphaAttribute, IFlexUIFocusRoundedCornersAttribute, 
+                        IFlexUIFontAntiAliasTypeAttribute, IFlexUIFontFamilyAttribute, IFlexUIFontGridFitTypeAttribute, 
+                        IFlexUIFontSharpnessAttribute, IFlexUIFontSizeAttribute, IFlexUIFontStyleAttribute, 
+                        IFlexUIFontThicknessAttribute, IFlexUIFontWeightAttribute, IFlexUIPaddingLeftAttribute, 
+                        IFlexUIPaddingRightAttribute, IFlexUIShadowDirectionAttribute, IFlexUIShadowDistanceAttribute, 
+                        IFlexUITextAlignAttribute, IFlexUITextDecorationAttribute, IFlexUITextIndentAttribute, 
+                        IFlexUIChangeAttribute, IFlexUIDataChangeAttribute, IFlexUIEnterAttribute, 
+                        IFlexUITextInputAttribute {
 	
 }

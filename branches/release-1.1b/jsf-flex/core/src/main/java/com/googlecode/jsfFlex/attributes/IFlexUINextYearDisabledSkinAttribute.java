@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="nextYearDisabledSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the next year arrow when the arrow is disabled.")
 @JSFComponent
-public interface _MXMLUINextYearDisabledSkinAttribute {
+public interface IFlexUINextYearDisabledSkinAttribute {
     
 }

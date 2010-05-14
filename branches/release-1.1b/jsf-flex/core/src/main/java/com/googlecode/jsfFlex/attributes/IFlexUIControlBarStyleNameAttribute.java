@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="controlBarStyleName", returnType="java.lang.String", longDesc="Name of the CSS style declaration that specifies styles to apply to any control bar child subcontrol.")
 @JSFComponent
-public interface _MXMLUIControlBarStyleNameAttribute {
+public interface IFlexUIControlBarStyleNameAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="errorColor", returnType="java.lang.String", longDesc="Color of the component highlight when validation fails.")
 @JSFComponent
-public interface _MXMLUIErrorColorAttribute {
+public interface IFlexUIErrorColorAttribute {
     
 }

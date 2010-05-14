@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="viewSourceURL", returnType="java.lang.String", longDesc="URL where the application's source can be viewed.")
 @JSFComponent
-public interface _MXMLUIViewSourceURLAttribute {
+public interface IFlexUIViewSourceURLAttribute {
     
 }

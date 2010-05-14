@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="targets", returnType="java.lang.String", longDesc="An Array of target.")
 @JSFComponent
-public interface _MXMLUITargetsAttribute {
+public interface IFlexUITargetsAttribute {
     
 }

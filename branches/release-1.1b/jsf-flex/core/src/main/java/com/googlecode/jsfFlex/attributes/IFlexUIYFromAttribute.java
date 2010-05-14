@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="yFrom", returnType="java.lang.String", longDesc="Initial position's y coordinate for mask.")
 @JSFComponent
-public interface _MXMLUIYFromAttribute {
+public interface IFlexUIYFromAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="stateChange", returnType="java.lang.String", longDesc="Dispatched when the state of the control changes.")
 @JSFComponent
-public interface _MXMLUIStateChangeAttribute {
+public interface IFlexUIStateChangeAttribute {
     
 }

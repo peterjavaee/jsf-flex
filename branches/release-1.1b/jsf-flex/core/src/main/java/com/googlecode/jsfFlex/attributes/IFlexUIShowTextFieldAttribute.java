@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="showTextField", returnType="java.lang.String", longDesc="Specifies whether to show the text box that displays the color label or hexadecimal color value.")
 @JSFComponent
-public interface _MXMLUIShowTextFieldAttribute {
+public interface IFlexUIShowTextFieldAttribute {
     
 }

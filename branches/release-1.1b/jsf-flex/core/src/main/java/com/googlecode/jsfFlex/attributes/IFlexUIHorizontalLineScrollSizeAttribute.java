@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="horizontalLineScrollSize", returnType="java.lang.String", longDesc="Number of pixels to move when the left- or right-arrow button in the horizontalscroll bar is pressed.")
 @JSFComponent
-public interface _MXMLUIHorizontalLineScrollSizeAttribute {
+public interface IFlexUIHorizontalLineScrollSizeAttribute {
     
 }

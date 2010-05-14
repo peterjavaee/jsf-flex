@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="hide", returnType="java.lang.String", longDesc="Dispatched when an object's state changes from visible to invisible.")
 @JSFComponent
-public interface _MXMLUIHideAttribute {
+public interface IFlexUIHideAttribute {
 	
 }

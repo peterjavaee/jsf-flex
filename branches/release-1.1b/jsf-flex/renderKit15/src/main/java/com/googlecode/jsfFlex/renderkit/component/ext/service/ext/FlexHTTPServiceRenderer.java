@@ -25,52 +25,52 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentBaseRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLSimple",
-		type="com.googlecode.jsfFlex.MXMLHTTPService"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexSimple",
+		type="com.googlecode.jsfFlex.FlexHTTPService"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="HTTPService",
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentName="HTTPService",
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="concurrency"),
-				@JsfFlexAttribute(attribute="contentType"),
-				@JsfFlexAttribute(attribute="destination"),
-				@JsfFlexAttribute(attribute="id", byMethod=true),
-				@JsfFlexAttribute(attribute="method"),
-				@JsfFlexAttribute(attribute="resultFormat"),
-				@JsfFlexAttribute(attribute="showBusyCursor"),
-				@JsfFlexAttribute(attribute="makeObjectsBindable"),
-				@JsfFlexAttribute(attribute="url"),
-				@JsfFlexAttribute(attribute="useProxy"),
-				@JsfFlexAttribute(attribute="xmlEncode"),
-				@JsfFlexAttribute(attribute="xmlDecode"),
-				@JsfFlexAttribute(attribute="fault"),
-				@JsfFlexAttribute(attribute="result")
+				@IJsfFlexAttribute(attribute="concurrency"),
+				@IJsfFlexAttribute(attribute="contentType"),
+				@IJsfFlexAttribute(attribute="destination"),
+				@IJsfFlexAttribute(attribute="id", byMethod=true),
+				@IJsfFlexAttribute(attribute="method"),
+				@IJsfFlexAttribute(attribute="resultFormat"),
+				@IJsfFlexAttribute(attribute="showBusyCursor"),
+				@IJsfFlexAttribute(attribute="makeObjectsBindable"),
+				@IJsfFlexAttribute(attribute="url"),
+				@IJsfFlexAttribute(attribute="useProxy"),
+				@IJsfFlexAttribute(attribute="xmlEncode"),
+				@IJsfFlexAttribute(attribute="xmlDecode"),
+				@IJsfFlexAttribute(attribute="fault"),
+				@IJsfFlexAttribute(attribute="result")
 		}
 )
-public final class MXMLHTTPServiceRenderer extends MXMLComponentBaseRenderer {
+public final class FlexHTTPServiceRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-        _MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLHTTPServiceRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLHTTPServiceRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexHTTPServiceRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexHTTPServiceRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

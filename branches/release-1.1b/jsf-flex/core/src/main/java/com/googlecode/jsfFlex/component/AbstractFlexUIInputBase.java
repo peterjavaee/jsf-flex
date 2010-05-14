@@ -34,12 +34,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
-import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
-import com.googlecode.jsfFlex.shared.util.MXMLAttributeConstants;
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.renderkit.annotationDocletParser.AbstractAnnotationDocletParser;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
+import com.googlecode.jsfFlex.shared.tasks.AbstractRunnerFactory;
+import com.googlecode.jsfFlex.shared.util.FlexAttributeConstants;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * This class will process the needed actions of creating JSONObject and JSONArray needed<br>
@@ -48,20 +48,20 @@ import com.googlecode.jsfFlex.shared.util.MXMLConstants;
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        type    =   "com.googlecode.jsfFlex.MXMLUIInputBase",
-        family  =   "javax.faces.MXMLInputBase",
-        desc    =   "Base component for MXMLInput components"
+        type    =   "com.googlecode.jsfFlex.AbstractUIInputBase",
+        family  =   "javax.faces.FlexInputBase",
+        desc    =   "Base component for FlexInput components"
 )
-public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
+public abstract class AbstractUIInputBase extends UIInput implements IFlexContract {
 	
-	private final static Log _log = LogFactory.getLog(MXMLUIInputBase.class);
+	private final static Log _log = LogFactory.getLog(AbstractUIInputBase.class);
 	
 	protected static final String ATTRIBUTE = "attribute";
 	protected static final String VALUE = "value";
 	/*
      * Below parameter should be inserted into initValue JSONObject when 
      * specific ActionScript Object needs to be constructed for component's 
-     * initial value [i.e. AbstractMXMLUIDateChooser]
+     * initial value [i.e. AbstractFlexUIDateChooser]
 	 */
     protected static final String SPECIFIC_OBJECT_TYPE_INIT = "specificObjectTypeInit";
     
@@ -71,7 +71,7 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 	
 	private JSONObject _componentInitValueObject;
 	
-	private _AnnotationDocletParser _annotationDocletParserInstance;
+	private AbstractAnnotationDocletParser _annotationDocletParserInstance;
 	
 	private String _absolutePathToPreMxmlFile;
 	private String _preMxmlIdentifier;
@@ -79,12 +79,12 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
     
 	/*
 	 * below two variables dictate the depth and the height of this component
-	 * in reference to the top component which should be of MXMLApplication. 
+	 * in reference to the top component which should be of FlexApplication. 
 	 */
 	private int _majorLevel = -1;
 	private int _minorLevel = -1;
 	
-	public MXMLUIInputBase(){
+	public AbstractUIInputBase(){
 		super();
 	}
 	
@@ -107,14 +107,14 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 	public void encodeBegin(FacesContext context) throws IOException {
 		
 		try{
-			_componentInitValueObject.put(MXMLAttributeConstants.ID_ATTR, getId());
+			_componentInitValueObject.put(FlexAttributeConstants.ID_ATTR, getId());
 		}catch(JSONException jsonException){
 			_log.info("Error while formatting to JSON content", jsonException);
 		}
 		
 		populateComponentInitValues();
 		
-		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
 		List<JSONObject> applicationInitValueList = mxmlContext.getApplicationInitValueList();
 		if(getComponentInitValues() != null){
 			applicationInitValueList.add(getComponentInitValues());
@@ -129,8 +129,8 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 	}
 	
 	public void processDecodes(FacesContext context) {
-		String mode = context.getExternalContext().getInitParameter(MXMLConstants.CONFIG_MODE_NAME);
-		if(mode == null || mode.equals(MXMLConstants.PRODUCTION_MODE)){
+		String mode = context.getExternalContext().getInitParameter(FlexConstants.CONFIG_MODE_NAME);
+		if(mode == null || mode.equals(FlexConstants.PRODUCTION_MODE)){
 			//need to dataBind so set back to true
 			setRendered(true);
 		}
@@ -138,11 +138,11 @@ public abstract class MXMLUIInputBase extends UIInput implements _MXMLContract {
 		super.processDecodes(context);
 	}
 	
-	public synchronized _AnnotationDocletParser getAnnotationDocletParserInstance(){
+	public synchronized AbstractAnnotationDocletParser getAnnotationDocletParserInstance(){
 		
 		if(_annotationDocletParserInstance == null){
-			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-			_RunnerFactory runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
+			AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
+			AbstractRunnerFactory runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
 			_annotationDocletParserInstance = runnerFactoryInstance.getAnnotationDocletParserImpl();
 		}
 		

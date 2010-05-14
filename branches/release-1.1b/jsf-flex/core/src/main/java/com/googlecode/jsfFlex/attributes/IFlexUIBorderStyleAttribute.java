@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="borderStyle", returnType="java.lang.String", longDesc="Bounding box style.")
 @JSFComponent
-public interface _MXMLUIBorderStyleAttribute {
+public interface IFlexUIBorderStyleAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="yearSymbol", returnType="java.lang.String", longDesc="This property is appended to the end of the year displayed at the top of the DateChooser control.")
 @JSFComponent
-public interface _MXMLUIYearSymbolAttribute {
+public interface IFlexUIYearSymbolAttribute {
     
 }

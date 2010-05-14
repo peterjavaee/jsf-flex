@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="sortExpertMode", returnType="java.lang.String", longDesc="SortExpertMode.")
 @JSFComponent
-public interface _MXMLUISortExpertModeAttribute {
+public interface IFlexUISortExpertModeAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="sortArrowSkin", returnType="java.lang.String", longDesc="The class to use as the skin for the arrow that indicates the column sort direction.")
 @JSFComponent
-public interface _MXMLUISortArrowSkinAttribute {
+public interface IFlexUISortArrowSkinAttribute {
     
 }

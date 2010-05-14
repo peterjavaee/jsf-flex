@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="thumbDisabledSkin", returnType="java.lang.String", longDesc="The skin for the slider thumb disabled state.")
 @JSFComponent
-public interface _MXMLUIThumbDisabledSkinAttribute {
+public interface IFlexUIThumbDisabledSkinAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="cardTypeSource", returnType="java.lang.String", longDesc="Object that contains the value of the card type field.")
 @JSFComponent
-public interface _MXMLUICardTypeSourceAttribute {
+public interface IFlexUICardTypeSourceAttribute {
     
 }

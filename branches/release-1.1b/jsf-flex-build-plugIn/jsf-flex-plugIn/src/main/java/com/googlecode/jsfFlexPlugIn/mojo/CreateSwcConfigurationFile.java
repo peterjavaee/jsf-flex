@@ -37,9 +37,9 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
 import org.apache.maven.project.MavenProject;
 
-import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectListener;
-import com.googlecode.jsfFlexPlugIn.inspector._JsfFlexInspectorBase;
-import com.googlecode.jsfFlexPlugIn.parser._JsfFlexParserListener;
+import com.googlecode.jsfFlexPlugIn.inspector.IJsfFlexInspectListener;
+import com.googlecode.jsfFlexPlugIn.inspector.AbstractJsfFlexInspectorBase;
+import com.googlecode.jsfFlexPlugIn.parser.IJsfFlexParserListener;
 import com.googlecode.jsfFlexPlugIn.parser.velocity.JsfFlexVelocityParser;
 import com.googlecode.jsfFlexPlugIn.utils.tasks.ReplaceText;
 import com.thoughtworks.qdox.JavaDocBuilder;
@@ -56,7 +56,7 @@ import static com.googlecode.jsfFlexPlugIn.utils.JsfFlexBuildPluginUtil.*;
  * @author Ji Hoon Kim
  */
 public final class CreateSwcConfigurationFile extends AbstractMojo 
-                                                implements _JsfFlexInspectListener, _JsfFlexParserListener {
+                                                implements IJsfFlexInspectListener, IJsfFlexParserListener {
     
     /**
      * @parameter expression="${project}"
@@ -76,7 +76,7 @@ public final class CreateSwcConfigurationFile extends AbstractMojo
     private final Set<SwcActionScriptFile> _swcActionScriptFileSet;
     private final CountDownLatch _mergeCollectionTemplateLatch;
     
-    private _JsfFlexInspectorBase _jsfFlexInspector;
+    private AbstractJsfFlexInspectorBase _jsfFlexInspector;
     
     public CreateSwcConfigurationFile() {
         super();
@@ -88,7 +88,7 @@ public final class CreateSwcConfigurationFile extends AbstractMojo
         
         String currDirPath = String.class.cast( _project.getCompileSourceRoots().get(0) );
         
-        _jsfFlexInspector = new _JsfFlexInspectorBase(currDirPath){
+        _jsfFlexInspector = new AbstractJsfFlexInspectorBase(currDirPath){
             
             private static final String SWC_ACTION_SCRIPT_FILES_ANNOTATION_NOT_FOUND = "com.googlecode.jsfFlex.shared.util.annotation.SwcActionScriptFiles annotation could not be located";
             private static final String SWC_ACTION_SCRIPT_FILES_ANNOTATION_NAME = "com.googlecode.jsfFlex.shared.util.annotation.SwcActionScriptFiles";

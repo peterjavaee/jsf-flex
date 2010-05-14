@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="resetHistory", returnType="java.lang.String", longDesc="If true, the application's history state is reset to its initial state whenever the application is reloaded.")
 @JSFComponent
-public interface _MXMLUIResetHistoryAttribute {
+public interface IFlexUIResetHistoryAttribute {
     
 }

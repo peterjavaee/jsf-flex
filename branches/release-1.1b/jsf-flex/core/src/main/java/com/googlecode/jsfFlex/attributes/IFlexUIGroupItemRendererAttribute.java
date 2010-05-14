@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="groupItemRenderer", returnType="java.lang.String", longDesc="Specifies the item renderer used to display the branch nodes in the navigation tree that correspond to groups.")
 @JSFComponent
-public interface _MXMLUIGroupItemRendererAttribute {
+public interface IFlexUIGroupItemRendererAttribute {
     
 }

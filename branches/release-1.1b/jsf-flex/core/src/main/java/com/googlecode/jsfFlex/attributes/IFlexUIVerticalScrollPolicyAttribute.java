@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="verticalScrollPolicy", returnType="java.lang.String", longDesc="Specifies whether the vertical scroll bar is always present, always absent, or automatically added when needed.")
 @JSFComponent
-public interface _MXMLUIVerticalScrollPolicyAttribute {
+public interface IFlexUIVerticalScrollPolicyAttribute {
     
 }

@@ -21,7 +21,7 @@ package com.googlecode.jsfFlexPlugIn.parser;
 /**
  * @author Ji Hoon Kim
  */
-public interface _JsfFlexParserListener {
+public interface IJsfFlexParserListener {
 	
 	void mergeCollectionToTemplateFinished(String fileMerged);
 	

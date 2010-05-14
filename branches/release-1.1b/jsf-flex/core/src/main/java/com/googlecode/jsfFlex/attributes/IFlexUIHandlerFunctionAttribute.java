@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="handlerFunction", returnType="java.lang.String", longDesc="The handler function for the event.")
 @JSFComponent
-public interface _MXMLUIHandlerFunctionAttribute {
+public interface IFlexUIHandlerFunctionAttribute {
     
 }

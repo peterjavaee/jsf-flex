@@ -20,90 +20,90 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundAlphaAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundImageAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundSizeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderCapColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderSidesAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderStyleAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderThicknessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIChangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICornerRadiusAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataChangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDownArrowDisabledSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDownArrowDownSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDownArrowOverSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDownArrowUpSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDropShadowColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDropShadowEnabledAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontAntiAliasTypeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontGridFitTypeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSharpnessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSizeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontStyleAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontThicknessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontWeightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHighlightAlphasAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIconColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIImeModeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILeadingAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMaxCharsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMaximumAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMinimumAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingLeftAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingRightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShadowDirectionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShadowDistanceAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIStepSizeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextAlignAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextDecorationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextIndentAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUpArrowDisabledSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUpArrowDownSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUpArrowOverSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUpArrowUpSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIValueAttribute;
-import com.googlecode.jsfFlex.component.MXMLUIValueBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundAlphaAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundImageAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderCapColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderSidesAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderStyleAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderThicknessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIChangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICornerRadiusAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataChangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisabledColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDownArrowDisabledSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDownArrowDownSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDownArrowOverSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDownArrowUpSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDropShadowColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDropShadowEnabledAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusAlphaAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusRoundedCornersAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontAntiAliasTypeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontFamilyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontGridFitTypeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontSharpnessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontStyleAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontThicknessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontWeightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHighlightAlphasAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIconColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIImeModeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILeadingAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMaxCharsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMaximumAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMinimumAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingLeftAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingRightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShadowDirectionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShadowDistanceAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIStepSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextAlignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextDecorationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextIndentAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUpArrowDisabledSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUpArrowDownSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUpArrowOverSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUpArrowUpSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIValueAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUIValueBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlNumericStepper",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUINumericStepper",
-        type                =   "com.googlecode.jsfFlex.MXMLUINumericStepper",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUINumericStepperTag",
-        family              =   "javax.faces.MXMLInput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLNumericStepper",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+        name                =   "jf:flexNumericStepper",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUINumericStepper",
+        type                =   "com.googlecode.jsfFlex.FlexUINumericStepper",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUINumericStepperTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexNumericStepper",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
 )
-public abstract class AbstractMXMLUINumericStepper 
-						extends MXMLUIValueBase 
-						implements _MXMLUIBaseAttributes, _MXMLUIImeModeAttribute, _MXMLUIMaxCharsAttribute, 
-                        _MXMLUIMaximumAttribute, _MXMLUIMinimumAttribute, _MXMLUIStepSizeAttribute, _MXMLUIValueAttribute, 
-                        _MXMLUIBackgroundAlphaAttribute, _MXMLUIBackgroundColorAttribute, _MXMLUIBackgroundImageAttribute, 
-                        _MXMLUIBackgroundSizeAttribute, _MXMLUIBorderCapColorAttribute, _MXMLUIBorderColorAttribute, 
-                        _MXMLUIBorderSidesAttribute, _MXMLUIBorderSkinAttribute, _MXMLUIBorderStyleAttribute, 
-                        _MXMLUIBorderThicknessAttribute, _MXMLUIColorAttribute, _MXMLUICornerRadiusAttribute, 
-                        _MXMLUIDisabledColorAttribute, _MXMLUIDownArrowDisabledSkinAttribute, _MXMLUIDownArrowDownSkinAttribute, 
-                        _MXMLUIDownArrowOverSkinAttribute, _MXMLUIDownArrowUpSkinAttribute, _MXMLUIDropShadowEnabledAttribute, 
-                        _MXMLUIDropShadowColorAttribute, _MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, 
-                        _MXMLUIFontAntiAliasTypeAttribute, _MXMLUIFontFamilyAttribute, _MXMLUIFontGridFitTypeAttribute, 
-                        _MXMLUIFontSharpnessAttribute, _MXMLUIFontSizeAttribute, _MXMLUIFontStyleAttribute, 
-                        _MXMLUIFontThicknessAttribute, _MXMLUIFontWeightAttribute, _MXMLUIHighlightAlphasAttribute, 
-                        _MXMLUIIconColorAttribute, _MXMLUILeadingAttribute, _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, 
-                        _MXMLUIShadowDirectionAttribute, _MXMLUIShadowDistanceAttribute, _MXMLUITextAlignAttribute,
-                        _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, _MXMLUIUpArrowDisabledSkinAttribute, 
-                        _MXMLUIUpArrowDownSkinAttribute, _MXMLUIUpArrowOverSkinAttribute, _MXMLUIUpArrowUpSkinAttribute, 
-                        _MXMLUIChangeAttribute, _MXMLUIDataChangeAttribute {
+public abstract class AbstractFlexUINumericStepper 
+						extends AbstractFlexUIValueBase 
+						implements IFlexUIBaseAttributes, IFlexUIImeModeAttribute, IFlexUIMaxCharsAttribute, 
+                        IFlexUIMaximumAttribute, IFlexUIMinimumAttribute, IFlexUIStepSizeAttribute, IFlexUIValueAttribute, 
+                        IFlexUIBackgroundAlphaAttribute, IFlexUIBackgroundColorAttribute, IFlexUIBackgroundImageAttribute, 
+                        IFlexUIBackgroundSizeAttribute, IFlexUIBorderCapColorAttribute, IFlexUIBorderColorAttribute, 
+                        IFlexUIBorderSidesAttribute, IFlexUIBorderSkinAttribute, IFlexUIBorderStyleAttribute, 
+                        IFlexUIBorderThicknessAttribute, IFlexUIColorAttribute, IFlexUICornerRadiusAttribute, 
+                        IFlexUIDisabledColorAttribute, IFlexUIDownArrowDisabledSkinAttribute, IFlexUIDownArrowDownSkinAttribute, 
+                        IFlexUIDownArrowOverSkinAttribute, IFlexUIDownArrowUpSkinAttribute, IFlexUIDropShadowEnabledAttribute, 
+                        IFlexUIDropShadowColorAttribute, IFlexUIFocusAlphaAttribute, IFlexUIFocusRoundedCornersAttribute, 
+                        IFlexUIFontAntiAliasTypeAttribute, IFlexUIFontFamilyAttribute, IFlexUIFontGridFitTypeAttribute, 
+                        IFlexUIFontSharpnessAttribute, IFlexUIFontSizeAttribute, IFlexUIFontStyleAttribute, 
+                        IFlexUIFontThicknessAttribute, IFlexUIFontWeightAttribute, IFlexUIHighlightAlphasAttribute, 
+                        IFlexUIIconColorAttribute, IFlexUILeadingAttribute, IFlexUIPaddingLeftAttribute, IFlexUIPaddingRightAttribute, 
+                        IFlexUIShadowDirectionAttribute, IFlexUIShadowDistanceAttribute, IFlexUITextAlignAttribute,
+                        IFlexUITextDecorationAttribute, IFlexUITextIndentAttribute, IFlexUIUpArrowDisabledSkinAttribute, 
+                        IFlexUIUpArrowDownSkinAttribute, IFlexUIUpArrowOverSkinAttribute, IFlexUIUpArrowUpSkinAttribute, 
+                        IFlexUIChangeAttribute, IFlexUIDataChangeAttribute {
 	
 }

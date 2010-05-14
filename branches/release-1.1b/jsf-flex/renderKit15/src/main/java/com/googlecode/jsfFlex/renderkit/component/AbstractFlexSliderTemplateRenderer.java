@@ -23,70 +23,70 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="allowThumbOverlap"),
-				@JsfFlexAttribute(attribute="allowTrackClick"),
-				@JsfFlexAttribute(attribute="dataTipFormatFunction"),
-				@JsfFlexAttribute(attribute="direction"),
-				@JsfFlexAttribute(attribute="labels"),
-				@JsfFlexAttribute(attribute="liveDragging"),
-				@JsfFlexAttribute(attribute="maximum"),
-				@JsfFlexAttribute(attribute="minimum"),
-				@JsfFlexAttribute(attribute="showDataTip"),
-				@JsfFlexAttribute(attribute="sliderDataTipClass"),
-				@JsfFlexAttribute(attribute="sliderThumbClass"),
-				@JsfFlexAttribute(attribute="snapInterval"),
-				@JsfFlexAttribute(attribute="thumbCount"),
-				@JsfFlexAttribute(attribute="tickInterval"),
-                @JsfFlexAttribute(attribute="tickValues"),
-                @JsfFlexAttribute(attribute="borderColor"),
-				@JsfFlexAttribute(attribute="dataTipOffset"),
-				@JsfFlexAttribute(attribute="dataTipPrecision"),
-				@JsfFlexAttribute(attribute="dataTipStyleName"),
-				@JsfFlexAttribute(attribute="fillAlphas"),
-				@JsfFlexAttribute(attribute="fillColors"),
-				@JsfFlexAttribute(attribute="labelOffset"),
-				@JsfFlexAttribute(attribute="labelStyleName"),
-				@JsfFlexAttribute(attribute="showTrackHighlight"),
-				@JsfFlexAttribute(attribute="slideDuration"),
-				@JsfFlexAttribute(attribute="slideEasingFunction"),
-				@JsfFlexAttribute(attribute="thumbDisabledSkin"),
-				@JsfFlexAttribute(attribute="thumbDownSkin"),
-				@JsfFlexAttribute(attribute="thumbOffset"),
-				@JsfFlexAttribute(attribute="thumbOverSkin"),
-				@JsfFlexAttribute(attribute="thumbUpSkin"),
-				@JsfFlexAttribute(attribute="tickColor"),
-				@JsfFlexAttribute(attribute="tickLength"),
-				@JsfFlexAttribute(attribute="tickOffset"),
-				@JsfFlexAttribute(attribute="tickThickness"),
-				@JsfFlexAttribute(attribute="trackColors"),
-				@JsfFlexAttribute(attribute="trackHighlightSkin"),
-				@JsfFlexAttribute(attribute="trackMargin"),
-				@JsfFlexAttribute(attribute="trackSkin"),
-				@JsfFlexAttribute(attribute="change"),
-				@JsfFlexAttribute(attribute="thumbDrag"),
-				@JsfFlexAttribute(attribute="thumbPress"),
-				@JsfFlexAttribute(attribute="thumbRelease")
+				@IJsfFlexAttribute(attribute="allowThumbOverlap"),
+				@IJsfFlexAttribute(attribute="allowTrackClick"),
+				@IJsfFlexAttribute(attribute="dataTipFormatFunction"),
+				@IJsfFlexAttribute(attribute="direction"),
+				@IJsfFlexAttribute(attribute="labels"),
+				@IJsfFlexAttribute(attribute="liveDragging"),
+				@IJsfFlexAttribute(attribute="maximum"),
+				@IJsfFlexAttribute(attribute="minimum"),
+				@IJsfFlexAttribute(attribute="showDataTip"),
+				@IJsfFlexAttribute(attribute="sliderDataTipClass"),
+				@IJsfFlexAttribute(attribute="sliderThumbClass"),
+				@IJsfFlexAttribute(attribute="snapInterval"),
+				@IJsfFlexAttribute(attribute="thumbCount"),
+				@IJsfFlexAttribute(attribute="tickInterval"),
+                @IJsfFlexAttribute(attribute="tickValues"),
+                @IJsfFlexAttribute(attribute="borderColor"),
+				@IJsfFlexAttribute(attribute="dataTipOffset"),
+				@IJsfFlexAttribute(attribute="dataTipPrecision"),
+				@IJsfFlexAttribute(attribute="dataTipStyleName"),
+				@IJsfFlexAttribute(attribute="fillAlphas"),
+				@IJsfFlexAttribute(attribute="fillColors"),
+				@IJsfFlexAttribute(attribute="labelOffset"),
+				@IJsfFlexAttribute(attribute="labelStyleName"),
+				@IJsfFlexAttribute(attribute="showTrackHighlight"),
+				@IJsfFlexAttribute(attribute="slideDuration"),
+				@IJsfFlexAttribute(attribute="slideEasingFunction"),
+				@IJsfFlexAttribute(attribute="thumbDisabledSkin"),
+				@IJsfFlexAttribute(attribute="thumbDownSkin"),
+				@IJsfFlexAttribute(attribute="thumbOffset"),
+				@IJsfFlexAttribute(attribute="thumbOverSkin"),
+				@IJsfFlexAttribute(attribute="thumbUpSkin"),
+				@IJsfFlexAttribute(attribute="tickColor"),
+				@IJsfFlexAttribute(attribute="tickLength"),
+				@IJsfFlexAttribute(attribute="tickOffset"),
+				@IJsfFlexAttribute(attribute="tickThickness"),
+				@IJsfFlexAttribute(attribute="trackColors"),
+				@IJsfFlexAttribute(attribute="trackHighlightSkin"),
+				@IJsfFlexAttribute(attribute="trackMargin"),
+				@IJsfFlexAttribute(attribute="trackSkin"),
+				@IJsfFlexAttribute(attribute="change"),
+				@IJsfFlexAttribute(attribute="thumbDrag"),
+				@IJsfFlexAttribute(attribute="thumbPress"),
+				@IJsfFlexAttribute(attribute="thumbRelease")
 		}
 )
-public abstract class MXMLSliderTemplateRenderer extends MXMLComponentRenderer {
+public abstract class AbstractFlexSliderTemplateRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLSliderTemplateRenderer.class, componentObj, null);
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(AbstractFlexSliderTemplateRenderer.class, componentObj, null);
 		
 	}
 	

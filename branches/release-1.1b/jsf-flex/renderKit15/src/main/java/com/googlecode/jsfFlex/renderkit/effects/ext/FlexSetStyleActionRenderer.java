@@ -25,41 +25,41 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.effects.MXMLEffectTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.effects.AbstractFlexEffectTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-        renderKitId="MXML_BASIC",
-        family="javax.faces.MXMLSimple",
-        type="com.googlecode.jsfFlex.MXMLSetStyleAction"
+        renderKitId="FLEX_BASIC",
+        family="javax.faces.FlexSimple",
+        type="com.googlecode.jsfFlex.FlexSetStyleAction"
 )
-@JsfFlexAttributeProperties(
-        mxmlComponentName="SetStyleAction",
-        mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+        componentName="SetStyleAction",
+        componentNodeAttributes={},
 
         jsfFlexAttributes={
-                @JsfFlexAttribute(attribute="id", byMethod=true),
-                @JsfFlexAttribute(attribute="name"),
-                @JsfFlexAttribute(attribute="value")
+                @IJsfFlexAttribute(attribute="id", byMethod=true),
+                @IJsfFlexAttribute(attribute="name"),
+                @IJsfFlexAttribute(attribute="value")
         }
 )
-public final class MXMLSetStyleActionRenderer extends MXMLEffectTemplateRenderer {
+public final class FlexSetStyleActionRenderer extends AbstractFlexEffectTemplateRenderer {
 
     @Override
     public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
         super.encodeBegin(context, componentObj);
         
-        _MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-        writer.mapFields(MXMLSetStyleActionRenderer.class, componentObj, null);
-        writer.createPreMxml(componentMXML, MXMLSetStyleActionRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+        writer.mapFields(FlexSetStyleActionRenderer.class, componentObj, null);
+        writer.createPreMxml(componentFlex, FlexSetStyleActionRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
                 null);
         
     }

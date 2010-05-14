@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="currencySymbolError", returnType="java.lang.String", longDesc="Error message when the currency symbol, defined by currencySymbol, is in the wrong location.")
 @JSFComponent
-public interface _MXMLUICurrencySymbolErrorAttribute {
+public interface IFlexUICurrencySymbolErrorAttribute {
     
 }

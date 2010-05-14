@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dropDownBorderColor", returnType="java.lang.String", longDesc="The color of the border of the ComboBox.")
 @JSFComponent
-public interface _MXMLUIDropDownBorderColorAttribute {
+public interface IFlexUIDropDownBorderColorAttribute {
     
 }

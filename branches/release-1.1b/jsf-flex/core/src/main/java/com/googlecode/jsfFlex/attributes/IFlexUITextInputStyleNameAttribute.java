@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="textInputStyleName", returnType="java.lang.String", longDesc="The style declaration for the internal TextInput subcomponent that displays the current selection.")
 @JSFComponent
-public interface _MXMLUITextInputStyleNameAttribute {
+public interface IFlexUITextInputStyleNameAttribute {
     
 }

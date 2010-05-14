@@ -20,22 +20,22 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlSpacer",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUISpacer",
-        type                =   "com.googlecode.jsfFlex.MXMLUISpacer",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUISpacerTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLSpacer"
+        name                =   "jf:flexSpacer",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUISpacer",
+        type                =   "com.googlecode.jsfFlex.FlexUISpacer",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUISpacerTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexSpacer"
 )
-public abstract class AbstractMXMLUISpacer 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIBaseAttributes {
+public abstract class AbstractFlexUISpacer 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIBaseAttributes {
 	
 }

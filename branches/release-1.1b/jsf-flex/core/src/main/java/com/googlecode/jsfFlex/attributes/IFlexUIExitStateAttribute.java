@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="exitState", returnType="java.lang.String", longDesc="Dispatched before the component exits from the root view state.")
 @JSFComponent
-public interface _MXMLUIExitStateAttribute {
+public interface IFlexUIExitStateAttribute {
     
 }

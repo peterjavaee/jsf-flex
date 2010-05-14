@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dividerThickness", returnType="java.lang.String", longDesc="Thickness in pixels of the dividers when the user presses or drags the dividers, if the liveDragging property is set to false.")
 @JSFComponent
-public interface _MXMLUIDividerThicknessAttribute {
+public interface IFlexUIDividerThicknessAttribute {
     
 }

@@ -30,8 +30,8 @@ import java.lang.annotation.Target;
 @Documented
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.SOURCE)
-public @interface SwcActionScriptFiles {
+public @interface ISwcActionScriptFiles {
     
-    SwcActionScriptFile[] actionScriptFiles();
+    ISwcActionScriptFile[] actionScriptFiles();
     
 }

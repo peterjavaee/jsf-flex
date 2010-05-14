@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="snapInterval", returnType="java.lang.String", longDesc="Specifies the increment value of the slider thumb as the user moves the thumb.")
 @JSFComponent
-public interface _MXMLUISnapIntervalAttribute {
+public interface IFlexUISnapIntervalAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="applicationComplete", returnType="java.lang.String", longDesc="Dispatched after the Application has been initialized, processed by the LayoutManager,and attached to the display list.")
 @JSFComponent
-public interface _MXMLUIApplicationCompleteAttribute {
+public interface IFlexUIApplicationCompleteAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="editorUsesEnterKey", returnType="java.lang.String", longDesc="A flag that indicates whether the item editor uses Enter key.")
 @JSFComponent
-public interface _MXMLUIEditorUsesEnterKeyAttribute {
+public interface IFlexUIEditorUsesEnterKeyAttribute {
     
 }

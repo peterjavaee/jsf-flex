@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="hideChildrenTargets", returnType="java.lang.String", longDesc="An Array of Panel containers.")
 @JSFComponent
-public interface _MXMLUIHideChildrenTargetsAttribute {
+public interface IFlexUIHideChildrenTargetsAttribute {
     
 }

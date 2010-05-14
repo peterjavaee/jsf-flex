@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="toolTip", returnType="java.lang.String", longDesc="Text to display in the ToolTip.")
 @JSFComponent
-public interface _MXMLUIToolTipAttribute {
+public interface IFlexUIToolTipAttribute {
     
 }

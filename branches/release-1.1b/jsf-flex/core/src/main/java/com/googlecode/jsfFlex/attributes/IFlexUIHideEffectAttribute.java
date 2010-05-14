@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="hideEffect", returnType="java.lang.String", longDesc="Played when the component becomes invisible.")
 @JSFComponent
-public interface _MXMLUIHideEffectAttribute {
+public interface IFlexUIHideEffectAttribute {
     
 }

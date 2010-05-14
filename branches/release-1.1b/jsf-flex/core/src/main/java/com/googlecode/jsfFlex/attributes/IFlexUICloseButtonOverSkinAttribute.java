@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="closeButtonOverSkin", returnType="java.lang.String", longDesc="The close button over skin.")
 @JSFComponent
-public interface _MXMLUICloseButtonOverSkinAttribute {
+public interface IFlexUICloseButtonOverSkinAttribute {
     
 }

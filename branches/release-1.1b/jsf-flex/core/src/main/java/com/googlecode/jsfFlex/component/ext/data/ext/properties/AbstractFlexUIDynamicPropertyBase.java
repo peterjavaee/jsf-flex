@@ -27,13 +27,13 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIDynamicPropertyBase",
-        type                =   "com.googlecode.jsfFlex.MXMLUIDynamicPropertyBase",
-        family              =   "javax.faces.MXMLProperty",
-        desc                =   "Base component for dynamic/reflected MXMLProperty component",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.properties.FlexUIDynamicPropertyBase",
+        type                =   "com.googlecode.jsfFlex.FlexUIDynamicPropertyBase",
+        family              =   "javax.faces.FlexProperty",
+        desc                =   "Base component for dynamic/reflected FlexProperty component",
         template            =   true
 )
-public abstract class _MXMLUIDynamicPropertyBase 
+public abstract class AbstractFlexUIDynamicPropertyBase 
 						extends UIComponentBase {
 	
 	/**

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="weekDayStyleName", returnType="java.lang.String", longDesc="Name of the style sheet definition to configure the weekday names of the control. If omitted, the weekday names inherit the text styles of the control.")
 @JSFComponent
-public interface _MXMLUIWeekDayStyleNameAttribute {
+public interface IFlexUIWeekDayStyleNameAttribute {
     
 }

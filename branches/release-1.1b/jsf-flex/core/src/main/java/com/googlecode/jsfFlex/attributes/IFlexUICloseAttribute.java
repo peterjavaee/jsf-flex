@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="close", returnType="java.lang.String", longDesc="Dispatched when the swatch panel closes. ")
 @JSFComponent
-public interface _MXMLUICloseAttribute {
+public interface IFlexUICloseAttribute {
     
 }

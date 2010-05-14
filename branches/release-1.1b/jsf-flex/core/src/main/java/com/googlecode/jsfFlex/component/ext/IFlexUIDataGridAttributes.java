@@ -20,61 +20,61 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundDisabledColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIColumnDropIndicatorSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIColumnResizeSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIColumnStretchAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIColumnsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDraggableColumnsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditedItemPositionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHeaderColorsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHeaderDragProxyStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHeaderReleaseAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHeaderSeparatorSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHeaderShiftAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHeaderStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalGridLineColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalGridLinesAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalLockedSeparatorSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalScrollPositionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalSeparatorSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIconColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIImeModeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemEditBeginAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemEditBeginningAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemEditEndAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemEditorInstanceAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemFocusInAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemFocusOutAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMinColumnWidthAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIResizableColumnsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRollOverColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectionColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISortArrowSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISortableColumnsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIStretchCursorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalGridLineColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalGridLinesAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalLockedSeparatorSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalSeparatorSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundDisabledColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIColumnDropIndicatorSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIColumnResizeSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIColumnStretchAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIColumnsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDraggableColumnsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditedItemPositionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHeaderColorsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHeaderDragProxyStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHeaderReleaseAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHeaderSeparatorSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHeaderShiftAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHeaderStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalGridLineColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalGridLinesAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalLockedSeparatorSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalScrollPositionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalSeparatorSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIconColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIImeModeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemEditBeginAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemEditBeginningAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemEditEndAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemEditorInstanceAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemFocusInAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemFocusOutAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMinColumnWidthAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIResizableColumnsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRollOverColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectionColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISortArrowSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISortableColumnsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIStretchCursorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalGridLineColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalGridLinesAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalLockedSeparatorSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalSeparatorSkinAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIDataGridAttributes 
-            extends _MXMLUIColumnsAttribute, _MXMLUIDraggableColumnsAttribute, _MXMLUIEditedItemPositionAttribute, 
-            _MXMLUIHorizontalScrollPositionAttribute, _MXMLUIImeModeAttribute, _MXMLUIItemEditorInstanceAttribute, 
-            _MXMLUIMinColumnWidthAttribute, _MXMLUIResizableColumnsAttribute, _MXMLUISortableColumnsAttribute, 
-            _MXMLUIBackgroundDisabledColorAttribute, _MXMLUIColumnDropIndicatorSkinAttribute, _MXMLUIColumnResizeSkinAttribute, 
-            _MXMLUIHeaderColorsAttribute, _MXMLUIHeaderDragProxyStyleNameAttribute, _MXMLUIHeaderSeparatorSkinAttribute, 
-            _MXMLUIHeaderStyleNameAttribute, _MXMLUIHorizontalGridLineColorAttribute, _MXMLUIHorizontalGridLinesAttribute, 
-            _MXMLUIRollOverColorAttribute, _MXMLUISelectionColorAttribute, _MXMLUISortArrowSkinAttribute, _MXMLUIStretchCursorAttribute, 
-            _MXMLUIVerticalGridLineColorAttribute, _MXMLUIVerticalGridLinesAttribute, _MXMLUIColumnStretchAttribute, 
-            _MXMLUIHeaderReleaseAttribute, _MXMLUIHeaderShiftAttribute, _MXMLUIItemEditBeginAttribute, _MXMLUIItemEditEndAttribute, 
-            _MXMLUIItemFocusInAttribute, _MXMLUIItemFocusOutAttribute, _MXMLUIHorizontalLockedSeparatorSkinAttribute, 
-            _MXMLUIHorizontalSeparatorSkinAttribute, _MXMLUIIconColorAttribute, _MXMLUIVerticalLockedSeparatorSkinAttribute, 
-            _MXMLUIVerticalSeparatorSkinAttribute, _MXMLUIItemEditBeginningAttribute, _MXMLUIDataGridBaseAttributes {
+interface IFlexUIDataGridAttributes 
+            extends IFlexUIColumnsAttribute, IFlexUIDraggableColumnsAttribute, IFlexUIEditedItemPositionAttribute, 
+            IFlexUIHorizontalScrollPositionAttribute, IFlexUIImeModeAttribute, IFlexUIItemEditorInstanceAttribute, 
+            IFlexUIMinColumnWidthAttribute, IFlexUIResizableColumnsAttribute, IFlexUISortableColumnsAttribute, 
+            IFlexUIBackgroundDisabledColorAttribute, IFlexUIColumnDropIndicatorSkinAttribute, IFlexUIColumnResizeSkinAttribute, 
+            IFlexUIHeaderColorsAttribute, IFlexUIHeaderDragProxyStyleNameAttribute, IFlexUIHeaderSeparatorSkinAttribute, 
+            IFlexUIHeaderStyleNameAttribute, IFlexUIHorizontalGridLineColorAttribute, IFlexUIHorizontalGridLinesAttribute, 
+            IFlexUIRollOverColorAttribute, IFlexUISelectionColorAttribute, IFlexUISortArrowSkinAttribute, IFlexUIStretchCursorAttribute, 
+            IFlexUIVerticalGridLineColorAttribute, IFlexUIVerticalGridLinesAttribute, IFlexUIColumnStretchAttribute, 
+            IFlexUIHeaderReleaseAttribute, IFlexUIHeaderShiftAttribute, IFlexUIItemEditBeginAttribute, IFlexUIItemEditEndAttribute, 
+            IFlexUIItemFocusInAttribute, IFlexUIItemFocusOutAttribute, IFlexUIHorizontalLockedSeparatorSkinAttribute, 
+            IFlexUIHorizontalSeparatorSkinAttribute, IFlexUIIconColorAttribute, IFlexUIVerticalLockedSeparatorSkinAttribute, 
+            IFlexUIVerticalSeparatorSkinAttribute, IFlexUIItemEditBeginningAttribute, IFlexUIDataGridBaseAttributes {
 
     String getEditable();
     

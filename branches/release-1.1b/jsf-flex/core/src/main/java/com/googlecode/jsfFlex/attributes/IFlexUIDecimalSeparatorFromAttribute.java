@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="decimalSeparatorFrom", returnType="java.lang.String", longDesc="Decimal separator character to use when parsing an input string.")
 @JSFComponent
-public interface _MXMLUIDecimalSeparatorFromAttribute {
+public interface IFlexUIDecimalSeparatorFromAttribute {
     
 }

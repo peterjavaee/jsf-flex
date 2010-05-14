@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="brokenImageBorderSkin", returnType="java.lang.String", longDesc="Name of class to use as the SWFLoader border skin if the control can not load the content.")
 @JSFComponent
-public interface _MXMLUIBrokenImageBorderSkinAttribute {
+public interface IFlexUIBrokenImageBorderSkinAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="scaleXTo", returnType="java.lang.String", longDesc="Ending scaleX for mask.")
 @JSFComponent
-public interface _MXMLUIScaleXToAttribute {
+public interface IFlexUIScaleXToAttribute {
     
 }

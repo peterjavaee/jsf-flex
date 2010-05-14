@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="cuePoints", returnType="java.lang.String", longDesc="The Array of cue points associated with the control.")
 @JSFComponent
-public interface _MXMLUICuePointsAttribute {
+public interface IFlexUICuePointsAttribute {
     
 }

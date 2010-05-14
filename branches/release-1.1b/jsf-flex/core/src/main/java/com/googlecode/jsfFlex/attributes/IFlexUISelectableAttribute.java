@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="selectable", returnType="java.lang.String", longDesc="Specifies whether the text can be selected.")
 @JSFComponent
-public interface _MXMLUISelectableAttribute {
+public interface IFlexUISelectableAttribute {
 	
 }

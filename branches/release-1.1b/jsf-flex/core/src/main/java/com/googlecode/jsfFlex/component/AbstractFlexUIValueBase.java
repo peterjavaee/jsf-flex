@@ -36,13 +36,13 @@ import org.json.JSONObject;
  * @author Ji Hoon Kim
  */ 
 @JSFComponent(
-        type    =   "com.googlecode.jsfFlex.MXMLUIValueBase",
-        family  =   "javax.faces.MXMLUIValueBase",
-        desc    =   "Base component for MXMLInput components that contain value attribute"
+        type    =   "com.googlecode.jsfFlex.FlexUIValueBase",
+        family  =   "javax.faces.FlexUIValueBase",
+        desc    =   "Base component for FlexInput components that contain value attribute"
 )
-public abstract class MXMLUIValueBase extends MXMLUIInputBase {
+public abstract class AbstractFlexUIValueBase extends AbstractUIInputBase {
 	
-	private final static Log _log = LogFactory.getLog(MXMLUIValueBase.class);
+	private final static Log _log = LogFactory.getLog(AbstractFlexUIValueBase.class);
 	
 	private static final String VALUE_ATTR = "value";
 	private static final String VALUE_ID_APPENDED = "_value";

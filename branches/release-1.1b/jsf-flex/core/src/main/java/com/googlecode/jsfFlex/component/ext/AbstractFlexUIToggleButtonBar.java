@@ -20,23 +20,23 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedIndexAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlToggleButtonBar",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIToggleButtonBar",
-        type                =   "com.googlecode.jsfFlex.MXMLUIToggleButtonBar",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIToggleButtonBarTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLToggleButtonBar"
+        name                =   "jf:flexToggleButtonBar",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIToggleButtonBar",
+        type                =   "com.googlecode.jsfFlex.FlexUIToggleButtonBar",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIToggleButtonBarTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexToggleButtonBar"
 )
-public abstract class AbstractMXMLUIToggleButtonBar 
-						extends MXMLUISimpleBase
-						implements _MXMLUIToggleButtonBarAttributes, _MXMLUIDataProviderAttribute, _MXMLUISelectedIndexAttribute {
+public abstract class AbstractFlexUIToggleButtonBar 
+						extends AbstractFlexUISimpleBase
+						implements IFlexUIToggleButtonBarAttributes, IFlexUIDataProviderAttribute, IFlexUISelectedIndexAttribute {
 	
 }

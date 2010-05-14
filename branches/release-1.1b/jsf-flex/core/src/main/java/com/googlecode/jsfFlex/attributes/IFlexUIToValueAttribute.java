@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="toValue", returnType="java.lang.String", longDesc="The ending value for the effect.")
 @JSFComponent
-public interface _MXMLUIToValueAttribute {
+public interface IFlexUIToValueAttribute {
     
 }

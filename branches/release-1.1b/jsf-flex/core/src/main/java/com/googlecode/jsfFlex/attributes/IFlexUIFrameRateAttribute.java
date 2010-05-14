@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="frameRate", returnType="java.lang.String", longDesc="Specifies the frame rate of the application.")
 @JSFComponent
-public interface _MXMLUIFrameRateAttribute {
+public interface IFlexUIFrameRateAttribute {
     
 }

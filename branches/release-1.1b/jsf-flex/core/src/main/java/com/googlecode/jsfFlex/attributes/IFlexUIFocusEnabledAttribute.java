@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="focusEnabled", returnType="java.lang.String", longDesc="Indicates whether the component can receive focus when clicked on.")
 @JSFComponent
-public interface _MXMLUIFocusEnabledAttribute {
+public interface IFlexUIFocusEnabledAttribute {
     
 }

@@ -25,26 +25,26 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-        renderKitId="MXML_BASIC",
-        family="javax.faces.MXMLInput",
-        type="com.googlecode.jsfFlex.MXMLDateChooser"
+        renderKitId="FLEX_BASIC",
+        family="javax.faces.FlexInput",
+        type="com.googlecode.jsfFlex.FlexDateChooser"
 )
-@JsfFlexAttributeProperties(
-        mxmlComponentPackage="mx.controls",
-        mxmlComponentName="DateChooser",
-        mxmlComponentNodeAttributes={
-                @FlexComponentNodeAttribute(
+@IJsfFlexAttributeProperties(
+        componentPackage="mx.controls",
+        componentName="DateChooser",
+        componentNodeAttributes={
+                @IFlexComponentNodeAttribute(
                         htmlType="input", 
                         typeAttributeValue="hidden", 
                         valueAttributeValue="selectedDate",
@@ -57,96 +57,96 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
         },
 
         jsfFlexAttributes={
-                @JsfFlexAttribute(attribute="allowDisjointSelection"),
-                @JsfFlexAttribute(attribute="allowMultipleSelection"),
-                @JsfFlexAttribute(attribute="dayNames"),
-                @JsfFlexAttribute(attribute="disabledDays"),
-                @JsfFlexAttribute(attribute="disabledRanges"),
-                @JsfFlexAttribute(attribute="displayedMonth"),
-                @JsfFlexAttribute(attribute="displayedYear"),
-                @JsfFlexAttribute(attribute="firstDayOfWeek"),
-                @JsfFlexAttribute(attribute="maxYear"),
-                @JsfFlexAttribute(attribute="minYear"),
-                @JsfFlexAttribute(attribute="monthNames"),
-                @JsfFlexAttribute(attribute="monthSymbol"),
-                @JsfFlexAttribute(attribute="selectableRange"),
-                @JsfFlexAttribute(attribute="selectedRanges"),
-                @JsfFlexAttribute(attribute="showToday"),
-                @JsfFlexAttribute(attribute="yearNavigationEnabled"),
-                @JsfFlexAttribute(attribute="yearSymbol"),
-                @JsfFlexAttribute(attribute="backgroundColor"),
-                @JsfFlexAttribute(attribute="backgroundAlpha"),
-                @JsfFlexAttribute(attribute="borderColor"),
-                @JsfFlexAttribute(attribute="borderThickness"),
-                @JsfFlexAttribute(attribute="color"),
-                @JsfFlexAttribute(attribute="cornerRadius"),
-                @JsfFlexAttribute(attribute="disabledColor"),
-                @JsfFlexAttribute(attribute="disabledIconColor"),
-                @JsfFlexAttribute(attribute="fillAlphas"),
-                @JsfFlexAttribute(attribute="fillColors"),
-                @JsfFlexAttribute(attribute="focusAlpha"),
-                @JsfFlexAttribute(attribute="focusRoundedCorners"),
-                @JsfFlexAttribute(attribute="fontAntiAliasType"),
-                @JsfFlexAttribute(attribute="fontFamily"),
-                @JsfFlexAttribute(attribute="fontGridFitType"),
-                @JsfFlexAttribute(attribute="fontSharpness"),
-                @JsfFlexAttribute(attribute="fontSize"),
-                @JsfFlexAttribute(attribute="fontStyle"),
-                @JsfFlexAttribute(attribute="fontThickness"),
-                @JsfFlexAttribute(attribute="fontWeight"),
-                @JsfFlexAttribute(attribute="headerColors"),
-                @JsfFlexAttribute(attribute="headerStyleName"),
-                @JsfFlexAttribute(attribute="highlightAlphas"),
-                @JsfFlexAttribute(attribute="horizontalGap"),
-                @JsfFlexAttribute(attribute="iconColor"),
-                @JsfFlexAttribute(attribute="leading"),
-                @JsfFlexAttribute(attribute="nextMonthDisabledSkin"),
-                @JsfFlexAttribute(attribute="nextMonthDownSkin"),
-                @JsfFlexAttribute(attribute="nextMonthOverSkin"),
-                @JsfFlexAttribute(attribute="nextMonthSkin"),
-                @JsfFlexAttribute(attribute="nextMonthUpSkin"),
-                @JsfFlexAttribute(attribute="nextYearDisabledSkin"),
-                @JsfFlexAttribute(attribute="nextYearDownSkin"),
-                @JsfFlexAttribute(attribute="nextYearOverSkin"),
-                @JsfFlexAttribute(attribute="nextYearSkin"),
-                @JsfFlexAttribute(attribute="nextYearUpSkin"),
-                @JsfFlexAttribute(attribute="prevMonthDisabledSkin"),
-                @JsfFlexAttribute(attribute="prevMonthDownSkin"),
-                @JsfFlexAttribute(attribute="prevMonthOverSkin"),
-                @JsfFlexAttribute(attribute="prevMonthSkin"),
-                @JsfFlexAttribute(attribute="prevMonthUpSkin"),
-                @JsfFlexAttribute(attribute="prevYearDisabledSkin"),
-                @JsfFlexAttribute(attribute="prevYearDownSkin"),
-                @JsfFlexAttribute(attribute="prevYearOverSkin"),
-                @JsfFlexAttribute(attribute="prevYearSkin"),
-                @JsfFlexAttribute(attribute="prevYearUpSkin"),
-                @JsfFlexAttribute(attribute="rollOverColor"),
-                @JsfFlexAttribute(attribute="rollOverIndicatorSkin"),
-                @JsfFlexAttribute(attribute="selectionColor"),
-                @JsfFlexAttribute(attribute="selectionIndicatorSkin"),
-                @JsfFlexAttribute(attribute="textAlign"),
-                @JsfFlexAttribute(attribute="textDecoration"),
-                @JsfFlexAttribute(attribute="textIndent"),
-                @JsfFlexAttribute(attribute="todayColor"),
-                @JsfFlexAttribute(attribute="todayIndicatorSkin"),
-                @JsfFlexAttribute(attribute="todayStyleName"),
-                @JsfFlexAttribute(attribute="verticalGap"),
-                @JsfFlexAttribute(attribute="weekDayStyleName"),
-                @JsfFlexAttribute(attribute="change"),
-                @JsfFlexAttribute(attribute="scroll")
+                @IJsfFlexAttribute(attribute="allowDisjointSelection"),
+                @IJsfFlexAttribute(attribute="allowMultipleSelection"),
+                @IJsfFlexAttribute(attribute="dayNames"),
+                @IJsfFlexAttribute(attribute="disabledDays"),
+                @IJsfFlexAttribute(attribute="disabledRanges"),
+                @IJsfFlexAttribute(attribute="displayedMonth"),
+                @IJsfFlexAttribute(attribute="displayedYear"),
+                @IJsfFlexAttribute(attribute="firstDayOfWeek"),
+                @IJsfFlexAttribute(attribute="maxYear"),
+                @IJsfFlexAttribute(attribute="minYear"),
+                @IJsfFlexAttribute(attribute="monthNames"),
+                @IJsfFlexAttribute(attribute="monthSymbol"),
+                @IJsfFlexAttribute(attribute="selectableRange"),
+                @IJsfFlexAttribute(attribute="selectedRanges"),
+                @IJsfFlexAttribute(attribute="showToday"),
+                @IJsfFlexAttribute(attribute="yearNavigationEnabled"),
+                @IJsfFlexAttribute(attribute="yearSymbol"),
+                @IJsfFlexAttribute(attribute="backgroundColor"),
+                @IJsfFlexAttribute(attribute="backgroundAlpha"),
+                @IJsfFlexAttribute(attribute="borderColor"),
+                @IJsfFlexAttribute(attribute="borderThickness"),
+                @IJsfFlexAttribute(attribute="color"),
+                @IJsfFlexAttribute(attribute="cornerRadius"),
+                @IJsfFlexAttribute(attribute="disabledColor"),
+                @IJsfFlexAttribute(attribute="disabledIconColor"),
+                @IJsfFlexAttribute(attribute="fillAlphas"),
+                @IJsfFlexAttribute(attribute="fillColors"),
+                @IJsfFlexAttribute(attribute="focusAlpha"),
+                @IJsfFlexAttribute(attribute="focusRoundedCorners"),
+                @IJsfFlexAttribute(attribute="fontAntiAliasType"),
+                @IJsfFlexAttribute(attribute="fontFamily"),
+                @IJsfFlexAttribute(attribute="fontGridFitType"),
+                @IJsfFlexAttribute(attribute="fontSharpness"),
+                @IJsfFlexAttribute(attribute="fontSize"),
+                @IJsfFlexAttribute(attribute="fontStyle"),
+                @IJsfFlexAttribute(attribute="fontThickness"),
+                @IJsfFlexAttribute(attribute="fontWeight"),
+                @IJsfFlexAttribute(attribute="headerColors"),
+                @IJsfFlexAttribute(attribute="headerStyleName"),
+                @IJsfFlexAttribute(attribute="highlightAlphas"),
+                @IJsfFlexAttribute(attribute="horizontalGap"),
+                @IJsfFlexAttribute(attribute="iconColor"),
+                @IJsfFlexAttribute(attribute="leading"),
+                @IJsfFlexAttribute(attribute="nextMonthDisabledSkin"),
+                @IJsfFlexAttribute(attribute="nextMonthDownSkin"),
+                @IJsfFlexAttribute(attribute="nextMonthOverSkin"),
+                @IJsfFlexAttribute(attribute="nextMonthSkin"),
+                @IJsfFlexAttribute(attribute="nextMonthUpSkin"),
+                @IJsfFlexAttribute(attribute="nextYearDisabledSkin"),
+                @IJsfFlexAttribute(attribute="nextYearDownSkin"),
+                @IJsfFlexAttribute(attribute="nextYearOverSkin"),
+                @IJsfFlexAttribute(attribute="nextYearSkin"),
+                @IJsfFlexAttribute(attribute="nextYearUpSkin"),
+                @IJsfFlexAttribute(attribute="prevMonthDisabledSkin"),
+                @IJsfFlexAttribute(attribute="prevMonthDownSkin"),
+                @IJsfFlexAttribute(attribute="prevMonthOverSkin"),
+                @IJsfFlexAttribute(attribute="prevMonthSkin"),
+                @IJsfFlexAttribute(attribute="prevMonthUpSkin"),
+                @IJsfFlexAttribute(attribute="prevYearDisabledSkin"),
+                @IJsfFlexAttribute(attribute="prevYearDownSkin"),
+                @IJsfFlexAttribute(attribute="prevYearOverSkin"),
+                @IJsfFlexAttribute(attribute="prevYearSkin"),
+                @IJsfFlexAttribute(attribute="prevYearUpSkin"),
+                @IJsfFlexAttribute(attribute="rollOverColor"),
+                @IJsfFlexAttribute(attribute="rollOverIndicatorSkin"),
+                @IJsfFlexAttribute(attribute="selectionColor"),
+                @IJsfFlexAttribute(attribute="selectionIndicatorSkin"),
+                @IJsfFlexAttribute(attribute="textAlign"),
+                @IJsfFlexAttribute(attribute="textDecoration"),
+                @IJsfFlexAttribute(attribute="textIndent"),
+                @IJsfFlexAttribute(attribute="todayColor"),
+                @IJsfFlexAttribute(attribute="todayIndicatorSkin"),
+                @IJsfFlexAttribute(attribute="todayStyleName"),
+                @IJsfFlexAttribute(attribute="verticalGap"),
+                @IJsfFlexAttribute(attribute="weekDayStyleName"),
+                @IJsfFlexAttribute(attribute="change"),
+                @IJsfFlexAttribute(attribute="scroll")
         }
 )
-public final class MXMLDateChooserRenderer extends MXMLComponentRenderer {
+public final class FlexDateChooserRenderer extends AbstractFlexComponentRenderer {
 
     @Override
     public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
         super.encodeBegin(context, componentObj);
         
-        _MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-        writer.mapFields(MXMLDateChooserRenderer.class, componentObj, null);
-        writer.createPreMxml(componentMXML, MXMLDateChooserRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+        writer.mapFields(FlexDateChooserRenderer.class, componentObj, null);
+        writer.createPreMxml(componentFlex, FlexDateChooserRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
                 null);
         
     }

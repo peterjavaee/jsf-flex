@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="itemClose", returnType="java.lang.String", longDesc="Dispatched when a branch is closed or collapsed.")
 @JSFComponent
-public interface _MXMLUIItemCloseAttribute {
+public interface IFlexUIItemCloseAttribute {
     
 }

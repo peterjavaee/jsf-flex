@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="ready", returnType="java.lang.String", longDesc="Dispatched when the FLV file is loaded and ready to play.")
 @JSFComponent
-public interface _MXMLUIReadyAttribute {
+public interface IFlexUIReadyAttribute {
     
 }

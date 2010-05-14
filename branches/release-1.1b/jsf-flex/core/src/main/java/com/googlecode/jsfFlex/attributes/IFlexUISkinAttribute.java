@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="skin", returnType="java.lang.String", longDesc="Name of the class to use as the default skin for the background and border.")
 @JSFComponent
-public interface _MXMLUISkinAttribute {
+public interface IFlexUISkinAttribute {
     
 }

@@ -20,54 +20,54 @@ package com.googlecode.jsfFlex.container.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderAlphaAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderThicknessBottomAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderThicknessLeftAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderThicknessRightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderThicknessTopAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICloseAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICloseButtonDisabledSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICloseButtonDownSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICloseButtonOverSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICloseButtonUpSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIControlBarStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFooterColorsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHeaderColorsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHeaderHeightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHighlightAlphasAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalAlignAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHorizontalGapAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILayoutAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIModalTransparencyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIModalTransparencyBlurAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIModalTransparencyColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIModalTransparencyDurationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIResizeEndEffectAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIResizeStartEffectAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRoundedBottomCornersAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIStatusAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIStatusStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITitleBackgroundSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITitleIconAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITitleStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalAlignAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalGapAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderAlphaAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderThicknessBottomAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderThicknessLeftAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderThicknessRightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderThicknessTopAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICloseAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICloseButtonDisabledSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICloseButtonDownSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICloseButtonOverSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICloseButtonUpSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIControlBarStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFooterColorsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHeaderColorsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHeaderHeightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHighlightAlphasAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalAlignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalGapAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILayoutAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIModalTransparencyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIModalTransparencyBlurAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIModalTransparencyColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIModalTransparencyDurationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIResizeEndEffectAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIResizeStartEffectAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRoundedBottomCornersAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIStatusAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIStatusStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITitleBackgroundSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITitleIconAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITitleStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalAlignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalGapAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface _MXMLUIPanelAttributes 
-                extends _MXMLUILayoutAttribute, _MXMLUIStatusAttribute, _MXMLUITitleIconAttribute, _MXMLUIBorderAlphaAttribute, 
-                _MXMLUIBorderThicknessBottomAttribute, _MXMLUIBorderThicknessLeftAttribute, _MXMLUIBorderThicknessRightAttribute, 
-                _MXMLUIBorderThicknessTopAttribute, _MXMLUICloseButtonDisabledSkinAttribute, _MXMLUICloseButtonDownSkinAttribute, 
-                _MXMLUICloseButtonOverSkinAttribute, _MXMLUICloseButtonUpSkinAttribute, _MXMLUIControlBarStyleNameAttribute, 
-                _MXMLUIFooterColorsAttribute, _MXMLUIHeaderColorsAttribute, _MXMLUIHeaderHeightAttribute, _MXMLUIHighlightAlphasAttribute, 
-                _MXMLUIHorizontalAlignAttribute, _MXMLUIHorizontalGapAttribute, _MXMLUIModalTransparencyAttribute, 
-                _MXMLUIModalTransparencyBlurAttribute, _MXMLUIModalTransparencyColorAttribute, _MXMLUIModalTransparencyDurationAttribute, 
-                _MXMLUIRoundedBottomCornersAttribute, _MXMLUIStatusStyleNameAttribute, _MXMLUITitleBackgroundSkinAttribute, 
-                _MXMLUITitleStyleNameAttribute, _MXMLUIVerticalAlignAttribute, _MXMLUIVerticalGapAttribute, _MXMLUIResizeEndEffectAttribute, 
-                _MXMLUIResizeStartEffectAttribute, _MXMLUICloseAttribute, _MXMLUIContainerAttributes {
+public interface IFlexUIPanelAttributes 
+                extends IFlexUILayoutAttribute, IFlexUIStatusAttribute, IFlexUITitleIconAttribute, IFlexUIBorderAlphaAttribute, 
+                IFlexUIBorderThicknessBottomAttribute, IFlexUIBorderThicknessLeftAttribute, IFlexUIBorderThicknessRightAttribute, 
+                IFlexUIBorderThicknessTopAttribute, IFlexUICloseButtonDisabledSkinAttribute, IFlexUICloseButtonDownSkinAttribute, 
+                IFlexUICloseButtonOverSkinAttribute, IFlexUICloseButtonUpSkinAttribute, IFlexUIControlBarStyleNameAttribute, 
+                IFlexUIFooterColorsAttribute, IFlexUIHeaderColorsAttribute, IFlexUIHeaderHeightAttribute, IFlexUIHighlightAlphasAttribute, 
+                IFlexUIHorizontalAlignAttribute, IFlexUIHorizontalGapAttribute, IFlexUIModalTransparencyAttribute, 
+                IFlexUIModalTransparencyBlurAttribute, IFlexUIModalTransparencyColorAttribute, IFlexUIModalTransparencyDurationAttribute, 
+                IFlexUIRoundedBottomCornersAttribute, IFlexUIStatusStyleNameAttribute, IFlexUITitleBackgroundSkinAttribute, 
+                IFlexUITitleStyleNameAttribute, IFlexUIVerticalAlignAttribute, IFlexUIVerticalGapAttribute, IFlexUIResizeEndEffectAttribute, 
+                IFlexUIResizeStartEffectAttribute, IFlexUICloseAttribute, IFlexUIContainerAttributes {
     
     String getTitle();
     

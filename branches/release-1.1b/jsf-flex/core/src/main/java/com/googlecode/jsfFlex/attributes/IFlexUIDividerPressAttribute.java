@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dividerPress", returnType="java.lang.String", longDesc="Dispatched when the user presses any divider in this container.")
 @JSFComponent
-public interface _MXMLUIDividerPressAttribute {
+public interface IFlexUIDividerPressAttribute {
     
 }

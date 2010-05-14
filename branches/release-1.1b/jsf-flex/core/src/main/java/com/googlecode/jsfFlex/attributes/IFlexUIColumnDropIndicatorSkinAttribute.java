@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="columnDropIndicatorSkin", returnType="java.lang.String", longDesc="The class to use as the skin that indicates that a column can be dropped in the current location.")
 @JSFComponent
-public interface _MXMLUIColumnDropIndicatorSkinAttribute {
+public interface IFlexUIColumnDropIndicatorSkinAttribute {
     
 }

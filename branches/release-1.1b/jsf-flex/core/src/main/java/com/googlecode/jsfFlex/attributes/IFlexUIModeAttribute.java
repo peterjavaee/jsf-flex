@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="mode", returnType="java.lang.String", longDesc="Specifies the method used to update the bar.")
 @JSFComponent
-public interface _MXMLUIModeAttribute {
+public interface IFlexUIModeAttribute {
     
 }

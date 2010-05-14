@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="invalidPeriodsInDomainError", returnType="java.lang.String", longDesc="Error message when there are continuous periods in the domain.")
 @JSFComponent
-public interface _MXMLUIInvalidPeriodsInDomainErrorAttribute {
+public interface IFlexUIInvalidPeriodsInDomainErrorAttribute {
     
 }

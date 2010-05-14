@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="resizeToContent", returnType="java.lang.String", longDesc="If true, the ViewStack container automatically resizes to the size of its current child.")
 @JSFComponent
-public interface _MXMLUIResizeToContentAttribute {
+public interface IFlexUIResizeToContentAttribute {
 	
 }

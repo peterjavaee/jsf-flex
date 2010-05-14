@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="tickInterval", returnType="java.lang.String", longDesc="The spacing of the tick marks relative to the maximum value of the control.")
 @JSFComponent
-public interface _MXMLUITickIntervalAttribute {
+public interface IFlexUITickIntervalAttribute {
     
 }

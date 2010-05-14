@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="verticalCenter", returnType="java.lang.String", longDesc="The vertical distance in pixels from the center of the component's parent container to the center of the component.")
 @JSFComponent
-public interface _MXMLUIVerticalCenterAttribute {
+public interface IFlexUIVerticalCenterAttribute {
     
 }

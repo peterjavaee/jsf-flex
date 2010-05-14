@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dividerAffordance", returnType="java.lang.String", longDesc="Thickness in pixels of the area where the user can click to drag a divider.")
 @JSFComponent
-public interface _MXMLUIDividerAffordanceAttribute {
+public interface IFlexUIDividerAffordanceAttribute {
     
 }

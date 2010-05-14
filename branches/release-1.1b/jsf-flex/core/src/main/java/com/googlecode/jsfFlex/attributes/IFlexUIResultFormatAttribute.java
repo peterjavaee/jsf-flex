@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="resultFormat", returnType="java.lang.String", longDesc="Value that indicates how you want to deserialize the result returned by the HTTP call.")
 @JSFComponent
-public interface _MXMLUIResultFormatAttribute {
+public interface IFlexUIResultFormatAttribute {
     
 }

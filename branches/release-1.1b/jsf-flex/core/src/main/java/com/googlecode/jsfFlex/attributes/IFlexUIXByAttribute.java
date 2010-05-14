@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="xBy", returnType="java.lang.String", longDesc="Number of pixels to move the components along the x axis.")
 @JSFComponent
-public interface _MXMLUIXByAttribute {
+public interface IFlexUIXByAttribute {
     
 }

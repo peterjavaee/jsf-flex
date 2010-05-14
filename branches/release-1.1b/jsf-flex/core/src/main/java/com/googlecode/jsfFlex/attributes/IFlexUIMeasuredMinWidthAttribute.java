@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="measuredMinWidth", returnType="java.lang.String", longDesc="The default minimum width of the component, in pixels.")
 @JSFComponent
-public interface _MXMLUIMeasuredMinWidthAttribute {
+public interface IFlexUIMeasuredMinWidthAttribute {
     
 }

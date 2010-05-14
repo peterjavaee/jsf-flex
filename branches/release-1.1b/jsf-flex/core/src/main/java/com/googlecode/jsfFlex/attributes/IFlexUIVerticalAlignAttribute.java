@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="verticalAlign", returnType="java.lang.String", longDesc="The vertical alignment of a renderer in a row.")
 @JSFComponent
-public interface _MXMLUIVerticalAlignAttribute {
+public interface IFlexUIVerticalAlignAttribute {
 	
 }

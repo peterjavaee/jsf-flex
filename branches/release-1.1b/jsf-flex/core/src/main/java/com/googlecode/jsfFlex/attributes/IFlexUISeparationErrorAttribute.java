@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="separationError", returnType="java.lang.String", longDesc="Error message when the thousands separator is in the wrong location.")
 @JSFComponent
-public interface _MXMLUISeparationErrorAttribute {
+public interface IFlexUISeparationErrorAttribute {
     
 }

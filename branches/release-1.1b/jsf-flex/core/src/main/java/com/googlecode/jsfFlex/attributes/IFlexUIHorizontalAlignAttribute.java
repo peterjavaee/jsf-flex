@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="horizontalAlign", returnType="java.lang.String", longDesc="Horizontal alignment of children in the container.")
 @JSFComponent
-public interface _MXMLUIHorizontalAlignAttribute {
+public interface IFlexUIHorizontalAlignAttribute {
 	
 }

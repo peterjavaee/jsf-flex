@@ -21,22 +21,22 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlWipeUp",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIWipeUp",
-        type                =   "com.googlecode.jsfFlex.MXMLUIWipeUp",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIWipeUpTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLWipeUp"
+        name                =   "jf:flexWipeUp",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIWipeUp",
+        type                =   "com.googlecode.jsfFlex.FlexUIWipeUp",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIWipeUpTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexWipeUp"
 )
-public abstract class AbstractMXMLUIWipeUp 
-                                extends MXMLUISimpleBase 
-                                implements _MXMLUIMaskEffectAttributes {
+public abstract class AbstractFlexUIWipeUp 
+                                extends AbstractFlexUISimpleBase 
+                                implements IFlexUIMaskEffectAttributes {
 
     /**
      * Id of the component.

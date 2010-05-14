@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="minScrollPosition", returnType="java.lang.String", longDesc="Number that represents the minimum scroll position.")
 @JSFComponent
-public interface _MXMLUIMinScrollPositionAttribute {
+public interface IFlexUIMinScrollPositionAttribute {
     
 }

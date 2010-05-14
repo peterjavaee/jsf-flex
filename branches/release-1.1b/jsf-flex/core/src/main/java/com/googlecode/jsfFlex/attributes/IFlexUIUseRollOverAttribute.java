@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="useRollOver", returnType="java.lang.String", longDesc="A flag that controls whether items are highlighted as the mouse rolls over them.")
 @JSFComponent
-public interface _MXMLUIUseRollOverAttribute {
+public interface IFlexUIUseRollOverAttribute {
     
 }

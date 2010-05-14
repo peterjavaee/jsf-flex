@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="borderThickness", returnType="java.lang.String", longDesc="Bounding box thickness.")
 @JSFComponent
-public interface _MXMLUIBorderThicknessAttribute {
+public interface IFlexUIBorderThicknessAttribute {
 	
 }

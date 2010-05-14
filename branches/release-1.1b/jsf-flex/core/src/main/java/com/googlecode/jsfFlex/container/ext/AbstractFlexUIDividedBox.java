@@ -20,21 +20,21 @@ package com.googlecode.jsfFlex.container.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlDividedBox",
-        clazz               =   "com.googlecode.jsfFlex.container.ext.MXMLUIDividedBox",
-        type                =   "com.googlecode.jsfFlex.MXMLUIDividedBox",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.MXMLUIDividedBoxTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLDividedBox"
+        name                =   "jf:flexDividedBox",
+        clazz               =   "com.googlecode.jsfFlex.container.ext.FlexUIDividedBox",
+        type                =   "com.googlecode.jsfFlex.FlexUIDividedBox",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.FlexUIDividedBoxTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexDividedBox"
 )
-public abstract class AbstractMXMLUIDividedBox 
-						extends MXMLUISimpleBase
-						implements _MXMLUIDividedBoxAttributes {
+public abstract class AbstractFlexUIDividedBox 
+						extends AbstractFlexUISimpleBase
+						implements IFlexUIDividedBoxAttributes {
 	
 }

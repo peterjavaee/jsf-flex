@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="shadowDirection", returnType="java.lang.String", longDesc="Direction of the drop shadow.")
 @JSFComponent
-public interface _MXMLUIShadowDirectionAttribute {
+public interface IFlexUIShadowDirectionAttribute {
     
 }

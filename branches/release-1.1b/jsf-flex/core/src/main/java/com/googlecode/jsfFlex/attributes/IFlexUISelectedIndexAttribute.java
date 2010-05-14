@@ -25,7 +25,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface _MXMLUISelectedIndexAttribute {
+public interface IFlexUISelectedIndexAttribute {
 	
 	/**
 	 * The index in the data provider of the selected item.

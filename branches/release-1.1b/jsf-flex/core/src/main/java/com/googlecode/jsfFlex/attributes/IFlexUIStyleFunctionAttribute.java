@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="styleFunction", returnType="java.lang.String", longDesc="A callback function called while rendering each cell.")
 @JSFComponent
-public interface _MXMLUIStyleFunctionAttribute {
+public interface IFlexUIStyleFunctionAttribute {
     
 }

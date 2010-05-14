@@ -21,24 +21,24 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUINameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIValueAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUINameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIValueAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlSetStyleAction",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUISetStyleAction",
-        type                =   "com.googlecode.jsfFlex.MXMLUISetStyleAction",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUISetStyleActionTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLSetStyleAction"
+        name                =   "jf:flexSetStyleAction",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUISetStyleAction",
+        type                =   "com.googlecode.jsfFlex.FlexUISetStyleAction",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUISetStyleActionTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexSetStyleAction"
 )
-public abstract class AbstractMXMLUISetStyleAction 
-                                extends MXMLUISimpleBase 
-                                implements _MXMLUIEffectAttributes, _MXMLUINameAttribute, _MXMLUIValueAttribute {
+public abstract class AbstractFlexUISetStyleAction 
+                                extends AbstractFlexUISimpleBase 
+                                implements IFlexUIEffectAttributes, IFlexUINameAttribute, IFlexUIValueAttribute {
 
     /**
      * Id of the component.

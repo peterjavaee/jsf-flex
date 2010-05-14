@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="list", returnType="java.lang.String", longDesc="The IList that this collection view wraps.")
 @JSFComponent
-public interface _MXMLUIListAttribute {
+public interface IFlexUIListAttribute {
     
 }

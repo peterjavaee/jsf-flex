@@ -23,65 +23,65 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="columns"),
-				@JsfFlexAttribute(attribute="draggableColumns"),
-				@JsfFlexAttribute(attribute="editable", byMethod=true),
-				@JsfFlexAttribute(attribute="editedItemPosition"),
-				@JsfFlexAttribute(attribute="horizontalScrollPosition"),
-				@JsfFlexAttribute(attribute="imeMode"),
-				@JsfFlexAttribute(attribute="itemEditorInstance"),
-				@JsfFlexAttribute(attribute="minColumnWidth"),
-				@JsfFlexAttribute(attribute="resizableColumns"),
-				@JsfFlexAttribute(attribute="sortableColumns"),
-				@JsfFlexAttribute(attribute="backgroundDisabledColor"),
-				@JsfFlexAttribute(attribute="columnDropIndicatorSkin"),
-				@JsfFlexAttribute(attribute="columnResizeSkin"),
-				@JsfFlexAttribute(attribute="headerColors"),
-				@JsfFlexAttribute(attribute="headerDragProxyStyleName"),
-				@JsfFlexAttribute(attribute="headerSeparatorSkin"),
-				@JsfFlexAttribute(attribute="headerStyleName"),
-				@JsfFlexAttribute(attribute="horizontalGridLineColor"),
-				@JsfFlexAttribute(attribute="horizontalGridLines"),
-                @JsfFlexAttribute(attribute="horizontalLockedSeparatorSkin"),
-                @JsfFlexAttribute(attribute="horizontalSeparatorSkin"),
-                @JsfFlexAttribute(attribute="iconColor"),
-				@JsfFlexAttribute(attribute="rollOverColor"),
-				@JsfFlexAttribute(attribute="selectionColor"),
-				@JsfFlexAttribute(attribute="sortArrowSkin"),
-				@JsfFlexAttribute(attribute="stretchCursor"),
-				@JsfFlexAttribute(attribute="verticalGridLineColor"),
-				@JsfFlexAttribute(attribute="verticalGridLines"),
-                @JsfFlexAttribute(attribute="verticalLockedSeparatorSkin"),
-                @JsfFlexAttribute(attribute="verticalSeparatorSkin"),
-				@JsfFlexAttribute(attribute="columnStretch"),
-				@JsfFlexAttribute(attribute="headerRelease"),
-				@JsfFlexAttribute(attribute="headerShift"),
-				@JsfFlexAttribute(attribute="itemEditBegin"),
-                @JsfFlexAttribute(attribute="itemEditBeginning"),
-				@JsfFlexAttribute(attribute="itemEditEnd"),
-				@JsfFlexAttribute(attribute="itemFocusIn"),
-				@JsfFlexAttribute(attribute="itemFocusOut")
+				@IJsfFlexAttribute(attribute="columns"),
+				@IJsfFlexAttribute(attribute="draggableColumns"),
+				@IJsfFlexAttribute(attribute="editable", byMethod=true),
+				@IJsfFlexAttribute(attribute="editedItemPosition"),
+				@IJsfFlexAttribute(attribute="horizontalScrollPosition"),
+				@IJsfFlexAttribute(attribute="imeMode"),
+				@IJsfFlexAttribute(attribute="itemEditorInstance"),
+				@IJsfFlexAttribute(attribute="minColumnWidth"),
+				@IJsfFlexAttribute(attribute="resizableColumns"),
+				@IJsfFlexAttribute(attribute="sortableColumns"),
+				@IJsfFlexAttribute(attribute="backgroundDisabledColor"),
+				@IJsfFlexAttribute(attribute="columnDropIndicatorSkin"),
+				@IJsfFlexAttribute(attribute="columnResizeSkin"),
+				@IJsfFlexAttribute(attribute="headerColors"),
+				@IJsfFlexAttribute(attribute="headerDragProxyStyleName"),
+				@IJsfFlexAttribute(attribute="headerSeparatorSkin"),
+				@IJsfFlexAttribute(attribute="headerStyleName"),
+				@IJsfFlexAttribute(attribute="horizontalGridLineColor"),
+				@IJsfFlexAttribute(attribute="horizontalGridLines"),
+                @IJsfFlexAttribute(attribute="horizontalLockedSeparatorSkin"),
+                @IJsfFlexAttribute(attribute="horizontalSeparatorSkin"),
+                @IJsfFlexAttribute(attribute="iconColor"),
+				@IJsfFlexAttribute(attribute="rollOverColor"),
+				@IJsfFlexAttribute(attribute="selectionColor"),
+				@IJsfFlexAttribute(attribute="sortArrowSkin"),
+				@IJsfFlexAttribute(attribute="stretchCursor"),
+				@IJsfFlexAttribute(attribute="verticalGridLineColor"),
+				@IJsfFlexAttribute(attribute="verticalGridLines"),
+                @IJsfFlexAttribute(attribute="verticalLockedSeparatorSkin"),
+                @IJsfFlexAttribute(attribute="verticalSeparatorSkin"),
+				@IJsfFlexAttribute(attribute="columnStretch"),
+				@IJsfFlexAttribute(attribute="headerRelease"),
+				@IJsfFlexAttribute(attribute="headerShift"),
+				@IJsfFlexAttribute(attribute="itemEditBegin"),
+                @IJsfFlexAttribute(attribute="itemEditBeginning"),
+				@IJsfFlexAttribute(attribute="itemEditEnd"),
+				@IJsfFlexAttribute(attribute="itemFocusIn"),
+				@IJsfFlexAttribute(attribute="itemFocusOut")
 		}
 )
-public abstract class MXMLDataGridTemplateRenderer extends MXMLDataGridBaseTemplateRenderer {
+public abstract class AbstractFlexDataGridTemplateRenderer extends AbstractFlexDataGridBaseTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLDataGridTemplateRenderer.class, componentObj, null);
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(AbstractFlexDataGridTemplateRenderer.class, componentObj, null);
 		
 	}
 	

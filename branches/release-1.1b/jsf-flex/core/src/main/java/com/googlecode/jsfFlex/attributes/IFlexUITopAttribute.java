@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="top", returnType="java.lang.String", longDesc="The vertical distance in pixels from the top edge of the component's parent container to the top edge of the component.")
 @JSFComponent
-public interface _MXMLUITopAttribute {
+public interface IFlexUITopAttribute {
     
 }

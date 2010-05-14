@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="fontStyle", returnType="java.lang.String", longDesc="Determines whether the text is italic font.")
 @JSFComponent
-public interface _MXMLUIFontStyleAttribute {
+public interface IFlexUIFontStyleAttribute {
     
 }

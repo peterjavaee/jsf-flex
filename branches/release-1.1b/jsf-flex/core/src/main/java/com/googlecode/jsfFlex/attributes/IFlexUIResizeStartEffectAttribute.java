@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="resizeStartEffect", returnType="java.lang.String", longDesc="Specifies the effect to play before a Resize effect begins playing.")
 @JSFComponent
-public interface _MXMLUIResizeStartEffectAttribute {
+public interface IFlexUIResizeStartEffectAttribute {
     
 }

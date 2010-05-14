@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="imeMode", returnType="java.lang.String", longDesc="Specifies the IME (input method editor) mode.")
 @JSFComponent
-public interface _MXMLUIImeModeAttribute {
+public interface IFlexUIImeModeAttribute {
 	
 }

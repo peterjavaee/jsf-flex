@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="itemDoubleClick", returnType="java.lang.String", longDesc="Dispatched when the user double-clicks on an item in the control.")
 @JSFComponent
-public interface _MXMLUIItemDoubleClickAttribute {
+public interface IFlexUIItemDoubleClickAttribute {
     
 }

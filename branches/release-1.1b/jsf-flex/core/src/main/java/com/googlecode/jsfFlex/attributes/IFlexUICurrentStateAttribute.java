@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="currentState", returnType="java.lang.String", longDesc="The current view state of the component.")
 @JSFComponent
-public interface _MXMLUICurrentStateAttribute {
+public interface IFlexUICurrentStateAttribute {
     
 }

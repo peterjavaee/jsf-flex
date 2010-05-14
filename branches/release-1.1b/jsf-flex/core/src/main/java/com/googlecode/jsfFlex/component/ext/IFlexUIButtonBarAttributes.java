@@ -20,21 +20,21 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIButtonHeightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIButtonStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIButtonWidthAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFirstButtonStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILastButtonStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIButtonHeightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIButtonStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIButtonWidthAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFirstButtonStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusAlphaAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusRoundedCornersAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILastButtonStyleNameAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIButtonBarAttributes 
-            extends _MXMLUIButtonHeightAttribute, _MXMLUIButtonStyleNameAttribute, _MXMLUIButtonWidthAttribute, 
-            _MXMLUIFirstButtonStyleNameAttribute, _MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, 
-            _MXMLUILastButtonStyleNameAttribute, _MXMLUINavBarAttributes {
+interface IFlexUIButtonBarAttributes 
+            extends IFlexUIButtonHeightAttribute, IFlexUIButtonStyleNameAttribute, IFlexUIButtonWidthAttribute, 
+            IFlexUIFirstButtonStyleNameAttribute, IFlexUIFocusAlphaAttribute, IFlexUIFocusRoundedCornersAttribute, 
+            IFlexUILastButtonStyleNameAttribute, IFlexUINavBarAttributes {
     
 }

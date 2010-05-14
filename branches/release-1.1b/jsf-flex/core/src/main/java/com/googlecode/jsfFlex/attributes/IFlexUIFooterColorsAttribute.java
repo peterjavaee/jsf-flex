@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="footerColors", returnType="java.lang.String", longDesc="Array of two colors used to draw the footer background.")
 @JSFComponent
-public interface _MXMLUIFooterColorsAttribute {
+public interface IFlexUIFooterColorsAttribute {
     
 }

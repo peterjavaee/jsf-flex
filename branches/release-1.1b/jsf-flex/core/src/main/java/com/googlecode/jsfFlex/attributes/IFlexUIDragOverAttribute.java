@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dragOver", returnType="java.lang.String", longDesc="Dispatched by a component when the user moves the mouse while over the component during a drag operation.")
 @JSFComponent
-public interface _MXMLUIDragOverAttribute {
+public interface IFlexUIDragOverAttribute {
     
 }

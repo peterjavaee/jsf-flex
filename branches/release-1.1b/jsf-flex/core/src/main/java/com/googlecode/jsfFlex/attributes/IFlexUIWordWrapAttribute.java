@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="wordWrap", returnType="java.lang.String", longDesc="A flag that indicates whether text in the row should be word wrapped.")
 @JSFComponent
-public interface _MXMLUIWordWrapAttribute {
+public interface IFlexUIWordWrapAttribute {
 	
 }

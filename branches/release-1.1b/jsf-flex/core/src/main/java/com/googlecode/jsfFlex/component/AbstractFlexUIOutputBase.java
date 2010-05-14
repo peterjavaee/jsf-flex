@@ -28,27 +28,27 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.renderkit.annotationDocletParser._AnnotationDocletParser;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
-import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.renderkit.annotationDocletParser.AbstractAnnotationDocletParser;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
+import com.googlecode.jsfFlex.shared.tasks.AbstractRunnerFactory;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * This component should be used as the base action of the component if the component<br>
- * does not require any preservation of values during the post-back phase [i.e. AbstractMXMLUILabel], but<br>
+ * does not require any preservation of values during the post-back phase [i.e. AbstractFlexUILabel], but<br>
  * require setting of fields of UIOutput [i.e. converter].<br>
  * 
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        type    =   "com.googlecode.jsfFlex.MXMLUIOutputBase",
-        family  =   "javax.faces.MXMLOutputBase",
-        desc    =   "Base component for MXMLOutput components"
+        type    =   "com.googlecode.jsfFlex.AbstractFlexUIOutputBase",
+        family  =   "javax.faces.FlexOutputBase",
+        desc    =   "Base component for FlexOutput components"
 )
-public abstract class MXMLUIOutputBase extends UIOutput implements _MXMLContract {
+public abstract class AbstractFlexUIOutputBase extends UIOutput implements IFlexContract {
 	
-	private _AnnotationDocletParser _annotationDocletParserInstance;
+	private AbstractAnnotationDocletParser _annotationDocletParserInstance;
 	
 	private String _absolutePathToPreMxmlFile;
 	
@@ -56,12 +56,12 @@ public abstract class MXMLUIOutputBase extends UIOutput implements _MXMLContract
 	private String _parentPreMxmlIdentifier;
 	/*
 	 * below two variables dictate the depth and the height of this component
-	 * in reference to the top component which should be of MXMLApplication. 
+	 * in reference to the top component which should be of FlexApplication. 
 	 */
 	private int _majorLevel = -1;
 	private int _minorLevel = -1;
 
-	public MXMLUIOutputBase(){
+	public AbstractFlexUIOutputBase(){
 		super();
 	}
 	
@@ -69,11 +69,11 @@ public abstract class MXMLUIOutputBase extends UIOutput implements _MXMLContract
     	return null;
     }
 
-	public synchronized _AnnotationDocletParser getAnnotationDocletParserInstance(){
+	public synchronized AbstractAnnotationDocletParser getAnnotationDocletParserInstance(){
 		
 		if(_annotationDocletParserInstance == null){
-			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
-			_RunnerFactory runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
+			AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
+			AbstractRunnerFactory runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
 			_annotationDocletParserInstance = runnerFactoryInstance.getAnnotationDocletParserImpl();
 		}
 		
@@ -82,7 +82,7 @@ public abstract class MXMLUIOutputBase extends UIOutput implements _MXMLContract
 	
 	public void encodeBegin(FacesContext context) throws IOException {
 		
-		MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
 		if(mxmlContext.isProductionEnv()){
 			//means no need to create preMxml files
 			setRendered(false);
@@ -92,8 +92,8 @@ public abstract class MXMLUIOutputBase extends UIOutput implements _MXMLContract
 	}
 	
 	public void processDecodes(FacesContext context) {
-		String mode = context.getExternalContext().getInitParameter(MXMLConstants.CONFIG_MODE_NAME);
-		if(mode == null || mode.equals(MXMLConstants.PRODUCTION_MODE)){
+		String mode = context.getExternalContext().getInitParameter(FlexConstants.CONFIG_MODE_NAME);
+		if(mode == null || mode.equals(FlexConstants.PRODUCTION_MODE)){
 			//need to dataBind so set back to true
 			setRendered(true);
 		}

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="itemFocusOut", returnType="java.lang.String", longDesc="Dispatched when an item renderer loses the focus, which can occur if the user clicks another item in the List control or outside the list, or uses the keyboard to navigate to another item in the List control or outside the List control.")
 @JSFComponent
-public interface _MXMLUIItemFocusOutAttribute {
+public interface IFlexUIItemFocusOutAttribute {
     
 }

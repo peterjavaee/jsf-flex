@@ -20,19 +20,19 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIIconFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemClickAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILabelFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIToolTipFieldAttribute;
-import com.googlecode.jsfFlex.container.ext._MXMLUIBoxAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUIIconFieldAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemClickAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILabelFieldAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIToolTipFieldAttribute;
+import com.googlecode.jsfFlex.container.ext.IFlexUIBoxAttributes;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUINavBarAttributes 
-            extends _MXMLUIIconFieldAttribute, _MXMLUILabelFieldAttribute, _MXMLUIToolTipFieldAttribute, _MXMLUIItemClickAttribute, 
-            _MXMLUIBoxAttributes {
+interface IFlexUINavBarAttributes 
+            extends IFlexUIIconFieldAttribute, IFlexUILabelFieldAttribute, IFlexUIToolTipFieldAttribute, IFlexUIItemClickAttribute, 
+            IFlexUIBoxAttributes {
     
     String getDataProvider();
     

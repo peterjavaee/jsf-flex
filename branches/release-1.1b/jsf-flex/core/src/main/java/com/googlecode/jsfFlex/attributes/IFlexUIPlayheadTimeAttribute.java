@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="playheadTime", returnType="java.lang.String", longDesc="Playhead position, measured in seconds, since the video starting playing.")
 @JSFComponent
-public interface _MXMLUIPlayheadTimeAttribute {
+public interface IFlexUIPlayheadTimeAttribute {
     
 }

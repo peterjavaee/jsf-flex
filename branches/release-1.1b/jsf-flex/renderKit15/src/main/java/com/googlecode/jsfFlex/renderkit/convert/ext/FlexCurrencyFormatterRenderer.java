@@ -25,48 +25,48 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.convert.MXMLFormatterTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.convert.AbstractFlexFormatterTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLSimple",
-		type="com.googlecode.jsfFlex.MXMLCurrencyFormatter"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexSimple",
+		type="com.googlecode.jsfFlex.FlexCurrencyFormatter"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="CurrencyFormatter",
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentName="CurrencyFormatter",
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="alignSymbol"),
-				@JsfFlexAttribute(attribute="currencySymbol"),
-				@JsfFlexAttribute(attribute="decimalSeparatorFrom"),
-				@JsfFlexAttribute(attribute="decimalSeparatorTo"),
-				@JsfFlexAttribute(attribute="precision"),
-				@JsfFlexAttribute(attribute="rounding"),
-				@JsfFlexAttribute(attribute="thousandsSeparatorFrom"),
-				@JsfFlexAttribute(attribute="thousandsSeparatorTo"),
-				@JsfFlexAttribute(attribute="useNegativeSign"),
-				@JsfFlexAttribute(attribute="useThousandsSeparator")
+				@IJsfFlexAttribute(attribute="alignSymbol"),
+				@IJsfFlexAttribute(attribute="currencySymbol"),
+				@IJsfFlexAttribute(attribute="decimalSeparatorFrom"),
+				@IJsfFlexAttribute(attribute="decimalSeparatorTo"),
+				@IJsfFlexAttribute(attribute="precision"),
+				@IJsfFlexAttribute(attribute="rounding"),
+				@IJsfFlexAttribute(attribute="thousandsSeparatorFrom"),
+				@IJsfFlexAttribute(attribute="thousandsSeparatorTo"),
+				@IJsfFlexAttribute(attribute="useNegativeSign"),
+				@IJsfFlexAttribute(attribute="useThousandsSeparator")
 		}
 )
-public final class MXMLCurrencyFormatterRenderer extends MXMLFormatterTemplateRenderer {
+public final class FlexCurrencyFormatterRenderer extends AbstractFlexFormatterTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-        _MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLCurrencyFormatterRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLCurrencyFormatterRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexCurrencyFormatterRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexCurrencyFormatterRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="itemEditBeginning", returnType="java.lang.String", longDesc="Dispatched when the user releases the mouse button while over an item, tabs to the List or within the List, or in any other way attempts to edit an item.")
 @JSFComponent
-public interface _MXMLUIItemEditBeginningAttribute {
+public interface IFlexUIItemEditBeginningAttribute {
     
 }

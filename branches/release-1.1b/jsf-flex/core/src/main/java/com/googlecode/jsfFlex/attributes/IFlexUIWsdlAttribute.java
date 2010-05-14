@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="wsdl", returnType="java.lang.String", longDesc="The location of the WSDL document for this WebService.")
 @JSFComponent
-public interface _MXMLUIWsdlAttribute {
+public interface IFlexUIWsdlAttribute {
     
 }

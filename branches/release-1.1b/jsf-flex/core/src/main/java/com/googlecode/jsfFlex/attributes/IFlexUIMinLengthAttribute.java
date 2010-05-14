@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="minLength", returnType="java.lang.String", longDesc="Minimum length for a valid String.")
 @JSFComponent
-public interface _MXMLUIMinLengthAttribute {
+public interface IFlexUIMinLengthAttribute {
     
 }

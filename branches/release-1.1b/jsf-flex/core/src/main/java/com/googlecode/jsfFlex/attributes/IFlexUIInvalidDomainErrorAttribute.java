@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="invalidDomainError", returnType="java.lang.String", longDesc="Error message when the domain property contains an invalid value.")
 @JSFComponent
-public interface _MXMLUIInvalidDomainErrorAttribute {
+public interface IFlexUIInvalidDomainErrorAttribute {
     
 }

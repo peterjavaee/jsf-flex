@@ -21,22 +21,22 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlRemoveChildAction",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIRemoveChildAction",
-        type                =   "com.googlecode.jsfFlex.MXMLUIRemoveChildAction",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIRemoveChildActionTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLRemoveChildAction"
+        name                =   "jf:flexRemoveChildAction",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIRemoveChildAction",
+        type                =   "com.googlecode.jsfFlex.FlexUIRemoveChildAction",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIRemoveChildActionTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexRemoveChildAction"
 )
-public abstract class AbstractMXMLUIRemoveChildAction 
-                                extends MXMLUISimpleBase 
-                                implements _MXMLUIEffectAttributes {
+public abstract class AbstractFlexUIRemoveChildAction 
+                                extends AbstractFlexUISimpleBase 
+                                implements IFlexUIEffectAttributes {
 
     /**
      * Id of the component.

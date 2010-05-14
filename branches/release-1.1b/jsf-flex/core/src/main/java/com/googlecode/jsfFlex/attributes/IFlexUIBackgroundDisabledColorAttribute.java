@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="backgroundDisabledColor", returnType="java.lang.String", longDesc="Background color of the component when it is disabled.")
 @JSFComponent
-public interface _MXMLUIBackgroundDisabledColorAttribute {
+public interface IFlexUIBackgroundDisabledColorAttribute {
 	
 }

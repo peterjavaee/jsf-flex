@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="labelStyleName", returnType="java.lang.String", longDesc="The name of the style to use for the slider label.")
 @JSFComponent
-public interface _MXMLUILabelStyleNameAttribute {
+public interface IFlexUILabelStyleNameAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="openAlways", returnType="java.lang.String", longDesc="If true, specifies to pop up the popUp when you click the main button.")
 @JSFComponent
-public interface _MXMLUIOpenAlwaysAttribute {
+public interface IFlexUIOpenAlwaysAttribute {
     
 }

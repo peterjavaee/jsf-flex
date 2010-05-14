@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="label", returnType="java.lang.String", longDesc="Text to appear on the control.")
 @JSFComponent
-public interface _MXMLUILabelAttribute {
+public interface IFlexUILabelAttribute {
 	
 }

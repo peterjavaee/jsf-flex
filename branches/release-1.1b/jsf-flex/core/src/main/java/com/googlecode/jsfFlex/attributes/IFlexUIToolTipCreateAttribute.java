@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="toolTipCreate", returnType="java.lang.String", longDesc="Dispatched by the component when it is time to create a ToolTip.")
 @JSFComponent
-public interface _MXMLUIToolTipCreateAttribute {
+public interface IFlexUIToolTipCreateAttribute {
     
 }

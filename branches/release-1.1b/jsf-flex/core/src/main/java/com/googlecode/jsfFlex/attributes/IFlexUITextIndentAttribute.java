@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="textIndent", returnType="java.lang.String", longDesc="Offset of first line of text from the left side of the container, in pixels.")
 @JSFComponent
-public interface _MXMLUITextIndentAttribute {
+public interface IFlexUITextIndentAttribute {
     
 }

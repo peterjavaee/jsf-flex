@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="originY", returnType="java.lang.String", longDesc="The y-position of the center point of rotation.")
 @JSFComponent
-public interface _MXMLUIOriginYAttribute {
+public interface IFlexUIOriginYAttribute {
     
 }

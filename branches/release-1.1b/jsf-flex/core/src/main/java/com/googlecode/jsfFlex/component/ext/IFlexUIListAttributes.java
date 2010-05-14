@@ -20,35 +20,35 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundDisabledColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditedItemPositionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditorDataFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditorHeightOffsetAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditorUsesEnterKeyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditorWidthOffsetAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditorXOffsetAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditorYOffsetAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIImeModeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemEditBeginAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemEditBeginningAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemEditEndAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemEditorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemEditorInstanceAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemFocusInAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemFocusOutAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRendererIsEditorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundDisabledColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditedItemPositionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditorDataFieldAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditorHeightOffsetAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditorUsesEnterKeyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditorWidthOffsetAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditorXOffsetAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditorYOffsetAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIImeModeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemEditBeginAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemEditBeginningAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemEditEndAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemEditorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemEditorInstanceAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemFocusInAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemFocusOutAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRendererIsEditorAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIListAttributes 
-                    extends _MXMLUIEditedItemPositionAttribute, _MXMLUIEditorDataFieldAttribute, _MXMLUIEditorHeightOffsetAttribute, 
-                    _MXMLUIEditorUsesEnterKeyAttribute, _MXMLUIEditorWidthOffsetAttribute, _MXMLUIEditorXOffsetAttribute, 
-                    _MXMLUIEditorYOffsetAttribute, _MXMLUIImeModeAttribute, _MXMLUIItemEditorAttribute, _MXMLUIItemEditorInstanceAttribute, 
-                    _MXMLUIRendererIsEditorAttribute, _MXMLUIBackgroundDisabledColorAttribute, _MXMLUIItemEditBeginAttribute, 
-                    _MXMLUIItemEditEndAttribute, _MXMLUIItemEditBeginningAttribute, _MXMLUIItemFocusInAttribute, 
-                    _MXMLUIItemFocusOutAttribute, _MXMLUIListBaseAttributes {
+interface IFlexUIListAttributes 
+                    extends IFlexUIEditedItemPositionAttribute, IFlexUIEditorDataFieldAttribute, IFlexUIEditorHeightOffsetAttribute, 
+                    IFlexUIEditorUsesEnterKeyAttribute, IFlexUIEditorWidthOffsetAttribute, IFlexUIEditorXOffsetAttribute, 
+                    IFlexUIEditorYOffsetAttribute, IFlexUIImeModeAttribute, IFlexUIItemEditorAttribute, IFlexUIItemEditorInstanceAttribute, 
+                    IFlexUIRendererIsEditorAttribute, IFlexUIBackgroundDisabledColorAttribute, IFlexUIItemEditBeginAttribute, 
+                    IFlexUIItemEditEndAttribute, IFlexUIItemEditBeginningAttribute, IFlexUIItemFocusInAttribute, 
+                    IFlexUIItemFocusOutAttribute, IFlexUIListBaseAttributes {
     
     String getEditable();
     

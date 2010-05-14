@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="error", returnType="java.lang.String", longDesc="Dispatched when an error occurs anywhere in the application, such as an HTTPService, WebService, or RemoteObject fails.")
 @JSFComponent
-public interface _MXMLUIErrorAttribute {
+public interface IFlexUIErrorAttribute {
     
 }

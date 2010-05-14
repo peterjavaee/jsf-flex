@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="clipContent", returnType="java.lang.String", longDesc="Whether to apply a clip mask if the positions and/or sizes of this container's children extend outside the borders of this container.")
 @JSFComponent
-public interface _MXMLUIClipContentAttribute {
+public interface IFlexUIClipContentAttribute {
     
 }

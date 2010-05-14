@@ -20,34 +20,34 @@ package com.googlecode.jsfFlex.validator.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIInvalidCharErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIInvalidIPDomainErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIInvalidPeriodsInDomainErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMissingAtSignErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMissingPeriodInDomainErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMissingUsernameErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITooManyAtSignsErrorAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIInvalidCharErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIInvalidIPDomainErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIInvalidPeriodsInDomainErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMissingAtSignErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMissingPeriodInDomainErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMissingUsernameErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITooManyAtSignsErrorAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
- * One thing to note about MXML Formatter and Validator is that they are not actually converters or validators<br>
+ * One thing to note about Flex Formatter and Validator is that they are not actually converters or validators<br>
  * respectively but actually are components. This is so because they perform the formatting and validation<br>
  * as Flex components on the client side and not on the server side.<br>
  * 		
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlEmailValidator",
-        clazz               =   "com.googlecode.jsfFlex.validator.ext.MXMLUIEmailValidator",
-        type                =   "com.googlecode.jsfFlex.MXMLUIEmailValidator",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.validator.ext.MXMLUIEmailValidatorTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLEmailValidator"
+        name                =   "jf:flexEmailValidator",
+        clazz               =   "com.googlecode.jsfFlex.validator.ext.FlexUIEmailValidator",
+        type                =   "com.googlecode.jsfFlex.FlexUIEmailValidator",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.validator.ext.FlexUIEmailValidatorTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexEmailValidator"
 )
-public abstract class AbstractMXMLUIEmailValidator 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIValidatorAttributes, _MXMLUIInvalidCharErrorAttribute, _MXMLUIInvalidIPDomainErrorAttribute, 
-                        _MXMLUIInvalidPeriodsInDomainErrorAttribute, _MXMLUIMissingAtSignErrorAttribute, _MXMLUIMissingPeriodInDomainErrorAttribute, 
-                        _MXMLUIMissingUsernameErrorAttribute, _MXMLUITooManyAtSignsErrorAttribute {
+public abstract class AbstractFlexUIEmailValidator 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIValidatorAttributes, IFlexUIInvalidCharErrorAttribute, IFlexUIInvalidIPDomainErrorAttribute, 
+                        IFlexUIInvalidPeriodsInDomainErrorAttribute, IFlexUIMissingAtSignErrorAttribute, IFlexUIMissingPeriodInDomainErrorAttribute, 
+                        IFlexUIMissingUsernameErrorAttribute, IFlexUITooManyAtSignsErrorAttribute {
 	
 }

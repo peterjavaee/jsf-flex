@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="validPatternChars", returnType="java.lang.String", longDesc="List of valid characters that can be used in the formatString property.")
 @JSFComponent
-public interface _MXMLUIValidPatternCharsAttribute {
+public interface IFlexUIValidPatternCharsAttribute {
     
 }

@@ -20,77 +20,77 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIAllowDragSelectionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIAllowMultipleSelectionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIAlternatingItemColorsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIChangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIColumnCountAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIColumnWidthAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataChangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataTipFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataTipFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDragEnabledAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDragMoveEnabledAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDropEnabledAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDropIndicatorSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIconFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIconFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemClickAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemDoubleClickAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemRendererAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemRollOutAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemRollOverAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILabelFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILabelFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILockedColumnCountAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILockedRowCountAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMenuSelectionModeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOffscreenExtraRowsOrColumnsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingBottomAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingLeftAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingRightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingTopAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRollOverColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRowHeightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectableAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndicesAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedItemAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedItemsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectionColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectionDisabledColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectionDurationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectionEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShowDataTipsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextRollOverColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextSelectedColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUseRollOverAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVariableRowHeightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVerticalAlignAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIWordWrapAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIAllowDragSelectionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIAllowMultipleSelectionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIAlternatingItemColorsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIChangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIColumnCountAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIColumnWidthAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataChangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataTipFieldAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataTipFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDragEnabledAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDragMoveEnabledAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDropEnabledAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDropIndicatorSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusAlphaAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusRoundedCornersAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIconFieldAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIconFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemClickAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemDoubleClickAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemRendererAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemRollOutAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemRollOverAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILabelFieldAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILabelFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILockedColumnCountAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILockedRowCountAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMenuSelectionModeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOffscreenExtraRowsOrColumnsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingBottomAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingLeftAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingRightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingTopAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRollOverColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRowHeightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectableAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedIndicesAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedItemAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedItemsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectionColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectionDisabledColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectionDurationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectionEasingFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShowDataTipsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextRollOverColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextSelectedColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUseRollOverAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVariableRowHeightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVerticalAlignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIWordWrapAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIListBaseAttributes 
-                    extends _MXMLUIAllowDragSelectionAttribute, _MXMLUIAllowMultipleSelectionAttribute, _MXMLUIColumnCountAttribute, 
-                    _MXMLUIColumnWidthAttribute, _MXMLUIDataTipFieldAttribute, _MXMLUIDataTipFunctionAttribute, 
-                    _MXMLUIDragEnabledAttribute, _MXMLUIDragMoveEnabledAttribute, _MXMLUIDropEnabledAttribute, 
-                    _MXMLUIIconFieldAttribute, _MXMLUIIconFunctionAttribute, _MXMLUIItemRendererAttribute, _MXMLUILabelFieldAttribute, 
-                    _MXMLUILabelFunctionAttribute, _MXMLUILockedColumnCountAttribute, _MXMLUILockedRowCountAttribute, 
-                    _MXMLUIMenuSelectionModeAttribute, _MXMLUIRowHeightAttribute, _MXMLUISelectableAttribute, _MXMLUISelectedIndicesAttribute, 
-                    _MXMLUISelectedItemAttribute, _MXMLUISelectedItemsAttribute, _MXMLUIShowDataTipsAttribute, 
-                    _MXMLUIVariableRowHeightAttribute, _MXMLUIWordWrapAttribute, _MXMLUIAlternatingItemColorsAttribute, 
-                    _MXMLUIDropIndicatorSkinAttribute, _MXMLUIFocusAlphaAttribute, _MXMLUIFocusRoundedCornersAttribute, 
-                    _MXMLUIPaddingBottomAttribute, _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, _MXMLUIPaddingTopAttribute, 
-                    _MXMLUIRollOverColorAttribute, _MXMLUISelectionColorAttribute, _MXMLUISelectionDisabledColorAttribute, 
-                    _MXMLUISelectionDurationAttribute, _MXMLUISelectionEasingFunctionAttribute, _MXMLUITextRollOverColorAttribute, 
-                    _MXMLUITextSelectedColorAttribute, _MXMLUIUseRollOverAttribute, _MXMLUIVerticalAlignAttribute, 
-                    _MXMLUIChangeAttribute, _MXMLUIDataChangeAttribute, _MXMLUIItemDoubleClickAttribute, 
-                    _MXMLUIItemRollOutAttribute, _MXMLUIItemRollOverAttribute, _MXMLUIItemClickAttribute, 
-                    _MXMLUIOffscreenExtraRowsOrColumnsAttribute, _MXMLUIScrollControlAttributes {
+interface IFlexUIListBaseAttributes 
+                    extends IFlexUIAllowDragSelectionAttribute, IFlexUIAllowMultipleSelectionAttribute, IFlexUIColumnCountAttribute, 
+                    IFlexUIColumnWidthAttribute, IFlexUIDataTipFieldAttribute, IFlexUIDataTipFunctionAttribute, 
+                    IFlexUIDragEnabledAttribute, IFlexUIDragMoveEnabledAttribute, IFlexUIDropEnabledAttribute, 
+                    IFlexUIIconFieldAttribute, IFlexUIIconFunctionAttribute, IFlexUIItemRendererAttribute, IFlexUILabelFieldAttribute, 
+                    IFlexUILabelFunctionAttribute, IFlexUILockedColumnCountAttribute, IFlexUILockedRowCountAttribute, 
+                    IFlexUIMenuSelectionModeAttribute, IFlexUIRowHeightAttribute, IFlexUISelectableAttribute, IFlexUISelectedIndicesAttribute, 
+                    IFlexUISelectedItemAttribute, IFlexUISelectedItemsAttribute, IFlexUIShowDataTipsAttribute, 
+                    IFlexUIVariableRowHeightAttribute, IFlexUIWordWrapAttribute, IFlexUIAlternatingItemColorsAttribute, 
+                    IFlexUIDropIndicatorSkinAttribute, IFlexUIFocusAlphaAttribute, IFlexUIFocusRoundedCornersAttribute, 
+                    IFlexUIPaddingBottomAttribute, IFlexUIPaddingLeftAttribute, IFlexUIPaddingRightAttribute, IFlexUIPaddingTopAttribute, 
+                    IFlexUIRollOverColorAttribute, IFlexUISelectionColorAttribute, IFlexUISelectionDisabledColorAttribute, 
+                    IFlexUISelectionDurationAttribute, IFlexUISelectionEasingFunctionAttribute, IFlexUITextRollOverColorAttribute, 
+                    IFlexUITextSelectedColorAttribute, IFlexUIUseRollOverAttribute, IFlexUIVerticalAlignAttribute, 
+                    IFlexUIChangeAttribute, IFlexUIDataChangeAttribute, IFlexUIItemDoubleClickAttribute, 
+                    IFlexUIItemRollOutAttribute, IFlexUIItemRollOverAttribute, IFlexUIItemClickAttribute, 
+                    IFlexUIOffscreenExtraRowsOrColumnsAttribute, IFlexUIScrollControlAttributes {
     
     String getDataProvider();
     

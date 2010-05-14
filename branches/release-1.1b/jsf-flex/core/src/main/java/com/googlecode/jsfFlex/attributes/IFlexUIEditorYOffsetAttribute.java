@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="editorYOffset", returnType="java.lang.String", longDesc="The y location of the upper-left corner of the item editor, in pixels, relative to the upper-left corner of the item.")
 @JSFComponent
-public interface _MXMLUIEditorYOffsetAttribute {
+public interface IFlexUIEditorYOffsetAttribute {
     
 }

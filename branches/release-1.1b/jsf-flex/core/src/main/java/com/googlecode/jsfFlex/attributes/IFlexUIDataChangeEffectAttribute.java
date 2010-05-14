@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dataChangeEffect", returnType="java.lang.String", longDesc="The effect used when changes occur in the control's data provider.")
 @JSFComponent
-public interface _MXMLUIDataChangeEffectAttribute {
+public interface IFlexUIDataChangeEffectAttribute {
     
 }

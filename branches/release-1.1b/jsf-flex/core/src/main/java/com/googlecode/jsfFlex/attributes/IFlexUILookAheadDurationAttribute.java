@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="lookAheadDuration", returnType="java.lang.String", longDesc="The type look-ahead duration, in milliseconds, for multi-character look ahead.")
 @JSFComponent
-public interface _MXMLUILookAheadDurationAttribute {
+public interface IFlexUILookAheadDurationAttribute {
     
 }

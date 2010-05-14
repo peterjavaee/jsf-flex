@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dropShadowColor", returnType="java.lang.String", longDesc="Color of the drop shadow.")
 @JSFComponent
-public interface _MXMLUIDropShadowColorAttribute {
+public interface IFlexUIDropShadowColorAttribute {
     
 }

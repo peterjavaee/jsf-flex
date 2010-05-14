@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="automationName", returnType="java.lang.String", longDesc="Name that can be used as an identifier for this object.")
 @JSFComponent
-public interface _MXMLUIAutomationNameAttribute {
+public interface IFlexUIAutomationNameAttribute {
     
 }

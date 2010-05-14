@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="scaleX", returnType="java.lang.String", longDesc="Number that specifies the horizontal scaling factor.")
 @JSFComponent
-public interface _MXMLUIScaleXAttribute {
+public interface IFlexUIScaleXAttribute {
     
 }

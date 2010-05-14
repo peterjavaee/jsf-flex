@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dataTipStyleName", returnType="java.lang.String", longDesc="The name of the style declaration to use for the data tip.")
 @JSFComponent
-public interface _MXMLUIDataTipStyleNameAttribute {
+public interface IFlexUIDataTipStyleNameAttribute {
     
 }

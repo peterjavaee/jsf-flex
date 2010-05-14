@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="toggle", returnType="java.lang.String", longDesc="Controls whether a Button is in a toggle state or not.")
 @JSFComponent
-public interface _MXMLUIToggleAttribute {
+public interface IFlexUIToggleAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="stickyHighlighting", returnType="java.lang.String", longDesc="If false, the Button displays its down skin when the user presses it but changes to its over skin when the user drags the mouse off of it. If true, the Button displays its down skin when the user presses it, and continues todisplay this skin when the user drags the mouse off of it.")
 @JSFComponent
-public interface _MXMLUIStickyHighlightingAttribute {
+public interface IFlexUIStickyHighlightingAttribute {
     
 }

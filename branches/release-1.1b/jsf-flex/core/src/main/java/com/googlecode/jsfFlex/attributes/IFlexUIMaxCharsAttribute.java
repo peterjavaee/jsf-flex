@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="maxChars", returnType="java.lang.String", longDesc="Maximum number of characters that users can enter in the text field.")
 @JSFComponent
-public interface _MXMLUIMaxCharsAttribute {
+public interface IFlexUIMaxCharsAttribute {
 	
 }

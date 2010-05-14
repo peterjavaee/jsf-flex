@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="emphasized", returnType="java.lang.String", longDesc="Draws a thick border around the Button control when the control is in its upstate if emphasized is set to true.")
 @JSFComponent
-public interface _MXMLUIEmphasizedAttribute {
+public interface IFlexUIEmphasizedAttribute {
     
 }

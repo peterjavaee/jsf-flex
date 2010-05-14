@@ -20,22 +20,22 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIDataChangeAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataChangeAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlImage",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIImage",
-        type                =   "com.googlecode.jsfFlex.MXMLUIImage",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIImageTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLImage"
+        name                =   "jf:flexImage",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIImage",
+        type                =   "com.googlecode.jsfFlex.FlexUIImage",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIImageTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexImage"
 )
-public abstract class AbstractMXMLUIImage 
-						extends MXMLUISimpleBase
-						implements _MXMLUISwfLoaderAttributes, _MXMLUIDataChangeAttribute {
+public abstract class AbstractFlexUIImage 
+						extends AbstractFlexUISimpleBase
+						implements IFlexUISwfLoaderAttributes, IFlexUIDataChangeAttribute {
 	
 }

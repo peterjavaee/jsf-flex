@@ -16,16 +16,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.renderkit.mxml;
+package com.googlecode.jsfFlex.renderkit.flex;
 
 import org.apache.myfaces.renderkit.html.HtmlResponseStateManager;
 
 /**
  * @author Ji Hoon Kim
  */
-class MXMLResponseStateManagerImpl extends HtmlResponseStateManager {
+class FlexResponseStateManagerImpl extends HtmlResponseStateManager {
     
-    MXMLResponseStateManagerImpl(){
+    FlexResponseStateManagerImpl(){
         super();
     }
     

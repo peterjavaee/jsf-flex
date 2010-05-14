@@ -20,30 +20,30 @@ package com.googlecode.jsfFlex.validator.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIExpressionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFlagsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUINoExpressionErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUINoMatchErrorAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIExpressionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFlagsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUINoExpressionErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUINoMatchErrorAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
- * One thing to note about MXML Formatter and Validator is that they are not actually converters or validators<br>
+ * One thing to note about Flex Formatter and Validator is that they are not actually converters or validators<br>
  * respectively but actually are components. This is so because they perform the formatting and validation<br>
  * as Flex components on the client side and not on the server side.<br>
  * 
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlRegExpValidator",
-        clazz               =   "com.googlecode.jsfFlex.validator.ext.MXMLUIRegExpValidator",
-        type                =   "com.googlecode.jsfFlex.MXMLUIRegExpValidator",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.validator.ext.MXMLUIRegExpValidatorTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLRegExpValidator"
+        name                =   "jf:flexRegExpValidator",
+        clazz               =   "com.googlecode.jsfFlex.validator.ext.FlexUIRegExpValidator",
+        type                =   "com.googlecode.jsfFlex.FlexUIRegExpValidator",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.validator.ext.FlexUIRegExpValidatorTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexRegExpValidator"
 )
-public abstract class AbstractMXMLUIRegExpValidator 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIValidatorAttributes, _MXMLUIExpressionAttribute, _MXMLUIFlagsAttribute,
-                        _MXMLUINoExpressionErrorAttribute, _MXMLUINoMatchErrorAttribute {
+public abstract class AbstractFlexUIRegExpValidator 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIValidatorAttributes, IFlexUIExpressionAttribute, IFlexUIFlagsAttribute,
+                        IFlexUINoExpressionErrorAttribute, IFlexUINoMatchErrorAttribute {
 	
 }

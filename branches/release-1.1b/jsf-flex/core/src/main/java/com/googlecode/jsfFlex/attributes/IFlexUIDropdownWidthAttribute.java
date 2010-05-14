@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dropdownWidth", returnType="java.lang.String", longDesc="Width of the drop-down list, in pixels.")
 @JSFComponent
-public interface _MXMLUIDropdownWidthAttribute {
+public interface IFlexUIDropdownWidthAttribute {
     
 }

@@ -20,70 +20,70 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIAutoBandWidthDetectionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIAutoPlayAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIAutoRewindAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundAlphaAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundImageAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBackgroundSizeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderSidesAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderStyleAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderThicknessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIBufferTimeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICloseAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICompleteAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICornerRadiusAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICuePointAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICuePointManagerClassAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICuePointsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDropShadowColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDropShadowEnabledAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIdleTimeoutAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILiveAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMaintainAspectRatioAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPlayheadTimeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPlayheadUpdateAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPlayheadUpdateIntervalAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIProgressAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIProgressIntervalAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIReadyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRewindAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShadowDirectionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShadowDistanceAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISourceAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIStateChangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITotalTimeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIVolumeAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIAutoBandWidthDetectionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIAutoPlayAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIAutoRewindAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundAlphaAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundImageAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderSidesAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderStyleAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderThicknessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBufferTimeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICloseAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICompleteAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICornerRadiusAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICuePointAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICuePointManagerClassAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICuePointsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDropShadowColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDropShadowEnabledAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIdleTimeoutAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILiveAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMaintainAspectRatioAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPlayheadTimeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPlayheadUpdateAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPlayheadUpdateIntervalAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIProgressAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIProgressIntervalAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIReadyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRewindAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShadowDirectionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShadowDistanceAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISourceAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIStateChangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITotalTimeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIVolumeAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlVideoDisplay",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIVideoDisplay",
-        type                =   "com.googlecode.jsfFlex.MXMLUIVideoDisplay",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIVideoDisplayTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLVideoDisplay"
+        name                =   "jf:flexVideoDisplay",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIVideoDisplay",
+        type                =   "com.googlecode.jsfFlex.FlexUIVideoDisplay",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIVideoDisplayTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexVideoDisplay"
 )
-public abstract class AbstractMXMLUIVideoDisplay 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIBaseAttributes, _MXMLUIAutoBandWidthDetectionAttribute, _MXMLUIAutoPlayAttribute, 
-                        _MXMLUIAutoRewindAttribute, _MXMLUIBufferTimeAttribute, _MXMLUICuePointManagerClassAttribute, 
-                        _MXMLUICuePointsAttribute, _MXMLUIIdleTimeoutAttribute, _MXMLUILiveAttribute, _MXMLUIMaintainAspectRatioAttribute, 
-                        _MXMLUIPlayheadTimeAttribute, _MXMLUIPlayheadUpdateIntervalAttribute, _MXMLUIProgressIntervalAttribute, 
-                        _MXMLUISourceAttribute, _MXMLUITotalTimeAttribute, _MXMLUIVolumeAttribute, _MXMLUIBackgroundAlphaAttribute, 
-                        _MXMLUIBackgroundColorAttribute, _MXMLUIBackgroundImageAttribute, _MXMLUIBackgroundSizeAttribute, 
-                        _MXMLUIBorderColorAttribute, _MXMLUIBorderSidesAttribute, _MXMLUIBorderSkinAttribute, 
-                        _MXMLUIBorderStyleAttribute, _MXMLUIBorderThicknessAttribute, _MXMLUICornerRadiusAttribute, 
-                        _MXMLUIDropShadowColorAttribute, _MXMLUIDropShadowEnabledAttribute, _MXMLUIShadowDirectionAttribute, 
-                        _MXMLUIShadowDistanceAttribute, _MXMLUICloseAttribute, _MXMLUICompleteAttribute, 
-                        _MXMLUICuePointAttribute, _MXMLUIPlayheadUpdateAttribute, _MXMLUIProgressAttribute, 
-                        _MXMLUIReadyAttribute, _MXMLUIRewindAttribute, _MXMLUIStateChangeAttribute {
+public abstract class AbstractFlexUIVideoDisplay 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIBaseAttributes, IFlexUIAutoBandWidthDetectionAttribute, IFlexUIAutoPlayAttribute, 
+                        IFlexUIAutoRewindAttribute, IFlexUIBufferTimeAttribute, IFlexUICuePointManagerClassAttribute, 
+                        IFlexUICuePointsAttribute, IFlexUIIdleTimeoutAttribute, IFlexUILiveAttribute, IFlexUIMaintainAspectRatioAttribute, 
+                        IFlexUIPlayheadTimeAttribute, IFlexUIPlayheadUpdateIntervalAttribute, IFlexUIProgressIntervalAttribute, 
+                        IFlexUISourceAttribute, IFlexUITotalTimeAttribute, IFlexUIVolumeAttribute, IFlexUIBackgroundAlphaAttribute, 
+                        IFlexUIBackgroundColorAttribute, IFlexUIBackgroundImageAttribute, IFlexUIBackgroundSizeAttribute, 
+                        IFlexUIBorderColorAttribute, IFlexUIBorderSidesAttribute, IFlexUIBorderSkinAttribute, 
+                        IFlexUIBorderStyleAttribute, IFlexUIBorderThicknessAttribute, IFlexUICornerRadiusAttribute, 
+                        IFlexUIDropShadowColorAttribute, IFlexUIDropShadowEnabledAttribute, IFlexUIShadowDirectionAttribute, 
+                        IFlexUIShadowDistanceAttribute, IFlexUICloseAttribute, IFlexUICompleteAttribute, 
+                        IFlexUICuePointAttribute, IFlexUIPlayheadUpdateAttribute, IFlexUIProgressAttribute, 
+                        IFlexUIReadyAttribute, IFlexUIRewindAttribute, IFlexUIStateChangeAttribute {
 	
 }

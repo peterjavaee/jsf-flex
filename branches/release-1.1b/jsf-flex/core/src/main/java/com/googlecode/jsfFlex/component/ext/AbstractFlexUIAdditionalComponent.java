@@ -20,25 +20,25 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIComponentAttributesAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIComponentAttributesJSONFormatAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIComponentNameAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIComponentAttributesAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIComponentAttributesJSONFormatAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIComponentNameAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlAdditionalComponent",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIAdditionalComponent",
-        type                =   "com.googlecode.jsfFlex.MXMLUIAdditionalComponent",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIAdditionalComponentTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLAdditionalComponent"
+        name                =   "jf:flexAdditionalComponent",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIAdditionalComponent",
+        type                =   "com.googlecode.jsfFlex.FlexUIAdditionalComponent",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIAdditionalComponentTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexAdditionalComponent"
 )
-public abstract class AbstractMXMLUIAdditionalComponent 
-                            extends MXMLUISimpleBase 
-                            implements _MXMLUIComponentAttributesAttribute, _MXMLUIComponentAttributesJSONFormatAttribute, 
-                            _MXMLUIComponentNameAttribute {
+public abstract class AbstractFlexUIAdditionalComponent 
+                            extends AbstractFlexUISimpleBase 
+                            implements IFlexUIComponentAttributesAttribute, IFlexUIComponentAttributesJSONFormatAttribute, 
+                            IFlexUIComponentNameAttribute {
     
 }

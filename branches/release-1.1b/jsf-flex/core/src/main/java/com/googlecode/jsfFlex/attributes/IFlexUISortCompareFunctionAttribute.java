@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="sortCompareFunction", returnType="java.lang.String", longDesc="A callback function that gets called when sorting the data in the column.")
 @JSFComponent
-public interface _MXMLUISortCompareFunctionAttribute {
+public interface IFlexUISortCompareFunctionAttribute {
     
 }

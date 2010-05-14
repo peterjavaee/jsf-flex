@@ -25,46 +25,46 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.renderkit.validator.MXMLValidatorTemplateRenderer;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.renderkit.validator.AbstractFlexValidatorTemplateRenderer;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLSimple",
-		type="com.googlecode.jsfFlex.MXMLEmailValidator"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexSimple",
+		type="com.googlecode.jsfFlex.FlexEmailValidator"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="EmailValidator",
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentName="EmailValidator",
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="invalidCharError"),
-				@JsfFlexAttribute(attribute="invalidDomainError"),
-				@JsfFlexAttribute(attribute="invalidIPDomainError"),
-				@JsfFlexAttribute(attribute="invalidPeriodsInDomainError"),
-				@JsfFlexAttribute(attribute="missingAtSignError"),
-				@JsfFlexAttribute(attribute="missingPeriodInDomainError"),
-				@JsfFlexAttribute(attribute="missingUsernameError"),
-				@JsfFlexAttribute(attribute="tooManyAtSignsError")
+				@IJsfFlexAttribute(attribute="invalidCharError"),
+				@IJsfFlexAttribute(attribute="invalidDomainError"),
+				@IJsfFlexAttribute(attribute="invalidIPDomainError"),
+				@IJsfFlexAttribute(attribute="invalidPeriodsInDomainError"),
+				@IJsfFlexAttribute(attribute="missingAtSignError"),
+				@IJsfFlexAttribute(attribute="missingPeriodInDomainError"),
+				@IJsfFlexAttribute(attribute="missingUsernameError"),
+				@IJsfFlexAttribute(attribute="tooManyAtSignsError")
 		}
 )
-public final class MXMLEmailValidatorRenderer extends MXMLValidatorTemplateRenderer {
+public final class FlexEmailValidatorRenderer extends AbstractFlexValidatorTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-        _MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLEmailValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLEmailValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexEmailValidatorRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexEmailValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

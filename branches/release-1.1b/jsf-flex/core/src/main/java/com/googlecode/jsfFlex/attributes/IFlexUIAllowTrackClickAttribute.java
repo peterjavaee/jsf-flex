@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="allowTrackClick", returnType="java.lang.String", longDesc="Specifies whether clicking on the track will move the slider thumb.")
 @JSFComponent
-public interface _MXMLUIAllowTrackClickAttribute {
+public interface IFlexUIAllowTrackClickAttribute {
     
 }

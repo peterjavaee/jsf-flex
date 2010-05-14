@@ -39,7 +39,7 @@ import com.googlecode.jsfFlex.shared.util.JSONConverter;
  * 
  * @author Ji Hoon Kim
  */
-class ObjectServiceRequestDataRetrieverFlusher extends _ServiceRequestDataRetrieverFlusher {
+class ObjectServiceRequestDataRetrieverFlusher extends AbstractServiceRequestDataRetrieverFlusher {
     
     private static final String ERROR_CONVERTING_JSON_OBJECT_TO_XML = "Error while converting JSONObject to XML";
     

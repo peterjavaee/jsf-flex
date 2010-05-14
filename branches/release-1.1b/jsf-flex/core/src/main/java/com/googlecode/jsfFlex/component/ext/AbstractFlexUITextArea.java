@@ -20,45 +20,45 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIChangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICondenseWhiteAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisplayAsPasswordAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditableAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIImeModeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIListDataAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMaxCharsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingLeftAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingRightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIRestrictAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectionBeginIndexAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectionEndIndexAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIStyleSheetAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIWordWrapAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIChangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICondenseWhiteAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisabledColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisplayAsPasswordAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusAlphaAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusRoundedCornersAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIImeModeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIListDataAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMaxCharsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingLeftAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingRightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIRestrictAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectionBeginIndexAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectionEndIndexAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIStyleSheetAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIWordWrapAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlTextArea",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUITextArea",
-        type                =   "com.googlecode.jsfFlex.MXMLUITextArea",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUITextAreaTag",
-        family              =   "javax.faces.MXMLInput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLTextArea",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+        name                =   "jf:flexTextArea",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUITextArea",
+        type                =   "com.googlecode.jsfFlex.FlexUITextArea",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUITextAreaTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexTextArea",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
 )
-public abstract class AbstractMXMLUITextArea 
-						extends com.googlecode.jsfFlex.component.MXMLUIHtmlTextInputBase 
-						implements _MXMLUIScrollControlAttributes, _MXMLUICondenseWhiteAttribute, _MXMLUIDataAttribute, 
-                        _MXMLUIDisplayAsPasswordAttribute, _MXMLUIEditableAttribute, _MXMLUIImeModeAttribute, 
-                        _MXMLUIListDataAttribute, _MXMLUIMaxCharsAttribute, _MXMLUIRestrictAttribute, 
-                        _MXMLUISelectionBeginIndexAttribute, _MXMLUISelectionEndIndexAttribute, _MXMLUIStyleSheetAttribute, 
-                        _MXMLUIWordWrapAttribute, _MXMLUIDisabledColorAttribute, _MXMLUIFocusAlphaAttribute, 
-                        _MXMLUIFocusRoundedCornersAttribute, _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, 
-                        _MXMLUIChangeAttribute {
+public abstract class AbstractFlexUITextArea 
+						extends com.googlecode.jsfFlex.component.FlexUIHtmlTextInputBase 
+						implements IFlexUIScrollControlAttributes, IFlexUICondenseWhiteAttribute, IFlexUIDataAttribute, 
+                        IFlexUIDisplayAsPasswordAttribute, IFlexUIEditableAttribute, IFlexUIImeModeAttribute, 
+                        IFlexUIListDataAttribute, IFlexUIMaxCharsAttribute, IFlexUIRestrictAttribute, 
+                        IFlexUISelectionBeginIndexAttribute, IFlexUISelectionEndIndexAttribute, IFlexUIStyleSheetAttribute, 
+                        IFlexUIWordWrapAttribute, IFlexUIDisabledColorAttribute, IFlexUIFocusAlphaAttribute, 
+                        IFlexUIFocusRoundedCornersAttribute, IFlexUIPaddingLeftAttribute, IFlexUIPaddingRightAttribute, 
+                        IFlexUIChangeAttribute {
 	
 }

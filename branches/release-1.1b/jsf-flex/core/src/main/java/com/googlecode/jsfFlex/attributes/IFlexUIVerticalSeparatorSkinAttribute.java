@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="verticalSeparatorSkin", returnType="java.lang.String", longDesc="The class to use as the skin that defines the appearance of the separators between columns in a AdvancedDataGrid control.")
 @JSFComponent
-public interface _MXMLUIVerticalSeparatorSkinAttribute {
+public interface IFlexUIVerticalSeparatorSkinAttribute {
     
 }

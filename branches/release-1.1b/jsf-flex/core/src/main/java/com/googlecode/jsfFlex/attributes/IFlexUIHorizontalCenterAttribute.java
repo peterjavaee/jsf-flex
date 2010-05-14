@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="horizontalCenter", returnType="java.lang.String", longDesc="The horizontal distance in pixels from the center of the component's parent container to the center of the component.")
 @JSFComponent
-public interface _MXMLUIHorizontalCenterAttribute {
+public interface IFlexUIHorizontalCenterAttribute {
     
 }

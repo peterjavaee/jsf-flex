@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.renderkit.mxml;
+package com.googlecode.jsfFlex.renderkit.flex;
 
 import java.io.IOException;
 import java.io.Writer;
@@ -28,10 +28,10 @@ import javax.faces.context.ResponseWriter;
 /**
  * @author Ji Hoon Kim
  */
-class MXMLResponseWriterImpl extends AbstractMXMLResponseWriter {
+class FlexResponseWriterImpl extends AbstractFlexResponseWriter {
     
-    private static final String MXML_RESPONSE_WRITER_BASE_IMPL = "com.sun.faces.renderkit.html_basic.HtmlResponseWriter";
-    private static final Constructor MXML_RESPONSE_WRITER_BASE_IMPLEMENTOR_CONSTRUCTOR;
+    private static final String FLEX_RESPONSE_WRITER_BASE_IMPL = "com.sun.faces.renderkit.html_basic.HtmlResponseWriter";
+    private static final Constructor FLEX_RESPONSE_WRITER_BASE_IMPLEMENTOR_CONSTRUCTOR;
     
     private final ResponseWriter _mxmlResponseWriterBaseImplementor;
     
@@ -40,38 +40,38 @@ class MXMLResponseWriterImpl extends AbstractMXMLResponseWriter {
         Class mxmlResponseWriterBaseImplementorClass;
         
         try{
-            mxmlResponseWriterBaseImplementorClass = Class.forName(MXML_RESPONSE_WRITER_BASE_IMPL, false, Thread.currentThread().getContextClassLoader());
+            mxmlResponseWriterBaseImplementorClass = Class.forName(FLEX_RESPONSE_WRITER_BASE_IMPL, false, Thread.currentThread().getContextClassLoader());
         }catch(ClassNotFoundException classNotFound){
-            throw new RuntimeException("Failure in retrieving the class for " + MXML_RESPONSE_WRITER_BASE_IMPL, classNotFound);
+            throw new RuntimeException("Failure in retrieving the class for " + FLEX_RESPONSE_WRITER_BASE_IMPL, classNotFound);
         }
         
         try{
-            MXML_RESPONSE_WRITER_BASE_IMPLEMENTOR_CONSTRUCTOR = mxmlResponseWriterBaseImplementorClass.getDeclaredConstructor(new Class[]{Writer.class, String.class, String.class});
+            FLEX_RESPONSE_WRITER_BASE_IMPLEMENTOR_CONSTRUCTOR = mxmlResponseWriterBaseImplementorClass.getDeclaredConstructor(new Class[]{Writer.class, String.class, String.class});
         }catch(NoSuchMethodException noSuchMethod){
-            throw new RuntimeException("Failure in retrieving the constructor for " +  MXML_RESPONSE_WRITER_BASE_IMPL, noSuchMethod);
+            throw new RuntimeException("Failure in retrieving the constructor for " +  FLEX_RESPONSE_WRITER_BASE_IMPL, noSuchMethod);
         }
         
     }
     
-    MXMLResponseWriterImpl(){
+    FlexResponseWriterImpl(){
         super();
         _mxmlResponseWriterBaseImplementor = null;
     }
     
-    MXMLResponseWriterImpl(Writer writer, String contentType, String characterEncoding){
+    FlexResponseWriterImpl(Writer writer, String contentType, String characterEncoding){
         super();
         
         try{
-            _mxmlResponseWriterBaseImplementor = ResponseWriter.class.cast( MXML_RESPONSE_WRITER_BASE_IMPLEMENTOR_CONSTRUCTOR.newInstance(new Object[]{writer, contentType, characterEncoding}) );
+            _mxmlResponseWriterBaseImplementor = ResponseWriter.class.cast( FLEX_RESPONSE_WRITER_BASE_IMPLEMENTOR_CONSTRUCTOR.newInstance(new Object[]{writer, contentType, characterEncoding}) );
         }catch(Exception instantiatingException){
-            throw new RuntimeException("Failure in instantiating a class for " + MXML_RESPONSE_WRITER_BASE_IMPL, instantiatingException);
+            throw new RuntimeException("Failure in instantiating a class for " + FLEX_RESPONSE_WRITER_BASE_IMPL, instantiatingException);
         }
         
     }
     
     public ResponseWriter cloneWithWriter(Writer writer) {
         
-        return new MXMLResponseWriterImpl(writer, getContentType(), getCharacterEncoding());
+        return new FlexResponseWriterImpl(writer, getContentType(), getCharacterEncoding());
     }
     
     public void endDocument() throws IOException {

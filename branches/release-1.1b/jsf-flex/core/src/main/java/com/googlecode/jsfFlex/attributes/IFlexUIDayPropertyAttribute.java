@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dayProperty", returnType="java.lang.String", longDesc="Name of the day property to validate.")
 @JSFComponent
-public interface _MXMLUIDayPropertyAttribute {
+public interface IFlexUIDayPropertyAttribute {
     
 }

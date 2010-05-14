@@ -29,7 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Ji Hoon Kim
  */
-final class RawServiceRequestDataRetrieverFlusher extends _ServiceRequestDataRetrieverFlusher {
+final class RawServiceRequestDataRetrieverFlusher extends AbstractServiceRequestDataRetrieverFlusher {
 	
 	private static final String PLAIN_CONTENT_TYPE = "text/plain";
 	

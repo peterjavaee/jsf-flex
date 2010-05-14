@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="noExpressionError", returnType="java.lang.String", longDesc="Error message when there is no regular expression specifed.")
 @JSFComponent
-public interface _MXMLUINoExpressionErrorAttribute {
+public interface IFlexUINoExpressionErrorAttribute {
     
 }

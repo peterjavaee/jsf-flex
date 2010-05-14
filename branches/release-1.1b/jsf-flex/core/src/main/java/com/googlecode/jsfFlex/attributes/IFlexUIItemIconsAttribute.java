@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="itemIcons", returnType="java.lang.String", longDesc="An object that specifies the icons for the items.")
 @JSFComponent
-public interface _MXMLUIItemIconsAttribute {
+public interface IFlexUIItemIconsAttribute {
     
 }

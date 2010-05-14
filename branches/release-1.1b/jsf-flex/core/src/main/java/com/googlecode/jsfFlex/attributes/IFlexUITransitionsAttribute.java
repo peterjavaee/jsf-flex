@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="transitions", returnType="java.lang.String", longDesc="An Array of Transition objects, where each Transition object defines a set of effects to play when a view state change occurs.")
 @JSFComponent
-public interface _MXMLUITransitionsAttribute {
+public interface IFlexUITransitionsAttribute {
     
 }

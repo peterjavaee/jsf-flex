@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="xmlEncode", returnType="java.lang.String", longDesc="ActionScript function used to encode a service request as XML.")
 @JSFComponent
-public interface _MXMLUIXmlEncodeAttribute {
+public interface IFlexUIXmlEncodeAttribute {
     
 }

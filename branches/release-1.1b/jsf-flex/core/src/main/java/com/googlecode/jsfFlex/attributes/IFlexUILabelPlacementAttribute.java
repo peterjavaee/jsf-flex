@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="labelPlacement", returnType="java.lang.String", longDesc="Placement of the label.")
 @JSFComponent
-public interface _MXMLUILabelPlacementAttribute {
+public interface IFlexUILabelPlacementAttribute {
     
 }

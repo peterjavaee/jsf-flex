@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="completeEffect", returnType="java.lang.String", longDesc="Effect called when Flex dispatches the complete event, which occurs when the load completes.")
 @JSFComponent
-public interface _MXMLUICompleteEffectAttribute {
+public interface IFlexUICompleteEffectAttribute {
     
 }

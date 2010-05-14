@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="data", returnType="java.lang.String", longDesc="The data for the object.")
 @JSFComponent
-public interface _MXMLUIDataAttribute {
+public interface IFlexUIDataAttribute {
 	
 }

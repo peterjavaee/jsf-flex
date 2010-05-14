@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dayNames", returnType="java.lang.String", longDesc="The weekday names for the control.")
 @JSFComponent
-public interface _MXMLUIDayNamesAttribute {
+public interface IFlexUIDayNamesAttribute {
     
 }

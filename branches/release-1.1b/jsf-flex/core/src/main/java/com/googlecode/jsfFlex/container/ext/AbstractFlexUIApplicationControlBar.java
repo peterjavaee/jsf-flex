@@ -20,25 +20,25 @@ package com.googlecode.jsfFlex.container.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIDockAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFillAlphasAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFillColorsAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIDockAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFillAlphasAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFillColorsAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlApplicationControlBar",
-        clazz               =   "com.googlecode.jsfFlex.container.ext.MXMLUIApplicationControlBar",
-        type                =   "com.googlecode.jsfFlex.MXMLUIApplicationControlBar",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.MXMLUIApplicationControlBarTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLApplicationControlBar"
+        name                =   "jf:flexApplicationControlBar",
+        clazz               =   "com.googlecode.jsfFlex.container.ext.FlexUIApplicationControlBar",
+        type                =   "com.googlecode.jsfFlex.FlexUIApplicationControlBar",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.FlexUIApplicationControlBarTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexApplicationControlBar"
 )
-public abstract class AbstractMXMLUIApplicationControlBar 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIBoxAttributes, _MXMLUIDockAttribute, _MXMLUIFillAlphasAttribute,
-                        _MXMLUIFillColorsAttribute {
+public abstract class AbstractFlexUIApplicationControlBar 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIBoxAttributes, IFlexUIDockAttribute, IFlexUIFillAlphasAttribute,
+                        IFlexUIFillColorsAttribute {
 	
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="tileHeight", returnType="java.lang.String", longDesc="Height of each tile cell, in pixels.")
 @JSFComponent
-public interface _MXMLUITileHeightAttribute {
+public interface IFlexUITileHeightAttribute {
     
 }

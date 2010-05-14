@@ -25,46 +25,46 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.renderkit.validator.MXMLValidatorTemplateRenderer;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.renderkit.validator.AbstractFlexValidatorTemplateRenderer;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLSimple",
-		type="com.googlecode.jsfFlex.MXMLZipCodeValidator"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexSimple",
+		type="com.googlecode.jsfFlex.FlexZipCodeValidator"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="ZipCodeValidator",
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentName="ZipCodeValidator",
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="allowedFormatChars"),
-				@JsfFlexAttribute(attribute="domain"),
-				@JsfFlexAttribute(attribute="invalidCharError"),
-				@JsfFlexAttribute(attribute="invalidDomainError"),
-				@JsfFlexAttribute(attribute="wrongCAFormatError"),
-				@JsfFlexAttribute(attribute="wrongLengthError"),
-				@JsfFlexAttribute(attribute="wrongUSFormatError")
+				@IJsfFlexAttribute(attribute="allowedFormatChars"),
+				@IJsfFlexAttribute(attribute="domain"),
+				@IJsfFlexAttribute(attribute="invalidCharError"),
+				@IJsfFlexAttribute(attribute="invalidDomainError"),
+				@IJsfFlexAttribute(attribute="wrongCAFormatError"),
+				@IJsfFlexAttribute(attribute="wrongLengthError"),
+				@IJsfFlexAttribute(attribute="wrongUSFormatError")
 		}
 )
-public final class MXMLZipCodeValidatorRenderer extends MXMLValidatorTemplateRenderer {
+public final class FlexZipCodeValidatorRenderer extends AbstractFlexValidatorTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-        _MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLZipCodeValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, 
-				MXMLZipCodeValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexZipCodeValidatorRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, 
+				FlexZipCodeValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

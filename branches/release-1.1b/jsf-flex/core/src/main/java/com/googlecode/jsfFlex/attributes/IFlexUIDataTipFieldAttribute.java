@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dataTipField", returnType="java.lang.String", longDesc="Name of the field in the data provider items to display as the data tip.")
 @JSFComponent
-public interface _MXMLUIDataTipFieldAttribute {
+public interface IFlexUIDataTipFieldAttribute {
     
 }

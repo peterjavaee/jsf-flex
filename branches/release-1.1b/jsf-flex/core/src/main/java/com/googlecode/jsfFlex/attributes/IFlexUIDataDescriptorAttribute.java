@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dataDescriptor", returnType="java.lang.String", longDesc="The object that accesses and manipulates data in the data provider.")
 @JSFComponent
-public interface _MXMLUIDataDescriptorAttribute {
+public interface IFlexUIDataDescriptorAttribute {
     
 }

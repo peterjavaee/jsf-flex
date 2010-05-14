@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="lockedColumnCount", returnType="java.lang.String", longDesc="The index of the first column in the control that scrolls.")
 @JSFComponent
-public interface _MXMLUILockedColumnCountAttribute {
+public interface IFlexUILockedColumnCountAttribute {
     
 }

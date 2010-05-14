@@ -23,48 +23,48 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="autoLoad"),
-                @JsfFlexAttribute(attribute="loadForCompatibility"),
-                @JsfFlexAttribute(attribute="loaderContext"),
-                @JsfFlexAttribute(attribute="maintainAspectRatio"),
-				@JsfFlexAttribute(attribute="scaleContent"),
-				@JsfFlexAttribute(attribute="showBusyCursor"),
-				@JsfFlexAttribute(attribute="source"),
-				@JsfFlexAttribute(attribute="trustContent"),
-				@JsfFlexAttribute(attribute="brokenImageBorderSkin"),
-				@JsfFlexAttribute(attribute="brokenImageSkin"),
-				@JsfFlexAttribute(attribute="horizontalAlign"),
-				@JsfFlexAttribute(attribute="verticalAlign"),
-				@JsfFlexAttribute(attribute="completeEffect"),
-				@JsfFlexAttribute(attribute="complete"),
-				@JsfFlexAttribute(attribute="httpStatus"),
-				@JsfFlexAttribute(attribute="init"),
-				@JsfFlexAttribute(attribute="ioError"),
-				@JsfFlexAttribute(attribute="open"),
-				@JsfFlexAttribute(attribute="progress"),
-				@JsfFlexAttribute(attribute="securityError"),
-				@JsfFlexAttribute(attribute="unload")
+				@IJsfFlexAttribute(attribute="autoLoad"),
+                @IJsfFlexAttribute(attribute="loadForCompatibility"),
+                @IJsfFlexAttribute(attribute="loaderContext"),
+                @IJsfFlexAttribute(attribute="maintainAspectRatio"),
+				@IJsfFlexAttribute(attribute="scaleContent"),
+				@IJsfFlexAttribute(attribute="showBusyCursor"),
+				@IJsfFlexAttribute(attribute="source"),
+				@IJsfFlexAttribute(attribute="trustContent"),
+				@IJsfFlexAttribute(attribute="brokenImageBorderSkin"),
+				@IJsfFlexAttribute(attribute="brokenImageSkin"),
+				@IJsfFlexAttribute(attribute="horizontalAlign"),
+				@IJsfFlexAttribute(attribute="verticalAlign"),
+				@IJsfFlexAttribute(attribute="completeEffect"),
+				@IJsfFlexAttribute(attribute="complete"),
+				@IJsfFlexAttribute(attribute="httpStatus"),
+				@IJsfFlexAttribute(attribute="init"),
+				@IJsfFlexAttribute(attribute="ioError"),
+				@IJsfFlexAttribute(attribute="open"),
+				@IJsfFlexAttribute(attribute="progress"),
+				@IJsfFlexAttribute(attribute="securityError"),
+				@IJsfFlexAttribute(attribute="unload")
 		}
 )
-public abstract class MXMLSwfLoaderTemplateRenderer extends MXMLComponentRenderer {
+public abstract class AbstractFlexSwfLoaderTemplateRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLSwfLoaderTemplateRenderer.class, componentObj, null);
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(AbstractFlexSwfLoaderTemplateRenderer.class, componentObj, null);
 		
 	}
 	

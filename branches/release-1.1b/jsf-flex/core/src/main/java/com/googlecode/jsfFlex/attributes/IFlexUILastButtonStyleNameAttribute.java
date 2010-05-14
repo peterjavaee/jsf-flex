@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="lastButtonStyleName", returnType="java.lang.String", longDesc="Name of CSS style declaration that specifies styles for the last button.")
 @JSFComponent
-public interface _MXMLUILastButtonStyleNameAttribute {
+public interface IFlexUILastButtonStyleNameAttribute {
     
 }

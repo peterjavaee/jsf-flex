@@ -23,87 +23,87 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLComponentRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="autoLayout"),
-				@JsfFlexAttribute(attribute="clipContent"),
-				@JsfFlexAttribute(attribute="creationIndex"),
-				@JsfFlexAttribute(attribute="creationPolicy"),
-				@JsfFlexAttribute(attribute="defaultButton"),
-				@JsfFlexAttribute(attribute="horizontalLineScrollSize"),
-				@JsfFlexAttribute(attribute="horizontalPageScrollSize"),
-				@JsfFlexAttribute(attribute="horizontalScrollBar"),
-				@JsfFlexAttribute(attribute="horizontalScrollPolicy"),
-				@JsfFlexAttribute(attribute="horizontalScrollPosition"),
-				@JsfFlexAttribute(attribute="icon"),
-				@JsfFlexAttribute(attribute="label"),
-				@JsfFlexAttribute(attribute="verticalLineScrollSize"),
-				@JsfFlexAttribute(attribute="verticalPageScrollSize"),
-				@JsfFlexAttribute(attribute="verticalScrollBar"),
-				@JsfFlexAttribute(attribute="verticalScrollPolicy"),
-				@JsfFlexAttribute(attribute="verticalScrollPosition"),
-				@JsfFlexAttribute(attribute="backgroundAlpha"),
-				@JsfFlexAttribute(attribute="backgroundAttachment"),
-				@JsfFlexAttribute(attribute="backgroundColor"),
-				@JsfFlexAttribute(attribute="backgroundDisabledColor"),
-				@JsfFlexAttribute(attribute="backgroundImage"),
-				@JsfFlexAttribute(attribute="backgroundSize"),
-				@JsfFlexAttribute(attribute="barColor"),
-				@JsfFlexAttribute(attribute="borderColor"),
-				@JsfFlexAttribute(attribute="borderSides"),
-				@JsfFlexAttribute(attribute="borderSkin"),
-				@JsfFlexAttribute(attribute="borderStyle"),
-				@JsfFlexAttribute(attribute="borderThickness"),
-				@JsfFlexAttribute(attribute="color"),
-				@JsfFlexAttribute(attribute="cornerRadius"),
-				@JsfFlexAttribute(attribute="disabledColor"),
-				@JsfFlexAttribute(attribute="disabledOverlayAlpha"),
-				@JsfFlexAttribute(attribute="dropShadowColor"),
-				@JsfFlexAttribute(attribute="dropShadowEnabled"),
-				@JsfFlexAttribute(attribute="fontAntiAliasType"),
-				@JsfFlexAttribute(attribute="fontFamily"),
-				@JsfFlexAttribute(attribute="fontGridFitType"),
-				@JsfFlexAttribute(attribute="fontSharpness"),
-				@JsfFlexAttribute(attribute="fontSize"),
-				@JsfFlexAttribute(attribute="fontStyle"),
-				@JsfFlexAttribute(attribute="fontThickness"),
-				@JsfFlexAttribute(attribute="fontWeight"),
-				@JsfFlexAttribute(attribute="horizontalScrollBarStyleName"),
-				@JsfFlexAttribute(attribute="paddingBottom"),
-				@JsfFlexAttribute(attribute="paddingLeft"),
-				@JsfFlexAttribute(attribute="paddingRight"),
-				@JsfFlexAttribute(attribute="paddingTop"),
-				@JsfFlexAttribute(attribute="shadowDirection"),
-				@JsfFlexAttribute(attribute="shadowDistance"),
-				@JsfFlexAttribute(attribute="textAlign"),
-				@JsfFlexAttribute(attribute="textDecoration"),
-				@JsfFlexAttribute(attribute="textIndent"),
-				@JsfFlexAttribute(attribute="verticalScrollBarStyleName"),
-				@JsfFlexAttribute(attribute="childAdd"),
-				@JsfFlexAttribute(attribute="childIndexChange"),
-				@JsfFlexAttribute(attribute="childRemove"),
-				@JsfFlexAttribute(attribute="dataChange"),
-				@JsfFlexAttribute(attribute="scroll")
+				@IJsfFlexAttribute(attribute="autoLayout"),
+				@IJsfFlexAttribute(attribute="clipContent"),
+				@IJsfFlexAttribute(attribute="creationIndex"),
+				@IJsfFlexAttribute(attribute="creationPolicy"),
+				@IJsfFlexAttribute(attribute="defaultButton"),
+				@IJsfFlexAttribute(attribute="horizontalLineScrollSize"),
+				@IJsfFlexAttribute(attribute="horizontalPageScrollSize"),
+				@IJsfFlexAttribute(attribute="horizontalScrollBar"),
+				@IJsfFlexAttribute(attribute="horizontalScrollPolicy"),
+				@IJsfFlexAttribute(attribute="horizontalScrollPosition"),
+				@IJsfFlexAttribute(attribute="icon"),
+				@IJsfFlexAttribute(attribute="label"),
+				@IJsfFlexAttribute(attribute="verticalLineScrollSize"),
+				@IJsfFlexAttribute(attribute="verticalPageScrollSize"),
+				@IJsfFlexAttribute(attribute="verticalScrollBar"),
+				@IJsfFlexAttribute(attribute="verticalScrollPolicy"),
+				@IJsfFlexAttribute(attribute="verticalScrollPosition"),
+				@IJsfFlexAttribute(attribute="backgroundAlpha"),
+				@IJsfFlexAttribute(attribute="backgroundAttachment"),
+				@IJsfFlexAttribute(attribute="backgroundColor"),
+				@IJsfFlexAttribute(attribute="backgroundDisabledColor"),
+				@IJsfFlexAttribute(attribute="backgroundImage"),
+				@IJsfFlexAttribute(attribute="backgroundSize"),
+				@IJsfFlexAttribute(attribute="barColor"),
+				@IJsfFlexAttribute(attribute="borderColor"),
+				@IJsfFlexAttribute(attribute="borderSides"),
+				@IJsfFlexAttribute(attribute="borderSkin"),
+				@IJsfFlexAttribute(attribute="borderStyle"),
+				@IJsfFlexAttribute(attribute="borderThickness"),
+				@IJsfFlexAttribute(attribute="color"),
+				@IJsfFlexAttribute(attribute="cornerRadius"),
+				@IJsfFlexAttribute(attribute="disabledColor"),
+				@IJsfFlexAttribute(attribute="disabledOverlayAlpha"),
+				@IJsfFlexAttribute(attribute="dropShadowColor"),
+				@IJsfFlexAttribute(attribute="dropShadowEnabled"),
+				@IJsfFlexAttribute(attribute="fontAntiAliasType"),
+				@IJsfFlexAttribute(attribute="fontFamily"),
+				@IJsfFlexAttribute(attribute="fontGridFitType"),
+				@IJsfFlexAttribute(attribute="fontSharpness"),
+				@IJsfFlexAttribute(attribute="fontSize"),
+				@IJsfFlexAttribute(attribute="fontStyle"),
+				@IJsfFlexAttribute(attribute="fontThickness"),
+				@IJsfFlexAttribute(attribute="fontWeight"),
+				@IJsfFlexAttribute(attribute="horizontalScrollBarStyleName"),
+				@IJsfFlexAttribute(attribute="paddingBottom"),
+				@IJsfFlexAttribute(attribute="paddingLeft"),
+				@IJsfFlexAttribute(attribute="paddingRight"),
+				@IJsfFlexAttribute(attribute="paddingTop"),
+				@IJsfFlexAttribute(attribute="shadowDirection"),
+				@IJsfFlexAttribute(attribute="shadowDistance"),
+				@IJsfFlexAttribute(attribute="textAlign"),
+				@IJsfFlexAttribute(attribute="textDecoration"),
+				@IJsfFlexAttribute(attribute="textIndent"),
+				@IJsfFlexAttribute(attribute="verticalScrollBarStyleName"),
+				@IJsfFlexAttribute(attribute="childAdd"),
+				@IJsfFlexAttribute(attribute="childIndexChange"),
+				@IJsfFlexAttribute(attribute="childRemove"),
+				@IJsfFlexAttribute(attribute="dataChange"),
+				@IJsfFlexAttribute(attribute="scroll")
 		}
 )
-public abstract class MXMLContainerTemplateRenderer extends MXMLComponentRenderer {
+public abstract class AbstractFlexContainerTemplateRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLContainerTemplateRenderer.class, componentObj, null);
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(AbstractFlexContainerTemplateRenderer.class, componentObj, null);
 		
 	}
 	

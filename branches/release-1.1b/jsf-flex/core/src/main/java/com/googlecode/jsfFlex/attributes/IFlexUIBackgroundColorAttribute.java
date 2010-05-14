@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="backgroundColor", returnType="java.lang.String", longDesc="Background color of a component.")
 @JSFComponent
-public interface _MXMLUIBackgroundColorAttribute {
+public interface IFlexUIBackgroundColorAttribute {
 	
 }

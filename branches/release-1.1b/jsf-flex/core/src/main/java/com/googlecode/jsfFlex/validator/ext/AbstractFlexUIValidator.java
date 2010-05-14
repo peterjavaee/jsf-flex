@@ -20,25 +20,25 @@ package com.googlecode.jsfFlex.validator.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
- * One thing to note about MXML Formatter and Validator is that they are not actually converters or validators<br>
+ * One thing to note about Flex Formatter and Validator is that they are not actually converters or validators<br>
  * respectively but actually are components. This is so because they perform the formatting and validation<br>
  * as Flex components on the client side and not on the server side.<br>
  * 
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlValidator",
-        clazz               =   "com.googlecode.jsfFlex.validator.ext.MXMLUIValidator",
-        type                =   "com.googlecode.jsfFlex.MXMLUIValidator",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.validator.ext.MXMLUIValidatorTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLValidator"
+        name                =   "jf:flexValidator",
+        clazz               =   "com.googlecode.jsfFlex.validator.ext.FlexUIValidator",
+        type                =   "com.googlecode.jsfFlex.FlexUIValidator",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.validator.ext.FlexUIValidatorTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexValidator"
 )
-public abstract class AbstractMXMLUIValidator 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIValidatorAttributes {
+public abstract class AbstractFlexUIValidator 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIValidatorAttributes {
 	
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="showBusyCursor", returnType="java.lang.String", longDesc="If true, shows a busy cursor while the content loads.")
 @JSFComponent
-public interface _MXMLUIShowBusyCursorAttribute {
+public interface IFlexUIShowBusyCursorAttribute {
     
 }

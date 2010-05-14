@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="mouseDownOutside", returnType="java.lang.String", longDesc="Dispatched from a component opened using the PopUpManager when the user clicks outside it.")
 @JSFComponent
-public interface _MXMLUIMouseDownOutsideAttribute {
+public interface IFlexUIMouseDownOutsideAttribute {
     
 }

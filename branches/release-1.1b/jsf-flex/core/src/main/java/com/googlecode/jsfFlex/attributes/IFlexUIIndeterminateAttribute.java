@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="indeterminate", returnType="java.lang.String", longDesc="Whether the ProgressBar control has a determinate or indeterminate appearance.")
 @JSFComponent
-public interface _MXMLUIIndeterminateAttribute {
+public interface IFlexUIIndeterminateAttribute {
     
 }

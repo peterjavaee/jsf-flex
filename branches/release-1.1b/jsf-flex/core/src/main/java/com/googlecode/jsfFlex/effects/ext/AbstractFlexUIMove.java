@@ -21,29 +21,29 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIXByAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIXFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIXToAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIYByAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIYFromAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIYToAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIXByAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIXFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIXToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIYByAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIYFromAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIYToAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlMove",
-        clazz               =   "com.googlecode.jsfFlex.effects.ext.MXMLUIMove",
-        type                =   "com.googlecode.jsfFlex.MXMLUIMove",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.MXMLUIMoveTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLMove"
+        name                =   "jf:flexMove",
+        clazz               =   "com.googlecode.jsfFlex.effects.ext.FlexUIMove",
+        type                =   "com.googlecode.jsfFlex.FlexUIMove",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.effects.ext.FlexUIMoveTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexMove"
 )
-public abstract class AbstractMXMLUIMove 
-                            extends MXMLUISimpleBase 
-                            implements _MXMLUITweenEffectAttributes, _MXMLUIXFromAttribute, _MXMLUIYFromAttribute, 
-                            _MXMLUIXToAttribute, _MXMLUIYToAttribute, _MXMLUIXByAttribute, _MXMLUIYByAttribute {
+public abstract class AbstractFlexUIMove 
+                            extends AbstractFlexUISimpleBase 
+                            implements IFlexUITweenEffectAttributes, IFlexUIXFromAttribute, IFlexUIYFromAttribute, 
+                            IFlexUIXToAttribute, IFlexUIYToAttribute, IFlexUIXByAttribute, IFlexUIYByAttribute {
 
     /**
      * Id of the component.

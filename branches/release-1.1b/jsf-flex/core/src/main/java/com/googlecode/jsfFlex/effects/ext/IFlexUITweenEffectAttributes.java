@@ -20,14 +20,14 @@ package com.googlecode.jsfFlex.effects.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITweenEndAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEasingFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITweenEndAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUITweenEffectAttributes 
-                        extends _MXMLUIEffectAttributes, _MXMLUIEasingFunctionAttribute, _MXMLUITweenEndAttribute {
+interface IFlexUITweenEffectAttributes 
+                        extends IFlexUIEffectAttributes, IFlexUIEasingFunctionAttribute, IFlexUITweenEndAttribute {
 
 }

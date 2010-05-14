@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="contentType", returnType="java.lang.String", longDesc="Type of content for service requests.")
 @JSFComponent
-public interface _MXMLUIContentTypeAttribute {
+public interface IFlexUIContentTypeAttribute {
     
 }

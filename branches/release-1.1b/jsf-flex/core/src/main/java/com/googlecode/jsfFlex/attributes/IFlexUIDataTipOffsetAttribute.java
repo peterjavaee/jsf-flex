@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dataTipOffset", returnType="java.lang.String", longDesc="The offset, in pixels, of the data tip relative to the thumb.")
 @JSFComponent
-public interface _MXMLUIDataTipOffsetAttribute {
+public interface IFlexUIDataTipOffsetAttribute {
     
 }

@@ -25,26 +25,26 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.container.MXMLContainerTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.container.AbstractFlexContainerTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLInput",
-		type="com.googlecode.jsfFlex.MXMLAccordion"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexInput",
+		type="com.googlecode.jsfFlex.FlexAccordion"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentPackage="mx.containers",
-		mxmlComponentName="Accordion",
-		mxmlComponentNodeAttributes={
-				@FlexComponentNodeAttribute(
+@IJsfFlexAttributeProperties(
+		componentPackage="mx.containers",
+		componentName="Accordion",
+		componentNodeAttributes={
+				@IFlexComponentNodeAttribute(
 						htmlType="input", 
 						typeAttributeValue="hidden", 
 						valueAttributeValue="selectedIndex",
@@ -57,36 +57,36 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="headerRenderer"),
-				@JsfFlexAttribute(attribute="historyManagementEnabled"),
-				@JsfFlexAttribute(attribute="resizeToContent"),
-				@JsfFlexAttribute(attribute="fillAlphas"),
-				@JsfFlexAttribute(attribute="fillColors"),
-				@JsfFlexAttribute(attribute="focusAlpha"),
-				@JsfFlexAttribute(attribute="focusRoundedCorners"),
-				@JsfFlexAttribute(attribute="headerHeight"),
-				@JsfFlexAttribute(attribute="headerStyleName"),
-				@JsfFlexAttribute(attribute="horizontalGap"),
-				@JsfFlexAttribute(attribute="openDuration"),
-				@JsfFlexAttribute(attribute="openEasingFunction"),
-				@JsfFlexAttribute(attribute="selectedFillColors"),
-				@JsfFlexAttribute(attribute="textRollOverColor"),
-				@JsfFlexAttribute(attribute="textSelectedColor"),
-				@JsfFlexAttribute(attribute="verticalGap"),
-				@JsfFlexAttribute(attribute="change")
+				@IJsfFlexAttribute(attribute="headerRenderer"),
+				@IJsfFlexAttribute(attribute="historyManagementEnabled"),
+				@IJsfFlexAttribute(attribute="resizeToContent"),
+				@IJsfFlexAttribute(attribute="fillAlphas"),
+				@IJsfFlexAttribute(attribute="fillColors"),
+				@IJsfFlexAttribute(attribute="focusAlpha"),
+				@IJsfFlexAttribute(attribute="focusRoundedCorners"),
+				@IJsfFlexAttribute(attribute="headerHeight"),
+				@IJsfFlexAttribute(attribute="headerStyleName"),
+				@IJsfFlexAttribute(attribute="horizontalGap"),
+				@IJsfFlexAttribute(attribute="openDuration"),
+				@IJsfFlexAttribute(attribute="openEasingFunction"),
+				@IJsfFlexAttribute(attribute="selectedFillColors"),
+				@IJsfFlexAttribute(attribute="textRollOverColor"),
+				@IJsfFlexAttribute(attribute="textSelectedColor"),
+				@IJsfFlexAttribute(attribute="verticalGap"),
+				@IJsfFlexAttribute(attribute="change")
 		}
 )
-public final class MXMLAccordionRenderer extends MXMLContainerTemplateRenderer {
+public final class FlexAccordionRenderer extends AbstractFlexContainerTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-        _MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLAccordionRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLAccordionRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexAccordionRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexAccordionRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

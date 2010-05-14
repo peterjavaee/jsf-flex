@@ -20,30 +20,30 @@ package com.googlecode.jsfFlex.validator.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIAllowedFormatCharsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIInvalidCharErrorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMinDigitsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIWrongLengthErrorAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIAllowedFormatCharsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIInvalidCharErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMinDigitsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIWrongLengthErrorAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
- * One thing to note about MXML Formatter and Validator is that they are not actually converters or validators<br>
+ * One thing to note about Flex Formatter and Validator is that they are not actually converters or validators<br>
  * respectively but actually are components. This is so because they perform the formatting and validation<br>
  * as Flex components on the client side and not on the server side.<br>
  * 
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlPhoneNumberValidator",
-        clazz               =   "com.googlecode.jsfFlex.validator.ext.MXMLUIPhoneNumberValidator",
-        type                =   "com.googlecode.jsfFlex.MXMLUIPhoneNumberValidator",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.validator.ext.MXMLUIPhoneNumberValidatorTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLPhoneNumberValidator"
+        name                =   "jf:flexPhoneNumberValidator",
+        clazz               =   "com.googlecode.jsfFlex.validator.ext.FlexUIPhoneNumberValidator",
+        type                =   "com.googlecode.jsfFlex.FlexUIPhoneNumberValidator",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.validator.ext.FlexUIPhoneNumberValidatorTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexPhoneNumberValidator"
 )
-public abstract class AbstractMXMLUIPhoneNumberValidator 
-						extends MXMLUISimpleBase 
-						implements _MXMLUIValidatorAttributes, _MXMLUIAllowedFormatCharsAttribute, _MXMLUIInvalidCharErrorAttribute, 
-                        _MXMLUIMinDigitsAttribute, _MXMLUIWrongLengthErrorAttribute {
+public abstract class AbstractFlexUIPhoneNumberValidator 
+						extends AbstractFlexUISimpleBase 
+						implements IFlexUIValidatorAttributes, IFlexUIAllowedFormatCharsAttribute, IFlexUIInvalidCharErrorAttribute, 
+                        IFlexUIMinDigitsAttribute, IFlexUIWrongLengthErrorAttribute {
 	
 }

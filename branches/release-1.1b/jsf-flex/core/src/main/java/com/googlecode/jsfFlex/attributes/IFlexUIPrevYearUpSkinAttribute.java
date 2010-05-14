@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="prevYearUpSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the previous Year arrow when the mouse button not over the arrow.")
 @JSFComponent
-public interface _MXMLUIPrevYearUpSkinAttribute {
+public interface IFlexUIPrevYearUpSkinAttribute {
     
 }

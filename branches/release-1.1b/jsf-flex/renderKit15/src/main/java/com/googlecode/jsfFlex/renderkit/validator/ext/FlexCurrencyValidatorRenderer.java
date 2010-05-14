@@ -25,55 +25,55 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.renderkit.validator.MXMLValidatorTemplateRenderer;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.renderkit.validator.AbstractFlexValidatorTemplateRenderer;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLSimple",
-		type="com.googlecode.jsfFlex.MXMLCurrencyValidator"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexSimple",
+		type="com.googlecode.jsfFlex.FlexCurrencyValidator"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="CurrencyValidator",
-		mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+		componentName="CurrencyValidator",
+		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="alignSymbol"),
-				@JsfFlexAttribute(attribute="allowNegative"),
-				@JsfFlexAttribute(attribute="currencySymbol"),
-				@JsfFlexAttribute(attribute="currencySymbolError"),
-				@JsfFlexAttribute(attribute="decimalPointCountError"),
-				@JsfFlexAttribute(attribute="decimalSeparator"),
-				@JsfFlexAttribute(attribute="exceedsMaxError"),
-				@JsfFlexAttribute(attribute="invalidCharError"),
-				@JsfFlexAttribute(attribute="invalidFormatCharsError"),
-				@JsfFlexAttribute(attribute="lowerThanMinError"),
-				@JsfFlexAttribute(attribute="maxValue"),
-				@JsfFlexAttribute(attribute="minValue"),
-				@JsfFlexAttribute(attribute="negativeError"),
-				@JsfFlexAttribute(attribute="precision"),
-				@JsfFlexAttribute(attribute="precisionError"),
-				@JsfFlexAttribute(attribute="separationError"),
-				@JsfFlexAttribute(attribute="thousandsSeparator")
+				@IJsfFlexAttribute(attribute="alignSymbol"),
+				@IJsfFlexAttribute(attribute="allowNegative"),
+				@IJsfFlexAttribute(attribute="currencySymbol"),
+				@IJsfFlexAttribute(attribute="currencySymbolError"),
+				@IJsfFlexAttribute(attribute="decimalPointCountError"),
+				@IJsfFlexAttribute(attribute="decimalSeparator"),
+				@IJsfFlexAttribute(attribute="exceedsMaxError"),
+				@IJsfFlexAttribute(attribute="invalidCharError"),
+				@IJsfFlexAttribute(attribute="invalidFormatCharsError"),
+				@IJsfFlexAttribute(attribute="lowerThanMinError"),
+				@IJsfFlexAttribute(attribute="maxValue"),
+				@IJsfFlexAttribute(attribute="minValue"),
+				@IJsfFlexAttribute(attribute="negativeError"),
+				@IJsfFlexAttribute(attribute="precision"),
+				@IJsfFlexAttribute(attribute="precisionError"),
+				@IJsfFlexAttribute(attribute="separationError"),
+				@IJsfFlexAttribute(attribute="thousandsSeparator")
 		}
 )
-public final class MXMLCurrencyValidatorRenderer extends MXMLValidatorTemplateRenderer {
+public final class FlexCurrencyValidatorRenderer extends AbstractFlexValidatorTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-        _MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLCurrencyValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLCurrencyValidatorRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexCurrencyValidatorRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexCurrencyValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="showTrackHighlight", returnType="java.lang.String", longDesc="Specifies whether to enable track highlighting between thumbs (or a single thumb and the beginning of the track).")
 @JSFComponent
-public interface _MXMLUIShowTrackHighlightAttribute {
+public interface IFlexUIShowTrackHighlightAttribute {
     
 }

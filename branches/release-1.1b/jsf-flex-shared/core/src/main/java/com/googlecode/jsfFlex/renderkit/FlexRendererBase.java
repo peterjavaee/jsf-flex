@@ -29,27 +29,27 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.render.Renderer;
 
-import com.googlecode.jsfFlex.shared.adapter._MXMLApplicationContract;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
-import com.googlecode.jsfFlex.shared.context.MxmlContext;
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.adapter.IFlexApplicationContract;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * @author Ji Hoon Kim
  */
-public class MXMLRendererBase extends Renderer {
+public class FlexRendererBase extends Renderer {
 	
 	public static final String MAJOR_MINOR_DELIM = "-";
 	private static final String PRE_MXML_FILE_NAME_DELIM = "_";
 	
-	private MXMLRendererBaseHelper _mxmlRendererBaseHelper;
+	private FlexRendererBaseHelper _mxmlRendererBaseHelper;
 	
 	{
-		_mxmlRendererBaseHelper = new MXMLRendererBaseHelper();
+		_mxmlRendererBaseHelper = new FlexRendererBaseHelper();
 	}
 	
-	private static final Comparator<? super _MXMLContract> _majorKeyComparator = new Comparator<_MXMLContract>(){
-		public int compare(_MXMLContract actObj1, _MXMLContract actObj2){
+	private static final Comparator<? super IFlexContract> _majorKeyComparator = new Comparator<IFlexContract>(){
+		public int compare(IFlexContract actObj1, IFlexContract actObj2){
 			double actObj1Double = Double.valueOf(actObj1.getPreMxmlIdentifier().replaceAll(MAJOR_MINOR_DELIM, "")).doubleValue();
 			double actObj2Double = Double.valueOf(actObj2.getPreMxmlIdentifier().replaceAll(MAJOR_MINOR_DELIM, "")).doubleValue();
 			return actObj1Double == actObj2Double ? 0 : actObj1Double < actObj2Double ? -1 : 1;
@@ -71,16 +71,16 @@ public class MXMLRendererBase extends Renderer {
 		
 	}
 	
-	private final class MXMLRendererBaseHelper{
+	private final class FlexRendererBaseHelper{
 		
-		private MXMLRendererBaseHelper(){
+		private FlexRendererBaseHelper(){
 			super();
 		}
 		
 		private void createStructureForPreMxmlFiles(UIComponent component) throws IOException {
 			
-			_MXMLContract mxmlUIComp = _MXMLContract.class.cast( component );
-			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+			IFlexContract mxmlUIComp = IFlexContract.class.cast( component );
+			AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
 			
 			UIComponent parent = component.getParent();
 			
@@ -89,8 +89,8 @@ public class MXMLRendererBase extends Renderer {
 				return;
 			}
 			
-			if(parent instanceof _MXMLContract && !(component instanceof _MXMLApplicationContract)){
-	    		_MXMLContract mxmlInstance = _MXMLContract.class.cast( parent );
+			if(parent instanceof IFlexContract && !(component instanceof IFlexApplicationContract)){
+	    		IFlexContract mxmlInstance = IFlexContract.class.cast( parent );
 	    		int tempInt = mxmlInstance.getMajorLevel();
 	    		mxmlUIComp.setMajorLevel(++tempInt);
 	    		
@@ -104,7 +104,7 @@ public class MXMLRendererBase extends Renderer {
 	        			//got the component's position
 	        			break;
 	        		}
-	        		if(currComp instanceof _MXMLContract){
+	        		if(currComp instanceof IFlexContract){
 	        			counter++;
 	        		}
 	        	}
@@ -112,7 +112,7 @@ public class MXMLRendererBase extends Renderer {
 	        	mxmlUIComp.setMinorLevel(counter);
 	        	setPreMxmlIdentifiers(mxmlInstance, mxmlUIComp);
 	    		
-	    	}else if(component instanceof _MXMLApplicationContract){
+	    	}else if(component instanceof IFlexApplicationContract){
 	    		//means that it is not of MXML component, so set the major and minor level to 0
 	    		mxmlUIComp.setMajorLevel(0);
 	    		mxmlUIComp.setMinorLevel(0);
@@ -130,7 +130,7 @@ public class MXMLRendererBase extends Renderer {
 			
 		}
 		
-		private void setPreMxmlIdentifiers(_MXMLContract parentInstance, _MXMLContract currInstance){
+		private void setPreMxmlIdentifiers(IFlexContract parentInstance, IFlexContract currInstance){
 			//TODO : implement this whole process better later
 			StringBuilder parentPreMxmlIdentifier = new StringBuilder();
 			StringBuilder preMxmlIdentifier = new StringBuilder();
@@ -153,14 +153,14 @@ public class MXMLRendererBase extends Renderer {
 			currInstance.setPreMxmlIdentifier(preMxmlIdentifier.toString());
 		}
 		
-		private void setAbsolutePathToPreMxmlFile(String mxmlPackageName, _MXMLContract currInstance, String preMxmlPath){
+		private void setAbsolutePathToPreMxmlFile(String mxmlPackageName, IFlexContract currInstance, String preMxmlPath){
 			StringBuilder toReturn = new StringBuilder(preMxmlPath);
 			toReturn.append(mxmlPackageName);
 			toReturn.append(PRE_MXML_FILE_NAME_DELIM);
 			toReturn.append(currInstance.getClass().getSimpleName());
 			toReturn.append(PRE_MXML_FILE_NAME_DELIM);
 			toReturn.append(currInstance.getPreMxmlIdentifier());
-			toReturn.append(MXMLConstants.PRE_MXML_FILE_EXT);
+			toReturn.append(FlexConstants.PRE_MXML_FILE_EXT);
 			
 			currInstance.setAbsolutePathToPreMxmlFile(toReturn.toString());
 			
@@ -168,20 +168,20 @@ public class MXMLRendererBase extends Renderer {
 		
 		private void insertComponentToPreMxmlCompMap(UIComponent component) throws IOException {
 			
-			_MXMLContract mxmlUIComp = _MXMLContract.class.cast( component );
-			MxmlContext mxmlContext = MxmlContext.getCurrentInstance();
+			IFlexContract mxmlUIComp = IFlexContract.class.cast( component );
+			AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
 			
-			if(!(component instanceof _MXMLApplicationContract)){
+			if(!(component instanceof IFlexApplicationContract)){
 				/*
 				 * Ignore the addition of MXMLUIApplication, because MXMLApplication is responsible
 				 * for traversing through the Set and creating the mxml and swf files.
 				 */
-				Map<Integer, Set<_MXMLContract>> preMxmlCompMap = mxmlContext.getPreMxmlCompMap();
+				Map<Integer, Set<IFlexContract>> preMxmlCompMap = mxmlContext.getPreMxmlCompMap();
 				Integer majorKey = mxmlUIComp.getMajorLevel();
 				
-				Set<_MXMLContract> majorKeySet;
+				Set<IFlexContract> majorKeySet;
 				if((majorKeySet = preMxmlCompMap.get(majorKey)) == null){
-					majorKeySet = new TreeSet<_MXMLContract>( _majorKeyComparator );
+					majorKeySet = new TreeSet<IFlexContract>( _majorKeyComparator );
 					preMxmlCompMap.put(majorKey, majorKeySet);
 				}
 				

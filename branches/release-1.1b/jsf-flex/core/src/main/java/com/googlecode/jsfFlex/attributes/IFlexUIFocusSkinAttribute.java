@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="focusSkin", returnType="java.lang.String", longDesc="Skin used to draw the focus rectangle.")
 @JSFComponent
-public interface _MXMLUIFocusSkinAttribute {
+public interface IFlexUIFocusSkinAttribute {
     
 }

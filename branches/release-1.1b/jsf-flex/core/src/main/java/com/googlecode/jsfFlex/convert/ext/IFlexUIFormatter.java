@@ -23,7 +23,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
 /**
  * @author Ji Hoon Kim
  */
-interface _MXMLUIFormatter {
+interface IFlexUIFormatter {
 	
 	/**
 	 * Description saved by the formatter when an error occurs.

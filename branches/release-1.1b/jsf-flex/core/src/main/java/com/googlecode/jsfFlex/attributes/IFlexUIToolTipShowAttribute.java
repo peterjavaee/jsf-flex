@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="toolTipShow", returnType="java.lang.String", longDesc="Dispatched by the component when its ToolTip is about to be shown.")
 @JSFComponent
-public interface _MXMLUIToolTipShowAttribute {
+public interface IFlexUIToolTipShowAttribute {
     
 }

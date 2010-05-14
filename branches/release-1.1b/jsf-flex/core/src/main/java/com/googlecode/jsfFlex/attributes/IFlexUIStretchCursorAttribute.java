@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="stretchCursor", returnType="java.lang.String", longDesc="The class to use as the skin for the cursor that indicates that a column can be resized.")
 @JSFComponent
-public interface _MXMLUIStretchCursorAttribute {
+public interface IFlexUIStretchCursorAttribute {
     
 }

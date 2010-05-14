@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="backgroundSize", returnType="java.lang.String", longDesc="Scales the image specified by backgroundImage to different percentage sizes.")
 @JSFComponent
-public interface _MXMLUIBackgroundSizeAttribute {
+public interface IFlexUIBackgroundSizeAttribute {
     
 }

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="itemEditEnd", returnType="java.lang.String", longDesc="Dispatched when an item editing session ends for any reason.")
 @JSFComponent
-public interface _MXMLUIItemEditEndAttribute {
+public interface IFlexUIItemEditEndAttribute {
     
 }

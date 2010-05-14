@@ -29,86 +29,86 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIChangeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICloseAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICloseDurationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICloseEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIColorFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDisabledIconColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEditableAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIEnterAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFillAlphasAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFillColorsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontAntiAliasTypeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontGridFitTypeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSharpnessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontSizeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontStyleAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontThicknessAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFontWeightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHighlightAlphasAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIconColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemRollOutAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIItemRollOverAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILabelFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILeadingAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOpenAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOpenDurationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIOpenEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingBottomAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingLeftAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingRightAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPaddingTopAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISelectedIndexAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShowTextFieldAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISwatchBorderColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISwatchBorderSizeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUISwatchPanelStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextAlignAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextDecorationAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextIndentAttribute;
-import com.googlecode.jsfFlex.component.MXMLUIInputBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIChangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICloseAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICloseDurationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICloseEasingFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIColorFieldAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDisabledIconColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEnterAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFillAlphasAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFillColorsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusAlphaAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFocusRoundedCornersAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontAntiAliasTypeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontFamilyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontGridFitTypeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontSharpnessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontStyleAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontThicknessAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFontWeightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHighlightAlphasAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIconColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemRollOutAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIItemRollOverAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILabelFieldAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILeadingAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOpenAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOpenDurationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIOpenEasingFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingBottomAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingLeftAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingRightAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPaddingTopAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedIndexAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShowTextFieldAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISwatchBorderColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISwatchBorderSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISwatchPanelStyleNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextAlignAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextDecorationAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextIndentAttribute;
+import com.googlecode.jsfFlex.component.AbstractUIInputBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlColorPicker",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.MXMLUIColorPicker",
-        type                =   "com.googlecode.jsfFlex.MXMLUIColorPicker",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.MXMLUIColorPickerTag",
-        family              =   "javax.faces.MXMLInput",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLColorPicker",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.MXMLUIInputTagBase"
+        name                =   "jf:flexColorPicker",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIColorPicker",
+        type                =   "com.googlecode.jsfFlex.FlexUIColorPicker",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIColorPickerTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexColorPicker",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
 )
-public abstract class AbstractMXMLUIColorPicker 
-						extends MXMLUIInputBase
-                        implements _MXMLUIComboBaseAttributes, _MXMLUIColorFieldAttribute, _MXMLUILabelFieldAttribute, 
-                        _MXMLUIShowTextFieldAttribute, _MXMLUIBorderColorAttribute, _MXMLUICloseDurationAttribute, 
-                        _MXMLUICloseEasingFunctionAttribute, _MXMLUIColorAttribute, _MXMLUIDisabledIconColorAttribute, 
-                        _MXMLUIFillAlphasAttribute, _MXMLUIFillColorsAttribute, _MXMLUIFocusAlphaAttribute, 
-                        _MXMLUIFocusRoundedCornersAttribute, _MXMLUIFontAntiAliasTypeAttribute, _MXMLUIFontFamilyAttribute, 
-                        _MXMLUIFontGridFitTypeAttribute, _MXMLUIFontSharpnessAttribute, _MXMLUIFontSizeAttribute, 
-                        _MXMLUIFontStyleAttribute, _MXMLUIFontThicknessAttribute, _MXMLUIFontWeightAttribute, 
-                        _MXMLUIHighlightAlphasAttribute, _MXMLUIIconColorAttribute, _MXMLUILeadingAttribute, 
-                        _MXMLUIOpenDurationAttribute, _MXMLUIOpenEasingFunctionAttribute, _MXMLUIPaddingBottomAttribute, 
-                        _MXMLUIPaddingLeftAttribute, _MXMLUIPaddingRightAttribute, _MXMLUIPaddingTopAttribute, 
-                        _MXMLUISwatchBorderColorAttribute, _MXMLUISwatchBorderSizeAttribute, _MXMLUISwatchPanelStyleNameAttribute, 
-                        _MXMLUITextAlignAttribute, _MXMLUITextDecorationAttribute, _MXMLUITextIndentAttribute, 
-                        _MXMLUIChangeAttribute, _MXMLUICloseAttribute, _MXMLUIEnterAttribute, _MXMLUIItemRollOutAttribute,
-                        _MXMLUIItemRollOverAttribute, _MXMLUIOpenAttribute, _MXMLUIDataProviderAttribute, 
-                        _MXMLUIEditableAttribute, _MXMLUISelectedIndexAttribute, _MXMLUITextAttribute,
-                        _MXMLUISelectedColorAttribute {
+public abstract class AbstractFlexUIColorPicker 
+						extends AbstractUIInputBase
+                        implements IFlexUIComboBaseAttributes, IFlexUIColorFieldAttribute, IFlexUILabelFieldAttribute, 
+                        IFlexUIShowTextFieldAttribute, IFlexUIBorderColorAttribute, IFlexUICloseDurationAttribute, 
+                        IFlexUICloseEasingFunctionAttribute, IFlexUIColorAttribute, IFlexUIDisabledIconColorAttribute, 
+                        IFlexUIFillAlphasAttribute, IFlexUIFillColorsAttribute, IFlexUIFocusAlphaAttribute, 
+                        IFlexUIFocusRoundedCornersAttribute, IFlexUIFontAntiAliasTypeAttribute, IFlexUIFontFamilyAttribute, 
+                        IFlexUIFontGridFitTypeAttribute, IFlexUIFontSharpnessAttribute, IFlexUIFontSizeAttribute, 
+                        IFlexUIFontStyleAttribute, IFlexUIFontThicknessAttribute, IFlexUIFontWeightAttribute, 
+                        IFlexUIHighlightAlphasAttribute, IFlexUIIconColorAttribute, IFlexUILeadingAttribute, 
+                        IFlexUIOpenDurationAttribute, IFlexUIOpenEasingFunctionAttribute, IFlexUIPaddingBottomAttribute, 
+                        IFlexUIPaddingLeftAttribute, IFlexUIPaddingRightAttribute, IFlexUIPaddingTopAttribute, 
+                        IFlexUISwatchBorderColorAttribute, IFlexUISwatchBorderSizeAttribute, IFlexUISwatchPanelStyleNameAttribute, 
+                        IFlexUITextAlignAttribute, IFlexUITextDecorationAttribute, IFlexUITextIndentAttribute, 
+                        IFlexUIChangeAttribute, IFlexUICloseAttribute, IFlexUIEnterAttribute, IFlexUIItemRollOutAttribute,
+                        IFlexUIItemRollOverAttribute, IFlexUIOpenAttribute, IFlexUIDataProviderAttribute, 
+                        IFlexUIEditableAttribute, IFlexUISelectedIndexAttribute, IFlexUITextAttribute,
+                        IFlexUISelectedColorAttribute {
 	
-	private final static Log _log = LogFactory.getLog(AbstractMXMLUIColorPicker.class);
+	private final static Log _log = LogFactory.getLog(AbstractFlexUIColorPicker.class);
 	
 	private static final String SELECTED_COLOR_ATTR = "selectedColor";
 	private static final String SELECTED_COLOR_ID_APPENDED = "_selectedColor";

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="dividerSkin", returnType="java.lang.String", longDesc="The divider skin.")
 @JSFComponent
-public interface _MXMLUIDividerSkinAttribute {
+public interface IFlexUIDividerSkinAttribute {
     
 }

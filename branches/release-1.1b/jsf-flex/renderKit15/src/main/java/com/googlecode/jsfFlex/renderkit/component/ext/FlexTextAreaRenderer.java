@@ -25,26 +25,26 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.FlexComponentNodeAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.MXMLScrollControlTemplateRenderer;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexScrollControlTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="MXML_BASIC",
-		family="javax.faces.MXMLInput",
-		type="com.googlecode.jsfFlex.MXMLTextArea"
+		renderKitId="FLEX_BASIC",
+		family="javax.faces.FlexInput",
+		type="com.googlecode.jsfFlex.FlexTextArea"
 )
-@JsfFlexAttributeProperties(
-		mxmlComponentName="TextArea",
-		mxmlComponentPackage="mx.controls",
-		mxmlComponentNodeAttributes={
-				@FlexComponentNodeAttribute(
+@IJsfFlexAttributeProperties(
+		componentName="TextArea",
+		componentPackage="mx.controls",
+		componentNodeAttributes={
+				@IFlexComponentNodeAttribute(
 						htmlType="input",
 						typeAttributeValue="hidden",
 						valueAttributeValue="text",
@@ -54,7 +54,7 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 						nameAttributeValue="id",
 						isNameDynamic=true,
 						nameAppend="_text"),
-				@FlexComponentNodeAttribute(
+				@IFlexComponentNodeAttribute(
 						htmlType="input",
 						typeAttributeValue="hidden",
 						valueAttributeValue="htmlText",
@@ -67,37 +67,37 @@ import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
 		},
 
 		jsfFlexAttributes={
-				@JsfFlexAttribute(attribute="condenseWhite"),
-				@JsfFlexAttribute(attribute="data"),
-				@JsfFlexAttribute(attribute="displayAsPassword"),
-				@JsfFlexAttribute(attribute="editable", byMethod=true),
-				@JsfFlexAttribute(attribute="imeMode"),
-                @JsfFlexAttribute(attribute="listData"),
-				@JsfFlexAttribute(attribute="maxChars"),
-				@JsfFlexAttribute(attribute="restrict"),
-				@JsfFlexAttribute(attribute="selectionBeginIndex"),
-				@JsfFlexAttribute(attribute="selectionEndIndex"),
-				@JsfFlexAttribute(attribute="styleSheet"),
-				@JsfFlexAttribute(attribute="wordWrap"),
-				@JsfFlexAttribute(attribute="disabledColor"),
-				@JsfFlexAttribute(attribute="focusAlpha"),
-				@JsfFlexAttribute(attribute="focusRoundedCorners"),
-				@JsfFlexAttribute(attribute="paddingLeft"),
-				@JsfFlexAttribute(attribute="paddingRight"),
-				@JsfFlexAttribute(attribute="change")
+				@IJsfFlexAttribute(attribute="condenseWhite"),
+				@IJsfFlexAttribute(attribute="data"),
+				@IJsfFlexAttribute(attribute="displayAsPassword"),
+				@IJsfFlexAttribute(attribute="editable", byMethod=true),
+				@IJsfFlexAttribute(attribute="imeMode"),
+                @IJsfFlexAttribute(attribute="listData"),
+				@IJsfFlexAttribute(attribute="maxChars"),
+				@IJsfFlexAttribute(attribute="restrict"),
+				@IJsfFlexAttribute(attribute="selectionBeginIndex"),
+				@IJsfFlexAttribute(attribute="selectionEndIndex"),
+				@IJsfFlexAttribute(attribute="styleSheet"),
+				@IJsfFlexAttribute(attribute="wordWrap"),
+				@IJsfFlexAttribute(attribute="disabledColor"),
+				@IJsfFlexAttribute(attribute="focusAlpha"),
+				@IJsfFlexAttribute(attribute="focusRoundedCorners"),
+				@IJsfFlexAttribute(attribute="paddingLeft"),
+				@IJsfFlexAttribute(attribute="paddingRight"),
+				@IJsfFlexAttribute(attribute="change")
 		}
 )
-public final class MXMLTextAreaRenderer extends MXMLScrollControlTemplateRenderer {
+public final class FlexTextAreaRenderer extends AbstractFlexScrollControlTemplateRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
 		
-		_MXMLContract componentMXML = _MXMLContract.class.cast( componentObj );
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
-		AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(MXMLTextAreaRenderer.class, componentObj, null);
-		writer.createPreMxml(componentMXML, MXMLTextAreaRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).mxmlComponentName(), 
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.mapFields(FlexTextAreaRenderer.class, componentObj, null);
+		writer.createPreMxml(componentFlex, FlexTextAreaRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

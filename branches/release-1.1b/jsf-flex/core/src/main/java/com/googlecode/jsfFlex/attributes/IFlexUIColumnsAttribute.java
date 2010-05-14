@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="columns", returnType="java.lang.String", longDesc="An array of DataGridColumn objects, one for each column that can be displayed.")
 @JSFComponent
-public interface _MXMLUIColumnsAttribute {
+public interface IFlexUIColumnsAttribute {
     
 }

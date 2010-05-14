@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="displayAsPassword", returnType="java.lang.String", longDesc="Indicates whether this control is used for entering passwords.")
 @JSFComponent
-public interface _MXMLUIDisplayAsPasswordAttribute {
+public interface IFlexUIDisplayAsPasswordAttribute {
     
 }

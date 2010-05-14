@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="nextYearSkin", returnType="java.lang.String", longDesc="Name of the class to use as the skin for the next year arrow.")
 @JSFComponent
-public interface _MXMLUINextYearSkinAttribute {
+public interface IFlexUINextYearSkinAttribute {
     
 }

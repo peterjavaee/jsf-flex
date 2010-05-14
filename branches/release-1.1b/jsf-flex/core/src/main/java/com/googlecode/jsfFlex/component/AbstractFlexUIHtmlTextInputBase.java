@@ -22,8 +22,8 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIHtmlTextAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITextBindingAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHtmlTextAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITextBindingAttribute;
 
 /**
  * This class will process the needed actions of setting and retrieving of "htmlText" attribute<br>
@@ -33,17 +33,17 @@ import com.googlecode.jsfFlex.attributes._MXMLUITextBindingAttribute;
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        clazz       =   "com.googlecode.jsfFlex.component.MXMLUIHtmlTextInputBase",
-        type        =   "com.googlecode.jsfFlex.MXMLUIHtmlTextInputBase",
-        family      =   "javax.faces.MXMLUIHtmlTextInputBase",
-        desc        =   "Base component for MXMLInput components that contain htmlText attribute",
+        clazz       =   "com.googlecode.jsfFlex.component.FlexUIHtmlTextInputBase",
+        type        =   "com.googlecode.jsfFlex.FlexUIHtmlTextInputBase",
+        family      =   "javax.faces.FlexUIHtmlTextInputBase",
+        desc        =   "Base component for FlexInput components that contain htmlText attribute",
         template    =   true
 )
-public abstract class _MXMLUIHtmlTextInputBase 
-							extends com.googlecode.jsfFlex.component.MXMLUITextInputBase 
-							implements _MXMLUIHtmlTextAttribute, _MXMLUITextBindingAttribute {
+public abstract class AbstractFlexUIHtmlTextInputBase 
+							extends com.googlecode.jsfFlex.component.FlexUITextInputBase 
+							implements IFlexUIHtmlTextAttribute, IFlexUITextBindingAttribute {
 
-	private final static org.apache.commons.logging.Log _log = org.apache.commons.logging.LogFactory.getLog(MXMLUIHtmlTextInputBase.class);
+	private final static org.apache.commons.logging.Log _log = org.apache.commons.logging.LogFactory.getLog(FlexUIHtmlTextInputBase.class);
 	
 	private static final String HTML_TEXT_ATTR = "htmlText";
 	private static final String HTML_TEXT_ID_APPENDED = "_htmlText";
@@ -53,7 +53,7 @@ public abstract class _MXMLUIHtmlTextInputBase
 	protected void populateComponentInitValues(){
 		try{
 			if(getTextBinding().equals(HTML_TEXT_ATTR) && getHtmlText() != null){
-				getInitValue().put(VALUE, com.googlecode.jsfFlex.shared.util.MXMLJsfUtil.escapeCharacters( getHtmlText() ));
+				getInitValue().put(VALUE, com.googlecode.jsfFlex.shared.util.FlexJsfUtil.escapeCharacters( getHtmlText() ));
 			}else{
 				super.populateComponentInitValues();
 			}

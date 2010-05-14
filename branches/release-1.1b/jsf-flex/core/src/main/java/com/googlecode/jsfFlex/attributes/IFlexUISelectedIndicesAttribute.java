@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="selectedIndices", returnType="java.lang.String", longDesc="An array of indices in the data provider of the selected items.")
 @JSFComponent
-public interface _MXMLUISelectedIndicesAttribute {
+public interface IFlexUISelectedIndicesAttribute {
     
 }

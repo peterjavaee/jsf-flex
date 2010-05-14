@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="icon", returnType="java.lang.String", longDesc="Name of the class to use as the default icon.")
 @JSFComponent
-public interface _MXMLUIIconAttribute {
+public interface IFlexUIIconAttribute {
 	
 }

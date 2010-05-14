@@ -20,49 +20,49 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes._MXMLUIBorderColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUICornerRadiusAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDirectionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDownArrowDisabledSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDownArrowDownSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDownArrowOverSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIDownArrowUpSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFillAlphasAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFillColorsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIHighlightAlphasAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIIconColorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUILineScrollSizeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMaxScrollPositionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMinScrollPositionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPageScrollSizeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIPageSizeAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIScrollPositionAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIThumbDownSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIThumbIconAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIThumbOffsetAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIThumbOverSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIThumbUpSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITrackColorsAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUITrackSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUpArrowDisabledSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUpArrowDownSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUpArrowOverSkinAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUpArrowUpSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUIBorderColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUICornerRadiusAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDirectionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDownArrowDisabledSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDownArrowDownSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDownArrowOverSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIDownArrowUpSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFillAlphasAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFillColorsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIHighlightAlphasAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIIconColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUILineScrollSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMaxScrollPositionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMinScrollPositionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPageScrollSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIPageSizeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIScrollPositionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIThumbDownSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIThumbIconAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIThumbOffsetAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIThumbOverSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIThumbUpSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITrackColorsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUITrackSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUpArrowDisabledSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUpArrowDownSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUpArrowOverSkinAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUpArrowUpSkinAttribute;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface _MXMLUIScrollBarAttributes 
-                    extends _MXMLUIDirectionAttribute, _MXMLUILineScrollSizeAttribute, _MXMLUIMaxScrollPositionAttribute, 
-                    _MXMLUIMinScrollPositionAttribute, _MXMLUIPageScrollSizeAttribute, _MXMLUIPageSizeAttribute, 
-                    _MXMLUIScrollPositionAttribute, _MXMLUIBorderColorAttribute, _MXMLUICornerRadiusAttribute, _MXMLUIDownArrowDisabledSkinAttribute, 
-                    _MXMLUIDownArrowDownSkinAttribute, _MXMLUIDownArrowOverSkinAttribute, _MXMLUIDownArrowUpSkinAttribute, 
-                    _MXMLUIFillAlphasAttribute, _MXMLUIFillColorsAttribute, _MXMLUIHighlightAlphasAttribute, _MXMLUIIconColorAttribute, 
-                    _MXMLUIThumbDownSkinAttribute, _MXMLUIThumbIconAttribute, _MXMLUIThumbOffsetAttribute, _MXMLUIThumbOverSkinAttribute, 
-                    _MXMLUIThumbUpSkinAttribute, _MXMLUITrackColorsAttribute, _MXMLUITrackSkinAttribute, _MXMLUIUpArrowDisabledSkinAttribute, 
-                    _MXMLUIUpArrowDownSkinAttribute, _MXMLUIUpArrowOverSkinAttribute, _MXMLUIUpArrowUpSkinAttribute, 
-                    _MXMLUIBaseAttributes {
+interface IFlexUIScrollBarAttributes 
+                    extends IFlexUIDirectionAttribute, IFlexUILineScrollSizeAttribute, IFlexUIMaxScrollPositionAttribute, 
+                    IFlexUIMinScrollPositionAttribute, IFlexUIPageScrollSizeAttribute, IFlexUIPageSizeAttribute, 
+                    IFlexUIScrollPositionAttribute, IFlexUIBorderColorAttribute, IFlexUICornerRadiusAttribute, IFlexUIDownArrowDisabledSkinAttribute, 
+                    IFlexUIDownArrowDownSkinAttribute, IFlexUIDownArrowOverSkinAttribute, IFlexUIDownArrowUpSkinAttribute, 
+                    IFlexUIFillAlphasAttribute, IFlexUIFillColorsAttribute, IFlexUIHighlightAlphasAttribute, IFlexUIIconColorAttribute, 
+                    IFlexUIThumbDownSkinAttribute, IFlexUIThumbIconAttribute, IFlexUIThumbOffsetAttribute, IFlexUIThumbOverSkinAttribute, 
+                    IFlexUIThumbUpSkinAttribute, IFlexUITrackColorsAttribute, IFlexUITrackSkinAttribute, IFlexUIUpArrowDisabledSkinAttribute, 
+                    IFlexUIUpArrowDownSkinAttribute, IFlexUIUpArrowOverSkinAttribute, IFlexUIUpArrowUpSkinAttribute, 
+                    IFlexUIBaseAttributes {
 	
 }

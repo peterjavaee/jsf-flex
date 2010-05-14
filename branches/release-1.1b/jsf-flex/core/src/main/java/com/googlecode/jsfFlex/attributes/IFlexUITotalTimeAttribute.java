@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="totalTime", returnType="java.lang.String", longDesc="Total length of the media, in seconds.")
 @JSFComponent
-public interface _MXMLUITotalTimeAttribute {
+public interface IFlexUITotalTimeAttribute {
     
 }

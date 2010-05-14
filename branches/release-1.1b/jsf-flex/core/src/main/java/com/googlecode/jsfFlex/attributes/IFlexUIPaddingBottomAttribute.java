@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="paddingBottom", returnType="java.lang.String", longDesc="Number of pixels between the container's bottom border and the bottom of its content area.")
 @JSFComponent
-public interface _MXMLUIPaddingBottomAttribute {
+public interface IFlexUIPaddingBottomAttribute {
     
 }

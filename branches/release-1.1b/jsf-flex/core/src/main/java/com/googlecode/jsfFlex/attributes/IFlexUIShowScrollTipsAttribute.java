@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="showScrollTips", returnType="java.lang.String", longDesc="A flag that indicates whether a tooltip should appear near the scroll thumb when it is being dragged.")
 @JSFComponent
-public interface _MXMLUIShowScrollTipsAttribute {
+public interface IFlexUIShowScrollTipsAttribute {
     
 }

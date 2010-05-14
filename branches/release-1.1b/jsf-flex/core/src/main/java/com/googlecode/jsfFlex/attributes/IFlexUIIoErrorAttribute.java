@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="ioError", returnType="java.lang.String", longDesc="Dispatched when an input/output error occurs.")
 @JSFComponent
-public interface _MXMLUIIoErrorAttribute {
+public interface IFlexUIIoErrorAttribute {
     
 }

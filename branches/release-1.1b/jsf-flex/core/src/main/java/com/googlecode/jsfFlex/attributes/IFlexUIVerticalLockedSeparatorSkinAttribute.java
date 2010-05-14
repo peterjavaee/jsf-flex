@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="verticalLockedSeparatorSkin", returnType="java.lang.String", longDesc="The class to use as the skin that defines the appearance of the separator between the locked and unlocked columns in a AdvancedDataGrid control.")
 @JSFComponent
-public interface _MXMLUIVerticalLockedSeparatorSkinAttribute {
+public interface IFlexUIVerticalLockedSeparatorSkinAttribute {
     
 }

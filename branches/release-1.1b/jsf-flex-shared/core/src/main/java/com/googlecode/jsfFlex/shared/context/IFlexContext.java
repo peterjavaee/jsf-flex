@@ -26,24 +26,24 @@ import javax.faces.component.UIComponentBase;
 
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.shared.adapter._MXMLContract;
+import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
 import com.googlecode.jsfFlex.shared.beans.others.JsfFlexFlashApplicationConfiguration;
-import com.googlecode.jsfFlex.shared.tasks._CommonTaskRunner;
-import com.googlecode.jsfFlex.shared.tasks._FileManipulatorTaskRunner;
-import com.googlecode.jsfFlex.shared.tasks._FlexTaskRunner;
-import com.googlecode.jsfFlex.shared.tasks._RunnerFactory;
+import com.googlecode.jsfFlex.shared.tasks.ICommonTaskRunner;
+import com.googlecode.jsfFlex.shared.tasks.AbstractFileManipulatorTaskRunner;
+import com.googlecode.jsfFlex.shared.tasks.IFlexTaskRunner;
+import com.googlecode.jsfFlex.shared.tasks.AbstractRunnerFactory;
 
 /**
  * An abstract class providing the needed methods of its implementation.<br>
  * Also static method getCurrentInstance provides an easy method of retrieving current<br>
- * MxmlContext instance from the ThreadLocal.<br>
+ * AbstractFlexContext instance from the ThreadLocal.<br>
  * 
  * @author Ji Hoon Kim
  */
-public abstract class MxmlContext {
+public abstract class AbstractFlexContext {
 	
-	MxmlContext(){
+	AbstractFlexContext(){
 		super();
 	}
 	
@@ -51,7 +51,7 @@ public abstract class MxmlContext {
 	
 	public abstract List<JSONObject> getApplicationInitValueList();
 	
-	public abstract Map<Integer, Set<_MXMLContract>> getPreMxmlCompMap();
+	public abstract Map<Integer, Set<IFlexContract>> getPreMxmlCompMap();
 	
 	public abstract Map<String, ? super UIComponentBase> getTemporaryResourceMap();
 	
@@ -59,13 +59,13 @@ public abstract class MxmlContext {
 	
 	public abstract JsfFlexFlashApplicationConfiguration getJsfFlexFlashApplicationConfiguration();
 	
-	public abstract _RunnerFactory getRunnerFactoryInstance();
+	public abstract AbstractRunnerFactory getRunnerFactoryInstance();
 	
-	public abstract _CommonTaskRunner getCommonRunner();
+	public abstract ICommonTaskRunner getCommonRunner();
 	
-	public abstract _FileManipulatorTaskRunner getFileManipulatorRunner();
+	public abstract AbstractFileManipulatorTaskRunner getFileManipulatorRunner();
 	
-	public abstract _FlexTaskRunner getFlexRunner();
+	public abstract IFlexTaskRunner getFlexRunner();
 	
 	
 	public abstract boolean isProductionEnv();
@@ -116,20 +116,20 @@ public abstract class MxmlContext {
 	
 	public abstract void setWebContextPath(String webContextPath);
 	
-	private static ThreadLocal<MxmlContext> _currentInstance = new ThreadLocal<MxmlContext>()
+	private static ThreadLocal<AbstractFlexContext> _currentInstance = new ThreadLocal<AbstractFlexContext>()
     {
-        protected MxmlContext initialValue()
+        protected AbstractFlexContext initialValue()
         {
             return null;
         }
     };
 
-    public static MxmlContext getCurrentInstance()
+    public static AbstractFlexContext getCurrentInstance()
     {
         return _currentInstance.get();
     }
 
-    protected static void setCurrentInstance(MxmlContext context)
+    protected static void setCurrentInstance(AbstractFlexContext context)
     {
     	_currentInstance.set(context);
     }

@@ -27,7 +27,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface _MXMLUIDataProviderCollectionAttribute {
+public interface IFlexUIDataProviderCollectionAttribute {
 	
 	/**
 	 * Property that allows providing java.util.Collection dataBinding for dataProvider attribute [i.e. ComboBox]

@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="menuBarItemRenderer", returnType="java.lang.String", longDesc="The item renderer used by the MenuBar control for the top-level menu bar of the MenuBar control.")
 @JSFComponent
-public interface _MXMLUIMenuBarItemRendererAttribute {
+public interface IFlexUIMenuBarItemRendererAttribute {
     
 }

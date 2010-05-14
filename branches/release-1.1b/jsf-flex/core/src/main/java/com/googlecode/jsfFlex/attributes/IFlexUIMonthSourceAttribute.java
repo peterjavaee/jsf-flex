@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="monthSource", returnType="java.lang.String", longDesc="Object that contains the value of the month field.")
 @JSFComponent
-public interface _MXMLUIMonthSourceAttribute {
+public interface IFlexUIMonthSourceAttribute {
     
 }

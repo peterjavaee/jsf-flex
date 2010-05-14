@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="maxLength", returnType="java.lang.String", longDesc="Maximum length for a valid String.")
 @JSFComponent
-public interface _MXMLUIMaxLengthAttribute {
+public interface IFlexUIMaxLengthAttribute {
     
 }

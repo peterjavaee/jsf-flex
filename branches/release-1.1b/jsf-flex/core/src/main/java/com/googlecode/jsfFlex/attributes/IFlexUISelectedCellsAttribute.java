@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="selectedCells", returnType="java.lang.String", longDesc="Contains an Array of cell locations as row and column indices.")
 @JSFComponent
-public interface _MXMLUISelectedCellsAttribute {
+public interface IFlexUISelectedCellsAttribute {
     
 }

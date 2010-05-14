@@ -21,7 +21,7 @@ package com.googlecode.jsfFlex.shared.model.beans;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * @author Ji Hoon Kim
@@ -73,7 +73,7 @@ public final class AsynchronousDataUpdateEventBean extends AbstractAsynchronousE
     @Override
     public int hashCode() {
         int hashCodeVal = super.hashCode();
-        hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _updateValue.hashCode();
+        hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _updateValue.hashCode();
         
         return hashCodeVal;
     }

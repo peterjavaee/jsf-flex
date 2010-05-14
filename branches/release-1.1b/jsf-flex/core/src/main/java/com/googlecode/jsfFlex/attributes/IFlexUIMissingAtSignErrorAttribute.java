@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="missingAtSignError", returnType="java.lang.String", longDesc="Error message when there is no at sign in the email address.")
 @JSFComponent
-public interface _MXMLUIMissingAtSignErrorAttribute {
+public interface IFlexUIMissingAtSignErrorAttribute {
     
 }

@@ -25,7 +25,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface _MXMLUITitleAttribute {
+public interface IFlexUITitleAttribute {
 	
     /**
      * Title or caption displayed in the title bar.

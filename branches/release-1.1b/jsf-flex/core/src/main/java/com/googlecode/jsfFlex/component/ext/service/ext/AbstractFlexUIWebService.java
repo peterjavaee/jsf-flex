@@ -21,32 +21,32 @@ package com.googlecode.jsfFlex.component.ext.service.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes._MXMLUIConcurrencyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIFaultAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIMakeObjectsBindableAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIResultAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIServiceNameAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIShowBusyCursorAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIUseProxyAttribute;
-import com.googlecode.jsfFlex.attributes._MXMLUIWsdlAttribute;
-import com.googlecode.jsfFlex.component.MXMLUISimpleBase;
+import com.googlecode.jsfFlex.attributes.IFlexUIConcurrencyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFaultAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIMakeObjectsBindableAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIResultAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIServiceNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIShowBusyCursorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIUseProxyAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIWsdlAttribute;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
         name                =   "jf:mxmlWebService",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.service.ext.MXMLUIWebService",
-        type                =   "com.googlecode.jsfFlex.MXMLUIWebService",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.service.ext.MXMLUIWebServiceTag",
-        family              =   "javax.faces.MXMLSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.MXMLWebService"
+        clazz               =   "com.googlecode.jsfFlex.component.ext.service.ext.FlexUIWebService",
+        type                =   "com.googlecode.jsfFlex.FlexUIWebService",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.service.ext.FlexUIWebServiceTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexWebService"
 )
-public abstract class AbstractMXMLUIWebService 
-						extends MXMLUISimpleBase 
-                        implements _MXMLUIConcurrencyAttribute, _MXMLUIServiceNameAttribute, _MXMLUIShowBusyCursorAttribute, 
-                        _MXMLUIMakeObjectsBindableAttribute, _MXMLUIUseProxyAttribute, _MXMLUIWsdlAttribute, 
-                        _MXMLUIFaultAttribute, _MXMLUIResultAttribute {
+public abstract class AbstractFlexUIWebService 
+						extends AbstractFlexUISimpleBase 
+                        implements IFlexUIConcurrencyAttribute, IFlexUIServiceNameAttribute, IFlexUIShowBusyCursorAttribute, 
+                        IFlexUIMakeObjectsBindableAttribute, IFlexUIUseProxyAttribute, IFlexUIWsdlAttribute, 
+                        IFlexUIFaultAttribute, IFlexUIResultAttribute {
     
     /**
      * Id of the component.

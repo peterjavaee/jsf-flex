@@ -18,24 +18,24 @@
  */
 package com.googlecode.jsfFlex.shared.model.event;
 
-import com.googlecode.jsfFlex.shared.util.MXMLConstants;
+import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * @author Ji Hoon Kim
  */
-public abstract class Event {
+public abstract class AbstractEvent {
     
     private final String _sourceComponentId;
     private final String _targetComponentId;
     
-    Event(){
+    AbstractEvent(){
         super();
         
         _sourceComponentId = null;
         _targetComponentId = null;
     }
     
-    public Event(String sourceComponentId, String targetComponentId){
+    public AbstractEvent(String sourceComponentId, String targetComponentId){
         super();
         
         _sourceComponentId = sourceComponentId;
@@ -44,11 +44,11 @@ public abstract class Event {
     
     @Override
     public boolean equals(Object instance) {
-        if(!(instance instanceof Event)){
+        if(!(instance instanceof AbstractEvent)){
             return false;
         }
         
-        Event currInstance = Event.class.cast( instance );
+        AbstractEvent currInstance = AbstractEvent.class.cast( instance );
         boolean equals = _sourceComponentId.equals(currInstance._sourceComponentId);
         
         if(equals){
@@ -60,9 +60,9 @@ public abstract class Event {
     
     @Override
     public int hashCode() {
-        int hashCodeVal = MXMLConstants.HASH_CODE_INIT_VALUE;
-        hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _sourceComponentId.hashCode();
-        hashCodeVal = MXMLConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _targetComponentId.hashCode();
+        int hashCodeVal = FlexConstants.HASH_CODE_INIT_VALUE;
+        hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _sourceComponentId.hashCode();
+        hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _targetComponentId.hashCode();
         
         return hashCodeVal;
     }

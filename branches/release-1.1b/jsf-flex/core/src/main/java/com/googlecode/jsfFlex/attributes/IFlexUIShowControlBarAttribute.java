@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="showControlBar", returnType="java.lang.String", longDesc="Specifies whether to display the control bar that contains the text formatting controls.")
 @JSFComponent
-public interface _MXMLUIShowControlBarAttribute {
+public interface IFlexUIShowControlBarAttribute {
     
 }

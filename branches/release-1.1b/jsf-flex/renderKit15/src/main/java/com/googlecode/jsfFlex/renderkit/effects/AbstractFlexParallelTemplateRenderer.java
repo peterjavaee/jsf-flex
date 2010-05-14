@@ -23,25 +23,25 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.mxml.AbstractMXMLResponseWriter;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
  * @author Ji Hoon Kim
  */
-@JsfFlexAttributeProperties(
-        mxmlComponentNodeAttributes={},
+@IJsfFlexAttributeProperties(
+        componentNodeAttributes={},
         
         jsfFlexAttributes={}
 )
-public abstract class MXMLParallelTemplateRenderer extends MXMLEffectTemplateRenderer {
+public abstract class AbstractFlexParallelTemplateRenderer extends AbstractFlexEffectTemplateRenderer {
     
     @Override
     public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
         super.encodeBegin(context, componentObj);
         
-        AbstractMXMLResponseWriter writer = AbstractMXMLResponseWriter.class.cast( context.getResponseWriter() );
-        writer.mapFields(MXMLParallelTemplateRenderer.class, componentObj, null);
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+        writer.mapFields(AbstractFlexParallelTemplateRenderer.class, componentObj, null);
         
     }
     

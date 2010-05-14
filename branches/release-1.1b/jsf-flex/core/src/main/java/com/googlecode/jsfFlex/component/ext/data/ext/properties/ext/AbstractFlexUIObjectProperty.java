@@ -20,19 +20,17 @@ package com.googlecode.jsfFlex.component.ext.data.ext.properties.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.component.ext.data.ext.properties.MXMLUIDynamicPropertyBase;
-
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlObjectProperty",
-        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.MXMLUIObjectProperty",
-        type                =   "com.googlecode.jsfFlex.MXMLUIObjectProperty",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.data.ext.properties.ext.MXMLUIObjectPropertyTag",
-        family              =   "javax.faces.MXMLProperty"
+        name                =   "jf:flexObjectProperty",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.FlexUIObjectProperty",
+        type                =   "com.googlecode.jsfFlex.FlexUIObjectProperty",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.data.ext.properties.ext.FlexUIObjectPropertyTag",
+        family              =   "javax.faces.FlexProperty"
 )
-public abstract class AbstractMXMLUIObjectProperty 
-						extends MXMLUIDynamicPropertyBase {
+public abstract class AbstractFlexUIObjectProperty 
+						extends com.googlecode.jsfFlex.component.ext.data.ext.properties.FlexUIDynamicPropertyBase {
 	
 }

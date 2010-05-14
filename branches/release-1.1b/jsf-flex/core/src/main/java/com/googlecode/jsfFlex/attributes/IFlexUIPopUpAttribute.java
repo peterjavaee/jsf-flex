@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="popUp", returnType="java.lang.String", longDesc="Specifies the UIComponent object, or object defined by a subclass of UIComponent, to pop up.")
 @JSFComponent
-public interface _MXMLUIPopUpAttribute {
+public interface IFlexUIPopUpAttribute {
     
 }

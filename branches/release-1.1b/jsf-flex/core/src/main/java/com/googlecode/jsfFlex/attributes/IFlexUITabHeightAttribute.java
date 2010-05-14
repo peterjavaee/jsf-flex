@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="tabHeight", returnType="java.lang.String", longDesc="Height of each tab, in pixels.")
 @JSFComponent
-public interface _MXMLUITabHeightAttribute {
+public interface IFlexUITabHeightAttribute {
     
 }

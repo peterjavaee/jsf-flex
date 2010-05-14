@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="selectionDisabledColor", returnType="java.lang.String", longDesc="Specifies the disabled color of a list item.")
 @JSFComponent
-public interface _MXMLUISelectionDisabledColorAttribute {
+public interface IFlexUISelectionDisabledColorAttribute {
     
 }

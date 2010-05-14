@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="serviceName", returnType="java.lang.String", longDesc="Name of the service.")
 @JSFComponent
-public interface _MXMLUIServiceNameAttribute {
+public interface IFlexUIServiceNameAttribute {
     
 }

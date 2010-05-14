@@ -26,6 +26,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProp
  */
 @JSFJspProperty(name="itemClick", returnType="java.lang.String", longDesc="Dispatched when the user clicks on an item in the control.")
 @JSFComponent
-public interface _MXMLUIItemClickAttribute {
+public interface IFlexUIItemClickAttribute {
 	
 }
