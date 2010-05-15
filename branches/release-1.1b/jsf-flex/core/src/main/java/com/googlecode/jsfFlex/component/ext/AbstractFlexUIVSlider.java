@@ -33,7 +33,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUIValueBase;
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIVSliderTag",
         family              =   "javax.faces.FlexInput",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexVSlider",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
 public abstract class AbstractFlexUIVSlider 
 						extends AbstractFlexUIValueBase

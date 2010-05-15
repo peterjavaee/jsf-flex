@@ -38,13 +38,13 @@ public final class AdditionalApplicationScriptContent {
     private final Set<SimpleDataProviderSetter> _simpleDataProviderSetter;
 	private final ValidationManagerScriptContent _validationManagerScriptContent;
 	
-	public AdditionalApplicationScriptContent(String currMxml, IFlexApplicationContract currApplicationContract){
+	public AdditionalApplicationScriptContent(String currFlex, IFlexApplicationContract currApplicationContract){
 		super();
 		_actionScriptImports = new LinkedHashSet<String>();
         _dataGridScriptContent = new HashMap<String, DataGridScriptContent>();
         _eventHandlers = new LinkedHashSet<EventHandler>();
         _simpleDataProviderSetter = new LinkedHashSet<SimpleDataProviderSetter>();
-		_validationManagerScriptContent = new ValidationManagerScriptContent(currMxml, currApplicationContract);
+		_validationManagerScriptContent = new ValidationManagerScriptContent(currFlex, currApplicationContract);
 	}
 	
 	public void addActionScriptImport(String actionScriptImport){

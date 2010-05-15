@@ -78,7 +78,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUIValueBase;
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIProgressBarTag",
         family              =   "javax.faces.FlexInput",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexProgressBar",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
 public abstract class AbstractFlexUIProgressBar 
 						extends AbstractFlexUIValueBase 

@@ -35,7 +35,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlWebService",
+        name                =   "jf:flexWebService",
         clazz               =   "com.googlecode.jsfFlex.component.ext.service.ext.FlexUIWebService",
         type                =   "com.googlecode.jsfFlex.FlexUIWebService",
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.service.ext.FlexUIWebServiceTag",

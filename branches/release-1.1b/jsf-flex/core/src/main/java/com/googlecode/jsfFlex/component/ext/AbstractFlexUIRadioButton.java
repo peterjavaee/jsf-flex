@@ -41,7 +41,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUISelectedValueAttribute;
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIRadioButtonTag",
         family              =   "javax.faces.FlexInput",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexRadioButton",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
 public abstract class AbstractFlexUIRadioButton 
 						extends com.googlecode.jsfFlex.component.FlexUISelectedBase

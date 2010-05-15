@@ -125,8 +125,8 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements IFlexTask
 		copyFile(targetAbsolutePath, copyTo, null);
 	}
 	
-	public void createSWF(String mxmlFile, String swfPath, IFlexApplicationContract componentMXML, String flexSDKRootPath, String locale, String localePath, String queueTaskId) {
-		MXMLCTask swfCreator = new MXMLCTask(mxmlFile, swfPath, componentMXML, flexSDKRootPath).locale(locale).localePath(localePath);
+	public void createSWF(String flexFile, String swfPath, IFlexApplicationContract componentFlex, String flexSDKRootPath, String locale, String localePath, String queueTaskId) {
+		MXMLCTask swfCreator = new MXMLCTask(flexFile, swfPath, componentFlex, flexSDKRootPath).locale(locale).localePath(localePath);
         if(queueTaskId != null){
             queueFutureTask(queueTaskId, swfCreator);
         }else{
@@ -254,18 +254,18 @@ final class JythonFlexTaskRunnerImpl extends TaskRunnerImpl implements IFlexTask
         addTask(addUIComponentTemplate);
 	}
 	
-	public void writeBodyContent(IFlexContract componentMXML) {
+	public void writeBodyContent(IFlexContract componentFlex) {
 		
-		Object stringBodyContent = componentMXML.getAttributes().get(FlexConstants.TAG_BODY_CONTENT_ATTR);
+		Object stringBodyContent = componentFlex.getAttributes().get(FlexConstants.TAG_BODY_CONTENT_ATTR);
 		String stringBodyContentToReplace = stringBodyContent == null ? "" : (String) stringBodyContent;
-		ReplaceTextTask writeBodyContent = new ReplaceTextTask(componentMXML.getAbsolutePathToPreMxmlFile());
+		ReplaceTextTask writeBodyContent = new ReplaceTextTask(componentFlex.getAbsolutePathToPreMxmlFile());
 		writeBodyContent.addTokenValue(FlexConstants.TAG_BODY_CONTENT_TOKEN, stringBodyContentToReplace);
         addTask(writeBodyContent);
 	}
 	
 	public final AbstractFileManipulatorTaskRunner getFileManipulatorTaskRunner(){
-		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-		return mxmlContext.getFileManipulatorRunner();
+		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+		return flexContext.getFileManipulatorRunner();
 	}
 	
 }

@@ -68,8 +68,8 @@ public abstract class AbstractFlexUISimpleBase extends UIComponentBase implement
 	public synchronized AbstractAnnotationDocletParser getAnnotationDocletParserInstance(){
 		
 		if(_annotationDocletParserInstance == null){
-			AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-			AbstractRunnerFactory runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
+			AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+			AbstractRunnerFactory runnerFactoryInstance = flexContext.getRunnerFactoryInstance();
 			_annotationDocletParserInstance = runnerFactoryInstance.getAnnotationDocletParserImpl();
 		}
 		
@@ -78,8 +78,8 @@ public abstract class AbstractFlexUISimpleBase extends UIComponentBase implement
 	
 	public void encodeBegin(FacesContext context) throws IOException {
 		
-		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-		if(mxmlContext.isProductionEnv()){
+		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+		if(flexContext.isProductionEnv()){
 			//means no need to create preMxml files
 			setRendered(false);
 		}

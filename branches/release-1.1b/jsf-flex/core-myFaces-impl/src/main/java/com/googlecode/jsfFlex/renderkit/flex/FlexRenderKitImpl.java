@@ -132,9 +132,9 @@ class FlexRenderKitImpl extends RenderKit {
             characterEncoding = DEFAULT_CHAR_ENCODING;
         }
         
-        AbstractFlexResponseWriter mxmlResponseWriter = new FlexResponseWriterImpl(writer, selectedContentType, characterEncoding);
+        AbstractFlexResponseWriter flexResponseWriter = new FlexResponseWriterImpl(writer, selectedContentType, characterEncoding);
         
-        return mxmlResponseWriter;
+        return flexResponseWriter;
 	}
 
 	public ResponseStateManager getResponseStateManager() {

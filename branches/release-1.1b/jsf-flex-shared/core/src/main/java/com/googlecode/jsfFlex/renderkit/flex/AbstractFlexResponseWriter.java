@@ -79,7 +79,7 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
     
     /**
      * This method will map the fields of javaDoc/annotation [depends on which JRE version was specified during<br>
-     * build time] from the MXMLUIComponent to a HashSet.<br>
+     * build time] from the FlexUIComponent to a HashSet.<br>
      * 
      * @param mapClass
      * @param componentObj
@@ -165,15 +165,15 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
     /**
      * This method will extract the flexSDk
      * 
-     * @param componentMXML
+     * @param componentFlex
      */
-    public final void unZipFlexSDK(IFlexApplicationContract componentMXML) {
-        AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
+    public final void unZipFlexSDK(IFlexApplicationContract componentFlex) {
+        AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
         synchronized(LOCK){
-            if(!new File(mxmlContext.getFlexSDKPath()).exists()){
-                makeDirectory(mxmlContext.getFlexSDKPath());
-                String queueTaskId = componentMXML.getId();
-                unZipArchiveRelative(FlexConstants.FLEX_SDK_ZIP, mxmlContext.getFlexSDKPath(), queueTaskId);
+            if(!new File(flexContext.getFlexSDKPath()).exists()){
+                makeDirectory(flexContext.getFlexSDKPath());
+                String queueTaskId = componentFlex.getId();
+                unZipArchiveRelative(FlexConstants.FLEX_SDK_ZIP, flexContext.getFlexSDKPath(), queueTaskId);
             }
         }
     }
@@ -192,53 +192,53 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
     /**
      * One can consider this method to be somewhat of a facade in creating application SWF file.<br>
      * 
-     * @param mxmlFile
-     * @param componentMXML
+     * @param flexFile
+     * @param componentFlex
      * @param multiLingualSupportMap
      */
-    public final void processCreateSwf(String mxmlFile, IFlexApplicationContract componentMXML, Map<String, String> multiLingualSupportMap) {
+    public final void processCreateSwf(String flexFile, IFlexApplicationContract componentFlex, Map<String, String> multiLingualSupportMap) {
         
-        final AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
+        final AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
         final IFlexTaskRunner flexTaskRunner = getFlexTaskRunner();
         final ICommonTaskRunner commonTaskRunner = getCommonTaskRunner();
-        final String queueTaskId = componentMXML.getId();
-        final String flexSDKPath = mxmlContext.getFlexSDKPath();
+        final String queueTaskId = componentFlex.getId();
+        final String flexSDKPath = flexContext.getFlexSDKPath();
         
         //now create the MXML file
-        createMXML(componentMXML.getAbsolutePathToPreMxmlFile(), mxmlFile);
+        createMXML(componentFlex.getAbsolutePathToPreMxmlFile(), flexFile);
         
         String unZipArchiveRelativeQueueTaskId = QUEUE_TASK_ID.UNZIP_ARCHIVE_RELATIVE.getQueueTaskId(queueTaskId);
         waitForFutureTask(getCommonTaskRunner(), unZipArchiveRelativeQueueTaskId);
         
         synchronized(LOCK){
             
-            if(!new File(mxmlContext.getJsfFlexSwcPath()).exists()){
+            if(!new File(flexContext.getJsfFlexSwcPath()).exists()){
                 //copy the necessary ActionScript files over for SWF generation 
-                createSwcSourceFiles(mxmlContext.getJsfFlexSwcPath(), FlexConstants.getSwcSourceFiles(), 
-                                            FlexConstants.JSF_FLEX_MAIN_SWC_CONFIG_FILE, mxmlContext.getWebContextPath());
+                createSwcSourceFiles(flexContext.getJsfFlexSwcPath(), FlexConstants.getSwcSourceFiles(), 
+                                            FlexConstants.JSF_FLEX_MAIN_SWC_CONFIG_FILE, flexContext.getWebContextPath());
                 
                 //create the SWC file
-                String loadConfigAbsolutePath = mxmlContext.getJsfFlexSwcPath() + FlexConstants.JSF_FLEX_MAIN_SWC_CONFIGURATIONFILE;
-                String swcFileLocationPath = mxmlContext.getJsfFlexSwcPath() + FlexConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + FlexConstants.SWC_FILE_EXT;
-                createSystemSWCFile(mxmlContext.getJsfFlexSwcPath(), swcFileLocationPath, flexSDKPath, loadConfigAbsolutePath, null);
+                String loadConfigAbsolutePath = flexContext.getJsfFlexSwcPath() + FlexConstants.JSF_FLEX_MAIN_SWC_CONFIGURATIONFILE;
+                String swcFileLocationPath = flexContext.getJsfFlexSwcPath() + FlexConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + FlexConstants.SWC_FILE_EXT;
+                createSystemSWCFile(flexContext.getJsfFlexSwcPath(), swcFileLocationPath, flexSDKPath, loadConfigAbsolutePath, null);
                 
                 /*
                  *  copy the necessary swf source files to swfBasePath
                  *  these are files such as xml[s] which are used by the system's/above ActionScripts
                  */
-                createSwfSourceFiles(mxmlContext.getSwfPath(), FlexConstants.getSwfSourceFiles());
+                createSwfSourceFiles(flexContext.getSwfPath(), FlexConstants.getSwfSourceFiles());
                 
                 /*
                  * unzip the swc's library.swf file and copy it to the swf file for linking with the swf file
                  */
-                unZipArchiveAbsolute(new File(swcFileLocationPath), mxmlContext.getJsfFlexSwcPath(), null);
+                unZipArchiveAbsolute(new File(swcFileLocationPath), flexContext.getJsfFlexSwcPath(), null);
                 
                 //copy the library.swf file to swc directory
-                copyFileSet(mxmlContext.getJsfFlexSwcPath(), "**/*.swf", null, mxmlContext.getSwfPath(), null);
+                copyFileSet(flexContext.getJsfFlexSwcPath(), "**/*.swf", null, flexContext.getSwfPath(), null);
                 
                 //rename the file from library.swf to jsfFlexMainSwc.swf file
-                String sourceFile = mxmlContext.getSwfPath() + FlexConstants.DEFAULT_SWC_LIBRARY_SWF_NAME;
-                String destFile = mxmlContext.getSwfPath() + FlexConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + FlexConstants.SWF_FILE_EXT;
+                String sourceFile = flexContext.getSwfPath() + FlexConstants.DEFAULT_SWC_LIBRARY_SWF_NAME;
+                String destFile = flexContext.getSwfPath() + FlexConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + FlexConstants.SWF_FILE_EXT;
                 
                 renameFile(sourceFile, destFile, true);
                 deleteResources(sourceFile, false, null);
@@ -247,14 +247,14 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
                  * Now need to place additional SWC content to the correct library path for dynamic linking to the 
                  * to be created SWF file
                  */
-                if(componentMXML.getProvidedAdditionalExternalLibaryPath() != null){
-                    final CountDownLatch additionalSWCLatch = new CountDownLatch(componentMXML.getProvidedAdditionalExternalLibaryPath().size());
-                    final Collection<String> runtimeSharedLibrary = componentMXML.getRuntimeSharedLibraries();
-                    final Collection<String> externalLibraryPath = componentMXML.getExternalLibraryPath();
+                if(componentFlex.getProvidedAdditionalExternalLibaryPath() != null){
+                    final CountDownLatch additionalSWCLatch = new CountDownLatch(componentFlex.getProvidedAdditionalExternalLibaryPath().size());
+                    final Collection<String> runtimeSharedLibrary = componentFlex.getRuntimeSharedLibraries();
+                    final Collection<String> externalLibraryPath = componentFlex.getExternalLibraryPath();
                     
-                    final String swcPath = mxmlContext.getSwcPath();
+                    final String swcPath = flexContext.getSwcPath();
                     
-                    for(final String currSWC : componentMXML.getProvidedAdditionalExternalLibaryPath()){
+                    for(final String currSWC : componentFlex.getProvidedAdditionalExternalLibaryPath()){
                         String[] splitted = currSWC.split(String.valueOf(File.separatorChar));
                         if(splitted == null || splitted.length < 1){
                             throw new ComponentBuildException(EXTERNAL_LIBRARY_PATH_COLLECTION_ERROR);
@@ -307,10 +307,10 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
                                     renameFileName.append(FlexConstants.SWF_FILE_EXT);
                                     
                                     flexTaskRunner.renameFile(originalFileName, renameFileName.toString(), true);
-                                    runtimeSharedLibrary.add(mxmlContext.getSwfWebPath() + renameFileName.toString());
+                                    runtimeSharedLibrary.add(flexContext.getSwfWebPath() + renameFileName.toString());
                                 }
                                 
-                                flexTaskRunner.copyFileSet(swcDirectory, "**/*.swf", null, mxmlContext.getSwfPath(), waitForQueueTaskIdCopy);
+                                flexTaskRunner.copyFileSet(swcDirectory, "**/*.swf", null, flexContext.getSwfPath(), waitForQueueTaskIdCopy);
                                 waitForFutureTask(flexTaskRunner, waitForQueueTaskIdCopy);
                                 flexTaskRunner.deleteResources(swcDirectory, true, null);
                                 
@@ -362,7 +362,7 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
         }
         
         //finally the SWF file
-        createSWF(mxmlFile, componentMXML, mxmlContext.getFlexSDKPath(), multiLingualSupportMap, mxmlContext.getLocaleWebContextPath(), queueTaskId);
+        createSWF(flexFile, componentFlex, flexContext.getFlexSDKPath(), multiLingualSupportMap, flexContext.getLocaleWebContextPath(), queueTaskId);
         
     }
     
@@ -374,14 +374,14 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
     public final Map<String, String> getMultiLingualSupportMap(){
         Map<String, String> multiLingualSupportMap = new LinkedHashMap<String, String>();
         
-        AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-        String localeWebContextPath = mxmlContext.getLocaleWebContextPath();
+        AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+        String localeWebContextPath = flexContext.getLocaleWebContextPath();
         
         if(localeWebContextPath == null){
-            multiLingualSupportMap.put(FlexConstants.DEFAULT_LOCALE_SWF_PATH_KEY, mxmlContext.getApplicationSwfPath());
+            multiLingualSupportMap.put(FlexConstants.DEFAULT_LOCALE_SWF_PATH_KEY, flexContext.getApplicationSwfPath());
         }else{
-            String swfBaseName = mxmlContext.getCurrMxml();
-            String swfFileNameBasePath = mxmlContext.getSwfPath() + swfBaseName + File.separatorChar;
+            String swfBaseName = flexContext.getCurrMxml();
+            String swfFileNameBasePath = flexContext.getSwfPath() + swfBaseName + File.separatorChar;
             
             File localeWebContextDirectory = new File(localeWebContextPath);
             if(localeWebContextDirectory.isDirectory()){
@@ -435,7 +435,7 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
     }
     
     /**
-     * This method will flatten the MXMLApplicationRenderer preMxml file and copy it as a MXML file to its correct directory,<br>
+     * This method will flatten the FlexApplicationRenderer preMxml file and copy it as a MXML file to its correct directory,<br>
      * which should be specified in absolute path.<br>
      * 
      * @param targetAbsolutePath
@@ -449,21 +449,21 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
     /**
      * This method will create the application SWF file from its MXML file.<br>
      * 
-     * @param mxmlFile
-     * @param componentMXML
+     * @param flexFile
+     * @param componentFlex
      * @param flexSDKRootPath
      * @param multiLingualSupportMap
      * @param localeWebContextPath
      * @param queueTaskId
      */
-    public final void createSWF(final String mxmlFile, final IFlexApplicationContract componentMXML, final String flexSDKRootPath, Map<String, String> multiLingualSupportMap, 
+    public final void createSWF(final String flexFile, final IFlexApplicationContract componentFlex, final String flexSDKRootPath, Map<String, String> multiLingualSupportMap, 
                                     String localeWebContextPath, String queueTaskId) {
         
         String defaultLocale = multiLingualSupportMap.get(FlexConstants.DEFAULT_LOCALE_SWF_PATH_KEY);
         
         if(defaultLocale != null){
             
-            getFlexTaskRunner().createSWF(mxmlFile, defaultLocale, componentMXML, flexSDKRootPath, null, null, queueTaskId == null ? null : QUEUE_TASK_ID.CREATE_SWF.getQueueTaskId(queueTaskId));
+            getFlexTaskRunner().createSWF(flexFile, defaultLocale, componentFlex, flexSDKRootPath, null, null, queueTaskId == null ? null : QUEUE_TASK_ID.CREATE_SWF.getQueueTaskId(queueTaskId));
         }else{
             
             if(queueTaskId == null){
@@ -472,7 +472,7 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
                     String currLocaleFileName = multiLingualSupportMap.get(currLocale);
                     String currLocaleSourcePath = localeWebContextPath + currLocale + File.separatorChar;
                     
-                    getFlexTaskRunner().createSWF(mxmlFile, currLocaleFileName, componentMXML, flexSDKRootPath, currLocale, currLocaleSourcePath, null);
+                    getFlexTaskRunner().createSWF(flexFile, currLocaleFileName, componentFlex, flexSDKRootPath, currLocale, currLocaleSourcePath, null);
                 }
                 
             }else{
@@ -491,7 +491,7 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
                     new Thread(new Runnable(){
                         
                         public void run(){
-                            flexTaskRunner.createSWF(mxmlFile, currLocaleFileName, componentMXML, flexSDKRootPath, currLocale, currLocaleSourcePath, currQueueTaskId);
+                            flexTaskRunner.createSWF(flexFile, currLocaleFileName, componentFlex, flexSDKRootPath, currLocale, currLocaleSourcePath, currQueueTaskId);
                             waitForFutureTask(flexTaskRunner, currQueueTaskId);
                             createSWFLatch.countDown();
                         }
@@ -524,7 +524,7 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
     }
     
     /**
-     * This method will create the necessary SWC source files. Please refer to mxmlConstants.xml for the file listings.<br>
+     * This method will create the necessary SWC source files. Please refer to flexConstants.xml for the file listings.<br>
      * 
      * @param swcPath
      * @param systemSourceFiles
@@ -537,7 +537,7 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
     }
     
     /**
-     * This method will create the necessary source files for the application SWF. Please refer to mxmlConstants.xml for the file listings.<br>
+     * This method will create the necessary source files for the application SWF. Please refer to flexConstants.xml for the file listings.<br>
      * 
      * @param swfBasePath
      * @param systemSwfSourceFiles
@@ -552,10 +552,10 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
      */
     public final void createJsfFlexFlashApplicationConfigurationFile(){
         
-        AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-        JsfFlexFlashApplicationConfiguration jsfFlexFlashApplicationConfiguration = mxmlContext.getJsfFlexFlashApplicationConfiguration();
+        AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+        JsfFlexFlashApplicationConfiguration jsfFlexFlashApplicationConfiguration = flexContext.getJsfFlexFlashApplicationConfiguration();
         
-        String filePath = mxmlContext.getSwfPath() + TO_CREATE_JSF_FLEX_FLASH_APPLICATION_CONFIG_FILE_NAME;
+        String filePath = flexContext.getSwfPath() + TO_CREATE_JSF_FLEX_FLASH_APPLICATION_CONFIG_FILE_NAME;
         
         Map<String, Object> tokenMap = new HashMap<String, Object>();
         tokenMap.put(JSF_FLEX_FLASH_APPLICATION_CONFIG_TOKEN, jsfFlexFlashApplicationConfiguration);
@@ -680,15 +680,15 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
      * This method will create the preMxml file of the component.<br>
      * 
      * @param comp
-     * @param mxmlComponentName
+     * @param flexComponentName
      * @param bodyContent
      */
-    public final void createPreMxml(IFlexContract comp, String mxmlComponentName, String bodyContent) {
+    public final void createPreMxml(IFlexContract comp, String flexComponentName, String bodyContent) {
         
         String fileDirectory = comp.getAbsolutePathToPreMxmlFile().substring(0, comp.getAbsolutePathToPreMxmlFile().lastIndexOf(File.separatorChar));
         getFlexTaskRunner().makeDirectory(fileDirectory);
         
-        getFileManipulatorTaskRunner().createPreMxmlFile(comp.getAbsolutePathToPreMxmlFile(), null, comp.getAnnotationDocletParserInstance().getTokenValueSet(), mxmlComponentName, 
+        getFileManipulatorTaskRunner().createPreMxmlFile(comp.getAbsolutePathToPreMxmlFile(), null, comp.getAnnotationDocletParserInstance().getTokenValueSet(), flexComponentName, 
                                                                 bodyContent, childPreMxmlComponentIdentifier(comp), siblingPreMxmlComponentIdentifier(comp));
         
     }
@@ -738,8 +738,8 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
      * @return
      */
     public final ICommonTaskRunner getCommonTaskRunner(){
-        AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-        return mxmlContext.getCommonRunner();
+        AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+        return flexContext.getCommonRunner();
     }
         
     /**
@@ -748,8 +748,8 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
      * @return
      */
     public final AbstractFileManipulatorTaskRunner getFileManipulatorTaskRunner(){
-        AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-        return mxmlContext.getFileManipulatorRunner();
+        AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+        return flexContext.getFileManipulatorRunner();
     }
     
     /**
@@ -758,8 +758,8 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
      * @return
      */
     public final IFlexTaskRunner getFlexTaskRunner(){
-        AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-        return mxmlContext.getFlexRunner();
+        AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+        return flexContext.getFlexRunner();
     }
     
 }

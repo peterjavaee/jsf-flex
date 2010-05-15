@@ -30,7 +30,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIPopUpButtonTag",
         family              =   "javax.faces.FlexInput",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexPopUpButton",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
 public abstract class AbstractFlexUIPopUpButton 
 							extends com.googlecode.jsfFlex.component.FlexUISelectedBase 

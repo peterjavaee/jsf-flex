@@ -48,7 +48,7 @@ public abstract class AbstractFlexUIDataListEntriesBase
 			for(Object currBeanRef : getBindingBeanList()){
 				
 				for(javax.faces.component.UIComponent currChild : getChildren()){
-					FlexUIDataObjectBase currComponent = FlexUIDataObjectBase.class.cast( currChild );
+                    AbstractFlexUIDataObjectBase currComponent = AbstractFlexUIDataObjectBase.class.cast( currChild );
 					
 					currComponent.setCurrBeanRef(currBeanRef);
 					currComponent.encodeBegin(context);

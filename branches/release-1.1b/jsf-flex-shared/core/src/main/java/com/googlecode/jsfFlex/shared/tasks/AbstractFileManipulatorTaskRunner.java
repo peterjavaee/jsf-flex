@@ -43,7 +43,7 @@ public abstract class AbstractFileManipulatorTaskRunner extends TaskRunnerImpl {
 	
 	public abstract void createFileContent(String filePath, String templateFile, Properties initProperties, Map<String, ? extends Object> tokenMap);
 	
-	public abstract void createPreMxmlFile(String preMxmlFilePath, Properties initProperties, Set<TokenValue> tokenList, String mxmlComponentName, 
+	public abstract void createPreMxmlFile(String preMxmlFilePath, Properties initProperties, Set<TokenValue> tokenList, String flexComponentName, 
 												String bodyContent, String childIdentifier, String siblingIdentifier);
 	
 	public synchronized String getComponentTemplate(ClassLoader loader, String template) {

@@ -37,8 +37,8 @@ public abstract class AbstractFlexComponentBaseRenderer extends FlexRendererBase
 	public void encodeEnd(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeEnd(context, componentObj);
 		
-		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-		if(mxmlContext.isProductionEnv()){
+		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+		if(flexContext.isProductionEnv()){
 			return;
 		}
 		

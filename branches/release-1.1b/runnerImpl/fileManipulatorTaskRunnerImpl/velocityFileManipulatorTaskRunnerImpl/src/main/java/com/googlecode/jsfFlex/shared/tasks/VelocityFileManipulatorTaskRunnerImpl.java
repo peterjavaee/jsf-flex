@@ -43,7 +43,7 @@ final class VelocityFileManipulatorTaskRunnerImpl extends AbstractFileManipulato
 	private final static String JSF_FLEX_LOG_TAG = "jsf-flex";
 	private final static String JSF_FLEX_TEMPLATE = "jsf-flex-template.vm";
 	private final static String TOKEN_LIST_TOKEN = "tokenList";
-	private final static String MXML_COMPONENT_NAME_TOKEN = "mxmlComponent";
+	private final static String FLEX_COMPONENT_NAME_TOKEN = "flexComponent";
 	private final static String INITIAL_BODY_CONTENT_TOKEN = "initialBodyContent";
 	private final static String CHILD_PRE_MXML_IDENTIFIER_TOKEN = "childIdentifier";
 	private final static String SIBLING_PRE_MXML_IDENTIFIER_TOKEN = "siblingIdentifier";
@@ -90,7 +90,7 @@ final class VelocityFileManipulatorTaskRunnerImpl extends AbstractFileManipulato
 		
 	}
 	
-	public synchronized void createPreMxmlFile(String preMxmlFilePath, Properties initProperties, Set<TokenValue> tokenList, String mxmlComponentName, 
+	public synchronized void createPreMxmlFile(String preMxmlFilePath, Properties initProperties, Set<TokenValue> tokenList, String flexComponentName, 
 													String bodyContent, String childIdentifier, String siblingIdentifier) {
 		if(tokenList == null){
 			tokenList = new LinkedHashSet<TokenValue>();
@@ -100,7 +100,7 @@ final class VelocityFileManipulatorTaskRunnerImpl extends AbstractFileManipulato
 		
 		Map<String, Object> tokenMap = new HashMap<String, Object>();
 		tokenMap.put(TOKEN_LIST_TOKEN, tokenList);
-		tokenMap.put(MXML_COMPONENT_NAME_TOKEN, mxmlComponentName);
+		tokenMap.put(FLEX_COMPONENT_NAME_TOKEN, flexComponentName);
 		tokenMap.put(INITIAL_BODY_CONTENT_TOKEN, bodyContent);
 		tokenMap.put(CHILD_PRE_MXML_IDENTIFIER_TOKEN, childIdentifier);
 		tokenMap.put(SIBLING_PRE_MXML_IDENTIFIER_TOKEN, siblingIdentifier);

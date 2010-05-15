@@ -58,8 +58,8 @@ public abstract class AbstractFlexUIXMLStaticElement
 	public void encodeBegin(FacesContext context) throws IOException {
 		super.encodeBegin(context);
 		
-		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-		Map<String, ? super UIComponentBase> temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
+		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+		Map<String, ? super UIComponentBase> temporaryResourceMap = flexContext.getTemporaryResourceMap();
 		AbstractFlexUIXMLContainerBase currXMLContainerBaseRef = AbstractFlexUIXMLContainerBase.class.cast( temporaryResourceMap.get(AbstractFlexUIXMLContainerBase.CURR_FLEX_UI_XML_CONTAINER_KEY) );
 		
 		StringBuilder xmlElementStartTagBuffer = new StringBuilder();

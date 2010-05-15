@@ -66,7 +66,7 @@ public final class CreateSwcConfigurationFile extends AbstractMojo
     /**
      * @parameter expression="${basedir}/target/classes/com/googlecode/jsfFlex/shared/util"
      */
-    private File _toCreateMXMLConstantsXMLPath;
+    private File _toCreateFlexConstantsXMLPath;
     
     /**
      * @parameter expression="src/main/resources/META-INF"
@@ -90,8 +90,8 @@ public final class CreateSwcConfigurationFile extends AbstractMojo
         
         _jsfFlexInspector = new AbstractJsfFlexInspectorBase(currDirPath){
             
-            private static final String SWC_ACTION_SCRIPT_FILES_ANNOTATION_NOT_FOUND = "com.googlecode.jsfFlex.shared.util.annotation.SwcActionScriptFiles annotation could not be located";
-            private static final String SWC_ACTION_SCRIPT_FILES_ANNOTATION_NAME = "com.googlecode.jsfFlex.shared.util.annotation.SwcActionScriptFiles";
+            private static final String SWC_ACTION_SCRIPT_FILES_ANNOTATION_NOT_FOUND = "com.googlecode.jsfFlex.shared.util.annotation.ISwcActionScriptFiles annotation could not be located";
+            private static final String SWC_ACTION_SCRIPT_FILES_ANNOTATION_NAME = "com.googlecode.jsfFlex.shared.util.annotation.ISwcActionScriptFiles";
             
             private static final String ACTION_SCRIPT_FILES_KEY = "actionScriptFiles";
             private static final String ACTION_SCRIPT_FILE_KEY = "actionScriptFile";
@@ -100,9 +100,9 @@ public final class CreateSwcConfigurationFile extends AbstractMojo
             public void inspectFiles() {
                 JavaDocBuilder builder = new JavaDocBuilder();
                 builder.addSourceTree(new File(getDirPath()));
-                JavaClass mxmlConstant = builder.getClassByName("com.googlecode.jsfFlex.shared.util.MXMLConstants");
+                JavaClass flexConstant = builder.getClassByName("com.googlecode.jsfFlex.shared.util.FlexConstants");
                 
-                Annotation[] qdoxAnnotations = mxmlConstant.getAnnotations();
+                Annotation[] qdoxAnnotations = flexConstant.getAnnotations();
                 Annotation swcActionScriptFilesAnnotation = null;
                 
                 if(qdoxAnnotations == null){
@@ -167,17 +167,17 @@ public final class CreateSwcConfigurationFile extends AbstractMojo
         final String JYTHON_FLEX_TASK_RUNNER_IMPL = File.separatorChar + "runnerImpl" + File.separatorChar + "flexTaskRunnerImpl" + File.separatorChar + 
                                                         "jythonFlexTaskRunnerImpl" + File.separatorChar + SWC_CONFIG_FILE_CLASS_DIRECTORY;
         
-        final String MXML_CONSTANTS_XML_TEMPLATE_FILE_NAME = "jsf-flex-mxmlConstants.vm";
+        final String FLEX_CONSTANTS_XML_TEMPLATE_FILE_NAME = "jsf-flex-flexConstants.vm";
         final String JSF_FLEX_MAIN_SWC_CONFIGURATION_FILE_XML_TEMPLATE_FILE_NAME = "jsf-flex-jsfFlexMainSwcConfigurationFile.vm";
         
-        final String MXML_CONSTANTS_XML_FILE_NAME = "mxmlConstants.xml";
+        final String FLEX_CONSTANTS_XML_FILE_NAME = "flexConstants.xml";
         final String JSF_FLEX_MAIN_SWC_CONFIGURATION_FILE_XML_FILE_NAME = "jsfFlexMainSwcConfigurationFile.xml";
         
         MavenProject topProject = _project.getParent().getParent();
         String basePath = topProject.getBasedir().getAbsolutePath();
         String antFlexTaskRunnerSwcConfigFilePath = basePath + ANT_FLEX_TASK_RUNNER_IMPL;
         String jythonFlexTaskRunnerSwcConfigFilePath = basePath + JYTHON_FLEX_TASK_RUNNER_IMPL;
-        String mxmlConstantFilePath = _toCreateMXMLConstantsXMLPath.getPath();
+        String flexConstantFilePath = _toCreateFlexConstantsXMLPath.getPath();
         
         ExecutorService mergeCollectionTemplatePool = Executors.newFixedThreadPool(3);
         
@@ -186,8 +186,8 @@ public final class CreateSwcConfigurationFile extends AbstractMojo
             Properties velocityParserProperties = new Properties();
             velocityParserProperties.put(FILE_RESOURCE_LOADER_PATH_KEY, _templateSourceDirectory.getPath());
             
-            submitMergeContent(mergeCollectionTemplatePool, mxmlConstantFilePath, MXML_CONSTANTS_XML_FILE_NAME, 
-                                    velocityParserProperties, MXML_CONSTANTS_XML_TEMPLATE_FILE_NAME);
+            submitMergeContent(mergeCollectionTemplatePool, flexConstantFilePath, FLEX_CONSTANTS_XML_FILE_NAME, 
+                                    velocityParserProperties, FLEX_CONSTANTS_XML_TEMPLATE_FILE_NAME);
             submitMergeContent(mergeCollectionTemplatePool, antFlexTaskRunnerSwcConfigFilePath, JSF_FLEX_MAIN_SWC_CONFIGURATION_FILE_XML_FILE_NAME, 
                                     velocityParserProperties, JSF_FLEX_MAIN_SWC_CONFIGURATION_FILE_XML_TEMPLATE_FILE_NAME);
             submitMergeContent(mergeCollectionTemplatePool, jythonFlexTaskRunnerSwcConfigFilePath, JSF_FLEX_MAIN_SWC_CONFIGURATION_FILE_XML_FILE_NAME, 

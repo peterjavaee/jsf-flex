@@ -70,7 +70,7 @@ public final class FlexMultipleRequestDataGridExampleBean implements Serializabl
 		
 		/**
 		 * Need to have public modifier, so that it can be instantiated by 
-		 * AbstractMXMLUIDataGrid when data from one DataGrid component is 
+		 * AbstractFlexUIDataGrid when data from one DataGrid component is 
 		 * added to an another.
 		 */
 		public LargeDataEntry(){

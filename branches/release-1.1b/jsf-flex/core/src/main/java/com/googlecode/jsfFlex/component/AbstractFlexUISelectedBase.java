@@ -38,7 +38,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUISelectedAttribute;
         template    =   true
 )
 public abstract class AbstractFlexUISelectedBase 
-							extends AbstractUIInputBase 
+							extends AbstractFlexUIInputBase 
 							implements IFlexUISelectedAttribute {
 	
 	private final static org.apache.commons.logging.Log _log = org.apache.commons.logging.LogFactory.getLog(FlexUISelectedBase.class);

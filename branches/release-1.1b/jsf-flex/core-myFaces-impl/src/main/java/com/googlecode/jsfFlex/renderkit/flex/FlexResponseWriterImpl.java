@@ -33,20 +33,20 @@ class FlexResponseWriterImpl extends AbstractFlexResponseWriter {
     private static final String FLEX_RESPONSE_WRITER_BASE_IMPL = "org.apache.myfaces.shared_impl.renderkit.html.HtmlResponseWriterImpl";
     private static final Constructor FLEX_RESPONSE_WRITER_BASE_IMPLEMENTOR_CONSTRUCTOR;
     
-    private final ResponseWriter _mxmlResponseWriterBaseImplementor;
+    private final ResponseWriter _flexResponseWriterBaseImplementor;
     
     static{
         
-        Class mxmlResponseWriterBaseImplementorClass;
+        Class flexResponseWriterBaseImplementorClass;
         
         try{
-            mxmlResponseWriterBaseImplementorClass = Class.forName(FLEX_RESPONSE_WRITER_BASE_IMPL, false, Thread.currentThread().getContextClassLoader());
+            flexResponseWriterBaseImplementorClass = Class.forName(FLEX_RESPONSE_WRITER_BASE_IMPL, false, Thread.currentThread().getContextClassLoader());
         }catch(ClassNotFoundException classNotFound){
             throw new RuntimeException("Failure in retrieving the class for " + FLEX_RESPONSE_WRITER_BASE_IMPL, classNotFound);
         }
         
         try{
-            FLEX_RESPONSE_WRITER_BASE_IMPLEMENTOR_CONSTRUCTOR = mxmlResponseWriterBaseImplementorClass.getDeclaredConstructor(new Class[]{Writer.class, String.class, String.class});
+            FLEX_RESPONSE_WRITER_BASE_IMPLEMENTOR_CONSTRUCTOR = flexResponseWriterBaseImplementorClass.getDeclaredConstructor(new Class[]{Writer.class, String.class, String.class});
         }catch(NoSuchMethodException noSuchMethod){
             throw new RuntimeException("Failure in retrieving the constructor for " +  FLEX_RESPONSE_WRITER_BASE_IMPL, noSuchMethod);
         }
@@ -55,14 +55,14 @@ class FlexResponseWriterImpl extends AbstractFlexResponseWriter {
     
     FlexResponseWriterImpl(){
         super();
-        _mxmlResponseWriterBaseImplementor = null;
+        _flexResponseWriterBaseImplementor = null;
     }
     
     FlexResponseWriterImpl(Writer writer, String contentType, String characterEncoding){
         super();
         
         try{
-            _mxmlResponseWriterBaseImplementor = ResponseWriter.class.cast( FLEX_RESPONSE_WRITER_BASE_IMPLEMENTOR_CONSTRUCTOR.newInstance(new Object[]{writer, contentType, characterEncoding}) );
+            _flexResponseWriterBaseImplementor = ResponseWriter.class.cast( FLEX_RESPONSE_WRITER_BASE_IMPLEMENTOR_CONSTRUCTOR.newInstance(new Object[]{writer, contentType, characterEncoding}) );
         }catch(Exception instantiatingException){
             throw new RuntimeException("Failure in instantiating a class for " + FLEX_RESPONSE_WRITER_BASE_IMPL, instantiatingException);
         }
@@ -75,63 +75,63 @@ class FlexResponseWriterImpl extends AbstractFlexResponseWriter {
     }
     
     public void endDocument() throws IOException {
-        _mxmlResponseWriterBaseImplementor.endDocument();
+        _flexResponseWriterBaseImplementor.endDocument();
     }
     
     public void endElement(String name) throws IOException {
-        _mxmlResponseWriterBaseImplementor.endElement(name);
+        _flexResponseWriterBaseImplementor.endElement(name);
     }
     
     public void flush() throws IOException {
-        _mxmlResponseWriterBaseImplementor.flush();
+        _flexResponseWriterBaseImplementor.flush();
     }
     
     public String getCharacterEncoding() {
-        return _mxmlResponseWriterBaseImplementor.getCharacterEncoding();
+        return _flexResponseWriterBaseImplementor.getCharacterEncoding();
     }
     
     public String getContentType() {
-        return _mxmlResponseWriterBaseImplementor.getContentType();
+        return _flexResponseWriterBaseImplementor.getContentType();
     }
     
     public void startDocument() throws IOException {
-        _mxmlResponseWriterBaseImplementor.startDocument();
+        _flexResponseWriterBaseImplementor.startDocument();
     }
     
     public void startElement(String name, UIComponent uiComponent) throws IOException {
-        _mxmlResponseWriterBaseImplementor.startElement(name, uiComponent);
+        _flexResponseWriterBaseImplementor.startElement(name, uiComponent);
     }
     
     public void writeAttribute(String name, Object value, String componentPropertyName) throws IOException {
-        _mxmlResponseWriterBaseImplementor.writeAttribute(name, value, componentPropertyName);
+        _flexResponseWriterBaseImplementor.writeAttribute(name, value, componentPropertyName);
     }
     
     public void writeComment(Object value) throws IOException {
-        _mxmlResponseWriterBaseImplementor.writeComment(value);
+        _flexResponseWriterBaseImplementor.writeComment(value);
     }
     
     public void writeText(Object value, String componentPropertyName) throws IOException {
-        _mxmlResponseWriterBaseImplementor.writeText(value, componentPropertyName);
+        _flexResponseWriterBaseImplementor.writeText(value, componentPropertyName);
     }
     
     public void writeText(char cbuf[], int off, int len) throws IOException {
-        _mxmlResponseWriterBaseImplementor.writeText(cbuf, off, len);
+        _flexResponseWriterBaseImplementor.writeText(cbuf, off, len);
     }
     
     public void writeText(Object text, UIComponent component, String property) throws IOException {
-        _mxmlResponseWriterBaseImplementor.writeText(text, component, property);
+        _flexResponseWriterBaseImplementor.writeText(text, component, property);
     }
     
     public void writeURIAttribute(String name, Object value, String componentPropertyName) throws IOException {
-        _mxmlResponseWriterBaseImplementor.writeURIAttribute(name, value, componentPropertyName);
+        _flexResponseWriterBaseImplementor.writeURIAttribute(name, value, componentPropertyName);
     }
     
     public void close() throws IOException {
-        _mxmlResponseWriterBaseImplementor.close();
+        _flexResponseWriterBaseImplementor.close();
     }
     
     public void write(char cbuf[], int off, int len) throws IOException {
-        _mxmlResponseWriterBaseImplementor.write(cbuf, off, len);
+        _flexResponseWriterBaseImplementor.write(cbuf, off, len);
     }
     
 }

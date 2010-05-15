@@ -22,7 +22,7 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.FlexUISelectedIndexAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedIndexAttribute;
 
 /**
  * This class will process the needed actions of setting and retrieving of "selectedIndex" attribute<br>
@@ -38,8 +38,8 @@ import com.googlecode.jsfFlex.attributes.FlexUISelectedIndexAttribute;
         template    =   true
 )
 public abstract class AbstractFlexUISelectedIndexBase 
-						extends AbstractUIInputBase 
-						implements FlexUISelectedIndexAttribute {
+						extends AbstractFlexUIInputBase 
+						implements IFlexUISelectedIndexAttribute {
 
 	private final static org.apache.commons.logging.Log _log = org.apache.commons.logging.LogFactory.getLog(FlexUISelectedIndexBase.class);
 	

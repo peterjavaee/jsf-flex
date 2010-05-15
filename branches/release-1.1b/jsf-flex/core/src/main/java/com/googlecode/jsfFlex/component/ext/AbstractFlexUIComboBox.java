@@ -112,7 +112,7 @@ import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIComboBoxTag",
         family              =   "javax.faces.FlexInput",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexComboBox",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
 public abstract class AbstractFlexUIComboBox 
 						extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase
@@ -179,8 +179,8 @@ public abstract class AbstractFlexUIComboBox
 		Collection<? extends Object> dataProviderCollection = getDataProviderCollection();
 		if(dataProviderCollection != null && dataProviderCollection.size() > 0){
 			//For AbstractFlexUIComboBox, entries within the collection must be of type SelectItem
-			AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-			AdditionalApplicationScriptContent additionalApplicationScriptContent = mxmlContext.getAdditionalAppScriptContent();
+			AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+			AdditionalApplicationScriptContent additionalApplicationScriptContent = flexContext.getAdditionalAppScriptContent();
 			additionalApplicationScriptContent.addActionScriptImport(COMBO_BOX_UICOMPONENT_PACKAGE_IMPORT);
 			
 			JSONArray comboBoxContent = new JSONArray();

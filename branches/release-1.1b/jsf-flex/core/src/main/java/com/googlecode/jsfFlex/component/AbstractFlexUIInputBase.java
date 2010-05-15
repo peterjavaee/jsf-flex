@@ -48,13 +48,13 @@ import com.googlecode.jsfFlex.shared.util.FlexConstants;
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        type    =   "com.googlecode.jsfFlex.AbstractUIInputBase",
+        type    =   "com.googlecode.jsfFlex.FlexUIInputBase",
         family  =   "javax.faces.FlexInputBase",
         desc    =   "Base component for FlexInput components"
 )
-public abstract class AbstractUIInputBase extends UIInput implements IFlexContract {
+public abstract class AbstractFlexUIInputBase extends UIInput implements IFlexContract {
 	
-	private final static Log _log = LogFactory.getLog(AbstractUIInputBase.class);
+	private final static Log _log = LogFactory.getLog(AbstractFlexUIInputBase.class);
 	
 	protected static final String ATTRIBUTE = "attribute";
 	protected static final String VALUE = "value";
@@ -84,7 +84,7 @@ public abstract class AbstractUIInputBase extends UIInput implements IFlexContra
 	private int _majorLevel = -1;
 	private int _minorLevel = -1;
 	
-	public AbstractUIInputBase(){
+	public AbstractFlexUIInputBase(){
 		super();
 	}
 	
@@ -114,13 +114,13 @@ public abstract class AbstractUIInputBase extends UIInput implements IFlexContra
 		
 		populateComponentInitValues();
 		
-		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-		List<JSONObject> applicationInitValueList = mxmlContext.getApplicationInitValueList();
+		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+		List<JSONObject> applicationInitValueList = flexContext.getApplicationInitValueList();
 		if(getComponentInitValues() != null){
 			applicationInitValueList.add(getComponentInitValues());
 		}
 		
-    	if(mxmlContext.isProductionEnv()){
+    	if(flexContext.isProductionEnv()){
 			//means no need to create preMxml files
 			setRendered(false);
 		}
@@ -141,8 +141,8 @@ public abstract class AbstractUIInputBase extends UIInput implements IFlexContra
 	public synchronized AbstractAnnotationDocletParser getAnnotationDocletParserInstance(){
 		
 		if(_annotationDocletParserInstance == null){
-			AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-			AbstractRunnerFactory runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
+			AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+			AbstractRunnerFactory runnerFactoryInstance = flexContext.getRunnerFactoryInstance();
 			_annotationDocletParserInstance = runnerFactoryInstance.getAnnotationDocletParserImpl();
 		}
 		

@@ -40,19 +40,19 @@ public abstract class AbstractFlexAsynchronousEventGlueTemplateRenderer extends 
     public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
         super.encodeBegin(context, componentObj);
         
-        AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
+        AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
         
-        IFlexEvent mxmlEvent = IFlexEvent.class.cast( componentObj );
-        EVENT_HANDLER_TYPE eventHandlerType = mxmlEvent.getEventHandlerType();
-        AdditionalApplicationScriptContent additionalApplicationScriptContent = mxmlContext.getAdditionalAppScriptContent();
+        IFlexEvent flexEvent = IFlexEvent.class.cast( componentObj );
+        EVENT_HANDLER_TYPE eventHandlerType = flexEvent.getEventHandlerType();
+        AdditionalApplicationScriptContent additionalApplicationScriptContent = flexContext.getAdditionalAppScriptContent();
         EnumSet<ACTION_SCRIPT_IMPORT> actionScriptImports = eventHandlerType.getActionScriptImports();
         
         for(ACTION_SCRIPT_IMPORT currASImport : actionScriptImports){
             additionalApplicationScriptContent.addActionScriptImport(currASImport.getActionScriptImport());
         }
         
-        additionalApplicationScriptContent.addEventHandler(mxmlEvent.getEventHandlerSrcId(), mxmlEvent.getEventHandlerTgtId(), mxmlEvent.getEventHandlerId(),
-                                                            mxmlEvent.getEventHandlerType(), mxmlEvent.getEventHandlerEventName());
+        additionalApplicationScriptContent.addEventHandler(flexEvent.getEventHandlerSrcId(), flexEvent.getEventHandlerTgtId(), flexEvent.getEventHandlerId(),
+                flexEvent.getEventHandlerType(), flexEvent.getEventHandlerEventName());
         
     }
     

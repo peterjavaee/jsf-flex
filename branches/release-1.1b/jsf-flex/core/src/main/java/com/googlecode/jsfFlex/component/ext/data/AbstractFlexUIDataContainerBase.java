@@ -45,13 +45,13 @@ public abstract class AbstractFlexUIDataContainerBase
 	
 	public void encodeChildren(FacesContext context) throws IOException {
 		
-		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
+		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
 		
-		_currBodyContentFilePath = mxmlContext.getPreMxmlPath() + getClass().getSimpleName() + getId() + 
+		_currBodyContentFilePath = flexContext.getPreMxmlPath() + getClass().getSimpleName() + getId() + 
 										TO_BE_CREATED_BODY_CONTENT_FILE_SUFFIX;
 		_currBodyContentBufferedWriter = new BufferedWriter(new FileWriter(new File(_currBodyContentFilePath)));
 		
-		Map<String, ? super UIComponentBase> temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
+		Map<String, ? super UIComponentBase> temporaryResourceMap = flexContext.getTemporaryResourceMap();
 		temporaryResourceMap.put(getTemporaryMapDataContainerKey(), this);
 		
 		super.encodeChildren(context);

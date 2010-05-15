@@ -32,7 +32,7 @@ public interface IFlexTaskRunner extends ITaskRunner {
 	
 	void deleteResources(String resourceToDelete, boolean isDirectory, String queueTaskId);
 	
-	void writeBodyContent(IFlexContract componentMXML);
+	void writeBodyContent(IFlexContract componentFlex);
 	
 	void replaceTokenWithValue(String targetAbsolutePath, String valueToReplaceWith, String tokenReplace);
 	
@@ -46,7 +46,7 @@ public interface IFlexTaskRunner extends ITaskRunner {
 	
 	void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath, String queueTaskId);
 	
-	void createSWF(String mxmlFile, String swfPath, IFlexApplicationContract componentMXML, String flexSDKRootPath, String locale, String localePath, String queueTaskId);
+	void createSWF(String flexFile, String swfPath, IFlexApplicationContract componentFlex, String flexSDKRootPath, String locale, String localePath, String queueTaskId);
 	
     void copyLocale(String locale, String flexSDKRootPath, String queueTaskId);
     

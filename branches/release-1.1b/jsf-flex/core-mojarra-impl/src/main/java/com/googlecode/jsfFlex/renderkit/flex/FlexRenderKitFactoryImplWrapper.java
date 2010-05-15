@@ -38,7 +38,7 @@ public class FlexRenderKitFactoryImplWrapper extends RenderKitFactoryImpl {
     
     private static final List<RenderKit> _additionalRenderKitList = new LinkedList<RenderKit>();
     
-    private FlexRenderKitImplWrapper _mxmlRenderKit;
+    private FlexRenderKitImplWrapper _flexRenderKit;
     
     public FlexRenderKitFactoryImplWrapper(){
         super();
@@ -55,15 +55,15 @@ public class FlexRenderKitFactoryImplWrapper extends RenderKitFactoryImpl {
         
         //HACK for now, TODO implement it better later
         if(renderKitId.equals(FLEX_RENDER_KIT_ID)){
-            _mxmlRenderKit = FlexRenderKitImplWrapper.class.cast( renderKit );
-            _mxmlRenderKit.addRenderKitList(_additionalRenderKitList);
+            _flexRenderKit = FlexRenderKitImplWrapper.class.cast( renderKit );
+            _flexRenderKit.addRenderKitList(_additionalRenderKitList);
             _additionalRenderKitList.clear();
         }else{
             
             _log.info("Adding renderKitId [ " + renderKitId + " ] as additional search renderKits for " + FLEX_RENDER_KIT_ID);
             
-            if(_mxmlRenderKit != null){
-                _mxmlRenderKit.addRenderKit(renderKit);
+            if(_flexRenderKit != null){
+                _flexRenderKit.addRenderKit(renderKit);
             }else{
                 _additionalRenderKitList.add(renderKit);
             }

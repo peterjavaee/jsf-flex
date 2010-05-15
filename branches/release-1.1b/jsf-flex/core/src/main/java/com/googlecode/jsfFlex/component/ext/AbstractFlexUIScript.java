@@ -33,7 +33,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIScriptTag",
         family              =   "javax.faces.FlexSimple",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexScript",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIComponentBodyTagBase"
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIComponentBodyTagBase"
 )
 public abstract class AbstractFlexUIScript 
 						extends AbstractFlexUISimpleBase 

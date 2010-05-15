@@ -57,8 +57,8 @@ import static com.googlecode.jsfFlexPlugIn.utils.JsfFlexBuildPluginUtil.*;
 public final class CreateComponentValueMapperXMLMojo extends AbstractMojo 
 											   implements IJsfFlexInspectListener, IJsfFlexParserListener {
 	
-	private static final String MXML_COMPONENT_PACKAGE_KEY = "mxmlComponentPackage";
-	private static final String MXML_COMPONENT_NAME_KEY = "mxmlComponentName";
+	private static final String COMPONENT_PACKAGE_KEY = "componentPackage";
+	private static final String COMPONENT_NAME_KEY = "componentName";
 	
 	private static final String HTML_TYPE_KEY = "htmlType";
 	private static final String TYPE_ATTRIBUTE_VALUE_KEY = "typeAttributeValue";
@@ -118,8 +118,8 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 		
 		_jsfFlexInspector = new AbstractJsfFlexInspectorBase(currDirPath){
             
-            private static final String JSF_FLEX_ATTRIBUTE_PROPERTIES_ANNOTATION_NAME = "com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties";
-            private static final String MXML_COMPONENT_NODE_ATTRIBUTES_KEY = "mxmlComponentNodeAttributes";
+            private static final String JSF_FLEX_ATTRIBUTE_PROPERTIES_ANNOTATION_NAME = "com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties";
+            private static final String COMPONENT_NODE_ATTRIBUTES_KEY = "componentNodeAttributes";
             
             private static final String IS_VALUE_DYNAMIC_ATTRIBUTE_KEY = "isValueDynamic";
             private static final String IS_VALUE_NESTED_ATTRIBUTE_KEY = "isValueNested";
@@ -172,22 +172,22 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
                         continue;
                     }
                     
-                    AnnotationValue mxmlComponentPackage = jsfFlexAttributeListAnnotation.getProperty(MXML_COMPONENT_PACKAGE_KEY);
-                    AnnotationValue mxmlComponentName = jsfFlexAttributeListAnnotation.getProperty(MXML_COMPONENT_NAME_KEY);
+                    AnnotationValue componentPackage = jsfFlexAttributeListAnnotation.getProperty(COMPONENT_PACKAGE_KEY);
+                    AnnotationValue componentName = jsfFlexAttributeListAnnotation.getProperty(COMPONENT_NAME_KEY);
                     
-                    if(mxmlComponentPackage == null || mxmlComponentName == null){
+                    if(componentPackage == null || componentName == null){
                         continue;
                     }
                     
-                    inspectedMap.put(MXML_COMPONENT_PACKAGE_KEY, removeQuotes( mxmlComponentPackage.getParameterValue().toString() ));
-					inspectedMap.put(MXML_COMPONENT_NAME_KEY, removeQuotes( mxmlComponentName.getParameterValue().toString() ));
+                    inspectedMap.put(COMPONENT_PACKAGE_KEY, removeQuotes( componentPackage.getParameterValue().toString() ));
+					inspectedMap.put(COMPONENT_NAME_KEY, removeQuotes( componentName.getParameterValue().toString() ));
 					
 					inspectedList.add(inspectedMap);
 					//have added Map info containing CLASS_* info
-					AnnotationValue mxmlComponentNodeAttributes = jsfFlexAttributeListAnnotation.getProperty(MXML_COMPONENT_NODE_ATTRIBUTES_KEY);
+					AnnotationValue componentNodeAttributes = jsfFlexAttributeListAnnotation.getProperty(COMPONENT_NODE_ATTRIBUTES_KEY);
                     
                     @SuppressWarnings("unchecked")
-                    List<Annotation> flexComponentNodeAttributes = (List<Annotation>) mxmlComponentNodeAttributes.getParameterValue();
+                    List<Annotation> flexComponentNodeAttributes = (List<Annotation>) componentNodeAttributes.getParameterValue();
                     
                     for(Annotation currFlexComponentNodeAttribute : flexComponentNodeAttributes){
                         inspectedMap = new LinkedHashMap<String, String>();
@@ -253,8 +253,8 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 			if(inspected != null && inspected.size() > 0){
 				
 				if(currClassInfo == null){
-					String classPackage = String.class.cast( inspected.get(MXML_COMPONENT_PACKAGE_KEY) );
-					String className = String.class.cast( inspected.get(MXML_COMPONENT_NAME_KEY) );
+					String classPackage = String.class.cast( inspected.get(COMPONENT_PACKAGE_KEY) );
+					String className = String.class.cast( inspected.get(COMPONENT_NAME_KEY) );
 					
 					String fullClassName = classPackage + "::" + className;
 					

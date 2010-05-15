@@ -27,7 +27,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRendere
 
 import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.JsfFlexAttributeProperties;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.component.AbstractFlexListTemplateRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
@@ -40,7 +40,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexInput",
 		type="com.googlecode.jsfFlex.FlexTree"
 )
-@JsfFlexAttributeProperties(
+@IJsfFlexAttributeProperties(
 		componentName="Tree",
 		componentPackage="mx.controls",
 		componentNodeAttributes={
@@ -86,7 +86,7 @@ public final class FlexTreeRenderer extends AbstractFlexListTemplateRenderer {
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexTreeRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexTreeRenderer.class.getAnnotation(JsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexTreeRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
 				null);
 		
 	}

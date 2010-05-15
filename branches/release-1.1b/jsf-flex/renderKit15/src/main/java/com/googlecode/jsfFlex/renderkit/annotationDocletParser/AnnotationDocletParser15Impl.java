@@ -54,7 +54,7 @@ public final class AnnotationDocletParser15Impl extends AbstractAnnotationDoclet
 		
 		for(IJsfFlexAttribute currAttribute : jsfFlexAttributes){
 			
-            FLEX_MAPPER currMapper = currAttribute.byMethod() ? FLEX_MAPPER.MXML_METHOD_MAPPER : FLEX_MAPPER.MXML_ATTRIBUTE_MAPPER;
+            FLEX_MAPPER currMapper = currAttribute.byMethod() ? FLEX_MAPPER.FLEX_METHOD_MAPPER : FLEX_MAPPER.FLEX_ATTRIBUTE_MAPPER;
 			
 			try{
 				TokenValue tokenValue = currMapper.mapField(currAttribute.attribute(), componentObj);

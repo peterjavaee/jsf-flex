@@ -33,7 +33,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUIIconColorAttribute;
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUICheckBoxTag",
         family              =   "javax.faces.FlexInput",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexCheckBox",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
 public abstract class AbstractFlexUICheckBox 
 						extends com.googlecode.jsfFlex.component.FlexUISelectedBase 

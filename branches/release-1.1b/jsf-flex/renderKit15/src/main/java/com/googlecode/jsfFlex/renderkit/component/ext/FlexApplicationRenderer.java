@@ -109,10 +109,10 @@ public final class FlexApplicationRenderer extends AbstractFlexContainerTemplate
 	private static final String TO_BE_CREATED_ADDITIONAL_APP_SCRIPT_CONTENT_TEMPLATE_SUFFIX = "AdditionalAppScriptContent.tmp";
 	private static final String ADDITIONAL_APPLICATION_SCRIPT_CONTENT_TOKEN = "additionalApplicationScriptContent";
 	
-	private final FlexApplicationHTMLRenderer _mxmlApplicationHtmlRenderer;
+	private final FlexApplicationHTMLRenderer _flexApplicationHtmlRenderer;
 	
 	{
-		_mxmlApplicationHtmlRenderer = new FlexApplicationHTMLRenderer();
+        _flexApplicationHtmlRenderer = new FlexApplicationHTMLRenderer();
 	}
 	
 	@Override
@@ -122,9 +122,9 @@ public final class FlexApplicationRenderer extends AbstractFlexContainerTemplate
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		IFlexApplicationContract componentFlex = IFlexApplicationContract.class.cast( componentObj );
-		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
+		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
         
-        if(mxmlContext.isProductionEnv()){
+        if(flexContext.isProductionEnv()){
             return;
         }
         
@@ -156,16 +156,16 @@ public final class FlexApplicationRenderer extends AbstractFlexContainerTemplate
 		IFlexApplicationContract componentFlex = IFlexApplicationContract.class.cast( componentObj );
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		
-		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-		String mxmlFile = mxmlContext.getMxmlPath() + mxmlContext.getCurrMxml() + FlexConstants.MXML_FILE_EXT;
+		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+		String mxmlFile = flexContext.getMxmlPath() + flexContext.getCurrMxml() + FlexConstants.MXML_FILE_EXT;
 		Map<String, String> multiLingualSupportMap = writer.getMultiLingualSupportMap();
 		
-		if(!mxmlContext.isProductionEnv()){
+		if(!flexContext.isProductionEnv()){
 			//means it is of debugMode, so must create mxml and etcetera
 			
 			/* Beginning of creating application body content dynamically [since need to allow additional application script content] */
-			AdditionalApplicationScriptContent additionalAppScriptContent = mxmlContext.getAdditionalAppScriptContent();
-			String filePath = mxmlContext.getPreMxmlPath() + mxmlContext.getCurrMxml() + TO_BE_CREATED_ADDITIONAL_APP_SCRIPT_CONTENT_TEMPLATE_SUFFIX;
+			AdditionalApplicationScriptContent additionalAppScriptContent = flexContext.getAdditionalAppScriptContent();
+			String filePath = flexContext.getPreMxmlPath() + flexContext.getCurrMxml() + TO_BE_CREATED_ADDITIONAL_APP_SCRIPT_CONTENT_TEMPLATE_SUFFIX;
 			Map<String, AdditionalApplicationScriptContent> tokenMap = new HashMap<String, AdditionalApplicationScriptContent>();
 			tokenMap.put(ADDITIONAL_APPLICATION_SCRIPT_CONTENT_TOKEN, additionalAppScriptContent);
 			writer.createFileContent(filePath, FLEX_APPLICATION_BODY_TEMPLATE, null, tokenMap);
@@ -174,7 +174,7 @@ public final class FlexApplicationRenderer extends AbstractFlexContainerTemplate
 			writer.createPreMxml(componentFlex, FlexApplicationRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), bodyContent);
 			/* End of creating application body content dynamicall */
 			
-			Map<Integer, Set<IFlexContract>> preMxmlMap = mxmlContext.getPreMxmlCompMap();
+			Map<Integer, Set<IFlexContract>> preMxmlMap = flexContext.getPreMxmlCompMap();
 			
 			if(preMxmlMap.keySet().size() > 0){
 				
@@ -206,7 +206,7 @@ public final class FlexApplicationRenderer extends AbstractFlexContainerTemplate
             writer.shutDownFutureTasks();
 		}
 		
-		_mxmlApplicationHtmlRenderer.renderHtmlContent(context, componentObj, multiLingualSupportMap);
+		_flexApplicationHtmlRenderer.renderHtmlContent(context, componentObj, multiLingualSupportMap);
 		
 	}
 	
@@ -222,11 +222,11 @@ public final class FlexApplicationRenderer extends AbstractFlexContainerTemplate
 		
 		private void renderHtmlContent(FacesContext context, UIComponent component, Map<String, String> multiLingualSupportMap) throws IOException {
 			
-			AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
+			AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
 			com.googlecode.jsfFlex.component.ext.FlexUIApplication appComponent = 
                                         com.googlecode.jsfFlex.component.ext.FlexUIApplication.class.cast( component );
 			
-			Map<Integer, Set<IFlexContract>> preMxmlCompMap = mxmlContext.getPreMxmlCompMap();
+			Map<Integer, Set<IFlexContract>> preMxmlCompMap = flexContext.getPreMxmlCompMap();
 			preMxmlCompMap.clear();
 			
 			ResponseWriter writer = context.getResponseWriter();
@@ -254,20 +254,20 @@ public final class FlexApplicationRenderer extends AbstractFlexContainerTemplate
 			writer.write(toWrite.toString());
 			writer.endElement(FlexAttributeConstants.SCRIPT_ELEM);
 			
-			String swfFile = getLocaleSwfFile(mxmlContext, context, appComponent, multiLingualSupportMap);
+			String swfFile = getLocaleSwfFile(flexContext, context, appComponent, multiLingualSupportMap);
 			
 			writeHTMLSWF(writer, appComponent, swfFile);
 			
 		}
 		
-		private String getLocaleSwfFile(AbstractFlexContext mxmlContext, FacesContext context, 
+		private String getLocaleSwfFile(AbstractFlexContext flexContext, FacesContext context, 
 											com.googlecode.jsfFlex.component.ext.FlexUIApplication appComponent, Map<String, String> multiLingualSupportMap){
 			
-			String localeWebContextPath = mxmlContext.getLocaleWebContextPath();
+			String localeWebContextPath = flexContext.getLocaleWebContextPath();
 			String swfFile = null;
 			
 			if(localeWebContextPath == null){
-				swfFile = mxmlContext.getApplicationSwfWebPath() + appComponent.getMxmlPackageName() + FlexConstants.SWF_FILE_EXT;
+				swfFile = flexContext.getApplicationSwfWebPath() + appComponent.getMxmlPackageName() + FlexConstants.SWF_FILE_EXT;
 			}else{
 				
 				Locale preferredLocale = context.getExternalContext().getRequestLocale();
@@ -281,14 +281,14 @@ public final class FlexApplicationRenderer extends AbstractFlexContainerTemplate
 				
 				String defaultLocale = context.getExternalContext().getInitParameter(FlexConstants.DEFAULT_LOCALE);
 				defaultLocale = defaultLocale != null ? defaultLocale : "";
-				String defaultLocalePath = mxmlContext.getApplicationSwfWebPath() + appComponent.getMxmlPackageName() + 
+				String defaultLocalePath = flexContext.getApplicationSwfWebPath() + appComponent.getMxmlPackageName() + 
 											FlexConstants.SWF_FILE_NAME_LOCALE_SEPARATOR + defaultLocale + FlexConstants.SWF_FILE_EXT;
 				String closestMatch = null;
 				for(String currCountryLocale : multiLingualSupportMap.keySet()){
 					String currCountryLocaleMatch = currCountryLocale.toUpperCase().trim();
 					
 					if(currCountryLocaleMatch.indexOf(languageMatch) == 0){
-						closestMatch = mxmlContext.getApplicationSwfWebPath() + appComponent.getMxmlPackageName() + 
+						closestMatch = flexContext.getApplicationSwfWebPath() + appComponent.getMxmlPackageName() + 
 											FlexConstants.SWF_FILE_NAME_LOCALE_SEPARATOR + currCountryLocale + FlexConstants.SWF_FILE_EXT;
 						
 						int matchIndex = currCountryLocaleMatch.indexOf(countryMatch);
@@ -351,13 +351,13 @@ public final class FlexApplicationRenderer extends AbstractFlexContainerTemplate
 		
 		private String getComponentInitValues(FacesContext context, UIComponent component) {
 			
-			AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-			List<JSONObject> applicationInitValueList = mxmlContext.getApplicationInitValueList();
+			AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+			List<JSONObject> applicationInitValueList = flexContext.getApplicationInitValueList();
 			
 			JSONObject flashAppObject = new JSONObject();
 			
 			try{
-				flashAppObject.put(APP_ID, mxmlContext.getCurrMxml());
+				flashAppObject.put(APP_ID, flexContext.getCurrMxml());
 				flashAppObject.put(NAMING_CONTAINER_PREFIX, FlexJsfUtil.retrieveFormId( component.getClientId(context) ));
 				
 				if(applicationInitValueList.size() > 0){

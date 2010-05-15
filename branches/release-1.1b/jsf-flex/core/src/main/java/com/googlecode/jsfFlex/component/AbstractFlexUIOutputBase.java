@@ -42,7 +42,7 @@ import com.googlecode.jsfFlex.shared.util.FlexConstants;
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        type    =   "com.googlecode.jsfFlex.AbstractFlexUIOutputBase",
+        type    =   "com.googlecode.jsfFlex.FlexUIOutputBase",
         family  =   "javax.faces.FlexOutputBase",
         desc    =   "Base component for FlexOutput components"
 )
@@ -72,8 +72,8 @@ public abstract class AbstractFlexUIOutputBase extends UIOutput implements IFlex
 	public synchronized AbstractAnnotationDocletParser getAnnotationDocletParserInstance(){
 		
 		if(_annotationDocletParserInstance == null){
-			AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-			AbstractRunnerFactory runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
+			AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+			AbstractRunnerFactory runnerFactoryInstance = flexContext.getRunnerFactoryInstance();
 			_annotationDocletParserInstance = runnerFactoryInstance.getAnnotationDocletParserImpl();
 		}
 		
@@ -82,8 +82,8 @@ public abstract class AbstractFlexUIOutputBase extends UIOutput implements IFlex
 	
 	public void encodeBegin(FacesContext context) throws IOException {
 		
-		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-		if(mxmlContext.isProductionEnv()){
+		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+		if(flexContext.isProductionEnv()){
 			//means no need to create preMxml files
 			setRendered(false);
 		}

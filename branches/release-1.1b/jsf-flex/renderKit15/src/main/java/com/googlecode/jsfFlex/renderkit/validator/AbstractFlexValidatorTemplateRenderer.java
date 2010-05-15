@@ -58,8 +58,8 @@ public abstract class AbstractFlexValidatorTemplateRenderer extends AbstractFlex
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(AbstractFlexValidatorTemplateRenderer.class, componentObj, null);
 		
-		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-		AdditionalApplicationScriptContent additionalAppScriptContent = mxmlContext.getAdditionalAppScriptContent();
+		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+		AdditionalApplicationScriptContent additionalAppScriptContent = flexContext.getAdditionalAppScriptContent();
 		additionalAppScriptContent.addValidationManagerValidatorId(componentObj.getId());
 		
 		additionalAppScriptContent.addActionScriptImport(VALIDATION_MANAGER_IMPORT);

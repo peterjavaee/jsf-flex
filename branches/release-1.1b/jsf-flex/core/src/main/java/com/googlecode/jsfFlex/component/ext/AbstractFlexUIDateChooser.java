@@ -107,7 +107,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUIVerticalGapAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIWeekDayStyleNameAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIYearNavigationEnabledAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIYearSymbolAttribute;
-import com.googlecode.jsfFlex.component.AbstractUIInputBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUIInputBase;
 
 /**
  * @author Ji Hoon Kim
@@ -119,10 +119,10 @@ import com.googlecode.jsfFlex.component.AbstractUIInputBase;
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIDateChooserTag",
         family              =   "javax.faces.FlexInput",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexDateChooser",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
 public abstract class AbstractFlexUIDateChooser 
-                            extends AbstractUIInputBase 
+                            extends AbstractFlexUIInputBase 
                             implements IFlexUIBaseAttributes, IFlexUIAllowDisjointSelectionAttribute, IFlexUIAllowMultipleSelectionAttribute, 
                             IFlexUIDayNamesAttribute, IFlexUIDisabledDaysAttribute, IFlexUIDisabledRangesAttribute, 
                             IFlexUIDisplayedMonthAttribute, IFlexUIDisplayedYearAttribute, IFlexUIFirstDayOfWeekAttribute, 

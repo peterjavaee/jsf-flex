@@ -33,7 +33,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUIRowCountAttribute;
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUITileListTag",
         family              =   "javax.faces.FlexInput",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexTileList",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
 public abstract class AbstractFlexUITileList 
 						extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase

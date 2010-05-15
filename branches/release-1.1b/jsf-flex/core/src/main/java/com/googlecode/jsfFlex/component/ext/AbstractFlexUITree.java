@@ -51,7 +51,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUIShowRootAttribute;
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUITreeTag",
         family              =   "javax.faces.FlexInput",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexTree",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
 public abstract class AbstractFlexUITree 
 						extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase
@@ -61,6 +61,6 @@ public abstract class AbstractFlexUITree
                         IFlexUIFolderClosedIconAttribute, IFlexUIFolderOpenIconAttribute, IFlexUIIndentationAttribute, 
                         IFlexUIOpenDurationAttribute, IFlexUIOpenEasingFunctionAttribute, IFlexUIItemCloseAttribute, 
                         IFlexUIItemOpenAttribute, IFlexUIItemOpeningAttribute, IFlexUIEditableAttribute, 
-                        IFlexUIDataProviderAttribute, IFlexUIRowCount {
+                        IFlexUIDataProviderAttribute, IFlexUIRowCountAttribute {
 	
 }

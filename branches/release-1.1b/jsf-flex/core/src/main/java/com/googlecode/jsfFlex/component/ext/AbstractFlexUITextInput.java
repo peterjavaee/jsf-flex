@@ -78,7 +78,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUITextInputAttribute;
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUITextInputTag",
         family              =   "javax.faces.FlexInput",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexTextInput",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
 public abstract class AbstractFlexUITextInput 
 						extends com.googlecode.jsfFlex.component.FlexUIHtmlTextInputBase

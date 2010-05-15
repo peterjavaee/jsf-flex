@@ -104,7 +104,7 @@ public class FlexOverallExampleBean implements Serializable {
     
     public Object asyncDataUpdateListener(AsynchronousDataUpdateEvent event){
         /*
-         * Two possible values can be returned for the MethodExpression of mxmlAsynchronousDataUpdateEventListener
+         * Two possible values can be returned for the MethodExpression of flexAsynchronousDataUpdateEventListener
          *  AsynchronousDataUpdateEventBean
          *  An Object representing the value to update the target component to
          * 

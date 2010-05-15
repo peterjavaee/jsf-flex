@@ -38,7 +38,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUITextAttribute;
         template    =   true
 )
 public abstract class AbstractFlexUITextInputBase 
-							extends AbstractUIInputBase 
+							extends AbstractFlexUIInputBase 
 							implements IFlexUITextAttribute {
 	
 	private final static org.apache.commons.logging.Log _log = org.apache.commons.logging.LogFactory.getLog(FlexUITextInputBase.class);

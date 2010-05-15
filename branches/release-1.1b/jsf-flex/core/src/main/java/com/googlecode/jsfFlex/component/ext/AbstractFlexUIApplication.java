@@ -144,14 +144,14 @@ public abstract class AbstractFlexUIApplication
         }
         
 		String mode = context.getExternalContext().getInitParameter(FlexConstants.CONFIG_MODE_NAME);
-		AbstractFlexContext mxmlContext = new FlexContextImpl(getMxmlPackageName(), mode, this);
+		AbstractFlexContext flexContext = new FlexContextImpl(getMxmlPackageName(), mode, this);
         
 		String webContextPath = context.getExternalContext().getRequestContextPath();
         String swfWebPath = webContextPath + "/" + FlexConstants.SWF_DIRECTORY_NAME + "/";
 		String applicationSwfWebPath = swfWebPath + getMxmlPackageName() + "/";
-        mxmlContext.setSwfWebPath(swfWebPath);
-		mxmlContext.setApplicationSwfWebPath(applicationSwfWebPath);
-		mxmlContext.setWebContextPath(webContextPath);
+        flexContext.setSwfWebPath(swfWebPath);
+        flexContext.setApplicationSwfWebPath(applicationSwfWebPath);
+        flexContext.setWebContextPath(webContextPath);
 		
 		//setting or appending scripts to execute upon application initialization
 		String init = (String) getAttributes().get(INITIALIZE_ATTR);
@@ -160,22 +160,22 @@ public abstract class AbstractFlexUIApplication
 		
 		String localeWebContextRelativePath = context.getExternalContext().getInitParameter(FlexConstants.LOCALE_WEB_CONTEXT_RELATIVE_PATH);
 		if(localeWebContextRelativePath != null){
-			mxmlContext.setLocaleWebContextPath(_applicationPath + File.separatorChar + localeWebContextRelativePath + File.separatorChar);
+            flexContext.setLocaleWebContextPath(_applicationPath + File.separatorChar + localeWebContextRelativePath + File.separatorChar);
 		}
 		
 		//to reflect the correct state when debugging
-		if(mxmlContext.isProductionEnv()){
+		if(flexContext.isProductionEnv()){
 			//do not need to create preMXML, MXML, and SWF files
 			
 		}else{
-			String mxmlPath = _applicationPath + File.separatorChar + FlexConstants.FLEX_DIRECTORY_NAME + File.separatorChar +
+			String mxmlPath = _applicationPath + File.separatorChar + FlexConstants.MXML_DIRECTORY_NAME + File.separatorChar +
 									getMxmlPackageName() + File.separatorChar;
             String swfPath = _applicationPath + File.separatorChar + FlexConstants.SWF_DIRECTORY_NAME + File.separatorChar;
             String applicationSwfPath = swfPath + getMxmlPackageName() + File.separatorChar + getMxmlPackageName() + FlexConstants.SWF_FILE_EXT;
 			
 			/*
 			 * 	The above swfBasePath will hold placeholder of where swf-source-files's source-file[s] will be echoed to.
-			 * 	The files that will be echoed can be found in mxmlConstants.xml and are simply the contents that will be used
+			 * 	The files that will be echoed can be found in flexConstants.xml and are simply the contents that will be used
 			 * 	by the system's ActionScripts.
 			 */
 			String flexSDKPath = _applicationPath + File.separatorChar + FlexConstants.FLEX_SDK_DIRECTORY_NAME + File.separatorChar;
@@ -191,15 +191,15 @@ public abstract class AbstractFlexUIApplication
 			String jsfFlexMainSwcWebpath = swfWebPath + FlexConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + FlexConstants.SWF_FILE_EXT;
             addRuntimeSharedLibrary(jsfFlexMainSwcWebpath);
 			
-			mxmlContext.setFlexSDKPath(flexSDKPath);
-			mxmlContext.setMxmlPath(mxmlPath);
-			mxmlContext.setApplicationSwfPath(applicationSwfPath);
-			mxmlContext.setSwfPath(swfPath);
-            mxmlContext.setJsfFlexSwcPath(jsfFlexSwcPath);
-			mxmlContext.setSwcPath(swcPath);
+            flexContext.setFlexSDKPath(flexSDKPath);
+            flexContext.setMxmlPath(mxmlPath);
+            flexContext.setApplicationSwfPath(applicationSwfPath);
+            flexContext.setSwfPath(swfPath);
+            flexContext.setJsfFlexSwcPath(jsfFlexSwcPath);
+            flexContext.setSwcPath(swcPath);
 			
 			//set the attributes for jsfFlexFlashApplicationConfiguration
-			JsfFlexFlashApplicationConfiguration jsfFlexFlashApplicationConfiguration = mxmlContext.getJsfFlexFlashApplicationConfiguration();
+			JsfFlexFlashApplicationConfiguration jsfFlexFlashApplicationConfiguration = flexContext.getJsfFlexFlashApplicationConfiguration();
 			String flashToJavaScriptLogLevel = context.getExternalContext().getInitParameter(FlexConstants.FLASH_TO_JAVASCRIPT_LOG_LEVEL_NAME);
 			if(flashToJavaScriptLogLevel == null){
 				
@@ -225,7 +225,7 @@ public abstract class AbstractFlexUIApplication
 			
 			String preMxmlPath = _applicationPath + File.separatorChar + FlexConstants.PREMXML_DIRECTORY_NAME + File.separatorChar +
 										getMxmlPackageName() + File.separatorChar;
-			mxmlContext.setPreMxmlPath(preMxmlPath);
+            flexContext.setPreMxmlPath(preMxmlPath);
 			
 			//Does this even need to be present within the JSF-component or should it passed as default within the task?
 			setAccessible(true);
@@ -251,8 +251,8 @@ public abstract class AbstractFlexUIApplication
 	public synchronized AbstractAnnotationDocletParser getAnnotationDocletParserInstance(){
 		
 		if(_annotationDocletParserInstance == null){
-			AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-			AbstractRunnerFactory runnerFactoryInstance = mxmlContext.getRunnerFactoryInstance();
+			AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+			AbstractRunnerFactory runnerFactoryInstance = flexContext.getRunnerFactoryInstance();
 			_annotationDocletParserInstance = runnerFactoryInstance.getAnnotationDocletParserImpl();
 		}
 		

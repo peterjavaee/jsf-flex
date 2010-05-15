@@ -75,7 +75,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUITextDecorationAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUITextIndentAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIVisibleAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIWordWrapAttribute;
-import com.googlecode.jsfFlex.component.AbstractUIInputBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUIInputBase;
 import com.googlecode.jsfFlex.shared.util.ReflectionHelperUtil;
 
 /**
@@ -90,7 +90,7 @@ import com.googlecode.jsfFlex.shared.util.ReflectionHelperUtil;
         defaultRendererType =   "com.googlecode.jsfFlex.FlexDataGridColumn"
 )
 public abstract class AbstractFlexUIDataGridColumn 
-                        extends AbstractUIInputBase 
+                        extends AbstractFlexUIInputBase 
                         implements IFlexUIDataFieldAttribute, IFlexUIDataTipFieldAttribute, IFlexUIDataTipFunctionAttribute, 
                         IFlexUIEditableAttribute, IFlexUIEditorDataFieldAttribute, IFlexUIEditorHeightOffsetAttribute, 
                         IFlexUIEditorUsesEnterKeyAttribute, IFlexUIEditorWidthOffsetAttribute, IFlexUIEditorXOffsetAttribute, 

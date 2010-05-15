@@ -55,7 +55,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUIVerticalGapAttribute;
         tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.FlexUIAccordionTag",
         family              =   "javax.faces.FlexInput",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexAccordion",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
 public abstract class AbstractFlexUIAccordion 
 						extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase

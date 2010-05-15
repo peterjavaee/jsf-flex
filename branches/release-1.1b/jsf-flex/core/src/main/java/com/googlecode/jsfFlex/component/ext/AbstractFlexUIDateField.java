@@ -101,7 +101,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUIYearSymbolAttribute;
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIDateFieldTag",
         family              =   "javax.faces.FlexInput",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexDateField",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
 public abstract class AbstractFlexUIDateField 
 						extends com.googlecode.jsfFlex.component.FlexUITextInputBase 

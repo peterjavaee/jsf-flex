@@ -38,9 +38,9 @@ public abstract class AbstractFlexUIXMLElementBase
 	public void encodeEnd(FacesContext context) throws IOException {
 		super.encodeEnd(context);
 		
-		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-		Map<String, ? super UIComponentBase> temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
-		AbstractFlexUIXMLContainerBase currXMLContainerRef = AbstractFlexUIXMLContainerBase.class.cast( temporaryResourceMap.get(AbstractFlexUIXMLContainerBase.CURR_MXML_UI_XML_CONTAINER_KEY) );
+		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+		Map<String, ? super UIComponentBase> temporaryResourceMap = flexContext.getTemporaryResourceMap();
+		AbstractFlexUIXMLContainerBase currXMLContainerRef = AbstractFlexUIXMLContainerBase.class.cast( temporaryResourceMap.get(AbstractFlexUIXMLContainerBase.CURR_FLEX_UI_XML_CONTAINER_KEY) );
 		
 		currXMLContainerRef.getCurrBodyContentBufferedWriter().write(_xmlElementEndTag);
 		

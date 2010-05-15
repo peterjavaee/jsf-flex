@@ -35,7 +35,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:mxmlRemoteObject",
+        name                =   "jf:flexRemoteObject",
         clazz               =   "com.googlecode.jsfFlex.component.ext.service.ext.FlexUIRemoteObject",
         type                =   "com.googlecode.jsfFlex.FlexUIRemoteObject",
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.service.ext.FlexUIRemoteObjectTag",

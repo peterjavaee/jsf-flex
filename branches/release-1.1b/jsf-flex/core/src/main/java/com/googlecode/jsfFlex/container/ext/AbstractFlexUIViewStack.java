@@ -34,7 +34,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUIViewStackBase;
         tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.FlexUIViewStackTag",
         family              =   "javax.faces.FlexInput",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexViewStack",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
 public abstract class AbstractFlexUIViewStack 
 						extends AbstractFlexUIViewStackBase

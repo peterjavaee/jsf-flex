@@ -27,7 +27,7 @@ import com.googlecode.jsfFlex.shared.util.FlexConstants;
 /**
  * @author Ji Hoon Kim
  */
-public final class FlexFaceletOverallExampleBean extends MXMLOverallExampleBean {
+public final class FlexFaceletOverallExampleBean extends FlexOverallExampleBean {
 	
 	private static final long serialVersionUID = 1940801309822597786L;
 	

@@ -75,7 +75,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUITextAlignAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUITextAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUITextDecorationAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUITextIndentAttribute;
-import com.googlecode.jsfFlex.component.AbstractUIInputBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUIInputBase;
 
 /**
  * @author Ji Hoon Kim
@@ -87,10 +87,10 @@ import com.googlecode.jsfFlex.component.AbstractUIInputBase;
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIColorPickerTag",
         family              =   "javax.faces.FlexInput",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexColorPicker",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
 public abstract class AbstractFlexUIColorPicker 
-						extends AbstractUIInputBase
+						extends AbstractFlexUIInputBase
                         implements IFlexUIComboBaseAttributes, IFlexUIColorFieldAttribute, IFlexUILabelFieldAttribute, 
                         IFlexUIShowTextFieldAttribute, IFlexUIBorderColorAttribute, IFlexUICloseDurationAttribute, 
                         IFlexUICloseEasingFunctionAttribute, IFlexUIColorAttribute, IFlexUIDisabledIconColorAttribute, 

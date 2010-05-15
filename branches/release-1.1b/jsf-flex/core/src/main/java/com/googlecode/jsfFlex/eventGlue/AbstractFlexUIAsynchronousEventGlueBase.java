@@ -52,9 +52,9 @@ public abstract class AbstractFlexUIAsynchronousEventGlueBase
     
     public void encodeBegin(FacesContext context) throws IOException {
         
-        AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
+        AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
         
-        if(mxmlContext.isProductionEnv()){
+        if(flexContext.isProductionEnv()){
             //means no need to create preMxml files
             setRendered(false);
         }

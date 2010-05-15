@@ -36,7 +36,7 @@ import com.googlecode.jsfFlex.container.ext.IFlexUIPanelAttributes;
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIRichTextEditorTag",
         family              =   "javax.faces.FlexInput",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexRichTextEditor",
-        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.FlexUIInputTagBase"
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
 public abstract class AbstractFlexUIRichTextEditor 
 						extends com.googlecode.jsfFlex.component.FlexUIHtmlTextInputBase 

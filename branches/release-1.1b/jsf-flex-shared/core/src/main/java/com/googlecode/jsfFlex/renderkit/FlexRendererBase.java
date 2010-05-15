@@ -42,10 +42,10 @@ public class FlexRendererBase extends Renderer {
 	public static final String MAJOR_MINOR_DELIM = "-";
 	private static final String PRE_MXML_FILE_NAME_DELIM = "_";
 	
-	private FlexRendererBaseHelper _mxmlRendererBaseHelper;
+	private FlexRendererBaseHelper _flexRendererBaseHelper;
 	
 	{
-		_mxmlRendererBaseHelper = new FlexRendererBaseHelper();
+		_flexRendererBaseHelper = new FlexRendererBaseHelper();
 	}
 	
 	private static final Comparator<? super IFlexContract> _majorKeyComparator = new Comparator<IFlexContract>(){
@@ -67,7 +67,7 @@ public class FlexRendererBase extends Renderer {
     											" lacks parent component");
     	}
 		
-		_mxmlRendererBaseHelper.createStructureForPreMxmlFiles(component);
+        _flexRendererBaseHelper.createStructureForPreMxmlFiles(component);
 		
 	}
 	
@@ -79,20 +79,20 @@ public class FlexRendererBase extends Renderer {
 		
 		private void createStructureForPreMxmlFiles(UIComponent component) throws IOException {
 			
-			IFlexContract mxmlUIComp = IFlexContract.class.cast( component );
-			AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
+			IFlexContract flexUIComp = IFlexContract.class.cast( component );
+			AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
 			
 			UIComponent parent = component.getParent();
 			
-			if(mxmlContext.isProductionEnv()){
+			if(flexContext.isProductionEnv()){
 				//do not need to create preMxml files
 				return;
 			}
 			
 			if(parent instanceof IFlexContract && !(component instanceof IFlexApplicationContract)){
-	    		IFlexContract mxmlInstance = IFlexContract.class.cast( parent );
-	    		int tempInt = mxmlInstance.getMajorLevel();
-	    		mxmlUIComp.setMajorLevel(++tempInt);
+	    		IFlexContract flexInstance = IFlexContract.class.cast( parent );
+	    		int tempInt = flexInstance.getMajorLevel();
+                flexUIComp.setMajorLevel(++tempInt);
 	    		
 				//now set the minor level
 	        	List<UIComponent> childrenList = parent.getChildren();
@@ -109,22 +109,22 @@ public class FlexRendererBase extends Renderer {
 	        		}
 	        	}
 	        	
-	        	mxmlUIComp.setMinorLevel(counter);
-	        	setPreMxmlIdentifiers(mxmlInstance, mxmlUIComp);
+                flexUIComp.setMinorLevel(counter);
+	        	setPreMxmlIdentifiers(flexInstance, flexUIComp);
 	    		
 	    	}else if(component instanceof IFlexApplicationContract){
-	    		//means that it is not of MXML component, so set the major and minor level to 0
-	    		mxmlUIComp.setMajorLevel(0);
-	    		mxmlUIComp.setMinorLevel(0);
-	    		setPreMxmlIdentifiers(null, mxmlUIComp);
+	    		//means that it is not of Flex component, so set the major and minor level to 0
+                flexUIComp.setMajorLevel(0);
+                flexUIComp.setMinorLevel(0);
+	    		setPreMxmlIdentifiers(null, flexUIComp);
 	    		
 	    	}else{
 	    		throw new IllegalStateException("Failed to meet the condition of either being a top component of " +
-	    												"MXMLUIApplication or having a parent as implementation of " +
-	    												"MXMLContract");
+	    												"FlexUIApplication or having a parent as implementation of " +
+	    												"IFlexContract");
 	    	}
 	    	
-	    	setAbsolutePathToPreMxmlFile(mxmlContext.getCurrMxml(), mxmlUIComp, mxmlContext.getPreMxmlPath());
+	    	setAbsolutePathToPreMxmlFile(flexContext.getCurrMxml(), flexUIComp, flexContext.getPreMxmlPath());
 			
 			insertComponentToPreMxmlCompMap(component);
 			
@@ -153,9 +153,9 @@ public class FlexRendererBase extends Renderer {
 			currInstance.setPreMxmlIdentifier(preMxmlIdentifier.toString());
 		}
 		
-		private void setAbsolutePathToPreMxmlFile(String mxmlPackageName, IFlexContract currInstance, String preMxmlPath){
+		private void setAbsolutePathToPreMxmlFile(String flexSwfName, IFlexContract currInstance, String preMxmlPath){
 			StringBuilder toReturn = new StringBuilder(preMxmlPath);
-			toReturn.append(mxmlPackageName);
+			toReturn.append(flexSwfName);
 			toReturn.append(PRE_MXML_FILE_NAME_DELIM);
 			toReturn.append(currInstance.getClass().getSimpleName());
 			toReturn.append(PRE_MXML_FILE_NAME_DELIM);
@@ -168,16 +168,16 @@ public class FlexRendererBase extends Renderer {
 		
 		private void insertComponentToPreMxmlCompMap(UIComponent component) throws IOException {
 			
-			IFlexContract mxmlUIComp = IFlexContract.class.cast( component );
-			AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
+			IFlexContract flexUIComp = IFlexContract.class.cast( component );
+			AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
 			
 			if(!(component instanceof IFlexApplicationContract)){
 				/*
-				 * Ignore the addition of MXMLUIApplication, because MXMLApplication is responsible
+				 * Ignore the addition of FlexUIApplication, because FlexApplication is responsible
 				 * for traversing through the Set and creating the mxml and swf files.
 				 */
-				Map<Integer, Set<IFlexContract>> preMxmlCompMap = mxmlContext.getPreMxmlCompMap();
-				Integer majorKey = mxmlUIComp.getMajorLevel();
+				Map<Integer, Set<IFlexContract>> preMxmlCompMap = flexContext.getPreMxmlCompMap();
+				Integer majorKey = flexUIComp.getMajorLevel();
 				
 				Set<IFlexContract> majorKeySet;
 				if((majorKeySet = preMxmlCompMap.get(majorKey)) == null){
@@ -185,7 +185,7 @@ public class FlexRendererBase extends Renderer {
 					preMxmlCompMap.put(majorKey, majorKeySet);
 				}
 				
-				majorKeySet.add(mxmlUIComp);
+				majorKeySet.add(flexUIComp);
 				
 			}
 		}

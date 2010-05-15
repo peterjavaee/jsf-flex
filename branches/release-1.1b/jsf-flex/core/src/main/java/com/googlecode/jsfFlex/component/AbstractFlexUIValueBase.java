@@ -40,7 +40,7 @@ import org.json.JSONObject;
         family  =   "javax.faces.FlexUIValueBase",
         desc    =   "Base component for FlexInput components that contain value attribute"
 )
-public abstract class AbstractFlexUIValueBase extends AbstractUIInputBase {
+public abstract class AbstractFlexUIValueBase extends AbstractFlexUIInputBase {
 	
 	private final static Log _log = LogFactory.getLog(AbstractFlexUIValueBase.class);
 	

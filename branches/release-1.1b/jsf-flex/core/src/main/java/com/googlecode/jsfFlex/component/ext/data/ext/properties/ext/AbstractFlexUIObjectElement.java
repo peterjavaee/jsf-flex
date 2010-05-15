@@ -61,8 +61,8 @@ public abstract class AbstractFlexUIObjectElement
 	public void encodeBegin(FacesContext context) throws IOException {
 		super.encodeBegin(context);
 		
-		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-		Map<String, ? super UIComponentBase> temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
+		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+		Map<String, ? super UIComponentBase> temporaryResourceMap = flexContext.getTemporaryResourceMap();
 		AbstractFlexUIObject currObjectContainerRef = AbstractFlexUIObject.class.cast( temporaryResourceMap.get(AbstractFlexUIObject.CURR_FLEX_UI_OBJECT_CONTAINER_KEY) );
 		
 		StringBuilder objectStartTagBuffer = new StringBuilder();
@@ -80,8 +80,8 @@ public abstract class AbstractFlexUIObjectElement
 	public void encodeEnd(FacesContext context) throws IOException {
 		super.encodeEnd(context);
 		
-		AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
-		Map<String, ? super UIComponentBase> temporaryResourceMap = mxmlContext.getTemporaryResourceMap();
+		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+		Map<String, ? super UIComponentBase> temporaryResourceMap = flexContext.getTemporaryResourceMap();
 		AbstractFlexUIObject currObjectContainerRef = AbstractFlexUIObject.class.cast( temporaryResourceMap.get(AbstractFlexUIObject.CURR_FLEX_UI_OBJECT_CONTAINER_KEY) );
 		
 		currObjectContainerRef.getCurrBodyContentBufferedWriter().write(OBJECT_END_TAG);
