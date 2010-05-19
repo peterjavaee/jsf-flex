@@ -58,7 +58,7 @@ public final class FlexGridItemRenderer extends AbstractFlexBoxTemplateRenderer 
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexGridItemRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexGridItemRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexGridItemRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

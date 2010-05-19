@@ -43,7 +43,7 @@ import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
-import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
+import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
 import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 import com.googlecode.jsfFlex.shared.util.FlexAttributeConstants;
 import com.googlecode.jsfFlex.shared.util.FlexConstants;
@@ -171,7 +171,7 @@ public final class FlexApplicationRenderer extends AbstractFlexContainerTemplate
 			writer.createFileContent(filePath, FLEX_APPLICATION_BODY_TEMPLATE, null, tokenMap);
 			
 			String bodyContent = writer.readFileContent(filePath);
-			writer.createPreMxml(componentFlex, FlexApplicationRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), bodyContent);
+			writer.createPreMxml(componentFlex, FlexApplicationRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), bodyContent);
 			/* End of creating application body content dynamicall */
 			
 			Map<Integer, Set<IFlexContract>> preMxmlMap = flexContext.getPreMxmlCompMap();

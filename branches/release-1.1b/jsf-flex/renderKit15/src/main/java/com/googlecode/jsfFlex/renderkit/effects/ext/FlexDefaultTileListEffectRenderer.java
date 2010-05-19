@@ -60,7 +60,7 @@ public final class FlexDefaultTileListEffectRenderer extends AbstractFlexParalle
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexDefaultTileListEffectRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexDefaultTileListEffectRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexDefaultTileListEffectRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

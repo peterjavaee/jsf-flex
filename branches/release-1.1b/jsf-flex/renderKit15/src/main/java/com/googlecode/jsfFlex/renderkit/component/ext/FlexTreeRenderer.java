@@ -86,7 +86,7 @@ public final class FlexTreeRenderer extends AbstractFlexListTemplateRenderer {
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexTreeRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexTreeRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexTreeRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

@@ -60,7 +60,7 @@ public final class FlexDissolveRenderer extends AbstractFlexTweenEffectTemplateR
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexDissolveRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexDissolveRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexDissolveRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

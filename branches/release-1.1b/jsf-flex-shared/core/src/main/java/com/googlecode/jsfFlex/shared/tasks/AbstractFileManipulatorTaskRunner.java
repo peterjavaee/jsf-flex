@@ -31,7 +31,7 @@ import java.util.Set;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
+import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 
 /**
@@ -44,7 +44,7 @@ public abstract class AbstractFileManipulatorTaskRunner extends TaskRunnerImpl {
 	public abstract void createFileContent(String filePath, String templateFile, Properties initProperties, Map<String, ? extends Object> tokenMap);
 	
 	public abstract void createPreMxmlFile(String preMxmlFilePath, Properties initProperties, Set<TokenValue> tokenList, String flexComponentName, 
-												String bodyContent, String childIdentifier, String siblingIdentifier);
+												String flexComponentNS, String bodyContent, String childIdentifier, String siblingIdentifier);
 	
 	public synchronized String getComponentTemplate(ClassLoader loader, String template) {
 		StringBuilder fileContent = new StringBuilder();

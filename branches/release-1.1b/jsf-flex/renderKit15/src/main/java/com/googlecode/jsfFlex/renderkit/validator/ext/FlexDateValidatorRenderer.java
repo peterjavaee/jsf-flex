@@ -74,7 +74,7 @@ public final class FlexDateValidatorRenderer extends AbstractFlexValidatorTempla
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexDateValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexDateValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexDateValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

@@ -63,7 +63,7 @@ public final class FlexPopUpMenuButtonRenderer extends AbstractFlexPopUpButtonTe
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexPopUpMenuButtonRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexPopUpMenuButtonRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexPopUpMenuButtonRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

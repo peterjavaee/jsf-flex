@@ -62,7 +62,7 @@ public final class FlexTabBarRenderer extends AbstractFlexToggleButtonBarTemplat
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexTabBarRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexTabBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexTabBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

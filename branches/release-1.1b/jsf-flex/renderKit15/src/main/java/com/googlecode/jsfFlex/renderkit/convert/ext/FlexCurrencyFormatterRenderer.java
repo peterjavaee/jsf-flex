@@ -66,7 +66,7 @@ public final class FlexCurrencyFormatterRenderer extends AbstractFlexFormatterTe
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexCurrencyFormatterRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexCurrencyFormatterRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexCurrencyFormatterRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

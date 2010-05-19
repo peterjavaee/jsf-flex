@@ -57,7 +57,7 @@ public final class FlexImageRenderer extends AbstractFlexSwfLoaderTemplateRender
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexImageRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexImageRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexImageRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

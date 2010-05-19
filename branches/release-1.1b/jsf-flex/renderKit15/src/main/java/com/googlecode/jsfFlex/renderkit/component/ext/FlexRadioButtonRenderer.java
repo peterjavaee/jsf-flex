@@ -82,7 +82,7 @@ public final class FlexRadioButtonRenderer extends AbstractFlexButtonTemplateRen
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexRadioButtonRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexRadioButtonRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexRadioButtonRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

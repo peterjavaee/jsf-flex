@@ -64,7 +64,7 @@ public final class FlexColumnsRenderer extends AbstractFlexComponentBaseRenderer
         IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-        writer.createPreMxml(componentFlex, FlexColumnsRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexColumnsRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

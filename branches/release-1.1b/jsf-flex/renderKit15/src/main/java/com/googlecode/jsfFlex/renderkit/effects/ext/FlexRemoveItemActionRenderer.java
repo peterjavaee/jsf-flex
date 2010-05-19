@@ -53,7 +53,7 @@ public final class FlexRemoveItemActionRenderer extends AbstractFlexEffectTempla
         IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-        writer.createPreMxml(componentFlex, FlexRemoveItemActionRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexRemoveItemActionRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

@@ -65,7 +65,7 @@ public final class FlexRemoteObjectRenderer extends AbstractFlexComponentBaseRen
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexRemoteObjectRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexRemoteObjectRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexRemoteObjectRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

@@ -77,7 +77,7 @@ public final class FlexXMLRenderer extends AbstractFlexComponentBaseRenderer {
 			
 		}
 		
-		writer.createPreMxml(componentFlex, FlexXMLRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexXMLRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				bodyContent);
 		
 		super.encodeEnd(context, componentObj);

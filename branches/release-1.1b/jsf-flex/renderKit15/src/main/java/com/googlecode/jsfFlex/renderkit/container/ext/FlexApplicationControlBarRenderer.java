@@ -59,7 +59,7 @@ public final class FlexApplicationControlBarRenderer extends AbstractFlexBoxTemp
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexApplicationControlBarRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexApplicationControlBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexApplicationControlBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

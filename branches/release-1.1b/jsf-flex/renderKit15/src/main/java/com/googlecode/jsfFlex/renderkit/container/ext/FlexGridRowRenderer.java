@@ -53,7 +53,7 @@ public final class FlexGridRowRenderer extends AbstractFlexBoxTemplateRenderer {
         IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-        writer.createPreMxml(componentFlex, FlexGridRowRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexGridRowRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

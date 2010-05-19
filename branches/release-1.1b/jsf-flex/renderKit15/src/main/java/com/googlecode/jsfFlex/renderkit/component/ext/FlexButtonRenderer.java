@@ -53,7 +53,7 @@ public final class FlexButtonRenderer extends AbstractFlexButtonTemplateRenderer
 		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.createPreMxml(componentFlex, FlexButtonRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexButtonRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

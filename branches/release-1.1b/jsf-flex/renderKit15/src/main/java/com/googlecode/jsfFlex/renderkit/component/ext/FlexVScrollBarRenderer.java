@@ -59,7 +59,7 @@ public final class FlexVScrollBarRenderer extends AbstractFlexScrollBarTemplateR
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexVScrollBarRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexVScrollBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexVScrollBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

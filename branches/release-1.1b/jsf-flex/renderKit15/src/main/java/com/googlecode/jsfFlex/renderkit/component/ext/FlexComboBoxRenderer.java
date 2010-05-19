@@ -136,7 +136,7 @@ public final class FlexComboBoxRenderer extends AbstractFlexComboBaseTemplateRen
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexComboBoxRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexComboBoxRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexComboBoxRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

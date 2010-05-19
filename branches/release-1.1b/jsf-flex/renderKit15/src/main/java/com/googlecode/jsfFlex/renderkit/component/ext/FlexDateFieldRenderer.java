@@ -135,7 +135,7 @@ public final class FlexDateFieldRenderer extends AbstractFlexComboBaseTemplateRe
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexDateFieldRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexDateFieldRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexDateFieldRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

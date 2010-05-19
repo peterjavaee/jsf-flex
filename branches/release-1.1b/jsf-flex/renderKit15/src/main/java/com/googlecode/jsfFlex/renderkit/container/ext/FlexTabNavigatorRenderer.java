@@ -81,7 +81,7 @@ public final class FlexTabNavigatorRenderer extends AbstractFlexViewStackTemplat
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexTabNavigatorRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexTabNavigatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexTabNavigatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

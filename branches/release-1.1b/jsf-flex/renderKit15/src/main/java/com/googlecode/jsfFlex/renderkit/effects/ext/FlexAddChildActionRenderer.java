@@ -60,7 +60,7 @@ public final class FlexAddChildActionRenderer extends AbstractFlexEffectTemplate
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexAddChildActionRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexAddChildActionRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexAddChildActionRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

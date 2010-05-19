@@ -60,7 +60,7 @@ public final class FlexSetStyleRenderer extends AbstractFlexComponentBaseRendere
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexSetStyleRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexSetStyleRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexSetStyleRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

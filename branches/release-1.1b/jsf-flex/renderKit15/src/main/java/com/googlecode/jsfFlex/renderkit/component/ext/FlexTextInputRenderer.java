@@ -125,7 +125,7 @@ public final class FlexTextInputRenderer extends AbstractFlexComponentRenderer {
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexTextInputRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexTextInputRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexTextInputRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

@@ -86,7 +86,7 @@ public final class FlexAccordionRenderer extends AbstractFlexContainerTemplateRe
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexAccordionRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexAccordionRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexAccordionRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

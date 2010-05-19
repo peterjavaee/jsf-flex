@@ -34,6 +34,7 @@ import java.util.concurrent.CountDownLatch;
 import javax.faces.context.ResponseWriter;
 
 import com.googlecode.jsfFlex.renderkit.FlexRendererBase;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.shared.adapter.IFlexApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 import com.googlecode.jsfFlex.shared.beans.others.JsfFlexFlashApplicationConfiguration;
@@ -683,13 +684,13 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriter {
      * @param flexComponentName
      * @param bodyContent
      */
-    public final void createPreMxml(IFlexContract comp, String flexComponentName, String bodyContent) {
+    public final void createPreMxml(IFlexContract comp, IJsfFlexAttributeProperties jsfFlexAttributeProperties, String bodyContent) {
         
         String fileDirectory = comp.getAbsolutePathToPreMxmlFile().substring(0, comp.getAbsolutePathToPreMxmlFile().lastIndexOf(File.separatorChar));
         getFlexTaskRunner().makeDirectory(fileDirectory);
         
-        getFileManipulatorTaskRunner().createPreMxmlFile(comp.getAbsolutePathToPreMxmlFile(), null, comp.getAnnotationDocletParserInstance().getTokenValueSet(), flexComponentName, 
-                                                                bodyContent, childPreMxmlComponentIdentifier(comp), siblingPreMxmlComponentIdentifier(comp));
+        getFileManipulatorTaskRunner().createPreMxmlFile(comp.getAbsolutePathToPreMxmlFile(), null, comp.getAnnotationDocletParserInstance().getTokenValueSet(), jsfFlexAttributeProperties.componentName(), 
+                                                            jsfFlexAttributeProperties.componentNameSpace(), bodyContent, childPreMxmlComponentIdentifier(comp), siblingPreMxmlComponentIdentifier(comp));
         
     }
     

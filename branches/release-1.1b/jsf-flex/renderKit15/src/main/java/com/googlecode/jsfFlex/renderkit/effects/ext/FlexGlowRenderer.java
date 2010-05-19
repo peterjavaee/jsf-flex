@@ -67,7 +67,7 @@ public final class FlexGlowRenderer extends AbstractFlexTweenEffectTemplateRende
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexGlowRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexGlowRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexGlowRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

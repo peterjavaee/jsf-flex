@@ -112,7 +112,7 @@ public final class FlexProgressBarRenderer extends AbstractFlexComponentRenderer
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexProgressBarRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexProgressBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexProgressBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

@@ -57,7 +57,7 @@ public final class FlexIrisRenderer extends AbstractFlexMaskEffectTemplateRender
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexIrisRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexIrisRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexIrisRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

@@ -23,7 +23,7 @@ import org.apache.commons.logging.LogFactory;
 
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
+import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 
 /**

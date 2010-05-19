@@ -54,7 +54,7 @@ public final class FlexControlBarRenderer extends AbstractFlexBoxTemplateRendere
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexAccordionRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexControlBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexControlBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

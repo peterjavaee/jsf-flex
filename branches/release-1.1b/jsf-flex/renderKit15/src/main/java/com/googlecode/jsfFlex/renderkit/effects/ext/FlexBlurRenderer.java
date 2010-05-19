@@ -61,7 +61,7 @@ public final class FlexBlurRenderer extends AbstractFlexEffectTemplateRenderer {
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexBlurRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexBlurRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexBlurRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

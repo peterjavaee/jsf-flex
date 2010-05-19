@@ -58,7 +58,7 @@ public final class FlexLinkButtonRenderer extends AbstractFlexButtonTemplateRend
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexLinkButtonRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexLinkButtonRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexLinkButtonRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

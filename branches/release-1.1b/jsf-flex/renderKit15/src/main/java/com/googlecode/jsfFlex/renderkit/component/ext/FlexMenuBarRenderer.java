@@ -101,7 +101,7 @@ public final class FlexMenuBarRenderer extends AbstractFlexComponentRenderer {
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexMenuBarRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexMenuBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexMenuBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

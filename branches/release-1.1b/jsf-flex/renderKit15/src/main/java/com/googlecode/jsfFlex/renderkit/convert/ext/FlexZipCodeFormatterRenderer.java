@@ -57,7 +57,7 @@ public final class FlexZipCodeFormatterRenderer extends AbstractFlexFormatterTem
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexZipCodeFormatterRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexZipCodeFormatterRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexZipCodeFormatterRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

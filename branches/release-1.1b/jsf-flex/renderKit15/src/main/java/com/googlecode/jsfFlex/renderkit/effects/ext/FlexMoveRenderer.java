@@ -63,7 +63,7 @@ public final class FlexMoveRenderer extends AbstractFlexTweenEffectTemplateRende
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexMoveRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexMoveRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexMoveRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

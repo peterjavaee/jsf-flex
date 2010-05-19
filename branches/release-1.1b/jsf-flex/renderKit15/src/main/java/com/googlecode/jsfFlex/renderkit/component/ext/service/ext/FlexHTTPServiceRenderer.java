@@ -70,7 +70,7 @@ public final class FlexHTTPServiceRenderer extends AbstractFlexComponentBaseRend
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexHTTPServiceRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexHTTPServiceRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexHTTPServiceRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

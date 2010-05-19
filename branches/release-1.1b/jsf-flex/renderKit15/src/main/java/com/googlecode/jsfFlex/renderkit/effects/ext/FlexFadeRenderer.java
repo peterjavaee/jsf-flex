@@ -59,7 +59,7 @@ public final class FlexFadeRenderer extends AbstractFlexTweenEffectTemplateRende
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexFadeRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexFadeRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexFadeRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

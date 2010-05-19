@@ -60,7 +60,7 @@ public final class FlexStringValidatorRenderer extends AbstractFlexValidatorTemp
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexStringValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexStringValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexStringValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

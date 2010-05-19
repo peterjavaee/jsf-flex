@@ -62,7 +62,7 @@ public final class FlexDefaultListEffectRenderer extends AbstractFlexParallelTem
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexDefaultListEffectRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexDefaultListEffectRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexDefaultListEffectRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

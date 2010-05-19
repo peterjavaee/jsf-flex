@@ -24,7 +24,7 @@ import java.util.Map;
 import java.util.Set;
 
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
-import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
+import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 
 /**

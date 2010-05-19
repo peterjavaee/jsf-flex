@@ -119,7 +119,7 @@ public final class FlexNumericStepperRenderer extends AbstractFlexComponentRende
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexNumericStepperRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexNumericStepperRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexNumericStepperRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

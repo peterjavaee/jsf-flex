@@ -23,6 +23,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
 import com.googlecode.jsfFlex.attributes.IFlexUIComponentAttributesAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIComponentAttributesJSONFormatAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIComponentNameAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIComponentNameSpaceAttribute;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -39,6 +40,6 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 public abstract class AbstractFlexUIAdditionalComponent 
                             extends AbstractFlexUISimpleBase 
                             implements IFlexUIComponentAttributesAttribute, IFlexUIComponentAttributesJSONFormatAttribute, 
-                            IFlexUIComponentNameAttribute {
+                            IFlexUIComponentNameAttribute, IFlexUIComponentNameSpaceAttribute {
     
 }

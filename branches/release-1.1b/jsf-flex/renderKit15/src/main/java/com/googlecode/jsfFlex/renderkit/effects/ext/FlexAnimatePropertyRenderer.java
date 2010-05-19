@@ -62,7 +62,7 @@ public final class FlexAnimatePropertyRenderer extends AbstractFlexEffectTemplat
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexAnimatePropertyRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexAnimatePropertyRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexAnimatePropertyRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

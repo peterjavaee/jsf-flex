@@ -64,7 +64,7 @@ public final class FlexEmailValidatorRenderer extends AbstractFlexValidatorTempl
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexEmailValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexEmailValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexEmailValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

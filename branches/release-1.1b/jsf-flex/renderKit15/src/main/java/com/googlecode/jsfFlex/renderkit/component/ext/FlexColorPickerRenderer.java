@@ -110,7 +110,7 @@ public final class FlexColorPickerRenderer extends AbstractFlexComboBaseTemplate
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexColorPickerRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexColorPickerRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexColorPickerRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

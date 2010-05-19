@@ -57,7 +57,7 @@ public final class FlexWipeUpRenderer extends AbstractFlexMaskEffectTemplateRend
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexWipeUpRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexWipeUpRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexWipeUpRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

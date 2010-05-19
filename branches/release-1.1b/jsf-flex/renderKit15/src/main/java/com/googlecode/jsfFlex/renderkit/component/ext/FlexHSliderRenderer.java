@@ -69,7 +69,7 @@ public final class FlexHSliderRenderer extends AbstractFlexSliderTemplateRendere
 		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.createPreMxml(componentFlex, FlexHSliderRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexHSliderRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

@@ -6,13 +6,14 @@
 
 <!-- =========== FULL CONFIGURATION FILE ================================== -->
 <faces-config>
-  <!-- Below application config is for Facelet support -->
+  <!-- Below application config is for Facelet support 
   <application>
     <locale-config>
       <default-locale>en</default-locale>
     </locale-config>
 	<view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
   </application>
+  -->
   
   <!-- managed bean for flex -->
   <managed-bean>

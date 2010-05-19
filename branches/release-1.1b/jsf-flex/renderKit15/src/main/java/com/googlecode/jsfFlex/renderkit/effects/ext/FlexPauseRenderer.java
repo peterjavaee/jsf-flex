@@ -57,7 +57,7 @@ public final class FlexPauseRenderer extends AbstractFlexTweenEffectTemplateRend
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexPauseRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexPauseRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexPauseRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

@@ -83,7 +83,7 @@ public final class FlexRichTextEditorRenderer extends AbstractFlexPanelTemplateR
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexRichTextEditorRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexRichTextEditorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexRichTextEditorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

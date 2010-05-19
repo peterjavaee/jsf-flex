@@ -66,8 +66,7 @@ public final class FlexHorizontalListRenderer extends AbstractFlexListBaseTempla
 		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.createPreMxml(componentFlex, FlexHorizontalListRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
-				null);
+        writer.createPreMxml(componentFlex, FlexHorizontalListRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), null);
 		
 	}
 

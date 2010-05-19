@@ -57,7 +57,7 @@ public final class FlexSequenceRenderer extends AbstractFlexEffectTemplateRender
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexSequenceRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexSequenceRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexSequenceRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

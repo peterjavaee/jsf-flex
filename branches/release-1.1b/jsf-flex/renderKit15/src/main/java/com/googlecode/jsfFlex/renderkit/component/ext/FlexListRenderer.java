@@ -66,7 +66,7 @@ public final class FlexListRenderer extends AbstractFlexListTemplateRenderer {
 		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.createPreMxml(componentFlex, FlexListRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), null);
+		writer.createPreMxml(componentFlex, FlexListRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), null);
 		
 	}
 

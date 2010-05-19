@@ -53,7 +53,7 @@ public final class FlexPopUpButtonRenderer extends AbstractFlexPopUpButtonTempla
 		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.createPreMxml(componentFlex, FlexPopUpButtonRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexPopUpButtonRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

@@ -64,7 +64,7 @@ public final class FlexZipCodeValidatorRenderer extends AbstractFlexValidatorTem
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexZipCodeValidatorRenderer.class, componentObj, null);
 		writer.createPreMxml(componentFlex, 
-				FlexZipCodeValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+				FlexZipCodeValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

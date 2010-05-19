@@ -73,7 +73,7 @@ public final class FlexCurrencyValidatorRenderer extends AbstractFlexValidatorTe
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexCurrencyValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexCurrencyValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexCurrencyValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

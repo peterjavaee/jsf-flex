@@ -59,7 +59,7 @@ public final class FlexSetPropertyActionRenderer extends AbstractFlexEffectTempl
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexSetPropertyActionRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexSetPropertyActionRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexSetPropertyActionRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

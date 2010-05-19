@@ -93,7 +93,7 @@ public final class FlexVideoDisplayRenderer extends AbstractFlexComponentRendere
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexVideoDisplayRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexVideoDisplayRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexVideoDisplayRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

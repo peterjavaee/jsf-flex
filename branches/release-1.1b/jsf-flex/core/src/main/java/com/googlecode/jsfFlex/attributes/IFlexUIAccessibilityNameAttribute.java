@@ -16,30 +16,16 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.renderkit.annotation;
+package com.googlecode.jsfFlex.attributes;
 
-import java.lang.annotation.Documented;
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 
 /**
  * @author Ji Hoon Kim
  */
-@Documented
-@Target(ElementType.TYPE)
-@Retention(RetentionPolicy.RUNTIME)
-public @interface IJsfFlexAttributeProperties {
-	
-	IJsfFlexAttribute[] jsfFlexAttributes();
-	
-	IFlexComponentNodeAttribute[] componentNodeAttributes();
-	
-	String componentPackage() default "";
-	
-	String componentName() default "";
+@JSFJspProperty(name="accessibilityName", returnType="java.lang.String", longDesc="A convenience accessor for the name property in this UIComponent's accessibilityProperties object.")
+@JSFComponent
+public interface IFlexUIAccessibilityNameAttribute {
     
-    String componentNameSpace() default "mx";
-	
 }

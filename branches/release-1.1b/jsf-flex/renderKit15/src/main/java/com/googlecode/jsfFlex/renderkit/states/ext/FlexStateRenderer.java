@@ -60,7 +60,7 @@ public final class FlexStateRenderer extends AbstractFlexComponentBaseRenderer {
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexStateRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexStateRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexStateRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

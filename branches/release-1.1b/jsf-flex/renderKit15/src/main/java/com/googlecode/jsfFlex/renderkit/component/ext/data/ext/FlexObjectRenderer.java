@@ -36,7 +36,7 @@ import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
-import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
+import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
 
 /**
  * @author Ji Hoon Kim
@@ -92,7 +92,7 @@ public final class FlexObjectRenderer extends AbstractFlexComponentBaseRenderer 
 			
 		}
 		
-		writer.createPreMxml(componentFlex, FlexObjectRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexObjectRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				bodyContent);
 		
 		super.encodeEnd(context, componentObj);

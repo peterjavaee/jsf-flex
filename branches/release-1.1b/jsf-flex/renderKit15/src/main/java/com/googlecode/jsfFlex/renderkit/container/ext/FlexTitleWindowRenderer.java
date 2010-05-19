@@ -57,7 +57,7 @@ public final class FlexTitleWindowRenderer extends AbstractFlexPanelTemplateRend
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexTitleWindowRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexTitleWindowRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexTitleWindowRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

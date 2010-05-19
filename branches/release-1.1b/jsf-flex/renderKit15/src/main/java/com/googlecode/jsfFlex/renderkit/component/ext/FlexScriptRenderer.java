@@ -64,7 +64,7 @@ public final class FlexScriptRenderer extends AbstractFlexComponentBaseRenderer 
 		
 		String bodyContent = writer.getComponentTemplate(FlexScriptRenderer.class.getClassLoader(), FLEX_SCRIPT_BODY_TEMPLATE);
 
-		writer.createPreMxml(componentFlex, FlexScriptRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexScriptRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				bodyContent);
 		
 	}

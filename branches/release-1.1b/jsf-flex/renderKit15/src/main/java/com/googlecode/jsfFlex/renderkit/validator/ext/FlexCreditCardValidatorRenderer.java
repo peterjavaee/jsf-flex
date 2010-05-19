@@ -69,7 +69,7 @@ public final class FlexCreditCardValidatorRenderer extends AbstractFlexValidator
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexCreditCardValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexCreditCardValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexCreditCardValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

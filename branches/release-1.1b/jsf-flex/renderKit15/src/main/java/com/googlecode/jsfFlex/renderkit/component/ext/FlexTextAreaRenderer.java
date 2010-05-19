@@ -97,7 +97,7 @@ public final class FlexTextAreaRenderer extends AbstractFlexScrollControlTemplat
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexTextAreaRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexTextAreaRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexTextAreaRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

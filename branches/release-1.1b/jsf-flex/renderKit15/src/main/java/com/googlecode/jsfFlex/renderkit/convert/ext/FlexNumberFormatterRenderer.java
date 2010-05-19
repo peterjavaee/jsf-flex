@@ -64,7 +64,7 @@ public final class FlexNumberFormatterRenderer extends AbstractFlexFormatterTemp
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexNumberFormatterRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexNumberFormatterRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexNumberFormatterRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

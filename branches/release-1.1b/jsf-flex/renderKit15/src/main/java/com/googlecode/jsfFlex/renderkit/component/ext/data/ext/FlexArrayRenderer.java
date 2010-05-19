@@ -77,7 +77,7 @@ public final class FlexArrayRenderer extends AbstractFlexComponentBaseRenderer {
 			
 		}
 		
-		writer.createPreMxml(componentFlex, FlexArrayRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexArrayRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				bodyContent);
 		
 		super.encodeEnd(context, componentObj);

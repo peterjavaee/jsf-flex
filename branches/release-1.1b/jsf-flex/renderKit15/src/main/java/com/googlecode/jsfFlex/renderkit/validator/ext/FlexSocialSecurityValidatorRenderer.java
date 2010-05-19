@@ -60,7 +60,7 @@ public final class FlexSocialSecurityValidatorRenderer extends AbstractFlexValid
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexSocialSecurityValidatorRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexSocialSecurityValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexSocialSecurityValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

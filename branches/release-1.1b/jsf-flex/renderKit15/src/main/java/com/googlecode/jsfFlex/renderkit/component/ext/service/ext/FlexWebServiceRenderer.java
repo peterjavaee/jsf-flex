@@ -66,7 +66,7 @@ public final class FlexWebServiceRenderer extends AbstractFlexComponentBaseRende
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexWebServiceRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexWebServiceRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexWebServiceRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

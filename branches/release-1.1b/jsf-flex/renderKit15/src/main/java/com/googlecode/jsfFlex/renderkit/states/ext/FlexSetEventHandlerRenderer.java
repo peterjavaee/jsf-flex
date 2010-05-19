@@ -61,7 +61,7 @@ public final class FlexSetEventHandlerRenderer extends AbstractFlexComponentBase
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexSetEventHandlerRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexSetEventHandlerRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexSetEventHandlerRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

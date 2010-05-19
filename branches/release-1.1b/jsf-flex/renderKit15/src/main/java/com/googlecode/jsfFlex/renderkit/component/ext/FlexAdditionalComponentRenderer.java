@@ -19,6 +19,9 @@
 package com.googlecode.jsfFlex.renderkit.component.ext;
 
 import java.io.IOException;
+import java.lang.annotation.Annotation;
+import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 import javax.faces.component.UIComponent;
@@ -32,9 +35,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.component.ext.AbstractFlexUIAdditionalComponent;
+import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
-import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
+import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
 
 /**
  * @author Ji Hoon Kim
@@ -47,6 +53,9 @@ import com.googlecode.jsfFlex.shared.beans.tokenValue.TokenValue;
 public final class FlexAdditionalComponentRenderer extends AbstractFlexComponentBaseRenderer {
     
     private final static Log _log = LogFactory.getLog(FlexAdditionalComponentRenderer.class);
+    
+    private static final IFlexComponentNodeAttribute[] FLEX_COMPONENT_NODE_ATTRIBUTE_ARRAY = new IFlexComponentNodeAttribute[0];
+    private static final IJsfFlexAttribute[] JSF_FLEX_ATTRIBUTE_ARRAY = new IJsfFlexAttribute[0];
     
     /* 
      * Have to take care of attributes in a form of a HACK. So will fetch the corresponding component's attributes from a Map<br>
@@ -90,7 +99,47 @@ public final class FlexAdditionalComponentRenderer extends AbstractFlexComponent
             }
         }
         
-        writer.createPreMxml(additionalComponent, additionalComponent.getComponentName(), null);
+        final String componentName = additionalComponent.getComponentName();
+        final String componentNameSpace = additionalComponent.getComponentNameSpace();
+        
+        
+        
+        IJsfFlexAttributeProperties jsfFlexAttributeProperties = new IJsfFlexAttributeProperties(){
+            
+            /*
+             * TODO:
+             *  Allow users to provide values for componentNodeAttributes, which will be read during 
+             *  Runtime time NOT Build time to create componentValueMapper.xml. In another words, 
+             *  allow user to map the values back to the bean for custom components.
+             */
+            
+            public String componentName() {
+                return componentName;
+            }
+            
+            public String componentNameSpace() {
+                return componentNameSpace;
+            }
+            
+            public IFlexComponentNodeAttribute[] componentNodeAttributes() {
+                return FLEX_COMPONENT_NODE_ATTRIBUTE_ARRAY;
+            }
+            
+            public String componentPackage() {
+                return null;
+            }
+            
+            public IJsfFlexAttribute[] jsfFlexAttributes() {
+                return JSF_FLEX_ATTRIBUTE_ARRAY;
+            }
+            
+            public Class<? extends Annotation> annotationType() {
+                return IJsfFlexAttributeProperties.class;
+            }
+            
+        };
+        
+        writer.createPreMxml(additionalComponent, jsfFlexAttributeProperties, null);
         
     }
     

@@ -60,7 +60,7 @@ public final class FlexPhoneFormatterRenderer extends AbstractFlexFormatterTempl
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexPhoneFormatterRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexPhoneFormatterRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexPhoneFormatterRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

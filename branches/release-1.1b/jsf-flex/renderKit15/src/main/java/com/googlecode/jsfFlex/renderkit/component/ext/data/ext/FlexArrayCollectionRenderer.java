@@ -57,7 +57,7 @@ public final class FlexArrayCollectionRenderer extends AbstractFlexListCollectio
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexArrayCollectionRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexArrayCollectionRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexArrayCollectionRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

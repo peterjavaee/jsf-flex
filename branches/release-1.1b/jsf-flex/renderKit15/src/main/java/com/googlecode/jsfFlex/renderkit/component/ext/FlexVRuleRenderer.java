@@ -59,7 +59,7 @@ public final class FlexVRuleRenderer extends AbstractFlexComponentRenderer {
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexVRuleRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexVRuleRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexVRuleRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

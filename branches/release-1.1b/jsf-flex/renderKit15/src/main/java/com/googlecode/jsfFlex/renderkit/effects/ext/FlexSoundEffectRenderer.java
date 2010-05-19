@@ -72,7 +72,7 @@ public final class FlexSoundEffectRenderer extends AbstractFlexEffectTemplateRen
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexSoundEffectRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexSoundEffectRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexSoundEffectRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

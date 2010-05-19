@@ -62,7 +62,7 @@ public final class FlexAddChildRenderer extends AbstractFlexComponentBaseRendere
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexAddChildRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexAddChildRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexAddChildRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

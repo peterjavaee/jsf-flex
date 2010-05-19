@@ -99,7 +99,7 @@ public final class FlexDataGridColumnRenderer extends AbstractFlexComponentBaseR
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexDataGridColumnRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexDataGridColumnRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexDataGridColumnRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

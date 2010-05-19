@@ -57,7 +57,7 @@ public final class FlexDateFormatterRenderer extends AbstractFlexFormatterTempla
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexDateFormatterRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexDateFormatterRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexDateFormatterRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

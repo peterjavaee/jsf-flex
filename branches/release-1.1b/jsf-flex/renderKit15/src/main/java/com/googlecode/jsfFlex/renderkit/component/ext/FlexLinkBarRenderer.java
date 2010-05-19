@@ -64,7 +64,7 @@ public final class FlexLinkBarRenderer extends AbstractFlexNavBarTemplateRendere
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexLinkBarRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexLinkBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexLinkBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

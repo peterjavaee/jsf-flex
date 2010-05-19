@@ -58,7 +58,7 @@ public final class FlexRemoveChildRenderer extends AbstractFlexComponentBaseRend
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexRemoveChildRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexRemoveChildRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexRemoveChildRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

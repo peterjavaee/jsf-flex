@@ -61,7 +61,7 @@ public final class FlexRotateRenderer extends AbstractFlexTweenEffectTemplateRen
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexRotateRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexRotateRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexRotateRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

@@ -60,7 +60,7 @@ public final class FlexTransitionRenderer extends AbstractFlexComponentBaseRende
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexTransitionRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexTransitionRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexTransitionRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

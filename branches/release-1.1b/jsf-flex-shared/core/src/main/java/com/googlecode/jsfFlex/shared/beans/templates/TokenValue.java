@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.shared.beans.tokenValue;
+package com.googlecode.jsfFlex.shared.beans.templates;
 
 /**
  * @author Ji Hoon Kim

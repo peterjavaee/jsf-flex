@@ -146,7 +146,7 @@ public final class FlexDateChooserRenderer extends AbstractFlexComponentRenderer
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexDateChooserRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexDateChooserRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexDateChooserRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

@@ -64,7 +64,7 @@ public final class FlexResizeRenderer extends AbstractFlexTweenEffectTemplateRen
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
         writer.mapFields(FlexResizeRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexResizeRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+        writer.createPreMxml(componentFlex, FlexResizeRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

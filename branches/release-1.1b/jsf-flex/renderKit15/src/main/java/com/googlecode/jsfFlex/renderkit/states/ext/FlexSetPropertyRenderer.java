@@ -60,7 +60,7 @@ public final class FlexSetPropertyRenderer extends AbstractFlexComponentBaseRend
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.mapFields(FlexSetPropertyRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexSetPropertyRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class).componentName(), 
+		writer.createPreMxml(componentFlex, FlexSetPropertyRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}
