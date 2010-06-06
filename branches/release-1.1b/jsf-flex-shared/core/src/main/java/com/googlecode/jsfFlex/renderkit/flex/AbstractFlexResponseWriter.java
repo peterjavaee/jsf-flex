@@ -31,7 +31,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.CountDownLatch;
 
-import javax.faces.context.ResponseWriter;
+import javax.faces.context.ResponseWriterWrapper;
 
 import com.googlecode.jsfFlex.renderkit.FlexRendererBase;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
@@ -50,7 +50,7 @@ import com.googlecode.jsfFlex.shared.util.FlexConstants;
 /**
  * @author Ji Hoon Kim
  */
-public abstract class AbstractFlexResponseWriter extends ResponseWriter {
+public abstract class AbstractFlexResponseWriter extends ResponseWriterWrapper {
     
     private final static String EXTERNAL_LIBRARY_PATH_COLLECTION_ERROR = "Paths for External Libary SWC files must be absolute.";
     

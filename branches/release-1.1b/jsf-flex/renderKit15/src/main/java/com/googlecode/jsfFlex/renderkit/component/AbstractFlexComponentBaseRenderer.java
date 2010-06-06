@@ -33,7 +33,7 @@ import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
  */
 public abstract class AbstractFlexComponentBaseRenderer extends FlexRendererBase {
 	
-	@Override
+    @Override
 	public void encodeEnd(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeEnd(context, componentObj);
 		
@@ -43,6 +43,7 @@ public abstract class AbstractFlexComponentBaseRenderer extends FlexRendererBase
 		}
 		
 		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
+        
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		
 		writer.getFlexTaskRunner().writeBodyContent(componentFlex);

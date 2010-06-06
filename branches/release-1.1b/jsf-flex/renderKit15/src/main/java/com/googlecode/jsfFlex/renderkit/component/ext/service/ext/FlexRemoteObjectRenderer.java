@@ -35,7 +35,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="Flex_BASIC",
+		renderKitId="FLEX_BASIC",
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexRemoteObject"
 )
