@@ -96,8 +96,13 @@ public abstract class AbstractFlexUIApplication
 	private static final String INITIALIZE_ATTR = "initialize";
 	
 	private static final String MX_XMLNS = "xmlns:mx";
+    private static final String S_XMLNS = "xmlns:s";
+    private static final String FX_XMLNS = "xmlns:fx";
     private static final String XMLNS_PREFIX = "xmlns:";
-	private static final String MX_DEFAULT_XMLNS_URL = "http://www.adobe.com/2006/mxml";
+	private static final String MX_DEFAULT_XMLNS_URL = "library://ns.adobe.com/flex/mx";
+    private static final String S_DEFAULT_XMLNS_URL = "library://ns.adobe.com/flex/spark";
+    private static final String FX_DEFAULT_XMLNS_URL = "http://ns.adobe.com/mxml/2009";
+    
     private static final String INITIALIZE_CALL = "initializeApp(event);";
 	
     private AbstractAnnotationDocletParser _annotationDocletParserInstance;
@@ -133,6 +138,8 @@ public abstract class AbstractFlexUIApplication
 		
         Map<String, String> xmlnsMap = getXmlnsMap();
         xmlnsMap.put(MX_XMLNS, MX_DEFAULT_XMLNS_URL);
+        xmlnsMap.put(S_XMLNS, S_DEFAULT_XMLNS_URL);
+        xmlnsMap.put(FX_XMLNS, FX_DEFAULT_XMLNS_URL);
         
         if(getProvidedAdditionalXmlnsMap() != null){
             Map<String, String> providedAdditionalXmlnsMap = getProvidedAdditionalXmlnsMap();

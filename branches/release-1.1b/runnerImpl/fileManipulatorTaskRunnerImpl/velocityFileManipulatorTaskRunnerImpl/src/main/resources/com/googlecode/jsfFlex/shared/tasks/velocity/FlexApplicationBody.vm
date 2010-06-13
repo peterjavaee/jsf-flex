@@ -1,4 +1,4 @@
-<mx:Script>
+<fx:Script>
 		<![CDATA[
 		
 		import com.googlecode.jsfFlex.communication.core.ComponentValueMapper;
@@ -101,10 +101,10 @@
 		}
 		
 		]]>
-</mx:Script>
+</fx:Script>
 
 #if ( ${validationManagerScriptContent.getValidationManagerValidatorIds().size()} > 0 )
-<mx:Text id="${errorTextComponentId}" width="100%"
+<s:Text id="${errorTextComponentId}" width="100%"
 		
 		#foreach( $errorComponentAttributeContainer in ${validationManagerScriptContent.getErrorComponentAttributeContainer()} )
 			${errorComponentAttributeContainer.toTokenValueSyntax()}
