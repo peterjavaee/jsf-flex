@@ -24,35 +24,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface IFlexUIBaseAttributes
-                    extends IFlexUIHeightAttribute, IFlexUIStyleNameAttribute, IFlexUIWidthAttribute,
-                    IFlexUIXAttribute, IFlexUIYAttribute, IFlexUIBottomAttribute, IFlexUIErrorColorAttribute,
-                    IFlexUILeftAttribute, IFlexUIRightAttribute, IFlexUIThemeColorAttribute, IFlexUITopAttribute,
-                    IFlexUICreationCompleteEffectAttribute, IFlexUIFocusInEffectAttribute, IFlexUIFocusOutEffectAttribute,
-                    IFlexUIMouseDownEffectAttribute, IFlexUIMouseUpEffectAttribute, IFlexUIMoveEffectAttribute,
-                    IFlexUICreationCompleteAttribute, IFlexUIDragCompleteAttribute, IFlexUIDragDropAttribute,
-                    IFlexUIDragEnterAttribute, IFlexUIDragExitAttribute, IFlexUIDragOverAttribute,
-                    IFlexUIAddedEffectAttribute, IFlexUIHideEffectAttribute, IFlexUIRemovedEffectAttribute,
-                    IFlexUIResizeEffectAttribute, IFlexUIRollOutEffectAttribute, IFlexUIRollOverEffectAttribute,
-                    IFlexUIShowEffectAttribute, IFlexUIAddAttribute, IFlexUICurrentStateChangeAttribute, IFlexUICurrentStateChangingAttribute,
-                    IFlexUIEffectEndAttribute, IFlexUIEffectStartAttribute, IFlexUIEnterStateAttribute,
-                    IFlexUIExitStateAttribute, IFlexUIHideAttribute, IFlexUIInitializeAttribute, IFlexUIInvalidAttribute,
-                    IFlexUIMouseDownOutsideAttribute, IFlexUIMouseWheelOutsideAttribute, IFlexUIMoveAttribute,
-                    IFlexUIPreinitializeAttribute, IFlexUIRecordAttribute, IFlexUIRemoveAttribute, IFlexUIShowAttribute,
-                    IFlexUIResizeAttribute, IFlexUIToolTipCreateAttribute, IFlexUIToolTipEndAttribute, 
-                    IFlexUIToolTipHideAttribute, IFlexUIToolTipShowAttribute, IFlexUIToolTipShownAttribute,
-                    IFlexUIToolTipStartAttribute, IFlexUIUpdateCompleteAttribute, IFlexUIValidAttribute,
-                    IFlexUIValueCommitAttribute, IFlexUIFocusBlendModeAttribute, IFlexUIFocusSkinAttribute, 
-                    IFlexUIFocusThicknessAttribute, IFlexUIHorizontalCenterAttribute, IFlexUIVerticalCenterAttribute,  
-                    IFlexUIAutomationNameAttribute, IFlexUICachePolicyAttribute, IFlexUICurrentStateAttribute, 
-                    IFlexUIDoubleClickEnabledAttribute, IFlexUIEnabledAttribute, IFlexUIExplicitHeightAttribute,
-                    IFlexUIExplicitMaxHeightAttribute, IFlexUIExplicitMaxWidthAttribute, IFlexUIExplicitMinHeightAttribute,
-                    IFlexUIExplicitMinWidthAttribute, IFlexUIExplicitWidthAttribute, IFlexUIFocusEnabledAttribute,
-                    IFlexUIIncludeInLayoutAttribute, IFlexUIMaxHeightAttribute, IFlexUIMaxWidthAttribute,
-                    IFlexUIMeasuredHeightAttribute, IFlexUIMeasuredMinHeightAttribute, IFlexUIMeasuredMinWidthAttribute,
-                    IFlexUIMeasuredWidthAttribute, IFlexUIMinHeightAttribute, IFlexUIMinWidthAttribute,
-                    IFlexUIMouseFocusEnabledAttribute, IFlexUIPercentHeightAttribute, IFlexUIPercentWidthAttribute,
-                    IFlexUIScaleXAttribute, IFlexUIScaleYAttribute, IFlexUIStatesAttribute, IFlexUIToolTipAttribute,
-                    IFlexUITransitionsAttribute, IFlexUIValidationSubFieldAttribute {
+public interface IFlexUIBaseAttributes {
 	
 }

@@ -19,13 +19,20 @@
 package com.googlecode.jsfFlex.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFJspProperty(name="creationPolicy", returnType="java.lang.String", longDesc="The creation policy for this child.")
 @JSFComponent
 public interface IFlexUICreationPolicyAttribute {
+    
+    /**
+     * The creation policy for this child.
+     */
+    @JSFProperty(desc   =   "The creation policy for this child.")
+    String getCreationPolicy();
+    
+    void setCreationPolicy(String creationPolicy);
     
 }
