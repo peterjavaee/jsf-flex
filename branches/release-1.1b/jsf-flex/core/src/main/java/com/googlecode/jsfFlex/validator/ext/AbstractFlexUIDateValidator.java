@@ -20,24 +20,7 @@ package com.googlecode.jsfFlex.validator.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIAllowedFormatCharsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDayListenerAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDayPropertyAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDaySourceAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFormatErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIInputFormatAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIInvalidCharErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIMonthListenerAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIMonthPropertyAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIMonthSourceAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIValidateAsStringAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIWrongDayErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIWrongLengthErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIWrongMonthErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIWrongYearErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIYearListenerAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIYearPropertyAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIYearSourceAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -57,12 +40,6 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUIDateValidator 
 						extends AbstractFlexUISimpleBase 
-						implements IFlexUIValidatorAttributes, IFlexUIAllowedFormatCharsAttribute, IFlexUIDayListenerAttribute, 
-                        IFlexUIDayPropertyAttribute, IFlexUIDaySourceAttribute, IFlexUIFormatErrorAttribute, 
-                        IFlexUIInputFormatAttribute, IFlexUIInvalidCharErrorAttribute, IFlexUIMonthListenerAttribute, 
-                        IFlexUIMonthPropertyAttribute, IFlexUIMonthSourceAttribute, IFlexUIValidateAsStringAttribute, 
-                        IFlexUIWrongDayErrorAttribute, IFlexUIWrongLengthErrorAttribute, IFlexUIWrongMonthErrorAttribute, 
-                        IFlexUIWrongYearErrorAttribute, IFlexUIYearListenerAttribute, IFlexUIYearPropertyAttribute, 
-                        IFlexUIYearSourceAttribute {
+						implements IFlexUIBaseAttributes {
 	
 }

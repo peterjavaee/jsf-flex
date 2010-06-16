@@ -20,7 +20,7 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIDataTipPlacementAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUIValueBase;
 
 /**
@@ -37,6 +37,6 @@ import com.googlecode.jsfFlex.component.AbstractFlexUIValueBase;
 )
 public abstract class AbstractFlexUIHSlider 
 						extends AbstractFlexUIValueBase
-						implements IFlexUISliderAttributes, IFlexUIDataTipPlacementAttribute {
+						implements IFlexUIBaseAttributes {
 	
 }

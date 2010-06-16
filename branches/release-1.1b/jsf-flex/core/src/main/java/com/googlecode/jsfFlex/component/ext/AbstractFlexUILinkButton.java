@@ -22,6 +22,7 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUICommandBase;
 import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
 import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
@@ -39,7 +40,7 @@ import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
 )
 public abstract class AbstractFlexUILinkButton 
 						extends AbstractFlexUICommandBase 
-						implements IFlexUIButtonAttributes {
+						implements IFlexUIBaseAttributes {
 
     private static final String EVENT_HANDLER_EVENT_NAME = "buttonDown";
     

@@ -32,49 +32,9 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUIDataFieldAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDataTipFieldAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDataTipFunctionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDisabledColorAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIEditorDataFieldAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIEditorHeightOffsetAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIEditorUsesEnterKeyAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIEditorWidthOffsetAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIEditorXOffsetAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIEditorYOffsetAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontAntiAliasTypeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontGridFitTypeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontSharpnessAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontSizeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontStyleAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontThicknessAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontWeightAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHeaderRendererAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHeaderStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHeaderTextAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHeaderWordWrapAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIImeModeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIItemEditorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIItemRendererAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUILabelFunctionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIMinWidthAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPaddingLeftAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPaddingRightAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIRendererIsEditorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIResizableAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIShowDataTipsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISortCompareFunctionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISortDescendingAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISortableAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextAlignAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextDecorationAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextIndentAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIVisibleAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIWordWrapAttribute;
 import com.googlecode.jsfFlex.component.AbstractFlexUIInputBase;
 import com.googlecode.jsfFlex.shared.util.ReflectionHelperUtil;
 
@@ -91,20 +51,7 @@ import com.googlecode.jsfFlex.shared.util.ReflectionHelperUtil;
 )
 public abstract class AbstractFlexUIDataGridColumn 
                         extends AbstractFlexUIInputBase 
-                        implements IFlexUIDataFieldAttribute, IFlexUIDataTipFieldAttribute, IFlexUIDataTipFunctionAttribute, 
-                        IFlexUIEditableAttribute, IFlexUIEditorDataFieldAttribute, IFlexUIEditorHeightOffsetAttribute, 
-                        IFlexUIEditorUsesEnterKeyAttribute, IFlexUIEditorWidthOffsetAttribute, IFlexUIEditorXOffsetAttribute, 
-                        IFlexUIEditorYOffsetAttribute, IFlexUIHeaderRendererAttribute, IFlexUIHeaderTextAttribute, 
-                        IFlexUIHeaderWordWrapAttribute, IFlexUIImeModeAttribute, IFlexUIItemEditorAttribute, 
-                        IFlexUIItemRendererAttribute, IFlexUILabelFunctionAttribute, IFlexUIMinWidthAttribute, 
-                        IFlexUIRendererIsEditorAttribute, IFlexUIResizableAttribute, IFlexUIShowDataTipsAttribute, 
-                        IFlexUISortableAttribute, IFlexUISortCompareFunctionAttribute, IFlexUISortDescendingAttribute, 
-                        IFlexUIVisibleAttribute, IFlexUIWordWrapAttribute, IFlexUIBackgroundColorAttribute, IFlexUIColorAttribute, 
-                        IFlexUIDisabledColorAttribute, IFlexUIFontAntiAliasTypeAttribute, IFlexUIFontFamilyAttribute, 
-                        IFlexUIFontGridFitTypeAttribute, IFlexUIFontSharpnessAttribute, IFlexUIFontSizeAttribute, 
-                        IFlexUIFontStyleAttribute, IFlexUIFontThicknessAttribute, IFlexUIFontWeightAttribute, 
-                        IFlexUIHeaderStyleNameAttribute, IFlexUIPaddingLeftAttribute, IFlexUIPaddingRightAttribute, 
-                        IFlexUITextAlignAttribute, IFlexUITextDecorationAttribute, IFlexUITextIndentAttribute {
+                        implements IFlexUIBaseAttributes, IFlexUIDataFieldAttribute, IFlexUIEditableAttribute {
     
     private final static Log _log = LogFactory.getLog(AbstractFlexUIDataGridColumn.class);
     

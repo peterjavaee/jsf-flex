@@ -20,13 +20,7 @@ package com.googlecode.jsfFlex.validator.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIAllowedFormatCharsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDomainAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIInvalidCharErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIInvalidDomainErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIWrongCAFormatErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIWrongLengthErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIWrongUSFormatErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -46,8 +40,6 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUIZipCodeValidator 
 						extends AbstractFlexUISimpleBase 
-						implements IFlexUIValidatorAttributes, IFlexUIAllowedFormatCharsAttribute, IFlexUIDomainAttribute, 
-                        IFlexUIInvalidCharErrorAttribute, IFlexUIInvalidDomainErrorAttribute, IFlexUIWrongCAFormatErrorAttribute, 
-                        IFlexUIWrongLengthErrorAttribute, IFlexUIWrongUSFormatErrorAttribute {
+						implements IFlexUIBaseAttributes {
 	
 }

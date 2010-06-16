@@ -21,10 +21,7 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIBlurXFromAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIBlurXToAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIBlurYFromAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIBlurYToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -40,8 +37,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUIBlur 
                             extends AbstractFlexUISimpleBase 
-                            implements IFlexUIEffectAttributes, IFlexUIBlurXFromAttribute, IFlexUIBlurXToAttribute,
-                            IFlexUIBlurYFromAttribute, IFlexUIBlurYToAttribute {
+                            implements IFlexUIBaseAttributes {
     
     /**
      * Id of the component.

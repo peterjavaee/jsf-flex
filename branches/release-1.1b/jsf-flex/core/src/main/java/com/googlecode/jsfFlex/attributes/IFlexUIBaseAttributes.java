@@ -24,6 +24,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
  * @author Ji Hoon Kim
  */
 @JSFComponent
-public interface IFlexUIBaseAttributes {
+public interface IFlexUIBaseAttributes 
+                    extends IFlexUIComponentAttributesAttribute, IFlexUIComponentAttributesJSONFormatAttribute {
 	
 }

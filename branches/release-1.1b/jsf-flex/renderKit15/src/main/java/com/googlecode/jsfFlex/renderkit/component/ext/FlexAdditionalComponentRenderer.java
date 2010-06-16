@@ -20,8 +20,6 @@ package com.googlecode.jsfFlex.renderkit.component.ext;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;
-import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 
 import javax.faces.component.UIComponent;
@@ -41,6 +39,7 @@ import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
+import com.googlecode.jsfFlex.shared.util.JSONConverter;
 
 /**
  * @author Ji Hoon Kim
@@ -81,21 +80,17 @@ public final class FlexAdditionalComponentRenderer extends AbstractFlexComponent
         
         String componentAttributesJSONFormat = additionalComponent.getComponentAttributesJSONFormat();
         if(componentAttributesJSONFormat != null && componentAttributesJSONFormat.trim().length() > 0){
-            try{
-                JSONObject parsedJSONObject = new JSONObject(componentAttributesJSONFormat);
-                JSONArray attributeName = parsedJSONObject.names();
+            JSONObject parsedJSONObject = JSONConverter.parseStringToJSONObject(componentAttributesJSONFormat);
+            JSONArray attributeName = parsedJSONObject.names();
+            
+            for(int i=0; i < attributeName.length(); i++){
+                String currKey = attributeName.get(i).toString();
+                String currValue = parsedJSONObject.getString(currKey);
                 
-                for(int i=0; i < attributeName.length(); i++){
-                    String currKey = attributeName.get(i).toString();
-                    String currValue = parsedJSONObject.getString(currKey);
-                    
-                    if(currValue != null){
-                        //HACK for the special component
-                        additionalComponent.getAnnotationDocletParserInstance().getTokenValueSet().add(new TokenValue(currKey, currValue.toString()));
-                    }
+                if(currValue != null){
+                    //HACK for the special component
+                    additionalComponent.getAnnotationDocletParserInstance().getTokenValueSet().add(new TokenValue(currKey, currValue.toString()));
                 }
-            }catch(JSONException jsonException){
-                _log.warn("JSONException thrown while parsing of " + componentAttributesJSONFormat);
             }
         }
         

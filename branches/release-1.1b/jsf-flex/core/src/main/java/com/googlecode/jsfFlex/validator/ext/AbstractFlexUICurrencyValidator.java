@@ -20,23 +20,7 @@ package com.googlecode.jsfFlex.validator.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIAlignSymbolAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIAllowNegativeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUICurrencySymbolAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUICurrencySymbolErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDecimalPointCountErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDecimalSeparatorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIExceedsMaxErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIInvalidCharErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIInvalidFormatCharsErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUILowerThanMinErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIMaxValueAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIMinValueAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUINegativeErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPrecisionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPrecisionErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISeparationErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIThousandsSeparatorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -56,11 +40,6 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUICurrencyValidator 
 						extends AbstractFlexUISimpleBase 
-						implements IFlexUIValidatorAttributes, IFlexUIAlignSymbolAttribute, IFlexUIAllowNegativeAttribute,
-                        IFlexUICurrencySymbolAttribute, IFlexUICurrencySymbolErrorAttribute, IFlexUIDecimalPointCountErrorAttribute, 
-                        IFlexUIDecimalSeparatorAttribute, IFlexUIExceedsMaxErrorAttribute, IFlexUIInvalidCharErrorAttribute, 
-                        IFlexUIInvalidFormatCharsErrorAttribute, IFlexUILowerThanMinErrorAttribute, IFlexUIMaxValueAttribute, 
-                        IFlexUIMinValueAttribute, IFlexUINegativeErrorAttribute, IFlexUIPrecisionAttribute, 
-                        IFlexUIPrecisionErrorAttribute, IFlexUISeparationErrorAttribute, IFlexUIThousandsSeparatorAttribute{
+						implements IFlexUIBaseAttributes {
 	
 }

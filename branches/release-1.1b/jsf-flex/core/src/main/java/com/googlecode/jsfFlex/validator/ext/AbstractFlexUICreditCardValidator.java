@@ -20,19 +20,7 @@ package com.googlecode.jsfFlex.validator.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIAllowedFormatCharsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUICardNumberListenerAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUICardNumberPropertyAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUICardNumberSourceAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUICardTypeListenerAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUICardTypePropertyAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUICardTypeSourceAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIInvalidCharErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIInvalidNumberErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUINoNumErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUINoTypeErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIWrongLengthErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIWrongTypeErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -52,10 +40,6 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUICreditCardValidator 
 						extends AbstractFlexUISimpleBase 
-						implements IFlexUIValidatorAttributes, IFlexUIAllowedFormatCharsAttribute, IFlexUICardNumberListenerAttribute, 
-                        IFlexUICardNumberPropertyAttribute, IFlexUICardNumberSourceAttribute, IFlexUICardTypeListenerAttribute, 
-                        IFlexUICardTypePropertyAttribute, IFlexUICardTypeSourceAttribute, IFlexUIInvalidCharErrorAttribute, 
-                        IFlexUIInvalidNumberErrorAttribute, IFlexUINoNumErrorAttribute, IFlexUINoTypeErrorAttribute, 
-                        IFlexUIWrongLengthErrorAttribute, IFlexUIWrongTypeErrorAttribute {
+						implements IFlexUIBaseAttributes {
 	
 }

@@ -20,6 +20,8 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -34,6 +36,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
 )
 public abstract class AbstractFlexUIPopUpButton 
 							extends com.googlecode.jsfFlex.component.FlexUISelectedBase 
-							implements IFlexUIPopUpButtonAttributes {
+							implements IFlexUIBaseAttributes {
 	
 }

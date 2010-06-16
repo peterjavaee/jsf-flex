@@ -21,13 +21,7 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes.IFlexUICaptureRollEventsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIOriginXAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIOriginYAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIZoomHeightFromAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIZoomHeightToAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIZoomWidthFromAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIZoomWidthToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -43,9 +37,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUIZoom 
                                 extends AbstractFlexUISimpleBase 
-                                implements IFlexUITweenEffectAttributes, IFlexUICaptureRollEventsAttribute, IFlexUIOriginXAttribute, 
-                                IFlexUIOriginYAttribute, IFlexUIZoomWidthFromAttribute, IFlexUIZoomWidthToAttribute, 
-                                IFlexUIZoomHeightFromAttribute, IFlexUIZoomHeightToAttribute {
+                                implements IFlexUIBaseAttributes {
 
     /**
      * Id of the component.

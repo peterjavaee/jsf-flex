@@ -24,6 +24,8 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUIDirectionAttribute;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -39,13 +41,13 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUIGridRow 
                         extends AbstractFlexUISimpleBase 
-                        implements IFlexUIBoxAttributes {
+                        implements IFlexUIBaseAttributes, IFlexUIDirectionAttribute {
     
     public void encodeBegin(FacesContext context) throws IOException {
         /*
          * Grid row will have direction set to horizontal
          */
-        getAttributes().put("direction", "horizontal");
+        setDirection("horizontal");
         
         super.encodeBegin(context);
     }

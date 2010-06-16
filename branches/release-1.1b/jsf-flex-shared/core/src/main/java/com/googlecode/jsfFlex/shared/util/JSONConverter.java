@@ -40,6 +40,17 @@ public final class JSONConverter {
         super();
     }
     
+    public static JSONObject parseStringToJSONObject(String jsonString) {
+        
+        JSONObject parsedJSONObject;
+        try{
+            parsedJSONObject = new JSONObject(jsonString);
+        }catch(JSONException jsonException){
+            throw new RuntimeException("Error parsing following String to JSONObject : " + jsonString);
+        }
+        return parsedJSONObject;
+    }
+    
     @SuppressWarnings("unchecked")
     public static String convertJSONObjectToXMLString(JSONObject jsonObject) throws JSONException {
         

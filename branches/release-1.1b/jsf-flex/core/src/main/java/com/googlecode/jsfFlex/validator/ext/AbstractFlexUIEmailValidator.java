@@ -20,13 +20,7 @@ package com.googlecode.jsfFlex.validator.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIInvalidCharErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIInvalidIPDomainErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIInvalidPeriodsInDomainErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIMissingAtSignErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIMissingPeriodInDomainErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIMissingUsernameErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITooManyAtSignsErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -46,8 +40,6 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUIEmailValidator 
 						extends AbstractFlexUISimpleBase 
-						implements IFlexUIValidatorAttributes, IFlexUIInvalidCharErrorAttribute, IFlexUIInvalidIPDomainErrorAttribute, 
-                        IFlexUIInvalidPeriodsInDomainErrorAttribute, IFlexUIMissingAtSignErrorAttribute, IFlexUIMissingPeriodInDomainErrorAttribute, 
-                        IFlexUIMissingUsernameErrorAttribute, IFlexUITooManyAtSignsErrorAttribute {
+						implements IFlexUIBaseAttributes {
 	
 }

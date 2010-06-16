@@ -21,11 +21,7 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIFromValueAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIIsStyleAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPropertyAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIRoundValueAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIToValueAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -41,8 +37,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUIAnimateProperty 
                             extends AbstractFlexUISimpleBase 
-                            implements IFlexUIEffectAttributes, IFlexUIFromValueAttribute, IFlexUIIsStyleAttribute,
-                            IFlexUIPropertyAttribute, IFlexUIRoundValueAttribute, IFlexUIToValueAttribute {
+                            implements IFlexUIBaseAttributes {
 
     /**
      * Id of the component.

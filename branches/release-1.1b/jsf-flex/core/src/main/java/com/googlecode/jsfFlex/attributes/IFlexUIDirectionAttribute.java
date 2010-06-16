@@ -16,22 +16,23 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.container.ext;
+package com.googlecode.jsfFlex.attributes;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-
-import com.googlecode.jsfFlex.attributes.IFlexUIChangeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHistoryManagementEnabledAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalGapAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIResizeToContentAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIVerticalGapAttribute;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
 /**
  * @author Ji Hoon Kim
  */
 @JSFComponent
-interface IFlexUIViewStackAttributes 
-                extends IFlexUIHistoryManagementEnabledAttribute, IFlexUIResizeToContentAttribute, IFlexUIHorizontalGapAttribute, 
-                IFlexUIVerticalGapAttribute, IFlexUIChangeAttribute, IFlexUIContainerAttributes {
+public interface IFlexUIDirectionAttribute {
+    
+    /**
+     * Direction of the flow.
+     */
+    @JSFProperty(desc   =   "Direction of the flow.")
+    String getDirection();
+    
+    void setDirection(String direction);
     
 }

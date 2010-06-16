@@ -21,9 +21,8 @@ package com.googlecode.jsfFlex.states.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIBasedOnAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUINameAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIOverridesAttribute;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -39,7 +38,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUIState 
 						extends AbstractFlexUISimpleBase 
-                        implements IFlexUIBasedOnAttribute, IFlexUINameAttribute, IFlexUIOverridesAttribute {
+                        implements IFlexUIBaseAttributes, IFlexUINameAttribute {
 	
 	/**
 	 * Id of the component.

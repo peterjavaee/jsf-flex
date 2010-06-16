@@ -20,10 +20,7 @@ package com.googlecode.jsfFlex.validator.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIExpressionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFlagsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUINoExpressionErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUINoMatchErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -43,7 +40,6 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUIRegExpValidator 
 						extends AbstractFlexUISimpleBase 
-						implements IFlexUIValidatorAttributes, IFlexUIExpressionAttribute, IFlexUIFlagsAttribute,
-                        IFlexUINoExpressionErrorAttribute, IFlexUINoMatchErrorAttribute {
+						implements IFlexUIBaseAttributes {
 	
 }

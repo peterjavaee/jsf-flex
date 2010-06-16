@@ -21,9 +21,7 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIIndexAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPositionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIRelativeToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -39,8 +37,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUIAddChildAction 
                             extends AbstractFlexUISimpleBase 
-                            implements IFlexUIEffectAttributes, IFlexUIIndexAttribute, IFlexUIRelativeToAttribute, 
-                            IFlexUIPositionAttribute {
+                            implements IFlexUIBaseAttributes {
     
     /**
      * Id of the component.

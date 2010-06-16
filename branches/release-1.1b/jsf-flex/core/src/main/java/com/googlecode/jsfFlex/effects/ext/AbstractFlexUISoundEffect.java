@@ -21,21 +21,7 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIAutoLoadAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIBufferTimeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUICompleteAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIId3Attribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIIoErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUILoopsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPanEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPanFromAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIProgressAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISourceAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIStartTimeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIUseDurationAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIVolumeEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIVolumeFromAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIVolumeToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -51,11 +37,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUISoundEffect 
                                 extends AbstractFlexUISimpleBase 
-                                implements IFlexUIEffectAttributes, IFlexUIAutoLoadAttribute, IFlexUIBufferTimeAttribute, 
-                                IFlexUILoopsAttribute, IFlexUIPanEasingFunctionAttribute, IFlexUIPanFromAttribute, IFlexUISourceAttribute, 
-                                IFlexUIStartTimeAttribute, IFlexUIUseDurationAttribute, IFlexUIVolumeEasingFunctionAttribute, 
-                                IFlexUIVolumeFromAttribute, IFlexUIVolumeToAttribute, IFlexUICompleteAttribute, IFlexUIId3Attribute, 
-                                IFlexUIIoErrorAttribute, IFlexUIProgressAttribute {
+                                implements IFlexUIBaseAttributes {
 
     /**
      * Id of the component.

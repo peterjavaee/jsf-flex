@@ -20,16 +20,9 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUILinkButtonStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIRollOverColorAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUISelectedIndexAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISelectionColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISeparatorColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISeparatorSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISeparatorWidthAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextRollOverColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextSelectedColorAttribute;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -45,9 +38,6 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUILinkBar 
 						extends AbstractFlexUISimpleBase 
-						implements IFlexUINavBarAttributes, IFlexUILinkButtonStyleNameAttribute, IFlexUIRollOverColorAttribute, 
-                        IFlexUISelectionColorAttribute, IFlexUISeparatorColorAttribute, IFlexUISeparatorSkinAttribute, 
-                        IFlexUISeparatorWidthAttribute, IFlexUITextRollOverColorAttribute, IFlexUITextSelectedColorAttribute, 
-                        IFlexUIDataProviderAttribute, IFlexUISelectedIndexAttribute {
+						implements IFlexUIBaseAttributes, IFlexUIDataProviderAttribute, IFlexUISelectedIndexAttribute {
     
 }

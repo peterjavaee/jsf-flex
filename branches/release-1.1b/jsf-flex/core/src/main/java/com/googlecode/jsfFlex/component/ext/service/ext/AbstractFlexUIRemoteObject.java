@@ -21,14 +21,7 @@ package com.googlecode.jsfFlex.component.ext.service.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIConcurrencyAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDestinationAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIEndpointAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFaultAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIMakeObjectsBindableAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIResultAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIShowBusyCursorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISourceAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -44,9 +37,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUIRemoteObject 
 						extends AbstractFlexUISimpleBase 
-                        implements IFlexUIConcurrencyAttribute, IFlexUIDestinationAttribute, IFlexUIEndpointAttribute, 
-                        IFlexUIShowBusyCursorAttribute, IFlexUISourceAttribute, IFlexUIMakeObjectsBindableAttribute, 
-                        IFlexUIFaultAttribute, IFlexUIResultAttribute {
+                        implements IFlexUIBaseAttributes {
     
     /**
      * Id of the component.

@@ -33,6 +33,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUIBatchColumnDataRetrievalSizeAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIBindingBeanClassNameAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIBindingBeanListAttribute;
@@ -55,7 +56,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUIDataGrid 
                         extends AbstractFlexUISimpleBase
-                        implements IFlexUIDataGridAttributes, IFlexUIBindingBeanListAttribute, IFlexUIBindingBeanClassNameAttribute,
+                        implements IFlexUIBaseAttributes, IFlexUIBindingBeanListAttribute, IFlexUIBindingBeanClassNameAttribute,
                         IFlexUIBatchColumnDataRetrievalSizeAttribute, IFlexUIEditableAttribute, IFlexUIDataProviderAttribute, 
                         IFlexUIRowCountAttribute, IFlexUISelectedIndexAttribute {
     

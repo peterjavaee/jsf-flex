@@ -33,68 +33,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIAlternatingItemColorsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIArrowButtonWidthAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIBorderColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIBorderThicknessAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIChangeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUICloseAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUICloseDurationAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUICloseEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUICornerRadiusAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDataChangeAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderCollectionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDisabledIconColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDropDownBorderColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDropDownStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDropdownFactoryAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDropdownWidthAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIEnterAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFillAlphasAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFillColorsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontAntiAliasTypeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontGridFitTypeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontSharpnessAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontSizeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontStyleAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontThicknessAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontWeightAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHighlightAlphasAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIIconColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIItemRendererAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIItemRollOutAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIItemRollOverAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUILabelFieldAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUILabelFunctionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUILeadingAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIOpenAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIOpenDurationAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIOpenEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPaddingBottomAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPaddingLeftAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPaddingRightAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPaddingTopAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPromptAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIRollOverColorAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIRowCountAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIScrollAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUISelectedIndexAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISelectionColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISelectionDurationAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISelectionEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextAlignAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUITextAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextDecorationAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextIndentAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextRollOverColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextSelectedColorAttribute;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
 import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
@@ -116,24 +61,7 @@ import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
 )
 public abstract class AbstractFlexUIComboBox 
 						extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase
-						implements IFlexUIComboBaseAttributes, IFlexUIDropdownFactoryAttribute, IFlexUIDropdownWidthAttribute, 
-                        IFlexUIItemRendererAttribute, IFlexUILabelFieldAttribute, IFlexUILabelFunctionAttribute, 
-                        IFlexUIPromptAttribute, IFlexUIRowCountAttribute, IFlexUIAlternatingItemColorsAttribute, IFlexUIArrowButtonWidthAttribute, 
-                        IFlexUIBorderColorAttribute, IFlexUIBorderThicknessAttribute, IFlexUICloseDurationAttribute, 
-                        IFlexUICloseEasingFunctionAttribute, IFlexUIColorAttribute, IFlexUICornerRadiusAttribute, 
-                        IFlexUIDisabledColorAttribute, IFlexUIDisabledIconColorAttribute, IFlexUIDropDownBorderColorAttribute, 
-                        IFlexUIDropDownStyleNameAttribute, IFlexUIFillAlphasAttribute, IFlexUIFillColorsAttribute, IFlexUIFocusAlphaAttribute, 
-                        IFlexUIFocusRoundedCornersAttribute, IFlexUIFontAntiAliasTypeAttribute, IFlexUIFontFamilyAttribute, 
-                        IFlexUIFontGridFitTypeAttribute, IFlexUIFontSharpnessAttribute, IFlexUIFontSizeAttribute, 
-                        IFlexUIFontStyleAttribute, IFlexUIFontThicknessAttribute, IFlexUIFontWeightAttribute, 
-                        IFlexUIHighlightAlphasAttribute, IFlexUIIconColorAttribute, IFlexUILeadingAttribute, IFlexUIOpenDurationAttribute, 
-                        IFlexUIOpenEasingFunctionAttribute, IFlexUIPaddingTopAttribute, IFlexUIPaddingBottomAttribute, 
-                        IFlexUIPaddingLeftAttribute, IFlexUIPaddingRightAttribute, IFlexUIRollOverColorAttribute, 
-                        IFlexUISelectionColorAttribute, IFlexUISelectionDurationAttribute, IFlexUISelectionEasingFunctionAttribute, 
-                        IFlexUITextAlignAttribute, IFlexUITextDecorationAttribute, IFlexUITextIndentAttribute, 
-                        IFlexUITextRollOverColorAttribute, IFlexUITextSelectedColorAttribute, IFlexUIChangeAttribute, 
-                        IFlexUICloseAttribute, IFlexUIDataChangeAttribute, IFlexUIEnterAttribute, IFlexUIItemRollOutAttribute, 
-                        IFlexUIItemRollOverAttribute, IFlexUIOpenAttribute, IFlexUIScrollAttribute, IFlexUIDataProviderCollectionAttribute, 
+						implements IFlexUIBaseAttributes, IFlexUIRowCountAttribute, IFlexUIDataProviderCollectionAttribute, 
                         IFlexUIDataProviderAttribute, IFlexUIEditableAttribute, IFlexUISelectedIndexAttribute, 
                         IFlexUITextAttribute {
 	

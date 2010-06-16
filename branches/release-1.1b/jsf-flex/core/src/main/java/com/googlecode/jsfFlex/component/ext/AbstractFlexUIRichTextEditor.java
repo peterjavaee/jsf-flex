@@ -20,11 +20,8 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIDefaultLinkProtocolAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIShowControlBarAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIShowToolTipsAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUITitleAttribute;
-import com.googlecode.jsfFlex.container.ext.IFlexUIPanelAttributes;
 
 /**
  * @author Ji Hoon Kim
@@ -40,7 +37,6 @@ import com.googlecode.jsfFlex.container.ext.IFlexUIPanelAttributes;
 )
 public abstract class AbstractFlexUIRichTextEditor 
 						extends com.googlecode.jsfFlex.component.FlexUIHtmlTextInputBase 
-						implements IFlexUIPanelAttributes, IFlexUIDefaultLinkProtocolAttribute, IFlexUIShowControlBarAttribute, 
-                        IFlexUIShowToolTipsAttribute, IFlexUITitleAttribute {
+						implements IFlexUIBaseAttributes, IFlexUITitleAttribute {
 	
 }

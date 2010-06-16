@@ -20,26 +20,10 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIDataDescriptorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDefaultLeafIconAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDepthColorsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDisclosureClosedIconAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDisclosureOpenIconAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFirstVisibleItemAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFolderClosedIconAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFolderOpenIconAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIIndentationAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIItemCloseAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIItemIconsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIItemOpenAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIItemOpeningAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIOpenDurationAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIOpenEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIOpenItemsAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIRowCountAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIShowRootAttribute;
 
 /**
  * @author Ji Hoon Kim
@@ -55,12 +39,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUIShowRootAttribute;
 )
 public abstract class AbstractFlexUITree 
 						extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase
-						implements IFlexUIListAttributes, IFlexUIDataDescriptorAttribute, IFlexUIFirstVisibleItemAttribute, 
-                        IFlexUIItemIconsAttribute, IFlexUIOpenItemsAttribute, IFlexUIShowRootAttribute, IFlexUIDefaultLeafIconAttribute,
-                        IFlexUIDepthColorsAttribute, IFlexUIDisclosureClosedIconAttribute, IFlexUIDisclosureOpenIconAttribute, 
-                        IFlexUIFolderClosedIconAttribute, IFlexUIFolderOpenIconAttribute, IFlexUIIndentationAttribute, 
-                        IFlexUIOpenDurationAttribute, IFlexUIOpenEasingFunctionAttribute, IFlexUIItemCloseAttribute, 
-                        IFlexUIItemOpenAttribute, IFlexUIItemOpeningAttribute, IFlexUIEditableAttribute, 
-                        IFlexUIDataProviderAttribute, IFlexUIRowCountAttribute {
+						implements IFlexUIBaseAttributes, IFlexUIEditableAttribute, IFlexUIDataProviderAttribute, 
+                        IFlexUIRowCountAttribute {
 	
 }

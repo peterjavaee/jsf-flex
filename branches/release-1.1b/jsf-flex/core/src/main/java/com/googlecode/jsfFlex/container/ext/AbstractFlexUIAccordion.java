@@ -24,23 +24,8 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIChangeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFillAlphasAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFillColorsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHeaderHeightAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHeaderRendererAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHeaderStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHistoryManagementEnabledAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalGapAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIOpenDurationAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIOpenEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIResizeToContentAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISelectedFillColorsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextRollOverColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextSelectedColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIVerticalGapAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUICreationPolicyAttribute;
 
 /**
  * Since Accordion is written to maintain it's state [which container is chosen], it
@@ -59,12 +44,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUIVerticalGapAttribute;
 )
 public abstract class AbstractFlexUIAccordion 
 						extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase
-						implements IFlexUIContainerAttributes, IFlexUIHeaderRendererAttribute, IFlexUIHistoryManagementEnabledAttribute,
-                        IFlexUIResizeToContentAttribute, IFlexUIFillAlphasAttribute, IFlexUIFillColorsAttribute, 
-                        IFlexUIFocusAlphaAttribute, IFlexUIFocusRoundedCornersAttribute, IFlexUIHeaderHeightAttribute, 
-                        IFlexUIHeaderStyleNameAttribute, IFlexUIHorizontalGapAttribute, IFlexUIOpenDurationAttribute, 
-                        IFlexUIOpenEasingFunctionAttribute, IFlexUISelectedFillColorsAttribute, IFlexUITextRollOverColorAttribute, 
-                        IFlexUITextSelectedColorAttribute, IFlexUIVerticalGapAttribute, IFlexUIChangeAttribute {
+						implements IFlexUIBaseAttributes, IFlexUICreationPolicyAttribute {
 	
 	public void encodeBegin(FacesContext context) throws IOException {
 		/*
@@ -75,7 +55,7 @@ public abstract class AbstractFlexUIAccordion
 		 * 
 		 *	I think this is the most prudent choice
 		 */
-        getAttributes().put("creationPolicy", "all");
+        setCreationPolicy("all");
 		
 		super.encodeBegin(context);
 	}

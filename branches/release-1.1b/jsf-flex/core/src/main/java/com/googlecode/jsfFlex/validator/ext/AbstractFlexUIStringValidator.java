@@ -20,10 +20,7 @@ package com.googlecode.jsfFlex.validator.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIMaxLengthAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIMinLengthAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITooLongErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITooShortErrorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -43,7 +40,6 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUIStringValidator 
 						extends AbstractFlexUISimpleBase 
-						implements IFlexUIValidatorAttributes, IFlexUIMaxLengthAttribute, IFlexUIMinLengthAttribute, 
-                        IFlexUITooLongErrorAttribute, IFlexUITooShortErrorAttribute {
+						implements IFlexUIBaseAttributes {
 	
 }

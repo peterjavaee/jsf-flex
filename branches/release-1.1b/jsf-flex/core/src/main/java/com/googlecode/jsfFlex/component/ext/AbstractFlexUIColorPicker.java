@@ -29,52 +29,12 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIBorderColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIChangeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUICloseAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUICloseDurationAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUICloseEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIColorFieldAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDisabledIconColorAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIEnterAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFillAlphasAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFillColorsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontAntiAliasTypeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontGridFitTypeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontSharpnessAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontSizeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontStyleAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontThicknessAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontWeightAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHighlightAlphasAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIIconColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIItemRollOutAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIItemRollOverAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUILabelFieldAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUILeadingAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIOpenAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIOpenDurationAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIOpenEasingFunctionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPaddingBottomAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPaddingLeftAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPaddingRightAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPaddingTopAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUISelectedColorAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUISelectedIndexAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIShowTextFieldAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISwatchBorderColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISwatchBorderSizeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISwatchPanelStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextAlignAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUITextAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextDecorationAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextIndentAttribute;
 import com.googlecode.jsfFlex.component.AbstractFlexUIInputBase;
 
 /**
@@ -91,22 +51,8 @@ import com.googlecode.jsfFlex.component.AbstractFlexUIInputBase;
 )
 public abstract class AbstractFlexUIColorPicker 
 						extends AbstractFlexUIInputBase
-                        implements IFlexUIComboBaseAttributes, IFlexUIColorFieldAttribute, IFlexUILabelFieldAttribute, 
-                        IFlexUIShowTextFieldAttribute, IFlexUIBorderColorAttribute, IFlexUICloseDurationAttribute, 
-                        IFlexUICloseEasingFunctionAttribute, IFlexUIColorAttribute, IFlexUIDisabledIconColorAttribute, 
-                        IFlexUIFillAlphasAttribute, IFlexUIFillColorsAttribute, IFlexUIFocusAlphaAttribute, 
-                        IFlexUIFocusRoundedCornersAttribute, IFlexUIFontAntiAliasTypeAttribute, IFlexUIFontFamilyAttribute, 
-                        IFlexUIFontGridFitTypeAttribute, IFlexUIFontSharpnessAttribute, IFlexUIFontSizeAttribute, 
-                        IFlexUIFontStyleAttribute, IFlexUIFontThicknessAttribute, IFlexUIFontWeightAttribute, 
-                        IFlexUIHighlightAlphasAttribute, IFlexUIIconColorAttribute, IFlexUILeadingAttribute, 
-                        IFlexUIOpenDurationAttribute, IFlexUIOpenEasingFunctionAttribute, IFlexUIPaddingBottomAttribute, 
-                        IFlexUIPaddingLeftAttribute, IFlexUIPaddingRightAttribute, IFlexUIPaddingTopAttribute, 
-                        IFlexUISwatchBorderColorAttribute, IFlexUISwatchBorderSizeAttribute, IFlexUISwatchPanelStyleNameAttribute, 
-                        IFlexUITextAlignAttribute, IFlexUITextDecorationAttribute, IFlexUITextIndentAttribute, 
-                        IFlexUIChangeAttribute, IFlexUICloseAttribute, IFlexUIEnterAttribute, IFlexUIItemRollOutAttribute,
-                        IFlexUIItemRollOverAttribute, IFlexUIOpenAttribute, IFlexUIDataProviderAttribute, 
-                        IFlexUIEditableAttribute, IFlexUISelectedIndexAttribute, IFlexUITextAttribute,
-                        IFlexUISelectedColorAttribute {
+                        implements IFlexUIBaseAttributes, IFlexUIDataProviderAttribute, IFlexUIEditableAttribute, 
+                        IFlexUISelectedIndexAttribute, IFlexUITextAttribute, IFlexUISelectedColorAttribute {
 	
 	private final static Log _log = LogFactory.getLog(AbstractFlexUIColorPicker.class);
 	

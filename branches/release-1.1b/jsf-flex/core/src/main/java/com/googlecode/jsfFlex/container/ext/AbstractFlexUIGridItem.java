@@ -24,8 +24,8 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIColSpanAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIRowSpanAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUIDirectionAttribute;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -41,13 +41,13 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUIGridItem 
                         extends AbstractFlexUISimpleBase 
-                        implements IFlexUIBoxAttributes, IFlexUIRowSpanAttribute, IFlexUIColSpanAttribute {
+                        implements IFlexUIBaseAttributes, IFlexUIDirectionAttribute {
     
     public void encodeBegin(FacesContext context) throws IOException {
         /*
          * Grid item will have direction set to horizontal
          */
-        getAttributes().put("direction", "horizontal");
+        setDirection("horizontal");
         
         super.encodeBegin(context);
     }

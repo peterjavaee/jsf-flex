@@ -20,14 +20,9 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFirstTabStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUILastTabStyleNameAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUISelectedIndexAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISelectedTabTextStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITabHeightAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITabStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITabWidthAttribute;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -43,8 +38,6 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUITabBar 
 						extends AbstractFlexUISimpleBase
-						implements IFlexUIToggleButtonBarAttributes, IFlexUIFirstTabStyleNameAttribute, IFlexUILastTabStyleNameAttribute, 
-                        IFlexUISelectedTabTextStyleNameAttribute, IFlexUITabHeightAttribute, IFlexUITabStyleNameAttribute, 
-                        IFlexUITabWidthAttribute, IFlexUIDataProviderAttribute, IFlexUISelectedIndexAttribute {
+						implements IFlexUIBaseAttributes, IFlexUIDataProviderAttribute, IFlexUISelectedIndexAttribute {
 	
 }

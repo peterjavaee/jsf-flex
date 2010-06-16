@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIRowCountAttribute;
 
@@ -37,6 +38,6 @@ import com.googlecode.jsfFlex.attributes.IFlexUIRowCountAttribute;
 )
 public abstract class AbstractFlexUITileList 
 						extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase
-						implements IFlexUIListBaseAttributes, IFlexUIDataProviderAttribute, IFlexUIRowCountAttribute {
+						implements IFlexUIBaseAttributes, IFlexUIDataProviderAttribute, IFlexUIRowCountAttribute {
 	
 }

@@ -21,9 +21,6 @@ package com.googlecode.jsfFlex.component.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes.IFlexUIShadowColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIStrokeColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIStrokeWidthAttribute;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -39,7 +36,6 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUIVRule 
 						extends AbstractFlexUISimpleBase 
-						implements IFlexUIBaseAttributes, IFlexUIShadowColorAttribute, IFlexUIStrokeWidthAttribute, 
-                        IFlexUIStrokeColorAttribute {
+						implements IFlexUIBaseAttributes {
 	
 }

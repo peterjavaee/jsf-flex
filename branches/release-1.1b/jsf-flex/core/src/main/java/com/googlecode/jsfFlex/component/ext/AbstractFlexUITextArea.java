@@ -20,24 +20,8 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIChangeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUICondenseWhiteAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDataAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDisplayAsPasswordAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIImeModeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIListDataAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIMaxCharsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPaddingLeftAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPaddingRightAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIRestrictAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISelectionBeginIndexAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISelectionEndIndexAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIStyleSheetAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIWordWrapAttribute;
 
 /**
  * @author Ji Hoon Kim
@@ -53,12 +37,6 @@ import com.googlecode.jsfFlex.attributes.IFlexUIWordWrapAttribute;
 )
 public abstract class AbstractFlexUITextArea 
 						extends com.googlecode.jsfFlex.component.FlexUIHtmlTextInputBase 
-						implements IFlexUIScrollControlAttributes, IFlexUICondenseWhiteAttribute, IFlexUIDataAttribute, 
-                        IFlexUIDisplayAsPasswordAttribute, IFlexUIEditableAttribute, IFlexUIImeModeAttribute, 
-                        IFlexUIListDataAttribute, IFlexUIMaxCharsAttribute, IFlexUIRestrictAttribute, 
-                        IFlexUISelectionBeginIndexAttribute, IFlexUISelectionEndIndexAttribute, IFlexUIStyleSheetAttribute, 
-                        IFlexUIWordWrapAttribute, IFlexUIDisabledColorAttribute, IFlexUIFocusAlphaAttribute, 
-                        IFlexUIFocusRoundedCornersAttribute, IFlexUIPaddingLeftAttribute, IFlexUIPaddingRightAttribute, 
-                        IFlexUIChangeAttribute {
+						implements IFlexUIBaseAttributes, IFlexUIEditableAttribute {
 	
 }

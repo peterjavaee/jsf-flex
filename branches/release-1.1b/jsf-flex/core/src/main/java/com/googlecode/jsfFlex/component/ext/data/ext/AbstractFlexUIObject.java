@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.component.ext.data.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.ext.data.AbstractFlexUIDataContainerBase;
 
 /**
@@ -44,7 +45,8 @@ import com.googlecode.jsfFlex.component.ext.data.AbstractFlexUIDataContainerBase
         defaultRendererType =   "com.googlecode.jsfFlex.FlexObject"
 )
 public abstract class AbstractFlexUIObject 
-						extends AbstractFlexUIDataContainerBase {
+						extends AbstractFlexUIDataContainerBase 
+                        implements IFlexUIBaseAttributes {
 	
 	public static final String CURR_FLEX_UI_OBJECT_CONTAINER_KEY = "currFlexUIObjectContainerKey";
 	

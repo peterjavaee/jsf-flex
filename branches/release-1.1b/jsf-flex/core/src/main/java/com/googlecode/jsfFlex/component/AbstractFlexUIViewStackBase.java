@@ -48,9 +48,10 @@ public abstract class AbstractFlexUIViewStackBase extends com.googlecode.jsfFlex
 		 * 
 		 *	I think this is the most prudent choice
 		 */
-		getAttributes().put("creationPolicy", "all");
-		
+		setCreationPolicy("all");
 		super.encodeBegin(context);
 	}
+    
+    public abstract void setCreationPolicy(String creationPolicy);
 	
 }

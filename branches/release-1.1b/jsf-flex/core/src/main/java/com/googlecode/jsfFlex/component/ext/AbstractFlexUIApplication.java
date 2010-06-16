@@ -30,34 +30,12 @@ import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFJspProperty;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIApplicationCompleteAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundGradientAlphasAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundGradientColorsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIControlBarAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIErrorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFrameRateAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHistoryManagementEnabledAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalAlignAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalGapAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUILayoutAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIModalTransparencyAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIModalTransparencyBlurAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIModalTransparencyColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIModalTransparencyDurationAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPageTitleAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPreloaderAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIResetHistoryAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIScriptRecursionLimitAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIScriptTimeLimitAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUITitleAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIUsePreloaderAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIVerticalAlignAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIVerticalGapAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIViewSourceURLAttribute;
-import com.googlecode.jsfFlex.container.ext.IFlexUIContainerAttributes;
 import com.googlecode.jsfFlex.renderkit.annotationDocletParser.AbstractAnnotationDocletParser;
 import com.googlecode.jsfFlex.renderkit.html.util.AbstractJsfFlexResource;
 import com.googlecode.jsfFlex.shared.adapter.IFlexApplicationContract;
@@ -70,6 +48,7 @@ import com.googlecode.jsfFlex.shared.util.FlexConstants;
 /**
  * @author Ji Hoon Kim
  */
+@JSFJspProperty(name="initialize", returnType="java.lang.String", longDesc="Function to invoke after initialization.")
 @JSFComponent(
         name                =   "jf:flexApplication",
         clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIApplication",
@@ -80,15 +59,7 @@ import com.googlecode.jsfFlex.shared.util.FlexConstants;
 )
 public abstract class AbstractFlexUIApplication 
 						extends UIComponentBase 
-						implements IFlexUIContainerAttributes, IFlexApplicationContract, IFlexUIControlBarAttribute, 
-                        IFlexUIFrameRateAttribute, IFlexUIHistoryManagementEnabledAttribute, IFlexUILayoutAttribute, 
-                        IFlexUIPageTitleAttribute, IFlexUIPreloaderAttribute, IFlexUIResetHistoryAttribute, IFlexUIScriptRecursionLimitAttribute, 
-                        IFlexUIScriptTimeLimitAttribute, IFlexUIUsePreloaderAttribute, IFlexUIViewSourceURLAttribute, 
-                        IFlexUIBackgroundGradientAlphasAttribute, IFlexUIBackgroundGradientColorsAttribute, 
-                        IFlexUIHorizontalAlignAttribute, IFlexUIHorizontalGapAttribute, IFlexUIModalTransparencyAttribute, 
-                        IFlexUIModalTransparencyBlurAttribute, IFlexUIModalTransparencyColorAttribute, IFlexUIModalTransparencyDurationAttribute, 
-                        IFlexUIVerticalAlignAttribute, IFlexUIVerticalGapAttribute, IFlexUIApplicationCompleteAttribute, 
-                        IFlexUIErrorAttribute, IFlexUITitleAttribute {
+						implements IFlexUIBaseAttributes, IFlexApplicationContract, IFlexUITitleAttribute {
 	
 	private static final String JSF_FLEX_COMMUNICATOR_CORE_JS = "jsfFlexCommunicatorCore.js";
 	private static final String JSF_FLEX_COMMUNICATOR_LOGGER_JS = "jsfFlexCommunicatorLogger.js";
@@ -133,7 +104,7 @@ public abstract class AbstractFlexUIApplication
     
 	public void encodeBegin(FacesContext context) throws IOException {
 		
-		ServletContext servContext = (ServletContext) context.getExternalContext().getContext();
+		ServletContext servContext = ServletContext.class.cast( context.getExternalContext().getContext() );
 		setApplicationPath( servContext.getRealPath("") );
 		
         Map<String, String> xmlnsMap = getXmlnsMap();
@@ -161,7 +132,7 @@ public abstract class AbstractFlexUIApplication
         flexContext.setWebContextPath(webContextPath);
 		
 		//setting or appending scripts to execute upon application initialization
-		String init = (String) getAttributes().get(INITIALIZE_ATTR);
+		String init = String.class.cast( getAttributes().get(INITIALIZE_ATTR) );
 		init = (init == null) ? INITIALIZE_CALL : init + " " + INITIALIZE_CALL;
 		getAttributes().put(INITIALIZE_ATTR, init);
 		

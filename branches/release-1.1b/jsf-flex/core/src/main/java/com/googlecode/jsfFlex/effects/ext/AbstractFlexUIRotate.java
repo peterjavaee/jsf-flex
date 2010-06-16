@@ -21,10 +21,7 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIAngleFromAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIAngleToAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIOriginXAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIOriginYAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -40,8 +37,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUIRotate 
                                 extends AbstractFlexUISimpleBase 
-                                implements IFlexUITweenEffectAttributes, IFlexUIAngleFromAttribute, IFlexUIAngleToAttribute, 
-                                IFlexUIOriginXAttribute, IFlexUIOriginYAttribute {
+                                implements IFlexUIBaseAttributes {
 
     /**
      * Id of the component.

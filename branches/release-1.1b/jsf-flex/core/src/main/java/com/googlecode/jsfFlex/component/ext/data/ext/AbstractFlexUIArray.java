@@ -20,6 +20,8 @@ package com.googlecode.jsfFlex.component.ext.data.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+
 /**
  * <ul>
  * This component can have as its direct children components of :
@@ -42,6 +44,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
         defaultRendererType =   "com.googlecode.jsfFlex.FlexArray"
 )
 public abstract class AbstractFlexUIArray 
-						extends AbstractFlexUIObject {
+						extends AbstractFlexUIObject 
+                        implements IFlexUIBaseAttributes {
 	
 }

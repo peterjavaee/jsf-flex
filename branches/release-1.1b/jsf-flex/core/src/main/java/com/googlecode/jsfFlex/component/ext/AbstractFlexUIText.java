@@ -20,8 +20,8 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUIHtmlTextAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUILeadingAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUITextAttribute;
 import com.googlecode.jsfFlex.component.AbstractFlexUIOutputBase;
 
@@ -38,7 +38,6 @@ import com.googlecode.jsfFlex.component.AbstractFlexUIOutputBase;
 )
 public abstract class AbstractFlexUIText 
 						extends AbstractFlexUIOutputBase
-						implements IFlexUILeadingAttribute, IFlexUILabelAttributes, IFlexUIHtmlTextAttribute, 
-                        IFlexUITextAttribute {
+						implements IFlexUIBaseAttributes, IFlexUIHtmlTextAttribute, IFlexUITextAttribute {
 	
 }

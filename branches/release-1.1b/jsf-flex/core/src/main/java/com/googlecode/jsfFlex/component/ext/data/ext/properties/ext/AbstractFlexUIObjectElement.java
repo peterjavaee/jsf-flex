@@ -25,10 +25,15 @@ import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.ext.data.ext.AbstractFlexUIObject;
 import com.googlecode.jsfFlex.component.ext.data.ext.properties.AbstractFlexUIDataObjectBase;
+import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
 import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
+import com.googlecode.jsfFlex.shared.util.JSONConverter;
 
 /**
  * Since this component is out of the norm in relation to writing Flex content, it will perform <br>
@@ -52,7 +57,8 @@ import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
         family              =   "javax.faces.FlexProperty"
 )
 public abstract class AbstractFlexUIObjectElement 
-						extends AbstractFlexUIDataObjectBase {
+						extends AbstractFlexUIDataObjectBase 
+                        implements IFlexUIBaseAttributes {
 	
 	private static final String OBJECT_START_TAG = "<mx:Object";
 	private static final String OBJECT_START_TAG_CLOSER = ">";
@@ -68,6 +74,27 @@ public abstract class AbstractFlexUIObjectElement
 		StringBuilder objectStartTagBuffer = new StringBuilder();
 		objectStartTagBuffer.append(OBJECT_START_TAG);
 		
+        if(getComponentAttributes() != null){
+            for(String attributeName : getComponentAttributes().keySet()){
+                String attributeValue = getComponentAttributes().get(attributeName).toString();
+                appendAttributeNameValue(objectStartTagBuffer, attributeName, attributeValue);
+            }
+        }
+        
+        if(getComponentAttributesJSONFormat() != null && getComponentAttributesJSONFormat().trim().length() > 0){
+            JSONObject parsedJSONObject = JSONConverter.parseStringToJSONObject(getComponentAttributesJSONFormat());
+            JSONArray attributeName = parsedJSONObject.names();
+            
+            for(int i=0; i < attributeName.length(); i++){
+                String currKey = attributeName.get(i).toString();
+                String currValue = parsedJSONObject.getString(currKey);
+                
+                if(currValue != null){
+                    appendAttributeNameValue(objectStartTagBuffer, currKey, currValue);
+                }
+            }
+        }
+        
 		objectStartTagBuffer.append( processDataObjectProperties() );
 		
 		objectStartTagBuffer.append(OBJECT_START_TAG_CLOSER);
@@ -87,5 +114,12 @@ public abstract class AbstractFlexUIObjectElement
 		currObjectContainerRef.getCurrBodyContentBufferedWriter().write(OBJECT_END_TAG);
 		
 	}
+    
+    private void appendAttributeNameValue(StringBuilder content, String attributeName, String attributeValue){
+        content.append(" ");
+        content.append(attributeName);
+        content.append("=");
+        content.append(attributeValue);
+    }
 	
 }

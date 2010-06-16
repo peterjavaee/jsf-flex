@@ -20,14 +20,7 @@ package com.googlecode.jsfFlex.convert.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIDecimalSeparatorFromAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDecimalSeparatorToAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPrecisionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIRoundingAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIThousandsSeparatorFromAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIThousandsSeparatorToAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIUseNegativeSignAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIUseThousandsSeparatorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -47,8 +40,6 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUINumberFormatter 
 						extends AbstractFlexUISimpleBase 
-						implements IFlexUIFormatter, IFlexUIDecimalSeparatorFromAttribute, IFlexUIDecimalSeparatorToAttribute, 
-                        IFlexUIPrecisionAttribute, IFlexUIRoundingAttribute, IFlexUIThousandsSeparatorFromAttribute, 
-                        IFlexUIThousandsSeparatorToAttribute, IFlexUIUseNegativeSignAttribute, IFlexUIUseThousandsSeparatorAttribute {
+						implements IFlexUIBaseAttributes {
 	
 }

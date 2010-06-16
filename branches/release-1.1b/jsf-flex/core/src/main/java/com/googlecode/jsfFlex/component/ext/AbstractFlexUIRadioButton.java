@@ -26,9 +26,8 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIDisabledIconColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUIGroupNameAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIIconColorAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUISelectedValueAttribute;
 
 /**
@@ -45,8 +44,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUISelectedValueAttribute;
 )
 public abstract class AbstractFlexUIRadioButton 
 						extends com.googlecode.jsfFlex.component.FlexUISelectedBase
-						implements IFlexUIButtonAttributes, IFlexUIGroupNameAttribute, IFlexUISelectedValueAttribute,
-                        IFlexUIDisabledIconColorAttribute, IFlexUIIconColorAttribute {
+						implements IFlexUIBaseAttributes, IFlexUIGroupNameAttribute, IFlexUISelectedValueAttribute {
 	
 	private static final String SELECTED_VALUE_ATTR = "selectedValue";
 	private static final String SELECTED_VALUE_ID_APPENDED = "_selectedValue";

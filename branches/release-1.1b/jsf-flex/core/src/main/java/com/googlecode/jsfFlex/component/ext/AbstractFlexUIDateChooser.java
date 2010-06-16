@@ -28,85 +28,8 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIAllowDisjointSelectionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIAllowMultipleSelectionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundAlphaAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIBackgroundColorAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes.IFlexUIBorderColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIBorderThicknessAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIChangeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUICornerRadiusAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDayNamesAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDisabledColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDisabledDaysAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDisabledIconColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDisabledRangesAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDisplayedMonthAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIDisplayedYearAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFillAlphasAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFillColorsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFirstDayOfWeekAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontAntiAliasTypeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontFamilyAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontGridFitTypeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontSharpnessAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontSizeAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontStyleAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontThicknessAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFontWeightAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHeaderColorsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHeaderStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHighlightAlphasAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalGapAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIIconColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUILeadingAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIMaxYearAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIMinYearAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIMonthNamesAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIMonthSymbolAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUINextMonthDisabledSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUINextMonthDownSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUINextMonthOverSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUINextMonthSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUINextMonthUpSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUINextYearDisabledSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUINextYearDownSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUINextYearOverSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUINextYearSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUINextYearUpSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPrevMonthDisabledSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPrevMonthDownSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPrevMonthOverSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPrevMonthSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPrevMonthUpSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPrevYearDisabledSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPrevYearDownSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPrevYearOverSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPrevYearSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIPrevYearUpSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIRollOverColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIRollOverIndicatorSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIScrollAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISelectableRangeAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUISelectedDateAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISelectedRangesAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISelectionColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISelectionIndicatorSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIShowTodayAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextAlignAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextDecorationAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextIndentAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITodayColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITodayIndicatorSkinAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITodayStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIVerticalGapAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIWeekDayStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIYearNavigationEnabledAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIYearSymbolAttribute;
 import com.googlecode.jsfFlex.component.AbstractFlexUIInputBase;
 
 /**
@@ -123,32 +46,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUIInputBase;
 )
 public abstract class AbstractFlexUIDateChooser 
                             extends AbstractFlexUIInputBase 
-                            implements IFlexUIBaseAttributes, IFlexUIAllowDisjointSelectionAttribute, IFlexUIAllowMultipleSelectionAttribute, 
-                            IFlexUIDayNamesAttribute, IFlexUIDisabledDaysAttribute, IFlexUIDisabledRangesAttribute, 
-                            IFlexUIDisplayedMonthAttribute, IFlexUIDisplayedYearAttribute, IFlexUIFirstDayOfWeekAttribute, 
-                            IFlexUIMaxYearAttribute, IFlexUIMinYearAttribute, IFlexUIMonthNamesAttribute, IFlexUIMonthSymbolAttribute, 
-                            IFlexUISelectableRangeAttribute, IFlexUISelectedDateAttribute, IFlexUISelectedRangesAttribute, 
-                            IFlexUIShowTodayAttribute, IFlexUIYearNavigationEnabledAttribute, IFlexUIYearSymbolAttribute, 
-                            IFlexUIBackgroundColorAttribute, IFlexUIBackgroundAlphaAttribute, IFlexUIBorderColorAttribute, 
-                            IFlexUIBorderThicknessAttribute, IFlexUIColorAttribute, IFlexUICornerRadiusAttribute, 
-                            IFlexUIDisabledColorAttribute, IFlexUIDisabledIconColorAttribute, IFlexUIFillAlphasAttribute, 
-                            IFlexUIFillColorsAttribute, IFlexUIFocusAlphaAttribute, IFlexUIFocusRoundedCornersAttribute, 
-                            IFlexUIFontAntiAliasTypeAttribute, IFlexUIFontFamilyAttribute, IFlexUIFontGridFitTypeAttribute, 
-                            IFlexUIFontSharpnessAttribute, IFlexUIFontSizeAttribute, IFlexUIFontStyleAttribute, 
-                            IFlexUIFontThicknessAttribute, IFlexUIFontWeightAttribute, IFlexUIHeaderColorsAttribute, 
-                            IFlexUIHeaderStyleNameAttribute, IFlexUIHighlightAlphasAttribute, IFlexUIHorizontalGapAttribute, 
-                            IFlexUIIconColorAttribute, IFlexUILeadingAttribute, IFlexUINextMonthDisabledSkinAttribute, 
-                            IFlexUINextMonthDownSkinAttribute, IFlexUINextMonthOverSkinAttribute, IFlexUINextMonthSkinAttribute, 
-                            IFlexUINextMonthUpSkinAttribute, IFlexUINextYearDisabledSkinAttribute, IFlexUINextYearDownSkinAttribute, 
-                            IFlexUINextYearOverSkinAttribute, IFlexUINextYearSkinAttribute, IFlexUINextYearUpSkinAttribute, 
-                            IFlexUIPrevMonthDisabledSkinAttribute, IFlexUIPrevMonthDownSkinAttribute, IFlexUIPrevMonthOverSkinAttribute, 
-                            IFlexUIPrevMonthSkinAttribute, IFlexUIPrevMonthUpSkinAttribute, IFlexUIPrevYearDisabledSkinAttribute, 
-                            IFlexUIPrevYearDownSkinAttribute, IFlexUIPrevYearOverSkinAttribute, IFlexUIPrevYearSkinAttribute, 
-                            IFlexUIPrevYearUpSkinAttribute, IFlexUIRollOverColorAttribute, IFlexUIRollOverIndicatorSkinAttribute, 
-                            IFlexUISelectionColorAttribute, IFlexUISelectionIndicatorSkinAttribute, IFlexUITextAlignAttribute, 
-                            IFlexUITextDecorationAttribute, IFlexUITextIndentAttribute, IFlexUITodayColorAttribute, 
-                            IFlexUITodayIndicatorSkinAttribute, IFlexUITodayStyleNameAttribute, IFlexUIVerticalGapAttribute, 
-                            IFlexUIWeekDayStyleNameAttribute, IFlexUIChangeAttribute, IFlexUIScrollAttribute {
+                            implements IFlexUIBaseAttributes, IFlexUISelectedDateAttribute {
     
     private final static org.apache.commons.logging.Log _log = org.apache.commons.logging.LogFactory.getLog(AbstractFlexUIDateChooser.class);
     

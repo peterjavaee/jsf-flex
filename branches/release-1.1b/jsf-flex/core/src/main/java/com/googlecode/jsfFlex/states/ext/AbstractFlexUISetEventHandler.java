@@ -21,10 +21,8 @@ package com.googlecode.jsfFlex.states.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIHandlerAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHandlerFunctionAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUINameAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITargetAttribute;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -40,8 +38,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUISetEventHandler 
 						extends AbstractFlexUISimpleBase 
-                        implements IFlexUINameAttribute, IFlexUIHandlerFunctionAttribute, IFlexUITargetAttribute, 
-                        IFlexUIHandlerAttribute {
+                        implements IFlexUIBaseAttributes, IFlexUINameAttribute {
 	
 	/**
 	 * Id of the component.

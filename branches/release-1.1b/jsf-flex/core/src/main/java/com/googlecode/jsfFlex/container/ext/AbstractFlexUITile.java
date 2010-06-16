@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.container.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -35,6 +36,6 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUITile 
 						extends AbstractFlexUISimpleBase 
-						implements IFlexUITileAttributes {
+						implements IFlexUIBaseAttributes {
 	
 }

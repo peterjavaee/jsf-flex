@@ -20,8 +20,7 @@ package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIDisabledIconColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIIconColorAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 
 /**
  * @author Ji Hoon Kim
@@ -37,6 +36,6 @@ import com.googlecode.jsfFlex.attributes.IFlexUIIconColorAttribute;
 )
 public abstract class AbstractFlexUICheckBox 
 						extends com.googlecode.jsfFlex.component.FlexUISelectedBase 
-						implements IFlexUIButtonAttributes, IFlexUIDisabledIconColorAttribute, IFlexUIIconColorAttribute {
+						implements IFlexUIBaseAttributes {
 	
 }

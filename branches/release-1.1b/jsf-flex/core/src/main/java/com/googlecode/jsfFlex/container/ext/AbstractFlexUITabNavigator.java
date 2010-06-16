@@ -20,18 +20,7 @@ package com.googlecode.jsfFlex.container.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIFillAlphasAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFillColorsAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFirstTabStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFocusAlphaAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIFocusRoundedCornersAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIHorizontalAlignAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUILastTabStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISelectedTabTextStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITabHeightAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITabOffsetAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITabStyleNameAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITabWidthAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUIViewStackBase;
 
 /**
@@ -48,9 +37,6 @@ import com.googlecode.jsfFlex.component.AbstractFlexUIViewStackBase;
 )
 public abstract class AbstractFlexUITabNavigator 
 						extends AbstractFlexUIViewStackBase 
-						implements IFlexUIViewStackAttributes, IFlexUIFillAlphasAttribute, IFlexUIFillColorsAttribute, 
-                        IFlexUIFirstTabStyleNameAttribute, IFlexUIFocusAlphaAttribute, IFlexUIFocusRoundedCornersAttribute, 
-                        IFlexUIHorizontalAlignAttribute, IFlexUILastTabStyleNameAttribute, IFlexUISelectedTabTextStyleNameAttribute, 
-                        IFlexUITabHeightAttribute, IFlexUITabOffsetAttribute, IFlexUITabStyleNameAttribute, IFlexUITabWidthAttribute {
+						implements IFlexUIBaseAttributes {
 	
 }

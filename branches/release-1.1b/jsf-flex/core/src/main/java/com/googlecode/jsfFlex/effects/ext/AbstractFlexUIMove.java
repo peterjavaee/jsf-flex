@@ -21,12 +21,7 @@ package com.googlecode.jsfFlex.effects.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIXByAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIXFromAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIXToAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIYByAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIYFromAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIYToAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -42,8 +37,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 )
 public abstract class AbstractFlexUIMove 
                             extends AbstractFlexUISimpleBase 
-                            implements IFlexUITweenEffectAttributes, IFlexUIXFromAttribute, IFlexUIYFromAttribute, 
-                            IFlexUIXToAttribute, IFlexUIYToAttribute, IFlexUIXByAttribute, IFlexUIYByAttribute {
+                            implements IFlexUIBaseAttributes {
 
     /**
      * Id of the component.
