@@ -18,7 +18,10 @@
  */
 package com.googlecode.jsfFlex.attributes;
 
+import java.util.Map;
+
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
 /**
  * @author Ji Hoon Kim
@@ -27,4 +30,16 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
 public interface IFlexUIBaseAttributes 
                     extends IFlexUIComponentAttributesAttribute, IFlexUIComponentAttributesJSONFormatAttribute {
 	
+    /**
+     * Map of attribute names provided as keys and values provided as values.
+     */
+    @JSFProperty(desc   =   "Map of attribute names provided as keys and values provided as values.")
+    Map<String, ? super Object> getComponentAttributes();
+    
+    /**
+     * Component attributes provided in JSON Format.
+     */
+    @JSFProperty(desc   =   "Component attributes provided in JSON Format.")
+    String getComponentAttributesJSONFormat();
+    
 }

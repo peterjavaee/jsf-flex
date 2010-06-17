@@ -46,7 +46,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         jsfFlexAttributes={
                 @IJsfFlexAttribute(attribute="rowCount", byMethod=true),
                 @IJsfFlexAttribute(attribute="editable", byMethod=true),
-                @IJsfFlexAttribute(attribute="dataProvider", byMethod=true),
+                @IJsfFlexAttribute(attribute="dataProvider", byMethod=true)
         }
 )
 public final class FlexDataGridRenderer extends AbstractFlexComponentBaseRenderer {

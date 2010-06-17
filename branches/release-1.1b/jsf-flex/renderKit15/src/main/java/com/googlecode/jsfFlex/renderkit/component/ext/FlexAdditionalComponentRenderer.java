@@ -39,7 +39,6 @@ import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
-import com.googlecode.jsfFlex.shared.util.JSONConverter;
 
 /**
  * @author Ji Hoon Kim
@@ -80,24 +79,26 @@ public final class FlexAdditionalComponentRenderer extends AbstractFlexComponent
         
         String componentAttributesJSONFormat = additionalComponent.getComponentAttributesJSONFormat();
         if(componentAttributesJSONFormat != null && componentAttributesJSONFormat.trim().length() > 0){
-            JSONObject parsedJSONObject = JSONConverter.parseStringToJSONObject(componentAttributesJSONFormat);
-            JSONArray attributeName = parsedJSONObject.names();
-            
-            for(int i=0; i < attributeName.length(); i++){
-                String currKey = attributeName.get(i).toString();
-                String currValue = parsedJSONObject.getString(currKey);
+            try{
+                JSONObject parsedJSONObject = new JSONObject(componentAttributesJSONFormat);
+                JSONArray attributeName = parsedJSONObject.names();
                 
-                if(currValue != null){
-                    //HACK for the special component
-                    additionalComponent.getAnnotationDocletParserInstance().getTokenValueSet().add(new TokenValue(currKey, currValue.toString()));
+                for(int i=0; i < attributeName.length(); i++){
+                    String currKey = attributeName.get(i).toString();
+                    String currValue = parsedJSONObject.getString(currKey);
+                    
+                    if(currValue != null){
+                        //HACK for the special component
+                        additionalComponent.getAnnotationDocletParserInstance().getTokenValueSet().add(new TokenValue(currKey, currValue.toString()));
+                    }
                 }
+            }catch(JSONException jsonException){
+                _log.error("Error while parsing the following String to JSONObject : " + componentAttributesJSONFormat);
             }
         }
         
         final String componentName = additionalComponent.getComponentName();
         final String componentNameSpace = additionalComponent.getComponentNameSpace();
-        
-        
         
         IJsfFlexAttributeProperties jsfFlexAttributeProperties = new IJsfFlexAttributeProperties(){
             

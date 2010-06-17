@@ -26,6 +26,7 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
 import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
@@ -55,7 +56,9 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 						nameAppend="_selectedIndex")
 		},
 
-		jsfFlexAttributes={}
+		jsfFlexAttributes={
+                @IJsfFlexAttribute(attribute="creationPolicy", byMethod=true)
+        }
 )
 public final class FlexTabNavigatorRenderer extends AbstractFlexComponentBaseRenderer {
 	
@@ -66,7 +69,8 @@ public final class FlexTabNavigatorRenderer extends AbstractFlexComponentBaseRen
         IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.createPreMxml(componentFlex, FlexTabNavigatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
+        writer.mapFields(FlexTabNavigatorRenderer.class, componentObj, null);
+        writer.createPreMxml(componentFlex, FlexTabNavigatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

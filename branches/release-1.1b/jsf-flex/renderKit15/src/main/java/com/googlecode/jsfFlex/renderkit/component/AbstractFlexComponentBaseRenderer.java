@@ -25,7 +25,10 @@ import java.util.Set;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
@@ -34,12 +37,13 @@ import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
 import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
-import com.googlecode.jsfFlex.shared.util.JSONConverter;
 
 /**
  * @author Ji Hoon Kim
  */
 public abstract class AbstractFlexComponentBaseRenderer extends FlexRendererBase {
+    
+    private final static Log _log = LogFactory.getLog(AbstractFlexComponentBaseRenderer.class);
 	
     @Override
 	public void encodeEnd(FacesContext context, UIComponent componentObj) throws IOException {
@@ -50,7 +54,6 @@ public abstract class AbstractFlexComponentBaseRenderer extends FlexRendererBase
 			return;
 		}
 		
-        
         IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
@@ -70,16 +73,20 @@ public abstract class AbstractFlexComponentBaseRenderer extends FlexRendererBase
             
             String attributesJSONFormat = additionalAttributes.getComponentAttributesJSONFormat();
             if(attributesJSONFormat != null && attributesJSONFormat.trim().length() > 0){
-                JSONObject parsedJSONObject = JSONConverter.parseStringToJSONObject(attributesJSONFormat);
-                JSONArray attributeName = parsedJSONObject.names();
-                
-                for(int i=0; i < attributeName.length(); i++){
-                    String currKey = attributeName.get(i).toString();
-                    String currValue = parsedJSONObject.getString(currKey);
+                try{
+                    JSONObject parsedJSONObject = new JSONObject(attributesJSONFormat);
+                    JSONArray attributeName = parsedJSONObject.names();
                     
-                    if(currValue != null){
-                        addTokenValue(tokenValueSet, currKey, currValue);
+                    for(int i=0; i < attributeName.length(); i++){
+                        String currKey = attributeName.get(i).toString();
+                        String currValue = parsedJSONObject.getString(currKey);
+                        
+                        if(currValue != null){
+                            addTokenValue(tokenValueSet, currKey, currValue);
+                        }
                     }
+                }catch(JSONException jsonException){
+                    _log.error("Error while parsing the following String to JSONObject : " + attributesJSONFormat);
                 }
             }
         }

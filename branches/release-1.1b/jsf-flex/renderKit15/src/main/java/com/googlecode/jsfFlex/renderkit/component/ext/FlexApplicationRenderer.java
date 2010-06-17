@@ -36,6 +36,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
@@ -73,7 +74,9 @@ import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
 		componentName="Application",
 		componentNodeAttributes={},
 
-		jsfFlexAttributes={}
+		jsfFlexAttributes={
+                @IJsfFlexAttribute(attribute="id", byMethod=true)
+        }
 )
 public final class FlexApplicationRenderer extends AbstractFlexComponentBaseRenderer {
 	
