@@ -25,8 +25,9 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.effects.AbstractFlexEffectTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
@@ -42,9 +43,11 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         componentName="RemoveItemAction",
         componentNodeAttributes={},
 
-        jsfFlexAttributes={}
+        jsfFlexAttributes={
+                @IJsfFlexAttribute(attribute="id", byMethod=true)
+        }
 )
-public final class FlexRemoveItemActionRenderer extends AbstractFlexEffectTemplateRenderer {
+public final class FlexRemoveItemActionRenderer extends AbstractFlexComponentBaseRenderer {
 
     @Override
     public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
@@ -53,6 +56,7 @@ public final class FlexRemoveItemActionRenderer extends AbstractFlexEffectTempla
         IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+        writer.mapFields(FlexRemoveItemActionRenderer.class, componentObj, null);
         writer.createPreMxml(componentFlex, FlexRemoveItemActionRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         

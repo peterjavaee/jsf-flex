@@ -44,12 +44,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		componentNodeAttributes={},
 		
 		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="id", byMethod=true),
-				@IJsfFlexAttribute(attribute="target"),
-				@IJsfFlexAttribute(attribute="targetFactory"),
-				@IJsfFlexAttribute(attribute="creationPolicy"),
-				@IJsfFlexAttribute(attribute="position"),
-				@IJsfFlexAttribute(attribute="relativeTo")
+				@IJsfFlexAttribute(attribute="id", byMethod=true)
 		}
 )
 public final class FlexAddChildRenderer extends AbstractFlexComponentBaseRenderer {

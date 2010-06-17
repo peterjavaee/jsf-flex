@@ -35,7 +35,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
 import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes.IFlexUITitleAttribute;
 import com.googlecode.jsfFlex.renderkit.annotationDocletParser.AbstractAnnotationDocletParser;
 import com.googlecode.jsfFlex.renderkit.html.util.AbstractJsfFlexResource;
 import com.googlecode.jsfFlex.shared.adapter.IFlexApplicationContract;
@@ -59,7 +58,7 @@ import com.googlecode.jsfFlex.shared.util.FlexConstants;
 )
 public abstract class AbstractFlexUIApplication 
 						extends UIComponentBase 
-						implements IFlexUIBaseAttributes, IFlexApplicationContract, IFlexUITitleAttribute {
+						implements IFlexUIBaseAttributes, IFlexApplicationContract {
 	
 	private static final String JSF_FLEX_COMMUNICATOR_CORE_JS = "jsfFlexCommunicatorCore.js";
 	private static final String JSF_FLEX_COMMUNICATOR_LOGGER_JS = "jsfFlexCommunicatorLogger.js";

@@ -44,50 +44,9 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="dataField", byMethod=true),
-				@IJsfFlexAttribute(attribute="dataTipField"),
-				@IJsfFlexAttribute(attribute="dataTipFunction"),
-				@IJsfFlexAttribute(attribute="editable", byMethod=true),
-				@IJsfFlexAttribute(attribute="editorDataField"),
-				@IJsfFlexAttribute(attribute="editorHeightOffset"),
-				@IJsfFlexAttribute(attribute="editorUsesEnterKey"),
-				@IJsfFlexAttribute(attribute="editorWidthOffset"),
-				@IJsfFlexAttribute(attribute="editorXOffset"),
-				@IJsfFlexAttribute(attribute="editorYOffset"),
-				@IJsfFlexAttribute(attribute="headerRenderer"),
-				@IJsfFlexAttribute(attribute="headerText"),
-				@IJsfFlexAttribute(attribute="headerWordWrap"),
-				@IJsfFlexAttribute(attribute="imeMode"),
-				@IJsfFlexAttribute(attribute="itemEditor"),
-				@IJsfFlexAttribute(attribute="itemRenderer"),
-				@IJsfFlexAttribute(attribute="labelFunction"),
-				@IJsfFlexAttribute(attribute="minWidth"),
-				@IJsfFlexAttribute(attribute="rendererIsEditor"),
-				@IJsfFlexAttribute(attribute="resizable"),
-				@IJsfFlexAttribute(attribute="showDataTips"),
-				@IJsfFlexAttribute(attribute="sortable"),
-				@IJsfFlexAttribute(attribute="sortCompareFunction"),
-				@IJsfFlexAttribute(attribute="sortDescending"),
-				@IJsfFlexAttribute(attribute="visible"),
-				@IJsfFlexAttribute(attribute="wordWrap"),
-				@IJsfFlexAttribute(attribute="backgroundColor"),
-				@IJsfFlexAttribute(attribute="color"),
-				@IJsfFlexAttribute(attribute="disabledColor"),
-				@IJsfFlexAttribute(attribute="fontAntiAliasType"),
-				@IJsfFlexAttribute(attribute="fontFamily"),
-				@IJsfFlexAttribute(attribute="fontGridFitType"),
-				@IJsfFlexAttribute(attribute="fontSharpness"),
-				@IJsfFlexAttribute(attribute="fontSize"),
-				@IJsfFlexAttribute(attribute="fontStyle"),
-				@IJsfFlexAttribute(attribute="fontThickness"),
-				@IJsfFlexAttribute(attribute="fontWeight"),
-				@IJsfFlexAttribute(attribute="headerStyleName"),
-				@IJsfFlexAttribute(attribute="paddingLeft"),
-				@IJsfFlexAttribute(attribute="paddingRight"),
-				@IJsfFlexAttribute(attribute="textAlign"),
-				@IJsfFlexAttribute(attribute="textDecoration"),
-				@IJsfFlexAttribute(attribute="textIndent")
-		}
+                @IJsfFlexAttribute(attribute="dataField", byMethod=true),
+                @IJsfFlexAttribute(attribute="editable", byMethod=true),
+        }
 )
 public final class FlexDataGridColumnRenderer extends AbstractFlexComponentBaseRenderer {
 	
@@ -98,8 +57,8 @@ public final class FlexDataGridColumnRenderer extends AbstractFlexComponentBaseR
 		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(FlexDataGridColumnRenderer.class, componentObj, null);
-		writer.createPreMxml(componentFlex, FlexDataGridColumnRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
+        writer.mapFields(FlexDataGridColumnRenderer.class, componentObj, null);
+        writer.createPreMxml(componentFlex, FlexDataGridColumnRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		
 	}

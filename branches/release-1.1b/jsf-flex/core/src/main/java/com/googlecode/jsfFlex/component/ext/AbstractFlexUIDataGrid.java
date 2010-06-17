@@ -40,7 +40,6 @@ import com.googlecode.jsfFlex.attributes.IFlexUIBindingBeanListAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIRowCountAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
@@ -58,7 +57,7 @@ public abstract class AbstractFlexUIDataGrid
                         extends AbstractFlexUISimpleBase
                         implements IFlexUIBaseAttributes, IFlexUIBindingBeanListAttribute, IFlexUIBindingBeanClassNameAttribute,
                         IFlexUIBatchColumnDataRetrievalSizeAttribute, IFlexUIEditableAttribute, IFlexUIDataProviderAttribute, 
-                        IFlexUIRowCountAttribute, IFlexUISelectedIndexAttribute {
+                        IFlexUIRowCountAttribute {
     
     private final static Log _log = LogFactory.getLog(AbstractFlexUIDataGrid.class);
     

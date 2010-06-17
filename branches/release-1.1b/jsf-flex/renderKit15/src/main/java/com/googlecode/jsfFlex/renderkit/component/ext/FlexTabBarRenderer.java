@@ -25,9 +25,8 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.AbstractFlexToggleButtonBarTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
@@ -43,16 +42,9 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		componentName="TabBar",
 		componentNodeAttributes={},
 
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="firstTabStyleName"),
-				@IJsfFlexAttribute(attribute="lastTabStyleName"),
-				@IJsfFlexAttribute(attribute="selectedTabTextStyleName"),
-				@IJsfFlexAttribute(attribute="tabHeight"),
-				@IJsfFlexAttribute(attribute="tabStyleName"),
-				@IJsfFlexAttribute(attribute="tabWidth")
-		}
+		jsfFlexAttributes={}
 )
-public final class FlexTabBarRenderer extends AbstractFlexToggleButtonBarTemplateRenderer {
+public final class FlexTabBarRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
@@ -61,7 +53,6 @@ public final class FlexTabBarRenderer extends AbstractFlexToggleButtonBarTemplat
 		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(FlexTabBarRenderer.class, componentObj, null);
 		writer.createPreMxml(componentFlex, FlexTabBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		

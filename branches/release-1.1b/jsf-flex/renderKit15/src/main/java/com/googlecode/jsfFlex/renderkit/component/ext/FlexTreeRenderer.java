@@ -26,9 +26,8 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
 import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.AbstractFlexListTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
@@ -56,27 +55,9 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 						nameAppend="_selectedIndex")
 		},
 
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="dataDescriptor"),
-				@IJsfFlexAttribute(attribute="firstVisibleItem"),
-				@IJsfFlexAttribute(attribute="itemIcons"),
-				@IJsfFlexAttribute(attribute="openItems"),
-				@IJsfFlexAttribute(attribute="showRoot"),
-				@IJsfFlexAttribute(attribute="defaultLeafIcon"),
-				@IJsfFlexAttribute(attribute="depthColors"),
-				@IJsfFlexAttribute(attribute="disclosureClosedIcon"),
-				@IJsfFlexAttribute(attribute="disclosureOpenIcon"),
-				@IJsfFlexAttribute(attribute="folderClosedIcon"),
-				@IJsfFlexAttribute(attribute="folderOpenIcon"),
-				@IJsfFlexAttribute(attribute="indentation"),
-				@IJsfFlexAttribute(attribute="openDuration"),
-				@IJsfFlexAttribute(attribute="openEasingFunction"),
-				@IJsfFlexAttribute(attribute="itemClose"),
-				@IJsfFlexAttribute(attribute="itemOpen"),
-				@IJsfFlexAttribute(attribute="itemOpening")
-		}
+		jsfFlexAttributes={}
 )
-public final class FlexTreeRenderer extends AbstractFlexListTemplateRenderer {
+public final class FlexTreeRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
@@ -85,7 +66,6 @@ public final class FlexTreeRenderer extends AbstractFlexListTemplateRenderer {
 		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(FlexTreeRenderer.class, componentObj, null);
 		writer.createPreMxml(componentFlex, FlexTreeRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		

@@ -31,10 +31,7 @@ import org.apache.commons.logging.LogFactory;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUISelectedDateAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISelectedIndexAttribute;
 
 /**
  * @author Ji Hoon Kim
@@ -50,8 +47,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUISelectedIndexAttribute;
 )
 public abstract class AbstractFlexUIDateField 
 						extends com.googlecode.jsfFlex.component.FlexUITextInputBase 
-						implements IFlexUIBaseAttributes, IFlexUISelectedDateAttribute, IFlexUIDataProviderAttribute, 
-                        IFlexUIEditableAttribute, IFlexUISelectedIndexAttribute {
+						implements IFlexUIBaseAttributes, IFlexUISelectedDateAttribute {
 	
     private final static Log _log = LogFactory.getLog(AbstractFlexUIDateField.class);
     

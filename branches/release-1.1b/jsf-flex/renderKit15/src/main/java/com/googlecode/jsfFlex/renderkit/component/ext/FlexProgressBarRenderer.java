@@ -26,9 +26,8 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
 import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
@@ -56,53 +55,9 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 						nameAppend="_value")
 		},
 
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="conversion"),
-				@IJsfFlexAttribute(attribute="direction"),
-				@IJsfFlexAttribute(attribute="indeterminate"),
-				@IJsfFlexAttribute(attribute="label"),
-				@IJsfFlexAttribute(attribute="labelPlacement"),
-				@IJsfFlexAttribute(attribute="maximum"),
-				@IJsfFlexAttribute(attribute="minimum"),
-				@IJsfFlexAttribute(attribute="mode"),
-				@IJsfFlexAttribute(attribute="source"),
-				@IJsfFlexAttribute(attribute="barColor"),
-				@IJsfFlexAttribute(attribute="barSkin"),
-				@IJsfFlexAttribute(attribute="borderColor"),
-				@IJsfFlexAttribute(attribute="color"),
-				@IJsfFlexAttribute(attribute="disabledColor"),
-				@IJsfFlexAttribute(attribute="fontAntiAliasType"),
-				@IJsfFlexAttribute(attribute="fontFamily"),
-				@IJsfFlexAttribute(attribute="fontGridFitType"),
-				@IJsfFlexAttribute(attribute="fontSharpness"),
-				@IJsfFlexAttribute(attribute="fontSize"),
-				@IJsfFlexAttribute(attribute="fontThickness"),
-				@IJsfFlexAttribute(attribute="fontStyle"),
-				@IJsfFlexAttribute(attribute="fontWeight"),
-				@IJsfFlexAttribute(attribute="horizontalGap"),
-                @IJsfFlexAttribute(attribute="indeterminateMoveInterval"),
-                @IJsfFlexAttribute(attribute="indeterminateSkin"),
-				@IJsfFlexAttribute(attribute="labelWidth"),
-                @IJsfFlexAttribute(attribute="leading"),
-                @IJsfFlexAttribute(attribute="maskSkin"),
-                @IJsfFlexAttribute(attribute="paddingLeft"),
-				@IJsfFlexAttribute(attribute="paddingRight"),
-				@IJsfFlexAttribute(attribute="textAlign"),
-				@IJsfFlexAttribute(attribute="textDecoration"),
-				@IJsfFlexAttribute(attribute="textIndent"),
-				@IJsfFlexAttribute(attribute="themeColor"),
-				@IJsfFlexAttribute(attribute="trackColors"),
-				@IJsfFlexAttribute(attribute="trackHeight"),
-				@IJsfFlexAttribute(attribute="trackSkin"),
-				@IJsfFlexAttribute(attribute="verticalGap"),
-				@IJsfFlexAttribute(attribute="complete"),
-				@IJsfFlexAttribute(attribute="hide"),
-				@IJsfFlexAttribute(attribute="progress"),
-				@IJsfFlexAttribute(attribute="show"),
-				@IJsfFlexAttribute(attribute="completeEffect")
-		}
+		jsfFlexAttributes={}
 )
-public final class FlexProgressBarRenderer extends AbstractFlexComponentRenderer {
+public final class FlexProgressBarRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
@@ -111,7 +66,6 @@ public final class FlexProgressBarRenderer extends AbstractFlexComponentRenderer
 		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(FlexProgressBarRenderer.class, componentObj, null);
 		writer.createPreMxml(componentFlex, FlexProgressBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		

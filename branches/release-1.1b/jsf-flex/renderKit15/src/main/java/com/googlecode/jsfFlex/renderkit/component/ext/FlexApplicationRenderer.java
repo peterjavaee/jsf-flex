@@ -36,9 +36,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.container.AbstractFlexContainerTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
@@ -74,33 +73,9 @@ import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
 		componentName="Application",
 		componentNodeAttributes={},
 
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="controlBar"),
-				@IJsfFlexAttribute(attribute="frameRate"),
-                @IJsfFlexAttribute(attribute="historyManagementEnabled"),
-				@IJsfFlexAttribute(attribute="layout"),
-				@IJsfFlexAttribute(attribute="pageTitle"),
-				@IJsfFlexAttribute(attribute="preloader"),
-				@IJsfFlexAttribute(attribute="resetHistory"),
-				@IJsfFlexAttribute(attribute="scriptRecursionLimit"),
-				@IJsfFlexAttribute(attribute="scriptTimeLimit"),
-				@IJsfFlexAttribute(attribute="usePreloader"),
-				@IJsfFlexAttribute(attribute="viewSourceURL"),
-				@IJsfFlexAttribute(attribute="backgroundGradientAlphas"),
-				@IJsfFlexAttribute(attribute="backgroundGradientColors"),
-				@IJsfFlexAttribute(attribute="horizontalAlign"),
-				@IJsfFlexAttribute(attribute="horizontalGap"),
-				@IJsfFlexAttribute(attribute="modalTransparency"),
-				@IJsfFlexAttribute(attribute="modalTransparencyBlur"),
-				@IJsfFlexAttribute(attribute="modalTransparencyColor"),
-				@IJsfFlexAttribute(attribute="modalTransparencyDuration"),
-				@IJsfFlexAttribute(attribute="verticalAlign"),
-				@IJsfFlexAttribute(attribute="verticalGap"),
-				@IJsfFlexAttribute(attribute="applicationComplete"),
-				@IJsfFlexAttribute(attribute="error")
-		}
+		jsfFlexAttributes={}
 )
-public final class FlexApplicationRenderer extends AbstractFlexContainerTemplateRenderer {
+public final class FlexApplicationRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	private final static Log _log = LogFactory.getLog(FlexApplicationRenderer.class);
 	

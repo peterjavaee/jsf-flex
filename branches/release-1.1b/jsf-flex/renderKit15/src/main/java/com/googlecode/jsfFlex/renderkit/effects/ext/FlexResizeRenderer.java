@@ -27,7 +27,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRendere
 
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.effects.AbstractFlexTweenEffectTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
@@ -44,17 +44,10 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         componentNodeAttributes={},
 
         jsfFlexAttributes={
-                @IJsfFlexAttribute(attribute="id", byMethod=true),
-                @IJsfFlexAttribute(attribute="widthFrom"),
-                @IJsfFlexAttribute(attribute="heightFrom"),
-                @IJsfFlexAttribute(attribute="widthTo"),
-                @IJsfFlexAttribute(attribute="heightTo"),
-                @IJsfFlexAttribute(attribute="widthBy"),
-                @IJsfFlexAttribute(attribute="heightBy"),
-                @IJsfFlexAttribute(attribute="hideChildrenTargets")
+                @IJsfFlexAttribute(attribute="id", byMethod=true)
         }
 )
-public final class FlexResizeRenderer extends AbstractFlexTweenEffectTemplateRenderer {
+public final class FlexResizeRenderer extends AbstractFlexComponentBaseRenderer {
 
     @Override
     public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

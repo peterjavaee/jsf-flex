@@ -25,7 +25,6 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.renderkit.validator.AbstractFlexValidatorTemplateRenderer;
@@ -43,15 +42,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		componentName="ZipCodeValidator",
 		componentNodeAttributes={},
 
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="allowedFormatChars"),
-				@IJsfFlexAttribute(attribute="domain"),
-				@IJsfFlexAttribute(attribute="invalidCharError"),
-				@IJsfFlexAttribute(attribute="invalidDomainError"),
-				@IJsfFlexAttribute(attribute="wrongCAFormatError"),
-				@IJsfFlexAttribute(attribute="wrongLengthError"),
-				@IJsfFlexAttribute(attribute="wrongUSFormatError")
-		}
+		jsfFlexAttributes={}
 )
 public final class FlexZipCodeValidatorRenderer extends AbstractFlexValidatorTemplateRenderer {
 	
@@ -62,7 +53,6 @@ public final class FlexZipCodeValidatorRenderer extends AbstractFlexValidatorTem
         IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(FlexZipCodeValidatorRenderer.class, componentObj, null);
 		writer.createPreMxml(componentFlex, 
 				FlexZipCodeValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);

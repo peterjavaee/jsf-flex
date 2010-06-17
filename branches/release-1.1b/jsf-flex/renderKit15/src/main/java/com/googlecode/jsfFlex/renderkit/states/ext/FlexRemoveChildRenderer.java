@@ -44,8 +44,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		componentNodeAttributes={},
 		
 		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="id", byMethod=true),
-				@IJsfFlexAttribute(attribute="target")
+				@IJsfFlexAttribute(attribute="id", byMethod=true)
 		}
 )
 public final class FlexRemoveChildRenderer extends AbstractFlexComponentBaseRenderer {

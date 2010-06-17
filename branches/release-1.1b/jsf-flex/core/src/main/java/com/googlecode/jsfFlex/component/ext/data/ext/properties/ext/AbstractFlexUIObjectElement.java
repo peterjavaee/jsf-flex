@@ -74,15 +74,17 @@ public abstract class AbstractFlexUIObjectElement
 		StringBuilder objectStartTagBuffer = new StringBuilder();
 		objectStartTagBuffer.append(OBJECT_START_TAG);
 		
-        if(getComponentAttributes() != null){
-            for(String attributeName : getComponentAttributes().keySet()){
-                String attributeValue = getComponentAttributes().get(attributeName).toString();
+        Map<String, ? extends Object> componentAttributeMap = getComponentAttributes();
+        if(componentAttributeMap != null){
+            for(String attributeName : componentAttributeMap.keySet()){
+                String attributeValue = componentAttributeMap.get(attributeName).toString();
                 appendAttributeNameValue(objectStartTagBuffer, attributeName, attributeValue);
             }
         }
         
-        if(getComponentAttributesJSONFormat() != null && getComponentAttributesJSONFormat().trim().length() > 0){
-            JSONObject parsedJSONObject = JSONConverter.parseStringToJSONObject(getComponentAttributesJSONFormat());
+        String attributesJSONFormat = getComponentAttributesJSONFormat();
+        if(attributesJSONFormat != null && attributesJSONFormat.trim().length() > 0){
+            JSONObject parsedJSONObject = JSONConverter.parseStringToJSONObject(attributesJSONFormat);
             JSONArray attributeName = parsedJSONObject.names();
             
             for(int i=0; i < attributeName.length(); i++){

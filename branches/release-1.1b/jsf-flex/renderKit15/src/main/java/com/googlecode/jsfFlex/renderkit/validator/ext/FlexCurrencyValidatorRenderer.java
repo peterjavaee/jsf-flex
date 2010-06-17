@@ -25,7 +25,6 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.renderkit.validator.AbstractFlexValidatorTemplateRenderer;
@@ -43,25 +42,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		componentName="CurrencyValidator",
 		componentNodeAttributes={},
 
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="alignSymbol"),
-				@IJsfFlexAttribute(attribute="allowNegative"),
-				@IJsfFlexAttribute(attribute="currencySymbol"),
-				@IJsfFlexAttribute(attribute="currencySymbolError"),
-				@IJsfFlexAttribute(attribute="decimalPointCountError"),
-				@IJsfFlexAttribute(attribute="decimalSeparator"),
-				@IJsfFlexAttribute(attribute="exceedsMaxError"),
-				@IJsfFlexAttribute(attribute="invalidCharError"),
-				@IJsfFlexAttribute(attribute="invalidFormatCharsError"),
-				@IJsfFlexAttribute(attribute="lowerThanMinError"),
-				@IJsfFlexAttribute(attribute="maxValue"),
-				@IJsfFlexAttribute(attribute="minValue"),
-				@IJsfFlexAttribute(attribute="negativeError"),
-				@IJsfFlexAttribute(attribute="precision"),
-				@IJsfFlexAttribute(attribute="precisionError"),
-				@IJsfFlexAttribute(attribute="separationError"),
-				@IJsfFlexAttribute(attribute="thousandsSeparator")
-		}
+		jsfFlexAttributes={}
 )
 public final class FlexCurrencyValidatorRenderer extends AbstractFlexValidatorTemplateRenderer {
 	
@@ -72,7 +53,6 @@ public final class FlexCurrencyValidatorRenderer extends AbstractFlexValidatorTe
         IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(FlexCurrencyValidatorRenderer.class, componentObj, null);
 		writer.createPreMxml(componentFlex, FlexCurrencyValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		

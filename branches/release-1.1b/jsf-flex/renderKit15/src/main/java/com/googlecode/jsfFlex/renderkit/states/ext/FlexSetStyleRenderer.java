@@ -46,7 +46,6 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		jsfFlexAttributes={
 				@IJsfFlexAttribute(attribute="id", byMethod=true),
 				@IJsfFlexAttribute(attribute="name"),
-				@IJsfFlexAttribute(attribute="target"),
 				@IJsfFlexAttribute(attribute="value")
 		}
 )

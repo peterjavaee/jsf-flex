@@ -25,9 +25,8 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
@@ -43,13 +42,9 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		componentName="HRule",
 		componentNodeAttributes={},
 
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="strokeColor"),
-				@IJsfFlexAttribute(attribute="shadowColor"),
-				@IJsfFlexAttribute(attribute="strokeWidth")
-		}
+		jsfFlexAttributes={}
 )
-public final class FlexHRuleRenderer extends AbstractFlexComponentRenderer {
+public final class FlexHRuleRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
@@ -58,7 +53,6 @@ public final class FlexHRuleRenderer extends AbstractFlexComponentRenderer {
 		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(FlexHRuleRenderer.class, componentObj, null);
 		writer.createPreMxml(componentFlex, FlexHRuleRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		

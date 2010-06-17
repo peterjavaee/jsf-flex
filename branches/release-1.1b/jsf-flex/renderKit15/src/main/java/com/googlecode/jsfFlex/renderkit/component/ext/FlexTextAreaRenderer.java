@@ -26,9 +26,8 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
 import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.AbstractFlexScrollControlTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
@@ -66,28 +65,9 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 						nameAppend="_htmlText")
 		},
 
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="condenseWhite"),
-				@IJsfFlexAttribute(attribute="data"),
-				@IJsfFlexAttribute(attribute="displayAsPassword"),
-				@IJsfFlexAttribute(attribute="editable", byMethod=true),
-				@IJsfFlexAttribute(attribute="imeMode"),
-                @IJsfFlexAttribute(attribute="listData"),
-				@IJsfFlexAttribute(attribute="maxChars"),
-				@IJsfFlexAttribute(attribute="restrict"),
-				@IJsfFlexAttribute(attribute="selectionBeginIndex"),
-				@IJsfFlexAttribute(attribute="selectionEndIndex"),
-				@IJsfFlexAttribute(attribute="styleSheet"),
-				@IJsfFlexAttribute(attribute="wordWrap"),
-				@IJsfFlexAttribute(attribute="disabledColor"),
-				@IJsfFlexAttribute(attribute="focusAlpha"),
-				@IJsfFlexAttribute(attribute="focusRoundedCorners"),
-				@IJsfFlexAttribute(attribute="paddingLeft"),
-				@IJsfFlexAttribute(attribute="paddingRight"),
-				@IJsfFlexAttribute(attribute="change")
-		}
+		jsfFlexAttributes={}
 )
-public final class FlexTextAreaRenderer extends AbstractFlexScrollControlTemplateRenderer {
+public final class FlexTextAreaRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
@@ -96,7 +76,6 @@ public final class FlexTextAreaRenderer extends AbstractFlexScrollControlTemplat
 		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(FlexTextAreaRenderer.class, componentObj, null);
 		writer.createPreMxml(componentFlex, FlexTextAreaRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		

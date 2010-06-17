@@ -27,7 +27,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRendere
 
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.effects.AbstractFlexTweenEffectTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
@@ -44,20 +44,10 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         componentNodeAttributes={},
 
         jsfFlexAttributes={
-                @IJsfFlexAttribute(attribute="id", byMethod=true),
-                @IJsfFlexAttribute(attribute="alphaFrom"),
-                @IJsfFlexAttribute(attribute="alphaTo"),
-                @IJsfFlexAttribute(attribute="blurXFrom"),
-                @IJsfFlexAttribute(attribute="blurXTo"),
-                @IJsfFlexAttribute(attribute="blurYFrom"),
-                @IJsfFlexAttribute(attribute="blurYTo"),
-                @IJsfFlexAttribute(attribute="color"),
-                @IJsfFlexAttribute(attribute="inner"),
-                @IJsfFlexAttribute(attribute="knockout"),
-                @IJsfFlexAttribute(attribute="strength")
+                @IJsfFlexAttribute(attribute="id", byMethod=true)
         }
 )
-public final class FlexGlowRenderer extends AbstractFlexTweenEffectTemplateRenderer {
+public final class FlexGlowRenderer extends AbstractFlexComponentBaseRenderer {
 
     @Override
     public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

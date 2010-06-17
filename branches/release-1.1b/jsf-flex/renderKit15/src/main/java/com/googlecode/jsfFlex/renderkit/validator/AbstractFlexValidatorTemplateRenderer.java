@@ -23,10 +23,8 @@ import java.io.IOException;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentRenderer;
-import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
 import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 
@@ -36,27 +34,15 @@ import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 @IJsfFlexAttributeProperties(
 		componentNodeAttributes={},
 
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="enabled"),
-				@IJsfFlexAttribute(attribute="listener"),
-				@IJsfFlexAttribute(attribute="property"),
-				@IJsfFlexAttribute(attribute="required"),
-				@IJsfFlexAttribute(attribute="requiredFieldError"),
-				@IJsfFlexAttribute(attribute="source"),
-				@IJsfFlexAttribute(attribute="trigger"),
-				@IJsfFlexAttribute(attribute="triggerEvent")
-		}
+		jsfFlexAttributes={}
 )
-public abstract class AbstractFlexValidatorTemplateRenderer extends AbstractFlexComponentRenderer {
+public abstract class AbstractFlexValidatorTemplateRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	private static final String VALIDATION_MANAGER_IMPORT = "com.googlecode.jsfFlex.communication.validator.ValidationManager";
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
-		
-		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(AbstractFlexValidatorTemplateRenderer.class, componentObj, null);
 		
 		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
 		AdditionalApplicationScriptContent additionalAppScriptContent = flexContext.getAdditionalAppScriptContent();

@@ -26,7 +26,7 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.container.AbstractFlexBoxTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
@@ -44,7 +44,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 		jsfFlexAttributes={}
 )
-public final class FlexControlBarRenderer extends AbstractFlexBoxTemplateRenderer {
+public final class FlexControlBarRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
@@ -53,7 +53,6 @@ public final class FlexControlBarRenderer extends AbstractFlexBoxTemplateRendere
         IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(FlexAccordionRenderer.class, componentObj, null);
 		writer.createPreMxml(componentFlex, FlexControlBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		

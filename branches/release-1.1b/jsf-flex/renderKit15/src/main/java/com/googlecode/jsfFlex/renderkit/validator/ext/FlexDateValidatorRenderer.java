@@ -25,7 +25,6 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.renderkit.validator.AbstractFlexValidatorTemplateRenderer;
@@ -43,26 +42,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		componentName="DateValidator",
 		componentNodeAttributes={},
 
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="allowedFormatChars"),
-				@IJsfFlexAttribute(attribute="dayListener"),
-				@IJsfFlexAttribute(attribute="dayProperty"),
-				@IJsfFlexAttribute(attribute="daySource"),
-				@IJsfFlexAttribute(attribute="formatError"),
-				@IJsfFlexAttribute(attribute="inputFormat"),
-				@IJsfFlexAttribute(attribute="invalidCharError"),
-				@IJsfFlexAttribute(attribute="monthListener"),
-				@IJsfFlexAttribute(attribute="monthProperty"),
-				@IJsfFlexAttribute(attribute="monthSource"),
-				@IJsfFlexAttribute(attribute="validateAsString"),
-				@IJsfFlexAttribute(attribute="wrongDayError"),
-				@IJsfFlexAttribute(attribute="wrongLengthError"),
-				@IJsfFlexAttribute(attribute="wrongMonthError"),
-				@IJsfFlexAttribute(attribute="wrongYearError"),
-				@IJsfFlexAttribute(attribute="yearListener"),
-				@IJsfFlexAttribute(attribute="yearProperty"),
-				@IJsfFlexAttribute(attribute="yearSource")
-		}
+		jsfFlexAttributes={}
 )
 public final class FlexDateValidatorRenderer extends AbstractFlexValidatorTemplateRenderer {
 	
@@ -73,7 +53,6 @@ public final class FlexDateValidatorRenderer extends AbstractFlexValidatorTempla
         IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(FlexDateValidatorRenderer.class, componentObj, null);
 		writer.createPreMxml(componentFlex, FlexDateValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		

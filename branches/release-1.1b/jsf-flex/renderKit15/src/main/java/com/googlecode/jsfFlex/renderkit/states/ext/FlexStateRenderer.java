@@ -45,9 +45,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		
 		jsfFlexAttributes={
 				@IJsfFlexAttribute(attribute="id", byMethod=true),
-				@IJsfFlexAttribute(attribute="basedOn"),
-				@IJsfFlexAttribute(attribute="name"),
-				@IJsfFlexAttribute(attribute="overrides")
+				@IJsfFlexAttribute(attribute="name")
 		}
 )
 public final class FlexStateRenderer extends AbstractFlexComponentBaseRenderer {

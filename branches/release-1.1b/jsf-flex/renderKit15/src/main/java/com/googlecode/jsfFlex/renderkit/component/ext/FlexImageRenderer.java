@@ -25,9 +25,8 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.AbstractFlexSwfLoaderTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
@@ -43,11 +42,9 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		componentName="Image",
 		componentNodeAttributes={},
 
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="dataChange")
-		}
+		jsfFlexAttributes={}
 )
-public final class FlexImageRenderer extends AbstractFlexSwfLoaderTemplateRenderer {
+public final class FlexImageRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
@@ -56,7 +53,6 @@ public final class FlexImageRenderer extends AbstractFlexSwfLoaderTemplateRender
 		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(FlexImageRenderer.class, componentObj, null);
 		writer.createPreMxml(componentFlex, FlexImageRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		

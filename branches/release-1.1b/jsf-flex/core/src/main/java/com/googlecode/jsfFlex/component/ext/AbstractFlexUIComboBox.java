@@ -34,11 +34,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderCollectionAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIRowCountAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISelectedIndexAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUITextAttribute;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
 import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
@@ -61,9 +57,7 @@ import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
 )
 public abstract class AbstractFlexUIComboBox 
 						extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase
-						implements IFlexUIBaseAttributes, IFlexUIRowCountAttribute, IFlexUIDataProviderCollectionAttribute, 
-                        IFlexUIDataProviderAttribute, IFlexUIEditableAttribute, IFlexUISelectedIndexAttribute, 
-                        IFlexUITextAttribute {
+						implements IFlexUIBaseAttributes, IFlexUIDataProviderCollectionAttribute, IFlexUITextAttribute {
 	
 	private final static Log _log = LogFactory.getLog(AbstractFlexUIComboBox.class);
 	

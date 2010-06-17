@@ -44,20 +44,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="concurrency"),
-				@IJsfFlexAttribute(attribute="contentType"),
-				@IJsfFlexAttribute(attribute="destination"),
-				@IJsfFlexAttribute(attribute="id", byMethod=true),
-				@IJsfFlexAttribute(attribute="method"),
-				@IJsfFlexAttribute(attribute="resultFormat"),
-				@IJsfFlexAttribute(attribute="showBusyCursor"),
-				@IJsfFlexAttribute(attribute="makeObjectsBindable"),
-				@IJsfFlexAttribute(attribute="url"),
-				@IJsfFlexAttribute(attribute="useProxy"),
-				@IJsfFlexAttribute(attribute="xmlEncode"),
-				@IJsfFlexAttribute(attribute="xmlDecode"),
-				@IJsfFlexAttribute(attribute="fault"),
-				@IJsfFlexAttribute(attribute="result")
+				@IJsfFlexAttribute(attribute="id", byMethod=true)
 		}
 )
 public final class FlexHTTPServiceRenderer extends AbstractFlexComponentBaseRenderer {

@@ -25,7 +25,6 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.renderkit.validator.AbstractFlexValidatorTemplateRenderer;
@@ -43,12 +42,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		componentName="PhoneNumberValidator",
 		componentNodeAttributes={},
 
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="allowedFormatChars"),
-				@IJsfFlexAttribute(attribute="invalidCharError"),
-                @IJsfFlexAttribute(attribute="minDigits"),
-                @IJsfFlexAttribute(attribute="wrongLengthError")
-		}
+		jsfFlexAttributes={}
 )
 public final class FlexPhoneNumberValidatorRenderer extends AbstractFlexValidatorTemplateRenderer {
 	
@@ -59,7 +53,6 @@ public final class FlexPhoneNumberValidatorRenderer extends AbstractFlexValidato
         IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(FlexPhoneNumberValidatorRenderer.class, componentObj, null);
 		writer.createPreMxml(componentFlex, FlexPhoneNumberValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		

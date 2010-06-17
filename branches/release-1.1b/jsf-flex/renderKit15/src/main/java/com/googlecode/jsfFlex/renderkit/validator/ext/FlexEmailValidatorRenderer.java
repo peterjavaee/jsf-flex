@@ -25,7 +25,6 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.renderkit.validator.AbstractFlexValidatorTemplateRenderer;
@@ -43,16 +42,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		componentName="EmailValidator",
 		componentNodeAttributes={},
 
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="invalidCharError"),
-				@IJsfFlexAttribute(attribute="invalidDomainError"),
-				@IJsfFlexAttribute(attribute="invalidIPDomainError"),
-				@IJsfFlexAttribute(attribute="invalidPeriodsInDomainError"),
-				@IJsfFlexAttribute(attribute="missingAtSignError"),
-				@IJsfFlexAttribute(attribute="missingPeriodInDomainError"),
-				@IJsfFlexAttribute(attribute="missingUsernameError"),
-				@IJsfFlexAttribute(attribute="tooManyAtSignsError")
-		}
+		jsfFlexAttributes={}
 )
 public final class FlexEmailValidatorRenderer extends AbstractFlexValidatorTemplateRenderer {
 	
@@ -63,7 +53,6 @@ public final class FlexEmailValidatorRenderer extends AbstractFlexValidatorTempl
         IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(FlexEmailValidatorRenderer.class, componentObj, null);
 		writer.createPreMxml(componentFlex, FlexEmailValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		

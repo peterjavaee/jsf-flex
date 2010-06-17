@@ -30,11 +30,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUISelectedColorAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUISelectedIndexAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUITextAttribute;
 import com.googlecode.jsfFlex.component.AbstractFlexUIInputBase;
 
 /**
@@ -51,8 +47,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUIInputBase;
 )
 public abstract class AbstractFlexUIColorPicker 
 						extends AbstractFlexUIInputBase
-                        implements IFlexUIBaseAttributes, IFlexUIDataProviderAttribute, IFlexUIEditableAttribute, 
-                        IFlexUISelectedIndexAttribute, IFlexUITextAttribute, IFlexUISelectedColorAttribute {
+                        implements IFlexUIBaseAttributes, IFlexUISelectedColorAttribute {
 	
 	private final static Log _log = LogFactory.getLog(AbstractFlexUIColorPicker.class);
 	

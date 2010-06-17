@@ -25,7 +25,6 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.renderkit.validator.AbstractFlexValidatorTemplateRenderer;
@@ -43,12 +42,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		componentName="RegExpValidator",
 		componentNodeAttributes={},
 
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="expression"),
-				@IJsfFlexAttribute(attribute="flags"),
-				@IJsfFlexAttribute(attribute="noExpressionError"),
-				@IJsfFlexAttribute(attribute="noMatchError")
-		}
+		jsfFlexAttributes={}
 )
 public final class FlexRegExpValidatorRenderer extends AbstractFlexValidatorTemplateRenderer {
 	
@@ -59,7 +53,6 @@ public final class FlexRegExpValidatorRenderer extends AbstractFlexValidatorTemp
         IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(FlexRegExpValidatorRenderer.class, componentObj, null);
 		writer.createPreMxml(componentFlex, FlexRegExpValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		

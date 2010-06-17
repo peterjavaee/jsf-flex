@@ -44,10 +44,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		componentNodeAttributes={},
 		
 		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="id", byMethod=true),
-				@IJsfFlexAttribute(attribute="effect"),
-				@IJsfFlexAttribute(attribute="fromState"),
-				@IJsfFlexAttribute(attribute="toState")
+				@IJsfFlexAttribute(attribute="id", byMethod=true)
 		}
 )
 public final class FlexTransitionRenderer extends AbstractFlexComponentBaseRenderer {

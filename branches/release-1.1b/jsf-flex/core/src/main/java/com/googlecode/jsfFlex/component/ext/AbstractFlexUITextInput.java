@@ -21,7 +21,6 @@ package com.googlecode.jsfFlex.component.ext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
 
 /**
  * @author Ji Hoon Kim
@@ -37,6 +36,6 @@ import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
 )
 public abstract class AbstractFlexUITextInput 
 						extends com.googlecode.jsfFlex.component.FlexUIHtmlTextInputBase
-						implements IFlexUIBaseAttributes, IFlexUIEditableAttribute {
+						implements IFlexUIBaseAttributes {
 	
 }

@@ -27,7 +27,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRendere
 
 import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.AbstractFlexListTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
@@ -57,7 +57,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 		jsfFlexAttributes={}
 )
-public final class FlexListRenderer extends AbstractFlexListTemplateRenderer {
+public final class FlexListRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
@@ -66,7 +66,7 @@ public final class FlexListRenderer extends AbstractFlexListTemplateRenderer {
 		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.createPreMxml(componentFlex, FlexListRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), null);
+        writer.createPreMxml(componentFlex, FlexListRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), null);
 		
 	}
 

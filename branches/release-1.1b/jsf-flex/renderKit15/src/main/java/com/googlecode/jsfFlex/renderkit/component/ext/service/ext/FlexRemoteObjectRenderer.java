@@ -44,15 +44,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		componentNodeAttributes={},
 
 		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="concurrency"),
-				@IJsfFlexAttribute(attribute="destination"),
-				@IJsfFlexAttribute(attribute="id", byMethod=true),
-				@IJsfFlexAttribute(attribute="endpoint"),
-				@IJsfFlexAttribute(attribute="showBusyCursor"),
-				@IJsfFlexAttribute(attribute="source"),
-				@IJsfFlexAttribute(attribute="makeObjectsBindable"),
-				@IJsfFlexAttribute(attribute="fault"),
-				@IJsfFlexAttribute(attribute="result")
+				@IJsfFlexAttribute(attribute="id", byMethod=true)
 		}
 )
 public final class FlexRemoteObjectRenderer extends AbstractFlexComponentBaseRenderer {

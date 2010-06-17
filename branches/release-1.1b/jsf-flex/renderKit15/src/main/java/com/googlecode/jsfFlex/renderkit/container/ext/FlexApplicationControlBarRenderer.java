@@ -25,9 +25,8 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.container.AbstractFlexBoxTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
@@ -43,13 +42,9 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		componentName="ApplicationControlBar",
 		componentNodeAttributes={},
 
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="dock"),
-				@IJsfFlexAttribute(attribute="fillAlphas"),
-				@IJsfFlexAttribute(attribute="fillColors")
-		}
+		jsfFlexAttributes={}
 )
-public final class FlexApplicationControlBarRenderer extends AbstractFlexBoxTemplateRenderer {
+public final class FlexApplicationControlBarRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
@@ -58,7 +53,6 @@ public final class FlexApplicationControlBarRenderer extends AbstractFlexBoxTemp
         IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(FlexApplicationControlBarRenderer.class, componentObj, null);
 		writer.createPreMxml(componentFlex, FlexApplicationControlBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		

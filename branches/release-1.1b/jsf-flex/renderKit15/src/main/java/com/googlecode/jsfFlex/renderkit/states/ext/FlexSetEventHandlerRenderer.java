@@ -45,10 +45,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		
 		jsfFlexAttributes={
 				@IJsfFlexAttribute(attribute="id", byMethod=true),
-				@IJsfFlexAttribute(attribute="name"),
-				@IJsfFlexAttribute(attribute="handlerFunction"),
-				@IJsfFlexAttribute(attribute="target"),
-				@IJsfFlexAttribute(attribute="handler")
+				@IJsfFlexAttribute(attribute="name")
 		}
 )
 public final class FlexSetEventHandlerRenderer extends AbstractFlexComponentBaseRenderer {

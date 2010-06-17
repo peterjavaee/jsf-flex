@@ -28,7 +28,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRendere
 import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.container.AbstractFlexContainerTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
@@ -57,26 +57,10 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		},
 
 		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="headerRenderer"),
-				@IJsfFlexAttribute(attribute="historyManagementEnabled"),
-				@IJsfFlexAttribute(attribute="resizeToContent"),
-				@IJsfFlexAttribute(attribute="fillAlphas"),
-				@IJsfFlexAttribute(attribute="fillColors"),
-				@IJsfFlexAttribute(attribute="focusAlpha"),
-				@IJsfFlexAttribute(attribute="focusRoundedCorners"),
-				@IJsfFlexAttribute(attribute="headerHeight"),
-				@IJsfFlexAttribute(attribute="headerStyleName"),
-				@IJsfFlexAttribute(attribute="horizontalGap"),
-				@IJsfFlexAttribute(attribute="openDuration"),
-				@IJsfFlexAttribute(attribute="openEasingFunction"),
-				@IJsfFlexAttribute(attribute="selectedFillColors"),
-				@IJsfFlexAttribute(attribute="textRollOverColor"),
-				@IJsfFlexAttribute(attribute="textSelectedColor"),
-				@IJsfFlexAttribute(attribute="verticalGap"),
-				@IJsfFlexAttribute(attribute="change")
+				@IJsfFlexAttribute(attribute="creationPolicy", byMethod=true)
 		}
 )
-public final class FlexAccordionRenderer extends AbstractFlexContainerTemplateRenderer {
+public final class FlexAccordionRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

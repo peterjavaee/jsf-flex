@@ -26,9 +26,8 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
 import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.container.AbstractFlexPanelTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
@@ -66,14 +65,9 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 						nameAppend="_htmlText")
 		},
 
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="defaultLinkProtocol"),
-				@IJsfFlexAttribute(attribute="showControlBar"),
-				@IJsfFlexAttribute(attribute="showToolTips"),
-				@IJsfFlexAttribute(attribute="change")
-		}
+		jsfFlexAttributes={}
 )
-public final class FlexRichTextEditorRenderer extends AbstractFlexPanelTemplateRenderer {
+public final class FlexRichTextEditorRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
@@ -82,7 +76,6 @@ public final class FlexRichTextEditorRenderer extends AbstractFlexPanelTemplateR
 		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
 		
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(FlexRichTextEditorRenderer.class, componentObj, null);
 		writer.createPreMxml(componentFlex, FlexRichTextEditorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		

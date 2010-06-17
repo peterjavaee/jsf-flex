@@ -25,7 +25,6 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.renderkit.validator.AbstractFlexValidatorTemplateRenderer;
@@ -43,21 +42,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		componentName="CreditCardValidator",
 		componentNodeAttributes={},
 
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="allowedFormatChars"),
-				@IJsfFlexAttribute(attribute="cardNumberListener"),
-				@IJsfFlexAttribute(attribute="cardNumberProperty"),
-				@IJsfFlexAttribute(attribute="cardNumberSource"),
-				@IJsfFlexAttribute(attribute="cardTypeListener"),
-				@IJsfFlexAttribute(attribute="cardTypeProperty"),
-				@IJsfFlexAttribute(attribute="cardTypeSource"),
-				@IJsfFlexAttribute(attribute="invalidCharError"),
-				@IJsfFlexAttribute(attribute="invalidNumberError"),
-				@IJsfFlexAttribute(attribute="noNumError"),
-				@IJsfFlexAttribute(attribute="noTypeError"),
-				@IJsfFlexAttribute(attribute="wrongLengthError"),
-				@IJsfFlexAttribute(attribute="wrongTypeError")
-		}
+		jsfFlexAttributes={}
 )
 public final class FlexCreditCardValidatorRenderer extends AbstractFlexValidatorTemplateRenderer {
 	
@@ -68,7 +53,6 @@ public final class FlexCreditCardValidatorRenderer extends AbstractFlexValidator
         IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(FlexCreditCardValidatorRenderer.class, componentObj, null);
 		writer.createPreMxml(componentFlex, FlexCreditCardValidatorRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
 				null);
 		

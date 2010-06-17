@@ -25,8 +25,9 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
+import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.AbstractFlexDataGridTemplateRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
@@ -42,9 +43,13 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         componentName="DataGrid",
         componentNodeAttributes={},
 
-        jsfFlexAttributes={}
+        jsfFlexAttributes={
+                @IJsfFlexAttribute(attribute="rowCount", byMethod=true),
+                @IJsfFlexAttribute(attribute="editable", byMethod=true),
+                @IJsfFlexAttribute(attribute="dataProvider", byMethod=true),
+        }
 )
-public final class FlexDataGridRenderer extends AbstractFlexDataGridTemplateRenderer {
+public final class FlexDataGridRenderer extends AbstractFlexComponentBaseRenderer {
     
     @Override
     public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
@@ -53,6 +58,7 @@ public final class FlexDataGridRenderer extends AbstractFlexDataGridTemplateRend
         IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+        writer.mapFields(FlexDataGridRenderer.class, componentObj, null);
         writer.createPreMxml(componentFlex, FlexDataGridRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
