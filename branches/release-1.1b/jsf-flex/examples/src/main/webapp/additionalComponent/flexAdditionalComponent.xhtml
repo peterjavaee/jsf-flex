@@ -32,8 +32,11 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexAdditionalComponent" height="500" width="800">
-	    	<jf:flexAdditionalComponent componentName="Label" componentAttributesJSONFormat="{text: 'I am a label.', width: '90%'}" />
+    	<jf:flexApplication mxmlPackageName="flexAdditionalComponent">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+	    	<jf:flexAdditionalComponent componentName="Label" componentNameSpace="s" componentAttributesJSONFormat="{text: 'I am a label.', width: '90%'}" />
 	    </jf:flexApplication>
     	
     </h:form>

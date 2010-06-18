@@ -32,9 +32,14 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexVideoDisplay" height="500" width="800">
-	    	<jf:flexLabel text="Due to lack of swf file for loading, please refer to Adobe's example. Maybe later." />
-	    </jf:flexApplication>
+    	<jf:flexApplication mxmlPackageName="flexVideoDisplay">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexLabel>
+    			<jf:flexAttributeNode name="text" value="Due to lack of swf file for loading, please refer to Adobe's example. Maybe later."/>
+    		</jf:flexLabel>
+    	</jf:flexApplication>
     	
     </h:form>
     

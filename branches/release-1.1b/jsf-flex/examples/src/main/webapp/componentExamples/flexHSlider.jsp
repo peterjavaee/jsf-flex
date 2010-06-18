@@ -31,9 +31,14 @@
 <f:view renderKitId="FLEX_BASIC">
     
     <h:form>
-    	<jf:flexApplication mxmlPackageName="flexHSlider" height="500" width="800">
+    	
+    	<jf:flexApplication mxmlPackageName="flexHSlider">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
     		<jf:flexHSlider value="#{flexOverallBean.horizontalSliderValue}" />
     	</jf:flexApplication>
+    	
     </h:form>
     
 </f:view>

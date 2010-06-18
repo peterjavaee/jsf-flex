@@ -31,9 +31,16 @@
 <f:view renderKitId="FLEX_BASIC">
     
     <h:form>
-    	<jf:flexApplication mxmlPackageName="flexHRule" height="500" width="800">
-    		<jf:flexHRule width="100%" />
+    	
+    	<jf:flexApplication mxmlPackageName="flexHRule">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexHRule>
+    			<jf:flexAttributeNode name="width" value="100%"/>
+    		</jf:flexHRule>
     	</jf:flexApplication>
+    	
     </h:form>
     
 </f:view>

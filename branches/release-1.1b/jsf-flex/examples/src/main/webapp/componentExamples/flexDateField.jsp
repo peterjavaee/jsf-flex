@@ -32,8 +32,13 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexDateField" height="500" width="800">
-    		<jf:flexDateField text="#{flexOverallBean.dateFieldText}" width="100" />
+    	<jf:flexApplication mxmlPackageName="flexDateField">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexDateField text="#{flexOverallBean.dateFieldText}">
+    			<jf:flexAttributeNode name="width" value="100"/>
+    		</jf:flexDateField>
     	</jf:flexApplication>
     	
     </h:form>

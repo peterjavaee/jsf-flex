@@ -32,12 +32,20 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexRadioButton" height="500" width="800">
-    		<jf:flexRadioButton groupName="radioTest" label="First" value="First" 
+    	<jf:flexApplication mxmlPackageName="flexRadioButton">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexRadioButton groupName="radioTest" value="First" 
 					    			selectedValue="#{flexOverallBean.radioButtonSelectedValue}" 
-					    			selected="#{flexOverallBean.radioButtonFirstSelected}"/>
-			<jf:flexRadioButton groupName="radioTest" label="Second" value="Second" 
-									selected="#{flexOverallBean.radioButtonSecondSelected}"/>
+					    			selected="#{flexOverallBean.radioButtonFirstSelected}">
+					<jf:flexAttributeNode name="label" value="First"/>
+			</jf:flexRadioButton>
+			
+			<jf:flexRadioButton groupName="radioTest" value="Second" 
+									selected="#{flexOverallBean.radioButtonSecondSelected}">
+					<jf:flexAttributeNode name="label" value="Second"/>
+			</jf:flexRadioButton>
     	</jf:flexApplication>
     	
     </h:form>

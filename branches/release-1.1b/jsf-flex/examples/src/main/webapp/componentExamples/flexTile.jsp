@@ -32,10 +32,17 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexTile" height="500" width="800">
+    	<jf:flexApplication mxmlPackageName="flexTile">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
     		<jf:flexTile>
-		        <jf:flexLabel text="First label for tile example." />
-		        <jf:flexLabel text="Second label for tile example." />
+		        <jf:flexLabel>
+		        	<jf:flexAttributeNode name="text" value="First label for tile example."/>
+		        </jf:flexLabel>
+		        <jf:flexLabel>
+		        	<jf:flexAttributeNode name="text" value="Second label for tile example."/>
+		        </jf:flexLabel>
 		    </jf:flexTile>
     	</jf:flexApplication>
     	

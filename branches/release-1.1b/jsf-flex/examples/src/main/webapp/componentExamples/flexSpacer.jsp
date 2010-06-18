@@ -32,10 +32,22 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexSpacer" height="500" width="800">
-    		<jf:flexLabel text="First label for flexSpacer example." />
-    		<jf:flexSpacer height="10" width="10" />
-    		<jf:flexLabel text="Follow up label." />
+    	<jf:flexApplication mxmlPackageName="flexSpacer">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexLabel>
+    			<jf:flexAttributeNode name="text" value="First label for flexSpacer example."/>
+    		</jf:flexLabel>
+    		
+    		<jf:flexSpacer>
+    			<jf:flexAttributeNode name="height" value="10"/>
+	    		<jf:flexAttributeNode name="width" value="10"/>
+    		</jf:flexSpacer>
+    		
+    		<jf:flexLabel>
+    			<jf:flexAttributeNode name="text" value="Follow up label."/>
+    		</jf:flexLabel>
     	</jf:flexApplication>
     	
     </h:form>

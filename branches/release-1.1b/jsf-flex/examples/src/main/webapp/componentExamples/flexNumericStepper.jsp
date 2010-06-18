@@ -32,8 +32,14 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexNumericStepper" height="500" width="800">
-    		<jf:flexNumericStepper minimum="0" maximum="10" value="#{flexOverallBean.numericStepperValue}" />
+    	<jf:flexApplication mxmlPackageName="flexNumericStepper">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexNumericStepper value="#{flexOverallBean.numericStepperValue}">
+    			<jf:flexAttributeNode name="minimum" value="0"/>
+	    		<jf:flexAttributeNode name="maximum" value="10"/>
+    		</jf:flexNumericStepper>
     	</jf:flexApplication>
     	
     </h:form>

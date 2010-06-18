@@ -31,7 +31,9 @@
 <f:view renderKitId="FLEX_BASIC">
     
     <h:form>
-    	<jf:flexApplication mxmlPackageName="flexProgressBar" height="500" width="800">
+    	<jf:flexApplication mxmlPackageName="flexProgressBar">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
     		
     		<jf:flexScript>
 	        	
@@ -44,9 +46,22 @@
 				}
 				
 		    </jf:flexScript>
-    		<jf:flexButton label="Increase Progress Bar" buttonDown="increaseProgressBar();"/>
-	        <jf:flexButton label="Decrease Progress Bar" buttonDown="decreaseProgressBar();" />
-    		<jf:flexProgressBar id="progressBarRef" mode="manual" minimum="0" maximum="100"	value="#{flexOverallBean.progressBarValue}" />
+		    
+    		<jf:flexButton>
+    			<jf:flexAttributeNode name="label" value="Increase Progress Bar"/>
+	    		<jf:flexAttributeNode name="buttonDown" value="increaseProgressBar();"/>
+    		</jf:flexButton>
+    		
+	        <jf:flexButton>
+	        	<jf:flexAttributeNode name="label" value="Decrease Progress Bar"/>
+	    		<jf:flexAttributeNode name="buttonDown" value="decreaseProgressBar();"/>
+	        </jf:flexButton>
+	        
+    		<jf:flexProgressBar id="progressBarRef"	value="#{flexOverallBean.progressBarValue}">
+    			<jf:flexAttributeNode name="mode" value="manual"/>
+	    		<jf:flexAttributeNode name="minimum" value="0"/>
+	    		<jf:flexAttributeNode name="maximum" value="100"/>
+    		</jf:flexProgressBar>
     	</jf:flexApplication>
     </h:form>
     

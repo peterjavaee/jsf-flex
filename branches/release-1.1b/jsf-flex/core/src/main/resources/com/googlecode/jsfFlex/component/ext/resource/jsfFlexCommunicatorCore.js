@@ -51,8 +51,8 @@ if(typeof com.googlecode.jsfFlex.communication.core != "undefined"){
 
 com.googlecode.jsfFlex.communication.core = {
 	data 			:	{ 
-							flashAppsKeyNamingContainer	: new Object(),
-							flashAppsKeyAppId			: new Object()
+							flashAppsKeyNamingContainer	: {},
+							flashAppsKeyAppId			: {}
 						},
 	addFlashApp		: 	function(flashApp){
 							var namingContainerPrefixList = com.googlecode.jsfFlex.communication.core.data.flashAppsKeyNamingContainer[flashApp.namingContainerPrefix];
@@ -107,7 +107,7 @@ com.googlecode.jsfFlex.communication.core.domHelpers = {
 													}
 							},
 	data 			:	{ 
-							eventListenerToRelease		: new Array()
+							eventListenerToRelease		: []
 						},
 	addEventListener	:	function(element, eventName, objectInstance, functionListener, argument, capturing, removeAtPageUnload){
 								element = element == null ? window : element;

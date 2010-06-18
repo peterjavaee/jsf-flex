@@ -32,9 +32,18 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexPanel" height="500" width="800">
-    		<jf:flexPanel label="Panel example" width="100%" height="100%">
-    			<jf:flexLabel text="Label for panel example" />
+    	<jf:flexApplication mxmlPackageName="flexPanel">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexPanel>
+    			<jf:flexAttributeNode name="height" value="100%"/>
+	    		<jf:flexAttributeNode name="width" value="100%"/>
+	    		<jf:flexAttributeNode name="label" value="Panel example"/>
+	    		
+    			<jf:flexLabel>
+    				<jf:flexAttributeNode name="text" value="Label for panel example"/>
+    			</jf:flexLabel>
     		</jf:flexPanel>
     	</jf:flexApplication>
     	

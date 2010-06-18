@@ -32,8 +32,13 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexColorPicker" height="500" width="800">
-    		<jf:flexColorPicker labelField="ColorPicker example" selectedColor="#{flexOverallBean.colorPickerSelectedColor}" />
+    	<jf:flexApplication mxmlPackageName="flexColorPicker">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexColorPicker selectedColor="#{flexOverallBean.colorPickerSelectedColor}">
+    			<jf:flexAttributeNode name="labelField" value="ColorPicker example"/>
+    		</jf:flexColorPicker>
     	</jf:flexApplication>
     	
     </h:form>

@@ -32,7 +32,10 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexPopUpButton" height="500" width="800">
+    	<jf:flexApplication mxmlPackageName="flexPopUpButton">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
     		<jf:flexScript>
 	        	import flash.events.Event;
 	        	
@@ -63,8 +66,10 @@
 		    	
 		    </jf:flexScript>
     		
-    		
-    		<jf:flexPopUpButton creationComplete="initMenu(event);" width="135" />
+    		<jf:flexPopUpButton>
+    			<jf:flexAttributeNode name="creationComplete" value="initMenu(event);"/>
+    			<jf:flexAttributeNode name="width" value="135"/>
+    		</jf:flexPopUpButton>
     	</jf:flexApplication>
     	
     </h:form>

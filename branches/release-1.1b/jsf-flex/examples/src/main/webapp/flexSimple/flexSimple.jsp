@@ -36,8 +36,13 @@
     	<h:commandButton value="SimpleTest" action="success" />
     	<br />
     	
-    	<jf:flexApplication mxmlPackageName="flexSimple" height="500" width="800">
-    		<jf:flexLabel text="I simply am a SWF file. DHan, DHAn, DHAN!!!" />
+    	<jf:flexApplication mxmlPackageName="flexSimple">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexLabel>
+    			<jf:flexAttributeNode name="text" value="I simply am a SWF file. DHan, DHAn, DHAN!!!"/>
+    		</jf:flexLabel>
     	</jf:flexApplication>
     	
     </h:form>

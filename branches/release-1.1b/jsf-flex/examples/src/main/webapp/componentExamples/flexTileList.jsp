@@ -32,8 +32,14 @@
     
     <h:form>
         
-        <jf:flexApplication mxmlPackageName="flexTileList" height="500" width="800">
-            <jf:flexTileList columnCount="2" columnWidth="100">
+        <jf:flexApplication mxmlPackageName="flexTileList">
+        	<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+            <jf:flexTileList>
+            	<jf:flexAttributeNode name="columnCount" value="2"/>
+    			<jf:flexAttributeNode name="columnWidth" value="100"/>
+    			
                 <jf:flexDataProvider>
                     <jf:flexObject>
                     	<jf:flexObjectStaticProperty staticPropertyName="label" staticPropertyValue="First" />

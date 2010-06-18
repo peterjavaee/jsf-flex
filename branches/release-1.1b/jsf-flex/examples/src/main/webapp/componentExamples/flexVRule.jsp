@@ -32,8 +32,14 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexVRule" height="500" width="800">
-    		<jf:flexVRule strokeWidth="1" strokeColor="red" />
+    	<jf:flexApplication mxmlPackageName="flexVRule">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexVRule>
+    			<jf:flexAttributeNode name="strokeWidth" value="1"/>
+	    		<jf:flexAttributeNode name="strokeColor" value="red"/>
+    		</jf:flexVRule>
     	</jf:flexApplication>
     	
     </h:form>

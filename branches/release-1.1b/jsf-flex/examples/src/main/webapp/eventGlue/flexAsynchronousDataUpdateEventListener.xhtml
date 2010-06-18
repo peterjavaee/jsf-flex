@@ -32,8 +32,14 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexAsynchronousDataUpdateEventListener" height="500" width="800">
-	    	<jf:flexNumericStepper id="srcComp" minimum="0" maximum="10" value="#{flexFaceletOverallBean.numericStepperValue}" />
+    	<jf:flexApplication mxmlPackageName="flexAsynchronousDataUpdateEventListener">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+	    	<jf:flexNumericStepper id="srcComp" value="#{flexFaceletOverallBean.numericStepperValue}">
+	    		<jf:flexAttributeNode name="minimum" value="0"/>
+	    		<jf:flexAttributeNode name="maximum" value="10"/>
+	    	</jf:flexNumericStepper>
 	    	
 	    	<jf:flexTextInput id="tgtComp" text="#{flexFaceletOverallBean.textInputText}" />
 	    	

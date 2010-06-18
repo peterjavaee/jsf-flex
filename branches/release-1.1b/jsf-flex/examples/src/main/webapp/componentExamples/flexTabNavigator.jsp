@@ -32,13 +32,32 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexTabNavigator" height="500" width="800">
-    		<jf:flexTabNavigator width="100%" height="100%" selectedIndex="#{flexOverallBean.tabNavigatorSelectedIndex}">
-	    		<jf:flexPanel label="First Tab" width="100%" height="100%">
-	    			<jf:flexLabel text="Label for first Tab." />
+    	<jf:flexApplication mxmlPackageName="flexTabNavigator">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexTabNavigator selectedIndex="#{flexOverallBean.tabNavigatorSelectedIndex}">
+    			<jf:flexAttributeNode name="height" value="100%"/>
+	    		<jf:flexAttributeNode name="width" value="100%"/>
+	    		
+	    		<jf:flexPanel>
+	    			<jf:flexAttributeNode name="height" value="100%"/>
+		    		<jf:flexAttributeNode name="width" value="100%"/>
+		    		<jf:flexAttributeNode name="label" value="First Tab"/>
+		    		
+	    			<jf:flexLabel>
+	    				<jf:flexAttributeNode name="text" value="Label for first Tab."/>
+	    			</jf:flexLabel>
 	    		</jf:flexPanel>
-	    		<jf:flexPanel label="Second Tab" width="100%" height="100%">
-	    			<jf:flexLabel text="Label for second Tab." />
+	    		
+	    		<jf:flexPanel>
+	    			<jf:flexAttributeNode name="height" value="100%"/>
+		    		<jf:flexAttributeNode name="width" value="100%"/>
+		    		<jf:flexAttributeNode name="label" value="Second Tab"/>
+	    			
+	    			<jf:flexLabel>
+	    				<jf:flexAttributeNode name="text" value="Label for second Tab."/>
+	    			</jf:flexLabel>
 	    		</jf:flexPanel>
     		</jf:flexTabNavigator>
     	</jf:flexApplication>

@@ -32,7 +32,10 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexButtonBar" height="500" width="800">
+    	<jf:flexApplication mxmlPackageName="flexButtonBar">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
     		<jf:flexButtonBar>
        			<jf:flexDataProvider>
 					<jf:flexObject>

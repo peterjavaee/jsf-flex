@@ -32,8 +32,13 @@
     
     <h:form>
     	
-		<jf:flexApplication mxmlPackageName="flexText" height="500" width="800">
-    		<jf:flexText text="Random text for show." />
+		<jf:flexApplication mxmlPackageName="flexText">
+			<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexText>
+    			<jf:flexAttributeNode name="text" value="Random text for show."/>
+    		</jf:flexText>
     	</jf:flexApplication>
     	
     </h:form>

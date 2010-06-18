@@ -32,7 +32,10 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexMenuBar" height="500" width="800">
+    	<jf:flexApplication mxmlPackageName="flexMenuBar">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
     		<jf:flexScript>
 	        	
 		    	import mx.collections.XMLListCollection;
@@ -57,7 +60,11 @@
 				public var complexStructCollection:XMLListCollection = new XMLListCollection(complexStruct);
 				
 		    </jf:flexScript>
-    		<jf:flexMenuBar dataProvider="{complexStructCollection}" labelField="@label" />
+		    
+    		<jf:flexMenuBar>
+    			<jf:flexAttributeNode name="dataProvider" value="{complexStructCollection}"/>
+    			<jf:flexAttributeNode name="labelField" value="@label"/>
+    		</jf:flexMenuBar>
     	</jf:flexApplication>
     	
     </h:form>

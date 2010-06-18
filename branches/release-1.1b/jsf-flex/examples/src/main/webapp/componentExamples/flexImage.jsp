@@ -32,8 +32,13 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexImage" height="500" width="800">
-    		<jf:flexImage source="/jsf-flex-examples/componentExamples/images/apache.png" />
+    	<jf:flexApplication mxmlPackageName="flexImage">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexImage>
+    			<jf:flexAttributeNode name="source" value="/jsf-flex-examples/componentExamples/images/apache.png"/>
+    		</jf:flexImage>
     	</jf:flexApplication>
     	
     </h:form>

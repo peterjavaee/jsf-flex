@@ -32,9 +32,12 @@
 
 	<h:form>
 
-		<jf:flexApplication mxmlPackageName="flexButtonBar" height="500" width="800">
-			<jf:flexButtonBar>
-				<jf:flexDataProvider>
+		<jf:flexApplication mxmlPackageName="flexButtonBar">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexButtonBar>
+       			<jf:flexDataProvider>
 					<jf:flexObject>
 						<jf:flexObjectStaticProperty staticPropertyName="label" staticPropertyValue="First Nesting" />
 					</jf:flexObject>
@@ -43,7 +46,7 @@
 					</jf:flexObject>
 				</jf:flexDataProvider>
 			</jf:flexButtonBar>
-		</jf:flexApplication>
+    	</jf:flexApplication>
 
 	</h:form>
 

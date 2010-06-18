@@ -32,9 +32,19 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexTitleWindow" height="500" width="800">
-    		<jf:flexTitleWindow title="Title Window" x="168" y="86" borderStyle="inset">
-    			<jf:flexLabel text="Label for titleWindow example." />
+    	<jf:flexApplication mxmlPackageName="flexTitleWindow">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexTitleWindow>
+    			<jf:flexAttributeNode name="title" value="Title Window"/>
+    			<jf:flexAttributeNode name="x" value="168"/>
+    			<jf:flexAttributeNode name="y" value="86"/>
+    			<jf:flexAttributeNode name="borderStyle" value="inset"/>
+    			
+    			<jf:flexLabel>
+    				<jf:flexAttributeNode name="text" value="Label for titleWindow example."/>
+    			</jf:flexLabel>
 			</jf:flexTitleWindow>
     	</jf:flexApplication>
     	

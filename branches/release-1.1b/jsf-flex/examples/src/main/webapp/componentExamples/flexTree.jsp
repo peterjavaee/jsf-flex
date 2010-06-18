@@ -32,7 +32,10 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexTree" height="500" width="800">
+    	<jf:flexApplication mxmlPackageName="flexTree">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
     		<jf:flexScript>
 	        	
 		    	import mx.collections.XMLListCollection;
@@ -57,8 +60,12 @@
 				public var complexStructCollection:XMLListCollection = new XMLListCollection(complexStruct);
 				
 		    </jf:flexScript>
-    		<jf:flexTree width="500" dataProvider="{complexStructCollection}" labelField="@label" 
-    						selectedIndex="#{flexOverallBean.treeSelectedIndex}"/>
+		    
+    		<jf:flexTree selectedIndex="#{flexOverallBean.treeSelectedIndex}">
+				<jf:flexAttributeNode name="dataProvider" value="{complexStructCollection}"/>
+	    		<jf:flexAttributeNode name="width" value="500"/>
+	    		<jf:flexAttributeNode name="labelField" value="@label"/>
+			</jf:flexTree>
     	</jf:flexApplication>
     	
     </h:form>

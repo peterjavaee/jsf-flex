@@ -32,10 +32,25 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexViewStack" height="500" width="800">
-    		<jf:flexViewStack borderStyle="solid" width="100%" height="80%">
-    			<jf:flexCanvas backgroundColor="#FFFFCC" label="Search" width="100%" height="100%">
-	                <jf:flexLabel text="Search Screen" color="#000000"/>
+    	<jf:flexApplication mxmlPackageName="flexViewStack">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexViewStack>
+    			<jf:flexAttributeNode name="height" value="80%"/>
+    			<jf:flexAttributeNode name="width" value="100%"/>
+    			<jf:flexAttributeNode name="borderStyle" value="solid"/>
+    			
+    			<jf:flexCanvas>
+    				<jf:flexAttributeNode name="backgroundColor" value="#FFFFCC"/>
+    				<jf:flexAttributeNode name="label" value="Search"/>
+    				<jf:flexAttributeNode name="width" value="100%"/>
+    				<jf:flexAttributeNode name="height" value="100%"/>
+    				
+	                <jf:flexLabel>
+	                	<jf:flexAttributeNode name="text" value="Search Screen"/>
+	                	<jf:flexAttributeNode name="color" value="#000000"/>
+	                </jf:flexLabel>
 	            </jf:flexCanvas>
 	         </jf:flexViewStack>
     	</jf:flexApplication>

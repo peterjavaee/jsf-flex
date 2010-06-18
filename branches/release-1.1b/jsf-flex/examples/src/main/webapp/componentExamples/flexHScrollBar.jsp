@@ -31,9 +31,14 @@
 <f:view renderKitId="FLEX_BASIC">
     
     <h:form>
-    	<jf:flexApplication mxmlPackageName="flexHScrollBar" height="500" width="800">
+    	
+    	<jf:flexApplication mxmlPackageName="flexHScrollBar">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
     		<jf:flexHScrollBar />
     	</jf:flexApplication>
+    	
     </h:form>
     
 </f:view>

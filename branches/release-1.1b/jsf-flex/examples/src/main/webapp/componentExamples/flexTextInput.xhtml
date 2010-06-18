@@ -32,7 +32,10 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexTextInput" height="500" width="800">
+    	<jf:flexApplication mxmlPackageName="flexTextInput">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
 	    	<jf:flexTextInput text="#{flexFaceletOverallBean.textInputText}" />
 	    </jf:flexApplication>
     	

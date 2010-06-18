@@ -32,7 +32,10 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexComboBox" height="500" width="800">
+    	<jf:flexApplication mxmlPackageName="flexComboBox">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
     		<jf:flexComboBox text="#{flexOverallBean.comboBoxText}" selectedIndex="#{flexOverallBean.comboBoxSelectedIndex}" 
     							dataProviderCollection="#{flexOverallBean.comboBoxDisplayEntries}" />
     	</jf:flexApplication>

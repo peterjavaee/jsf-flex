@@ -32,8 +32,14 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexTree" height="500" width="800">
-	    	<jf:flexTree width="500" labelField="@label" selectedIndex="#{flexFaceletOverallBean.treeSelectedIndex}">
+    	<jf:flexApplication mxmlPackageName="flexTree">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+	    	<jf:flexTree selectedIndex="#{flexFaceletOverallBean.treeSelectedIndex}">
+	    		<jf:flexAttributeNode name="labelField" value="@label"/>
+	    		<jf:flexAttributeNode name="width" value="500"/>
+	    		
     			<jf:flexDataProvider>
     				
     				<ui:include src="../faceletFiles/flexXMLListExample.xhtml" />

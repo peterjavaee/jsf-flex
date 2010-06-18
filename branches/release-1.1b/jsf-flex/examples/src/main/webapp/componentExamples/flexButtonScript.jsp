@@ -32,7 +32,10 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexButtonScript" height="500" width="800">
+    	<jf:flexApplication mxmlPackageName="flexButtonScript">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
     		<jf:flexScript>
 	        	import mx.controls.Alert;
 		    	
@@ -41,7 +44,11 @@
 		    	}
 		    	
 		    </jf:flexScript>
-    		<jf:flexButton label="Button example" buttonDown="buttonMe();"/>
+		    
+    		<jf:flexButton>
+    			<jf:flexAttributeNode name="label" value="Button example"/>
+	    		<jf:flexAttributeNode name="buttonDown" value="buttonMe();"/>
+    		</jf:flexButton>
     	</jf:flexApplication>
     	
     </h:form>

@@ -31,7 +31,10 @@
 <f:view renderKitId="FLEX_BASIC">
     
     <h:form>
-    	<jf:flexApplication mxmlPackageName="flexLinkButton" height="500" width="800">
+    	<jf:flexApplication mxmlPackageName="flexLinkButton">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
     		<jf:flexScript>
 	        	
 		    	import mx.controls.Alert;
@@ -41,7 +44,10 @@
 		    	}
 		    	
 		    </jf:flexScript>
-    		<jf:flexLinkButton label="To Link to something" buttonDown="linkButtonClicked();" />
+    		<jf:flexLinkButton>
+    			<jf:flexAttributeNode name="label" value="To Link to something"/>
+	    		<jf:flexAttributeNode name="buttonDown" value="linkButtonClicked();"/>
+    		</jf:flexLinkButton>
     	</jf:flexApplication>
     </h:form>
     

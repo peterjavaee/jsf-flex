@@ -32,13 +32,24 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexDividedBox" height="500" width="800">
-    		<jf:flexDividedBox direction="horizontal" width="100%" height="100%">
+    	<jf:flexApplication mxmlPackageName="flexDividedBox">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexDividedBox>
+    			<jf:flexAttributeNode name="height" value="100%"/>
+	    		<jf:flexAttributeNode name="width" value="100%"/>
+	    		<jf:flexAttributeNode name="direction" value="horizontal"/>
+	    		
     			<jf:flexBox>
-    				<jf:flexLabel text="Label for first divided box." />
+    				<jf:flexLabel>
+    					<jf:flexAttributeNode name="text" value="Label for first divided box."/>
+    				</jf:flexLabel>
     			</jf:flexBox>
     			<jf:flexBox>
-    				<jf:flexLabel text="Label for second divided box." />
+    				<jf:flexLabel>
+    					<jf:flexAttributeNode name="text" value="Label for second divided box."/>
+    				</jf:flexLabel>
     			</jf:flexBox>
     		</jf:flexDividedBox>
     	</jf:flexApplication>

@@ -32,8 +32,14 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexVSlider" height="500" width="800">
-    		<jf:flexVSlider labels="Am a simple VSlider" fillColors="33FFFF" />
+    	<jf:flexApplication mxmlPackageName="flexVSlider">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexVSlider>
+    			<jf:flexAttributeNode name="labels" value="Am a simple VSlider"/>
+	    		<jf:flexAttributeNode name="fillColors" value="33FFFF"/>
+    		</jf:flexVSlider>
     	</jf:flexApplication>
     	
     </h:form>

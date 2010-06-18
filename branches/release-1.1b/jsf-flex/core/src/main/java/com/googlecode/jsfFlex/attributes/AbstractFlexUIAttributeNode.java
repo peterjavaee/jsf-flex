@@ -26,6 +26,7 @@ import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
@@ -40,13 +41,15 @@ import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        type    =   "com.googlecode.jsfFlex.FlexAttributeNode",
-        family  =   "javax.faces.FlexUIAttributeNode",
-        desc    =   "Attribute Node component"
+        name        =   "jf:flexAttributeNode",
+        clazz       =   "com.googlecode.jsfFlex.attributes.FlexUIAttributeNode",
+        type        =   "com.googlecode.jsfFlex.FlexAttributeNode",
+        tagClass    =   "com.googlecode.jsfFlex.taglib.attributes.FlexUIAttributeNodeTag",
+        family      =   "javax.faces.FlexUIAttributeNode",
+        desc        =   "Attribute Node component"
 )
 public abstract class AbstractFlexUIAttributeNode 
-                        extends UIComponentBase 
-                        implements IFlexUINameAttribute, IFlexUIValueAttribute {
+                        extends UIComponentBase {
     
     /* 
      * Only job for this Renderer is to create a TokenValue object and add it to its
@@ -83,8 +86,22 @@ public abstract class AbstractFlexUIAttributeNode
         
     }
     
+    /**
+     * Attribute name.
+     */
+    @JSFProperty(
+            desc        =   "Attribute name.",
+            required    =   true
+    )
     public abstract String getName();
     
+    /**
+     * Attribute value.
+     */
+    @JSFProperty(
+            desc        =   "Attribute value.",
+            required    =   true
+    )
     public abstract String getValue();
     
 }

@@ -32,11 +32,20 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexCanvas" height="500" width="800">
-	    	<jf:flexCanvas>
-	    		<jf:flexLabel text="Canvas allows absolute positioning of components, refer to Adobe site for better example" x="100" y="100" />
-	    	</jf:flexCanvas>
-	    </jf:flexApplication>
+    	<jf:flexApplication mxmlPackageName="flexCanvas">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexCanvas>
+    			<jf:flexLabel>
+    				
+    				<jf:flexAttributeNode name="text" value="Canvas allows absolute positioning of components, refer to Adobe site for better example"/>
+		    		<jf:flexAttributeNode name="x" value="100"/>
+		    		<jf:flexAttributeNode name="y" value="100"/>
+		    		
+    			</jf:flexLabel>
+    		</jf:flexCanvas>
+    	</jf:flexApplication>
     	
     </h:form>
     

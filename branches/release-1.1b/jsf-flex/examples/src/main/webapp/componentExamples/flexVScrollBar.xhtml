@@ -32,9 +32,15 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexVScrollBar" height="500" width="800">
-	    	<jf:flexVScrollBar lineScrollSize="50" pageScrollSize="100" />
-	    </jf:flexApplication>
+    	<jf:flexApplication mxmlPackageName="flexVScrollBar">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexVScrollBar>
+    			<jf:flexAttributeNode name="lineScrollSize" value="50"/>
+	    		<jf:flexAttributeNode name="pageScrollSize" value="100"/>
+    		</jf:flexVScrollBar>
+    	</jf:flexApplication>
     	
     </h:form>
     

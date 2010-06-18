@@ -32,11 +32,18 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexApplicationControlBar" height="500" width="800">
-	    	<jf:flexApplicationControlBar dock="true">
-	    		<jf:flexLabel text="Simple Application Control Bar" />
-	    	</jf:flexApplicationControlBar>
-	    </jf:flexApplication>
+    	<jf:flexApplication mxmlPackageName="flexApplicationControlBar">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
+    		<jf:flexApplicationControlBar>
+    			<jf:flexAttributeNode name="dock" value="true"/>
+    			
+    			<jf:flexLabel>
+    				<jf:flexAttributeNode name="text" value="Simple Application Control Bar"/>
+    			</jf:flexLabel>
+    		</jf:flexApplicationControlBar>
+    	</jf:flexApplication>
     	
     </h:form>
     

@@ -32,14 +32,20 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexList" height="500" width="800">
+    	<jf:flexApplication mxmlPackageName="flexList">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+    		
     		<jf:flexScript>
 	        	
 		    	[Bindable]
 				public var reallySimpleArray:Array = ["First", "Second", "Third"];
 				
 		    </jf:flexScript>
-    		<jf:flexList width="100" dataProvider="{reallySimpleArray}" selectedIndex="#{flexOverallBean.listSelectedIndex}" />
+    		<jf:flexList selectedIndex="#{flexOverallBean.listSelectedIndex}">
+    			<jf:flexAttributeNode name="dataProvider" value="{reallySimpleArray}"/>
+	    		<jf:flexAttributeNode name="width" value="100"/>
+    		</jf:flexList>
     	</jf:flexApplication>
     	
     </h:form>

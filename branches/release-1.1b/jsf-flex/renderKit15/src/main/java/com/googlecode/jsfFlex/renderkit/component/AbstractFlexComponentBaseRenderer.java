@@ -36,7 +36,6 @@ import com.googlecode.jsfFlex.renderkit.FlexRendererBase;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
-import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 
 /**
  * @author Ji Hoon Kim
@@ -49,12 +48,7 @@ public abstract class AbstractFlexComponentBaseRenderer extends FlexRendererBase
 	public void encodeEnd(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeEnd(context, componentObj);
 		
-		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
-		if(flexContext.isProductionEnv()){
-			return;
-		}
-		
-        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
 		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
 		writer.getFlexTaskRunner().writeBodyContent(componentFlex);
