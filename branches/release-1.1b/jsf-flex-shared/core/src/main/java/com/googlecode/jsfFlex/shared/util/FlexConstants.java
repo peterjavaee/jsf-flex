@@ -86,7 +86,9 @@ public final class FlexConstants {
 	public static final String XML_FILE_EXT = ".xml";
 	public static final String SWC_FILE_EXT = ".swc";
     
-    public static final String FLEX_SDK_ZIP = "flexSDK.zip";
+    public static final String FLEX_SDK_PART_1_ZIP = "flexSDK_1.zip";
+    public static final String FLEX_SDK_PART_2_ZIP = "flexSDK_2.zip";
+    public static final String FLEX_SDK_PART_3_ZIP = "flexSDK_3.zip";
 	public static final String DEFAULT_SWC_LIBRARY_SWF_NAME = "library.swf";
 	public static final String JSF_FLEX_MAIN_SWC_CONFIGURATIONFILE = "jsfFlexMainSwcConfigurationFile.xml";
 	public static final String JSF_FLEX_MAIN_SWC_DIRECTORY_NAME = "jsfFlexMainSwcFileSystem";

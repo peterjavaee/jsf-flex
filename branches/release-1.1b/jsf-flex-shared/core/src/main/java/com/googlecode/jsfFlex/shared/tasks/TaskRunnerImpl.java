@@ -119,6 +119,7 @@ class TaskRunnerImpl implements ITaskRunner {
             public void run() {
                 toAdd.performTask();
                 _queuedTasks.remove(taskName);
+                _log.info("Queued taskName has been completed : " + taskName);
             }
         }, null);
         
@@ -140,7 +141,7 @@ class TaskRunnerImpl implements ITaskRunner {
             try{
                 _log.info("Waiting for taskName : " + taskName);
                 task.get();
-                _log.info("Finished the taskName : " + taskName);
+                _log.info("Finished waiting for the taskName : " + taskName);
             }catch(ExecutionException executeExcept){
                 _log.error("Execution exception thrown within waitForFutureTask for " + taskName, executeExcept);
             }catch(InterruptedException interruptedExcept){

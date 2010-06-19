@@ -174,9 +174,21 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriterWrapper {
             if(!new File(flexContext.getFlexSDKPath()).exists()){
                 makeDirectory(flexContext.getFlexSDKPath());
                 String queueTaskId = componentFlex.getId();
-                unZipArchiveRelative(FlexConstants.FLEX_SDK_ZIP, flexContext.getFlexSDKPath(), queueTaskId);
+                unZipArchiveRelative(FlexConstants.FLEX_SDK_PART_1_ZIP, flexContext.getFlexSDKPath(), queueTaskId + "_1");
+                unZipArchiveRelative(FlexConstants.FLEX_SDK_PART_2_ZIP, flexContext.getFlexSDKPath(), queueTaskId + "_2");
+                unZipArchiveRelative(FlexConstants.FLEX_SDK_PART_3_ZIP, flexContext.getFlexSDKPath(), queueTaskId + "_3");
             }
         }
+    }
+    
+    public void waitForFlexUnzip(String queueTaskId){
+        String unZipArchiveRelativeQueueTaskPart1Id = QUEUE_TASK_ID.UNZIP_ARCHIVE_RELATIVE.getQueueTaskId(queueTaskId + "_1");
+        String unZipArchiveRelativeQueueTaskPart2Id = QUEUE_TASK_ID.UNZIP_ARCHIVE_RELATIVE.getQueueTaskId(queueTaskId + "_2");
+        String unZipArchiveRelativeQueueTaskPart3Id = QUEUE_TASK_ID.UNZIP_ARCHIVE_RELATIVE.getQueueTaskId(queueTaskId + "_3");
+        
+        waitForFutureTask(getCommonTaskRunner(), unZipArchiveRelativeQueueTaskPart1Id);
+        waitForFutureTask(getCommonTaskRunner(), unZipArchiveRelativeQueueTaskPart2Id);
+        waitForFutureTask(getCommonTaskRunner(), unZipArchiveRelativeQueueTaskPart3Id);
     }
     
     /**
@@ -208,8 +220,7 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriterWrapper {
         //now create the MXML file
         createMXML(componentFlex.getAbsolutePathToPreMxmlFile(), flexFile);
         
-        String unZipArchiveRelativeQueueTaskId = QUEUE_TASK_ID.UNZIP_ARCHIVE_RELATIVE.getQueueTaskId(queueTaskId);
-        waitForFutureTask(getCommonTaskRunner(), unZipArchiveRelativeQueueTaskId);
+        waitForFlexUnzip(queueTaskId);
         
         synchronized(LOCK){
             
