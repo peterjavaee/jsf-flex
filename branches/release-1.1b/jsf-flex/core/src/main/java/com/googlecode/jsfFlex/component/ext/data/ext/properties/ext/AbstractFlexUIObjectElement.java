@@ -63,9 +63,9 @@ public abstract class AbstractFlexUIObjectElement
 	
     private final static Log _log = LogFactory.getLog(AbstractFlexUIObjectElement.class);
     
-	private static final String OBJECT_START_TAG = "<mx:Object";
+	private static final String OBJECT_START_TAG = "<fx:Object";
 	private static final String OBJECT_START_TAG_CLOSER = ">";
-	private static final String OBJECT_END_TAG = "</mx:Object>";
+	private static final String OBJECT_END_TAG = "</fx:Object>";
 	
 	public void encodeBegin(FacesContext context) throws IOException {
 		super.encodeBegin(context);

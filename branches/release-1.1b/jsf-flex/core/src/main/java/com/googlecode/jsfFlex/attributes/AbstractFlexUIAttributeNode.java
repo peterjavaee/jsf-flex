@@ -18,19 +18,12 @@
  */
 package com.googlecode.jsfFlex.attributes;
 
-import java.io.IOException;
-import java.util.Set;
-
-import javax.faces.component.UIComponent;
 import javax.faces.component.UIComponentBase;
-import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
-import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
-import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
-import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
+import com.googlecode.jsfFlex.shared.adapter.IFlexAttributeNode;
 
 /**
  * In order to simplify development and focus in bridging of JSF and Flex, all attributes 
@@ -49,42 +42,8 @@ import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
         desc        =   "Attribute Node component"
 )
 public abstract class AbstractFlexUIAttributeNode 
-                        extends UIComponentBase {
-    
-    /* 
-     * Only job for this Renderer is to create a TokenValue object and add it to its
-     * parent's collection
-     */
-    @Override
-    public void encodeBegin(FacesContext context) throws IOException {
-        super.encodeBegin(context);
-        
-        /*
-         * Only job of this Renderer/Component is to 
-         */
-        
-        AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
-        
-        if(flexContext.isProductionEnv()){
-            return;
-        }
-        
-        UIComponent parent = getParent();
-        
-        if(parent == null){
-            //this should never happen
-            throw new NullPointerException("Component " + getClass().getName() + 
-                                                " lacks parent component");
-        }
-        
-        if(parent instanceof IFlexContract){
-            IFlexContract flexUIComp = IFlexContract.class.cast( parent );
-            Set<TokenValue> tokenValueSet = flexUIComp.getAnnotationDocletParserInstance().getTokenValueSet(); 
-            
-            tokenValueSet.add(new TokenValue(getName(), getValue()));
-        }
-        
-    }
+                        extends UIComponentBase 
+                        implements IFlexAttributeNode {
     
     /**
      * Attribute name.

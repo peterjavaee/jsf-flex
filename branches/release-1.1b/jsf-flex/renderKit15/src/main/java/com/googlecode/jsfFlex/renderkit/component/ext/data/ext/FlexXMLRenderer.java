@@ -42,6 +42,7 @@ import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 )
 @IJsfFlexAttributeProperties(
 		componentName="XML",
+        componentNameSpace="fx",
 		componentNodeAttributes={},
 		
 		jsfFlexAttributes={

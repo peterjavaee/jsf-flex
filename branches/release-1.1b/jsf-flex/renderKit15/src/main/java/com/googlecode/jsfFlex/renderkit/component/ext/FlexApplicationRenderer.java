@@ -36,7 +36,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
@@ -72,11 +71,10 @@ import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
 )
 @IJsfFlexAttributeProperties(
 		componentName="Application",
+        componentNameSpace="s",
 		componentNodeAttributes={},
 
-		jsfFlexAttributes={
-                @IJsfFlexAttribute(attribute="id", byMethod=true)
-        }
+		jsfFlexAttributes={}
 )
 public final class FlexApplicationRenderer extends AbstractFlexComponentBaseRenderer {
 	
@@ -108,14 +106,6 @@ public final class FlexApplicationRenderer extends AbstractFlexComponentBaseRend
         
         writer.unZipFlexSDK(componentFlex);
         
-		/*
-		 * special case for FlexApplication to filter out attribute "id"
-		 * In Flex, id attribute is not allowed on the root tag of a component
-		 */
-		
-		componentFlex.getAnnotationDocletParserInstance().getTokenValueSet().remove(new TokenValue("id", null));
-		writer.mapFields(FlexApplicationRenderer.class, componentObj, null);
-		
 		/*
 		 * Place in xmlns provided by the user + default for Flex application
 		 */

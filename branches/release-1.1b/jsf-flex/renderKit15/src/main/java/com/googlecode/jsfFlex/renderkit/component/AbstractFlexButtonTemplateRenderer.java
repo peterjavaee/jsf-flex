@@ -24,7 +24,6 @@ import java.util.EnumSet;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
-import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
 import com.googlecode.jsfFlex.shared.adapter.IFlexEvent.EVENT_HANDLER_TYPE;
 import com.googlecode.jsfFlex.shared.adapter.IFlexEvent.EVENT_HANDLER_TYPE.ACTION_SCRIPT_IMPORT;
@@ -41,8 +40,6 @@ public abstract class AbstractFlexButtonTemplateRenderer extends AbstractFlexCom
 		super.encodeBegin(context, componentObj);
 		
         AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
-		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.mapFields(AbstractFlexButtonTemplateRenderer.class, componentObj, null);
 		
 		if(componentObj instanceof IFlexEvent){
             IFlexEvent flexEvent = IFlexEvent.class.cast( componentObj );

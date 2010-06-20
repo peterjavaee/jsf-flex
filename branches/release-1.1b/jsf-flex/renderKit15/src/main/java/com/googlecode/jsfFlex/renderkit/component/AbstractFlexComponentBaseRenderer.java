@@ -34,6 +34,7 @@ import org.json.JSONObject;
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.renderkit.FlexRendererBase;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
+import com.googlecode.jsfFlex.shared.adapter.IFlexAttributeNode;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
 
@@ -45,17 +46,14 @@ public abstract class AbstractFlexComponentBaseRenderer extends FlexRendererBase
     private final static Log _log = LogFactory.getLog(AbstractFlexComponentBaseRenderer.class);
 	
     @Override
-	public void encodeEnd(FacesContext context, UIComponent componentObj) throws IOException {
-		super.encodeEnd(context, componentObj);
-		
-		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
+    public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
+        super.encodeBegin(context, componentObj);
         
-		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.getFlexTaskRunner().writeBodyContent(componentFlex);
+        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
+        Set<TokenValue> tokenValueSet = componentFlex.getAnnotationDocletParserInstance().getTokenValueSet();
         
         if(componentObj instanceof IFlexUIBaseAttributes){
             IFlexUIBaseAttributes additionalAttributes = IFlexUIBaseAttributes.class.cast( componentObj );
-            Set<TokenValue> tokenValueSet = componentFlex.getAnnotationDocletParserInstance().getTokenValueSet(); 
             
             Map<String, ? extends Object> componentAttributeMap = additionalAttributes.getComponentAttributes();
             if(componentAttributeMap != null){
@@ -84,6 +82,24 @@ public abstract class AbstractFlexComponentBaseRenderer extends FlexRendererBase
                 }
             }
         }
+        
+        for(UIComponent currChild : componentObj.getChildren()){
+            if(currChild instanceof IFlexAttributeNode){
+                IFlexAttributeNode currAttributeNode = IFlexAttributeNode.class.cast( currChild );
+                addTokenValue(tokenValueSet, currAttributeNode.getName(), currAttributeNode.getValue());
+            }
+        }
+        
+    }
+    
+    @Override
+	public void encodeEnd(FacesContext context, UIComponent componentObj) throws IOException {
+		super.encodeEnd(context, componentObj);
+		
+		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
+        
+		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+		writer.getFlexTaskRunner().writeBodyContent(componentFlex);
         
 	}
     

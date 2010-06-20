@@ -104,7 +104,7 @@
 </fx:Script>
 
 #if ( ${validationManagerScriptContent.getValidationManagerValidatorIds().size()} > 0 )
-<s:Text id="${errorTextComponentId}" width="100%"
+<mx:Text id="${errorTextComponentId}" width="100%"
 		
 		#foreach( $errorComponentAttributeContainer in ${validationManagerScriptContent.getErrorComponentAttributeContainer()} )
 			${errorComponentAttributeContainer.toTokenValueSyntax()}
