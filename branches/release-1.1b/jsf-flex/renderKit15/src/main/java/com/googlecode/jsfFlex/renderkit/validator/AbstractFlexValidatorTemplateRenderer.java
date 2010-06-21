@@ -26,6 +26,7 @@ import javax.faces.context.FacesContext;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
+import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent.ACTION_SCRIPT_IMPORT;
 import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 
 /**
@@ -38,8 +39,6 @@ import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 )
 public abstract class AbstractFlexValidatorTemplateRenderer extends AbstractFlexComponentBaseRenderer {
 	
-	private static final String VALIDATION_MANAGER_IMPORT = "com.googlecode.jsfFlex.communication.validator.ValidationManager";
-	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
 		super.encodeBegin(context, componentObj);
@@ -48,7 +47,7 @@ public abstract class AbstractFlexValidatorTemplateRenderer extends AbstractFlex
 		AdditionalApplicationScriptContent additionalAppScriptContent = flexContext.getAdditionalAppScriptContent();
 		additionalAppScriptContent.addValidationManagerValidatorId(componentObj.getId());
 		
-		additionalAppScriptContent.addActionScriptImport(VALIDATION_MANAGER_IMPORT);
+		additionalAppScriptContent.addActionScriptImport(ACTION_SCRIPT_IMPORT.VALIDATION_MANAGER_AS);
 		
 	}
 	

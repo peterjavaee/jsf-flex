@@ -20,6 +20,8 @@ package com.googlecode.jsfFlex.shared.adapter;
 
 import java.util.EnumSet;
 
+import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent.ACTION_SCRIPT_IMPORT;
+
 /**
  * @author Ji Hoon Kim
  */
@@ -52,23 +54,6 @@ public interface IFlexEvent {
         
         public EnumSet<JAVA_SCRIPT_IMPORT> getJavaScriptImports(){
             return _javaScriptImports;
-        }
-        
-        public enum ACTION_SCRIPT_IMPORT {
-            
-            ABSTRACT_EVENT_HANDLER_AS("com.googlecode.jsfFlex.communication.event.AbstractEventHandler"),
-            DATA_UPDATE_EVENT_HANDLER_AS("com.googlecode.jsfFlex.communication.event.DataUpdateEventHandler"),
-            SUBMIT_FORM_EVENT_HANDLER_AS("com.googlecode.jsfFlex.communication.event.SubmitFormEventHandler");
-            
-            private final String _actionScriptImport;
-            
-            private ACTION_SCRIPT_IMPORT(String actionScriptImport){
-                _actionScriptImport = actionScriptImport;
-            }
-            
-            public String getActionScriptImport(){
-                return _actionScriptImport;
-            }
         }
         
         public enum JAVA_SCRIPT_IMPORT {

@@ -81,30 +81,36 @@
 	    		<jf:flexAttributeNode name="fontSize" value="14"/>
 	    	</jf:flexLabel>
 	    	
-	    	<jf:flexXMLListCollection id="complexStructCollection">
-	    		<ui:include src="../faceletFiles/flexXMLListExample.xhtml" />
-	    	</jf:flexXMLListCollection>
+	    	<jf:flexDeclarations>
+		    	<jf:flexXMLListCollection id="complexStructCollection">
+		    		<ui:include src="../faceletFiles/flexXMLListExample.xhtml" />
+		    	</jf:flexXMLListCollection>
+	    	</jf:flexDeclarations>
 	    	
-	    	<jf:flexArray id="reallySimpleArray">
-	    		<jf:flexObjectListEntries bindingBeanList="#{flexFaceletOverallBean.reallySimpleArray}">
-	    			<jf:flexObjectElement>
-	    				<jf:flexObjectProperty property="label" />
-	    			</jf:flexObjectElement>
-	    		</jf:flexObjectListEntries>
-	    	</jf:flexArray>
-	    	
-	        <!-- Validation on the client side -->
-		    <jf:flexNumberValidator>
-				<jf:flexAttributeNode name="exceedsMaxError" value="The number provided exceeds max value [60]."/>
-	    		<jf:flexAttributeNode name="property" value="text"/>
-	    		<jf:flexAttributeNode name="domain" value="int"/>
-	    		<jf:flexAttributeNode name="integerError" value="Must be an integer value."/>
-	    		<jf:flexAttributeNode name="lowerThanMinError" value="The number provided is lower than min value [10]."/>
-	    		<jf:flexAttributeNode name="maxValue" value="60"/>
-	    		<jf:flexAttributeNode name="minValue" value="10"/>
-	    		<jf:flexAttributeNode name="required" value="true"/>
-	    		<jf:flexAttributeNode name="source" value="{textInputRef}"/>
-			</jf:flexNumberValidator>
+	    	<jf:flexDeclarations>
+		    	<jf:flexArray id="reallySimpleArray">
+		    		<jf:flexObjectListEntries bindingBeanList="#{flexFaceletOverallBean.reallySimpleArray}">
+		    			<jf:flexObjectElement>
+		    				<jf:flexObjectProperty property="label" />
+		    			</jf:flexObjectElement>
+		    		</jf:flexObjectListEntries>
+		    	</jf:flexArray>
+	    		
+	    		<!-- Validation on the client side -->
+		        
+			    <jf:flexNumberValidator>
+					<jf:flexAttributeNode name="exceedsMaxError" value="The number provided exceeds max value [60]."/>
+		    		<jf:flexAttributeNode name="property" value="text"/>
+		    		<jf:flexAttributeNode name="domain" value="int"/>
+		    		<jf:flexAttributeNode name="integerError" value="Must be an integer value."/>
+		    		<jf:flexAttributeNode name="lowerThanMinError" value="The number provided is lower than min value [10]."/>
+		    		<jf:flexAttributeNode name="maxValue" value="60"/>
+		    		<jf:flexAttributeNode name="minValue" value="10"/>
+		    		<jf:flexAttributeNode name="required" value="true"/>
+		    		<jf:flexAttributeNode name="source" value="{textInputRef}"/>
+				</jf:flexNumberValidator>
+			
+			</jf:flexDeclarations>
 			
 			<jf:flexAccordion selectedIndex="#{flexFaceletOverallBean.accordionSelectedIndex}">
 			    <jf:flexAttributeNode name="width" value="100%"/>
@@ -241,12 +247,14 @@
 							</jf:flexLabel>
 							<jf:flexButtonBar>
 				    	    	<jf:flexDataProvider>
-	                    	    	<jf:flexObject>
-	                        	    	<jf:flexObjectStaticProperty staticPropertyName="label" staticPropertyValue="First Nesting" />
-		                            </jf:flexObject>
-		                            <jf:flexObject>
-	    	                            <jf:flexObjectStaticProperty staticPropertyName="label" staticPropertyValue="Second Nesting" />
-	        	                    </jf:flexObject>
+				    	    		<jf:flexArrayCollection>
+		                    	    	<jf:flexObject>
+		                        	    	<jf:flexObjectStaticProperty staticPropertyName="label" staticPropertyValue="First Nesting" />
+			                            </jf:flexObject>
+			                            <jf:flexObject>
+		    	                            <jf:flexObjectStaticProperty staticPropertyName="label" staticPropertyValue="Second Nesting" />
+		        	                    </jf:flexObject>
+									</jf:flexArrayCollection>
 								</jf:flexDataProvider>
 							</jf:flexButtonBar>
 					        <jf:flexLabel>
@@ -326,14 +334,13 @@
 						<jf:flexAttributeNode name="title" value="Title Window"/>
 						<jf:flexAttributeNode name="x" value="168"/>
 						<jf:flexAttributeNode name="y" value="86"/>
-						<jf:flexAttributeNode name="borderStyle" value="inset"/>
 						
 						<jf:flexTile>
 							<jf:flexText>
-								<jf:flexAttributeNode name="title" value="Title Window Example"/>
+								<jf:flexAttributeNode name="text" value="Title Window Example"/>
 							</jf:flexText>
 						    <jf:flexText>
-						    	<jf:flexAttributeNode name="title" value="Title Example"/>
+						    	<jf:flexAttributeNode name="text" value="Title Example"/>
 						    </jf:flexText>
 						</jf:flexTile>
 						

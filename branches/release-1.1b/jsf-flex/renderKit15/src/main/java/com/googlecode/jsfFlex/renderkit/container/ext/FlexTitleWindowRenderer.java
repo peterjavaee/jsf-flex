@@ -40,6 +40,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
 		componentName="TitleWindow",
+        componentNameSpace="s",
 		componentNodeAttributes={},
 
 		jsfFlexAttributes={}

@@ -33,6 +33,7 @@ import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRende
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
+import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent.ACTION_SCRIPT_IMPORT;
 import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 
@@ -54,8 +55,6 @@ public final class FlexColumnsRenderer extends AbstractFlexComponentBaseRenderer
     
     private static final String INVALID_CHILD_COMPONENT = "Invalid Child Component : FlexUIColumns can only have subclass of following abstract classes [ AbstractFlexUIDataGridColumn ] as its children";
     private static final String INVALID_PARENT_COMPONENT = "Invalid Parent Component : FlexUIColumns can only have subclass of following abstract classes [ AbstractFlexUIDataGrid ] as its parent";
-    
-    private static final String DATA_GRID_SERVICE_REQUEST_IMPORT = "com.googlecode.jsfFlex.communication.component.DataGridServiceRequest";
     
     @Override
     public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
@@ -90,7 +89,7 @@ public final class FlexColumnsRenderer extends AbstractFlexComponentBaseRenderer
             AbstractFlexContext mxmlContext = AbstractFlexContext.getCurrentInstance();
             AdditionalApplicationScriptContent additionalAppScriptContent = mxmlContext.getAdditionalAppScriptContent();
             additionalAppScriptContent.addDataGridScriptContent(dataGridComponentId, dataGrid.computeBatchColumnDataRetrievalSize(), dataGrid.computeMaxDataPartitionIndex());
-            additionalAppScriptContent.addActionScriptImport(DATA_GRID_SERVICE_REQUEST_IMPORT);
+            additionalAppScriptContent.addActionScriptImport(ACTION_SCRIPT_IMPORT.DATA_GRID_SERVICE_REQUEST_AS);
             
             for(UIComponent currChild : childrenList){
                 if(!(currChild instanceof AbstractFlexUIDataGridColumn)){

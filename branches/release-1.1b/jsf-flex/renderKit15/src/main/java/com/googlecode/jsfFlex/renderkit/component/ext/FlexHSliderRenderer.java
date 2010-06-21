@@ -41,7 +41,8 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
 		componentName="HSlider",
-		componentPackage="mx.controls",
+		componentPackage="spark.components",
+        componentNameSpace="s",
 		componentNodeAttributes={
 				@IFlexComponentNodeAttribute(
 						htmlType="input",

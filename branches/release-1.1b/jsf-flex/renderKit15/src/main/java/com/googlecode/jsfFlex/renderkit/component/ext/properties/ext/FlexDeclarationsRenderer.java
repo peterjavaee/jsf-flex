@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.renderkit.effects.ext;
+package com.googlecode.jsfFlex.renderkit.component.ext.properties.ext;
 
 import java.io.IOException;
 
@@ -25,7 +25,6 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
@@ -37,19 +36,17 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 @JSFRenderer(
         renderKitId="FLEX_BASIC",
         family="javax.faces.FlexSimple",
-        type="com.googlecode.jsfFlex.FlexResize"
+        type="com.googlecode.jsfFlex.FlexDeclarations"
 )
 @IJsfFlexAttributeProperties(
-        componentName="Resize",
-        componentNameSpace="s",
+        componentName="Declarations",
+        componentNameSpace="fx",
         componentNodeAttributes={},
 
-        jsfFlexAttributes={
-                @IJsfFlexAttribute(attribute="id", byMethod=true)
-        }
+        jsfFlexAttributes={}
 )
-public final class FlexResizeRenderer extends AbstractFlexComponentBaseRenderer {
-
+public class FlexDeclarationsRenderer extends AbstractFlexComponentBaseRenderer {
+    
     @Override
     public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
         super.encodeBegin(context, componentObj);
@@ -57,8 +54,7 @@ public final class FlexResizeRenderer extends AbstractFlexComponentBaseRenderer 
         IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-        writer.mapFields(FlexResizeRenderer.class, componentObj, null);
-        writer.createPreMxml(componentFlex, FlexResizeRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
+        writer.createPreMxml(componentFlex, FlexDeclarationsRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
                 null);
         
     }

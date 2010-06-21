@@ -41,6 +41,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
         componentName="Fade",
+        componentNameSpace="s",
         componentNodeAttributes={},
 
         jsfFlexAttributes={

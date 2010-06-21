@@ -40,6 +40,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
 		componentName="VScrollBar",
+        componentNameSpace="s",
 		componentNodeAttributes={},
 
 		jsfFlexAttributes={}

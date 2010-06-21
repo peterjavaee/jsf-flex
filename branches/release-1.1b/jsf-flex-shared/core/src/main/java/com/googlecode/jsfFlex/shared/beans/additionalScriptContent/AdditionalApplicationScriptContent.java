@@ -26,12 +26,33 @@ import java.util.Set;
 
 import com.googlecode.jsfFlex.shared.adapter.IFlexApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
+import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.SimpleDataProviderSetter.DATA_PROVIDER_TYPE;
 
 /**
  * @author Ji Hoon Kim
  */
 public final class AdditionalApplicationScriptContent {
 	
+    public enum ACTION_SCRIPT_IMPORT {
+        
+        ABSTRACT_EVENT_HANDLER_AS("com.googlecode.jsfFlex.communication.event.AbstractEventHandler"),
+        COMBO_BOX_COMPONENT_AS("spark.components.ComboBox"),
+        DATA_GRID_SERVICE_REQUEST_AS("com.googlecode.jsfFlex.communication.component.DataGridServiceRequest"),
+        DATA_UPDATE_EVENT_HANDLER_AS("com.googlecode.jsfFlex.communication.event.DataUpdateEventHandler"),
+        SUBMIT_FORM_EVENT_HANDLER_AS("com.googlecode.jsfFlex.communication.event.SubmitFormEventHandler"),
+        VALIDATION_MANAGER_AS("com.googlecode.jsfFlex.communication.validator.ValidationManager");
+        
+        private final String _actionScriptImport;
+        
+        private ACTION_SCRIPT_IMPORT(String actionScriptImport){
+            _actionScriptImport = actionScriptImport;
+        }
+        
+        public String getActionScriptImport(){
+            return _actionScriptImport;
+        }
+    }
+    
 	private final Set<String> _actionScriptImports;
     private final Map<String, DataGridScriptContent> _dataGridScriptContent;
     private final Set<EventHandler> _eventHandlers;
@@ -47,8 +68,8 @@ public final class AdditionalApplicationScriptContent {
 		_validationManagerScriptContent = new ValidationManagerScriptContent(currFlex, currApplicationContract);
 	}
 	
-	public void addActionScriptImport(String actionScriptImport){
-		_actionScriptImports.add(actionScriptImport);
+	public void addActionScriptImport(ACTION_SCRIPT_IMPORT actionScriptImport){
+		_actionScriptImports.add(actionScriptImport.getActionScriptImport());
 	}
 	
 	public void addDataGridScriptContent(String dataGridId, Integer batchColumnDataRetrievalSize, Integer maxDataPartitionIndex){
@@ -69,8 +90,8 @@ public final class AdditionalApplicationScriptContent {
         _eventHandlers.add(new EventHandler(srcId, tgtId, evtHandlerId, eventType, eventName));
     }
     
-    public void addSimpleDataProviderSetter(String componentId, String dataProviderContent){
-        _simpleDataProviderSetter.add(new SimpleDataProviderSetter(componentId, dataProviderContent));
+    public void addSimpleDataProviderSetter(String componentId, DATA_PROVIDER_TYPE componentType, String dataProviderContent){
+        _simpleDataProviderSetter.add(new SimpleDataProviderSetter(componentId, componentType, dataProviderContent));
     }
     
     public void addValidationManagerValidatorId(String validatorId){

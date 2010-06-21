@@ -41,6 +41,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
         componentName="Move",
+        componentNameSpace="s",
         componentNodeAttributes={},
 
         jsfFlexAttributes={

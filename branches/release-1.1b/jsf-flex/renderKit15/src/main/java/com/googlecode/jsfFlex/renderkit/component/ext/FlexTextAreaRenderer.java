@@ -41,7 +41,8 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
 		componentName="TextArea",
-		componentPackage="mx.controls",
+        componentNameSpace="s",
+		componentPackage="spark.components",
 		componentNodeAttributes={
 				@IFlexComponentNodeAttribute(
 						htmlType="input",

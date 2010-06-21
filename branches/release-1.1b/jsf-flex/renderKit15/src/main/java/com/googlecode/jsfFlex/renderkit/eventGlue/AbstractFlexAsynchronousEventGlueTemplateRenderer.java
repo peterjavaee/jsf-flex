@@ -27,8 +27,8 @@ import javax.faces.render.Renderer;
 
 import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
 import com.googlecode.jsfFlex.shared.adapter.IFlexEvent.EVENT_HANDLER_TYPE;
-import com.googlecode.jsfFlex.shared.adapter.IFlexEvent.EVENT_HANDLER_TYPE.ACTION_SCRIPT_IMPORT;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
+import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent.ACTION_SCRIPT_IMPORT;
 import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 
 /**
@@ -48,7 +48,7 @@ public abstract class AbstractFlexAsynchronousEventGlueTemplateRenderer extends 
         EnumSet<ACTION_SCRIPT_IMPORT> actionScriptImports = eventHandlerType.getActionScriptImports();
         
         for(ACTION_SCRIPT_IMPORT currASImport : actionScriptImports){
-            additionalApplicationScriptContent.addActionScriptImport(currASImport.getActionScriptImport());
+            additionalApplicationScriptContent.addActionScriptImport(currASImport);
         }
         
         additionalApplicationScriptContent.addEventHandler(flexEvent.getEventHandlerSrcId(), flexEvent.getEventHandlerTgtId(), flexEvent.getEventHandlerId(),

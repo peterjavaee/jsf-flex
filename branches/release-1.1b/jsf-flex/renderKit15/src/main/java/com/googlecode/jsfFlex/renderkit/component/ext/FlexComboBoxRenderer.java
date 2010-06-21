@@ -41,8 +41,9 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
 		componentName="ComboBox",
-		componentPackage="mx.controls",
-		componentNodeAttributes={
+        componentNameSpace="s",
+		componentPackage="spark.components",
+        componentNodeAttributes={
 				@IFlexComponentNodeAttribute(
 						htmlType="input",
 						typeAttributeValue="hidden",

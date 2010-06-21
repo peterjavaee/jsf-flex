@@ -37,6 +37,8 @@ import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderCollectionAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUITextAttribute;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
+import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent.ACTION_SCRIPT_IMPORT;
+import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.SimpleDataProviderSetter.DATA_PROVIDER_TYPE;
 import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
 
@@ -60,8 +62,6 @@ public abstract class AbstractFlexUIComboBox
 						implements IFlexUIBaseAttributes, IFlexUIDataProviderCollectionAttribute, IFlexUITextAttribute {
 	
 	private final static Log _log = LogFactory.getLog(AbstractFlexUIComboBox.class);
-	
-	private static final String COMBO_BOX_UICOMPONENT_PACKAGE_IMPORT = "mx.controls.ComboBox";
 	
 	private static final String DATA_PROPERTY = "data";
 	private static final String LABEL_PROPERTY = "label";
@@ -103,7 +103,7 @@ public abstract class AbstractFlexUIComboBox
 			//For AbstractFlexUIComboBox, entries within the collection must be of type SelectItem
 			AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
 			AdditionalApplicationScriptContent additionalApplicationScriptContent = flexContext.getAdditionalAppScriptContent();
-			additionalApplicationScriptContent.addActionScriptImport(COMBO_BOX_UICOMPONENT_PACKAGE_IMPORT);
+			additionalApplicationScriptContent.addActionScriptImport(ACTION_SCRIPT_IMPORT.COMBO_BOX_COMPONENT_AS);
 			
 			JSONArray comboBoxContent = new JSONArray();
 			for(Object currInstace : dataProviderCollection){
@@ -122,7 +122,7 @@ public abstract class AbstractFlexUIComboBox
 				
 			}
 			
-			additionalApplicationScriptContent.addSimpleDataProviderSetter(getId(), comboBoxContent.toString());
+			additionalApplicationScriptContent.addSimpleDataProviderSetter(getId(), DATA_PROVIDER_TYPE.COMBO_BOX, comboBoxContent.toString());
 			
 		}
 		
