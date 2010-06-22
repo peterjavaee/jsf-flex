@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.renderkit.component.ext;
+package com.googlecode.jsfFlex.renderkit.container.ext;
 
 import java.io.IOException;
 
@@ -34,28 +34,29 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="FLEX_BASIC",
-		family="javax.faces.FlexSimple",
-		type="com.googlecode.jsfFlex.FlexTabBar"
+        renderKitId="FLEX_BASIC",
+        family="javax.faces.FlexSimple",
+        type="com.googlecode.jsfFlex.FlexBorderContainer"
 )
 @IJsfFlexAttributeProperties(
-		componentName="TabBar",
-		componentNodeAttributes={},
+        componentName="BorderContainer",
+        componentNameSpace="s",
+        componentNodeAttributes={},
 
-		jsfFlexAttributes={}
+        jsfFlexAttributes={}
 )
-public final class FlexTabBarRenderer extends AbstractFlexComponentBaseRenderer {
-	
-	@Override
-	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
-		super.encodeBegin(context, componentObj);
-		
-		IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
-		
-		AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.createPreMxml(componentFlex, FlexTabBarRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
-				null);
-		
-	}
-
+public final class FlexBorderContainerRenderer extends AbstractFlexComponentBaseRenderer {
+    
+    @Override
+    public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
+        super.encodeBegin(context, componentObj);
+        
+        IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
+        
+        AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
+        writer.createPreMxml(componentFlex, FlexBorderContainerRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
+                null);
+        
+    }
+    
 }

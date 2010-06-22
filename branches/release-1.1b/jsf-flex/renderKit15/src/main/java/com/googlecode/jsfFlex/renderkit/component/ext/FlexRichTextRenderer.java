@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.renderkit.container.ext;
+package com.googlecode.jsfFlex.renderkit.component.ext;
 
 import java.io.IOException;
 
@@ -34,28 +34,29 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
-		renderKitId="FLEX_BASIC",
-		family="javax.faces.FlexSimple",
-		type="com.googlecode.jsfFlex.FlexBox"
+        renderKitId="FLEX_BASIC",
+        family="javax.faces.FlexOutput",
+        type="com.googlecode.jsfFlex.FlexRichText"
 )
 @IJsfFlexAttributeProperties(
-		componentName="Box",
-		componentNodeAttributes={},
+        componentName="RichText",
+        componentNameSpace="s",
+        componentNodeAttributes={},
 
-		jsfFlexAttributes={}
+        jsfFlexAttributes={}
 )
-public final class FlexBoxRenderer extends AbstractFlexComponentBaseRenderer {
-	
-	@Override
-	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
-		super.encodeBegin(context, componentObj);
-		
+public final class FlexRichTextRenderer extends AbstractFlexComponentBaseRenderer {
+
+    @Override
+    public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
+        super.encodeBegin(context, componentObj);
+        
         IFlexContract componentFlex = IFlexContract.class.cast( componentObj );
         
         AbstractFlexResponseWriter writer = AbstractFlexResponseWriter.class.cast( context.getResponseWriter() );
-		writer.createPreMxml(componentFlex, FlexBoxRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
-				null);
-		
-	}
-	
+        writer.createPreMxml(componentFlex, FlexRichTextRenderer.class.getAnnotation(IJsfFlexAttributeProperties.class), 
+                null);
+        
+    }
+
 }
