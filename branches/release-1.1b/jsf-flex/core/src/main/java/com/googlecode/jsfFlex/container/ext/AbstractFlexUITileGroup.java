@@ -16,26 +16,26 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.attributes;
+package com.googlecode.jsfFlex.container.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFComponent
-public interface IFlexUICreationPolicyAttribute {
-    
-    /**
-     * The creation policy for this child.
-     */
-    @JSFProperty(
-            tagExcluded =   true,
-            desc        =   "The creation policy for this child."
-    )
-    String getCreationPolicy();
-    
-    void setCreationPolicy(String creationPolicy);
+@JSFComponent(
+        name                =   "jf:flexTileGroup",
+        clazz               =   "com.googlecode.jsfFlex.container.ext.FlexUITileGroup",
+        type                =   "com.googlecode.jsfFlex.FlexUITileGroup",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.FlexUITileGroupTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexTileGroup"
+)
+public abstract class AbstractFlexUITileGroup 
+                            extends AbstractFlexUISimpleBase 
+                            implements IFlexUIBaseAttributes {
     
 }

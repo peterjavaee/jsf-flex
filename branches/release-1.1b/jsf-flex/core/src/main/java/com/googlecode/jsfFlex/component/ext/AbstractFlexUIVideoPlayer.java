@@ -16,26 +16,26 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.attributes;
+package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFComponent
-public interface IFlexUICreationPolicyAttribute {
-    
-    /**
-     * The creation policy for this child.
-     */
-    @JSFProperty(
-            tagExcluded =   true,
-            desc        =   "The creation policy for this child."
-    )
-    String getCreationPolicy();
-    
-    void setCreationPolicy(String creationPolicy);
+@JSFComponent(
+        name                =   "jf:flexVideoPlayer",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIVideoPlayer",
+        type                =   "com.googlecode.jsfFlex.FlexUIVideoPlayer",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIVideoPlayerTag",
+        family              =   "javax.faces.FlexSimple",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexVideoPlayer"
+)
+public abstract class AbstractFlexUIVideoPlayer 
+                            extends AbstractFlexUISimpleBase
+                            implements IFlexUIBaseAttributes {
     
 }

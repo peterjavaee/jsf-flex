@@ -16,26 +16,26 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.attributes;
+package com.googlecode.jsfFlex.component.ext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
-import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
+import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 
 /**
  * @author Ji Hoon Kim
  */
-@JSFComponent
-public interface IFlexUICreationPolicyAttribute {
-    
-    /**
-     * The creation policy for this child.
-     */
-    @JSFProperty(
-            tagExcluded =   true,
-            desc        =   "The creation policy for this child."
-    )
-    String getCreationPolicy();
-    
-    void setCreationPolicy(String creationPolicy);
+@JSFComponent(
+        name                =   "jf:flexToggleButton",
+        clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIToggleButton",
+        type                =   "com.googlecode.jsfFlex.FlexUIToggleButton",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIToggleButtonTag",
+        family              =   "javax.faces.FlexInput",
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexToggleButton",
+        tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
+)
+public abstract class AbstractFlexUIToggleButton 
+                            extends com.googlecode.jsfFlex.component.FlexUISelectedBase
+                            implements IFlexUIBaseAttributes {
     
 }
