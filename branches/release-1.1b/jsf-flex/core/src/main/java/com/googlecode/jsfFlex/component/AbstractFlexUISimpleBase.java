@@ -64,6 +64,10 @@ public abstract class AbstractFlexUISimpleBase extends UIComponentBase implement
 	public JSONObject getComponentInitValues(){
     	return null;
     }
+    
+    public String getNameSpaceOverride(){
+        return null;
+    }
 
 	public synchronized AbstractAnnotationDocletParser getAnnotationDocletParserInstance(){
 		

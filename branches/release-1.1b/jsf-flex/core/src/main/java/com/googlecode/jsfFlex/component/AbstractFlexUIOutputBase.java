@@ -64,6 +64,10 @@ public abstract class AbstractFlexUIOutputBase extends UIOutput implements IFlex
 	public AbstractFlexUIOutputBase(){
 		super();
 	}
+    
+    public String getNameSpaceOverride(){
+        return null;
+    }
 	
 	public JSONObject getComponentInitValues(){
     	return null;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classLists xmlns="http://jsf-flex.googlecode.com"
 			xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-			xsi:schemaLocation="componentValueMapper.xsd">
+			xsi:schemaLocation="http://jsf-flex.googlecode.com componentValueMapper.xsd ">
     #foreach( $classInfo in $classSet )
     <classInfo>
       <className>${classInfo.getFullClassName()}</className>

@@ -49,8 +49,8 @@ public abstract class AbstractFlexUIHtmlTextInputBase
 	private static final String HTML_TEXT_ID_APPENDED = "_htmlText";
 	
 	private org.json.JSONObject initValue;
-	
-	protected void populateComponentInitValues(){
+    
+    protected void populateComponentInitValues(){
 		try{
 			if(getTextBinding().equals(HTML_TEXT_ATTR) && getHtmlText() != null){
 				getInitValue().put(VALUE, com.googlecode.jsfFlex.shared.util.FlexJsfUtil.escapeCharacters( getHtmlText() ));

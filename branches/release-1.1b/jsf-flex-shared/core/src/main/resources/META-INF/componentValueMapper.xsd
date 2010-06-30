@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema 	xmlns:xs="http://www.w3.org/2001/XMLSchema" 
 			targetNamespace="http://jsf-flex.googlecode.com" 
-			xmlns:compValMapper="http://jsf-flex.googlecode.com"
+			xmlns:cvm="http://jsf-flex.googlecode.com"
 			elementFormDefault="qualified">
 	<xs:annotation>
 		<xs:documentation xml:lang="en-US">
@@ -27,7 +27,7 @@
 											<xs:complexType>
 												<xs:all>
 													<xs:element name="htmlType" type="xs:string"></xs:element>
-													<xs:element name="attributeList" type="compValMapper:attributeList"></xs:element>
+													<xs:element name="attributeList" type="cvm:attributeList"></xs:element>
 												</xs:all>
 											</xs:complexType>
 										</xs:element>
@@ -56,13 +56,15 @@
 							</xs:simpleType>
 						</xs:element>
 						<xs:element name="value">
-							<xs:complexType>
+							<xs:complexType mixed="true">
+								
 								<xs:sequence>
 									<xs:element name="nested" minOccurs="0" maxOccurs="unbounded" type="xs:string"></xs:element>
 								</xs:sequence>
-								<xs:attribute name="dynamic" type="compValMapper:booleanValue"></xs:attribute>
-								<xs:attribute name="nested" type="compValMapper:booleanValue"></xs:attribute>
+								<xs:attribute name="dynamic" type="cvm:booleanValue"></xs:attribute>
+								<xs:attribute name="nested" type="cvm:booleanValue"></xs:attribute>
 								<xs:attribute name="append" type="xs:string"></xs:attribute>
+								
 							</xs:complexType>
 						</xs:element>
 					</xs:sequence>

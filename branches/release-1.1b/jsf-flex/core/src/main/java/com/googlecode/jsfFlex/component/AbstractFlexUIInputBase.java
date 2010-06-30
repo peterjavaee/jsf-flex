@@ -99,6 +99,10 @@ public abstract class AbstractFlexUIInputBase extends UIInput implements IFlexCo
 			_log.info("Error while formatting to JSON content", jsonException);
 		}
 	}
+    
+    public String getNameSpaceOverride(){
+        return null;
+    }
 	
 	public JSONObject getComponentInitValues(){
 		return _componentInitValueObject;

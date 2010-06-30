@@ -78,6 +78,10 @@ public abstract class AbstractFlexUICommandBase
         return null;
     }
     
+    public String getNameSpaceOverride(){
+        return null;
+    }
+    
     public synchronized AbstractAnnotationDocletParser getAnnotationDocletParserInstance(){
         
         if(_annotationDocletParserInstance == null){
