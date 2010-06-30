@@ -28,7 +28,8 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
  */
 @JSFComponent
 public interface IFlexUIBaseAttributes 
-                    extends IFlexUIComponentAttributesAttribute, IFlexUIComponentAttributesJSONFormatAttribute {
+                    extends IFlexUIComponentAttributesAttribute, IFlexUIComponentAttributesJSONFormatAttribute, 
+                    IFlexUINameSpaceOverrideAttribute {
 	
     /**
      * Map of attribute names provided as keys and values provided as values.
@@ -41,5 +42,11 @@ public interface IFlexUIBaseAttributes
      */
     @JSFProperty(desc   =   "Component attributes provided in JSON Format.")
     String getComponentAttributesJSONFormat();
+    
+    /**
+     * Component's NameSpace.
+     */
+    @JSFProperty(desc   =   "Namespace to override for the component. Meaning certain components such as Label are specified to be of 's' namespace [spark component], but user can override the namespace by changing it to such as 'mx'.")
+    String getNameSpaceOverride();
     
 }

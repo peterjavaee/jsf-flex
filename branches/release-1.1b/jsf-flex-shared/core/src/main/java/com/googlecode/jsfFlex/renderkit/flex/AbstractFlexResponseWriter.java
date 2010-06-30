@@ -700,8 +700,13 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriterWrapper {
         String fileDirectory = comp.getAbsolutePathToPreMxmlFile().substring(0, comp.getAbsolutePathToPreMxmlFile().lastIndexOf(File.separatorChar));
         getFlexTaskRunner().makeDirectory(fileDirectory);
         
+        String componentNameSpace = jsfFlexAttributeProperties.componentNameSpace();
+        String providedComponentNameSpaceValue = comp.getNameSpaceOverride();
+        if(providedComponentNameSpaceValue != null && providedComponentNameSpaceValue.trim().length() > 0){
+            componentNameSpace = providedComponentNameSpaceValue;
+        }
         getFileManipulatorTaskRunner().createPreMxmlFile(comp.getAbsolutePathToPreMxmlFile(), null, comp.getAnnotationDocletParserInstance().getTokenValueSet(), jsfFlexAttributeProperties.componentName(), 
-                                                            jsfFlexAttributeProperties.componentNameSpace(), bodyContent, childPreMxmlComponentIdentifier(comp), siblingPreMxmlComponentIdentifier(comp));
+                                                            componentNameSpace, bodyContent, childPreMxmlComponentIdentifier(comp), siblingPreMxmlComponentIdentifier(comp));
         
     }
     

@@ -37,7 +37,7 @@ public interface IFlexEvent {
         private final EnumSet<ACTION_SCRIPT_IMPORT> _actionScriptImports;
         private final EnumSet<JAVA_SCRIPT_IMPORT> _javaScriptImports;
         
-        private EVENT_HANDLER_TYPE(String actionScriptConstructor, EnumSet<ACTION_SCRIPT_IMPORT> actionScriptImports,
+        EVENT_HANDLER_TYPE(String actionScriptConstructor, EnumSet<ACTION_SCRIPT_IMPORT> actionScriptImports,
                                         EnumSet<JAVA_SCRIPT_IMPORT> javaScriptImports){
             _actionScriptConstructor = actionScriptConstructor;
             _actionScriptImports = actionScriptImports;
@@ -62,7 +62,7 @@ public interface IFlexEvent {
             
             private final String _javaScriptImport;
             
-            private JAVA_SCRIPT_IMPORT(String javaScriptImport){
+            JAVA_SCRIPT_IMPORT(String javaScriptImport){
                 _javaScriptImport = javaScriptImport;
             }
             

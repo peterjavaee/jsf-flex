@@ -176,7 +176,7 @@ package com.googlecode.jsfFlex.communication.core
 				return null;
 			}
 			
-			var classInfoNodes:XMLList = classInfo.node_list.node;
+			var classInfoNodes:XMLList = classInfo.nodeList.node;
 			if(classInfoNodes == null){
 				return null;
 			}
@@ -184,7 +184,7 @@ package com.googlecode.jsfFlex.communication.core
 			var valueToReturn:Array = new Array();
 			
 			for each (var classInfoNode:XML in classInfoNodes){
-				var classInfoNodeAttributes:XMLList = classInfoNode.attribute_list.attribute;
+				var classInfoNodeAttributes:XMLList = classInfoNode.attributeList.attribute;
 				
 				for each (var attribute:XML in classInfoNodeAttributes){
 					if(attribute.name.toString() == VALUE_ATTR){
@@ -283,7 +283,7 @@ package com.googlecode.jsfFlex.communication.core
 				return null;
 			}
 			
-			var classInfoNodes:XMLList = classInfo.node_list.node;
+			var classInfoNodes:XMLList = classInfo.nodeList.node;
 			if(classInfoNodes == null){
 				return null;
 			}
@@ -291,7 +291,7 @@ package com.googlecode.jsfFlex.communication.core
 			var nodes:Array = new Array();
 			
 			for each (var classInfoNode:XML in classInfoNodes){
-				var classInfoNodeAttributes:XMLList = classInfoNode.attribute_list.attribute;
+				var classInfoNodeAttributes:XMLList = classInfoNode.attributeList.attribute;
 				if(classInfoNodeAttributes == null){
 					continue;
 				}
@@ -309,14 +309,14 @@ package com.googlecode.jsfFlex.communication.core
 					attributes.push({attribute: classInfoNodeAttribute.name.toString(), value: attributeValueObject.value});
 					
 				}
-				nodes.push({htmlType: classInfoNode.html_type.toString(), attributeArray: attributes});
+				nodes.push({htmlType: classInfoNode.htmlType.toString(), attributeArray: attributes});
 			}
 			
 			return nodes;
 		}
 		
-		private function getClassInfo(className:String):XMLList {
-			return _compValueMapper.class_info.(class_name.indexOf(className) == 0);
+		private function getClassInfo(classNameVal:String):XMLList {
+			return _compValueMapper.classInfo.(className.indexOf(classNameVal) == 0);
 		}
 		
 	}

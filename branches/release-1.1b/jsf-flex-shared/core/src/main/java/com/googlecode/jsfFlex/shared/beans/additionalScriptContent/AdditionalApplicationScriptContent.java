@@ -44,7 +44,7 @@ public final class AdditionalApplicationScriptContent {
         
         private final String _actionScriptImport;
         
-        private ACTION_SCRIPT_IMPORT(String actionScriptImport){
+        ACTION_SCRIPT_IMPORT(String actionScriptImport){
             _actionScriptImport = actionScriptImport;
         }
         

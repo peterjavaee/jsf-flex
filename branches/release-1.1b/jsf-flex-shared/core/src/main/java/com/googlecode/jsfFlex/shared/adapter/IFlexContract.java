@@ -50,4 +50,6 @@ public interface IFlexContract {
 	
 	JSONObject getComponentInitValues();
 	
+    String getNameSpaceOverride();
+    
 }

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<?xml-stylesheet type="application/xml" href="jsf-flex-tld.xsl"?>
-<!--
+/*
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
  * distributed with this work for additional information
@@ -17,8 +15,22 @@
  * KIND, either express or implied.  See the License for the
  * specific language governing permissions and limitations
  * under the License.
--->
-<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN" "http://java.sun.com/dtd/web-jsptaglibrary_1_2.dtd">
-<taglib xmlns="http://java.sun.com/JSP/TagLibraryDescriptor">
-   
-</taglib>
+ */
+package com.googlecode.jsfFlex.attributes;
+
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
+/**
+ * @author Ji Hoon Kim
+ */
+@JSFComponent
+public interface IFlexUINameSpaceOverrideAttribute {
+
+    /**
+     * Component's NameSpace.
+     */
+    @JSFProperty(desc   =   "Namespace to override for the component. Meaning certain components such as Label are specified to be of 's' namespace [spark component], but user can override the namespace by changing it to such as 'mx'.")
+    String getNameSpaceOverride();
+    
+}
