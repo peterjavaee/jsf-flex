@@ -64,7 +64,7 @@ Next one needs to insert the needed artifacts within Maven's pom.xml :
     <scope>runtime</scope>
   </dependency>
   
-  <!-- Below dependency provides MXMLRenderKit* java files and etcetera that are specific to MyFaces Impl -->
+  <!-- Below dependency provides MXMLRenderKit* java files and etcetera that are specific to MyFaces Impl [NO LONGER REQUIRED FROM 1.1b+] -->
   <dependency>
     <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
     <artifactId>jsf-flex-myFaces-impl</artifactId>
@@ -72,7 +72,7 @@ Next one needs to insert the needed artifacts within Maven's pom.xml :
     <scope>runtime</scope>
   </dependency>
   
-  <!-- Below dependency provides MXMLRenderKit* java files and etcetera that are specific to Mojarra Impl -->
+  <!-- Below dependency provides MXMLRenderKit* java files and etcetera that are specific to Mojarra Impl [NO LONGER REQUIRED FROM 1.1b+] -->
   <dependency>
     <groupId>com.googlecode.jsf-flex.jsf-flex-project</groupId>
     <artifactId>jsf-flex-mojarra-impl</artifactId>
