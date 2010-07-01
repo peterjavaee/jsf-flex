@@ -16,7 +16,7 @@ A plug-in project that :
 Contains code pertinent to JSF components. Since the project uses myfaces plug-in, tld, faces_config.xml, tagClass, and etcetera are created during build time.
 
 
-==jsf-flex/core-mojarra-impl==
+==jsf-flex/core-mojarra-impl deprecated as of release-1.1b+==
 Contains following list of classes specific to Mojarra impl as MXML_BASIC renderkit needs to wrap HTML_BASIC renderKit {in order to allow mixing of MXML + HTML components}, but there exists a difference in how Mojarra + {{{MyFaces}}} impl adds HTML_BASIC renderkit to the factory :
  * MXMLRenderKitFactoryImplWrapper.java
  * MXMLRenderKitImpl.java
@@ -25,7 +25,7 @@ Contains following list of classes specific to Mojarra impl as MXML_BASIC render
  * MXMLResponseWriterImpl.java
 
 
-==jsf-flex/core-myFaces-impl==
+==jsf-flex/core-myFaces-impl deprecated as of release-1.1b+==
 Contains following list of classes specific to {{{MyFaces}}} impl as MXML_BASIC renderkit needs to wrap HTML_BASIC renderKit {in order to allow mixing of MXML + HTML components}, but there exists a difference in how Mojarra + {{{MyFaces}}} impl adds HTML_BASIC renderkit to the factory :
  * MXMLRenderKitFactoryImplWrapper.java
  * MXMLRenderKitImpl.java
