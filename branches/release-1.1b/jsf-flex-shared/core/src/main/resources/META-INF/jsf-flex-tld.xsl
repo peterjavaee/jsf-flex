@@ -105,18 +105,15 @@
 			<xsl:for-each select="jee:attribute[jee:name != 'componentAttributes' and jee:name != 'componentAttributesJSONFormat' and jee:name != 'nameSpaceOverride']">
 				<xsl:sort select="jee:name" />
 				<div>
-					<div><xsl:value-of select="jee:name" /></div><div><xsl:value-of select="jee:description" /></div>
-				</div>
-				<div>
-					<div>required</div>
-				<xsl:choose>
-					<xsl:when test="jee:required">
-						<div><xsl:value-of select="jee:required" /></div>
-					</xsl:when>
-					<xsl:otherwise>
-						<div>false</div>
-					</xsl:otherwise>
-				</xsl:choose>
+					<div>
+						<xsl:value-of select="jee:name" />
+						
+						<xsl:if test="jee:required">
+							<css:chunk font-weight="bold" float="right"><span style="font-weight: bold; float:right;">REQUIRED</span></css:chunk>
+						</xsl:if>
+						
+					</div>
+					<div><xsl:value-of select="jee:description" /></div>
 				</div>
 			</xsl:for-each>
 			</div>
