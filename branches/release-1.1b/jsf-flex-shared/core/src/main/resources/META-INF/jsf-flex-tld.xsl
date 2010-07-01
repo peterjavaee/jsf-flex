@@ -14,13 +14,48 @@
 				<h1><xsl:value-of select="jee:display-name" /></h1>
 				<css:chunk background-color="#DDFFDD">
 				<fieldset>
-					<legend>Following are attributes which are common for each component</legend>
+					<legend>Following are attributes which are common for each component&#x2009;<span onclick="toggleContentDisplay(event);">+</span></legend>
+					<br/>
+					<div>
 					<xsl:apply-templates select="//jee:attribute[jee:name='componentAttributes']" />
+					</div>
 				</fieldset>
 				</css:chunk>
 				<xsl:apply-templates select="jee:tag" />
+				
+				<script type="text/javascript">
+					
+					function getSiblingElement(node){
+						if(node.nextElementSibling){
+							getSiblingElement = function(node){
+													return node.nextElementSibling;
+												};
+						}else{
+							getSiblingElement = function(node){
+													while((node = node.nextSibling) &amp;&amp; node.nodeType != 1){};
+													return node;
+												};
+						}
+						getSiblingElement(node);
+					}
+					
+					function toggleContentDisplay(event){
+						if(document.all){
+							toggleContentDisplay = function(event){
+														var nodeStyle = getSiblingElement( getSiblingElement(window.event.srcElement.parentNode) ).style;
+														nodeStyle.display = nodeStyle.display == "block" ? "none" : "block";
+													};
+						}else{
+							toggleContentDisplay = function(event){
+														var nodeStyle = getSiblingElement( getSiblingElement(event.target.parentNode) ).style;
+														nodeStyle.display = nodeStyle.display == "block" ? "none" : "block";
+													};
+						}
+						toggleContentDisplay(event);
+					}
+				</script>
 			</body>
-			
+				
 		</html>
 	</xsl:template>
 	
@@ -63,9 +98,9 @@
 	
 	<xsl:template match="jee:tag">
 		<fieldset>
-			<legend><xsl:value-of select="jee:name" /></legend>
+			<legend><xsl:value-of select="jee:name" />&#x2009;<span onclick="toggleContentDisplay(event);">+</span></legend>
 			<h4> <xsl:value-of select="jee:description" /> </h4>
-			
+			<div>
 			<xsl:call-template name="attributeHeader" />
 			<xsl:for-each select="jee:attribute[jee:name != 'componentAttributes' and jee:name != 'componentAttributesJSONFormat' and jee:name != 'nameSpaceOverride']">
 				<xsl:sort select="jee:name" />
@@ -84,6 +119,7 @@
 				</xsl:choose>
 				</div>
 			</xsl:for-each>
+			</div>
 		</fieldset>
 	</xsl:template>
 	

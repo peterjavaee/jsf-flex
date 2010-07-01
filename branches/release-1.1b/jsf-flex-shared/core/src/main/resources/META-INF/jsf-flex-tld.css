@@ -5,9 +5,9 @@ body {
 	font-size: .7em;
 }
 
-h4{
-    border-style: solid;
+h4 {
     border-color: #CCCCCC;
+    border-style: solid;
     border-width: 0 0 1px;
 }
 
@@ -16,23 +16,48 @@ legend {
     font-size:18px;
 }
 
+legend span {
+	border-color: #CCCCCC;
+	border-style: solid;
+    border-width: 1px;
+    font-size:10px;
+    font-weight: bold;
+    color: green;
+    cursor: auto;
+    vertical-align: middle;
+}
+
+legend span:hover {
+    color: purple;
+    cursor: pointer;
+    font-size:18px;
+}
+
+fieldSet {
+	margin: 10px 5px;
+}
+
 fieldSet > div {
+	display: none;
+}
+
+fieldSet > div > div {
     clear: both;
     position:relative;
 }
 
-fieldSet > div div{
+fieldSet > div > div div {
 	border:1px solid #CCCCCC;
     padding:3px 4px;
 }
 
-fieldSet div:first-child {
+fieldSet > div > div div:first-child {
     color:#ff6666;
     float:left;
-    width: 25%;
+    width: 25% !important;
 }
 
-fieldSet > div div + div {
+fieldSet > div > div div:first-child + div {
     color:#708090;
     float:left;
     overflow-x: auto;
@@ -40,9 +65,9 @@ fieldSet > div div + div {
     width: 70%;
 }
 
-.attributeHeader div{
+.attributeHeader div {
 	background-color:#F0F0F0;
-	text-align:center;
-	font-weight:bold;
 	color:#000000 !important;
+	font-weight:bold;
+	text-align:center;
 }
