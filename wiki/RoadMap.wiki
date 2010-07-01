@@ -17,6 +17,20 @@ JSF Flex goal is to provide users capability in creating standard Flex component
 
 ==Milestones==
 ------
+===Release 1.1 BETA===
+
+====Release Date====
+TBD
+
+====Planned====
+ * Support of JSF 2.0
+ * Support of latest,stable Flex version {i.e. 4.0}, so plan is to upgrade components from mxml to spark, those that apply. But this change of course will be abstracted to the user of jsf flex tags. However, if the user chooses to use mxml components rather than recommended spark components, user can provide an attribute within the tag to apply the namespace change.
+ * Because of the additional namespace + possible additional namespace that Flex might receive in the future, there will be a mark up + name change for the tags + classes from MXML to Flex. Though it will require refactoring of the code, this is to allow users to be abstracted from one version to an another {i.e. components such as Button will be changed to use spark rather than mxml and if future changes will occur within Flex the changes will be transparent to the user while using the upgraded versions}.
+ * Capability of using {{{MethodExpression}}} for additional components.
+          o Asynchronous data update event listener for listening to a specific event of a source Flex component, so that when it is triggered target Flex component's value is updated with the value returned from an asynchronous call that is bound by MethodExpression on the server side.
+ * Additional functionality such as the current DataGrid component where there will be further interweaving of JSF/Java + ActionScript content.
+ * Removal of unnecessary core-mojarra-impl + core-myFaces-impl Jar files
+ * Attributes for JSP + XHTML will need to be provided as sub-tag of the tag. Meaning other than fields which are project specific or data bound to the component, attributes should be provided as a sub-tag of the component {Can consider it to be attribute node of the node element}
 
 ===Release 1.0.1 BETA===
 
