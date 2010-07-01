@@ -4,74 +4,74 @@ This page will contain brief overview regarding bondable fields of JSF Flex comp
 
 = Details =
 
- * mxmlAccordion
+ * Accordion
     # selectedIndex _Integer_ : contains info regarding which container has been selected.
  
- * mxmlCheckBox
+ * CheckBox
     # selected _Boolean_ : contains the boolean of whether user has selected the checkbox or not.
 
- * mxmlColorPicker
+ * ColorPicker
     # selectedColor _String_ : contains the color chosen for the colorPicker
  
- * mxmlComboBox
+ * ComboBox
     # text _String_ : contains the comboxBox's text that the user has selected
     # selectedIndex _Integer_ : contains the comboxBox that the user has selected {in order to preserve the correct selection, this field must be mapped within the managed beans}.
  
- * mxmlDataGrid
-    # bindingBeanList _List_ : List of beans for asynchronous retrieval and update of data. The bean should have corresponding get + set methods for each mxmlDataGridColumn's dataField attributes and the data should implement the _Comparable_ interface for sorting.
+ * DataGrid
+    # bindingBeanList _List_ : List of beans for asynchronous retrieval and update of data. The bean should have corresponding get + set methods for each DataGridColumn's dataField attributes and the data should implement the _Comparable_ interface for sorting.
  
- * mxmlDateChooser
+ * DateChooser
     # selectedDate _Calendar_ : the selected date of the component.
  
- * mxmlDateField
+ * DateField
     # text _String_ : contains the date selected by the user.
  
- * mxmlHorizontalList
+ * HorizontalList
      # selectedIndex _Integer_ : contains the list element that the user has selected.
  
- * mxmlHSlider
+ * HSlider
     # value _String_ : contains the slider's value.
  
- * mxmlList
+ * List
     # selectedIndex _Integer_ : contains the list element that the user has selected.
  
- * mxmlNumericStepper
+ * NumericStepper
     # value _String_ : contains the value of the numericStepper
  
- * mxmlObjectListEntries 
-    # bindingBeanList _List_ : List of beans to be used for mxmlObjectElement + mxmlObjectProperty childrens, with the field of mxmlObjectProperty's property being fetched via reflection.
+ * ObjectListEntries 
+    # bindingBeanList _List_ : List of beans to be used for ObjectElement + ObjectProperty childrens, with the field of ObjectProperty's property being fetched via reflection.
  
- * mxmlProgressBar
+ * ProgressBar
     # value _String_ : the progressBar value. *Note that this field will not be set upon loading of the app, since it's read-only.*
  
- * mxmlRadioButton
+ * RadioButton
     # selectedValue _String_ : contains the value selected within the same groupName radioButtons.
     # selected _Boolean_ : contains the boolean flag of whether the current radioButton has been selected or not {in order to preserve the correct selection, this field must be mapped within the managed beans}.
   
- * mxmlRichTextEditor
+ * RichTextEditor
     # text _String_ : contains the text inputed by the user.
     # htmlText _String_ : contains the htmlText {in rich text format specified through xml tags} inputed by the user. Have to set {{{textBinding}}} field to {{{htmlText}}}.
  
- * mxmlTabNavigator
+ * TabNavigator
     # selectedIndex _Integer_ : contains info regarding which container has been selected.
  
- * mxmlTextArea
+ * TextArea
     # text _String_ : contains the text inputed by the user.
  
- * mxmlTextInput
+ * TextInput
     # text _String_ : contains the text inputed by the user.
  
- * mxmlTileList
+ * TileList
      # selectedIndex _Integer_ : contains the list element that the user has selected.	
  
- * mxmlTree
+ * Tree
     # selectedIndex _Integer_ : contains the top Tree element that the user has selected.
  
- * mxmlViewStack
+ * ViewStack
     # selectedIndex _Integer_ : contains the top Tree element that the user has selected.
  
- * mxmlVSlider
+ * VSlider
     # value _String_ : contains the slider's value.
  
- * mxmlXMLListEntries
-    # bindingBeanList _List_ : List of beans to be used for mxmlXMLElement + mxmlXMLAttribute childrens, which will fetch the fields via reflection. {note that these values will be static meaning the values during debugMode will be the values during productionMode even if the beans change}.
+ * XMLListEntries
+    # bindingBeanList _List_ : List of beans to be used for XMLElement + XMLAttribute childrens, which will fetch the fields via reflection. {note that these values will be static meaning the values during debugMode will be the values during productionMode even if the beans change}.
