@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/css" href="http://jsf-flex.googlecode.com/svn/wiki/jsf-flex-tld.css"?>
+<?xml-stylesheet type="text/css" href="jsf-flex-tld.css"?>
 <xsl:stylesheet version="1.0" 	xmlns:jee="http://java.sun.com/xml/ns/javaee" 
 								xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 								xmlns:css="http://www.w3.org/TR/XSL-for-CSS">
@@ -116,6 +116,14 @@
 					<div><xsl:value-of select="jee:description" /></div>
 				</div>
 			</xsl:for-each>
+				<div>
+					<div>
+						&#160;
+					</div>
+					<div style="border-left: 0px; border-right: 0px;">
+						&#160;
+					</div>
+				</div>
 			</div>
 		</fieldset>
 	</xsl:template>

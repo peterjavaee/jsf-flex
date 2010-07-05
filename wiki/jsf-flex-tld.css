@@ -33,31 +33,34 @@ legend span:hover {
     font-size:18px;
 }
 
-fieldSet {
+fieldset {
 	margin: 10px 5px;
 }
 
-fieldSet > div {
+fieldset > div {
+	border-left:1px solid #CCCCCC;
 	display: none;
 }
 
-fieldSet > div > div {
+fieldset > div > div {
     clear: both;
     position:relative;
 }
 
-fieldSet > div > div div {
-	border:1px solid #CCCCCC;
-    padding:3px 4px;
+fieldset > div > div div {
+	border-top:1px solid #CCCCCC;
+	padding:3px 4px;
 }
 
-fieldSet > div > div div:first-child {
+fieldset > div > div div:first-child {
     color:#ff6666;
     float:left;
     width: 25% !important;
 }
 
-fieldSet > div > div div:first-child + div {
+fieldset > div > div div:first-child + div {
+	border-left:1px solid #CCCCCC;
+	border-right:1px solid #CCCCCC;
     color:#708090;
     float:left;
     overflow-x: auto;
