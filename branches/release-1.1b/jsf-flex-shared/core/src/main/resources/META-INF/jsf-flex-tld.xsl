@@ -116,6 +116,14 @@
 					<div><xsl:value-of select="jee:description" /></div>
 				</div>
 			</xsl:for-each>
+				<div>
+					<div>
+						&#160;
+					</div>
+					<div style="border-left: 0px; border-right: 0px;">
+						&#160;
+					</div>
+				</div>
 			</div>
 		</fieldset>
 	</xsl:template>

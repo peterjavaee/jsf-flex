@@ -175,16 +175,16 @@ public abstract class AbstractFlexUIDataGrid
         
         try{
             Class beanEntryClass = Class.forName(BEAN_ENTRY_CLASS_NAME);
-            Object beanEntryInstance;
+            Comparable<? super Object> beanEntryInstance;
             
             int loopLength = parsedAddEntryEndIndex - parsedAddEntryStartIndex;
             for(int i=0; i < loopLength; i++){
                 
-                beanEntryInstance = beanEntryClass.newInstance();
+                beanEntryInstance = (Comparable<? super Object>) beanEntryClass.newInstance();
                 
                 for(String currDataGridColumnDataField : _dataGridColumnComponentMapping.keySet()){
                     String currDataFieldKey = currDataGridColumnDataField + ADD_DATA_ENTRY_DELIM + i;
-                    Object currDataFieldValue = requestMap.get(currDataFieldKey);
+                    String currDataFieldValue = requestMap.get(currDataFieldKey);
                     
                     _log.debug("Setting dataField : " + currDataGridColumnDataField + " with value : " + currDataFieldValue + 
                                     " for class : " + beanEntryInstance.getClass().getName() + " for component : " + getId());

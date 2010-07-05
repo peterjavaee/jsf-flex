@@ -33,6 +33,6 @@ public interface IFlexUIBindingBeanListAttribute {
 	 * List of beans for data binding to the component.
 	 */
     @JSFProperty(desc   =   "List of beans for data binding to the component.")
-	List<? super Object> getBindingBeanList();
+	List<Comparable<? super Object>> getBindingBeanList();
 	
 }
