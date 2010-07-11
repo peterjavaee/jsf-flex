@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/css" href="jsf-flex-tld.css"?>
 <xsl:stylesheet version="1.0" 	xmlns:jee="http://java.sun.com/xml/ns/javaee" 
 								xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 								xmlns:css="http://www.w3.org/TR/XSL-for-CSS">
@@ -23,44 +22,14 @@
 				</css:chunk>
 				<xsl:apply-templates select="jee:tag" />
 				
-				<script type="text/javascript">
-					
-					function getSiblingElement(node){
-						if(node.nextElementSibling){
-							getSiblingElement = function(node){
-													return node.nextElementSibling;
-												};
-						}else{
-							getSiblingElement = function(node){
-													while((node = node.nextSibling) &amp;&amp; node.nodeType != 1){};
-													return node;
-												};
-						}
-						getSiblingElement(node);
-					}
-					
-					function toggleContentDisplay(event){
-						if(document.all){
-							toggleContentDisplay = function(event){
-														var nodeStyle = getSiblingElement( getSiblingElement(window.event.srcElement.parentNode) ).style;
-														nodeStyle.display = nodeStyle.display == "block" ? "none" : "block";
-													};
-						}else{
-							toggleContentDisplay = function(event){
-														var nodeStyle = getSiblingElement( getSiblingElement(event.target.parentNode) ).style;
-														nodeStyle.display = nodeStyle.display == "block" ? "none" : "block";
-													};
-						}
-						toggleContentDisplay(event);
-					}
-				</script>
+				<script type="text/javascript" src="xslContentAssister.js" />
 			</body>
 				
 		</html>
 	</xsl:template>
 	
 	<xsl:template match="//jee:attribute[jee:name='componentAttributes']">
-		<xsl:if test="position() = 1">
+		<xsl:if test="position() = 2">
 		<xsl:call-template name="attributeHeader" />
 		
 		<div>
@@ -72,6 +41,14 @@
 			 Since utilized following-sibling, just use unabbreviated version for value-of for convenience. -->
 		<xsl:apply-templates select="following-sibling::jee:attribute[jee:name='componentAttributesJSONFormat']" />
 		<xsl:apply-templates select="following-sibling::jee:attribute[jee:name='nameSpaceOverride']" />
+		<div>
+			<div>
+				&#160;
+			</div>
+			<div style="border-left: 0px; border-right: 0px;">
+				&#160;
+			</div>
+		</div>
 		</xsl:if>
 	</xsl:template>
 	
