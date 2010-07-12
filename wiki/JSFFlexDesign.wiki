@@ -6,12 +6,11 @@ Navigational page for JSF Flex design
 
 ==Page Listings==
  * [QuickStart] page contains info regarding importing the project to various IDE.
- * [JSFFlexComponentInfo] page contains info regarding JSF Flex components.
- * [JSFFlexRendererInfo] page contains info regarding JSF Flex renderers.
  * [JSFFlexProcess] page contains info regarding the process of JSF Flex project.
  * [JSFFlexMavenProjects] page contains info regarding the maven projects of JSF Flex project.
  * [JSFFlexBuildSystemInfo] page contains info regarding the project's build system.
  * [ComponentTagsBondableFieldsInfo] page contains info regarding the bondable fields of JSF Flex project's component tags.
+ * [http://jsf-flex.googlecode.com/svn/wiki/jsf-flex.xhtml RDDL document]. Technically the url should be changed to reflect the location of this file {rather than http://jsf-flex.googlecode.com}.
 
 The project itself has been componentized tremendously in order to provide :
  * flexibility in choosing the implementation preferred {i.e. if the institution using this component library only allows ANT implementation, one should choose {{{antFlexTaskRunnerImpl}}} as the project for implementing {{{_FlexTaskRunner}}} interface}
