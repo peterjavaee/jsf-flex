@@ -27,9 +27,8 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
 import com.googlecode.jsfFlex.component.ext.data.ext.AbstractFlexUIXML;
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 
 /**
@@ -45,11 +44,9 @@ import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
         componentNameSpace="fx",
 		componentNodeAttributes={},
 		
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="id", byMethod=true)
-		}
+		jsfFlexAttributes={}
 )
-public final class FlexXMLRenderer extends AbstractFlexComponentBaseRenderer {
+public final class FlexXMLRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

@@ -25,9 +25,8 @@ import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
@@ -43,11 +42,9 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		componentName="ListCollectionView",
 		componentNodeAttributes={},
 
-		jsfFlexAttributes={
-                @IJsfFlexAttribute(attribute="id", byMethod=true)
-        }
+		jsfFlexAttributes={}
 )
-public final class FlexListCollectionViewRenderer extends AbstractFlexComponentBaseRenderer {
+public final class FlexListCollectionViewRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

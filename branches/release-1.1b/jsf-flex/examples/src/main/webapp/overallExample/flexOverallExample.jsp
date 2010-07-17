@@ -165,7 +165,7 @@
 					<jf:flexAttributeNode name="width" value="100%"/>
 		    		<jf:flexAttributeNode name="height" value="100%"/>
 					
-		    		<jf:flexPanel>
+		    		<jf:flexPanel nameSpaceOverride="mx">
 		    			<jf:flexAttributeNode name="width" value="100%"/>
 			    		<jf:flexAttributeNode name="height" value="100%"/>
 		    			<jf:flexAttributeNode name="label" value="First Tab"/>
@@ -181,15 +181,17 @@
 				    			
 				    			<jf:flexTextInput id="textInputRef" text="#{flexOverallBean.textInputText}" />
 				    			<jf:flexRichTextEditor textBinding="htmlText" htmlText="#{flexOverallBean.richTextEditorHtmlText}" />
-						    	<jf:flexTextArea id="textAreaRef" text="#{flexOverallBean.textAreaText}" >
-						    		<f:validateLongRange minimum="10" maximum="60" />
-						    	</jf:flexTextArea>
+						    	
 						    	<jf:flexDateField text="#{flexOverallBean.dateFieldText}">
 						    		<jf:flexAttributeNode name="width" value="100"/>
 						    	</jf:flexDateField>
-						    	<jf:flexCheckBox selected="#{flexOverallBean.checkBoxSelected}">
-						    		<jf:flexAttributeNode name="label" value="CheckBox am I [\^$.|?*+(){}"/>
-						    	</jf:flexCheckBox>
+						    	
+						    	<jf:flexColorPicker selectedColor="#{flexOverallBean.colorPickerSelectedColor}">
+						       		<jf:flexAttributeNode name="labelField" value="ColorPicker am I"/>
+						       	</jf:flexColorPicker>
+						       	<jf:flexDateChooser selectedDate="#{flexFaceletOverallBean.selectedDate}">
+						       		<jf:flexAttributeNode name="width" value="300"/>
+						       	</jf:flexDateChooser>
 					    	</jf:flexBox>
 					    	
 					    	<jf:flexBox>
@@ -224,31 +226,36 @@
 			    		<jf:flexAttributeNode name="height" value="100%"/>
 		    			<jf:flexAttributeNode name="label" value="Second Tab"/>
 		    			
-				    	<jf:flexComboBox text="#{flexOverallBean.comboBoxText}" selectedIndex="#{flexOverallBean.comboBoxSelectedIndex}" 
-				    							dataProviderCollection="#{flexOverallBean.comboBoxDisplayEntries}" />
-				    	<jf:flexRadioButton groupName="radioTest" value="First" 
-				    							selectedValue="#{flexOverallBean.radioButtonSelectedValue}" selected="#{flexOverallBean.radioButtonFirstSelected}">
-							<jf:flexAttributeNode name="label" value="First"/>
-						</jf:flexRadioButton>
-				       	<jf:flexRadioButton groupName="radioTest" value="Second" selected="#{flexOverallBean.radioButtonSecondSelected}">
-							<jf:flexAttributeNode name="label" value="Second"/>
-				       	</jf:flexRadioButton>
-				       	
-				       	<jf:flexNumericStepper value="#{flexOverallBean.numericStepperValue}">
-				       		<jf:flexAttributeNode name="minimum" value="0"/>
-				       		<jf:flexAttributeNode name="maximum" value="10"/>
-				       	</jf:flexNumericStepper>
-				       	<jf:flexColorPicker selectedColor="#{flexOverallBean.colorPickerSelectedColor}">
-				       		<jf:flexAttributeNode name="labelField" value="ColorPicker am I"/>
-				       	</jf:flexColorPicker>
-				       	<jf:flexDateChooser selectedDate="#{flexFaceletOverallBean.selectedDate}">
-				       		<jf:flexAttributeNode name="width" value="300"/>
-				       	</jf:flexDateChooser>
+		    			<jf:flexGroup>
+					    	<jf:flexComboBox text="#{flexOverallBean.comboBoxText}" selectedIndex="#{flexOverallBean.comboBoxSelectedIndex}" 
+					    							dataProviderCollection="#{flexOverallBean.comboBoxDisplayEntries}" />
+					    	<jf:flexRadioButton groupName="radioTest" value="First" 
+					    							selectedValue="#{flexOverallBean.radioButtonSelectedValue}" selected="#{flexOverallBean.radioButtonFirstSelected}">
+								<jf:flexAttributeNode name="label" value="First"/>
+							</jf:flexRadioButton>
+					       	<jf:flexRadioButton groupName="radioTest" value="Second" selected="#{flexOverallBean.radioButtonSecondSelected}">
+								<jf:flexAttributeNode name="label" value="Second"/>
+					       	</jf:flexRadioButton>
+					       	
+					       	<jf:flexNumericStepper value="#{flexOverallBean.numericStepperValue}">
+					       		<jf:flexAttributeNode name="minimum" value="0"/>
+					       		<jf:flexAttributeNode name="maximum" value="10"/>
+					       	</jf:flexNumericStepper>
+					       	
+					       	<jf:flexCheckBox selected="#{flexOverallBean.checkBoxSelected}">
+								<jf:flexAttributeNode name="label" value="CheckBox am I [\^$.|?*+(){}"/>
+							</jf:flexCheckBox>
+							
+							<jf:flexTextArea id="textAreaRef" text="#{flexOverallBean.textAreaText}" >
+								
+								<f:validateLongRange minimum="10" maximum="60" />
+							</jf:flexTextArea>
+						</jf:flexGroup>
 		    		</jf:flexPanel>
 					
 			    </jf:flexTabNavigator>
 			            	
-	    	   	<jf:flexPanel>
+	    	   	<jf:flexPanel nameSpaceOverride="mx">
 					<jf:flexAttributeNode name="width" value="100%"/>
 	    			<jf:flexAttributeNode name="height" value="100%"/>
 					
@@ -398,6 +405,7 @@
 					    </jf:flexTile>
 						
 						<jf:flexProgressBar id="progressBarRef" value="#{flexOverallBean.progressBarValue}">
+							
 							<jf:flexAttributeNode name="mode" value="manual"/>
 							<jf:flexAttributeNode name="minimum" value="0"/>
 							<jf:flexAttributeNode name="maximum" value="100"/>

@@ -27,7 +27,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRendere
 
 import com.googlecode.jsfFlex.renderkit.annotation.IFlexComponentNodeAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
@@ -57,7 +57,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 
 		jsfFlexAttributes={}
 )
-public final class FlexColorPickerRenderer extends AbstractFlexComponentBaseRenderer {
+public final class FlexColorPickerRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

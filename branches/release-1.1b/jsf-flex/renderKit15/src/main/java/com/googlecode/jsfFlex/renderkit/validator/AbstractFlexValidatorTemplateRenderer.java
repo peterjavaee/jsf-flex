@@ -24,7 +24,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentRenderer;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent.ACTION_SCRIPT_IMPORT;
 import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
@@ -37,7 +37,7 @@ import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 
 		jsfFlexAttributes={}
 )
-public abstract class AbstractFlexValidatorTemplateRenderer extends AbstractFlexComponentBaseRenderer {
+public abstract class AbstractFlexValidatorTemplateRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {

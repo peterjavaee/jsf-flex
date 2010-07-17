@@ -60,8 +60,8 @@
 		
 		#foreach( $simpleDataProviderSetter in ${additionalApplicationScriptContent.getSimpleDataProviderSetter()} )
 			#set( $simpleDataProviderSetterRef = "${simpleDataProviderSetter.getComponentId()}SimpleDataProviderSetterRef" )
-			var ${simpleDataProviderSetterRef}:ComboBox = this["${simpleDataProviderSetter.getComponentId()}"] as ComboBox;
-			${simpleDataProviderSetterRef}.dataProvider = ${simpleDataProviderSetter.getDataProviderContent()};
+			var ${simpleDataProviderSetterRef}:${simpleDataProviderSetter.getComponentTypeVariableDeclaration()} = this["${simpleDataProviderSetter.getComponentId()}"] as ${simpleDataProviderSetter.getComponentTypeCast()};
+			${simpleDataProviderSetterRef}.dataProvider = ${simpleDataProviderSetter.getDataProviderContent()} as ${simpleDataProviderSetter.getDataProviderCast()};
 		#end
 		
 		#if ( ${validationManagerScriptContent.getValidationManagerValidatorIds().size()} > 0 )
@@ -104,7 +104,7 @@
 </fx:Script>
 
 #if ( ${validationManagerScriptContent.getValidationManagerValidatorIds().size()} > 0 )
-<s:Text id="${errorTextComponentId}" width="100%"
+<mx:Text id="${errorTextComponentId}"
 		
 		#foreach( $errorComponentAttributeContainer in ${validationManagerScriptContent.getErrorComponentAttributeContainer()} )
 			${errorComponentAttributeContainer.toTokenValueSyntax()}

@@ -31,9 +31,8 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRendere
 
 import com.googlecode.jsfFlex.component.ext.data.ext.AbstractFlexUIObject;
 import com.googlecode.jsfFlex.component.ext.data.ext.properties.ext.AbstractFlexUIObjectStaticProperty;
-import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttribute;
 import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
-import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
+import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
@@ -51,11 +50,9 @@ import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
         componentNameSpace="fx",
 		componentNodeAttributes={},
 		
-		jsfFlexAttributes={
-				@IJsfFlexAttribute(attribute="id", byMethod=true)
-		}
+		jsfFlexAttributes={}
 )
-public final class FlexObjectRenderer extends AbstractFlexComponentBaseRenderer {
+public final class FlexObjectRenderer extends AbstractFlexComponentRenderer {
 	
 	@SuppressWarnings("unchecked")
 	@Override

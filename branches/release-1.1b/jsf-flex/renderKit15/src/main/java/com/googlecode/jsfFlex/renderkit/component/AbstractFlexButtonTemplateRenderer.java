@@ -33,7 +33,7 @@ import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 /**
  * @author Ji Hoon Kim
  */
-public abstract class AbstractFlexButtonTemplateRenderer extends AbstractFlexComponentBaseRenderer {
+public abstract class AbstractFlexButtonTemplateRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override
 	public void encodeBegin(FacesContext context, UIComponent componentObj) throws IOException {
