@@ -39,7 +39,7 @@
     		<jf:flexPanel>
     			<jf:flexAttributeNode name="height" value="100%"/>
 	    		<jf:flexAttributeNode name="width" value="100%"/>
-	    		<jf:flexAttributeNode name="label" value="Panel example"/>
+	    		<jf:flexAttributeNode name="title" value="Panel example"/>
 	    		
     			<jf:flexLabel>
     				<jf:flexAttributeNode name="text" value="Label for panel example"/>

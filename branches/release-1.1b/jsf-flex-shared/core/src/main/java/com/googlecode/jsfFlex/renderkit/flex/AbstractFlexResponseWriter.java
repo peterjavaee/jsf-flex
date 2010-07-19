@@ -72,6 +72,9 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriterWrapper {
         super();
     }
     
+    /**
+     * Method to shutdown all the FutureTasks for various runners.
+     */
     public void shutDownFutureTasks(){
         getCommonTaskRunner().clearAllFutureTasks();
         getFileManipulatorTaskRunner().clearAllFutureTasks();
@@ -181,6 +184,12 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriterWrapper {
         }
     }
     
+    /**
+     * A method that should be invoked to ensure that FutureTasks of unzipping a flexSDK has been completed. This is due to<br>
+     * flexSDK being broken up into multiple zip files for multiple FutureTasks.
+     * 
+     * @param queueTaskId
+     */
     public void waitForFlexUnzip(String queueTaskId){
         String unZipArchiveRelativeQueueTaskPart1Id = QUEUE_TASK_ID.UNZIP_ARCHIVE_RELATIVE.getQueueTaskId(queueTaskId + "_1");
         String unZipArchiveRelativeQueueTaskPart2Id = QUEUE_TASK_ID.UNZIP_ARCHIVE_RELATIVE.getQueueTaskId(queueTaskId + "_2");
@@ -683,6 +692,14 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriterWrapper {
         return queueTaskId;
     }
     
+    /**
+     * Generates a file based on the provided template and various properties within the Map.
+     * 
+     * @param filePath
+     * @param templateFile
+     * @param initProperties
+     * @param tokenMap
+     */
     public final void createFileContent(String filePath, String templateFile, Properties initProperties, Map<String, ? extends Object> tokenMap){
         
         getFileManipulatorTaskRunner().createFileContent(filePath, templateFile, initProperties, tokenMap);
@@ -692,7 +709,7 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriterWrapper {
      * This method will create the preMxml file of the component.<br>
      * 
      * @param comp
-     * @param flexComponentName
+     * @param jsfFlexAttributeProperties
      * @param bodyContent
      */
     public final void createPreMxml(IFlexContract comp, IJsfFlexAttributeProperties jsfFlexAttributeProperties, String bodyContent) {

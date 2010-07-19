@@ -168,7 +168,7 @@
 		    		<jf:flexPanel nameSpaceOverride="mx">
 		    			<jf:flexAttributeNode name="width" value="100%"/>
 			    		<jf:flexAttributeNode name="height" value="100%"/>
-		    			<jf:flexAttributeNode name="label" value="First Tab"/>
+		    			<jf:flexAttributeNode name="title" value="First Tab"/>
 		    			
 		    			<jf:flexDividedBox>
 		    				<jf:flexAttributeNode name="width" value="100%"/>
@@ -221,12 +221,12 @@
 				    	</jf:flexDividedBox>
 				    </jf:flexPanel>
 		    			
-		    		<jf:flexPanel>
+		    		<jf:flexPanel nameSpaceOverride="mx">
 		    			<jf:flexAttributeNode name="width" value="100%"/>
 			    		<jf:flexAttributeNode name="height" value="100%"/>
-		    			<jf:flexAttributeNode name="label" value="Second Tab"/>
+		    			<jf:flexAttributeNode name="title" value="Second Tab"/>
 		    			
-		    			<jf:flexGroup>
+		    			<jf:flexVGroup>
 					    	<jf:flexComboBox text="#{flexOverallBean.comboBoxText}" selectedIndex="#{flexOverallBean.comboBoxSelectedIndex}" 
 					    							dataProviderCollection="#{flexOverallBean.comboBoxDisplayEntries}" />
 					    	<jf:flexRadioButton groupName="radioTest" value="First" 
@@ -250,7 +250,7 @@
 								
 								<f:validateLongRange minimum="10" maximum="60" />
 							</jf:flexTextArea>
-						</jf:flexGroup>
+						</jf:flexVGroup>
 		    		</jf:flexPanel>
 					
 			    </jf:flexTabNavigator>
@@ -428,10 +428,6 @@
 					<jf:flexAttributeNode name="creationComplete" value="initMenu(event);"/>
 					<jf:flexAttributeNode name="width" value="135"/>
 				</jf:flexPopUpButton>
-				<jf:flexPopUpMenuButton>
-					<jf:flexAttributeNode name="dataProvider" value="{complexStructCollection}"/>
-					<jf:flexAttributeNode name="labelField" value="@label"/>
-				</jf:flexPopUpMenuButton>
 			</jf:flexApplicationControlBar>
 			
 		</jf:flexApplication>

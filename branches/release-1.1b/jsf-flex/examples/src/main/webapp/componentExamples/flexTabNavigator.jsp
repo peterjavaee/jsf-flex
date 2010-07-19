@@ -40,20 +40,20 @@
     			<jf:flexAttributeNode name="height" value="100%"/>
 	    		<jf:flexAttributeNode name="width" value="100%"/>
 	    		
-	    		<jf:flexPanel>
+	    		<jf:flexPanel nameSpaceOverride="mx">
 	    			<jf:flexAttributeNode name="height" value="100%"/>
 		    		<jf:flexAttributeNode name="width" value="100%"/>
-		    		<jf:flexAttributeNode name="label" value="First Tab"/>
+		    		<jf:flexAttributeNode name="title" value="First Tab"/>
 		    		
 	    			<jf:flexLabel>
 	    				<jf:flexAttributeNode name="text" value="Label for first Tab."/>
 	    			</jf:flexLabel>
 	    		</jf:flexPanel>
 	    		
-	    		<jf:flexPanel>
+	    		<jf:flexPanel nameSpaceOverride="mx">
 	    			<jf:flexAttributeNode name="height" value="100%"/>
 		    		<jf:flexAttributeNode name="width" value="100%"/>
-		    		<jf:flexAttributeNode name="label" value="Second Tab"/>
+		    		<jf:flexAttributeNode name="title" value="Second Tab"/>
 	    			
 	    			<jf:flexLabel>
 	    				<jf:flexAttributeNode name="text" value="Label for second Tab."/>
