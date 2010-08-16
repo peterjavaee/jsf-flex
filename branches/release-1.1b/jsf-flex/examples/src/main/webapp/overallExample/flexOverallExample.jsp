@@ -80,6 +80,7 @@
 	    	</jf:flexLabel>
 	    	
 	        <jf:flexScript>
+	        	<![CDATA[
 	        	import flash.events.Event;
 	        	
 		    	import mx.collections.XMLListCollection;
@@ -142,7 +143,7 @@
 				private function decreaseProgressBar():void{
 					progressBarRef.setProgress(progressBarRef.value == 0 ? 0 : progressBarRef.value - 10, 100);
 				}
-				
+				]]>
 		    </jf:flexScript>
 		    <!-- Validation on the client side -->
 		    <jf:flexNumberValidator>

@@ -37,10 +37,10 @@
     		<jf:flexAttributeNode name="width" value="800"/>
     		
     		<jf:flexScript>
-	        	
+	        	<![CDATA[
 		    	[Bindable]
 				public var reallySimpleArray:Array = ["First", "Second", "Third"];
-				
+				]]>
 		    </jf:flexScript>
     		<jf:flexList selectedIndex="#{flexOverallBean.listSelectedIndex}">
     			<jf:flexAttributeNode name="dataProvider" value="{reallySimpleArray}"/>

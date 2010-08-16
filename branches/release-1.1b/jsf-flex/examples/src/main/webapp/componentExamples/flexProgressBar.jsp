@@ -36,7 +36,7 @@
     		<jf:flexAttributeNode name="width" value="800"/>
     		
     		<jf:flexScript>
-	        	
+	        	<![CDATA[
 		    	private function increaseProgressBar():void{
 					progressBarRef.setProgress((progressBarRef.value + 10) % 110, 100);
 				}
@@ -44,7 +44,7 @@
 				private function decreaseProgressBar():void{
 					progressBarRef.setProgress(progressBarRef.value == 0 ? 0 : progressBarRef.value - 10, 100);
 				}
-				
+				]]>
 		    </jf:flexScript>
 		    
     		<jf:flexButton>

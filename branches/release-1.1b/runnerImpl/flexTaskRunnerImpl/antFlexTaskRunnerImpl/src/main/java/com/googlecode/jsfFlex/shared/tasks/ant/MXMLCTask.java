@@ -19,6 +19,7 @@
 package com.googlecode.jsfFlex.shared.tasks.ant;
 
 import java.io.File;
+import java.util.Map;
 
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Target;
@@ -223,7 +224,14 @@ public final class MXMLCTask extends AbstractAntBaseTask {
 			arg = _mxmlcTask.createArg();
 			arg.setLine(DATE_ARG_SYNTAX + dateFormatted);
 		}
-		
+        
+        Map<String, String> additionalMxmlcCommandArgs = _componentFlex.getAdditionalMxmlcCommandArguments();
+        if(additionalMxmlcCommandArgs != null){
+            for(String currKey : additionalMxmlcCommandArgs.keySet()){
+                arg = _mxmlcTask.createArg();
+                arg.setLine(currKey + additionalMxmlcCommandArgs.get(currKey));
+            }
+        }
 		_mxmlcTask.maybeConfigure();
 	}
 	

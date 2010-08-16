@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.component.ext;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.BitSet;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -32,6 +33,9 @@ import javax.faces.context.FacesContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUIBatchColumnDataRetrievalSizeAttribute;
@@ -81,10 +85,121 @@ public abstract class AbstractFlexUIDataGrid
     
     private static final String DELETE_INDICES_KEY = "deleteIndices";
     
+    private static final String DELTA_DESELECTED_ENTRIES_KEY = "deltaDeselectedEntries";
+    private static final String DELTA_SELECTED_ENTRIES_KEY = "deltaSelectedEntries";
+    private static final String FETCH_SELECTION_ITEM_PARTITION_INDEX_KEY = "fetchSelectionItemPartitionIndex";
+    private static final String UPDATE_ITEM_PARTITION_INDEX_KEY = "updateItemPartitionIndex";
+    private static final String SELECT_ALL_KEY = "selectAll";
+    private static final String DESELECT_ALL_KEY = "deselectAll";
+    private static final String RETURNED_SELECT_ENTRIES = "returnedSelectEntries";
+    
     private Map<String, AbstractFlexUIDataGridColumn> _dataGridColumnComponentMapping;
+    private BitSet _selectedRows;
     
     {
         _dataGridColumnComponentMapping = new HashMap<String, AbstractFlexUIDataGridColumn>();
+    }
+    
+    public boolean isRowSelected(int rowIndex) {
+        return _selectedRows.get(rowIndex);
+    }
+    
+    public void selectRow(int rowIndex) {
+        _selectedRows.set(rowIndex);
+    }
+    
+    public void deselectRow(int rowIndex) {
+        _selectedRows.clear(rowIndex);
+    }
+    
+    public void selectRows(int beginRowIndex, int endRowIndex) {
+        _selectedRows.set(beginRowIndex, endRowIndex);
+    }
+    
+    public void deselectRows(int beginRowIndex, int endRowIndex) {
+        _selectedRows.clear(beginRowIndex, endRowIndex);
+    }
+    
+    public void deselectAll() {
+        _selectedRows.clear();
+    }
+    
+    public void selectAll() {
+        _selectedRows.set(0, _selectedRows.size());
+    }
+    
+    public JSONObject updateRowSelectionEntry() {
+        JSONObject updateRowSelectionResult = new JSONObject();
+        boolean success = true;
+        
+        FacesContext context = FacesContext.getCurrentInstance();
+        Map<String, String[]> requestParameterValuesMap = context.getExternalContext().getRequestParameterValuesMap();
+        Map<String, String> requestMap = context.getExternalContext().getRequestParameterMap();
+        
+        String[] deltaDeselectedEntries = requestParameterValuesMap.get(DELTA_DESELECTED_ENTRIES_KEY);
+        String[] deltaSelectedEntries = requestParameterValuesMap.get(DELTA_SELECTED_ENTRIES_KEY);
+        
+        int batchColumnDataRetrievalSize = computeBatchColumnDataRetrievalSize();
+        try{
+            int updateItemPartitionIndex = Integer.valueOf(requestMap.get(UPDATE_ITEM_PARTITION_INDEX_KEY));
+            int updateSelectionStartIndex = updateItemPartitionIndex * batchColumnDataRetrievalSize;
+            
+            boolean selectAll = Boolean.valueOf(requestMap.get(SELECT_ALL_KEY));
+            boolean deselectAll = Boolean.valueOf(requestMap.get(DESELECT_ALL_KEY));
+            
+            selectDeselectAllBlock: {
+                if(selectAll) {
+                    selectAll();
+                    break selectDeselectAllBlock;
+                }
+                
+                if(deselectAll) {
+                    deselectAll();
+                    break selectDeselectAllBlock;
+                }
+                
+                for(String deltaDeselectedEntry : deltaDeselectedEntries) {
+                    deselectRow(updateSelectionStartIndex + Integer.valueOf(deltaDeselectedEntry));
+                }
+                
+                for(String deltaSelectedEntry : deltaSelectedEntries) {
+                    selectRow(updateSelectionStartIndex + Integer.valueOf(deltaSelectedEntry));
+                }
+            }
+            
+        }catch(NumberFormatException numberFormatException) {
+            _log.error("A parsing exception occurred within updateRowSelectionEntry", numberFormatException);
+            success = false;
+        }
+        
+        if(success){
+            try{
+                int fetchSelectionItemPartitionIndex = Integer.valueOf(requestMap.get(FETCH_SELECTION_ITEM_PARTITION_INDEX_KEY));
+                int startIndex = fetchSelectionItemPartitionIndex * batchColumnDataRetrievalSize;
+                int endIndex = Math.min((fetchSelectionItemPartitionIndex + 1) * batchColumnDataRetrievalSize, getBindingBeanList().size());
+                
+                if(endIndex < startIndex){
+                    _log.info("Okay startIndex is greater than endIndex, what went wrong. StartIndex : " + startIndex + ", endIndex : " + endIndex);
+                    success = false;
+                }else{
+                    /*
+                     * Now loop through the BitSet and push the entries within a JSONArray
+                     */
+                    JSONArray selectedEntries = new JSONArray();
+                    for(; startIndex < endIndex; startIndex++){
+                        if(_selectedRows.get(startIndex)){
+                            selectedEntries.put(startIndex);
+                        }
+                    }
+                    updateRowSelectionResult.put(RETURNED_SELECT_ENTRIES, selectedEntries);
+                }
+                updateRowSelectionResult.put(RESULT_CODE_KEY, success);
+            }catch(JSONException jsonException){
+                _log.error("JSON exception occurred within updateRowSelectionEntry", jsonException);
+                success = false;
+            }
+        }
+        return updateRowSelectionResult;
     }
     
     public List<String> getFormatedColumnData() {
@@ -172,12 +287,12 @@ public abstract class AbstractFlexUIDataGrid
         }
         
         _log.info("Parsed add entry start + end index are [ " + parsedAddEntryStartIndex + ", " + parsedAddEntryEndIndex + " ] for component : " + getId());
+        int loopLength = parsedAddEntryEndIndex - parsedAddEntryStartIndex;
         
         try{
             Class beanEntryClass = Class.forName(BEAN_ENTRY_CLASS_NAME);
             Comparable<? super Object> beanEntryInstance;
             
-            int loopLength = parsedAddEntryEndIndex - parsedAddEntryStartIndex;
             for(int i=0; i < loopLength; i++){
                 
                 beanEntryInstance = (Comparable<? super Object>) beanEntryClass.newInstance();
@@ -218,6 +333,13 @@ public abstract class AbstractFlexUIDataGrid
         
         _log.info("Returning reset values of batchColumnDataRetrievalSize + maxDataPartitionIndex are [ " + 
                         batchColumnDataRetrievalSize + ", " + maxDataPartitionIndex + "] for component : " + getId());
+        
+        /*
+         * Now reset the BitSet with the new size and the selected entries will be starting from parsedAddEntryEndIndex 
+         * for loopLength elements 
+         */
+        _selectedRows = new BitSet(getBindingBeanList().size());
+        _selectedRows.set(parsedAddEntryEndIndex, parsedAddEntryEndIndex + loopLength);
         
         addDataResult.put(BATCH_COLUMN_DATA_RETRIEVAL_SIZE, batchColumnDataRetrievalSize);
         addDataResult.put(MAX_DATA_PARTITION_INDEX, maxDataPartitionIndex);
@@ -275,6 +397,11 @@ public abstract class AbstractFlexUIDataGrid
         _log.info("Returning reset values of batchColumnDataRetrievalSize + maxDataPartitionIndex are [ " + 
                         batchColumnDataRetrievalSize + ", " + maxDataPartitionIndex + "] for component : " + getId());
         
+        /*
+         * Now reset the BitSet with the new size and the number of selected entries will be zero
+         */
+        _selectedRows = new BitSet(getBindingBeanList().size());
+        
         removeDataResult.put(BATCH_COLUMN_DATA_RETRIEVAL_SIZE, batchColumnDataRetrievalSize);
         removeDataResult.put(MAX_DATA_PARTITION_INDEX, maxDataPartitionIndex);
         removeDataResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
@@ -310,6 +437,8 @@ public abstract class AbstractFlexUIDataGrid
     
     public void encodeEnd(FacesContext context) throws IOException {
         super.encodeEnd(context);
+        
+        _selectedRows = new BitSet(getBindingBeanList().size());
         
         /*
          * adding the component to the map for future asynchronous request by

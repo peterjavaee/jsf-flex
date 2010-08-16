@@ -37,12 +37,13 @@
     		<jf:flexAttributeNode name="width" value="800"/>
     		
     		<jf:flexScript>
+    			<![CDATA[
 	        	import mx.controls.Alert;
 		    	
 		    	private function buttonMe():void {
 		    		Alert.show("I have been buttoned");
 		    	}
-		    	
+		    	]]>
 		    </jf:flexScript>
 		    
     		<jf:flexButton>

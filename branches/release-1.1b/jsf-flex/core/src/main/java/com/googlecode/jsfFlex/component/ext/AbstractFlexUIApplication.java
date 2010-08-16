@@ -310,7 +310,13 @@ public abstract class AbstractFlexUIApplication
      */
     @JSFProperty(desc   =   "Additional xmlns in form of key/value where key is the prefix and the value being the url.")
     public abstract Map<String, String> getProvidedAdditionalXmlnsMap();
-
+    
+    /**
+     * This value will allow users to provide additional mxmlc commands during creation of the swf files. Note that it will be a simple mapping between a key and its value, meaning if there requires an equal sign, it is assumed that it has been provied within the key or its value.
+     */
+    @JSFProperty(desc   =   "This value will allow users to provide additional mxmlc commands during creation of the swf files. Note that it will be a simple mapping between a key and its value, meaning if there requires an equal sign, it is assumed that it has been provied within the key or its value.")
+    public abstract Map<String, String> getAdditionalMxmlcCommandArguments();
+    
 	/**
 	 * This value will be passed to the mxmlc compiler when creating a SWF. It must be an absolutePath to a filesystem where additional ActionScript and MXML files that are needed for the current SWF generation are located at.
 	 */

@@ -37,6 +37,7 @@
     		<jf:flexAttributeNode name="width" value="800"/>
     		
     		<jf:flexScript>
+    			<![CDATA[
 	        	import flash.events.Event;
 	        	
 		    	import mx.controls.Menu;
@@ -63,7 +64,7 @@
 	                popUpButton.close();
 	                myMenu.selectedIndex = event.index;
 	            }
-		    	
+		    	]]>
 		    </jf:flexScript>
     		
     		<jf:flexPopUpButton>

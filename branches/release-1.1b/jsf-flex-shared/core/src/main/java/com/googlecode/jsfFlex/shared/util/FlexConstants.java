@@ -49,6 +49,7 @@ import com.googlecode.jsfFlex.shared.util.annotation.ISwcActionScriptFiles;
                 @ISwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.event.AbstractEventHandler"),
                 @ISwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.event.DataUpdateEventHandler"),
                 @ISwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.event.SubmitFormEventHandler"),
+                @ISwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.event.helper.ItemSelectHelper"),
                 @ISwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.event.helper.ScrollEventHelper"),
                 @ISwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.logger.AbstractLogger"),
                 @ISwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.logger.ILogger"),

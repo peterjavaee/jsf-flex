@@ -19,6 +19,7 @@
 package com.googlecode.jsfFlex.shared.tasks.jython;
 
 import java.io.File;
+import java.util.Map;
 import java.util.Vector;
 
 import org.python.core.PyList;
@@ -207,6 +208,13 @@ public final class MXMLCTask extends AbstractJythonBaseTask {
 			String dateFormatted = format.format(_componentFlex.getDate());
 			commandArguments.add(DATE_ARG_SYNTAX + dateFormatted);
 		}
+        
+        Map<String, String> additionalMxmlcCommandArgs = _componentFlex.getAdditionalMxmlcCommandArguments();
+        if(additionalMxmlcCommandArgs != null){
+            for(String currKey : additionalMxmlcCommandArgs.keySet()){
+                commandArguments.add(currKey + additionalMxmlcCommandArgs.get(currKey));
+            }
+        }
 		
 		return commandArguments;
 	}

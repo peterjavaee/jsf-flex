@@ -37,7 +37,7 @@
     		<jf:flexAttributeNode name="width" value="800"/>
     		
     		<jf:flexScript>
-	        	
+	        	<![CDATA[
 		    	import mx.collections.XMLListCollection;
 		    	
 				public var complexStruct:XMLList = <root>
@@ -58,7 +58,7 @@
 													</root>.menuitem;
 				[Bindable]
 				public var complexStructCollection:XMLListCollection = new XMLListCollection(complexStruct);
-				
+				]]>
 		    </jf:flexScript>
 		    
     		<jf:flexMenuBar>

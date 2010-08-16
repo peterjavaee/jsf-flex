@@ -36,13 +36,13 @@
     		<jf:flexAttributeNode name="width" value="800"/>
     		
     		<jf:flexScript>
-	        	
+	        	<![CDATA[
 		    	import mx.controls.Alert;
 		    	
 		    	private function linkButtonClicked():void {
 		    		Alert.show("LinkButton has been clicked");
 		    	}
-		    	
+		    	]]>
 		    </jf:flexScript>
     		<jf:flexLinkButton>
     			<jf:flexAttributeNode name="label" value="To Link to something"/>
