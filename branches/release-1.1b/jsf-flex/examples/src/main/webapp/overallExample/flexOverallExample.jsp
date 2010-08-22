@@ -66,6 +66,25 @@
 	    	<jf:flexAttributeNode name="height" value="780"/>
     		<jf:flexAttributeNode name="width" value="90%"/>
     		
+    		<jf:flexDeclarations>
+		    	
+		    	<jf:flexNumberValidator>
+			    	<jf:flexAttributeNode name="exceedsMaxError" value="The number provided exceeds max value [60]."/>
+		    		<jf:flexAttributeNode name="property" value="text"/>
+		    		<jf:flexAttributeNode name="domain" value="int"/>
+		    		<jf:flexAttributeNode name="integerError" value="Must be an integer value."/>
+		    		<jf:flexAttributeNode name="lowerThanMinError" value="The number provided is lower than min value [10]."/>
+		    		<jf:flexAttributeNode name="maxValue" value="60"/>
+		    		<jf:flexAttributeNode name="minValue" value="10"/>
+		    		<jf:flexAttributeNode name="required" value="true"/>
+		    		<jf:flexAttributeNode name="source" value="{textInputRef}"/>
+				</jf:flexNumberValidator>
+		    	
+		    	
+		    	
+	    	</jf:flexDeclarations>
+    		
+    		
 	    	<jf:flexLabel>
 	    		<jf:flexAttributeNode name="text" value="Following label contains korean text to demonstrate locale [if browser's language is set to korean]"/>
 	    		<jf:flexAttributeNode name="color" value="#FFFFFF"/>
@@ -146,18 +165,7 @@
 				]]>
 		    </jf:flexScript>
 		    <!-- Validation on the client side -->
-		    <jf:flexNumberValidator>
-		    	<jf:flexAttributeNode name="exceedsMaxError" value="The number provided exceeds max value [60]."/>
-	    		<jf:flexAttributeNode name="property" value="text"/>
-	    		<jf:flexAttributeNode name="domain" value="int"/>
-	    		<jf:flexAttributeNode name="integerError" value="Must be an integer value."/>
-	    		<jf:flexAttributeNode name="lowerThanMinError" value="The number provided is lower than min value [10]."/>
-	    		<jf:flexAttributeNode name="maxValue" value="60"/>
-	    		<jf:flexAttributeNode name="minValue" value="10"/>
-	    		<jf:flexAttributeNode name="required" value="true"/>
-	    		<jf:flexAttributeNode name="source" value="{textInputRef}"/>
-			</jf:flexNumberValidator>
-			
+		    
 			<jf:flexAccordion selectedIndex="#{flexOverallBean.accordionSelectedIndex}">
 			    <jf:flexAttributeNode name="width" value="100%"/>
 	    		<jf:flexAttributeNode name="height" value="100%"/>

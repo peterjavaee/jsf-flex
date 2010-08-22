@@ -85,9 +85,7 @@
 		    	<jf:flexXMLListCollection id="complexStructCollection">
 		    		<ui:include src="../faceletFiles/flexXMLListExample.xhtml" />
 		    	</jf:flexXMLListCollection>
-	    	</jf:flexDeclarations>
-	    	
-	    	<jf:flexDeclarations>
+		    	
 		    	<jf:flexArray id="reallySimpleArray">
 		    		<jf:flexObjectListEntries bindingBeanList="#{flexFaceletOverallBean.reallySimpleArray}">
 		    			<jf:flexObjectElement>
@@ -109,9 +107,8 @@
 		    		<jf:flexAttributeNode name="required" value="true"/>
 		    		<jf:flexAttributeNode name="source" value="{textInputRef}"/>
 				</jf:flexNumberValidator>
-			
-			</jf:flexDeclarations>
-			
+	    	</jf:flexDeclarations>
+	    	
 			<jf:flexAccordion selectedIndex="#{flexFaceletOverallBean.accordionSelectedIndex}">
 			    <jf:flexAttributeNode name="width" value="100%"/>
 	    		<jf:flexAttributeNode name="height" value="100%"/>
