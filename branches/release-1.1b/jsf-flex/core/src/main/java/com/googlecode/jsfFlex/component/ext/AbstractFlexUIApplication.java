@@ -169,7 +169,11 @@ public abstract class AbstractFlexUIApplication
 			String jsfFlexMainSwcWebpath = swfWebPath + FlexConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + FlexConstants.SWF_FILE_EXT;
             addRuntimeSharedLibrary(jsfFlexMainSwcWebpath);
 			
-            flexContext.setFlexSDKPath(flexSDKPath);
+            if(getFlexSDKPath() != null && getFlexSDKPath().trim().length() > 0){
+                flexContext.setFlexSDKPath(getFlexSDKPath());
+            }else{
+                flexContext.setFlexSDKPath(flexSDKPath);
+            }
             flexContext.setMxmlPath(mxmlPath);
             flexContext.setApplicationSwfPath(applicationSwfPath);
             flexContext.setSwfPath(swfPath);
@@ -389,6 +393,11 @@ public abstract class AbstractFlexUIApplication
     @JSFProperty(desc   =   "This value will be passed to the mxmlc compiler when creating a SWF. It simply is a metadata for the SWF.")
 	public abstract String getDate();
 	
+    /**
+     * This value will represent the FlexSDK path within user's workspace [i.e. if they wish to use a different Flex SDK or if they do not wish to wait for the long Flex SDK zip extraction].
+     */
+    @JSFProperty(desc   =   "This value will represent the FlexSDK path within user's workspace [i.e. if they wish to use a different Flex SDK or if they do not wish to wait for the long Flex SDK zip extraction].")
+    public abstract String getFlexSDKPath();
 	
 	/*
 	 * Error attributes for ValidationManagerScriptContent.java

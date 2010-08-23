@@ -63,6 +63,8 @@ public interface IFlexApplicationContract extends IFlexContract {
 	String getLanguage();
 	
 	String getDate();
+    
+    String getFlexSDKPath();
 	
 	boolean isAccessible();
     

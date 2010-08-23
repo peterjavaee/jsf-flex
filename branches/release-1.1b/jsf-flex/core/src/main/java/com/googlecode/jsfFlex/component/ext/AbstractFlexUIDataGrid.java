@@ -129,6 +129,7 @@ public abstract class AbstractFlexUIDataGrid
     }
     
     public JSONObject updateRowSelectionEntry() {
+        
         JSONObject updateRowSelectionResult = new JSONObject();
         boolean success = true;
         
@@ -143,6 +144,8 @@ public abstract class AbstractFlexUIDataGrid
         try{
             int updateItemPartitionIndex = Integer.valueOf(requestMap.get(UPDATE_ITEM_PARTITION_INDEX_KEY));
             int updateSelectionStartIndex = updateItemPartitionIndex * batchColumnDataRetrievalSize;
+            
+            _log.info("updateRowSelectionEntry: updateItemPartitionIndex is " + updateItemPartitionIndex + ", updateSelectionStartIndex is " + updateSelectionStartIndex);
             
             boolean selectAll = Boolean.valueOf(requestMap.get(SELECT_ALL_KEY));
             boolean deselectAll = Boolean.valueOf(requestMap.get(DESELECT_ALL_KEY));
@@ -177,6 +180,9 @@ public abstract class AbstractFlexUIDataGrid
                 int fetchSelectionItemPartitionIndex = Integer.valueOf(requestMap.get(FETCH_SELECTION_ITEM_PARTITION_INDEX_KEY));
                 int startIndex = fetchSelectionItemPartitionIndex * batchColumnDataRetrievalSize;
                 int endIndex = Math.min((fetchSelectionItemPartitionIndex + 1) * batchColumnDataRetrievalSize, getBindingBeanList().size());
+                
+                _log.info("updateRowSelectionEntry: fetchSelectionItemPartitionIndex is " + fetchSelectionItemPartitionIndex + ", startIndex is " + startIndex
+                                    + ", endIndex is " + endIndex);
                 
                 if(endIndex < startIndex){
                     _log.info("Okay startIndex is greater than endIndex, what went wrong. StartIndex : " + startIndex + ", endIndex : " + endIndex);
@@ -480,6 +486,8 @@ public abstract class AbstractFlexUIDataGrid
         if(dataEntrySize < batchColumnDataRetrievalSize.intValue()){
             batchColumnDataRetrievalSize = Integer.valueOf(dataEntrySize);
         }
+        
+        _log.info("New computeBatchColumnDataRetrievalSize is " + batchColumnDataRetrievalSize);
         return batchColumnDataRetrievalSize;
     }
     
@@ -499,6 +507,8 @@ public abstract class AbstractFlexUIDataGrid
         if(maxDataPartitionIndex.intValue() > 0){
             maxDataPartitionIndex = Integer.valueOf(maxDataPartitionIndex.intValue() - 1);
         }
+        
+        _log.info("New computeMaxDataPartitionIndex is " + maxDataPartitionIndex);
         return maxDataPartitionIndex;
     }
     

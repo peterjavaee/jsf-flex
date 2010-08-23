@@ -51,8 +51,7 @@
         <br />
         
 	    <jf:flexApplication mxmlPackageName="flexDataGridDragDropExample" errorColor="#B80000" errorFontSize="13">
-	    	<jf:flexAttributeNode name="height" value="500"/>
-    		<jf:flexAttributeNode name="width" value="800"/>
+	    	
 			<jf:flexVGroup>
 				<jf:flexAttributeNode name="height" value="100%"/>
 	    		<jf:flexAttributeNode name="width" value="100%"/>
