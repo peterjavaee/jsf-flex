@@ -56,6 +56,7 @@ public abstract class AbstractFlexUIDateField
     
     private static final String DATE_FORMAT_DEFAULT = "EEE MMM dd HH:mm:ss z Z yyyy";
     
+    @Override
     public void decode(FacesContext context) {
         super.decode(context);
         
@@ -88,6 +89,7 @@ public abstract class AbstractFlexUIDateField
         }
     }
     
+    @Override
     public void processUpdates(FacesContext context) {
         super.processUpdates(context);
         

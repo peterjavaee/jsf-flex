@@ -40,6 +40,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexEvent.EVENT_HANDLER_TYPE.JAVA_
 import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 import com.googlecode.jsfFlex.shared.tasks.AbstractRunnerFactory;
 import com.googlecode.jsfFlex.shared.util.FlexConstants;
+import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
 
 /**
  * This component should be used as the base action of the component if the component<br>
@@ -74,8 +75,27 @@ public abstract class AbstractFlexUICommandBase
         super();
     }
     
+    /**
+     * Usually one does not provide overriding of this method; however there are certain cases where one desires to 
+     * provide additional parameters [i.e. AbstractFlexUIAsynchronousPropertyUpdateEventListener]
+     * 
+     * @return
+     */
+    public JSONObject getAddtionalArguments(){
+        return null;
+    }
+    
     public JSONObject getComponentInitValues(){
         return null;
+    }
+    
+    public String getEventHandlerSrcId() {
+        return getId();
+    }
+    
+    public String getEventHandlerTgtId() {
+        FacesContext currInstance = FacesContext.getCurrentInstance();
+        return FlexJsfUtil.retrieveFormId(getClientId(currInstance));
     }
     
     public String getNameSpaceOverride(){
@@ -93,6 +113,7 @@ public abstract class AbstractFlexUICommandBase
         return _annotationDocletParserInstance;
     }
     
+    @Override
     public void encodeBegin(FacesContext context) throws IOException {
         
         AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
@@ -128,6 +149,7 @@ public abstract class AbstractFlexUICommandBase
         }
     }
     
+    @Override
     public void processDecodes(FacesContext context) {
         String mode = context.getExternalContext().getInitParameter(FlexConstants.CONFIG_MODE_NAME);
         if(mode == null || mode.equals(FlexConstants.PRODUCTION_MODE)){
@@ -182,6 +204,7 @@ public abstract class AbstractFlexUICommandBase
             literalOnly =   true,
             desc        =   "Id of the component."
     )
+    @Override
     public String getId(){
         return super.getId();
     }
@@ -206,6 +229,7 @@ public abstract class AbstractFlexUICommandBase
             returnSignature =   "java.lang.Object",
             desc            =   "Specifies the action to take when this command is invoked."
     )
+    @Override
     public MethodExpression getActionExpression(){
         return super.getActionExpression();
     }
@@ -225,6 +249,7 @@ public abstract class AbstractFlexUICommandBase
             methodSignature =   "javax.faces.event.ActionEvent",
             desc            =   "A method binding EL expression that identifies an action listener method to be invoked if this component is activated by the user."
     )
+    @Override
     public MethodBinding getActionListener(){
         return super.getActionListener();
     }
@@ -243,6 +268,7 @@ public abstract class AbstractFlexUICommandBase
             defaultValue    =   "false",
             desc            =   "A boolean value that identifies the phase during which action events should fire."
     )
+    @Override
     public boolean isImmediate(){
         return super.isImmediate();
     }

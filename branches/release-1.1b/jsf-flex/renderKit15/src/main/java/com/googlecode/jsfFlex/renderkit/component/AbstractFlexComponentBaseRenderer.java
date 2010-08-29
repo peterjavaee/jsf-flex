@@ -37,6 +37,7 @@ import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.adapter.IFlexAttributeNode;
 import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
+import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 
 /**
  * @author Ji Hoon Kim
@@ -79,6 +80,7 @@ public abstract class AbstractFlexComponentBaseRenderer extends FlexRendererBase
                     }
                 }catch(JSONException jsonException){
                     _log.error("Error while parsing the following String to JSONObject : " + attributesJSONFormat);
+                    throw new ComponentBuildException(jsonException);
                 }
             }
         }

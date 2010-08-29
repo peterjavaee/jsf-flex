@@ -16,41 +16,49 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.container.ext;
+package com.googlecode.jsfFlex.component;
 
 import java.io.IOException;
+import java.util.Map;
 
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
-import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
-import com.googlecode.jsfFlex.attributes.IFlexUIDirectionAttribute;
-import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
-
 /**
+ * This class will contain code to allow subclasses in performing aynchronous calls
+ * 
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:flexGridItem",
-        clazz               =   "com.googlecode.jsfFlex.container.ext.FlexUIGridItem",
-        type                =   "com.googlecode.jsfFlex.FlexUIGridItem",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.container.ext.FlexUIGridItemTag",
-        family              =   "javax.faces.FlexSimple",
-        defaultRendererType =   "com.googlecode.jsfFlex.FlexGridItem"
+        type    =   "com.googlecode.jsfFlex.FlexUIPreserveInServer",
+        family  =   "javax.faces.FlexUIPreserveInServer",
+        desc    =   "Base component for FlexPreserveInServer components"
 )
-public abstract class AbstractFlexUIGridItem 
-                        extends AbstractFlexUISimpleBase 
-                        implements IFlexUIBaseAttributes, IFlexUIDirectionAttribute {
+public abstract class AbstractFlexUIPreserveInServer extends AbstractFlexUISimpleBase {
     
     @Override
-    public void encodeBegin(FacesContext context) throws IOException {
-        /*
-         * Grid item will have direction set to horizontal
-         */
-        setDirection("horizontal");
+    public void encodeEnd(FacesContext context) throws IOException {
+        super.encodeEnd(context);
         
-        super.encodeBegin(context);
+        /*
+         * adding the component to the session for future asynchronous requests
+         */
+        Map<String, Object> sessionMap = context.getExternalContext().getSessionMap();
+        sessionMap.put(getId(), this);
+        
+    }
+    
+    @Override
+    public void decode(FacesContext context) {
+        super.decode(context);
+        
+        /*
+         * No longer needed, so remove the content.
+         */
+        Map<String, Object> sessionMap = context.getExternalContext().getSessionMap();
+        sessionMap.remove(getId());
+        
     }
     
 }

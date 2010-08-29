@@ -18,20 +18,27 @@
  */
 package com.googlecode.jsfFlex.eventGlue.ext;
 
+import java.util.Arrays;
+import java.util.List;
+
 import javax.faces.context.FacesContext;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIAsynchronousEventGlueHandlerAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIAsynchronousPropertyUpdateDelimAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUIAsynchronousPropertyUpdateListAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUIEventHandlerSrcIdAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIEventHandlerTgtIdAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIEventListenerAttribute;
 import com.googlecode.jsfFlex.eventGlue.AbstractFlexUIAsynchronousEventGlueBase;
 import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
+import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.model.beans.AsynchronousDataUpdateEventBean;
 import com.googlecode.jsfFlex.shared.model.event.AsynchronousDataUpdateEvent;
 
@@ -39,19 +46,20 @@ import com.googlecode.jsfFlex.shared.model.event.AsynchronousDataUpdateEvent;
  * @author Ji Hoon Kim
  */
 @JSFComponent(
-        name                =   "jf:flexAsynchronousDataUpdateEventListener",
-        clazz               =   "com.googlecode.jsfFlex.eventGlue.ext.FlexUIAsynchronousDataUpdateEventListener",
-        type                =   "com.googlecode.jsfFlex.FlexUIAsynchronousDataUpdateEventListener",
-        tagClass            =   "com.googlecode.jsfFlex.taglib.eventGlue.ext.FlexUIAsynchronousDataUpdateEventListenerTag",
+        name                =   "jf:flexAsynchronousPropertyUpdateEventListener",
+        clazz               =   "com.googlecode.jsfFlex.eventGlue.ext.FlexUIAsynchronousPropertyUpdateEventListener",
+        type                =   "com.googlecode.jsfFlex.FlexUIAsynchronousPropertyUpdateEventListener",
+        tagClass            =   "com.googlecode.jsfFlex.taglib.eventGlue.ext.FlexUIAsynchronousPropertyUpdateEventListenerTag",
         family              =   "javax.faces.FlexEventListener",
-        defaultRendererType =   "com.googlecode.jsfFlex.FlexAsynchronousDataUpdateEventListener"
+        defaultRendererType =   "com.googlecode.jsfFlex.FlexAsynchronousPropertyUpdateEventListener"
 )
-public abstract class AbstractFlexUIAsynchronousDataUpdateEventListener 
-                            extends AbstractFlexUIAsynchronousEventGlueBase 
-                            implements IFlexUIAsynchronousEventGlueHandlerAttribute, IFlexUIEventListenerAttribute, IFlexUIEventHandlerSrcIdAttribute,  
-                            IFlexUIEventHandlerTgtIdAttribute {
-    
-    private final static Log _log = LogFactory.getLog(AbstractFlexUIAsynchronousDataUpdateEventListener.class);
+public abstract class AbstractFlexUIAsynchronousPropertyUpdateEventListener 
+                                    extends AbstractFlexUIAsynchronousEventGlueBase
+                                    implements IFlexUIAsynchronousEventGlueHandlerAttribute, IFlexUIEventListenerAttribute, IFlexUIEventHandlerSrcIdAttribute,  
+                                    IFlexUIEventHandlerTgtIdAttribute, IFlexUIAsynchronousPropertyUpdateListAttributes, 
+                                    IFlexUIAsynchronousPropertyUpdateDelimAttributes {
+
+    private final static Log _log = LogFactory.getLog(AbstractFlexUIAsynchronousPropertyUpdateEventListener.class);
     
     private static final String DATA_UPDATE_ATTRIBUTE_ATTR = "DATA_UPDATE_ATTRIBUTE";
     private static final String DATA_UPDATE_VALUE_ATTR = "DATA_UPDATE_VALUE";
@@ -85,8 +93,43 @@ public abstract class AbstractFlexUIAsynchronousDataUpdateEventListener
         return result.formatResponseToJSON();
     }
     
+    @Override
+    public JSONObject getAddtionalArguments(){
+        JSONObject additionalArguments = new JSONObject();
+        
+        List<String> sourcePropertyList = getSourcePropertyList();
+        List<String> targetPropertyList = getTargetPropertyList();
+        
+        if(sourcePropertyList == null){
+            
+            String sourceProperty = getSourcePropertyDelim();
+            String targetProperty = getTargetPropertyDelim();
+            
+            if(sourceProperty == null){
+                throw new IllegalArgumentException("Either sourcePropertyList and targetPropertyList or sourcePropertyDelim and targetPropertyDelim must be provided " 
+                                                       + "[note for convention sourcePropertyList + targetPropertyDelim and vice versa too is not allowed.");
+                
+            }
+            
+            sourcePropertyList = Arrays.asList(sourceProperty.split(","));
+            targetPropertyList = Arrays.asList(targetProperty.split(","));
+            
+        }
+        
+        try{
+            additionalArguments.put(IFlexEvent.ACTION_SCRIPT_EVENT_FIELDS.SOURCE_PROPERTY, new JSONArray(sourcePropertyList));
+            additionalArguments.put(IFlexEvent.ACTION_SCRIPT_EVENT_FIELDS.TARGET_PROPERTY, new JSONArray(targetPropertyList));
+        
+        }catch(JSONException jsonException){
+            _log.info("Error while formatting to JSON content", jsonException);
+            throw new ComponentBuildException(jsonException);
+        }
+        
+        return additionalArguments;
+    }
+    
     public IFlexEvent.EVENT_HANDLER_TYPE getEventHandlerType() {
-        return IFlexEvent.EVENT_HANDLER_TYPE.DATA_UPDATE_EVENT_HANDLER;
+        return IFlexEvent.EVENT_HANDLER_TYPE.PROPERTY_UPDATE_EVENT_HANDER;
     }
     
     public String getEventHandlerEventName() {

@@ -45,6 +45,7 @@ import com.googlecode.jsfFlex.component.ext.AbstractFlexUIDataGridColumn;
 public abstract class AbstractFlexUIColumns 
                         extends AbstractFlexUISimpleBase {
     
+    @Override
     public void encodeEnd(FacesContext context) throws IOException {
         super.encodeEnd(context);
         

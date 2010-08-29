@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.shared.beans.additionalScriptContent;
 
+import org.json.JSONObject;
+
 import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
 import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
@@ -34,19 +36,33 @@ public final class EventHandler {
     private final IFlexEvent.EVENT_HANDLER_TYPE _eventType;
     private final String _eventName;
     private final String _collectedUniqueId;
+    private final JSONObject _additionalArguments;
     
-    EventHandler(String srcId, String tgtId, String evtHandlerId, IFlexEvent.EVENT_HANDLER_TYPE eventType, String eventName){
+    EventHandler(String srcId, String tgtId, String evtHandlerId, IFlexEvent.EVENT_HANDLER_TYPE eventType, 
+                        String eventName, JSONObject additionalArguments){
         super();
         _srcId = srcId;
         _tgtId = tgtId;
         _evtHandlerId = evtHandlerId;
         _eventName = eventName;
         _eventType = eventType;
+        _additionalArguments = additionalArguments;
         _collectedUniqueId = _srcId + DELIM_CHARACTER + _tgtId + DELIM_CHARACTER + _eventName + DELIM_CHARACTER + _eventType;
     }
     
     public String getActionScriptConstructor(){
         return _eventType.getActionScriptConstructor();
+    }
+    public String getAdditionalArguments(){
+        String argumentContent;
+        
+        if(_additionalArguments != null){
+            argumentContent = _additionalArguments.toString();
+        }else{
+            argumentContent = JSONObject.NULL.toString();
+        }
+        
+        return argumentContent;
     }
     public String getCollectedUniqueId(){
         return _collectedUniqueId;

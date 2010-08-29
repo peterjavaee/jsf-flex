@@ -104,10 +104,11 @@ public abstract class AbstractFlexUIInputBase extends UIInput implements IFlexCo
         return null;
     }
 	
-	public JSONObject getComponentInitValues(){
+    public JSONObject getComponentInitValues(){
 		return _componentInitValueObject;
     }
 	
+    @Override
 	public void encodeBegin(FacesContext context) throws IOException {
 		
 		try{
@@ -132,6 +133,7 @@ public abstract class AbstractFlexUIInputBase extends UIInput implements IFlexCo
     	super.encodeBegin(context);
 	}
 	
+    @Override
 	public void processDecodes(FacesContext context) {
 		String mode = context.getExternalContext().getInitParameter(FlexConstants.CONFIG_MODE_NAME);
 		if(mode == null || mode.equals(FlexConstants.PRODUCTION_MODE)){
@@ -195,6 +197,7 @@ public abstract class AbstractFlexUIInputBase extends UIInput implements IFlexCo
             literalOnly =   true,
             desc        =   "Id of the component."
     )
+    @Override
     public String getId(){
         return super.getId();
     }
@@ -206,6 +209,7 @@ public abstract class AbstractFlexUIInputBase extends UIInput implements IFlexCo
             inheritTag      =   true,
             desc            =   "A boolean value that identifies the phase during which value change events should fire. During normal event processing, value change events are fired during the 'invoke application' phase of request processing. If this attribute is set to true, these methods are fired instead at the end of the apply request values phase."
     )
+    @Override
 	public boolean isImmediate(){
 		return super.isImmediate();
 	}
@@ -219,6 +223,7 @@ public abstract class AbstractFlexUIInputBase extends UIInput implements IFlexCo
             inheritTag      =   true,
             desc            =   "A boolean value that indicates whether an input value is required. If this value is true, and no input value is provided, the error message javax.faces.component.UIInput.REQUIRED is posted."
     )
+    @Override
 	public boolean isRequired(){
 		return super.isRequired();
 	}
@@ -234,6 +239,7 @@ public abstract class AbstractFlexUIInputBase extends UIInput implements IFlexCo
             inheritTag      =   true,
             methodSignature =   "javax.faces.context.FacesContext,javax.faces.component.UIComponent,java.lang.Object"
     )
+    @Override
 	public MethodBinding getValidator(){
 		return super.getValidator();
 	}
@@ -250,6 +256,7 @@ public abstract class AbstractFlexUIInputBase extends UIInput implements IFlexCo
             inheritTag      =   true,
             methodSignature =   "javax.faces.event.ValueChangeEvent"
     )
+    @Override
 	public MethodBinding getValueChangeListener(){
 		return super.getValueChangeListener();
 	}
@@ -264,6 +271,7 @@ public abstract class AbstractFlexUIInputBase extends UIInput implements IFlexCo
             inheritTag      =   true,
             desc            =   "The value can either be a static value (ID) or an EL expression. When a static id is specified, an instance of the converter type registered with that id is used. When this is an EL expression, the result of evaluating the expression must be an object that implements the Converter interface."
     )
+    @Override
     public Converter getConverter(){
     	return super.getConverter();
     }

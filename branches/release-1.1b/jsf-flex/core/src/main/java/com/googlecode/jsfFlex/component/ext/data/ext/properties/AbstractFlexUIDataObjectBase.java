@@ -26,6 +26,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.util.ReflectionHelperUtil;
 
@@ -39,21 +40,25 @@ public abstract class AbstractFlexUIDataObjectBase
 	
 	private Object _currBeanRef;
 	
+    @Override
 	public void encodeChildren(FacesContext context) throws IOException {
 		
-		for(UIComponent currChild : getChildren()){
-			
-			if(!(currChild instanceof FlexUIDynamicPropertyBase || 
-					currChild instanceof FlexUIStaticPropertyBase)){
-				currChild.encodeBegin(context);
-				currChild.encodeChildren(context);
-				currChild.encodeEnd(context);
-			}
-			
-		}
-		
+        AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+        if(!flexContext.isProductionEnv()){
+    		for(UIComponent currChild : getChildren()){
+    			
+    			if(!(currChild instanceof FlexUIDynamicPropertyBase || 
+    					currChild instanceof FlexUIStaticPropertyBase)){
+    				currChild.encodeBegin(context);
+    				currChild.encodeChildren(context);
+    				currChild.encodeEnd(context);
+    			}
+    			
+    		}
+        }
 	}
 	
+    @Override
 	public boolean getRendersChildren() {
 		return true;
 	}

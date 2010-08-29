@@ -20,6 +20,8 @@ package com.googlecode.jsfFlex.shared.adapter;
 
 import java.util.EnumSet;
 
+import org.json.JSONObject;
+
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent.ACTION_SCRIPT_IMPORT;
 
 /**
@@ -27,11 +29,18 @@ import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApp
  */
 public interface IFlexEvent {
     
+    public enum ACTION_SCRIPT_EVENT_FIELDS {
+        SOURCE_PROPERTY, TARGET_PROPERTY;
+        
+    }
+    
     public enum EVENT_HANDLER_TYPE {
         SUBMIT_FORM_EVENT_HANDLER("SubmitFormEventHandler", EnumSet.of(ACTION_SCRIPT_IMPORT.SUBMIT_FORM_EVENT_HANDLER_AS, 
                 ACTION_SCRIPT_IMPORT.ABSTRACT_EVENT_HANDLER_AS), EnumSet.of(JAVA_SCRIPT_IMPORT.JSF_FLEX_COMMUNICATOR_EVENT_JS)),
         DATA_UPDATE_EVENT_HANDLER("DataUpdateEventHandler", EnumSet.of(ACTION_SCRIPT_IMPORT.DATA_UPDATE_EVENT_HANDLER_AS, 
-                ACTION_SCRIPT_IMPORT.ABSTRACT_EVENT_HANDLER_AS), EnumSet.noneOf(JAVA_SCRIPT_IMPORT.class));
+                ACTION_SCRIPT_IMPORT.ABSTRACT_EVENT_HANDLER_AS), EnumSet.noneOf(JAVA_SCRIPT_IMPORT.class)),
+        PROPERTY_UPDATE_EVENT_HANDER("PropertyUpdateEventHandler", EnumSet.of(ACTION_SCRIPT_IMPORT.PROPERTY_UPDATE_EVENT_HANDLER_AS),
+                EnumSet.noneOf(JAVA_SCRIPT_IMPORT.class));
         
         private final String _actionScriptConstructor;
         private final EnumSet<ACTION_SCRIPT_IMPORT> _actionScriptImports;
@@ -72,6 +81,8 @@ public interface IFlexEvent {
             
         }
     }
+    
+    JSONObject getAddtionalArguments();
     
     String getEventHandlerSrcId();
     

@@ -48,6 +48,7 @@ public abstract class AbstractFlexUIMove3D
             literalOnly =   true,
             desc        =   "Id of the component."
     )
+    @Override
     public String getId(){
         return super.getId();
     }

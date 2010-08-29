@@ -49,6 +49,7 @@ public abstract class AbstractFlexUIRadioButton
 	private static final String SELECTED_VALUE_ATTR = "selectedValue";
 	private static final String SELECTED_VALUE_ID_APPENDED = "_selectedValue";
 	
+    @Override
 	public void decode(FacesContext context) {
     	super.decode(context);
     	
@@ -76,6 +77,7 @@ public abstract class AbstractFlexUIRadioButton
     	
     }
 	
+    @Override
 	public void processUpdates(FacesContext context) {
     	super.processUpdates(context);
     	
@@ -99,6 +101,7 @@ public abstract class AbstractFlexUIRadioButton
             inheritTag  =   true,
             desc        =   "Current value."
     )
+    @Override
 	public Object getValue(){
 		return super.getValue();
 	}

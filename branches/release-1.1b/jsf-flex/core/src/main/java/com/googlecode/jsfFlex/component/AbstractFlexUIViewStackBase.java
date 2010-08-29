@@ -39,6 +39,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
 )
 public abstract class AbstractFlexUIViewStackBase extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase {
 	
+    @Override
 	public void encodeBegin(FacesContext context) throws IOException {
 		/*
 		 * HACK :

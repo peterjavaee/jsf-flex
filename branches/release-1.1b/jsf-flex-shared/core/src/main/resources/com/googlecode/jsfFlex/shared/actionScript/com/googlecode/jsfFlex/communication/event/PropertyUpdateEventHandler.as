@@ -33,7 +33,7 @@ package com.googlecode.jsfFlex.communication.event
 	import com.googlecode.jsfFlex.communication.logger.LoggerFactory;
 	import com.googlecode.jsfFlex.communication.services.JsfFlexHttpService;
 	
-	public class DataUpdateEventHandler extends AbstractEventHandler {
+	public class PropertyUpdateEventHandler extends AbstractEventHandler {
 		
 		private static const DATA_UPDATE_ATTRIBUTE_ATTR:String = "DATA_UPDATE_ATTRIBUTE";
 		private static const DATA_UPDATE_VALUE_ATTR:String = "DATA_UPDATE_VALUE";
@@ -49,8 +49,8 @@ package com.googlecode.jsfFlex.communication.event
 			_log = LoggerFactory.newJSLoggerInstance(DataUpdateEventHandler);
 		}
 		
-		public function DataUpdateEventHandler(srcId:String, tgtId:String, eventHandlerId:String, eventName:String, additionalArgs:Object,
-												compValMapper:ComponentValueMapper, refApp:UIComponent) {
+		public function PropertyUpdateEventHandler(srcId:String, tgtId:String, eventHandlerId:String, eventName:String, additionalArgs:Object,
+														compValMapper:ComponentValueMapper, refApp:UIComponent) {
 			super(refApp[srcId], eventName);
 			
 			/*

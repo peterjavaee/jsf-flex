@@ -58,6 +58,7 @@ public abstract class AbstractFlexUIDateChooser
     
     private org.json.JSONObject initValue;
     
+    @Override
     protected void populateComponentInitValues(){
         try{
             if(getSelectedDate() != null){
@@ -84,6 +85,7 @@ public abstract class AbstractFlexUIDateChooser
         return initValue;
     }
     
+    @Override
     public void decode(FacesContext context) {
         super.decode(context);
         
@@ -117,6 +119,7 @@ public abstract class AbstractFlexUIDateChooser
         }
     }
     
+    @Override
     public void processUpdates(FacesContext context) {
         super.processUpdates(context);
         

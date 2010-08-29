@@ -46,6 +46,7 @@ public abstract class AbstractFlexUIAccordion
 						extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase
 						implements IFlexUIBaseAttributes, IFlexUICreationPolicyAttribute {
 	
+    @Override
 	public void encodeBegin(FacesContext context) throws IOException {
 		/*
 		 * HACK :

@@ -58,20 +58,22 @@ import com.googlecode.jsfFlex.shared.util.ReflectionHelperUtil;
 public abstract class AbstractFlexUIXMLElement 
 						extends AbstractFlexUIXMLElementBase {
 	
+    @Override
 	public void encodeBegin(FacesContext context) throws IOException {
 		super.encodeBegin(context);
 		
 		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
-		Map<String, ? super UIComponentBase> temporaryResourceMap = flexContext.getTemporaryResourceMap();
-		AbstractFlexUIXMLContainerBase currXMLContainerBaseRef = AbstractFlexUIXMLContainerBase.class.cast( temporaryResourceMap.get(AbstractFlexUIXMLContainerBase.CURR_FLEX_UI_XML_CONTAINER_KEY) );
-		
-		StringBuilder xmlElementStartTagBuffer = new StringBuilder();
-		
-		xmlElementStartTagBuffer.append( processXMLTagDynamically(currXMLContainerBaseRef) );
-		
-		//now the start tag has been generated so write to the buffer
-		currXMLContainerBaseRef.getCurrBodyContentBufferedWriter().write(xmlElementStartTagBuffer.toString());
-		
+        if(!flexContext.isProductionEnv()){
+    		Map<String, ? super UIComponentBase> temporaryResourceMap = flexContext.getTemporaryResourceMap();
+    		AbstractFlexUIXMLContainerBase currXMLContainerBaseRef = AbstractFlexUIXMLContainerBase.class.cast( temporaryResourceMap.get(AbstractFlexUIXMLContainerBase.CURR_FLEX_UI_XML_CONTAINER_KEY) );
+    		
+    		StringBuilder xmlElementStartTagBuffer = new StringBuilder();
+    		
+    		xmlElementStartTagBuffer.append( processXMLTagDynamically(currXMLContainerBaseRef) );
+    		
+    		//now the start tag has been generated so write to the buffer
+    		currXMLContainerBaseRef.getCurrBodyContentBufferedWriter().write(xmlElementStartTagBuffer.toString());
+        }
 	}
 	
 	private String processXMLTagDynamically(AbstractFlexUIXMLContainerBase currXMLListRef){

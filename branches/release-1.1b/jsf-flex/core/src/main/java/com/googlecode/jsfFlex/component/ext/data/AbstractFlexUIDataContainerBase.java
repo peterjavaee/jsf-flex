@@ -43,22 +43,28 @@ public abstract class AbstractFlexUIDataContainerBase
 	private String _currBodyContentFilePath;
 	private BufferedWriter _currBodyContentBufferedWriter;
 	
+    @Override
 	public void encodeChildren(FacesContext context) throws IOException {
 		
 		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
 		
-		_currBodyContentFilePath = flexContext.getPreMxmlPath() + getClass().getSimpleName() + getId() + 
-										TO_BE_CREATED_BODY_CONTENT_FILE_SUFFIX;
-		_currBodyContentBufferedWriter = new BufferedWriter(new FileWriter(new File(_currBodyContentFilePath)));
-		
-		Map<String, ? super UIComponentBase> temporaryResourceMap = flexContext.getTemporaryResourceMap();
-		temporaryResourceMap.put(getTemporaryMapDataContainerKey(), this);
-		
-		super.encodeChildren(context);
-		
-		temporaryResourceMap.remove(getTemporaryMapDataContainerKey());
+        if(!flexContext.isProductionEnv()){
+    		_currBodyContentFilePath = flexContext.getPreMxmlPath() + getClass().getSimpleName() + getId() + 
+    										TO_BE_CREATED_BODY_CONTENT_FILE_SUFFIX;
+    		_currBodyContentBufferedWriter = new BufferedWriter(new FileWriter(new File(_currBodyContentFilePath)));
+    		
+    		Map<String, ? super UIComponentBase> temporaryResourceMap = flexContext.getTemporaryResourceMap();
+    		temporaryResourceMap.put(getTemporaryMapDataContainerKey(), this);
+    		
+    		super.encodeChildren(context);
+    		
+    		temporaryResourceMap.remove(getTemporaryMapDataContainerKey());
+        }else{
+            super.encodeChildren(context);
+        }
 	}
 	
+    @Override
 	public boolean getRendersChildren() {
 		return true;
 	}
@@ -74,6 +80,7 @@ public abstract class AbstractFlexUIDataContainerBase
             literalOnly =   true,
             desc        =   "Id of the component."
     )
+    @Override
 	public String getId(){
 		return super.getId();
 	}

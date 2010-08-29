@@ -53,6 +53,7 @@ final class ArrayServiceRequestDataRetrieverFlusher extends AbstractServiceReque
         super();
     }
     
+    @Override
     void retrieveFlushData(FacesContext context, String componentId, String methodToInvoke) throws ServletException, IOException {
         
         JSONArray methodResult = null;

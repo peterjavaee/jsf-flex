@@ -16,19 +16,21 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-package com.googlecode.jsfFlex.component.ext.data;
+package com.googlecode.jsfFlex.renderkit.eventGlue.ext;
+
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
+
+import com.googlecode.jsfFlex.renderkit.eventGlue.AbstractFlexAsynchronousEventGlueTemplateRenderer;
 
 /**
  * @author Ji Hoon Kim
  */
-public abstract class AbstractFlexUIXMLContainerBase 
-						extends AbstractFlexUIDataContainerBase {
-	
-	public static final String CURR_FLEX_UI_XML_CONTAINER_KEY = "currFlexUIXMLContainerKey";
-	
-    @Override
-	protected String getTemporaryMapDataContainerKey(){
-		return CURR_FLEX_UI_XML_CONTAINER_KEY;
-	}
-	
+@JSFRenderer(
+        renderKitId="FLEX_BASIC",
+        family="javax.faces.FlexEventListener",
+        type="com.googlecode.jsfFlex.FlexAsynchronousPropertyUpdateEventListener"
+)
+public final class FlexAsynchronousPropertyUpdateEventListenerRenderer extends
+                                    AbstractFlexAsynchronousEventGlueTemplateRenderer {
+    
 }

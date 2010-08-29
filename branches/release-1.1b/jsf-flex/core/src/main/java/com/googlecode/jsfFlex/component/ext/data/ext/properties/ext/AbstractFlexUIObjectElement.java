@@ -35,6 +35,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.ext.data.ext.AbstractFlexUIObject;
 import com.googlecode.jsfFlex.component.ext.data.ext.properties.AbstractFlexUIDataObjectBase;
 import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
+import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 
 /**
  * Since this component is out of the norm in relation to writing Flex content, it will perform <br>
@@ -67,61 +68,67 @@ public abstract class AbstractFlexUIObjectElement
 	private static final String OBJECT_START_TAG_CLOSER = ">";
 	private static final String OBJECT_END_TAG = "</fx:Object>";
 	
+    @Override
 	public void encodeBegin(FacesContext context) throws IOException {
 		super.encodeBegin(context);
 		
 		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
-		Map<String, ? super UIComponentBase> temporaryResourceMap = flexContext.getTemporaryResourceMap();
-		AbstractFlexUIObject currObjectContainerRef = AbstractFlexUIObject.class.cast( temporaryResourceMap.get(AbstractFlexUIObject.CURR_FLEX_UI_OBJECT_CONTAINER_KEY) );
-		
-		StringBuilder objectStartTagBuffer = new StringBuilder();
-		objectStartTagBuffer.append(OBJECT_START_TAG);
-		
-        Map<String, ? extends Object> componentAttributeMap = getComponentAttributes();
-        if(componentAttributeMap != null){
-            for(String attributeName : componentAttributeMap.keySet()){
-                String attributeValue = componentAttributeMap.get(attributeName).toString();
-                appendAttributeNameValue(objectStartTagBuffer, attributeName, attributeValue);
-            }
-        }
         
-        String attributesJSONFormat = getComponentAttributesJSONFormat();
-        if(attributesJSONFormat != null && attributesJSONFormat.trim().length() > 0){
-            try{
-                JSONObject parsedJSONObject = new JSONObject(attributesJSONFormat);
-                JSONArray attributeName = parsedJSONObject.names();
-                
-                for(int i=0; i < attributeName.length(); i++){
-                    String currKey = attributeName.get(i).toString();
-                    String currValue = parsedJSONObject.getString(currKey);
-                    
-                    if(currValue != null){
-                        appendAttributeNameValue(objectStartTagBuffer, currKey, currValue);
-                    }
+        if(!flexContext.isProductionEnv()){
+    		Map<String, ? super UIComponentBase> temporaryResourceMap = flexContext.getTemporaryResourceMap();
+    		AbstractFlexUIObject currObjectContainerRef = AbstractFlexUIObject.class.cast( temporaryResourceMap.get(AbstractFlexUIObject.CURR_FLEX_UI_OBJECT_CONTAINER_KEY) );
+    		
+    		StringBuilder objectStartTagBuffer = new StringBuilder();
+    		objectStartTagBuffer.append(OBJECT_START_TAG);
+    		
+            Map<String, ? extends Object> componentAttributeMap = getComponentAttributes();
+            if(componentAttributeMap != null){
+                for(String attributeName : componentAttributeMap.keySet()){
+                    String attributeValue = componentAttributeMap.get(attributeName).toString();
+                    appendAttributeNameValue(objectStartTagBuffer, attributeName, attributeValue);
                 }
-            }catch(JSONException jsonException){
-                _log.error("Error while parsing the following String to JSONObject : " + attributesJSONFormat);
             }
+            
+            String attributesJSONFormat = getComponentAttributesJSONFormat();
+            if(attributesJSONFormat != null && attributesJSONFormat.trim().length() > 0){
+                try{
+                    JSONObject parsedJSONObject = new JSONObject(attributesJSONFormat);
+                    JSONArray attributeName = parsedJSONObject.names();
+                    
+                    for(int i=0; i < attributeName.length(); i++){
+                        String currKey = attributeName.get(i).toString();
+                        String currValue = parsedJSONObject.getString(currKey);
+                        
+                        if(currValue != null){
+                            appendAttributeNameValue(objectStartTagBuffer, currKey, currValue);
+                        }
+                    }
+                }catch(JSONException jsonException){
+                    _log.error("Error while parsing the following String to JSONObject : " + attributesJSONFormat);
+                    throw new ComponentBuildException(jsonException);
+                }
+            }
+            
+    		objectStartTagBuffer.append( processDataObjectProperties() );
+    		
+    		objectStartTagBuffer.append(OBJECT_START_TAG_CLOSER);
+    		
+    		//now the start tag has been generated so write to the buffer
+    		currObjectContainerRef.getCurrBodyContentBufferedWriter().write(objectStartTagBuffer.toString());
         }
-        
-		objectStartTagBuffer.append( processDataObjectProperties() );
-		
-		objectStartTagBuffer.append(OBJECT_START_TAG_CLOSER);
-		
-		//now the start tag has been generated so write to the buffer
-		currObjectContainerRef.getCurrBodyContentBufferedWriter().write(objectStartTagBuffer.toString());
-		
 	}
 	
+    @Override
 	public void encodeEnd(FacesContext context) throws IOException {
 		super.encodeEnd(context);
 		
 		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
-		Map<String, ? super UIComponentBase> temporaryResourceMap = flexContext.getTemporaryResourceMap();
-		AbstractFlexUIObject currObjectContainerRef = AbstractFlexUIObject.class.cast( temporaryResourceMap.get(AbstractFlexUIObject.CURR_FLEX_UI_OBJECT_CONTAINER_KEY) );
-		
-		currObjectContainerRef.getCurrBodyContentBufferedWriter().write(OBJECT_END_TAG);
-		
+        if(!flexContext.isProductionEnv()){
+    		Map<String, ? super UIComponentBase> temporaryResourceMap = flexContext.getTemporaryResourceMap();
+    		AbstractFlexUIObject currObjectContainerRef = AbstractFlexUIObject.class.cast( temporaryResourceMap.get(AbstractFlexUIObject.CURR_FLEX_UI_OBJECT_CONTAINER_KEY) );
+    		
+    		currObjectContainerRef.getCurrBodyContentBufferedWriter().write(OBJECT_END_TAG);
+        }
 	}
     
     private void appendAttributeNameValue(StringBuilder content, String attributeName, String attributeValue){

@@ -55,33 +55,35 @@ import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 public abstract class AbstractFlexUIXMLStaticElement 
 						extends AbstractFlexUIXMLElementBase {
 	
+    @Override
 	public void encodeBegin(FacesContext context) throws IOException {
 		super.encodeBegin(context);
 		
 		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
-		Map<String, ? super UIComponentBase> temporaryResourceMap = flexContext.getTemporaryResourceMap();
-		AbstractFlexUIXMLContainerBase currXMLContainerBaseRef = AbstractFlexUIXMLContainerBase.class.cast( temporaryResourceMap.get(AbstractFlexUIXMLContainerBase.CURR_FLEX_UI_XML_CONTAINER_KEY) );
-		
-		StringBuilder xmlElementStartTagBuffer = new StringBuilder();
-		
-		xmlElementStartTagBuffer.append("<");
-		xmlElementStartTagBuffer.append(getStaticNodeName());
-		
-		xmlElementStartTagBuffer.append( processDataObjectProperties() );
-		
-		xmlElementStartTagBuffer.append(">");
-		
-		//now need to set xml element's end tag
-		StringBuilder xmlElementEndTagBuffer = new StringBuilder();
-		xmlElementEndTagBuffer.append(getStaticNodeValue() == null ? "" : getStaticNodeValue());
-		xmlElementEndTagBuffer.append("</");
-		xmlElementEndTagBuffer.append(getStaticNodeName());
-		xmlElementEndTagBuffer.append(">");
-		_xmlElementEndTag = xmlElementEndTagBuffer.toString();
-		
-		//now the start tag has been generated so write to the buffer
-		currXMLContainerBaseRef.getCurrBodyContentBufferedWriter().write(xmlElementStartTagBuffer.toString());
-		
+        if(!flexContext.isProductionEnv()){
+    		Map<String, ? super UIComponentBase> temporaryResourceMap = flexContext.getTemporaryResourceMap();
+    		AbstractFlexUIXMLContainerBase currXMLContainerBaseRef = AbstractFlexUIXMLContainerBase.class.cast( temporaryResourceMap.get(AbstractFlexUIXMLContainerBase.CURR_FLEX_UI_XML_CONTAINER_KEY) );
+    		
+    		StringBuilder xmlElementStartTagBuffer = new StringBuilder();
+    		
+    		xmlElementStartTagBuffer.append("<");
+    		xmlElementStartTagBuffer.append(getStaticNodeName());
+    		
+    		xmlElementStartTagBuffer.append( processDataObjectProperties() );
+    		
+    		xmlElementStartTagBuffer.append(">");
+    		
+    		//now need to set xml element's end tag
+    		StringBuilder xmlElementEndTagBuffer = new StringBuilder();
+    		xmlElementEndTagBuffer.append(getStaticNodeValue() == null ? "" : getStaticNodeValue());
+    		xmlElementEndTagBuffer.append("</");
+    		xmlElementEndTagBuffer.append(getStaticNodeName());
+    		xmlElementEndTagBuffer.append(">");
+    		_xmlElementEndTag = xmlElementEndTagBuffer.toString();
+    		
+    		//now the start tag has been generated so write to the buffer
+    		currXMLContainerBaseRef.getCurrBodyContentBufferedWriter().write(xmlElementStartTagBuffer.toString());
+        }
 	}
 	
 	/**
@@ -91,7 +93,7 @@ public abstract class AbstractFlexUIXMLStaticElement
             required    =   true,
             desc        =   "Static name of the node."
     )
-	public abstract String getStaticNodeName();
+    public abstract String getStaticNodeName();
 	
 	/**
 	 * Static value of the node.

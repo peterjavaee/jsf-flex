@@ -50,6 +50,7 @@ public abstract class AbstractFlexUIHtmlTextInputBase
 	
 	private org.json.JSONObject initValue;
     
+    @Override
     protected void populateComponentInitValues(){
 		try{
 			if(getTextBinding().equals(HTML_TEXT_ATTR) && getHtmlText() != null){
@@ -77,6 +78,7 @@ public abstract class AbstractFlexUIHtmlTextInputBase
         return initValue;
     }
     
+    @Override
     public void decode(FacesContext context) {
     	super.decode(context);
     	
@@ -99,6 +101,7 @@ public abstract class AbstractFlexUIHtmlTextInputBase
     	
     }
     
+    @Override
     public void processUpdates(FacesContext context) {
     	super.processUpdates(context);
     	

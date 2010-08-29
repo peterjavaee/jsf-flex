@@ -45,7 +45,7 @@ package com.googlecode.jsfFlex.communication.event
 			_log = LoggerFactory.newJSLoggerInstance(SubmitFormEventHandler);
 		}
 		
-		public function SubmitFormEventHandler(srcId:String, tgtId:String, eventHandlerId:String, eventName:String, 
+		public function SubmitFormEventHandler(srcId:String, tgtId:String, eventHandlerId:String, eventName:String, additionalArgs:Object,
 													compValMapper:ComponentValueMapper, refApp:UIComponent) {
 			super(refApp[srcId], eventName);
 			

@@ -52,7 +52,7 @@ public abstract class AbstractFlexAsynchronousEventGlueTemplateRenderer extends 
         }
         
         additionalApplicationScriptContent.addEventHandler(flexEvent.getEventHandlerSrcId(), flexEvent.getEventHandlerTgtId(), flexEvent.getEventHandlerId(),
-                flexEvent.getEventHandlerType(), flexEvent.getEventHandlerEventName());
+                flexEvent.getEventHandlerType(), flexEvent.getEventHandlerEventName(), flexEvent.getAddtionalArguments());
         
     }
     

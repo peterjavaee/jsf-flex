@@ -24,6 +24,8 @@ import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.json.JSONObject;
+
 import com.googlecode.jsfFlex.shared.adapter.IFlexApplicationContract;
 import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.SimpleDataProviderSetter.DATA_PROVIDER_TYPE;
@@ -39,6 +41,7 @@ public final class AdditionalApplicationScriptContent {
         COMBO_BOX_COMPONENT_AS("spark.components.ComboBox"),
         DATA_GRID_SERVICE_REQUEST_AS("com.googlecode.jsfFlex.communication.component.DataGridServiceRequest"),
         DATA_UPDATE_EVENT_HANDLER_AS("com.googlecode.jsfFlex.communication.event.DataUpdateEventHandler"),
+        PROPERTY_UPDATE_EVENT_HANDLER_AS("com.googlecode.jsfFlex.communication.event.PropertyUpdateEventHandler"),
         SUBMIT_FORM_EVENT_HANDLER_AS("com.googlecode.jsfFlex.communication.event.SubmitFormEventHandler"),
         VALIDATION_MANAGER_AS("com.googlecode.jsfFlex.communication.validator.ValidationManager");
         
@@ -86,8 +89,8 @@ public final class AdditionalApplicationScriptContent {
 		dataGridScriptContentInstance.addDataGridColumnContent(dataGridColumnId, dataField, columnEditable);
 	}
     
-	public void addEventHandler(String srcId, String tgtId, String evtHandlerId, IFlexEvent.EVENT_HANDLER_TYPE eventType, String eventName){
-        _eventHandlers.add(new EventHandler(srcId, tgtId, evtHandlerId, eventType, eventName));
+	public void addEventHandler(String srcId, String tgtId, String evtHandlerId, IFlexEvent.EVENT_HANDLER_TYPE eventType, String eventName, JSONObject addtionalArguments){
+        _eventHandlers.add(new EventHandler(srcId, tgtId, evtHandlerId, eventType, eventName, addtionalArguments));
     }
     
     public void addSimpleDataProviderSetter(String componentId, DATA_PROVIDER_TYPE componentType, String dataProviderContent){

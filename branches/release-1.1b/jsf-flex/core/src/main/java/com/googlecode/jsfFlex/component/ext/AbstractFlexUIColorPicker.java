@@ -68,6 +68,7 @@ public abstract class AbstractFlexUIColorPicker
 		}
 	}
 	
+    @Override
 	protected void populateComponentInitValues(){
 		try{
 			if(getSelectedColor() != null){
@@ -78,6 +79,7 @@ public abstract class AbstractFlexUIColorPicker
 		}
 	}
 	
+    @Override
 	public void decode(FacesContext context) {
     	super.decode(context);
     	
@@ -93,6 +95,7 @@ public abstract class AbstractFlexUIColorPicker
     	
     }
 	
+    @Override
 	public void processUpdates(FacesContext context) {
     	super.processUpdates(context);
     	

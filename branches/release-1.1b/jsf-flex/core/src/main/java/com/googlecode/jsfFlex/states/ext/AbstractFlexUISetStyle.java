@@ -50,6 +50,7 @@ public abstract class AbstractFlexUISetStyle
             literalOnly =   true,
             desc        =   "Id of the component."
     )
+    @Override
 	public String getId(){
 		return super.getId();
 	}

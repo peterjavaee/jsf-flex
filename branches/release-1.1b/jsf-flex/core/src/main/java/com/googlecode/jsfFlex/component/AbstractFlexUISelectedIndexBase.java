@@ -73,6 +73,7 @@ public abstract class AbstractFlexUISelectedIndexBase
         return initValue;
     }
 	
+    @Override
 	public void decode(FacesContext context) {
     	super.decode(context);
     	
@@ -88,6 +89,7 @@ public abstract class AbstractFlexUISelectedIndexBase
 
     }
 	
+    @Override
 	public void processUpdates(FacesContext context) {
     	super.processUpdates(context);
     	

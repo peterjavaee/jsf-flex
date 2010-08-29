@@ -48,6 +48,7 @@ public abstract class AbstractFlexUICallAction
             literalOnly =   true,
             desc        =   "Id of the component."
     )
+    @Override
     public String getId(){
         return super.getId();
     }

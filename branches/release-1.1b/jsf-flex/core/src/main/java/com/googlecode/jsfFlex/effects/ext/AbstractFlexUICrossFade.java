@@ -48,6 +48,7 @@ public abstract class AbstractFlexUICrossFade
             literalOnly =   true,
             desc        =   "Id of the component."
     )
+    @Override
     public String getId(){
         return super.getId();
     }

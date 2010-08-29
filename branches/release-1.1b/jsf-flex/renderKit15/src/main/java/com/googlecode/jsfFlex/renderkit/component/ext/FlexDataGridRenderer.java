@@ -36,7 +36,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
  */
 @JSFRenderer(
         renderKitId="FLEX_BASIC",
-        family="javax.faces.FlexSimple",
+        family="javax.faces.FlexUIPreserveInServer",
         type="com.googlecode.jsfFlex.FlexDataGrid"
 )
 @IJsfFlexAttributeProperties(

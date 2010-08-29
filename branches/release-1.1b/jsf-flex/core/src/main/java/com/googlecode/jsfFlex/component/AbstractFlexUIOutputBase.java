@@ -84,6 +84,7 @@ public abstract class AbstractFlexUIOutputBase extends UIOutput implements IFlex
 		return _annotationDocletParserInstance;
 	}
 	
+    @Override
 	public void encodeBegin(FacesContext context) throws IOException {
 		
 		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
@@ -95,6 +96,7 @@ public abstract class AbstractFlexUIOutputBase extends UIOutput implements IFlex
 		super.encodeBegin(context);
 	}
 	
+    @Override
 	public void processDecodes(FacesContext context) {
 		String mode = context.getExternalContext().getInitParameter(FlexConstants.CONFIG_MODE_NAME);
 		if(mode == null || mode.equals(FlexConstants.PRODUCTION_MODE)){
@@ -145,6 +147,7 @@ public abstract class AbstractFlexUIOutputBase extends UIOutput implements IFlex
             literalOnly =   true,
             desc        =   "Id of the component."
     )
+    @Override
     public String getId(){
         return super.getId();
     }
@@ -159,6 +162,7 @@ public abstract class AbstractFlexUIOutputBase extends UIOutput implements IFlex
             inheritTag      =   true,
             desc            =   "The value can either be a static value (ID) or an EL expression. When a static id is specified, an instance of the converter type registered with that id is used. When this is an EL expression, the result of evaluating the expression must be an object that implements the Converter interface."
     )
+    @Override
     public Converter getConverter(){
     	return super.getConverter();
     }

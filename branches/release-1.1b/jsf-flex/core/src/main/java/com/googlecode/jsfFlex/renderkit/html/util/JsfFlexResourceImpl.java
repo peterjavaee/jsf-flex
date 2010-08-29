@@ -52,10 +52,12 @@ class JsfFlexResourceImpl extends AbstractJsfFlexResource {
 		_resourceSet = new LinkedHashSet<JsfFlexResourceElement>();
 	}
 	
+    @Override
 	public void addResource(Class jsfFlexComponent, String resourceName){
 		_resourceSet.add(new JsfFlexResourceElement(jsfFlexComponent, resourceName));
 	}
 	
+    @Override
 	public Collection<String> getResources(){
 		
 		List<String> resourceList = new LinkedList<String>();
@@ -66,6 +68,7 @@ class JsfFlexResourceImpl extends AbstractJsfFlexResource {
     	return resourceList;
     }
 	
+    @Override
 	public void processRequestResource(HttpServletResponse httpResponse, String[] requestURISplitted){
 		
 		/*

@@ -58,7 +58,7 @@ public class JsfFlexHttpServicePhaseListener implements PhaseListener {
 	private static final AbstractServiceRequestDataRetrieverFlusher RAW_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new RawServiceRequestDataRetrieverFlusher();
 	private static final AbstractServiceRequestDataRetrieverFlusher XML_SERVICE_REQUEST_DATA_RETRIEVER_FLUSHER = new XMLServiceRequestDataRetrieverFlusher();
 	
-	public void afterPhase(PhaseEvent event) {
+    public void afterPhase(PhaseEvent event) {
 		FacesContext context = event.getFacesContext();
 		HttpServletRequest request = HttpServletRequest.class.cast( context.getExternalContext().getRequest() );
 		String urlPath = request.getRequestURI();

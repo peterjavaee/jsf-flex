@@ -52,7 +52,7 @@ public abstract class AbstractFlexButtonTemplateRenderer extends AbstractFlexCom
             }
             
             additionalApplicationScriptContent.addEventHandler(flexEvent.getEventHandlerSrcId(), flexEvent.getEventHandlerTgtId(), flexEvent.getEventHandlerId(),
-                    flexEvent.getEventHandlerType(), flexEvent.getEventHandlerEventName());
+                    flexEvent.getEventHandlerType(), flexEvent.getEventHandlerEventName(), flexEvent.getAddtionalArguments());
         }
         
 	}

@@ -61,10 +61,12 @@ public abstract class AbstractFlexUIDataGridColumn
     private Comparator<Object> ascendingComparator;
     private Comparator<Object> descendingComparator;
     
+    @Override
     public JSONObject getComponentInitValues(){
         return null;
     }
     
+    @Override
     protected void populateComponentInitValues(){
         
     }

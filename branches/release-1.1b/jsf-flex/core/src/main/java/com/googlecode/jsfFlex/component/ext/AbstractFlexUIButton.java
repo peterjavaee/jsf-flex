@@ -18,14 +18,11 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import javax.faces.context.FacesContext;
-
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.component.AbstractFlexUICommandBase;
 import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
-import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
 
 /**
  * @author Ji Hoon Kim
@@ -43,15 +40,6 @@ public abstract class AbstractFlexUIButton
                         implements IFlexUIBaseAttributes {
     
     private static final String EVENT_HANDLER_EVENT_NAME = "buttonDown";
-    
-    public String getEventHandlerSrcId() {
-        return getId();
-    }
-    
-    public String getEventHandlerTgtId() {
-        FacesContext currInstance = FacesContext.getCurrentInstance();
-        return FlexJsfUtil.retrieveFormId(getClientId(currInstance));
-    }
     
     public IFlexEvent.EVENT_HANDLER_TYPE getEventHandlerType() {
         return IFlexEvent.EVENT_HANDLER_TYPE.SUBMIT_FORM_EVENT_HANDLER;

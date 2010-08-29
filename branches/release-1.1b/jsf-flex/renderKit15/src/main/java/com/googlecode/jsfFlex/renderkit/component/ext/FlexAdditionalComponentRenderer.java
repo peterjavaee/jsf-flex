@@ -39,6 +39,7 @@ import com.googlecode.jsfFlex.renderkit.annotation.IJsfFlexAttributeProperties;
 import com.googlecode.jsfFlex.renderkit.component.AbstractFlexComponentBaseRenderer;
 import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
+import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 
 /**
  * @author Ji Hoon Kim
@@ -94,6 +95,7 @@ public final class FlexAdditionalComponentRenderer extends AbstractFlexComponent
                 }
             }catch(JSONException jsonException){
                 _log.error("Error while parsing the following String to JSONObject : " + componentAttributesJSONFormat);
+                throw new ComponentBuildException(jsonException);
             }
         }
         

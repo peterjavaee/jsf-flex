@@ -40,6 +40,7 @@ import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApp
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.AdditionalApplicationScriptContent.ACTION_SCRIPT_IMPORT;
 import com.googlecode.jsfFlex.shared.beans.additionalScriptContent.SimpleDataProviderSetter.DATA_PROVIDER_TYPE;
 import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
+import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
 
 /**
@@ -83,6 +84,7 @@ public abstract class AbstractFlexUIComboBox
 		}
 	}
 	
+    @Override
 	protected void populateComponentInitValues(){
 		super.populateComponentInitValues();
 		
@@ -95,39 +97,45 @@ public abstract class AbstractFlexUIComboBox
 		}
 	}
 	
+    @Override
 	public void encodeBegin(FacesContext context) throws IOException {
 		super.encodeBegin(context);
 		
-		Collection<? extends Object> dataProviderCollection = getDataProviderCollection();
-		if(dataProviderCollection != null && dataProviderCollection.size() > 0){
-			//For AbstractFlexUIComboBox, entries within the collection must be of type SelectItem
-			AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
-			AdditionalApplicationScriptContent additionalApplicationScriptContent = flexContext.getAdditionalAppScriptContent();
-			additionalApplicationScriptContent.addActionScriptImport(ACTION_SCRIPT_IMPORT.COMBO_BOX_COMPONENT_AS);
-			
-			JSONArray comboBoxContent = new JSONArray();
-			for(Object currInstace : dataProviderCollection){
-				SelectItem currSelectItem = SelectItem.class.cast( currInstace );
-				
-				JSONObject comboBoxEntry = new JSONObject();
-				
-				try{
-					comboBoxEntry.put(DATA_PROPERTY, currSelectItem.getValue().toString());
-					comboBoxEntry.put(LABEL_PROPERTY, currSelectItem.getLabel());
-					comboBoxContent.put(comboBoxEntry);
-				}catch(JSONException jsonException){
-					_log.info("Error setting the following content for dataProviderCollection " + 
-											currSelectItem.getValue() + currSelectItem.getLabel(), jsonException);
-				}
-				
-			}
-			
-			additionalApplicationScriptContent.addSimpleDataProviderSetter(getId(), DATA_PROVIDER_TYPE.COMBO_BOX, comboBoxContent.toString());
-			
-		}
-		
+        AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+        
+        if(!flexContext.isProductionEnv()){
+    		Collection<? extends Object> dataProviderCollection = getDataProviderCollection();
+    		if(dataProviderCollection != null && dataProviderCollection.size() > 0){
+    			//For AbstractFlexUIComboBox, entries within the collection must be of type SelectItem
+    			AdditionalApplicationScriptContent additionalApplicationScriptContent = flexContext.getAdditionalAppScriptContent();
+    			additionalApplicationScriptContent.addActionScriptImport(ACTION_SCRIPT_IMPORT.COMBO_BOX_COMPONENT_AS);
+    			
+    			JSONArray comboBoxContent = new JSONArray();
+    			for(Object currInstace : dataProviderCollection){
+    				SelectItem currSelectItem = SelectItem.class.cast( currInstace );
+    				
+    				JSONObject comboBoxEntry = new JSONObject();
+    				
+    				try{
+    					comboBoxEntry.put(DATA_PROPERTY, currSelectItem.getValue().toString());
+    					comboBoxEntry.put(LABEL_PROPERTY, currSelectItem.getLabel());
+    					comboBoxContent.put(comboBoxEntry);
+    				}catch(JSONException jsonException){
+    					_log.info("Error setting the following content for dataProviderCollection " + 
+    											currSelectItem.getValue() + currSelectItem.getLabel(), jsonException);
+                        throw new ComponentBuildException(jsonException);
+                    }
+    				
+    			}
+    			
+    			additionalApplicationScriptContent.addSimpleDataProviderSetter(getId(), DATA_PROVIDER_TYPE.COMBO_BOX, comboBoxContent.toString());
+    			
+    		}
+        }
+        
 	}
 	
+    @Override
 	public void decode(FacesContext context) {
     	super.decode(context);
     	
@@ -141,6 +149,7 @@ public abstract class AbstractFlexUIComboBox
     	}
     }
     
+    @Override
     public void processUpdates(FacesContext context) {
     	super.processUpdates(context);
     	

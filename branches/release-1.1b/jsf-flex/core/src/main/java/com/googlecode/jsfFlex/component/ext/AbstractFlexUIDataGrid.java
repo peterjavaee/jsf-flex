@@ -44,7 +44,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUIBindingBeanListAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIRowCountAttribute;
-import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUIPreserveInServer;
 
 /**
  * @author Ji Hoon Kim
@@ -54,11 +54,11 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
         clazz               =   "com.googlecode.jsfFlex.component.ext.FlexUIDataGrid",
         type                =   "com.googlecode.jsfFlex.FlexUIDataGrid",
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.FlexUIDataGridTag",
-        family              =   "javax.faces.FlexSimple",
+        family              =   "javax.faces.FlexUIPreserveInServer",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexDataGrid"
 )
 public abstract class AbstractFlexUIDataGrid 
-                        extends AbstractFlexUISimpleBase
+                        extends AbstractFlexUIPreserveInServer
                         implements IFlexUIBaseAttributes, IFlexUIBindingBeanListAttribute, IFlexUIBindingBeanClassNameAttribute,
                         IFlexUIBatchColumnDataRetrievalSizeAttribute, IFlexUIEditableAttribute, IFlexUIDataProviderAttribute, 
                         IFlexUIRowCountAttribute {
@@ -441,32 +441,11 @@ public abstract class AbstractFlexUIDataGrid
         return sortResult;
     }
     
+    @Override
     public void encodeEnd(FacesContext context) throws IOException {
         super.encodeEnd(context);
         
         _selectedRows = new BitSet(getBindingBeanList().size());
-        
-        /*
-         * adding the component to the map for future asynchronous request by
-         * DataGridColumnServiceRequest.as 
-         * 
-         * instances of AbstractFlexUIDataGridColumn to _dataGridColumnComponents Map
-         * will be added by AbstractFlexUIColumns
-         */
-        Map<String, Object> sessionMap = context.getExternalContext().getSessionMap();
-        sessionMap.put(getId(), this);
-        
-    }
-    
-    public void decode(FacesContext context) {
-        super.decode(context);
-        
-        /*
-         * No longer needed, so remove the content.
-         * Below is a pure HACK till JSF 2.0.
-         */
-        Map<String, Object> sessionMap = context.getExternalContext().getSessionMap();
-        sessionMap.remove(getId());
         
     }
     

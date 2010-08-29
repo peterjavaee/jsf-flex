@@ -102,6 +102,7 @@ public abstract class AbstractFlexUIApplication
         _xmlnsMap = new HashMap<String, String>();
     }
     
+    @Override
 	public void encodeBegin(FacesContext context) throws IOException {
 		
 		ServletContext servContext = ServletContext.class.cast( context.getExternalContext().getContext() );
@@ -217,6 +218,7 @@ public abstract class AbstractFlexUIApplication
 		super.encodeBegin(context);
 	}
 	
+    @Override
 	public void encodeEnd(FacesContext context) throws IOException {
 		
 		AbstractJsfFlexResource jsfFlexResource = AbstractJsfFlexResource.getInstance();
@@ -226,7 +228,7 @@ public abstract class AbstractFlexUIApplication
 		super.encodeEnd(context);
 	}
 	
-	public JSONObject getComponentInitValues(){
+    public JSONObject getComponentInitValues(){
     	return null;
     }
 	

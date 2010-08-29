@@ -42,6 +42,7 @@ public abstract class AbstractFlexUIProgressBar
 						extends AbstractFlexUIValueBase 
 						implements IFlexUIBaseAttributes {
 	
+    @Override
 	protected void populateComponentInitValues(){
 		
 	}

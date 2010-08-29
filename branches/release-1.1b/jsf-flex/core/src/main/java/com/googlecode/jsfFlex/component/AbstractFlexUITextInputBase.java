@@ -23,6 +23,7 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes.IFlexUITextAttribute;
+import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 
 /**
  * This class will process the needed actions of setting and retrieving of "text" attribute<br>
@@ -55,6 +56,7 @@ public abstract class AbstractFlexUITextInputBase
 			}
 		}catch(org.json.JSONException jsonException){
 			_log.info("Error while formatting to JSON content", jsonException);
+            throw new ComponentBuildException(jsonException);
 		}
 	}
     
@@ -73,6 +75,7 @@ public abstract class AbstractFlexUITextInputBase
         return initValue;
     }
 	
+    @Override
     public void decode(FacesContext context) {
     	super.decode(context);
     	
@@ -87,6 +90,7 @@ public abstract class AbstractFlexUITextInputBase
     	}
     }
     
+    @Override
     public void processUpdates(FacesContext context) {
     	super.processUpdates(context);
     	

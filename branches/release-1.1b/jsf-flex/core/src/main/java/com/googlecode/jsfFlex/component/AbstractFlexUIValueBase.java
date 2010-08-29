@@ -71,6 +71,7 @@ public abstract class AbstractFlexUIValueBase extends AbstractFlexUIInputBase {
 		}
 	}
 	
+    @Override
 	public void decode(FacesContext context) {
     	super.decode(context);
     	
@@ -93,6 +94,7 @@ public abstract class AbstractFlexUIValueBase extends AbstractFlexUIInputBase {
             inheritTag      =   true,
             desc            =   "Current value."
     )
+    @Override
 	public Object getValue(){
 		return super.getValue();
 	}

@@ -20,7 +20,6 @@ package com.googlecode.jsfFlex.eventGlue;
 
 import java.io.IOException;
 import java.util.EnumSet;
-import java.util.Map;
 
 import javax.faces.context.FacesContext;
 
@@ -30,7 +29,7 @@ import org.json.JSONObject;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIAsynchronousEventGlueHandlerAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIEventListenerAttribute;
-import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
+import com.googlecode.jsfFlex.component.AbstractFlexUIPreserveInServer;
 import com.googlecode.jsfFlex.renderkit.html.util.AbstractJsfFlexResource;
 import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
 import com.googlecode.jsfFlex.shared.adapter.IFlexEvent.EVENT_HANDLER_TYPE.JAVA_SCRIPT_IMPORT;
@@ -45,11 +44,12 @@ import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
         desc    =   "Base component for FlexAsynchronousEventGlue components."
 )
 public abstract class AbstractFlexUIAsynchronousEventGlueBase 
-                            extends AbstractFlexUISimpleBase 
+                            extends AbstractFlexUIPreserveInServer 
                             implements IFlexEvent, IFlexUIAsynchronousEventGlueHandlerAttribute, IFlexUIEventListenerAttribute {
     
     public abstract JSONObject ayncProcessRequest() throws JSONException;
     
+    @Override
     public void encodeBegin(FacesContext context) throws IOException {
         
         AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
@@ -72,18 +72,14 @@ public abstract class AbstractFlexUIAsynchronousEventGlueBase
         super.encodeBegin(context);
     }
     
-    @Override
-    public void encodeEnd(FacesContext context) throws IOException {
-        super.encodeEnd(context);
-        
-        /*
-         * adding the component to the map for future asynchronous request such as 
-         * DataUpdateEventHandler.as 
-         * 
-         */
-        Map<String, Object> sessionMap = context.getExternalContext().getSessionMap();
-        sessionMap.put(getId(), this);
-        
+    /**
+     * Usually one does not provide overriding of this method; however there are certain cases where one desires to 
+     * provide additional parameters [i.e. AbstractFlexUIAsynchronousPropertyUpdateEventListener]
+     * 
+     * @return
+     */
+    public JSONObject getAddtionalArguments(){
+        return null;
     }
     
     public String getEventHandlerId(){

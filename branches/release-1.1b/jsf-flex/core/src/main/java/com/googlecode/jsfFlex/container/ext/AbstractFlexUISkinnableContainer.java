@@ -43,6 +43,7 @@ public abstract class AbstractFlexUISkinnableContainer
                             extends AbstractFlexUISimpleBase
                             implements IFlexUIBaseAttributes, IFlexUICreationPolicyAttribute {
     
+    @Override
     public void encodeBegin(FacesContext context) throws IOException {
         /*
          * HACK :

@@ -50,6 +50,7 @@ public abstract class AbstractFlexUIObject
 	
 	public static final String CURR_FLEX_UI_OBJECT_CONTAINER_KEY = "currFlexUIObjectContainerKey";
 	
+    @Override
 	protected String getTemporaryMapDataContainerKey(){
 		return CURR_FLEX_UI_OBJECT_CONTAINER_KEY;
 	}

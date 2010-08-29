@@ -80,6 +80,7 @@ public abstract class AbstractFlexUISimpleBase extends UIComponentBase implement
 		return _annotationDocletParserInstance;
 	}
 	
+    @Override
 	public void encodeBegin(FacesContext context) throws IOException {
 		
 		AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
@@ -91,6 +92,7 @@ public abstract class AbstractFlexUISimpleBase extends UIComponentBase implement
 		super.encodeBegin(context);
 	}
 	
+    @Override
 	public void processDecodes(FacesContext context) {
 		String mode = context.getExternalContext().getInitParameter(FlexConstants.CONFIG_MODE_NAME);
 		if(mode == null || mode.equals(FlexConstants.PRODUCTION_MODE)){

@@ -26,6 +26,7 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBindingBeanListAttribute;
+import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 
 /**
  * @author Ji Hoon Kim
@@ -43,24 +44,27 @@ public abstract class AbstractFlexUIDataListEntriesBase
 	
 	public void encodeChildren(FacesContext context) throws IOException {
 		
-		if(getBindingBeanList().size() > 0){
-		
-			for(Object currBeanRef : getBindingBeanList()){
-				
-				for(javax.faces.component.UIComponent currChild : getChildren()){
-                    AbstractFlexUIDataObjectBase currComponent = AbstractFlexUIDataObjectBase.class.cast( currChild );
-					
-					currComponent.setCurrBeanRef(currBeanRef);
-					currComponent.encodeBegin(context);
-					currComponent.encodeChildren(context);
-					currComponent.encodeEnd(context);
-					
-				}
-				
-			}
-			
-		}
-		
+        AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+        if(!flexContext.isProductionEnv()){
+    		if(getBindingBeanList().size() > 0){
+    		
+    			for(Object currBeanRef : getBindingBeanList()){
+    				
+    				for(javax.faces.component.UIComponent currChild : getChildren()){
+                        AbstractFlexUIDataObjectBase currComponent = AbstractFlexUIDataObjectBase.class.cast( currChild );
+    					
+    					currComponent.setCurrBeanRef(currBeanRef);
+    					currComponent.encodeBegin(context);
+    					currComponent.encodeChildren(context);
+    					currComponent.encodeEnd(context);
+    					
+    				}
+    				
+    			}
+    			
+    		}
+        }
+        
 	}
 	
 	public boolean getRendersChildren() {

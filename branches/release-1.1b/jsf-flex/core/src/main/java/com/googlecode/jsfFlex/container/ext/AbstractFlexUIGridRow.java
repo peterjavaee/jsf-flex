@@ -43,6 +43,7 @@ public abstract class AbstractFlexUIGridRow
                         extends AbstractFlexUISimpleBase 
                         implements IFlexUIBaseAttributes, IFlexUIDirectionAttribute {
     
+    @Override
     public void encodeBegin(FacesContext context) throws IOException {
         /*
          * Grid row will have direction set to horizontal
