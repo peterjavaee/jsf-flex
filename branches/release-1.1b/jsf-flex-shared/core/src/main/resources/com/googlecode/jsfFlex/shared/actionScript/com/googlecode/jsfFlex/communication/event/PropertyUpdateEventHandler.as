@@ -35,8 +35,8 @@ package com.googlecode.jsfFlex.communication.event
 	
 	public class PropertyUpdateEventHandler extends AbstractEventHandler {
 		
-		private static const DATA_UPDATE_ATTRIBUTE_ATTR:String = "DATA_UPDATE_ATTRIBUTE";
-		private static const DATA_UPDATE_VALUE_ATTR:String = "DATA_UPDATE_VALUE";
+		private static const PROPERTY_UPDATE_ATTRIBUTE_ATTR:String = "PROPERTY_UPDATE_ATTRIBUTE";
+		private static const PROPERTY_UPDATE_VALUE_ATTR:String = "PROPERTY_UPDATE_VALUE";
 		private static var _log:ILogger;
 		
 		private var _compValMapper:ComponentValueMapper;
@@ -44,6 +44,7 @@ package com.googlecode.jsfFlex.communication.event
 		private var _srcId:String;
 		private var _tgtId:String;
 		private var _eventHandlerId:String;
+		private var _additionalArgs:Object;
 		
 		{
 			_log = LoggerFactory.newJSLoggerInstance(DataUpdateEventHandler);
@@ -61,6 +62,7 @@ package com.googlecode.jsfFlex.communication.event
 			_srcId = srcId;
 			_tgtId = tgtId;
 			_eventHandlerId = eventHandlerId;
+			_additionalArgs = additionalArgs;
 			activateListener();
 		}
 		
@@ -68,7 +70,7 @@ package com.googlecode.jsfFlex.communication.event
 			_log.info("Executing a data update value request for component " + _tgtId);
 			
 			var compValue:Object = _compValMapper.getCompValue(_srcId)[0];
-			var dataRequestParameters:Object = new Object();
+			var dataRequestParameters:Object = {};
 			dataRequestParameters.componentId = _eventHandlerId;
 			dataRequestParameters.methodToInvoke = ASYNC_PROCESS_REQUEST;
 			dataRequestParameters[DATA_UPDATE_ATTRIBUTE_ATTR] = compValue.id;

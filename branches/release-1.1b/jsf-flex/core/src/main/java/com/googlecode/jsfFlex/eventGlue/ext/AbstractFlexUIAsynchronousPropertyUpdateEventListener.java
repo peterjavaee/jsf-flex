@@ -117,8 +117,8 @@ public abstract class AbstractFlexUIAsynchronousPropertyUpdateEventListener
         }
         
         try{
-            additionalArguments.put(IFlexEvent.ACTION_SCRIPT_EVENT_FIELDS.SOURCE_PROPERTY, new JSONArray(sourcePropertyList));
-            additionalArguments.put(IFlexEvent.ACTION_SCRIPT_EVENT_FIELDS.TARGET_PROPERTY, new JSONArray(targetPropertyList));
+            additionalArguments.put(IFlexEvent.ACTION_SCRIPT_EVENT_FIELDS.SOURCE_PROPERTY.name(), new JSONArray(sourcePropertyList));
+            additionalArguments.put(IFlexEvent.ACTION_SCRIPT_EVENT_FIELDS.TARGET_PROPERTY.name(), new JSONArray(targetPropertyList));
         
         }catch(JSONException jsonException){
             _log.info("Error while formatting to JSON content", jsonException);

@@ -38,7 +38,7 @@ package com.googlecode.jsfFlex.communication.logger
 	internal class AbstractLogger implements ILogger {
 		
 		private static const JSF_FLEX_FLASH_APPLICATION_CONFIG:String = WebConstants.WEB_CONTEXT_PATH + "/swf/jsfFlexFlashApplicationConfig.xml";
-		private static const PRIOR_TO_LOG_MODE_SETTING_MESSAGES:Array = new Array();
+		private static const PRIOR_TO_LOG_MODE_SETTING_MESSAGES:Array = [];
 		
 		private static var _clearIntervalRef:uint;
 		private static var _loader:URLLoader;

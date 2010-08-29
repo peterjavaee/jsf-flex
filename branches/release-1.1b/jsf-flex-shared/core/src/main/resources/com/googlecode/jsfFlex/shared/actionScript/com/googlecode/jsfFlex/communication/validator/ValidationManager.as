@@ -45,7 +45,7 @@ package com.googlecode.jsfFlex.communication.validator
 		public function ValidationManager(errorTextComponentId:String, refApp:UIComponent) {
 			super();
 			_errorTextComponentId = errorTextComponentId;
-			_validationComponentList = new Array();
+			_validationComponentList = [];
 			_refApp = refApp;
 		}
 		

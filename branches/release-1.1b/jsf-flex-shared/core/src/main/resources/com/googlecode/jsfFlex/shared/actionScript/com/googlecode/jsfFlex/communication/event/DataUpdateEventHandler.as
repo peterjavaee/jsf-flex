@@ -68,7 +68,7 @@ package com.googlecode.jsfFlex.communication.event
 			_log.info("Executing a data update value request for component " + _tgtId);
 			
 			var compValue:Object = _compValMapper.getCompValue(_srcId)[0];
-			var dataRequestParameters:Object = new Object();
+			var dataRequestParameters:Object = {};
 			dataRequestParameters.componentId = _eventHandlerId;
 			dataRequestParameters.methodToInvoke = ASYNC_PROCESS_REQUEST;
 			dataRequestParameters[DATA_UPDATE_ATTRIBUTE_ATTR] = compValue.id;

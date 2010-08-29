@@ -26,7 +26,6 @@ import javax.faces.context.FacesContext;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBindingBeanListAttribute;
-import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 
 /**
  * @author Ji Hoon Kim
@@ -44,7 +43,7 @@ public abstract class AbstractFlexUIDataListEntriesBase
 	
 	public void encodeChildren(FacesContext context) throws IOException {
 		
-        AbstractFlexContext flexContext = AbstractFlexContext.getCurrentInstance();
+        com.googlecode.jsfFlex.shared.context.AbstractFlexContext flexContext = com.googlecode.jsfFlex.shared.context.AbstractFlexContext.getCurrentInstance();
         if(!flexContext.isProductionEnv()){
     		if(getBindingBeanList().size() > 0){
     		

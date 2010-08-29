@@ -666,7 +666,7 @@ package com.googlecode.jsfFlex.communication.component
 				
 				var currentActualCacheStartIndex:uint = computeActualCacheStartIndex();
 				var deleteIndices:Array = [];
-				for(var i:uint=0; i < selectedIndices.length; i++){
+				for(var i:uint=0, j:uint=selectedIndices.length; i < j; i++){
 					deleteIndices.push((currentActualCacheStartIndex + selectedIndices[i]));
 				}
 				

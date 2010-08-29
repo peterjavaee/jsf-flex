@@ -181,7 +181,7 @@ package com.googlecode.jsfFlex.communication.core
 				return null;
 			}
 			
-			var valueToReturn:Array = new Array();
+			var valueToReturn:Array = [];
 			
 			for each (var classInfoNode:XML in classInfoNodes){
 				var classInfoNodeAttributes:XMLList = classInfoNode.attributeList.attribute;
@@ -224,7 +224,7 @@ package com.googlecode.jsfFlex.communication.core
 				 * last element will represent the relevant value that one desires for.
 				 */
 				var nestedObjects:XMLList = attribute.value.nested;
-				for(var k:uint=0; k < nestedObjects.length(); k++){
+				for(var k:uint=0, p:uint=nestedObjects.length(); k < p; k++){
 					if( k == (nestedObjects.length() - 1) ){
 						//now set the attribute
 						attributeId = nestedObjects[k].toString();
@@ -255,7 +255,7 @@ package com.googlecode.jsfFlex.communication.core
 		}
 		
 		public function getJSON(appInfo:Object):Object {
-			var retVal:Array = new Array();
+			var retVal:Array = [];
 			var initValueObjects:Array = appInfo.initValueObjects;
 			
 			for each (var currInitValueObject:Object in initValueObjects){
@@ -288,7 +288,7 @@ package com.googlecode.jsfFlex.communication.core
 				return null;
 			}
 			
-			var nodes:Array = new Array();
+			var nodes:Array = [];
 			
 			for each (var classInfoNode:XML in classInfoNodes){
 				var classInfoNodeAttributes:XMLList = classInfoNode.attributeList.attribute;
@@ -296,7 +296,7 @@ package com.googlecode.jsfFlex.communication.core
 					continue;
 				}
 				
-				var attributes:Array = new Array();
+				var attributes:Array = [];
 				
 				for each (var classInfoNodeAttribute:XML in classInfoNodeAttributes){
 					
