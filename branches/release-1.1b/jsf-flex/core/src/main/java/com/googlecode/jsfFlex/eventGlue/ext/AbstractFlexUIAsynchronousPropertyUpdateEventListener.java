@@ -40,7 +40,9 @@ import com.googlecode.jsfFlex.eventGlue.AbstractFlexUIAsynchronousEventGlueBase;
 import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.model.beans.AsynchronousDataUpdateEventBean;
+import com.googlecode.jsfFlex.shared.model.beans.AsynchronousPropertyUpdateEventBean;
 import com.googlecode.jsfFlex.shared.model.event.AsynchronousDataUpdateEvent;
+import com.googlecode.jsfFlex.shared.model.event.AsynchronousPropertyUpdateEvent;
 
 /**
  * @author Ji Hoon Kim
@@ -61,8 +63,7 @@ public abstract class AbstractFlexUIAsynchronousPropertyUpdateEventListener
 
     private final static Log _log = LogFactory.getLog(AbstractFlexUIAsynchronousPropertyUpdateEventListener.class);
     
-    private static final String DATA_UPDATE_ATTRIBUTE_ATTR = "DATA_UPDATE_ATTRIBUTE";
-    private static final String DATA_UPDATE_VALUE_ATTR = "DATA_UPDATE_VALUE";
+    private static final String SOURCE_PROPERTY_CURRENT_VALUE = "SOURCE_PROPERTY_CURRENT_VALUE";
     
     @Override
     public JSONObject ayncProcessRequest() throws JSONException {
@@ -70,24 +71,21 @@ public abstract class AbstractFlexUIAsynchronousPropertyUpdateEventListener
         FacesContext currContext = FacesContext.getCurrentInstance();
         javax.el.ELContext elContext = currContext.getELContext();
         
-        String alteredAttribute = currContext.getExternalContext().getRequestParameterMap().get(DATA_UPDATE_ATTRIBUTE_ATTR);
-        String alteredValue = currContext.getExternalContext().getRequestParameterMap().get(DATA_UPDATE_VALUE_ATTR);
+        String sourceCurrentValue = currContext.getExternalContext().getRequestParameterMap().get(SOURCE_PROPERTY_CURRENT_VALUE);
         
         StringBuilder logMessage = new StringBuilder(getClass().getSimpleName());
-        logMessage.append(" => ayncProcessRequest :  alteredAttribute, alteredValue [ ");
-        logMessage.append(alteredAttribute);
-        logMessage.append(", ");
-        logMessage.append(alteredValue);
+        logMessage.append(" => ayncProcessRequest :  sourceCurrentValue [ ");
+        logMessage.append(sourceCurrentValue);
         logMessage.append(" ] ");
         _log.info(logMessage.toString());
         
-        Object[] arguments = new Object[]{ new AsynchronousDataUpdateEvent(alteredAttribute, alteredValue, getEventHandlerSrcId(), getEventHandlerTgtId()) };
+        Object[] arguments = new Object[]{ new AsynchronousPropertyUpdateEvent(sourceCurrentValue, getEventHandlerSrcId(), getEventHandlerTgtId()) };
         Object methodResult = getAsynchronousEventGlueHandler().invoke(elContext, arguments);
-        AsynchronousDataUpdateEventBean result = null;
-        if(!(methodResult instanceof AsynchronousDataUpdateEventBean)){
-            result = new AsynchronousDataUpdateEventBean(methodResult.toString(), getEventHandlerSrcId(), getEventHandlerTgtId());
+        AsynchronousPropertyUpdateEventBean result = null;
+        if(!(methodResult instanceof AsynchronousPropertyUpdateEventBean)){
+            result = new AsynchronousPropertyUpdateEventBean(methodResult.toString(), getEventHandlerSrcId(), getEventHandlerTgtId());
         }else{
-            result = AsynchronousDataUpdateEventBean.class.cast( methodResult );
+            result = AsynchronousPropertyUpdateEventBean.class.cast( methodResult );
         }
         
         return result.formatResponseToJSON();

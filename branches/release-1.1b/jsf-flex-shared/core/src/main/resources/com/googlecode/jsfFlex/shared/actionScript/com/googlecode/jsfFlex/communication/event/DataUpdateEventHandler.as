@@ -53,9 +53,6 @@ package com.googlecode.jsfFlex.communication.event
 												compValMapper:ComponentValueMapper, refApp:UIComponent) {
 			super(refApp[srcId], eventName);
 			
-			/*
-			 * srcId would be of the submit element and tgtId would be of the HTML form element
-			 */
 			_compValMapper = compValMapper;
 			_refApp = refApp;
 			_srcId = srcId;

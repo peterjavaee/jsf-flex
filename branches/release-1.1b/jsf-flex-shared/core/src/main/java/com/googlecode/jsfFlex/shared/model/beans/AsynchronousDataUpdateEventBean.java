@@ -26,13 +26,13 @@ import com.googlecode.jsfFlex.shared.util.FlexConstants;
 /**
  * @author Ji Hoon Kim
  */
-public final class AsynchronousDataUpdateEventBean extends AbstractAsynchronousEventBean {
+public class AsynchronousDataUpdateEventBean extends AbstractAsynchronousEventBean {
     
-    private static final String UPDATE_VALUE_ATTRIBUTE = "UPDATE_VALUE_ATTRIBUTE";
+    protected static final String UPDATE_VALUE_ATTRIBUTE = "UPDATE_VALUE_ATTRIBUTE";
     
     private final String _updateValue;
     
-    private AsynchronousDataUpdateEventBean(){
+    protected AsynchronousDataUpdateEventBean(){
         super();
         
         _updateValue = null;
