@@ -65,6 +65,7 @@ public final class MXMLCTask extends AbstractJythonBaseTask {
 	private static final String PUBLISHER_ARG_SYNTAX = " -publisher ";
 	private static final String LANGUAGE_ARG_SYNTAX = " -language ";
 	private static final String DATE_ARG_SYNTAX = " -date ";
+    private static final String OPTIMIZE = " -compiler.optimize ";
 	
 	private String _file;
 	private String _outputPath;
@@ -100,7 +101,8 @@ public final class MXMLCTask extends AbstractJythonBaseTask {
 		Vector<String> commandArguments = new Vector<String>();
 		
 		commandArguments.add(FILE_PROPERTY + FlexConstants.STRING_QUOTE + _file + FlexConstants.STRING_QUOTE);
-		
+		commandArguments.add(OPTIMIZE);
+        
 		if(_outputPath != null){
 			commandArguments.add(OUTPUT_ARG_SYNTAX + FlexConstants.STRING_QUOTE + _outputPath + FlexConstants.STRING_QUOTE);
 		}

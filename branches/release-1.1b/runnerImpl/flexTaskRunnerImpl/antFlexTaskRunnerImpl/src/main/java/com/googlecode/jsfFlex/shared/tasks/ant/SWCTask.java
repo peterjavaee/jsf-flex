@@ -39,6 +39,7 @@ public final class SWCTask extends AbstractAntBaseTask {
 	private static final String SOURCE_PATH = " -source-path ";
 	private static final String OUTPUT = " -output ";
 	private static final String LOAD_CONFIG_ARG_SYNTAX = " -load-config+=";
+    private static final String OPTIMIZE = " -compiler.optimize ";
 	
 	private static final String SWC_TARGET = "swc_compile";
 	
@@ -85,6 +86,9 @@ public final class SWCTask extends AbstractAntBaseTask {
 		arg = _swcTask.createArg();
 		arg.setLine(OUTPUT + FlexConstants.STRING_QUOTE + _outPut + FlexConstants.STRING_QUOTE);
 		
+        arg = _swcTask.createArg();
+        arg.setLine(OPTIMIZE);
+        
 		if(_loadConfig != null){
 			arg = _swcTask.createArg();
 			arg.setLine(LOAD_CONFIG_ARG_SYNTAX + FlexConstants.STRING_QUOTE + _loadConfig + FlexConstants.STRING_QUOTE);

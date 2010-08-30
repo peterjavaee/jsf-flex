@@ -49,6 +49,7 @@ public final class SWCTask extends AbstractJythonBaseTask {
 	private static final String SOURCE_PATH = " -source-path ";
 	private static final String OUTPUT = " -output ";
 	private static final String LOAD_CONFIG_ARG_SYNTAX = " -load-config+=";
+    private static final String OPTIMIZE = "-compiler.optimize";
 	
 	private String _sourcePath;
 	private String _outPut;
@@ -83,6 +84,7 @@ public final class SWCTask extends AbstractJythonBaseTask {
 		
 		commandArguments.add(SOURCE_PATH + FlexConstants.STRING_QUOTE + _sourcePath + FlexConstants.STRING_QUOTE);
 		commandArguments.add(OUTPUT + FlexConstants.STRING_QUOTE + _outPut + FlexConstants.STRING_QUOTE);
+        commandArguments.add(OPTIMIZE);
 		
 		if(_loadConfig != null){
 			commandArguments.add(LOAD_CONFIG_ARG_SYNTAX + FlexConstants.STRING_QUOTE + _loadConfig + FlexConstants.STRING_QUOTE);

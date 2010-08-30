@@ -109,7 +109,7 @@ package com.googlecode.jsfFlex.communication.event
 			var dataRequestParameters:Object = {};
 			dataRequestParameters.componentId = _eventHandlerId;
 			dataRequestParameters.methodToInvoke = ASYNC_PROCESS_REQUEST;
-			dataRequestParameters[SOURCE_PROPERTY_CURRENT_VALUE] = currPropertyValue;
+			dataRequestParameters[SOURCE_PROPERTY_CURRENT_VALUE_ATTR] = currPropertyValue;
 			
 			var jsfFlexHttpServiceRequest:JsfFlexHttpService = new JsfFlexHttpService();
 			jsfFlexHttpServiceRequest.sendHttpRequest(ASYNC_SERVICE_REQUEST_URL, this,

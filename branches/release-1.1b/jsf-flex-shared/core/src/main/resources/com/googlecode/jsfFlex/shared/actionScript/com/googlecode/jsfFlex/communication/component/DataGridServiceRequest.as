@@ -61,7 +61,7 @@ package com.googlecode.jsfFlex.communication.component
 		private static const ADD_DATA_ENTRY:String = "addDataEntry";
 		private static const REMOVE_DATA_ENTRY:String = "removeDataEntry";
 		private static const SORT_DATA_ENTRY:String = "sortDataEntry";
-		private static const UPDATE_ROW_SELECTION_ENTRY = "updateRowSelectionEntry";
+		private static const UPDATE_ROW_SELECTION_ENTRY:String = "updateRowSelectionEntry";
 		
 		private static const ADD_DATA_ENTRY_DELIM:String = "_DELIM_";
 		private static const DRAG_SOURCE_DATA:String = "items";

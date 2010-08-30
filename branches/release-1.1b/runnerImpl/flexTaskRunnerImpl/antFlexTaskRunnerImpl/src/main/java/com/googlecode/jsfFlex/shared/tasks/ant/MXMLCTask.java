@@ -57,6 +57,7 @@ public final class MXMLCTask extends AbstractAntBaseTask {
 	private static final String PUBLISHER_ARG_SYNTAX = " -publisher ";
 	private static final String LANGUAGE_ARG_SYNTAX = " -language ";
 	private static final String DATE_ARG_SYNTAX = " -date ";
+    private static final String OPTIMIZE = " -compiler.optimize ";
 	
 	private final ExecTask _mxmlcTask;
 	private final Target _mxmlcTarget;
@@ -101,6 +102,9 @@ public final class MXMLCTask extends AbstractAntBaseTask {
 		arg = _mxmlcTask.createArg();
 		arg.setLine(FILE_PROPERTY + FlexConstants.STRING_QUOTE + _file + FlexConstants.STRING_QUOTE);
 		
+        arg = _mxmlcTask.createArg();
+        arg.setLine(OPTIMIZE);
+        
 		if(_outputPath != null){
 			arg = _mxmlcTask.createArg();
 			arg.setLine(OUTPUT_ARG_SYNTAX + FlexConstants.STRING_QUOTE + _outputPath + FlexConstants.STRING_QUOTE);
