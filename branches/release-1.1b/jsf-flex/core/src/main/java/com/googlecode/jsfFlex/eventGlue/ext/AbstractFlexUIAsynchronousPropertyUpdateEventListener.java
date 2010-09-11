@@ -39,9 +39,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUIEventListenerAttribute;
 import com.googlecode.jsfFlex.eventGlue.AbstractFlexUIAsynchronousEventGlueBase;
 import com.googlecode.jsfFlex.shared.adapter.IFlexEvent;
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
-import com.googlecode.jsfFlex.shared.model.beans.AsynchronousDataUpdateEventBean;
 import com.googlecode.jsfFlex.shared.model.beans.AsynchronousPropertyUpdateEventBean;
-import com.googlecode.jsfFlex.shared.model.event.AsynchronousDataUpdateEvent;
 import com.googlecode.jsfFlex.shared.model.event.AsynchronousPropertyUpdateEvent;
 
 /**

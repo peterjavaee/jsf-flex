@@ -25,6 +25,8 @@ import javax.faces.context.FacesContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.json.JSONArray;
 import org.json.JSONException;
 
@@ -47,6 +49,7 @@ import com.googlecode.jsfFlex.shared.util.JSONConverter;
  */
 final class ArrayServiceRequestDataRetrieverFlusher extends AbstractServiceRequestDataRetrieverFlusher {
     
+    private final static Log _log = LogFactory.getLog(ArrayServiceRequestDataRetrieverFlusher.class);
     private static final String ERROR_CONVERTING_JSON_ARRAY_TO_XML = "Error while converting JSONArray to XML";
     
     ArrayServiceRequestDataRetrieverFlusher(){
@@ -67,15 +70,22 @@ final class ArrayServiceRequestDataRetrieverFlusher extends AbstractServiceReque
         HttpServletResponse response = HttpServletResponse.class.cast( context.getExternalContext().getResponse() );
         response.setContentType(XML_CONTENT_TYPE);
         
-        Writer writer = response.getWriter();
-        writer.write(XML_HEAD);
-        writer.write(XML_RESULT_ROOT_START_TAG);
+        StringBuilder responseContent = new StringBuilder();
+        responseContent.append(XML_HEAD);
+        responseContent.append(XML_RESULT_ROOT_START_TAG);
+        
         try{
-            writer.write( JSONConverter.convertJSONArrayToXMLString(methodResult) );
+            responseContent.append( JSONConverter.convertJSONArrayToXMLString(methodResult) );
         }catch(JSONException jsonException){
             throw new ServletException(ERROR_CONVERTING_JSON_ARRAY_TO_XML, jsonException.getCause());
         }
-        writer.write(XML_RESULT_ROOT_END_TAG);
+        
+        responseContent.append(XML_RESULT_ROOT_END_TAG);
+        
+        _log.info("Flushing content : " + responseContent.toString());
+        
+        Writer writer = response.getWriter();
+        writer.write(responseContent.toString());
         writer.flush();
         
     }

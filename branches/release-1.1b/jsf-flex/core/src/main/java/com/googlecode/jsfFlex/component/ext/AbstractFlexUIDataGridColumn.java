@@ -21,7 +21,6 @@ package com.googlecode.jsfFlex.component.ext;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -56,7 +55,7 @@ public abstract class AbstractFlexUIDataGridColumn
     private final static Log _log = LogFactory.getLog(AbstractFlexUIDataGridColumn.class);
     
     private static final String REQUEST_KEYS_KEY = "requestKeys";
-    private static final String RESULT_CODE_KEY = "resultCode";
+    private static final String RESULT_CODE_KEY = "RESULT_CODE";
     
     private Comparator<Object> ascendingComparator;
     private Comparator<Object> descendingComparator;
@@ -71,40 +70,27 @@ public abstract class AbstractFlexUIDataGridColumn
         
     }
     
-    public List<String> getFormatedColumnData(List dataGridEntries, int dataStartIndex, int dataEndIndex) {
+    public String getFormatedColumnData(Object currDataEntry) {
+        Object formatedColumnData = "";
         
-        //for more complicated Grids, the return data might consist of XML entries
-        List<String> formatedColumnData = new LinkedList<String>();
-        
-        for(int i = dataStartIndex; i < dataEndIndex; i++){
-            Object currDataEntry = dataGridEntries.get(i);
-            Object currDataValue = null;
-            
-            try{
-                currDataValue = ReflectionHelperUtil.getValue(currDataEntry, getDataFieldMethodName());
-            }catch(NoSuchMethodException noSuchMethodException){
-                StringBuilder errorMessage = new StringBuilder();
-                errorMessage.append("NoSuchMethodException was thrown while invoking method : ");
-                errorMessage.append(getDataFieldMethodName());
-                _log.error(errorMessage.toString(), noSuchMethodException);
-                return new LinkedList<String>();
-            }catch(Exception additionalAccessException){
-                StringBuilder errorMessage = new StringBuilder();
-                errorMessage.append("Other exception aside from NoSuchMethodException was thrown while invoking method : ");
-                errorMessage.append(getDataFieldMethodName());
-                _log.error(errorMessage.toString(), additionalAccessException);
-                return new LinkedList<String>();
-            }
-            
-            String currValue = currDataValue == null ? "" : currDataValue.toString();
-            
-            _log.debug("Adding value : " + currValue + " to the to be returned getFormatedColumnData List");
-            
-            formatedColumnData.add(currValue);
+        try{
+            formatedColumnData = ReflectionHelperUtil.getValue(currDataEntry, getDataFieldMethodName());
+            formatedColumnData = formatedColumnData == null ? "" : formatedColumnData.toString();
+        }catch(NoSuchMethodException noSuchMethodException){
+            StringBuilder errorMessage = new StringBuilder();
+            errorMessage.append("NoSuchMethodException was thrown while invoking method : ");
+            errorMessage.append(getDataFieldMethodName());
+            _log.error(errorMessage.toString(), noSuchMethodException);
+            return formatedColumnData.toString();
+        }catch(Exception additionalAccessException){
+            StringBuilder errorMessage = new StringBuilder();
+            errorMessage.append("Other exception aside from NoSuchMethodException was thrown while invoking method : ");
+            errorMessage.append(getDataFieldMethodName());
+            _log.error(errorMessage.toString(), additionalAccessException);
+            return formatedColumnData.toString();
         }
         
-        _log.info("Returning list of size : " + formatedColumnData.size() + " for dataField : " + getDataField());
-        return formatedColumnData;
+        return formatedColumnData.toString();
     }
     
     public Map<String, ? super Object> updateModifiedDataField(FacesContext context, Map<String, String> requestMap, List<? extends Object> dataGridEntries) {

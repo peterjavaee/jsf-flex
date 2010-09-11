@@ -23,23 +23,25 @@ import com.googlecode.jsfFlex.shared.util.FlexConstants;
 /**
  * @author Ji Hoon Kim
  */
-public class AsynchronousPropertyUpdateEvent extends AsynchronousGlueEvent {
+public class AsynchronousGlueEvent extends AbstractEvent {
     
-    private String _currentSourceValue;
+    private final String _sourceComponentId;
     
-    private AsynchronousPropertyUpdateEvent(){
+    AsynchronousGlueEvent(){
         super();
+        
+        _sourceComponentId = null;
     }
     
-    public AsynchronousPropertyUpdateEvent(String currentSourceValue, String sourceId, String targetId){
-        super(sourceId, targetId);
+    public AsynchronousGlueEvent(String sourceComponentId, String targetComponentId){
+        super(targetComponentId);
         
-        _currentSourceValue = currentSourceValue;
+        _sourceComponentId = sourceComponentId;
     }
     
     @Override
     public boolean equals(Object instance) {
-        if(!(instance instanceof AsynchronousPropertyUpdateEvent)){
+        if(!(instance instanceof AsynchronousGlueEvent)){
             return false;
         }
         
@@ -48,20 +50,20 @@ public class AsynchronousPropertyUpdateEvent extends AsynchronousGlueEvent {
             return false;
         }
         
-        AsynchronousPropertyUpdateEvent currInstance = AsynchronousPropertyUpdateEvent.class.cast( instance );
-        return _currentSourceValue.equals(currInstance._currentSourceValue);
+        AsynchronousGlueEvent currInstance = AsynchronousGlueEvent.class.cast( instance );
+        return _sourceComponentId.equals(currInstance._sourceComponentId);
     }
     
     @Override
     public int hashCode() {
         int hashCodeVal = super.hashCode();
-        hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _currentSourceValue.hashCode();
+        hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _sourceComponentId.hashCode();
         
         return hashCodeVal;
     }
     
-    public String getCurrSourceValue(){
-        return _currentSourceValue;
+    public String getSourceComponentId() {
+        return _sourceComponentId;
     }
     
 }

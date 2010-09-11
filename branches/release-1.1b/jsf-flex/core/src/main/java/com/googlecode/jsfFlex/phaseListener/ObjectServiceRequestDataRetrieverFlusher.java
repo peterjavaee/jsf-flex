@@ -25,6 +25,8 @@ import javax.faces.context.FacesContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -41,6 +43,7 @@ import com.googlecode.jsfFlex.shared.util.JSONConverter;
  */
 class ObjectServiceRequestDataRetrieverFlusher extends AbstractServiceRequestDataRetrieverFlusher {
     
+    private final static Log _log = LogFactory.getLog(ObjectServiceRequestDataRetrieverFlusher.class);
     private static final String ERROR_CONVERTING_JSON_OBJECT_TO_XML = "Error while converting JSONObject to XML";
     
     ObjectServiceRequestDataRetrieverFlusher(){
@@ -61,13 +64,19 @@ class ObjectServiceRequestDataRetrieverFlusher extends AbstractServiceRequestDat
         HttpServletResponse response = HttpServletResponse.class.cast( context.getExternalContext().getResponse() );
         response.setContentType(XML_CONTENT_TYPE);
         
-        Writer writer = response.getWriter();
-        writer.write(XML_HEAD);
+        StringBuilder responseContent = new StringBuilder();
+        responseContent.append(XML_HEAD);
+        
         try{
-            writer.write( JSONConverter.convertJSONObjectToXMLString(methodResult) );
+            responseContent.append( JSONConverter.convertJSONObjectToXMLString(methodResult) );
         }catch(JSONException jsonException){
             throw new ServletException(ERROR_CONVERTING_JSON_OBJECT_TO_XML, jsonException.getCause());
         }
+        
+        _log.info("Flushing content : " + responseContent.toString());
+        
+        Writer writer = response.getWriter();
+        writer.write( responseContent.toString() );
         writer.flush();
         
     }

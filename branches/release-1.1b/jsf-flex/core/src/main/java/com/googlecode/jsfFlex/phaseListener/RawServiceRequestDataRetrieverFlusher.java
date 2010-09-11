@@ -26,11 +26,15 @@ import javax.faces.context.FacesContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 /**
  * @author Ji Hoon Kim
  */
 final class RawServiceRequestDataRetrieverFlusher extends AbstractServiceRequestDataRetrieverFlusher {
 	
+    private final static Log _log = LogFactory.getLog(RawServiceRequestDataRetrieverFlusher.class);
 	private static final String PLAIN_CONTENT_TYPE = "text/plain";
 	
 	RawServiceRequestDataRetrieverFlusher(){
@@ -52,12 +56,16 @@ final class RawServiceRequestDataRetrieverFlusher extends AbstractServiceRequest
 		response.setContentType(PLAIN_CONTENT_TYPE);
 		
 		if(objectCollection != null){
-			Writer writer = response.getWriter();
+            StringBuilder responseContent = new StringBuilder();
 			
 			for(Object currObj : objectCollection){
-				writer.write(currObj.toString());
+                responseContent.append(currObj.toString());
 			}
 			
+            _log.info("Flushing content : " + responseContent.toString());
+            
+            Writer writer = response.getWriter();
+            writer.write(responseContent.toString());
 			writer.flush();
 		}
 		

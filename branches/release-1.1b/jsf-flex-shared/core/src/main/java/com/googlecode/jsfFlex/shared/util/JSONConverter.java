@@ -48,6 +48,7 @@ public final class JSONConverter {
         for(Iterator<String> keyIterator = jsonObject.keys(); keyIterator.hasNext();){
             String currKey = keyIterator.next();
             Object value = jsonObject.get(currKey);
+            converted.append( "<" + currKey + ">" );
             
             /*
              * And here comes the ugly instanceof checks
@@ -57,11 +58,10 @@ public final class JSONConverter {
             }else if(value instanceof JSONArray) {
                 converted.append( convertJSONArrayToXMLString(JSONArray.class.cast( value )) );
             }else {
-                converted.append( "<" + currKey + ">" );
                 converted.append( value.toString() );
-                converted.append( "</" + currKey + ">" );
             }
             
+            converted.append( "</" + currKey + ">" );
         }
         
         return converted.toString();
@@ -77,7 +77,7 @@ public final class JSONConverter {
          */
         for(int index = 0; index < jsonArray.length(); index++){
             Object value = jsonArray.get(index);
-            
+            converted.append( XML_VALUE_START_TAG );
             /*
              * And here comes the ugly instanceof checks
              */
@@ -90,11 +90,10 @@ public final class JSONConverter {
                  * Should technically only contain JSONArray or JSONObject, b/c we are now using generic value XML tag
                  * and assuming this to be known.
                  */
-                converted.append( XML_VALUE_START_TAG );
                 converted.append( value.toString() );
-                converted.append( XML_VALUE_END_TAG );
             }
             
+            converted.append( XML_VALUE_END_TAG );
         }
         
         return converted.toString();

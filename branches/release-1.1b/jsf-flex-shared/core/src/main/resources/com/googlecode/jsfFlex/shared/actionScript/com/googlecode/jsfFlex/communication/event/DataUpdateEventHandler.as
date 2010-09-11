@@ -74,7 +74,7 @@ package com.googlecode.jsfFlex.communication.event
 			var jsfFlexHttpServiceRequest:JsfFlexHttpService = new JsfFlexHttpService();
 			jsfFlexHttpServiceRequest.sendHttpRequest(ASYNC_SERVICE_REQUEST_URL, this,
 															function (lastResult:Object, event:ResultEvent):void {
-																_log.info("Returned from : " + ASYNC_SERVICE_REQUEST_URL + " of src/target :" + _srcId + "/" + _tgtId);
+																_log.info("Returned from : " + ASYNC_PROCESS_REQUEST + " of src/target :" + _srcId + "/" + _tgtId);
 																
 																var updateValue:String = lastResult.UPDATE_VALUE_ATTRIBUTE;
 																var compValue:Object = _compValMapper.getCompValue(_tgtId)[0];

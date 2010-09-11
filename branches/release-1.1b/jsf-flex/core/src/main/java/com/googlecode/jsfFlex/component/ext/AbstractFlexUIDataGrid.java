@@ -24,10 +24,10 @@ import java.util.BitSet;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import javax.el.MethodExpression;
 import javax.faces.context.FacesContext;
 
 import org.apache.commons.logging.Log;
@@ -37,14 +37,18 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.googlecode.jsfFlex.attributes.IFlexUIAsynchronousEventGlueHandlerAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUIBatchColumnDataRetrievalSizeAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIBindingBeanClassNameAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIBindingBeanListAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIEventListenerAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFilterComponentIdAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIRowCountAttribute;
 import com.googlecode.jsfFlex.component.AbstractFlexUIPreserveInServer;
+import com.googlecode.jsfFlex.shared.model.event.AsynchronousFilterEvent;
 
 /**
  * @author Ji Hoon Kim
@@ -61,14 +65,15 @@ public abstract class AbstractFlexUIDataGrid
                         extends AbstractFlexUIPreserveInServer
                         implements IFlexUIBaseAttributes, IFlexUIBindingBeanListAttribute, IFlexUIBindingBeanClassNameAttribute,
                         IFlexUIBatchColumnDataRetrievalSizeAttribute, IFlexUIEditableAttribute, IFlexUIDataProviderAttribute, 
-                        IFlexUIRowCountAttribute {
+                        IFlexUIRowCountAttribute, IFlexUIFilterComponentIdAttribute, IFlexUIEventListenerAttribute, 
+                        IFlexUIAsynchronousEventGlueHandlerAttribute {
     
     private final static Log _log = LogFactory.getLog(AbstractFlexUIDataGrid.class);
     
     private static final Integer ZERO_BATCH_COLUMN_DATA_RETRIEVAL_SIZE = Integer.valueOf(0);
     
     private static final String COLUMN_DATA_FIELD_KEY = "columnDataField";
-    private static final String RESULT_CODE_KEY = "resultCode";
+    private static final String RESULT_CODE_KEY = "RESULT_CODE";
     
     private static final String DATA_START_INDEX_KEY = "dataStartIndex";
     private static final String DATA_END_INDEX_KEY = "dataEndIndex";
@@ -91,10 +96,22 @@ public abstract class AbstractFlexUIDataGrid
     private static final String UPDATE_ITEM_PARTITION_INDEX_KEY = "updateItemPartitionIndex";
     private static final String SELECT_ALL_KEY = "selectAll";
     private static final String DESELECT_ALL_KEY = "deselectAll";
-    private static final String RETURNED_SELECT_ENTRIES = "returnedSelectEntries";
+    private static final String RETURNED_SELECT_ENTRIES = "RETURNED_SELECT_ENTRIES";
+    
+    private static final String FILTER_VALUE_KEY = "filterValue";
+    private static final JSONObject ERROR_JSON_OBJECT = new JSONObject();
+    
+    static{
+        try{
+            ERROR_JSON_OBJECT.put(RESULT_CODE_KEY, "Error");
+        }catch(JSONException jsonException){
+            _log.error("Error while creating ERROR_JSON_OBJECT");
+        }
+    }
     
     private Map<String, AbstractFlexUIDataGridColumn> _dataGridColumnComponentMapping;
     private BitSet _selectedRows;
+    private String _filterColumn;
     
     {
         _dataGridColumnComponentMapping = new HashMap<String, AbstractFlexUIDataGridColumn>();
@@ -128,7 +145,7 @@ public abstract class AbstractFlexUIDataGrid
         _selectedRows.set(0, _selectedRows.size());
     }
     
-    public JSONObject updateRowSelectionEntry() {
+    public JSONObject updateRowSelectionEntry() throws JSONException {
         
         JSONObject updateRowSelectionResult = new JSONObject();
         boolean success = true;
@@ -176,49 +193,63 @@ public abstract class AbstractFlexUIDataGrid
         }
         
         if(success){
-            try{
-                int fetchSelectionItemPartitionIndex = Integer.valueOf(requestMap.get(FETCH_SELECTION_ITEM_PARTITION_INDEX_KEY));
-                int startIndex = fetchSelectionItemPartitionIndex * batchColumnDataRetrievalSize;
-                int endIndex = Math.min((fetchSelectionItemPartitionIndex + 1) * batchColumnDataRetrievalSize, getBindingBeanList().size());
-                
-                _log.info("updateRowSelectionEntry: fetchSelectionItemPartitionIndex is " + fetchSelectionItemPartitionIndex + ", startIndex is " + startIndex
+            int fetchSelectionItemPartitionIndex = Integer.valueOf(requestMap.get(FETCH_SELECTION_ITEM_PARTITION_INDEX_KEY));
+            int startIndex = fetchSelectionItemPartitionIndex * batchColumnDataRetrievalSize;
+            int endIndex = Math.min((fetchSelectionItemPartitionIndex + 1) * batchColumnDataRetrievalSize, getBindingBeanList().size());
+            
+             _log.info("updateRowSelectionEntry: fetchSelectionItemPartitionIndex is " + fetchSelectionItemPartitionIndex + ", startIndex is " + startIndex
                                     + ", endIndex is " + endIndex);
-                
-                if(endIndex < startIndex){
-                    _log.info("Okay startIndex is greater than endIndex, what went wrong. StartIndex : " + startIndex + ", endIndex : " + endIndex);
-                    success = false;
-                }else{
-                    /*
-                     * Now loop through the BitSet and push the entries within a JSONArray
-                     */
-                    JSONArray selectedEntries = new JSONArray();
-                    for(; startIndex < endIndex; startIndex++){
-                        if(_selectedRows.get(startIndex)){
-                            selectedEntries.put(startIndex);
-                        }
-                    }
-                    updateRowSelectionResult.put(RETURNED_SELECT_ENTRIES, selectedEntries);
-                }
-                updateRowSelectionResult.put(RESULT_CODE_KEY, success);
-            }catch(JSONException jsonException){
-                _log.error("JSON exception occurred within updateRowSelectionEntry", jsonException);
-                success = false;
+             
+             if(endIndex < startIndex){
+                 _log.info("Okay startIndex is greater than endIndex, what went wrong. StartIndex : " + startIndex + ", endIndex : " + endIndex);
+                 success = false;
+             }else{
+                 /*
+                  * Now loop through the BitSet and push the entries within a JSONArray
+                  */
+                 JSONArray selectedEntries = new JSONArray();
+                 for(; startIndex < endIndex; startIndex++){
+                     if(_selectedRows.get(startIndex)){
+                         selectedEntries.put(startIndex);
+                     }
+                 }
+                 updateRowSelectionResult.put(RETURNED_SELECT_ENTRIES, selectedEntries);
             }
         }
+        
+        updateRowSelectionResult.put(RESULT_CODE_KEY, success);
         return updateRowSelectionResult;
     }
     
-    public List<String> getFormatedColumnData() {
+    public static Boolean defaultFilterMethod(AsynchronousFilterEvent filterEvent){
+        return !filterEvent.getComponentValue().contains(filterEvent.getFilterValue());
+    }
+    
+    private Boolean invokeFilterMethod(String filterValue, String currRowValue) {
+        Boolean toFilter = false;
+        
+        MethodExpression userProvidedFilterMethod = getAsynchronousEventGlueHandler();
+        if(userProvidedFilterMethod != null){
+            FacesContext context = FacesContext.getCurrentInstance();
+            toFilter = Boolean.valueOf( userProvidedFilterMethod.invoke(context.getELContext(), new Object[]{new AsynchronousFilterEvent(this, filterValue, currRowValue)}).toString() );
+        }else{
+            toFilter = defaultFilterMethod(new AsynchronousFilterEvent(this, filterValue, currRowValue));
+        }
+        
+        return toFilter;
+    }
+    
+    public JSONObject getGridData() throws JSONException {
         
         FacesContext context = FacesContext.getCurrentInstance();
         Map<String, String> requestMap = context.getExternalContext().getRequestParameterMap();
         
-        String columnDataField = requestMap.get(COLUMN_DATA_FIELD_KEY);
         String dataStartIndex = requestMap.get(DATA_START_INDEX_KEY);
         String dataEndIndex = requestMap.get(DATA_END_INDEX_KEY);
+        String filterValue = requestMap.get(FILTER_VALUE_KEY);
         
         _log.info("Requested additional data with dataStartIndex : " + dataStartIndex + " , dataEndIndex : " + dataEndIndex + 
-                        " for dataField : " + columnDataField + " for component : " + getId());
+                        ", filterValue: " + filterValue + " for component : " + getId());
         
         int parsedStartIndex = -1;
         int parsedEndIndex = -1;
@@ -228,20 +259,59 @@ public abstract class AbstractFlexUIDataGrid
             parsedEndIndex = Integer.parseInt(dataEndIndex);
         }catch(NumberFormatException parsingException){
             _log.error("Error parsing of following values [" + dataStartIndex + ", " + dataEndIndex + "] to an int", parsingException);
-            return new LinkedList<String>();
+            return ERROR_JSON_OBJECT;
         }
         
         int dataSize = getBindingBeanList().size();
         parsedEndIndex = parsedEndIndex < dataSize ? parsedEndIndex : dataSize;
         
-        _log.debug("Parsed start + end index are [ " + parsedStartIndex + ", " + parsedEndIndex + " ] with dataSize : " + dataSize + " for component : " + getId());
+        _log.info("Parsed start + end index are [ " + parsedStartIndex + ", " + parsedEndIndex + " ] with dataSize : " + dataSize + " for component : " + getId());
         
-        AbstractFlexUIDataGridColumn dataGridColumnComponent = _dataGridColumnComponentMapping.get(columnDataField);
+        AbstractFlexUIDataGridColumn filterColumnComponent = _dataGridColumnComponentMapping.get(_filterColumn);
+        Map<String, AbstractFlexUIDataGridColumn> traverseDataGridColumnMap = new HashMap<String, AbstractFlexUIDataGridColumn>(_dataGridColumnComponentMapping); 
+        traverseDataGridColumnMap.remove(_filterColumn);
         
-        List<String> formatedColumnData;
+        JSONObject formatedColumnData = new JSONObject();
+        JSONArray filterColumnContent = new JSONArray();
+        /*
+         * First add the filterColumn, then add the remaining column values
+         */
+        
+        formatedColumnData.put(_filterColumn, filterColumnContent);
+        for(String currKey : traverseDataGridColumnMap.keySet()) {
+            formatedColumnData.put(currKey, new JSONArray());
+        }
         
         synchronized(getBindingBeanList()){
-            formatedColumnData = dataGridColumnComponent.getFormatedColumnData(getBindingBeanList(), parsedStartIndex, parsedEndIndex);
+            for(; parsedStartIndex < parsedEndIndex; parsedStartIndex++) {
+                Object currValue = getBindingBeanList().get(parsedStartIndex);
+                String filterCheckValue = filterColumnComponent.getFormatedColumnData(currValue);
+                
+                Boolean filterCurrentRow = false;
+                /*
+                filterCurrentRow = invokeFilterMethod(currRowValue, filterValue);
+                */
+                
+                if(filterCurrentRow){
+                    continue;
+                }
+                
+                /*
+                 * Since this row does not need to be filtered, add first the filter column value and add the reamining entries into 
+                 * the JSONObject
+                 */
+                _log.info("Row containing value of " + filterCheckValue + " was not filtered");
+                filterColumnContent.put(filterCheckValue);
+                
+                for(String currKey : traverseDataGridColumnMap.keySet()) {
+                    AbstractFlexUIDataGridColumn currDataGridColumn = traverseDataGridColumnMap.get(currKey);
+                    JSONArray currEntryList = JSONArray.class.cast( formatedColumnData.get(currKey) );
+                    String currColumnValue = currDataGridColumn.getFormatedColumnData(currValue);
+                    currEntryList.put(currColumnValue);
+                    
+                }
+                
+            }
         }
         
         return formatedColumnData;
@@ -445,8 +515,7 @@ public abstract class AbstractFlexUIDataGrid
     public void encodeEnd(FacesContext context) throws IOException {
         super.encodeEnd(context);
         
-        _selectedRows = new BitSet(getBindingBeanList().size());
-        
+        _selectedRows = new BitSet(getBindingBeanList().size());        
     }
     
     public Integer computeBatchColumnDataRetrievalSize(){
@@ -493,6 +562,10 @@ public abstract class AbstractFlexUIDataGrid
     
     public Map<String, AbstractFlexUIDataGridColumn> getDataGridColumnComponentMapping(){
         return _dataGridColumnComponentMapping;
+    }
+    
+    public void setFilterColumn(String filterColumn) {
+        _filterColumn = filterColumn;
     }
     
 }

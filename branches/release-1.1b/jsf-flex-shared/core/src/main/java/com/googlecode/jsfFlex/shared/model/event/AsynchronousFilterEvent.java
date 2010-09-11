@@ -18,33 +18,31 @@
  */
 package com.googlecode.jsfFlex.shared.model.event;
 
+import javax.faces.component.UIComponent;
+
 import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
  * @author Ji Hoon Kim
  */
-public class AsynchronousDataUpdateEvent extends AsynchronousGlueEvent {
+public class AsynchronousFilterEvent extends AbstractEvent {
     
-    private final String _alteredAttribute;
-    private final String _alteredValue;
+    private final UIComponent _targetComponent;
+    private final String _componentValue;
+    private final String _filterValue;
     
-    private AsynchronousDataUpdateEvent(){
-        super();
+    public AsynchronousFilterEvent(UIComponent targetComponent, String componentValue, String filterValue) {
+        super(targetComponent.getId());
         
-        _alteredAttribute = null;
-        _alteredValue = null;
-    }
-    
-    public AsynchronousDataUpdateEvent(String alteredAttribute, String alteredValue, String sourceId, String targetId){
-        super(sourceId, targetId);
+        _targetComponent = targetComponent;
+        _componentValue = componentValue;
+        _filterValue = filterValue;
         
-        _alteredAttribute = alteredAttribute;
-        _alteredValue = alteredValue;
     }
     
     @Override
     public boolean equals(Object instance) {
-        if(!(instance instanceof AsynchronousDataUpdateEvent)){
+        if(!(instance instanceof AsynchronousFilterEvent)){
             return false;
         }
         
@@ -53,25 +51,31 @@ public class AsynchronousDataUpdateEvent extends AsynchronousGlueEvent {
             return false;
         }
         
-        AsynchronousDataUpdateEvent currInstance = AsynchronousDataUpdateEvent.class.cast( instance );
-        return _alteredValue.equals(currInstance._alteredValue) && _alteredAttribute.equals(currInstance._alteredAttribute);
+        AsynchronousFilterEvent currInstance = AsynchronousFilterEvent.class.cast( instance );
+        return _targetComponent.equals(currInstance._targetComponent) && _componentValue.equals(currInstance._componentValue)
+                && _filterValue.equals(currInstance._filterValue);
     }
     
     @Override
     public int hashCode() {
         int hashCodeVal = super.hashCode();
-        hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _alteredValue.hashCode();
-        hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _alteredAttribute.hashCode();
+        hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _targetComponent.hashCode();
+        hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _componentValue.hashCode();
+        hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _filterValue.hashCode();
         
         return hashCodeVal;
     }
     
-    public String getAlteredAttribute(){
-        return _alteredAttribute;
+    public UIComponent getTargetComponent() {
+        return _targetComponent;
     }
     
-    public String getAlteredValue(){
-        return _alteredValue;
+    public String getComponentValue() {
+        return _componentValue;
+    }
+    
+    public String getFilterValue() {
+        return _filterValue;
     }
     
 }

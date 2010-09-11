@@ -58,6 +58,11 @@ public abstract class AbstractFlexUIColumns
             dataGridColumnComponentMapping.put(currDataGridColumnComponent.getDataField(), currDataGridColumnComponent);
         }
         
+        if(dataGridColumnComponents.size() > 0){
+            AbstractFlexUIDataGridColumn currDataGridColumnComponent = AbstractFlexUIDataGridColumn.class.cast( dataGridColumnComponents.get(0) );
+            dataGridComponent.setFilterColumn(currDataGridColumnComponent.getDataField());
+        }
+        
     }
     
 }

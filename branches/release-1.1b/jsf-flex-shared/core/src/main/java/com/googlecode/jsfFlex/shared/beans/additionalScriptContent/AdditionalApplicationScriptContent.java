@@ -75,8 +75,9 @@ public final class AdditionalApplicationScriptContent {
 		_actionScriptImports.add(actionScriptImport.getActionScriptImport());
 	}
 	
-	public void addDataGridScriptContent(String dataGridId, Integer batchColumnDataRetrievalSize, Integer maxDataPartitionIndex){
-		_dataGridScriptContent.put(dataGridId, new DataGridScriptContent(dataGridId, batchColumnDataRetrievalSize, maxDataPartitionIndex));
+	public void addDataGridScriptContent(String dataGridId, Integer batchColumnDataRetrievalSize, Integer maxDataPartitionIndex, 
+                                            String filterComponentId, String filterEventListener){
+		_dataGridScriptContent.put(dataGridId, new DataGridScriptContent(dataGridId, batchColumnDataRetrievalSize, maxDataPartitionIndex, filterComponentId, filterEventListener));
 	}
 	
 	public void addDataGridColumnToDataGridScriptContent(String dataGridId, String dataGridColumnId, String dataField, Boolean columnEditable){
