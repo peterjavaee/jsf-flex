@@ -129,7 +129,7 @@ package com.googlecode.jsfFlex.communication.component
 			_log.debug("Implicit timed flushCacheChanges invocation with unflushed cache changes of length : " + _modifiedDataFieldObjectArray.length);
 			var dataRequestParameters:Object = {};
 			dataRequestParameters.componentId = _dataGridServiceRequest.dataGridId;
-			dataRequestParameters.columnDataField = _dataField;
+			dataRequestParameters.COLUMN_DATA_FIELD = _dataField;
 			dataRequestParameters.methodToInvoke = UPDATE_MODIFIED_DATA_FIELD;
 			
 			var requestKeys:String = "";
@@ -138,13 +138,13 @@ package com.googlecode.jsfFlex.communication.component
 				requestKeys += currModifiedDataFieldObject.actualRowIndex + ",";
 				dataRequestParameters[String(currModifiedDataFieldObject.actualRowIndex)] = currModifiedDataFieldObject.modifiedValue;
 			}
-			dataRequestParameters.requestKeys = requestKeys;
+			dataRequestParameters.REQUEST_KEYS = requestKeys;
 			
 			var jsfFlexHttpServiceRequest:JsfFlexHttpService = new JsfFlexHttpService();
 			jsfFlexHttpServiceRequest.sendHttpRequest(UPDATE_MODIFIED_DATA_FIELD_SERVICE_REQUEST_URL, this,
 															function (lastResult:Object, event:ResultEvent):void {
 																
-																var resultCode:String = lastResult.RESULT_CODE;
+																var resultCode:String = lastResult[WebConstants.RESULT_CODE];
 																_log.info("Returned from : " + UPDATE_MODIFIED_DATA_FIELD + 
 																			" of " + _dataGridServiceRequest.dataGridId + " with resultCode : " + resultCode);
 															}, dataRequestParameters, JsfFlexHttpService.POST_METHOD, JsfFlexHttpService.FLASH_VARS_RESULT_FORMAT, null);

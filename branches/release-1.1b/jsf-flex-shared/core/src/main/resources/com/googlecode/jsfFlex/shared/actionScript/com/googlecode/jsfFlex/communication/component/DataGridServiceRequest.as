@@ -23,6 +23,7 @@
  */
 package com.googlecode.jsfFlex.communication.component
 {
+	import flash.events.Event;
 	import flash.utils.Dictionary;
 	
 	import mx.collections.ArrayCollection;
@@ -107,7 +108,7 @@ package com.googlecode.jsfFlex.communication.component
 		private var _dataGridCompEditable:Boolean;
 		private var _dataGridDataProvider:ListCollectionView;
 		
-		private var _filterComponentId:String;
+		private var _filterComponent:UIComponent;
 		private var _filterEventListener:String;
 		
 		/*
@@ -130,8 +131,10 @@ package com.googlecode.jsfFlex.communication.component
 			
 			_dataFieldToDataGridColumnEntriesDictionary = new Dictionary();
 			
-			_filterComponentId = filterComponentId;
-			_filterEventListener = filterEventListener;
+			if(filterComponentId != null){
+				_filterComponent = refApp[_filterComponentId];
+				_filterEventListener = filterEventListener;
+			}
 			/*
 			 * Internal setting of the fields for possible dataPartitioning 
 			 */
@@ -229,11 +232,19 @@ package com.googlecode.jsfFlex.communication.component
 				dataGridColumnEntry.dataGridColumn.editable = false;
 			}
 			
+			var filterValue:String = "";
+			if(_filterComponent != null){
+				var compValMapper:ComponentValueMapper = ComponentValueMapper.getInstance();
+				var compValue:Object = compValMapper.getCompValue(_filterComponent.id)[0];
+				filterValue = compValue.toString();
+			}
+			
 			var dataRequestParameters:Object = {};
 			dataRequestParameters.componentId = _dataGridComp.id;
 			dataRequestParameters.methodToInvoke = GET_GRID_DATA;
-			dataRequestParameters.dataStartIndex = dataStartIndex;
-			dataRequestParameters.dataEndIndex = dataEndIndex;
+			dataRequestParameters.DATA_START_INDEX = dataStartIndex;
+			dataRequestParameters.DATA_END_INDEX = dataEndIndex;
+			dataRequestParameters.FILTER_VALUE = filterValue;
 			
 			_log.debug("Getting griData for " + _dataGridComp.id + " with dataStartIndex : " + dataStartIndex + 
 						", with dataEndIndex : " + dataEndIndex + ", and with populateCacheStartIndex " + populateCacheStartIndex);
@@ -385,6 +396,10 @@ package com.googlecode.jsfFlex.communication.component
 				_dataGridComp.addEventListener(DragEvent.DRAG_DROP, dragSourceDragDropListener, false, 0, true);
 			}
 			
+			if(_filterComponent != null){
+				_filterComponent.addEventListener(_filterEventListener, filterChangedListener, false, 0, true);
+			}
+			
 			_dataGridComp.addEventListener(DataGridEvent.HEADER_RELEASE, columnSortListener, false, -10, true);
 			
 			_dataGridComp.addEventListener(DataGridEvent.ITEM_EDIT_BEGINNING, itemEditBeginListener, false, 0, true);
@@ -409,6 +424,10 @@ package com.googlecode.jsfFlex.communication.component
 			
 			if(_dataGridComp.dropEnabled){
 				_dataGridComp.removeEventListener(DragEvent.DRAG_DROP, dragSourceDragDropListener);
+			}
+			
+			if(_filterComponent != null){
+				_filterComponent.removeEventListener(_filterEventListener, filterChangedListener);
 			}
 			
 			_dataGridComp.removeEventListener(DataGridEvent.HEADER_RELEASE, columnSortListener);
@@ -498,15 +517,15 @@ package com.googlecode.jsfFlex.communication.component
 			var sortRequestParameters:Object = {};
 			sortRequestParameters.componentId = _dataGridComp.id;
 			sortRequestParameters.methodToInvoke = SORT_DATA_ENTRY;
-			sortRequestParameters.columnDataFieldToSortBy = _currColumnSortedDataField;
-			sortRequestParameters.sortAscending = _currColumnSortedAscending;
+			sortRequestParameters.COLUMN_DATA_FIELD_TO_SORT_BY = _currColumnSortedDataField;
+			sortRequestParameters.SORT_ASCENDING = _currColumnSortedAscending;
 			
 			_log.debug("Requesting column sort with columnDataFieldToSortBy : " + _currColumnSortedDataField + " and sortAscending : " + _currColumnSortedAscending);
 			var jsfFlexHttpServiceRequest:JsfFlexHttpService = new JsfFlexHttpService();
 			jsfFlexHttpServiceRequest.sendHttpRequest(SORT_DATA_ENTRY_SERVICE_REQUEST_URL, this,
 															function (lastResult:Object, event:ResultEvent):void {
 																
-																var resultCode:String = lastResult.RESULT_CODE;
+																var resultCode:String = lastResult[WebConstants.RESULT_CODE];
 																
 																_log.info("Returned from : " + SORT_DATA_ENTRY + 
 																			" of " + _dataGridComp.id + " with resultCode : " + resultCode);
@@ -535,17 +554,17 @@ package com.googlecode.jsfFlex.communication.component
 			var updateRowSelectionParameters:Object = {};
 			updateRowSelectionParameters.componentId = _dataGridComp.id;
 			updateRowSelectionParameters.methodToInvoke = UPDATE_ROW_SELECTION_ENTRY;
-			updateRowSelectionParameters.deltaSelectedEntries = _itemSelectHelper.deltaSelectedArray;
-			updateRowSelectionParameters.deltaDeselectedEntries = _itemSelectHelper.deltaDeselectedArray;
-			updateRowSelectionParameters.updateItemPartitionIndex = updateItemPartitionIndex;
-			updateRowSelectionParameters.fetchSelectionItemPartitionIndex = fetchSelectionItemPartitionIndex;
-			updateRowSelectionParameters.selectAll = _itemSelectHelper.selectAll;
-			updateRowSelectionParameters.deselectAll = _itemSelectHelper.deselectAll;
+			updateRowSelectionParameters.DELTA_SELECTED_ENTRIES = _itemSelectHelper.deltaSelectedArray;
+			updateRowSelectionParameters.DELTA_DESELECTED_ENTRIES = _itemSelectHelper.deltaDeselectedArray;
+			updateRowSelectionParameters.UPDATE_ITEM_PARTITION_INDEX = updateItemPartitionIndex;
+			updateRowSelectionParameters.FETCH_SELECTION_ITEM_PARTITION_INDEX = fetchSelectionItemPartitionIndex;
+			updateRowSelectionParameters.SELECT_ALL = _itemSelectHelper.selectAll;
+			updateRowSelectionParameters.DESELECT_ALL = _itemSelectHelper.deselectAll;
 			
 			_itemSelectHelper.clearDeltas();
 			
-			_log.debug("Requesting updateRowSelection with deltaSelectedEntries length : " + updateRowSelectionParameters.deltaSelectedEntries.length + 
-							", deltaDeselectedEntries length : " + updateRowSelectionParameters.deltaDeselectedEntries + ", and updateItemPartitionIndex : " + 
+			_log.debug("Requesting updateRowSelection with deltaSelectedEntries length : " + updateRowSelectionParameters.DELTA_SELECTED_ENTRIES.length + 
+							", deltaDeselectedEntries length : " + updateRowSelectionParameters.DELTA_DESELECTED_ENTRIES + ", and updateItemPartitionIndex : " + 
 							updateItemPartitionIndex);
 			var jsfFlexHttpServiceRequest:JsfFlexHttpService = new JsfFlexHttpService();
 			jsfFlexHttpServiceRequest.sendHttpRequest(UPDATE_ROW_SELECTION_SERVICE_REQUEST_URL, this,
@@ -553,13 +572,15 @@ package com.googlecode.jsfFlex.communication.component
 																
 																_log.info("Returned from : " + UPDATE_ROW_SELECTION_ENTRY + 
 																			" of " + _dataGridComp.id + " with : " + lastResult);
-																if(lastResult.RESULT_CODE){
+																var resultCode:String = lastResult[WebConstants.RESULT_CODE];
+																
+																if(resultCode){
 																	_log.info("Non Root");
-																	_log.info("Result code is : " + lastResult.RESULT_CODE);
+																	_log.info("Result code is : " + resultCode);
 																	_dataGridComp.selectedIndices = lastResult.RETURNED_SELECT_ENTRIES.VALUE;
 																}else if(lastResult.root){
 																	_log.info("Root");
-																	_log.info("Result code is : " + lastResult.root.RESULT_CODE);
+																	_log.info("Result code is : " + lastResult.root[WebConstants.RESULT_CODE]);
 																	_dataGridComp.selectedIndices = lastResult.root.returnedSeledEntries.VALUE;
 																}else{
 																	_log.info("Something else");
@@ -604,8 +625,8 @@ package com.googlecode.jsfFlex.communication.component
 				var addDataRequestParameters:Object = {};
 				addDataRequestParameters.componentId = _dataGridComp.id;
 				addDataRequestParameters.methodToInvoke = ADD_DATA_ENTRY;
-				addDataRequestParameters.addEntryStartIndex = addEntryStartIndex;
-				addDataRequestParameters.addEntryEndIndex = addEntryEndIndex;
+				addDataRequestParameters.ADD_ENTRY_START_INDEX = addEntryStartIndex;
+				addDataRequestParameters.ADD_ENTRY_END_INDEX = addEntryEndIndex;
 				
 				var index:uint = 0;
 				for each(var dragSourceEntry:Object in dragSourceEntries){
@@ -623,13 +644,13 @@ package com.googlecode.jsfFlex.communication.component
 				jsfFlexHttpServiceRequest.sendHttpRequest(ADD_DATA_ENTRY_SERVICE_REQUEST_URL, this,
 																function (lastResult:Object, event:ResultEvent):void {
 																	
-																	var resultCode:String = lastResult.RESULT_CODE;
+																	var resultCode:String = lastResult[WebConstants.RESULT_CODE];
 																	
 																	_log.info("Returned from : " + ADD_DATA_ENTRY + 
 																				" of " + _dataGridComp.id + " with resultCode : " + resultCode);
 																	if(resultCode == "true"){
-																		resetDataPartitionParameters(parseInt(lastResult.maxDataPartitionIndex), 
-																										parseInt(lastResult.batchColumnDataRetrievalSize));
+																		resetDataPartitionParameters(parseInt(lastResult.MAX_DATA_PARTITION_INDEX), 
+																										parseInt(lastResult.BATCH_COLUMN_DATA_RETRIEVAL_SIZE));
 																		_log.debug("Have reset maxDataPartitionIndex : " + _maxDataPartitionIndex + " _batchColumnDataRetrievalSize : " +
 																					_batchColumnDataRetrievalSize + " of " + _dataGridComp.id);
 																		//now fetch the new data
@@ -675,20 +696,20 @@ package com.googlecode.jsfFlex.communication.component
 					deleteIndices.push((currentActualCacheStartIndex + selectedIndices[i]));
 				}
 				
-				removeDataRequestParameters.deleteIndices = deleteIndices;
+				removeDataRequestParameters.DELETE_INDICES = deleteIndices;
 				
 				_log.debug("Requesting of deletion of indices " + deleteIndices + " due to drag + drop event");
 				var jsfFlexHttpServiceRequest:JsfFlexHttpService = new JsfFlexHttpService();
 				jsfFlexHttpServiceRequest.sendHttpRequest(REMOVE_DATA_ENTRY_SERVICE_REQUEST_URL, this,
 																function (lastResult:Object, event:ResultEvent):void {
 																	
-																	var resultCode:String = lastResult.RESULT_CODE;
+																	var resultCode:String = lastResult[WebConstants.RESULT_CODE];
 																	
 																	_log.info("Returned from : " + REMOVE_DATA_ENTRY + 
 																				" of " + _dataGridComp.id + " with resultCode : " + resultCode);
 																	if(resultCode == "true"){
-																		resetDataPartitionParameters(parseInt(lastResult.maxDataPartitionIndex), 
-																										parseInt(lastResult.batchColumnDataRetrievalSize));
+																		resetDataPartitionParameters(parseInt(lastResult.MAX_DATA_PARTITION_INDEX), 
+																										parseInt(lastResult.BATCH_COLUMN_DATA_RETRIEVAL_SIZE));
 																		
 																		_log.debug("Have reset maxDataPartitionIndex : " + _maxDataPartitionIndex + " _batchColumnDataRetrievalSize : " +
 																					_batchColumnDataRetrievalSize + " of " + _dataGridComp.id);
@@ -703,6 +724,16 @@ package com.googlecode.jsfFlex.communication.component
 																}, removeDataRequestParameters, JsfFlexHttpService.POST_METHOD, JsfFlexHttpService.FLASH_VARS_RESULT_FORMAT, null);
 			}
 			
+		}
+		
+		private function filterChangedListener(event:Event):void {
+			_log.debug("Within filterChangedListener");
+			
+			getGridData(_currentInitialHalfDataPartitionIndex, 0);
+			
+			if(_dataPartitioned){
+				getGridData((_currentInitialHalfDataPartitionIndex + 1), _batchColumnDataRetrievalSize);
+			}
 		}
 		
 		private function itemEditBeginListener(event:DataGridEvent):void {

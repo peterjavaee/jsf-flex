@@ -16,28 +16,23 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- 
+package com.googlecode.jsfFlex.attributes;
+
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
+import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
+
 /**
- * This class will represent the constants needed for the web project
- * such as the contextPath that the swf rests within. Technically one can
- * evalute this value using communication to Javascript, but gets a bit messy
- * and can possibly cause unexpected issues depending on how the user sets up
- * the web app [sanity sake].
  * @author Ji Hoon Kim
  */
-package com.googlecode.jsfFlex.communication.utils
-{
-	import flash.errors.IllegalOperationError;
-	
-	public class WebConstants {
-		
-		public static const WEB_CONTEXT_PATH:String = "{webContextPath}";
-		public static const RESULT_CODE:String = "RESULT_CODE";
-		
-		public function WebConstants(){
-			throw new IllegalOperationError("WebConstants should be used statically");
-		}
-		
-	}
-	
+@JSFComponent
+public interface IFlexUIFilterEventListenerAttribute {
+
+    /**
+     * Event to associate for this Filter Listener.
+     */
+    @JSFProperty(desc        = "Event to associate for this Filter Listener.")
+    String getFilterEventListener();
+    
+    void setFilterEventListener(String filterEventListener);
+    
 }

@@ -55,6 +55,7 @@ package com.googlecode.jsfFlex.communication.core
 		private static const SPECIFIC_OBJECT_TYPE_INIT:String = "specificObjectTypeInit";
 		private static const DATE_OBJECT:String = "Date";
 		
+		private static var _currInstance:ComponentValueMapper;
 		private static var _compValueMapper:XML;
 		private static var _loader:URLLoader;
 		
@@ -80,6 +81,10 @@ package com.googlecode.jsfFlex.communication.core
 				trace("Failure in loading of the componentValueMapper.xml file");
 				_log.error("Failure in loading of the componentValueMapper.xml file");
 			}
+		}
+		
+		public static function getInstance():ComponentValueMapper {
+			return _currInstance;
 		}
 		
 		public function ComponentValueMapper(refApp:UIComponent) {

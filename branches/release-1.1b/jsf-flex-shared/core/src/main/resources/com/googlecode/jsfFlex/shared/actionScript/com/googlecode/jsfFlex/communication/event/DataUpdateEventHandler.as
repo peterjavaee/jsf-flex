@@ -39,7 +39,6 @@ package com.googlecode.jsfFlex.communication.event
 		private static const DATA_UPDATE_VALUE_ATTR:String = "DATA_UPDATE_VALUE";
 		private static var _log:ILogger;
 		
-		private var _compValMapper:ComponentValueMapper;
 		private var _refApp:UIComponent;
 		private var _srcId:String;
 		private var _tgtId:String;
@@ -50,10 +49,9 @@ package com.googlecode.jsfFlex.communication.event
 		}
 		
 		public function DataUpdateEventHandler(srcId:String, tgtId:String, eventHandlerId:String, eventName:String, additionalArgs:Object,
-												compValMapper:ComponentValueMapper, refApp:UIComponent) {
+												refApp:UIComponent) {
 			super(refApp[srcId], eventName);
 			
-			_compValMapper = compValMapper;
 			_refApp = refApp;
 			_srcId = srcId;
 			_tgtId = tgtId;
@@ -64,7 +62,8 @@ package com.googlecode.jsfFlex.communication.event
 		override public function handleEvent(event:Event):void {
 			_log.info("Executing a data update value request for component " + _tgtId);
 			
-			var compValue:Object = _compValMapper.getCompValue(_srcId)[0];
+			var compValMapper:ComponentValueMapper = ComponentValueMapper.getInstance();
+			var compValue:Object = compValMapper.getCompValue(_srcId)[0];
 			var dataRequestParameters:Object = {};
 			dataRequestParameters.componentId = _eventHandlerId;
 			dataRequestParameters.methodToInvoke = ASYNC_PROCESS_REQUEST;
@@ -77,7 +76,7 @@ package com.googlecode.jsfFlex.communication.event
 																_log.info("Returned from : " + ASYNC_PROCESS_REQUEST + " of src/target :" + _srcId + "/" + _tgtId);
 																
 																var updateValue:String = lastResult.UPDATE_VALUE_ATTRIBUTE;
-																var compValue:Object = _compValMapper.getCompValue(_tgtId)[0];
+																var compValue:Object = compValMapper.getCompValue(_tgtId)[0];
 																_refApp[_tgtId][compValue.id] = updateValue;
 																
 															}, dataRequestParameters, JsfFlexHttpService.POST_METHOD, JsfFlexHttpService.OBJECT_RESULT_FORMAT, null);

@@ -44,10 +44,11 @@ import com.googlecode.jsfFlex.attributes.IFlexUIBindingBeanClassNameAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIBindingBeanListAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIDataProviderAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
-import com.googlecode.jsfFlex.attributes.IFlexUIEventListenerAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIFilterComponentIdAttribute;
+import com.googlecode.jsfFlex.attributes.IFlexUIFilterEventListenerAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIRowCountAttribute;
 import com.googlecode.jsfFlex.component.AbstractFlexUIPreserveInServer;
+import com.googlecode.jsfFlex.shared.model.event.AbstractEvent;
 import com.googlecode.jsfFlex.shared.model.event.AsynchronousFilterEvent;
 
 /**
@@ -65,45 +66,44 @@ public abstract class AbstractFlexUIDataGrid
                         extends AbstractFlexUIPreserveInServer
                         implements IFlexUIBaseAttributes, IFlexUIBindingBeanListAttribute, IFlexUIBindingBeanClassNameAttribute,
                         IFlexUIBatchColumnDataRetrievalSizeAttribute, IFlexUIEditableAttribute, IFlexUIDataProviderAttribute, 
-                        IFlexUIRowCountAttribute, IFlexUIFilterComponentIdAttribute, IFlexUIEventListenerAttribute, 
+                        IFlexUIRowCountAttribute, IFlexUIFilterComponentIdAttribute, IFlexUIFilterEventListenerAttribute, 
                         IFlexUIAsynchronousEventGlueHandlerAttribute {
     
     private final static Log _log = LogFactory.getLog(AbstractFlexUIDataGrid.class);
     
     private static final Integer ZERO_BATCH_COLUMN_DATA_RETRIEVAL_SIZE = Integer.valueOf(0);
     
-    private static final String COLUMN_DATA_FIELD_KEY = "columnDataField";
-    private static final String RESULT_CODE_KEY = "RESULT_CODE";
+    private static final String COLUMN_DATA_FIELD_KEY = "COLUMN_DATA_FIELD";
     
-    private static final String DATA_START_INDEX_KEY = "dataStartIndex";
-    private static final String DATA_END_INDEX_KEY = "dataEndIndex";
+    private static final String DATA_START_INDEX_KEY = "DATA_START_INDEX";
+    private static final String DATA_END_INDEX_KEY = "DATA_END_INDEX";
     
-    private static final String COLUMN_DATA_FIELD_TO_SORT_BY_KEY = "columnDataFieldToSortBy";
-    private static final String SORT_ASCENDING_KEY = "sortAscending";
+    private static final String COLUMN_DATA_FIELD_TO_SORT_BY_KEY = "COLUMN_DATA_FIELD_TO_SORT_BY";
+    private static final String SORT_ASCENDING_KEY = "SORT_ASCENDING";
     
-    private static final String BATCH_COLUMN_DATA_RETRIEVAL_SIZE = "batchColumnDataRetrievalSize";
-    private static final String MAX_DATA_PARTITION_INDEX = "maxDataPartitionIndex";
+    private static final String BATCH_COLUMN_DATA_RETRIEVAL_SIZE_KEY = "BATCH_COLUMN_DATA_RETRIEVAL_SIZE";
+    private static final String MAX_DATA_PARTITION_INDEX_KEY = "MAX_DATA_PARTITION_INDEX";
     
     private static final String ADD_DATA_ENTRY_DELIM = "_DELIM_";
-    private static final String ADD_ENTRY_START_INDEX_KEY = "addEntryStartIndex";
-    private static final String ADD_ENTRY_END_INDEX_KEY = "addEntryEndIndex";
+    private static final String ADD_ENTRY_START_INDEX_KEY = "ADD_ENTRY_START_INDEX";
+    private static final String ADD_ENTRY_END_INDEX_KEY = "ADD_ENTRY_END_INDEX";
     
-    private static final String DELETE_INDICES_KEY = "deleteIndices";
+    private static final String DELETE_INDICES_KEY = "DELETE_INDICES";
     
-    private static final String DELTA_DESELECTED_ENTRIES_KEY = "deltaDeselectedEntries";
-    private static final String DELTA_SELECTED_ENTRIES_KEY = "deltaSelectedEntries";
-    private static final String FETCH_SELECTION_ITEM_PARTITION_INDEX_KEY = "fetchSelectionItemPartitionIndex";
-    private static final String UPDATE_ITEM_PARTITION_INDEX_KEY = "updateItemPartitionIndex";
-    private static final String SELECT_ALL_KEY = "selectAll";
-    private static final String DESELECT_ALL_KEY = "deselectAll";
+    private static final String DELTA_DESELECTED_ENTRIES_KEY = "DELTA_DESELECTED_ENTRIES";
+    private static final String DELTA_SELECTED_ENTRIES_KEY = "DELTA_SELECTED_ENTRIES";
+    private static final String FETCH_SELECTION_ITEM_PARTITION_INDEX_KEY = "FETCH_SELECTION_ITEM_PARTITION_INDEX";
+    private static final String UPDATE_ITEM_PARTITION_INDEX_KEY = "UPDATE_ITEM_PARTITION_INDEX";
+    private static final String SELECT_ALL_KEY = "SELECT_ALL";
+    private static final String DESELECT_ALL_KEY = "DESELECT_ALL";
     private static final String RETURNED_SELECT_ENTRIES = "RETURNED_SELECT_ENTRIES";
     
-    private static final String FILTER_VALUE_KEY = "filterValue";
+    private static final String FILTER_VALUE_KEY = "FILTER_VALUE";
     private static final JSONObject ERROR_JSON_OBJECT = new JSONObject();
     
     static{
         try{
-            ERROR_JSON_OBJECT.put(RESULT_CODE_KEY, "Error");
+            ERROR_JSON_OBJECT.put(AbstractEvent.ASYNCHRONOUS_VARIABLES.RESULT_CODE.toString(), "Error");
         }catch(JSONException jsonException){
             _log.error("Error while creating ERROR_JSON_OBJECT");
         }
@@ -217,7 +217,7 @@ public abstract class AbstractFlexUIDataGrid
             }
         }
         
-        updateRowSelectionResult.put(RESULT_CODE_KEY, success);
+        updateRowSelectionResult.put(AbstractEvent.ASYNCHRONOUS_VARIABLES.RESULT_CODE.toString(), success);
         return updateRowSelectionResult;
     }
     
@@ -288,19 +288,18 @@ public abstract class AbstractFlexUIDataGrid
                 String filterCheckValue = filterColumnComponent.getFormatedColumnData(currValue);
                 
                 Boolean filterCurrentRow = false;
-                /*
-                filterCurrentRow = invokeFilterMethod(currRowValue, filterValue);
-                */
-                
-                if(filterCurrentRow){
-                    continue;
+                if(getFilterComponentId() != null){
+                    filterCurrentRow = invokeFilterMethod(filterCheckValue, filterValue);
+                    if(filterCurrentRow){
+                        _log.info("Row containing value of " + filterCheckValue + " was filtered");
+                        continue;
+                    }
                 }
                 
                 /*
                  * Since this row does not need to be filtered, add first the filter column value and add the reamining entries into 
                  * the JSONObject
                  */
-                _log.info("Row containing value of " + filterCheckValue + " was not filtered");
                 filterColumnContent.put(filterCheckValue);
                 
                 for(String currKey : traverseDataGridColumnMap.keySet()) {
@@ -358,7 +357,7 @@ public abstract class AbstractFlexUIDataGrid
         }catch(NumberFormatException parsingException){
             _log.error("Error parsing of following values [" + addEntryStartIndex + ", " + addEntryEndIndex + "] to an int", parsingException);
             success = false;
-            addDataResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
+            addDataResult.put(AbstractEvent.ASYNCHRONOUS_VARIABLES.RESULT_CODE.toString(), Boolean.valueOf(success));
             return addDataResult;
         }
         
@@ -417,9 +416,9 @@ public abstract class AbstractFlexUIDataGrid
         _selectedRows = new BitSet(getBindingBeanList().size());
         _selectedRows.set(parsedAddEntryEndIndex, parsedAddEntryEndIndex + loopLength);
         
-        addDataResult.put(BATCH_COLUMN_DATA_RETRIEVAL_SIZE, batchColumnDataRetrievalSize);
-        addDataResult.put(MAX_DATA_PARTITION_INDEX, maxDataPartitionIndex);
-        addDataResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
+        addDataResult.put(BATCH_COLUMN_DATA_RETRIEVAL_SIZE_KEY, batchColumnDataRetrievalSize);
+        addDataResult.put(MAX_DATA_PARTITION_INDEX_KEY, maxDataPartitionIndex);
+        addDataResult.put(AbstractEvent.ASYNCHRONOUS_VARIABLES.RESULT_CODE.toString(), Boolean.valueOf(success));
         return addDataResult;
     }
     
@@ -478,9 +477,9 @@ public abstract class AbstractFlexUIDataGrid
          */
         _selectedRows = new BitSet(getBindingBeanList().size());
         
-        removeDataResult.put(BATCH_COLUMN_DATA_RETRIEVAL_SIZE, batchColumnDataRetrievalSize);
-        removeDataResult.put(MAX_DATA_PARTITION_INDEX, maxDataPartitionIndex);
-        removeDataResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
+        removeDataResult.put(BATCH_COLUMN_DATA_RETRIEVAL_SIZE_KEY, batchColumnDataRetrievalSize);
+        removeDataResult.put(MAX_DATA_PARTITION_INDEX_KEY, maxDataPartitionIndex);
+        removeDataResult.put(AbstractEvent.ASYNCHRONOUS_VARIABLES.RESULT_CODE.toString(), Boolean.valueOf(success));
         return removeDataResult;
     }
     
@@ -507,7 +506,7 @@ public abstract class AbstractFlexUIDataGrid
         
         _log.info("Success result code for sorting is : " + success + " for component : " + getId());
         
-        sortResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
+        sortResult.put(AbstractEvent.ASYNCHRONOUS_VARIABLES.RESULT_CODE.toString(), Boolean.valueOf(success));
         return sortResult;
     }
     

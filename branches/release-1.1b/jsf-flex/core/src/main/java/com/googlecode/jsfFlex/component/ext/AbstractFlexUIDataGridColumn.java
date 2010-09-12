@@ -35,6 +35,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUIDataFieldAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
 import com.googlecode.jsfFlex.component.AbstractFlexUIInputBase;
+import com.googlecode.jsfFlex.shared.model.event.AbstractEvent;
 import com.googlecode.jsfFlex.shared.util.ReflectionHelperUtil;
 
 /**
@@ -54,8 +55,7 @@ public abstract class AbstractFlexUIDataGridColumn
     
     private final static Log _log = LogFactory.getLog(AbstractFlexUIDataGridColumn.class);
     
-    private static final String REQUEST_KEYS_KEY = "requestKeys";
-    private static final String RESULT_CODE_KEY = "RESULT_CODE";
+    private static final String REQUEST_KEYS_KEY = "REQUEST_KEYS";
     
     private Comparator<Object> ascendingComparator;
     private Comparator<Object> descendingComparator;
@@ -129,7 +129,7 @@ public abstract class AbstractFlexUIDataGridColumn
         
         _log.info("Returning success code of : " + success + " during updateModifiedDataField of : " + getDataField());
         
-        updateResult.put(RESULT_CODE_KEY, Boolean.valueOf(success));
+        updateResult.put(AbstractEvent.ASYNCHRONOUS_VARIABLES.RESULT_CODE.toString(), Boolean.valueOf(success));
         return updateResult;
     }
     

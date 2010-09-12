@@ -27,7 +27,6 @@ package com.googlecode.jsfFlex.communication.event
 	import flash.external.ExternalInterface;
 	import mx.core.UIComponent;
 	
-	import com.googlecode.jsfFlex.communication.core.ComponentValueMapper;
 	import com.googlecode.jsfFlex.communication.logger.ILogger;
 	import com.googlecode.jsfFlex.communication.logger.LoggerFactory;
 	
@@ -46,7 +45,7 @@ package com.googlecode.jsfFlex.communication.event
 		}
 		
 		public function SubmitFormEventHandler(srcId:String, tgtId:String, eventHandlerId:String, eventName:String, additionalArgs:Object,
-													compValMapper:ComponentValueMapper, refApp:UIComponent) {
+													refApp:UIComponent) {
 			super(refApp[srcId], eventName);
 			
 			/*

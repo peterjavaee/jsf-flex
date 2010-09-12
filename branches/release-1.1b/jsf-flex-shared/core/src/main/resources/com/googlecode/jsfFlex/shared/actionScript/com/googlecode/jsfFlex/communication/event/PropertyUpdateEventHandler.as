@@ -38,7 +38,6 @@ package com.googlecode.jsfFlex.communication.event
 		private static const SOURCE_PROPERTY_CURRENT_VALUE_ATTR:String = "SOURCE_PROPERTY_CURRENT_VALUE";
 		private static var _log:ILogger;
 		
-		private var _compValMapper:ComponentValueMapper;
 		private var _refApp:UIComponent;
 		private var _srcId:String;
 		private var _tgtId:String;
@@ -52,10 +51,9 @@ package com.googlecode.jsfFlex.communication.event
 		}
 		
 		public function PropertyUpdateEventHandler(srcId:String, tgtId:String, eventHandlerId:String, eventName:String, additionalArgs:Object,
-														compValMapper:ComponentValueMapper, refApp:UIComponent) {
+														refApp:UIComponent) {
 			super(refApp[srcId], eventName);
 			
-			_compValMapper = compValMapper;
 			_refApp = refApp;
 			_srcId = srcId;
 			_tgtId = tgtId;

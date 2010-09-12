@@ -23,6 +23,10 @@ package com.googlecode.jsfFlex.shared.model.event;
  */
 public abstract class AbstractEvent {
     
+    public enum ASYNCHRONOUS_VARIABLES {
+        RESULT_CODE
+    }
+    
     private final String _targetComponentId;
     
     AbstractEvent(){

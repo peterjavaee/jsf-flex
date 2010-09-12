@@ -115,49 +115,7 @@ public final class FlexConstants {
 	
 	private static final String FLEX_CONSTANTS_XML = "flexConstants.xml";
     
-    public enum RENDERER_FAMILY {
-        
-        COMMAND_BASE("javax.faces.FlexCommandBase"),
-        HTML_TEXT_INPUT_BASE("javax.faces.FlexUIHtmlTextInputBase"),
-        INPUT("javax.faces.FlexInput"),
-        INPUT_BASE("javax.faces.FlexInputBase"),
-        OUTPUT_BASE("javax.faces.FlexOutputBase"),
-        SELECTED_BASE("javax.faces.FlexUISelectedBase"),
-        SELECTED_INDEX_BASE("javax.faces.FlexUISelectedIndexBase"),
-        SIMPLE("javax.faces.FlexSimple"),
-        SIMPLE_BASE("javax.faces.FlexUISimpleBase"),
-        TEXT_INPUT_BASE("javax.faces.FlexUITextInputBase"),
-        VALUE_BASE("javax.faces.FlexUIValueBase"),
-        VIEW_STACK_BASE("javax.faces.FlexUIViewStackBase");
-        
-        private static final Map<String, RENDERER_FAMILY> ENUM_STRING_MAP = new HashMap<String, RENDERER_FAMILY>();
-        
-        static{
-            for(RENDERER_FAMILY currFamily : values()){
-                ENUM_STRING_MAP.put(currFamily.toString(), currFamily);
-            }
-        }
-        
-        public static RENDERER_FAMILY fromString(String stringFormat) {
-            return ENUM_STRING_MAP.get(stringFormat);
-        }
-        
-        private String _familyName;
-        
-        RENDERER_FAMILY(String familyName){
-            _familyName = familyName;
-        }
-        
-        @Override
-        public String toString() {
-            return _familyName;
-        }
-        
-    };
-    
-    public static final String FLEX_BASIC_RENDERKIT_ID = "FLEX_BASIC";
-    
-	public static final int HASH_CODE_INIT_VALUE = 3;
+    public static final int HASH_CODE_INIT_VALUE = 3;
 	public static final int HASH_CODE_MULTIPLY_VALUE = 31;
 	
 	public static final boolean WINDOWS_SYSTEM;
