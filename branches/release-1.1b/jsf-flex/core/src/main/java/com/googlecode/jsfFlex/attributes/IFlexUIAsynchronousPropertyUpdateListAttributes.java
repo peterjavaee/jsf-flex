@@ -32,13 +32,13 @@ public interface IFlexUIAsynchronousPropertyUpdateListAttributes {
     /**
      * This list is to provide which property the user wishes to fetch from the source component back to the server side. The parameter for this method is in a form of a List to allow nesting. Meaning if the list is ["first", "second"], then following will be fetched sourceComp["first"]["second"]. This is to allow much flexibility.
      */
-    @JSFProperty(desc   =   "List of beans for data binding to the component.")
+    @JSFProperty(desc   =   "This list is to provide which property the user wishes to fetch from the source component back to the server side. The parameter for this method is in a form of a List to allow nesting. Meaning if the list is ['first', 'second'], then following will be fetched sourceComp['first']['second']. This is to allow much flexibility.")
     List<String> getSourcePropertyList();
     
     /**
      * This list is to provide which property the user wishes to update for the target component on the client side. The parameter for this method is in a form of a List to allow nesting. Meaning if the list is ["first", "second"], then following will be set sourceComp["first"]["second"] = val. This is to allow much flexibility.
      */
-    @JSFProperty(desc   =   "List of beans for data binding to the component.")
+    @JSFProperty(desc   =   "This list is to provide which property the user wishes to update for the target component on the client side. The parameter for this method is in a form of a List to allow nesting. Meaning if the list is ['first', 'second'], then following will be set sourceComp['first']['second'] = val. This is to allow much flexibility.")
     List<String> getTargetPropertyList();
     
 }

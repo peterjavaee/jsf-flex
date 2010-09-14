@@ -62,7 +62,7 @@ package com.googlecode.jsfFlex.communication.event
 		override public function handleEvent(event:Event):void {
 			_log.info("Executing a data update value request for component " + _tgtId);
 			
-			var compValMapper:ComponentValueMapper = ComponentValueMapper.getInstance();
+			var compValMapper:ComponentValueMapper = ComponentValueMapper.getInstance(null);
 			var compValue:Object = compValMapper.getCompValue(_srcId)[0];
 			var dataRequestParameters:Object = {};
 			dataRequestParameters.componentId = _eventHandlerId;

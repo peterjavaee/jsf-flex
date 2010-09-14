@@ -30,13 +30,13 @@ public interface IFlexUIAsynchronousPropertyUpdateDelimAttributes {
     /**
      * This ',' deliminated String is to provide which property the user wishes to fetch from the source component back to the server side. The parameter for this method is in a form of a String deliminated to allow nesting. Meaning if the String is "first, second", then following will be fetched sourceComp["first"]["second"]. This is to allow much flexibility.
      */
-    @JSFProperty(desc   =   "List of beans for data binding to the component.")
+    @JSFProperty(desc   =   "This ',' deliminated String is to provide which property the user wishes to fetch from the source component back to the server side. The parameter for this method is in a form of a String deliminated to allow nesting. Meaning if the String is 'first, second', then following will be fetched sourceComp['first']['second']. This is to allow much flexibility.")
     String getSourcePropertyDelim();
     
     /**
      * This ',' deliminated String is to provide which property the user wishes to update for the target component on the client side. The parameter for this method is in a form of a String deliminated to allow nesting. Meaning if the String is "first, second", then following will be set sourceComp["first"]["second"] = val. This is to allow much flexibility.
      */
-    @JSFProperty(desc   =   "List of beans for data binding to the component.")
+    @JSFProperty(desc   =   "This ',' deliminated String is to provide which property the user wishes to update for the target component on the client side. The parameter for this method is in a form of a String deliminated to allow nesting. Meaning if the String is 'first, second', then following will be set sourceComp['first']['second'] = val. This is to allow much flexibility.")
     String getTargetPropertyDelim();
     
 }

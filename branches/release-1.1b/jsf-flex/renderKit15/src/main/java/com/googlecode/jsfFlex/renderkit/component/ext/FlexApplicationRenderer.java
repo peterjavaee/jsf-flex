@@ -111,7 +111,18 @@ public final class FlexApplicationRenderer extends AbstractFlexComponentBaseRend
 		/*
 		 * Place in xmlns provided by the user + default for Flex application
 		 */
-        Set<TokenValue> tokenValueSet = componentFlex.getAnnotationDocletParserInstance().getTokenValueSet(); 
+        Set<TokenValue> tokenValueSet = componentFlex.getAnnotationDocletParserInstance().getTokenValueSet();
+        TokenValue width = new TokenValue("width", null);
+        TokenValue height = new TokenValue("height", null);
+        for(TokenValue currTokenValue : tokenValueSet){
+            if(currTokenValue.equals(width)){
+                componentObj.getAttributes().put("width", currTokenValue.getValue());
+            }
+            if(currTokenValue.equals(height)){
+                componentObj.getAttributes().put("height", currTokenValue.getValue());
+            }
+        }
+        
         Map<String, String> xmlnsMap = componentFlex.getXmlnsMap();
         for(String currXmlnsKey : xmlnsMap.keySet()){
             String currXmlnsValue = xmlnsMap.get(currXmlnsKey);

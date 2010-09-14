@@ -26,30 +26,9 @@
  */
 //-->
 
-<body>
-
-<f:view renderKitId="FLEX_BASIC">
-    
-    <h:form>
-    	
-    	<jf:flexApplication mxmlPackageName="flexMenuBar">
-    		<ui:include src="../faceletFiles/flexApplicationContentDimension.xhtml" />
-    		
-	    	<jf:flexMenuBar>
-	    		<jf:flexAttributeNode name="labelField" value="@label"/>
-    			<jf:flexDataProvider>
-    				
-    				<ui:include src="../faceletFiles/flexXMLListExample.xhtml" />
-    				
-    			</jf:flexDataProvider>
-    		</jf:flexMenuBar>
-    		
-	    </jf:flexApplication>
-	    
-    </h:form>
-    
-</f:view>
-
-</body>
+<ui:composition>
+	<jf:flexAttributeNode name="height" value="800"/>
+	<jf:flexAttributeNode name="width" value="800"/>
+</ui:composition>
 
 </html>

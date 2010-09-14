@@ -41,6 +41,7 @@ package com.googlecode.jsfFlex.communication.component
 	import mx.managers.DragManager;
 	import mx.rpc.events.ResultEvent;
 	
+	import com.googlecode.jsfFlex.communication.core.ComponentValueMapper;
 	import com.googlecode.jsfFlex.communication.event.helper.ItemSelectHelper;
 	import com.googlecode.jsfFlex.communication.event.helper.ScrollEventHelper;
 	import com.googlecode.jsfFlex.communication.logger.ILogger;
@@ -131,8 +132,8 @@ package com.googlecode.jsfFlex.communication.component
 			
 			_dataFieldToDataGridColumnEntriesDictionary = new Dictionary();
 			
-			if(filterComponentId != null){
-				_filterComponent = refApp[_filterComponentId];
+			if(filterComponentId.length > 0){
+				_filterComponent = refApp[filterComponentId];
 				_filterEventListener = filterEventListener;
 			}
 			/*
@@ -234,7 +235,7 @@ package com.googlecode.jsfFlex.communication.component
 			
 			var filterValue:String = "";
 			if(_filterComponent != null){
-				var compValMapper:ComponentValueMapper = ComponentValueMapper.getInstance();
+				var compValMapper:ComponentValueMapper = ComponentValueMapper.getInstance(null);
 				var compValue:Object = compValMapper.getCompValue(_filterComponent.id)[0];
 				filterValue = compValue.toString();
 			}

@@ -81,9 +81,16 @@
 		<h:outputLink value="eventGlue/flexAsynchronousDataUpdateEventListener.jsf">
 			<f:verbatim>A page for testing an asynchronous data update event listener</f:verbatim>
 		</h:outputLink>
+		<h:outputLink value="eventGlue/flexAsynchronousPropertyUpdateEventListener.jsf">
+            <f:verbatim>A page for testing an asynchronous property update event listener</f:verbatim>
+        </h:outputLink>
 		<h:outputLink value="additionalComponent/flexAdditionalComponent.jsf">
             <f:verbatim>A page showing usage of flexAdditionalComponent </f:verbatim>
         </h:outputLink>
+        <h:outputLink
+			value="dataGridFilteringExample/flexDataGridFilteringExample.jsf">
+			<f:verbatim>An example demonstrating filtering a data grid's content with an another Flex component's value</f:verbatim>
+		</h:outputLink>
 		<h:outputLink value="overallExample/flexOverallExample.jsf">
 			<f:verbatim>An overall example of the components</f:verbatim>
 		</h:outputLink>
@@ -155,6 +162,9 @@
 		<h:outputLink value="dataGridDragDropExample/flexDataGridDragDropExample.jsf">
 			<f:verbatim>An example for Drag + Drop of DataGrid component</f:verbatim>
 		</h:outputLink>
+		<h:outputLink value="other/flexProvidedFlexSDK.jsf">
+            <f:verbatim>An example for providing specific Flex SDK for JSF Flex</f:verbatim>
+        </h:outputLink>
 		<h:outputLink value="componentExamples/flexHorizontalList.jsf">
 			<f:verbatim>An example for HorizontalList component</f:verbatim>
 		</h:outputLink>

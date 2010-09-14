@@ -28,7 +28,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
 public interface IFlexUIDataFieldAttribute {
 	
     /**
-     * Maximum number of rows visible in the control.
+     * The name of the field or property in the data provider item associated with the column.
      */
     @JSFProperty(desc   =   "The name of the field or property in the data provider item associated with the column.")
     String getDataField();

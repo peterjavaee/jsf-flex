@@ -39,8 +39,8 @@ public final class DataGridScriptContent {
 		_dataGridId = dataGridId;
 		_batchColumnDataRetrievalSize = batchColumnDataRetrievalSize;
 		_maxDataPartitionIndex = maxDataPartitionIndex;
-		_filterComponentId = filterComponentId;
-        _filterEventListener = filterEventListener;
+		_filterComponentId = filterComponentId == null ? "" : filterComponentId;
+        _filterEventListener = filterEventListener == null ? "" : filterEventListener;
         _dataGridColumns = new LinkedList<DataGridColumnScriptContent>();
 	}
 	

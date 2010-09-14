@@ -1,10 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:ui="http://java.sun.com/jsf/facelets"
-        xmlns:h="http://java.sun.com/jsf/html"
-        xmlns:f="http://java.sun.com/jsf/core"
-        xmlns:jf="http://jsf-flex.googlecode.com">
+<%@ page session="false" contentType="text/html;charset=utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
+<%@ taglib uri="http://jsf-flex.googlecode.com" prefix="jf"%>
+
+<html>
+
 <!--
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -31,21 +31,19 @@
 <f:view renderKitId="FLEX_BASIC">
     
     <h:form>
+    	<br />
+    	This page is a simple test for providing user's Flex SDK for JSF Flex project. Note the path should be set to the user's local environment.<br />
+    	<br />
     	
-    	<jf:flexApplication mxmlPackageName="flexMenuBar">
-    		<ui:include src="../faceletFiles/flexApplicationContentDimension.xhtml" />
+    	<jf:flexApplication mxmlPackageName="flexProvidedSDK" flexSDKPath="C:\\arena\\flexSDK\\">
+    		<jf:flexAttributeNode name="height" value="500"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
     		
-	    	<jf:flexMenuBar>
-	    		<jf:flexAttributeNode name="labelField" value="@label"/>
-    			<jf:flexDataProvider>
-    				
-    				<ui:include src="../faceletFiles/flexXMLListExample.xhtml" />
-    				
-    			</jf:flexDataProvider>
-    		</jf:flexMenuBar>
-    		
-	    </jf:flexApplication>
-	    
+    		<jf:flexLabel>
+    			<jf:flexAttributeNode name="text" value="SWF with provided Flex SDK"/>
+    		</jf:flexLabel>
+    	</jf:flexApplication>
+    	
     </h:form>
     
 </f:view>

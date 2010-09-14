@@ -83,7 +83,10 @@ package com.googlecode.jsfFlex.communication.core
 			}
 		}
 		
-		public static function getInstance():ComponentValueMapper {
+		public static function getInstance(refApp:UIComponent):ComponentValueMapper {
+			if(_currInstance == null){
+				_currInstance = new ComponentValueMapper(refApp);
+			}
 			return _currInstance;
 		}
 		
@@ -223,7 +226,7 @@ package com.googlecode.jsfFlex.communication.core
 			
 			if(isNested){
 				/*
-				 * TODO : consider implementing it better later [you knew this was going to be typed, didn't you???] 
+				 * TODO : consider implementing it better later
 				 * For certain cases [i.e. for RadioButton], one needs to access a reference to an object/property
 				 * to get relevant information. The nested XML element symbolizes the object/property and the
 				 * last element will represent the relevant value that one desires for.

@@ -31,20 +31,17 @@
 <f:view renderKitId="FLEX_BASIC">
     
     <h:form>
+    	<br />
+    	This page is a simple test for providing user's Flex SDK for JSF Flex project. Note the path should be set to the user's local environment.<br />
+    	<br />
     	
-    	<jf:flexApplication mxmlPackageName="flexMenuBar">
+    	<jf:flexApplication mxmlPackageName="flexProvidedSDK" flexSDKPath="C:\\arena\\flexSDK\\">
     		<ui:include src="../faceletFiles/flexApplicationContentDimension.xhtml" />
     		
-	    	<jf:flexMenuBar>
-	    		<jf:flexAttributeNode name="labelField" value="@label"/>
-    			<jf:flexDataProvider>
-    				
-    				<ui:include src="../faceletFiles/flexXMLListExample.xhtml" />
-    				
-    			</jf:flexDataProvider>
-    		</jf:flexMenuBar>
-    		
-	    </jf:flexApplication>
+    		<jf:flexLabel>
+    			<jf:flexAttributeNode name="text" value="SWF with provided Flex SDK"/>
+    		</jf:flexLabel>
+    	</jf:flexApplication>
 	    
     </h:form>
     

@@ -1,10 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-        xmlns:ui="http://java.sun.com/jsf/facelets"
-        xmlns:h="http://java.sun.com/jsf/html"
-        xmlns:f="http://java.sun.com/jsf/core"
-        xmlns:jf="http://jsf-flex.googlecode.com">
+<%@ page session="false" contentType="text/html;charset=utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
+<%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
+<%@ taglib uri="http://jsf-flex.googlecode.com" prefix="jf"%>
+
+<html>
+
 <!--
 /*
  * Licensed to the Apache Software Foundation (ASF) under one
@@ -49,14 +49,18 @@
         </div>
         <br />
         
-        <jf:flexApplication mxmlPackageName="flexMultipleRequestDataGridExample" errorColor="#B80000" errorFontSize="13">
-			<ui:include src="../faceletFiles/flexApplicationContentDimension.xhtml" />
-    		
-    		<jf:flexVGroup>
-    			<jf:flexAttributeNode name="height" value="100%"/>
+	    <jf:flexApplication mxmlPackageName="flexMultipleRequestDataGridExample" errorColor="#B80000" errorFontSize="13">
+			<jf:flexAttributeNode name="height" value="800"/>
+    		<jf:flexAttributeNode name="width" value="800"/>
+			
+			<jf:flexVGroup>
+				<jf:flexAttributeNode name="height" value="100%"/>
 	    		<jf:flexAttributeNode name="width" value="100%"/>
 	    		
-				<jf:flexDataGrid bindingBeanList="#{multipleRequestDataGridExample.largeDataEntries}" rowCount="10" editable="true">
+	    		<jf:flexTextInput id="filteringComponent" text="#{flexOverallBean.textInputText}" />
+	    		
+				<jf:flexDataGrid bindingBeanList="#{multipleRequestDataGridExample.largeDataEntries}" rowCount="10" editable="true"
+					filterComponentId="filteringComponent" filterEventListener="keyUp">
 					<jf:flexAttributeNode name="resizableColumns" value="true"/>
 		    		<jf:flexAttributeNode name="width" value="100%"/>
 					
@@ -70,10 +74,10 @@
 						</jf:flexDataGridColumn>
 					</jf:flexColumns>
 				</jf:flexDataGrid>
-				
+			
 			</jf:flexVGroup>
-		</jf:flexApplication>
-		
+	    </jf:flexApplication>
+    
     </h:form>
 </f:view>
 

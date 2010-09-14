@@ -28,7 +28,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
 public interface IFlexUINameSpaceOverrideAttribute {
 
     /**
-     * Component's NameSpace.
+     * Namespace to override for the component. Meaning certain components such as Label are specified to be of 's' namespace [spark component], but user can override the namespace by changing it to such as 'mx'.
      */
     @JSFProperty(desc   =   "Namespace to override for the component. Meaning certain components such as Label are specified to be of 's' namespace [spark component], but user can override the namespace by changing it to such as 'mx'.")
     String getNameSpaceOverride();

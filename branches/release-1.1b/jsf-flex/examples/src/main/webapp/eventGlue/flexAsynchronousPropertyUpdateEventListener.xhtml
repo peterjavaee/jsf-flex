@@ -32,20 +32,20 @@
     
     <h:form>
     	
-    	<jf:flexApplication mxmlPackageName="flexMenuBar">
+    	<jf:flexApplication mxmlPackageName="flexAsynchronousPropertyUpdateEventListener">
     		<ui:include src="../faceletFiles/flexApplicationContentDimension.xhtml" />
     		
-	    	<jf:flexMenuBar>
-	    		<jf:flexAttributeNode name="labelField" value="@label"/>
-    			<jf:flexDataProvider>
-    				
-    				<ui:include src="../faceletFiles/flexXMLListExample.xhtml" />
-    				
-    			</jf:flexDataProvider>
-    		</jf:flexMenuBar>
-    		
+	    	<jf:flexNumericStepper id="srcComp" value="#{flexFaceletOverallBean.numericStepperValue}">
+	    		<jf:flexAttributeNode name="minimum" value="0"/>
+	    		<jf:flexAttributeNode name="maximum" value="10"/>
+	    	</jf:flexNumericStepper>
+	    	
+	    	<jf:flexTextInput id="tgtComp" text="#{flexFaceletOverallBean.textInputText}" />
+	    	
+	    	<jf:flexAsynchronousPropertyUpdateEventListener eventHandlerTgtId="tgtComp" eventHandlerSrcId="srcComp" sourcePropertyDelim="value" targetPropertyDelim="text"
+    				eventListener="change" asynchronousEventGlueHandler="#{flexFaceletOverallBean.asyncDataUpdateListener}"/>
 	    </jf:flexApplication>
-	    
+    	
     </h:form>
     
 </f:view>

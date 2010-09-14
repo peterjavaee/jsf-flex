@@ -30,7 +30,7 @@
 	#end
 
 		private function initializeApp(event:Event):void {
-			compValMapper = new ComponentValueMapper(this);
+			compValMapper = ComponentValueMapper.getInstance(this);
 			compValMapper.initialize();
 			
 			ExternalInterface.addCallback(AS_FORM_SUBMITTING_FUNCTION, formSubmitting);
