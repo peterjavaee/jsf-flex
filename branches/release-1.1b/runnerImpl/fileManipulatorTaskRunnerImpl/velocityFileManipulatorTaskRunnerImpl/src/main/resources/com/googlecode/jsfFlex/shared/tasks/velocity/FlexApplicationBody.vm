@@ -43,7 +43,7 @@
 			
 		#foreach( $dataGridScriptContent in ${additionalApplicationScriptContent.getDataGridScriptContent()} )
 			#set( $dataGridVarRef = "${dataGridScriptContent.getDataGridId()}DataGridVarRef" )
-			${dataGridVarRef} = new DataGridServiceRequest("${dataGridScriptContent.getDataGridId()}", ${dataGridScriptContent.getBatchColumnDataRetrievalSize()}, ${dataGridScriptContent.getMaxDataPartitionIndex()}, "${dataGridScriptContent.getFilterComponentId()}", "${dataGridScriptContent.getFilterEventListener()}", this);
+			${dataGridVarRef} = new DataGridServiceRequest("${dataGridScriptContent.getDataGridId()}", ${dataGridScriptContent.getBatchColumnDataRetrievalSize()}, ${dataGridScriptContent.getMaxDataPartitionIndex()}, "${dataGridScriptContent.getFilterComponentId()}", "${dataGridScriptContent.getFilterEventListener()}");
 			
 			#foreach( $dataGridColumn in ${dataGridScriptContent.getDataGridColumns()} )
 				${dataGridVarRef}.addDataGridColumServiceRequest("${dataGridColumn.getDataGridColumnId()}", "${dataGridColumn.getDataField()}", ${dataGridColumn.getColumnEditable()});
@@ -54,7 +54,7 @@
 		
 		#foreach( $eventHandler in ${additionalApplicationScriptContent.getEventHandler()} )
 			#set( $eventHandlerRef = "${eventHandler.getCollectedUniqueId()}EventHandlerVarRef" )
-			${eventHandlerRef} = new ${eventHandler.getActionScriptConstructor()}("${eventHandler.getSrcId()}", "${eventHandler.getTgtId()}", "${eventHandler.getEventHandlerId()}", "${eventHandler.getEventName()}", ${eventHandler.getAdditionalArguments()}, this);
+			${eventHandlerRef} = new ${eventHandler.getActionScriptConstructor()}("${eventHandler.getSrcId()}", "${eventHandler.getTgtId()}", "${eventHandler.getEventHandlerId()}", "${eventHandler.getEventName()}", ${eventHandler.getAdditionalArguments()});
 		#end
 		
 		#foreach( $simpleDataProviderSetter in ${additionalApplicationScriptContent.getSimpleDataProviderSetter()} )
@@ -64,7 +64,7 @@
 		#end
 		
 		#if ( ${validationManagerScriptContent.getValidationManagerValidatorIds().size()} > 0 )
-			validationManager = new ValidationManager("${errorTextComponentId}", this);
+			validationManager = new ValidationManager("${errorTextComponentId}");
 			#foreach( $validationManagerValidatorId in ${validationManagerScriptContent.getValidationManagerValidatorIds()} )
 			validationManager.addValidatorId("$validationManagerValidatorId");
 			#end

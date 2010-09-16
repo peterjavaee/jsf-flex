@@ -55,12 +55,12 @@ package com.googlecode.jsfFlex.communication.core
 		private static const SPECIFIC_OBJECT_TYPE_INIT:String = "specificObjectTypeInit";
 		private static const DATE_OBJECT:String = "Date";
 		
-		private static var _currInstance:ComponentValueMapper;
 		private static var _compValueMapper:XML;
 		private static var _loader:URLLoader;
 		
 		private static var _log:ILogger;
 		
+		private static var _componentValueMapperMap:Object = {};
 		private var _refApp:UIComponent;
 		
 		{
@@ -84,10 +84,12 @@ package com.googlecode.jsfFlex.communication.core
 		}
 		
 		public static function getInstance(refApp:UIComponent):ComponentValueMapper {
-			if(_currInstance == null){
-				_currInstance = new ComponentValueMapper(refApp);
+			var currInstance:ComponentValueMapper = _componentValueMapperMap[refApp];
+			if(currInstance == null){
+				currInstance = new ComponentValueMapper(refApp);
+				_componentValueMapperMap[refApp] = currInstance;
 			}
-			return _currInstance;
+			return currInstance;
 		}
 		
 		public function ComponentValueMapper(refApp:UIComponent) {

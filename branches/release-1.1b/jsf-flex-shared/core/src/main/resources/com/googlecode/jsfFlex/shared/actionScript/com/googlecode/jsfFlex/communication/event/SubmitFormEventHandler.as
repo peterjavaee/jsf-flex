@@ -25,10 +25,10 @@ package com.googlecode.jsfFlex.communication.event
 {
 	import flash.events.Event;
 	import flash.external.ExternalInterface;
-	import mx.core.UIComponent;
 	
 	import com.googlecode.jsfFlex.communication.logger.ILogger;
 	import com.googlecode.jsfFlex.communication.logger.LoggerFactory;
+	import com.googlecode.jsfFlex.communication.utils.JsfFlexUtils;
 	
 	public class SubmitFormEventHandler extends AbstractEventHandler {
 		
@@ -44,9 +44,8 @@ package com.googlecode.jsfFlex.communication.event
 			_log = LoggerFactory.newJSLoggerInstance(SubmitFormEventHandler);
 		}
 		
-		public function SubmitFormEventHandler(srcId:String, tgtId:String, eventHandlerId:String, eventName:String, additionalArgs:Object,
-													refApp:UIComponent) {
-			super(refApp[srcId], eventName);
+		public function SubmitFormEventHandler(srcId:String, tgtId:String, eventHandlerId:String, eventName:String, additionalArgs:Object) {
+			super(JsfFlexUtils.getCurrentApplication()[srcId], eventName);
 			
 			/*
 			 * srcId would be of the submit element and tgtId would be of the HTML form element

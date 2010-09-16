@@ -47,6 +47,7 @@ package com.googlecode.jsfFlex.communication.component
 	import com.googlecode.jsfFlex.communication.logger.ILogger;
 	import com.googlecode.jsfFlex.communication.logger.LoggerFactory;
 	import com.googlecode.jsfFlex.communication.services.JsfFlexHttpService;
+	import com.googlecode.jsfFlex.communication.utils.JsfFlexUtils;
 	import com.googlecode.jsfFlex.communication.utils.WebConstants;
 	
 	public class DataGridServiceRequest {
@@ -124,16 +125,17 @@ package com.googlecode.jsfFlex.communication.component
 		
 		public function DataGridServiceRequest(dataGridId:String, batchColumnDataRetrievalSize:uint, 
 												maxDataPartitionIndex:uint, filterComponentId:String, 
-												filterEventListener:String, refApp:UIComponent) {
+												filterEventListener:String) {
 			super();
-			_dataGridComp = refApp[dataGridId];
+			var app:UIComponent = JsfFlexUtils.getCurrentApplication();
+			_dataGridComp = app[dataGridId];
 			_dataGridComp.variableRowHeight = true;
 			_dataGridCompEditable = _dataGridComp.editable;
 			
 			_dataFieldToDataGridColumnEntriesDictionary = new Dictionary();
 			
 			if(filterComponentId.length > 0){
-				_filterComponent = refApp[filterComponentId];
+				_filterComponent = app[filterComponentId];
 				_filterEventListener = filterEventListener;
 			}
 			/*
@@ -235,7 +237,7 @@ package com.googlecode.jsfFlex.communication.component
 			
 			var filterValue:String = "";
 			if(_filterComponent != null){
-				var compValMapper:ComponentValueMapper = ComponentValueMapper.getInstance(null);
+				var compValMapper:ComponentValueMapper = ComponentValueMapper.getInstance(JsfFlexUtils.getCurrentApplication());
 				var compValue:Object = compValMapper.getCompValue(_filterComponent.id)[0];
 				filterValue = compValue.toString();
 			}

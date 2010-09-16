@@ -24,21 +24,19 @@
 package com.googlecode.jsfFlex.communication.event
 {
 	import flash.events.Event;
-	import flash.external.ExternalInterface;
 	import mx.core.UIComponent;
 	import mx.rpc.events.ResultEvent;
 	
-	import com.googlecode.jsfFlex.communication.core.ComponentValueMapper;
 	import com.googlecode.jsfFlex.communication.logger.ILogger;
 	import com.googlecode.jsfFlex.communication.logger.LoggerFactory;
 	import com.googlecode.jsfFlex.communication.services.JsfFlexHttpService;
+	import com.googlecode.jsfFlex.communication.utils.JsfFlexUtils;
 	
 	public class PropertyUpdateEventHandler extends AbstractEventHandler {
 		
 		private static const SOURCE_PROPERTY_CURRENT_VALUE_ATTR:String = "SOURCE_PROPERTY_CURRENT_VALUE";
 		private static var _log:ILogger;
 		
-		private var _refApp:UIComponent;
 		private var _srcId:String;
 		private var _tgtId:String;
 		private var _eventHandlerId:String;
@@ -50,11 +48,10 @@ package com.googlecode.jsfFlex.communication.event
 			_log = LoggerFactory.newJSLoggerInstance(PropertyUpdateEventHandler);
 		}
 		
-		public function PropertyUpdateEventHandler(srcId:String, tgtId:String, eventHandlerId:String, eventName:String, additionalArgs:Object,
-														refApp:UIComponent) {
-			super(refApp[srcId], eventName);
+		public function PropertyUpdateEventHandler(srcId:String, tgtId:String, eventHandlerId:String, eventName:String, additionalArgs:Object) {
+			super(JsfFlexUtils.getCurrentApplication()[srcId], eventName);
 			
-			_refApp = refApp;
+			var app:UIComponent = JsfFlexUtils.getCurrentApplication();
 			_srcId = srcId;
 			_tgtId = tgtId;
 			_eventHandlerId = eventHandlerId;
@@ -68,11 +65,11 @@ package com.googlecode.jsfFlex.communication.event
 			 * pass by reference
 			 */
 			
-			var sourceComponent:Object = refApp[_srcId];
+			var sourceComponent:Object = app[_srcId];
 			var sourcePropertyTraverseArray:Array = _additionalArgs.SOURCE_PROPERTY;
 			setPropertyObjects(sourceComponent, _sourceValueHolderObject, sourcePropertyTraverseArray);
 			
-			var targetComponent:Object = refApp[_tgtId];
+			var targetComponent:Object = app[_tgtId];
 			var targetPropertyTraverseArray:Array = _additionalArgs.TARGET_PROPERTY;
 			setPropertyObjects(targetComponent, _targetValueUpdateObject, targetPropertyTraverseArray);
 			

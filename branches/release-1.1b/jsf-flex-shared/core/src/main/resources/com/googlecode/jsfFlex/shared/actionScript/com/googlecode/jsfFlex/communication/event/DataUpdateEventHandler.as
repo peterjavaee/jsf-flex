@@ -25,13 +25,13 @@ package com.googlecode.jsfFlex.communication.event
 {
 	import flash.events.Event;
 	import flash.external.ExternalInterface;
-	import mx.core.UIComponent;
 	import mx.rpc.events.ResultEvent;
 	
 	import com.googlecode.jsfFlex.communication.core.ComponentValueMapper;
 	import com.googlecode.jsfFlex.communication.logger.ILogger;
 	import com.googlecode.jsfFlex.communication.logger.LoggerFactory;
 	import com.googlecode.jsfFlex.communication.services.JsfFlexHttpService;
+	import com.googlecode.jsfFlex.communication.utils.JsfFlexUtils;
 	
 	public class DataUpdateEventHandler extends AbstractEventHandler {
 		
@@ -39,7 +39,6 @@ package com.googlecode.jsfFlex.communication.event
 		private static const DATA_UPDATE_VALUE_ATTR:String = "DATA_UPDATE_VALUE";
 		private static var _log:ILogger;
 		
-		private var _refApp:UIComponent;
 		private var _srcId:String;
 		private var _tgtId:String;
 		private var _eventHandlerId:String;
@@ -48,11 +47,9 @@ package com.googlecode.jsfFlex.communication.event
 			_log = LoggerFactory.newJSLoggerInstance(DataUpdateEventHandler);
 		}
 		
-		public function DataUpdateEventHandler(srcId:String, tgtId:String, eventHandlerId:String, eventName:String, additionalArgs:Object,
-												refApp:UIComponent) {
-			super(refApp[srcId], eventName);
+		public function DataUpdateEventHandler(srcId:String, tgtId:String, eventHandlerId:String, eventName:String, additionalArgs:Object) {
+			super(JsfFlexUtils.getCurrentApplication()[srcId], eventName);
 			
-			_refApp = refApp;
 			_srcId = srcId;
 			_tgtId = tgtId;
 			_eventHandlerId = eventHandlerId;
@@ -62,7 +59,7 @@ package com.googlecode.jsfFlex.communication.event
 		override public function handleEvent(event:Event):void {
 			_log.info("Executing a data update value request for component " + _tgtId);
 			
-			var compValMapper:ComponentValueMapper = ComponentValueMapper.getInstance(null);
+			var compValMapper:ComponentValueMapper = ComponentValueMapper.getInstance(JsfFlexUtils.getCurrentApplication());
 			var compValue:Object = compValMapper.getCompValue(_srcId)[0];
 			var dataRequestParameters:Object = {};
 			dataRequestParameters.componentId = _eventHandlerId;
@@ -77,7 +74,7 @@ package com.googlecode.jsfFlex.communication.event
 																
 																var updateValue:String = lastResult.UPDATE_VALUE_ATTRIBUTE;
 																var compValue:Object = compValMapper.getCompValue(_tgtId)[0];
-																_refApp[_tgtId][compValue.id] = updateValue;
+																JsfFlexUtils.getCurrentApplication()[_tgtId][compValue.id] = updateValue;
 																
 															}, dataRequestParameters, JsfFlexHttpService.POST_METHOD, JsfFlexHttpService.OBJECT_RESULT_FORMAT, null);
 			

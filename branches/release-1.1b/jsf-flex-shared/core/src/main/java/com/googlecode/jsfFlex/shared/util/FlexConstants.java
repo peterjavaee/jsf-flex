@@ -57,6 +57,7 @@ import com.googlecode.jsfFlex.shared.util.annotation.ISwcActionScriptFiles;
                 @ISwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.logger.JavaScriptLogger"),
                 @ISwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.logger.LoggerFactory"),
                 @ISwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.services.JsfFlexHttpService"),
+                @ISwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.utils.JsfFlexUtils"),
                 @ISwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.utils.WebConstants"),
                 @ISwcActionScriptFile(actionScriptFile="com.googlecode.jsfFlex.communication.validator.ValidationManager")
         }
