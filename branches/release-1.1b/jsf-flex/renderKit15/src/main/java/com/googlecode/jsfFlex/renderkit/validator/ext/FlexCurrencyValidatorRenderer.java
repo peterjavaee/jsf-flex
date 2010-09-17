@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexCurrencyValidator"
 )
-@IJsfFlexAttributeProperties(
-		componentName="CurrencyValidator",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="CurrencyValidator")
 public final class FlexCurrencyValidatorRenderer extends AbstractFlexValidatorTemplateRenderer {
 	
 	@Override

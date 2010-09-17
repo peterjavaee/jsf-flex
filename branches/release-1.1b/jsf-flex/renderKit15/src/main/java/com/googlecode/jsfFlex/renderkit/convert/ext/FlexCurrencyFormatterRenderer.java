@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexCurrencyFormatter"
 )
-@IJsfFlexAttributeProperties(
-		componentName="CurrencyFormatter",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="CurrencyFormatter")
 public final class FlexCurrencyFormatterRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override

@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexImage"
 )
-@IJsfFlexAttributeProperties(
-		componentName="Image",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="Image")
 public final class FlexImageRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

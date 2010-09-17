@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexHTTPService"
 )
-@IJsfFlexAttributeProperties(
-		componentName="HTTPService",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="HTTPService")
 public final class FlexHTTPServiceRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

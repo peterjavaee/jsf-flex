@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexCreditCardValidator"
 )
-@IJsfFlexAttributeProperties(
-		componentName="CreditCardValidator",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="CreditCardValidator")
 public final class FlexCreditCardValidatorRenderer extends AbstractFlexValidatorTemplateRenderer {
 	
 	@Override

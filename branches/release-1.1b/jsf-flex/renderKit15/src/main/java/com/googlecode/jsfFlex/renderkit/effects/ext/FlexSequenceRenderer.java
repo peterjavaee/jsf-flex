@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexSequence"
 )
-@IJsfFlexAttributeProperties(
-        componentName="Sequence",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="Sequence")
 public final class FlexSequenceRenderer extends AbstractFlexComponentRenderer {
 
     @Override

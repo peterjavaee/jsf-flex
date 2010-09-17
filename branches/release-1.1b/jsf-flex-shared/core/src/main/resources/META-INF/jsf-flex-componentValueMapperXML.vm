@@ -4,7 +4,11 @@
 			xsi:schemaLocation="http://jsf-flex.googlecode.com componentValueMapper.xsd ">
     #foreach( $classInfo in $classSet )
     <classInfo>
-      <className>${classInfo.getFullClassName()}</className>
+      <classNames>
+          #foreach( $fullClassName in ${classInfo.getFullClassNames()} )
+          <className>${fullClassName}</className>
+          #end
+      </classNames>
       <nodeList>
       #foreach( $nodeInfo in ${classInfo.getNodeList()} )
           <node>

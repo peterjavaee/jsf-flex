@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexSocialSecurityValidator"
 )
-@IJsfFlexAttributeProperties(
-		componentName="SocialSecurityValidator",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="SocialSecurityValidator")
 public final class FlexSocialSecurityValidatorRenderer extends AbstractFlexValidatorTemplateRenderer {
 	
 	@Override

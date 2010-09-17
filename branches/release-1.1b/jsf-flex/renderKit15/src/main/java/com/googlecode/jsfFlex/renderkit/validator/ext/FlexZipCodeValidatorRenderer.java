@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexZipCodeValidator"
 )
-@IJsfFlexAttributeProperties(
-		componentName="ZipCodeValidator",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="ZipCodeValidator")
 public final class FlexZipCodeValidatorRenderer extends AbstractFlexValidatorTemplateRenderer {
 	
 	@Override

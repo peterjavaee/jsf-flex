@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexInput",
 		type="com.googlecode.jsfFlex.FlexPopUpButton"
 )
-@IJsfFlexAttributeProperties(
-		componentName="PopUpButton",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="PopUpButton")
 public final class FlexPopUpButtonRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

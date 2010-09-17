@@ -41,8 +41,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
 		componentName="State",
-		componentNodeAttributes={},
-		
+        
 		jsfFlexAttributes=@IJsfFlexAttribute(attribute="name")
 )
 public final class FlexStateRenderer extends AbstractFlexComponentRenderer {

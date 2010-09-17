@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexPhoneFormatter"
 )
-@IJsfFlexAttributeProperties(
-		componentName="PhoneFormatter",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="PhoneFormatter")
 public final class FlexPhoneFormatterRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override

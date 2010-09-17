@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexSpacer"
 )
-@IJsfFlexAttributeProperties(
-		componentName="Spacer",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="Spacer")
 public final class FlexSpacerRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

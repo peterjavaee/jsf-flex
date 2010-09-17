@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexTile"
 )
-@IJsfFlexAttributeProperties(
-		componentName="Tile",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="Tile")
 public final class FlexTileRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

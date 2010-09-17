@@ -40,10 +40,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
         componentName="AnimateTransitionShader",
-        componentNameSpace="s",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
+        componentNameSpace="s"
 )
 public final class FlexAnimateTransitionShaderRenderer extends AbstractFlexComponentRenderer {
     

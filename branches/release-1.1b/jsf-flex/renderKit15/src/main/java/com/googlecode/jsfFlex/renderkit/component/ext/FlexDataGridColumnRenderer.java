@@ -41,7 +41,6 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
 		componentName="DataGridColumn",
-		componentNodeAttributes={},
 
 		jsfFlexAttributes={
                 @IJsfFlexAttribute(attribute="dataField", byMethod=true),

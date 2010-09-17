@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexDateValidator"
 )
-@IJsfFlexAttributeProperties(
-		componentName="DateValidator",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="DateValidator")
 public final class FlexDateValidatorRenderer extends AbstractFlexValidatorTemplateRenderer {
 	
 	@Override

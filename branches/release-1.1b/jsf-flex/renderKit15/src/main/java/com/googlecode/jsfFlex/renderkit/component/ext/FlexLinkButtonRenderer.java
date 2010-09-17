@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexCommandBase",
 		type="com.googlecode.jsfFlex.FlexLinkButton"
 )
-@IJsfFlexAttributeProperties(
-		componentName="LinkButton",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="LinkButton")
 public final class FlexLinkButtonRenderer extends AbstractFlexButtonTemplateRenderer {
 	
 	@Override

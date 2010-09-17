@@ -41,7 +41,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
 		componentName="RichTextEditor",
-		componentPackage="mx.controls",
+        componentPackages={"mx.controls"},
 		componentNodeAttributes={
 				@IFlexComponentNodeAttribute(
 						htmlType="input",
@@ -63,9 +63,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 						nameAttributeValue="id",
 						isNameDynamic=true,
 						nameAppend="_htmlText")
-		},
-
-		jsfFlexAttributes={}
+		}
 )
 public final class FlexRichTextEditorRenderer extends AbstractFlexComponentRenderer {
 	

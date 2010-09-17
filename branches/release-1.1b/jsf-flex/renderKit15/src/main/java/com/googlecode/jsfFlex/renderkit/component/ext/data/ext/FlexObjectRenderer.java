@@ -47,10 +47,7 @@ import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
 )
 @IJsfFlexAttributeProperties(
 		componentName="Object",
-        componentNameSpace="fx",
-		componentNodeAttributes={},
-		
-		jsfFlexAttributes={}
+        componentNameSpace="fx"
 )
 public final class FlexObjectRenderer extends AbstractFlexComponentRenderer {
 	

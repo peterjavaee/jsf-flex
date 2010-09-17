@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexRemoteObject"
 )
-@IJsfFlexAttributeProperties(
-		componentName="RemoteObject",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="RemoteObject")
 public final class FlexRemoteObjectRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

@@ -42,7 +42,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 @IJsfFlexAttributeProperties(
         componentName="TabBar",
         componentNameSpace="s",
-        componentPackage="spark.components",
+        componentPackages={"spark.components"},
         componentNodeAttributes={
                 @IFlexComponentNodeAttribute(
                         htmlType="input", 
@@ -54,9 +54,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
                         nameAttributeValue="id",
                         isNameDynamic=true,
                         nameAppend="_selectedIndex")
-        },
-
-        jsfFlexAttributes={}
+        }
 )
 public final class FlexTabBarRenderer extends AbstractFlexComponentRenderer {
 

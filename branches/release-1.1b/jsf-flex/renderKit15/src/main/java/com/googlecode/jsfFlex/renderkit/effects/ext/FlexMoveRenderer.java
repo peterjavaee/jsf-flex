@@ -40,10 +40,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
         componentName="Move",
-        componentNameSpace="s",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
+        componentNameSpace="s"
 )
 public final class FlexMoveRenderer extends AbstractFlexComponentRenderer {
 

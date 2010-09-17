@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexSWFLoader"
 )
-@IJsfFlexAttributeProperties(
-		componentName="SWFLoader",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="SWFLoader")
 public final class FlexSwfLoaderRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

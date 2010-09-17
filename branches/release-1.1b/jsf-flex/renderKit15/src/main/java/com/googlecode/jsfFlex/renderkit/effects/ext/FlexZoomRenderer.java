@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexZoom"
 )
-@IJsfFlexAttributeProperties(
-        componentName="Zoom",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="Zoom")
 public final class FlexZoomRenderer extends AbstractFlexComponentRenderer {
 
     @Override

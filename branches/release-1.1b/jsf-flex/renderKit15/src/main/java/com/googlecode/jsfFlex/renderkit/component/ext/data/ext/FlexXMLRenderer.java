@@ -41,10 +41,7 @@ import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 )
 @IJsfFlexAttributeProperties(
 		componentName="XML",
-        componentNameSpace="fx",
-		componentNodeAttributes={},
-		
-		jsfFlexAttributes={}
+        componentNameSpace="fx"
 )
 public final class FlexXMLRenderer extends AbstractFlexComponentRenderer {
 	

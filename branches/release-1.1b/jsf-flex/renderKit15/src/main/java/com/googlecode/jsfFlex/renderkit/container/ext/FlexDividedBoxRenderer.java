@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexDividedBox"
 )
-@IJsfFlexAttributeProperties(
-		componentName="DividedBox",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="DividedBox")
 public final class FlexDividedBoxRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexDissolve"
 )
-@IJsfFlexAttributeProperties(
-        componentName="Dissolve",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="Dissolve")
 public final class FlexDissolveRenderer extends AbstractFlexComponentRenderer {
 
     @Override

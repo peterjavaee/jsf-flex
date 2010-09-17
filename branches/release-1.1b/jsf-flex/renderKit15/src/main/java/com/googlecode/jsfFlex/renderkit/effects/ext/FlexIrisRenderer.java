@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexIris"
 )
-@IJsfFlexAttributeProperties(
-        componentName="Iris",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="Iris")
 public final class FlexIrisRenderer extends AbstractFlexComponentRenderer {
 
     @Override

@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexDefaultListEffect"
 )
-@IJsfFlexAttributeProperties(
-        componentName="DefaultListEffect",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="DefaultListEffect")
 public final class FlexDefaultListEffectRenderer extends AbstractFlexComponentRenderer {
 
     @Override

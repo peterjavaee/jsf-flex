@@ -326,7 +326,7 @@ package com.googlecode.jsfFlex.communication.core
 		}
 		
 		private function getClassInfo(classNameVal:String):XMLList {
-			return _compValueMapper.classInfo.(className.indexOf(classNameVal) == 0);
+			return _compValueMapper.classInfo.(classNames.className == classNameVal);
 		}
 		
 	}

@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexGlow"
 )
-@IJsfFlexAttributeProperties(
-        componentName="Glow",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="Glow")
 public final class FlexGlowRenderer extends AbstractFlexComponentRenderer {
 
     @Override

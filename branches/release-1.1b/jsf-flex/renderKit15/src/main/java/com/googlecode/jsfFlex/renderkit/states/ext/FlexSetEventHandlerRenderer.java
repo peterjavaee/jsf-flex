@@ -41,7 +41,6 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
 		componentName="SetEventHandler",
-		componentNodeAttributes={},
 		
 		jsfFlexAttributes=@IJsfFlexAttribute(attribute="name")
 )

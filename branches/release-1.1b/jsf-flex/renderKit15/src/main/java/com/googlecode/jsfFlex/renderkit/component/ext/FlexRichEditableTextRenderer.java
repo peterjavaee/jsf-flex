@@ -41,7 +41,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
         componentName="RichEditableText",
-        componentPackage="spark.components",
+        componentPackages={"spark.components"},
         componentNameSpace="s",
         componentNodeAttributes={
                 @IFlexComponentNodeAttribute(
@@ -54,9 +54,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
                         nameAttributeValue="id",
                         isNameDynamic=true,
                         nameAppend="_text")
-        },
-
-        jsfFlexAttributes={}
+        }
 )
 public final class FlexRichEditableTextRenderer extends AbstractFlexComponentRenderer {
 

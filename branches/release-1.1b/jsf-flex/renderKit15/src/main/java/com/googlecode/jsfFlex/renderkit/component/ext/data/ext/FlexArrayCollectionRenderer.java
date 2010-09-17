@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexArrayCollection"
 )
-@IJsfFlexAttributeProperties(
-		componentName="ArrayCollection",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="ArrayCollection")
 public final class FlexArrayCollectionRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

@@ -41,7 +41,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		type="com.googlecode.jsfFlex.FlexAccordion"
 )
 @IJsfFlexAttributeProperties(
-		componentPackage="mx.containers",
+        componentPackages={"mx.containers"},
 		componentName="Accordion",
 		componentNodeAttributes={
 				@IFlexComponentNodeAttribute(

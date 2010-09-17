@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexAnimateProperty"
 )
-@IJsfFlexAttributeProperties(
-        componentName="AnimateProperty",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="AnimateProperty")
 public final class FlexAnimatePropertyRenderer extends AbstractFlexComponentRenderer {
 
     @Override

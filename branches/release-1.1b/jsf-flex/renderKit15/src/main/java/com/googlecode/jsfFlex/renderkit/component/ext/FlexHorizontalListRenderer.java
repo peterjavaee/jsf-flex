@@ -41,7 +41,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
 		componentName="HorizontalList",
-		componentPackage="mx.controls",
+        componentPackages={"mx.controls"},
 		componentNodeAttributes={
 				@IFlexComponentNodeAttribute(
 						htmlType="input",
@@ -53,9 +53,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 						nameAttributeValue="id",
 						isNameDynamic=true,
 						nameAppend="_selectedIndex")
-		},
-
-		jsfFlexAttributes={}
+		}
 )
 public final class FlexHorizontalListRenderer extends AbstractFlexComponentRenderer {
 	

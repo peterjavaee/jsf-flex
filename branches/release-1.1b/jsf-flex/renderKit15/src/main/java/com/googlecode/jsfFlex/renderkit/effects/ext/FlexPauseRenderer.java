@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexPause"
 )
-@IJsfFlexAttributeProperties(
-        componentName="Pause",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="Pause")
 public final class FlexPauseRenderer extends AbstractFlexComponentRenderer {
 
     @Override

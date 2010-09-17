@@ -32,11 +32,7 @@ import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
 /**
  * @author Ji Hoon Kim
  */
-@IJsfFlexAttributeProperties(
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties
 public abstract class AbstractFlexValidatorTemplateRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

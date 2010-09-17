@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexLinkBar"
 )
-@IJsfFlexAttributeProperties(
-		componentName="LinkBar",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="LinkBar")
 public final class FlexLinkBarRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

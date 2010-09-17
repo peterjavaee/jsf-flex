@@ -41,7 +41,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
 		componentName="HSlider",
-		componentPackage="spark.components",
+        componentPackages={"spark.components", "mx.controls"},
         componentNameSpace="s",
 		componentNodeAttributes={
 				@IFlexComponentNodeAttribute(
@@ -54,9 +54,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 						nameAttributeValue="id",
 						isNameDynamic=true,
 						nameAppend="_value")
-		},
-
-		jsfFlexAttributes={}
+		}
 )
 public final class FlexHSliderRenderer extends AbstractFlexComponentRenderer {
 	

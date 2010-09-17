@@ -123,7 +123,7 @@ public final class FlexAdditionalComponentRenderer extends AbstractFlexComponent
                 return FLEX_COMPONENT_NODE_ATTRIBUTE_ARRAY;
             }
             
-            public String componentPackage() {
+            public String[] componentPackages() {
                 return null;
             }
             

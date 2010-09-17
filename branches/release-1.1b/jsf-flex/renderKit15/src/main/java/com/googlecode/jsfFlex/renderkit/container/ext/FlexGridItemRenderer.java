@@ -41,7 +41,6 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
         componentName="GridItem",
-        componentNodeAttributes={},
 
         jsfFlexAttributes={
                 @IJsfFlexAttribute(attribute="direction", byMethod=true),

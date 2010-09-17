@@ -42,7 +42,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 @IJsfFlexAttributeProperties(
 		componentName="TextArea",
         componentNameSpace="s",
-		componentPackage="spark.components",
+        componentPackages={"spark.components", "mx.controls"},
 		componentNodeAttributes={
 				@IFlexComponentNodeAttribute(
 						htmlType="input",
@@ -64,9 +64,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 						nameAttributeValue="id",
 						isNameDynamic=true,
 						nameAppend="_htmlText")
-		},
-
-		jsfFlexAttributes={}
+		}
 )
 public final class FlexTextAreaRenderer extends AbstractFlexComponentRenderer {
 	

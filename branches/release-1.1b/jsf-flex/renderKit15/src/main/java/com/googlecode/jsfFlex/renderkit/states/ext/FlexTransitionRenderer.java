@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexTransition"
 )
-@IJsfFlexAttributeProperties(
-		componentName="Transition",
-		componentNodeAttributes={},
-		
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="Transition")
 public final class FlexTransitionRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

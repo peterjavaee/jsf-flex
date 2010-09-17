@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexGrid"
 )
-@IJsfFlexAttributeProperties(
-        componentName="Grid",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="Grid")
 public final class FlexGridRenderer extends AbstractFlexComponentRenderer {
 
     @Override

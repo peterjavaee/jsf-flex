@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexControlBar"
 )
-@IJsfFlexAttributeProperties(
-		componentName="ControlBar",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="ControlBar")
 public final class FlexControlBarRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

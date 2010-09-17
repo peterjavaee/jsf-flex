@@ -30,10 +30,7 @@ import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
 /**
  * @author Ji Hoon Kim
  */
-@IJsfFlexAttributeProperties(
-        componentNodeAttributes = {},
-        jsfFlexAttributes=@IJsfFlexAttribute(attribute="id", byMethod=true)
-)
+@IJsfFlexAttributeProperties(jsfFlexAttributes=@IJsfFlexAttribute(attribute="id", byMethod=true))
 public abstract class AbstractFlexComponentRenderer extends AbstractFlexComponentBaseRenderer {
     
     @Override

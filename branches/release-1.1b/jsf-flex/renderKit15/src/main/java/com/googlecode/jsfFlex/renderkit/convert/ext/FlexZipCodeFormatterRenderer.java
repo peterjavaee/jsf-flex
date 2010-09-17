@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexZipCodeFormatter"
 )
-@IJsfFlexAttributeProperties(
-		componentName="ZipCodeFormatter",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="ZipCodeFormatter")
 public final class FlexZipCodeFormatterRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override

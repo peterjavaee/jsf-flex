@@ -41,7 +41,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
 		componentName="ProgressBar",
-		componentPackage="mx.controls",
+        componentPackages={"mx.controls"},
 		componentNodeAttributes={
 				@IFlexComponentNodeAttribute(
 						htmlType="input",
@@ -53,9 +53,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 						nameAttributeValue="id",
 						isNameDynamic=true,
 						nameAppend="_value")
-		},
-
-		jsfFlexAttributes={}
+		}
 )
 public final class FlexProgressBarRenderer extends AbstractFlexComponentRenderer {
 	

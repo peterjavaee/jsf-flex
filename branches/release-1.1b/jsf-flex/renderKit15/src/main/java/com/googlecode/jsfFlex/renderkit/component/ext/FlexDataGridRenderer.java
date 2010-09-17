@@ -41,7 +41,6 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
         componentName="DataGrid",
-        componentNodeAttributes={},
 
         jsfFlexAttributes={
                 @IJsfFlexAttribute(attribute="rowCount", byMethod=true),

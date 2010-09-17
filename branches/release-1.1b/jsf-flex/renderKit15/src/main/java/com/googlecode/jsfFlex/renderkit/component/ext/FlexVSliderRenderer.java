@@ -42,7 +42,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 @IJsfFlexAttributeProperties(
 		componentName="VSlider",
         componentNameSpace="s",
-		componentPackage="spark.components",
+        componentPackages={"spark.components", "mx.controls"},
 		componentNodeAttributes={
 				@IFlexComponentNodeAttribute(
 						htmlType="input",
@@ -54,9 +54,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 						nameAttributeValue="id",
 						isNameDynamic=true,
 						nameAppend="_value")
-		},
-
-		jsfFlexAttributes={}
+		}
 )
 public final class FlexVSliderRenderer extends AbstractFlexComponentRenderer {
 	

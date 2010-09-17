@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexTweenEffect"
 )
-@IJsfFlexAttributeProperties(
-        componentName="TweenEffect",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="TweenEffect")
 public final class FlexTweenEffectRenderer extends AbstractFlexComponentRenderer {
 
     @Override

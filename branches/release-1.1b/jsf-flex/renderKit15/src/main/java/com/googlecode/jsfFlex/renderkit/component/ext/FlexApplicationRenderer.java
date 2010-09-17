@@ -73,7 +73,6 @@ import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
 @IJsfFlexAttributeProperties(
 		componentName="Application",
         componentNameSpace="s",
-		componentNodeAttributes={},
 
 		jsfFlexAttributes=@IJsfFlexAttribute(attribute="initialize")
 )

@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimpleBase",
 		type="com.googlecode.jsfFlex.FlexMenuBar"
 )
-@IJsfFlexAttributeProperties(
-		componentName="MenuBar",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="MenuBar")
 public final class FlexMenuBarRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

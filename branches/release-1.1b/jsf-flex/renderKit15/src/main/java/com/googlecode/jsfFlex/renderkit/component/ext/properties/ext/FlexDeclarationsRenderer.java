@@ -40,10 +40,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
         componentName="Declarations",
-        componentNameSpace="fx",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
+        componentNameSpace="fx"
 )
 public class FlexDeclarationsRenderer extends AbstractFlexComponentBaseRenderer {
     

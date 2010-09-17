@@ -45,12 +45,7 @@ import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexColumns"
 )
-@IJsfFlexAttributeProperties(
-        componentName="columns",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="columns")
 public final class FlexColumnsRenderer extends AbstractFlexComponentBaseRenderer {
     
     private static final String INVALID_CHILD_COMPONENT = "Invalid Child Component : FlexUIColumns can only have subclass of following abstract classes [ AbstractFlexUIDataGridColumn ] as its children";

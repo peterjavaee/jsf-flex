@@ -19,7 +19,13 @@
 				<xs:element name="classInfo" maxOccurs="unbounded">
 					<xs:complexType>
 						<xs:all>
-							<xs:element name="className" type="xs:string"></xs:element>
+							<xs:element name="classNames">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="className" type="xs:string" maxOccurs="unbounded"></xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
 							<xs:element name="nodeList">
 								<xs:complexType>
 									<xs:sequence>

@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexOutput",
 		type="com.googlecode.jsfFlex.FlexText"
 )
-@IJsfFlexAttributeProperties(
-		componentName="Text",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="Text")
 public final class FlexTextRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexWipeDown"
 )
-@IJsfFlexAttributeProperties(
-        componentName="WipeDown",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="WipeDown")
 public final class FlexWipeDownRenderer extends AbstractFlexComponentRenderer {
 
     @Override

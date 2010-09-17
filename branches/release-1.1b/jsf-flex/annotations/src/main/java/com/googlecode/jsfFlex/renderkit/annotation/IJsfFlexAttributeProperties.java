@@ -32,14 +32,14 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface IJsfFlexAttributeProperties {
 	
-	IJsfFlexAttribute[] jsfFlexAttributes();
+    IJsfFlexAttribute[] jsfFlexAttributes() default {};
 	
-	IFlexComponentNodeAttribute[] componentNodeAttributes();
+	IFlexComponentNodeAttribute[] componentNodeAttributes() default {};
 	
-	String componentPackage() default "";
+	String[] componentPackages() default {};
 	
 	String componentName() default "";
     
     String componentNameSpace() default "mx";
-	
+    
 }

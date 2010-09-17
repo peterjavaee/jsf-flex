@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexMaskEffect"
 )
-@IJsfFlexAttributeProperties(
-        componentName="MaskEffect",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="MaskEffect")
 public final class FlexMaskEffectRenderer extends AbstractFlexComponentRenderer {
 
     @Override

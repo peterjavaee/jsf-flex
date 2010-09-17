@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexPhoneNumberValidator"
 )
-@IJsfFlexAttributeProperties(
-		componentName="PhoneNumberValidator",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="PhoneNumberValidator")
 public final class FlexPhoneNumberValidatorRenderer extends AbstractFlexValidatorTemplateRenderer {
 	
 	@Override

@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexUnconstrainItemAction"
 )
-@IJsfFlexAttributeProperties(
-        componentName="UnconstrainItemAction",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="UnconstrainItemAction")
 public final class FlexUnconstrainItemActionRenderer extends AbstractFlexComponentRenderer {
 
     @Override

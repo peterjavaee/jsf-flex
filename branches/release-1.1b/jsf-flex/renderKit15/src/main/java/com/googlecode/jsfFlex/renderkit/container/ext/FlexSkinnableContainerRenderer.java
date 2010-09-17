@@ -42,7 +42,6 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 @IJsfFlexAttributeProperties(
         componentName="SkinnableContainer",
         componentNameSpace="s",
-        componentNodeAttributes={},
         
         jsfFlexAttributes=@IJsfFlexAttribute(attribute="creationPolicy", byMethod=true)
 )

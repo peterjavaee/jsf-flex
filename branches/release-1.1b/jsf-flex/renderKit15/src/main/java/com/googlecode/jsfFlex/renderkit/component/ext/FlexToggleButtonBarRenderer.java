@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexToggleButtonBar"
 )
-@IJsfFlexAttributeProperties(
-		componentName="ToggleButtonBar",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={ }
-)
+@IJsfFlexAttributeProperties(componentName="ToggleButtonBar")
 public final class FlexToggleButtonBarRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

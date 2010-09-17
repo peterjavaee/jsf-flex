@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexEmailValidator"
 )
-@IJsfFlexAttributeProperties(
-		componentName="EmailValidator",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="EmailValidator")
 public final class FlexEmailValidatorRenderer extends AbstractFlexValidatorTemplateRenderer {
 	
 	@Override

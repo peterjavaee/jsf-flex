@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexBox"
 )
-@IJsfFlexAttributeProperties(
-		componentName="Box",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="Box")
 public final class FlexBoxRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

@@ -41,7 +41,6 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 )
 @IJsfFlexAttributeProperties(
 		componentName="SetStyle",
-		componentNodeAttributes={},
 		
 		jsfFlexAttributes={
 				@IJsfFlexAttribute(attribute="name"),

@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexHRule"
 )
-@IJsfFlexAttributeProperties(
-		componentName="HRule",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="HRule")
 public final class FlexHRuleRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

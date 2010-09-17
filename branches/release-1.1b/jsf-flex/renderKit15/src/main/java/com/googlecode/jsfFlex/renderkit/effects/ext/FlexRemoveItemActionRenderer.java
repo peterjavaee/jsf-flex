@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexRemoveItemAction"
 )
-@IJsfFlexAttributeProperties(
-        componentName="RemoveItemAction",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="RemoveItemAction")
 public final class FlexRemoveItemActionRenderer extends AbstractFlexComponentRenderer {
 
     @Override

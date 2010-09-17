@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexAddItemAction"
 )
-@IJsfFlexAttributeProperties(
-        componentName="AddItemAction",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="AddItemAction")
 public final class FlexAddItemActionRenderer extends AbstractFlexComponentRenderer {
 
     @Override

@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexSoundEffect"
 )
-@IJsfFlexAttributeProperties(
-        componentName="SoundEffect",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="SoundEffect")
 public final class FlexSoundEffectRenderer extends AbstractFlexComponentRenderer {
 
     @Override

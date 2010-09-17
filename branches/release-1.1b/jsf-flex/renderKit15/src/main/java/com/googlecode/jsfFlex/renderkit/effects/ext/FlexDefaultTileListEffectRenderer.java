@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexDefaultTileListEffect"
 )
-@IJsfFlexAttributeProperties(
-        componentName="DefaultTileListEffect",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="DefaultTileListEffect")
 public final class FlexDefaultTileListEffectRenderer extends AbstractFlexComponentRenderer {
 
     @Override

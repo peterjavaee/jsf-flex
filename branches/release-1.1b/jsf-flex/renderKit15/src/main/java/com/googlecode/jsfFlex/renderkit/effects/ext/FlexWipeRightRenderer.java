@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexWipeRight"
 )
-@IJsfFlexAttributeProperties(
-        componentName="WipeRight",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="WipeRight")
 public final class FlexWipeRightRenderer extends AbstractFlexComponentRenderer {
 
     @Override

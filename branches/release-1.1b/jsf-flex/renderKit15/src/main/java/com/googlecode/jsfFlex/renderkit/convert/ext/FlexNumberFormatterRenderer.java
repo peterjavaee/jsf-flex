@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexNumberFormatter"
 )
-@IJsfFlexAttributeProperties(
-		componentName="NumberFormatter",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="NumberFormatter")
 public final class FlexNumberFormatterRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override

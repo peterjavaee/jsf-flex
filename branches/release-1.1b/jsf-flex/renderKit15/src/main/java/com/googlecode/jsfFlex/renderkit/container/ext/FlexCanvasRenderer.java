@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexCanvas"
 )
-@IJsfFlexAttributeProperties(
-		componentName="Canvas",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="Canvas")
 public final class FlexCanvasRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

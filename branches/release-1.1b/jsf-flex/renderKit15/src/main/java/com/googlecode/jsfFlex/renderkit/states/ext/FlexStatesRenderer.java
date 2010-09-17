@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexStates"
 )
-@IJsfFlexAttributeProperties(
-		componentName="states",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="states")
 public final class FlexStatesRenderer extends AbstractFlexComponentRenderer {
 	
 	@Override

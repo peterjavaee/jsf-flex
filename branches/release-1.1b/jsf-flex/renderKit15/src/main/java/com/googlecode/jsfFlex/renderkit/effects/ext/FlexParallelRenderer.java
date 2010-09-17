@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexParallel"
 )
-@IJsfFlexAttributeProperties(
-        componentName="Parallel",
-        componentNodeAttributes={},
-
-        jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="Parallel")
 public final class FlexParallelRenderer extends AbstractFlexComponentRenderer {
 
     @Override

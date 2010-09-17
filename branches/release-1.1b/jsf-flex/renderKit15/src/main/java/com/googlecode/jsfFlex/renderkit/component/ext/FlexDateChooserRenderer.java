@@ -40,8 +40,8 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         type="com.googlecode.jsfFlex.FlexDateChooser"
 )
 @IJsfFlexAttributeProperties(
-        componentPackage="mx.controls",
         componentName="DateChooser",
+        componentPackages={"mx.controls"},
         componentNodeAttributes={
                 @IFlexComponentNodeAttribute(
                         htmlType="input", 
@@ -53,9 +53,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
                         nameAttributeValue="id",
                         isNameDynamic=true,
                         nameAppend="_selectedDate")
-        },
-
-        jsfFlexAttributes={}
+        }
 )
 public final class FlexDateChooserRenderer extends AbstractFlexComponentRenderer {
 

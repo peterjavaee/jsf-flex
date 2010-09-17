@@ -38,12 +38,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 		family="javax.faces.FlexSimple",
 		type="com.googlecode.jsfFlex.FlexDateFormatter"
 )
-@IJsfFlexAttributeProperties(
-		componentName="DateFormatter",
-		componentNodeAttributes={},
-
-		jsfFlexAttributes={}
-)
+@IJsfFlexAttributeProperties(componentName="DateFormatter")
 public final class FlexDateFormatterRenderer extends AbstractFlexComponentBaseRenderer {
 	
 	@Override
