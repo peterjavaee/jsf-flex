@@ -64,6 +64,19 @@
         <common_task_rummer_impl_package>com.googlecode.jsfFlex.shared.tasks.SDKStandardCommonTaskRunnerImpl</common_task_rummer_impl_package>
       </properties>
     </profile>
+	
+	<profile>
+      <id>stub_standard_common_impl</id>
+      <activation>
+        <property>
+          <name>standard_common_impl</name>
+		  <value>stub</value>
+        </property>
+      </activation>
+      <properties>
+        <common_task_rummer_impl_package>com.googlecode.jsfFlex.shared.tasks.StubStandardCommonTaskRunnerImpl</common_task_rummer_impl_package>
+      </properties>
+    </profile>
     
     <profile>
       <id>default_file_manipulator_impl</id>

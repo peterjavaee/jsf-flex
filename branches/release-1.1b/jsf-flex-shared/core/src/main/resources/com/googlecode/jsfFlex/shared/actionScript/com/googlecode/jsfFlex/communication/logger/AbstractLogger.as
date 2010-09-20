@@ -31,12 +31,14 @@ package com.googlecode.jsfFlex.communication.logger
 	import flash.net.URLRequest;
 	
 	import flash.utils.clearInterval;
+	import flash.utils.getQualifiedClassName;
 	import flash.utils.setInterval;
 	
 	import com.googlecode.jsfFlex.communication.utils.WebConstants;
 	
 	internal class AbstractLogger implements ILogger {
 		
+		private static const CLASS_NAME_DELIM:String = ":";
 		private static const JSF_FLEX_FLASH_APPLICATION_CONFIG:String = WebConstants.WEB_CONTEXT_PATH + "/swf/jsfFlexFlashApplicationConfig.xml";
 		private static const PRIOR_TO_LOG_MODE_SETTING_MESSAGES:Array = [];
 		
@@ -106,8 +108,14 @@ package com.googlecode.jsfFlex.communication.logger
 			
 		}
 		
+		private var CLASS_NAME:String = new String();
+		
 		public function AbstractLogger(logClass:Class) {
 			super();
+			
+			var packageClassName:String = getQualifiedClassName(logClass);
+			var splittedPackageClassName:Array = packageClassName.split(CLASS_NAME_DELIM);
+			CLASS_NAME = splittedPackageClassName != null && splittedPackageClassName.length > 0 ? splittedPackageClassName[splittedPackageClassName.length - 1] : packageClassName;
 		}
 		
 		public function log(message:Object):void {
@@ -116,7 +124,7 @@ package com.googlecode.jsfFlex.communication.logger
 				return;
 			}
 			if(_isLog){
-				logMessage(getClassName(), message, 1);
+				logMessage(message, 1);
 			}
 		}
 		
@@ -126,7 +134,7 @@ package com.googlecode.jsfFlex.communication.logger
 				return;
 			}
 			if(_isDebug){
-				logMessage(getClassName(), debugMessage, 2);
+				logMessage(debugMessage, 2);
 			}
 		}
 		
@@ -136,7 +144,7 @@ package com.googlecode.jsfFlex.communication.logger
 				return;
 			}
 			if(_isInfo){
-				logMessage(getClassName(), infoMessage, 3);
+				logMessage(infoMessage, 3);
 			}
 		}
 		
@@ -146,7 +154,7 @@ package com.googlecode.jsfFlex.communication.logger
 				return;
 			}
 			if(_isWarn){
-				logMessage(getClassName(), warnMessage, 4);
+				logMessage(warnMessage, 4);
 			}
 		}
 		
@@ -156,15 +164,15 @@ package com.googlecode.jsfFlex.communication.logger
 				return;
 			}
 			if(_isError){
-				logMessage(getClassName(), errorMessage, 5);
+				logMessage(errorMessage, 5);
 			}
 		}
 		
 		public function getClassName():String {
-			throw new IllegalOperationError("getClassName must be implemented by the sub class");
+			return CLASS_NAME;
 		}
 		
-		public function logMessage(className:String, message:Object, severity:int):void {
+		public function logMessage(message:Object, severity:int):void {
 			throw new IllegalOperationError("logMessage must be implemented by the sub class");
 		}
 		

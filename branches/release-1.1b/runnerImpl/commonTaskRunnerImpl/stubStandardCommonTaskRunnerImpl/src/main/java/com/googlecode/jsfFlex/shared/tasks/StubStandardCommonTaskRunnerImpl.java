@@ -16,28 +16,32 @@
  * specific language governing permissions and limitations
  * under the License.
  */
- 
+package com.googlecode.jsfFlex.shared.tasks;
+
+import java.io.File;
+import java.io.InputStream;
+
 /**
- * TODO : implement it better later
- * This class will be used for browser logging
+ * Stub implementation in case user provides flesSDK path [preferred method, b/c size difference is small {sarcasm here meaning it's large}]
+ * 
  * @author Ji Hoon Kim
  */
-package com.googlecode.jsfFlex.communication.logger
-{
-	import flash.external.ExternalInterface;
-	
-	internal class JavaScriptLogger extends AbstractLogger {
-		
-		private static const JS_COMMUNICATION_LOG_MESSAGE_FUNCTION:String = "com.googlecode.jsfFlex.communication.logger.logMessage";
-		
-		public function JavaScriptLogger(logClass:Class) {
-			super(logClass);
-		}
-		
-		override public function logMessage(message:Object, severity:int):void {
-			ExternalInterface.call(JS_COMMUNICATION_LOG_MESSAGE_FUNCTION, getClassName(), message, severity);
-		}
-		
-	}
-	
+final class StubStandardCommonTaskRunnerImpl extends TaskRunnerImpl implements ICommonTaskRunner {
+    
+    StubStandardCommonTaskRunnerImpl(){
+        super();
+    }
+    
+    public void unZipArchiveAbsolute(File file, String dest, String queueTaskId) {
+        
+    }
+    
+    public void unZipArchiveAbsolute(InputStream file, String dest, String queueTaskId) {
+        
+    }
+    
+    public void unZipArchiveRelative(String file, String dest, String queueTaskId) {
+        
+    }
+    
 }

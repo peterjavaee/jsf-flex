@@ -135,6 +135,23 @@
         </dependency>
       </dependencies>
     </profile>
+	
+	<profile>
+      <id>stub_standard_common_impl</id>
+      <activation>
+        <property>
+          <name>standard_common_impl</name>
+		  <value>stub</value>
+        </property>
+      </activation>
+      <dependencies>
+        <dependency>
+          <groupId>com.googlecode.jsf-flex.runner-impl-project.common-runner-project</groupId>
+          <artifactId>stub-standard-common-impl</artifactId>
+          <version>${jsf.flex.runner.version}</version>
+        </dependency>
+      </dependencies>
+    </profile>
     
     <profile>
       <id>default_file_manipulator_impl</id>

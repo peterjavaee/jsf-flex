@@ -58,9 +58,9 @@ if(typeof com.googlecode.jsfFlex.communication.logger == "undefined"){
 			var displayAsObject;
 			if(message instanceof Object){
 				displayAsObject = message;
-				message = "For " + className + " printing object : ";
+				message = className + " printing object : ";
 			}else{
-				message = "For " + className + " : " + message;
+				message = className + " : " + message;
 			}
 			switch(severity){
 				case 1 :	console.log(message); break;
