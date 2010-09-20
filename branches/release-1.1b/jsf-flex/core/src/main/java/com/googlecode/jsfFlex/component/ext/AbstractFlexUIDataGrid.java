@@ -222,10 +222,7 @@ public abstract class AbstractFlexUIDataGrid
     }
     
     public static Boolean defaultFilterMethod(AsynchronousFilterEvent filterEvent){
-        if(filterEvent.getFilterValue().length() == 0){
-            return false;
-        }
-        return !filterEvent.getComponentValue().contains(filterEvent.getFilterValue());
+        return !(filterEvent.getFilterValue().length() > 0 && filterEvent.getComponentValue().contains(filterEvent.getFilterValue()));
     }
     
     private Boolean invokeFilterMethod(String currRowValue, String filterValue) {

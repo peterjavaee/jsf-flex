@@ -53,14 +53,24 @@ if(typeof com.googlecode.jsfFlex.communication.logger == "undefined"){
 
 //private namespace
 (function() {
-	function logMessage(message, severity){
+	function logMessage(className, message, severity){
 		if(typeof console != "undefined"){
+			var displayAsObject;
+			if(message instanceof Object){
+				displayAsObject = message;
+				message = "For " + className + " printing object : ";
+			}else{
+				message = "For " + className + " : " + message;
+			}
 			switch(severity){
-				case 1 :	console.log(message); return;
-				case 2 :	console.debug(message); return;
-				case 3 :	console.info(message); return;
-				case 4 :	console.warn(message); return;
-				case 5 :	console.error(message); return;
+				case 1 :	console.log(message); break;
+				case 2 :	console.debug(message); break;
+				case 3 :	console.info(message); break;
+				case 4 :	console.warn(message); break;
+				case 5 :	console.error(message); break;
+			}
+			if(displayAsObject != null){
+				console.dir(displayAsObject);
 			}
 		}else{
 			if(severity == 5){

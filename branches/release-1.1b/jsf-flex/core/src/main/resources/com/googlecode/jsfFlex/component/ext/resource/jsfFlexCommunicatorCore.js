@@ -67,18 +67,18 @@ com.googlecode.jsfFlex.communication.core = {
 				 		},
 	getApplication	:	function(appId){
 							if (navigator.appName.indexOf("Microsoft") != -1) {
-								getApplication = function(appId) { return document.getElementById(appId); };
+								this.getApplication = function(appId) { return document.getElementById(appId); };
 							}else{
-								getApplication = 	function(appId){
+								this.getApplication = 	function(appId){
 														var doc = document;
 														var initialAttempt = doc[appId];
 														return initialAttempt ? initialAttempt : doc.getElementsByName(appId)[0];
 													};
 							}
-							return getApplication(appId);
+							return this.getApplication(appId);
 						},
 	getCompValue	:	function(appId, objectId){
-							var access = getApplication(appId);
+							var access = this.getApplication(appId);
 							if(access == null){
 								throw new Error("appId [" + appId + "] returned a null value during lookup");
 							}

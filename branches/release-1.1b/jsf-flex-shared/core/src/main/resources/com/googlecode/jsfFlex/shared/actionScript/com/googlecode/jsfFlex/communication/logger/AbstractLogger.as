@@ -110,57 +110,61 @@ package com.googlecode.jsfFlex.communication.logger
 			super();
 		}
 		
-		public function log(message:String):void {
+		public function log(message:Object):void {
 			if(!_logModeLoaded){
 				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: message, severity: 1});
 				return;
 			}
 			if(_isLog){
-				logMessage(message, 1);
+				logMessage(getClassName(), message, 1);
 			}
 		}
 		
-		public function debug(debugMessage:String):void {
+		public function debug(debugMessage:Object):void {
 			if(!_logModeLoaded){
 				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: debugMessage, severity: 2});
 				return;
 			}
 			if(_isDebug){
-				logMessage(debugMessage, 2);
+				logMessage(getClassName(), debugMessage, 2);
 			}
 		}
 		
-		public function info(infoMessage:String):void {
+		public function info(infoMessage:Object):void {
 			if(!_logModeLoaded){
 				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: infoMessage, severity: 3});
 				return;
 			}
 			if(_isInfo){
-				logMessage(infoMessage, 3);
+				logMessage(getClassName(), infoMessage, 3);
 			}
 		}
 		
-		public function warn(warnMessage:String):void {
+		public function warn(warnMessage:Object):void {
 			if(!_logModeLoaded){
 				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: warnMessage, severity: 4});
 				return;
 			}
 			if(_isWarn){
-				logMessage(warnMessage, 4);
+				logMessage(getClassName(), warnMessage, 4);
 			}
 		}
 		
-		public function error(errorMessage:String):void {
+		public function error(errorMessage:Object):void {
 			if(!_logModeLoaded){
 				PRIOR_TO_LOG_MODE_SETTING_MESSAGES.push({instanceRef: this, method: logMessage, message: errorMessage, severity: 5});
 				return;
 			}
 			if(_isError){
-				logMessage(errorMessage, 5);
+				logMessage(getClassName(), errorMessage, 5);
 			}
 		}
 		
-		public function logMessage(message:String, severity:int):void {
+		public function getClassName():String {
+			throw new IllegalOperationError("getClassName must be implemented by the sub class");
+		}
+		
+		public function logMessage(className:String, message:Object, severity:int):void {
 			throw new IllegalOperationError("logMessage must be implemented by the sub class");
 		}
 		

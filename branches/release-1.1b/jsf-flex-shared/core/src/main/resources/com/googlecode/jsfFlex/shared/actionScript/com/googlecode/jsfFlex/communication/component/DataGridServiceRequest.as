@@ -238,8 +238,7 @@ package com.googlecode.jsfFlex.communication.component
 			var filterValue:String = "";
 			if(_filterComponent != null){
 				var compValMapper:ComponentValueMapper = ComponentValueMapper.getInstance(JsfFlexUtils.getCurrentApplication());
-				var compValue:Object = compValMapper.getCompValue(_filterComponent.id)[0];
-				filterValue = compValue.toString();
+				filterValue = compValMapper.getCompValue(_filterComponent.id)[0].value;
 			}
 			
 			var dataRequestParameters:Object = {};
@@ -249,8 +248,8 @@ package com.googlecode.jsfFlex.communication.component
 			dataRequestParameters.DATA_END_INDEX = dataEndIndex;
 			dataRequestParameters.FILTER_VALUE = filterValue;
 			
-			_log.debug("Getting griData for " + _dataGridComp.id + " with dataStartIndex : " + dataStartIndex + 
-						", with dataEndIndex : " + dataEndIndex + ", and with populateCacheStartIndex " + populateCacheStartIndex);
+			_log.debug("GriData for " + _dataGridComp.id + " with dataStartIndex : " + dataStartIndex + 
+						", with dataEndIndex : " + dataEndIndex + ", filterValue " + filterValue + ", and with populateCacheStartIndex " + populateCacheStartIndex);
 			var jsfFlexHttpServiceRequest:JsfFlexHttpService = new JsfFlexHttpService();
 			jsfFlexHttpServiceRequest.sendHttpRequest(GET_GRID_DATA_SERVICE_REQUEST_URL, this,
 															function (lastResult:Object, event:ResultEvent):void {

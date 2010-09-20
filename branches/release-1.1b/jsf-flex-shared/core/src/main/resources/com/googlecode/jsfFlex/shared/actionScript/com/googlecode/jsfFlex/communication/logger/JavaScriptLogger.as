@@ -41,9 +41,12 @@ package com.googlecode.jsfFlex.communication.logger
 			CLASS_NAME = splittedPackageClassName != null && splittedPackageClassName.length > 0 ? splittedPackageClassName[splittedPackageClassName.length - 1] : packageClassName;
 		}
 		
-		override public function logMessage(message:String, severity:int):void {
-			message = CLASS_NAME + " : " + message;
-			ExternalInterface.call(JS_COMMUNICATION_LOG_MESSAGE_FUNCTION, message, severity);
+		override public function logMessage(className:String, message:Object, severity:int):void {
+			ExternalInterface.call(JS_COMMUNICATION_LOG_MESSAGE_FUNCTION, CLASS_NAME, message, severity);
+		}
+		
+		override public function getClassName():String {
+			return CLASS_NAME;
 		}
 		
 	}
