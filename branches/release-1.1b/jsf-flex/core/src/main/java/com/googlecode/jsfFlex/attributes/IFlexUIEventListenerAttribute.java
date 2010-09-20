@@ -30,10 +30,7 @@ public interface IFlexUIEventListenerAttribute {
     /**
      * Event to associate this listener for.
      */
-    @JSFProperty(
-            required    = true,
-            desc        = "Event to associate this listener for."
-    )
+    @JSFProperty(desc        = "Event to associate this listener for.")
     String getEventListener();
     
     void setEventListener(String eventListener);

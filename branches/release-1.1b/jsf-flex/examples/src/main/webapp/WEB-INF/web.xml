@@ -88,6 +88,18 @@
       <param-value>debugMode</param-value>
     </context-param>
     
+    <!-- 
+    <context-param>
+      <description>
+      Parameter if the user already has a Flex SDK that is unzipped to a directory. Rationally this is advised, since it cuts down in 
+      development time as extraction of flexSDK zip file is rather long. Also a lightweight version of sdk-standard-common-impl.jar will be provided
+      since much of the jar size and memory consumption is due to the size of flexSDK zip file.
+      </description>
+      <param-name>flexSDKPath</param-name>
+      <param-value>C:\\arena\\flexSDK\\</param-value>
+    </context-param>
+     -->
+    
     <filter>
       <filter-name>jsfFlexResourceFilter</filter-name>
       <filter-class>com.googlecode.jsfFlex.filter.JsfFlexResourceFilter</filter-class>

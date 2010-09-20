@@ -28,13 +28,18 @@
 	#set( $errorTextComponentId = ${validationManagerScriptContent.getErrorTextComponentId()} )
 		private var validationManager:ValidationManager;
 	#end
-
+		
 		private function initializeApp(event:Event):void {
 			compValMapper = ComponentValueMapper.getInstance(this);
 			compValMapper.initialize();
 			
 			ExternalInterface.addCallback(AS_FORM_SUBMITTING_FUNCTION, formSubmitting);
 			ExternalInterface.addCallback(AS_POPULATE_INIT_VALUES_FUNCTION, populateInitValues);
+			
+			ComponentValueMapper.loadComponentValueMapperXML(this, this.componentValueMapperXMLLoaded);
+		}
+		
+		private function componentValueMapperXMLLoaded(event:Event):void {
 			
 			var idObject:Object = ExternalInterface.call(JS_COMMUNICATION_CORE_AM_READY_FUNCTION, this.id);
 			if(idObject != null){

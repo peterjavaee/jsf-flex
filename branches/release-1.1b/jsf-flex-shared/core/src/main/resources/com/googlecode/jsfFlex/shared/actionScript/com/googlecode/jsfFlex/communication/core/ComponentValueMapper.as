@@ -37,6 +37,8 @@ package com.googlecode.jsfFlex.communication.core
 	
 	public class ComponentValueMapper {
 		
+		default xml namespace = new Namespace("http://jsf-flex.googlecode.com");
+		
 		private static const JSON_RESULT:String = "jsonResult";
 		
 		private static const LINE_FEED:String = "\n";
@@ -65,6 +67,9 @@ package com.googlecode.jsfFlex.communication.core
 		
 		{
 			_log = LoggerFactory.newJSLoggerInstance(ComponentValueMapper);
+		}
+		
+		public static function loadComponentValueMapperXML(thisObject:Object, callBack:Function):void {
 			
 			_loader = new URLLoader();
 			
@@ -73,14 +78,16 @@ package com.googlecode.jsfFlex.communication.core
 										_compValueMapper = new XML(_loader.data);
 										_loader = null;
 										_log.info("Have loaded componentValueMapper.xml");
+										
+										callBack.call(thisObject, event);
 									}, false, 0, true);
 			
 			try{
 				_loader.load(new URLRequest(COMP_VALUE_MAPPER));
 			}catch(loadingError:Error){
-				trace("Failure in loading of the componentValueMapper.xml file");
 				_log.error("Failure in loading of the componentValueMapper.xml file");
 			}
+			
 		}
 		
 		public static function getInstance(refApp:UIComponent):ComponentValueMapper {
@@ -182,12 +189,12 @@ package com.googlecode.jsfFlex.communication.core
 			}
 			
 			var classInfo:XMLList = getClassInfo(className);
-			if(classInfo == null){
+			if(classInfo == null || classInfo.length() < 1){
 				return null;
 			}
 			
 			var classInfoNodes:XMLList = classInfo.nodeList.node;
-			if(classInfoNodes == null){
+			if(classInfoNodes == null || classInfoNodes.length() < 1){
 				return null;
 			}
 			
@@ -198,13 +205,11 @@ package com.googlecode.jsfFlex.communication.core
 				
 				for each (var attribute:XML in classInfoNodeAttributes){
 					if(attribute.name.toString() == VALUE_ATTR){
-						
 						var attributeValueObject:Object = getAttributeValue(attribute, objectRef);
 						
 						if(attributeValueObject.value == null){
 							continue;
 						}
-						
 						valueToReturn.push(attributeValueObject);
 					}
 				}
@@ -225,7 +230,6 @@ package com.googlecode.jsfFlex.communication.core
 			
 			var attributeValue:String;
 			var attributeId:String;
-			
 			if(isNested){
 				/*
 				 * TODO : consider implementing it better later
@@ -238,29 +242,37 @@ package com.googlecode.jsfFlex.communication.core
 					if( k == (nestedObjects.length() - 1) ){
 						//now set the attribute
 						attributeId = nestedObjects[k].toString();
+						if(!objectRef.hasOwnProperty(attributeId)){
+							break;
+						}
 						attributeValue = objectRef[attributeId];
 						if(toAppend != null && toAppend.length > 0){
 							attributeValue += toAppend;
 						}
 						break;
 					}
+					if(!objectRef.hasOwnProperty(nestedObjects[k].toString())){
+						break;
+					}
 					objectRef = objectRef[nestedObjects[k].toString()];
 					if(objectRef == null){
 						attributeId = null;
 						attributeValue = null;
-						trace("Failure in getting access to reference " + nestedObjects[k].toString());
 						_log.warn("Failure in getting access to reference " + nestedObjects[k].toString());
 						break;
 					}
 				}
 			}else{
 				attributeId = attribute.value.toString();
-				attributeValue = isDynamic ? objectRef[attributeId] : attributeId;
+				if(objectRef.hasOwnProperty(attributeId)){
+					attributeValue = isDynamic ? objectRef[attributeId] : attributeId;
+				}
 				if(toAppend != null && toAppend.length > 0){
 					attributeValue += toAppend;
 				}
 			}
 			
+			_log.debug("Returning from getAttributeValue: " + attributeId + ", " + attributeValue);
 			return {id: attributeId, value: attributeValue};
 		}
 		
@@ -289,12 +301,12 @@ package com.googlecode.jsfFlex.communication.core
 			}
 			
 			var classInfo:XMLList = getClassInfo(className);
-			if(classInfo == null){
+			if(classInfo == null || classInfo.length() < 1){
 				return null;
 			}
 			
 			var classInfoNodes:XMLList = classInfo.nodeList.node;
-			if(classInfoNodes == null){
+			if(classInfoNodes == null || classInfoNodes.length() < 1){
 				return null;
 			}
 			
@@ -326,7 +338,7 @@ package com.googlecode.jsfFlex.communication.core
 		}
 		
 		private function getClassInfo(classNameVal:String):XMLList {
-			return _compValueMapper.classInfo.(classNames.className == classNameVal);
+			return _compValueMapper.classInfo.(classNames..*.(text()==classNameVal).length() > 0);
 		}
 		
 	}

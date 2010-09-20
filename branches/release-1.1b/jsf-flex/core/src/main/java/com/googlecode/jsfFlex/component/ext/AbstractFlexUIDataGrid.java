@@ -222,18 +222,21 @@ public abstract class AbstractFlexUIDataGrid
     }
     
     public static Boolean defaultFilterMethod(AsynchronousFilterEvent filterEvent){
+        if(filterEvent.getFilterValue().length() == 0){
+            return false;
+        }
         return !filterEvent.getComponentValue().contains(filterEvent.getFilterValue());
     }
     
-    private Boolean invokeFilterMethod(String filterValue, String currRowValue) {
+    private Boolean invokeFilterMethod(String currRowValue, String filterValue) {
         Boolean toFilter = false;
         
         MethodExpression userProvidedFilterMethod = getAsynchronousEventGlueHandler();
         if(userProvidedFilterMethod != null){
             FacesContext context = FacesContext.getCurrentInstance();
-            toFilter = Boolean.valueOf( userProvidedFilterMethod.invoke(context.getELContext(), new Object[]{new AsynchronousFilterEvent(this, filterValue, currRowValue)}).toString() );
+            toFilter = Boolean.valueOf( userProvidedFilterMethod.invoke(context.getELContext(), new Object[]{new AsynchronousFilterEvent(this, currRowValue, filterValue)}).toString() );
         }else{
-            toFilter = defaultFilterMethod(new AsynchronousFilterEvent(this, filterValue, currRowValue));
+            toFilter = defaultFilterMethod(new AsynchronousFilterEvent(this, currRowValue, filterValue));
         }
         
         return toFilter;

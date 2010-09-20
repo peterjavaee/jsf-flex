@@ -30,7 +30,7 @@ public interface IFlexUIComponentNameSpaceAttribute {
     /**
      * Component's NameSpace.
      */
-    @JSFProperty(desc   =   "Component's NameSpace.", required = true)
+    @JSFProperty(desc   =   "Component's NameSpace.", defaultValue = "mx")
     String getComponentNameSpace();
     
 }

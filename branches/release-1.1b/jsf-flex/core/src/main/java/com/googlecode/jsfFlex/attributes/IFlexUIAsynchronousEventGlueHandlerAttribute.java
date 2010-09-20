@@ -30,7 +30,6 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
 public interface IFlexUIAsynchronousEventGlueHandlerAttribute {
     
     @JSFProperty(
-            required        =   true,
             stateHolder     =   true,
             jspName         =   "asynchronousEventGlueHandler",
             methodSignature =   "java.lang.String,java.lang.String,java.lang.String",

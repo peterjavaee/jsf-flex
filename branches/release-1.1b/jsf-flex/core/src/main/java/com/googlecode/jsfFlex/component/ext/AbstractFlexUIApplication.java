@@ -158,7 +158,7 @@ public abstract class AbstractFlexUIApplication
 			 * 	by the system's ActionScripts.
 			 */
 			String flexSDKPath = _applicationPath + File.separatorChar + FlexConstants.FLEX_SDK_DIRECTORY_NAME + File.separatorChar;
-			
+			String webXmlFlexSDKPath = context.getExternalContext().getInitParameter(FlexConstants.PROVIDED_FLEX_SDK_PATH);
             String swcPath = _applicationPath + File.separatorChar + FlexConstants.SWC_DIRECTORY_NAME + File.separatorChar;
 			String jsfFlexSwcPath = swcPath + FlexConstants.JSF_FLEX_MAIN_SWC_DIRECTORY_NAME + File.separatorChar;
 			
@@ -172,6 +172,8 @@ public abstract class AbstractFlexUIApplication
 			
             if(getFlexSDKPath() != null && getFlexSDKPath().trim().length() > 0){
                 flexContext.setFlexSDKPath(getFlexSDKPath());
+            }else if(webXmlFlexSDKPath != null){
+                flexContext.setFlexSDKPath(webXmlFlexSDKPath);
             }else{
                 flexContext.setFlexSDKPath(flexSDKPath);
             }
