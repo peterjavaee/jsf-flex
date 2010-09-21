@@ -178,12 +178,16 @@ public abstract class AbstractFlexUIDataGrid
                     break selectDeselectAllBlock;
                 }
                 
-                for(String deltaDeselectedEntry : deltaDeselectedEntries) {
-                    deselectRow(updateSelectionStartIndex + Integer.valueOf(deltaDeselectedEntry));
+                if(deltaDeselectedEntries != null){
+                    for(String deltaDeselectedEntry : deltaDeselectedEntries) {
+                        deselectRow(updateSelectionStartIndex + Integer.valueOf(deltaDeselectedEntry));
+                    }
                 }
                 
-                for(String deltaSelectedEntry : deltaSelectedEntries) {
-                    selectRow(updateSelectionStartIndex + Integer.valueOf(deltaSelectedEntry));
+                if(deltaSelectedEntries != null){
+                    for(String deltaSelectedEntry : deltaSelectedEntries) {
+                        selectRow(updateSelectionStartIndex + Integer.valueOf(deltaSelectedEntry));
+                    }
                 }
             }
             
@@ -221,8 +225,12 @@ public abstract class AbstractFlexUIDataGrid
         return updateRowSelectionResult;
     }
     
+    /**
+     * @param filterEvent
+     * @return if the value is true the row will be filtered
+     */
     public static Boolean defaultFilterMethod(AsynchronousFilterEvent filterEvent){
-        return !(filterEvent.getFilterValue().length() > 0 && filterEvent.getComponentValue().contains(filterEvent.getFilterValue()));
+        return filterEvent.getFilterValue().length() > 0 && !filterEvent.getComponentValue().contains(filterEvent.getFilterValue());
     }
     
     private Boolean invokeFilterMethod(String currRowValue, String filterValue) {
