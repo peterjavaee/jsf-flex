@@ -56,12 +56,13 @@ if(typeof com.googlecode.jsfFlex.communication.logger == "undefined"){
 	function logMessage(className, message, severity){
 		if(typeof console != "undefined"){
 			var displayAsObject;
-			if(message instanceof Object){
+			if((typeof message == "string") || (message instanceof String)){
+				message = className + " : " + message;
+			} else{
 				displayAsObject = message;
 				message = className + " printing object : ";
-			}else{
-				message = className + " : " + message;
 			}
+			
 			switch(severity){
 				case 1 :	console.log(message); break;
 				case 2 :	console.debug(message); break;

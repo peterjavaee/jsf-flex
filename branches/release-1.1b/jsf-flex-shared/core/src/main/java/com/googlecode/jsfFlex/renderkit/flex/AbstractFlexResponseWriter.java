@@ -241,7 +241,7 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriterWrapper {
                 //create the SWC file
                 String loadConfigAbsolutePath = flexContext.getJsfFlexSwcPath() + FlexConstants.JSF_FLEX_MAIN_SWC_CONFIGURATIONFILE;
                 String swcFileLocationPath = flexContext.getJsfFlexSwcPath() + FlexConstants.JSF_FLEX_MAIN_SWC_ARCHIVE_NAME + FlexConstants.SWC_FILE_EXT;
-                createSystemSWCFile(flexContext.getJsfFlexSwcPath(), swcFileLocationPath, flexSDKPath, loadConfigAbsolutePath, null);
+                createSystemSWCFile(flexContext.getJsfFlexSwcPath(), swcFileLocationPath, flexSDKPath, loadConfigAbsolutePath, componentFlex, null);
                 
                 /*
                  *  copy the necessary swf source files to swfBasePath
@@ -595,9 +595,9 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriterWrapper {
      * @param queueTaskId
      * @return generated queueTaskId to be used when invoking ITaskRunner.waitForFutureTask
      */
-    public final String createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath, String queueTaskId) {
+    public final String createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath, IFlexApplicationContract componentFlex, String queueTaskId) {
         queueTaskId = queueTaskId == null ? null : QUEUE_TASK_ID.CREATE_SYSTEM_SWC_FILE.getQueueTaskId(queueTaskId);
-        getFlexTaskRunner().createSystemSWCFile(sourcePath, outPut, flexSDKRootPath, loadConfigFilePath, queueTaskId);
+        getFlexTaskRunner().createSystemSWCFile(sourcePath, outPut, flexSDKRootPath, loadConfigFilePath, componentFlex, queueTaskId);
         return queueTaskId;
     }
     

@@ -19,12 +19,14 @@
 package com.googlecode.jsfFlex.shared.tasks.ant;
 
 import java.io.File;
+import java.util.Map;
 
 import org.apache.tools.ant.BuildException;
 import org.apache.tools.ant.Target;
 import org.apache.tools.ant.taskdefs.ExecTask;
 import org.apache.tools.ant.types.Commandline.Argument;
 
+import com.googlecode.jsfFlex.shared.adapter.IFlexApplicationContract;
 import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
 import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
@@ -50,14 +52,16 @@ public final class SWCTask extends AbstractAntBaseTask {
 	private final String _outPut;
 	private final String _loadConfig;
 	private final String _flexSDKRootPath;
+    private final IFlexApplicationContract _componentFlex;
 	
-	public SWCTask(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath){
+	public SWCTask(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath, IFlexApplicationContract componentFlex){
 		super();
 		_sourcePath = sourcePath;
 		_outPut = outPut;
 		_loadConfig = loadConfigFilePath;
 		_flexSDKRootPath = flexSDKRootPath;
-		
+		_componentFlex = componentFlex;
+        
 		_swcTarget = new Target();
 		_swcTarget.setName(SWC_TARGET);
 		_swcTarget.setProject(_taskProject);
@@ -94,6 +98,14 @@ public final class SWCTask extends AbstractAntBaseTask {
 			arg.setLine(LOAD_CONFIG_ARG_SYNTAX + FlexConstants.STRING_QUOTE + _loadConfig + FlexConstants.STRING_QUOTE);
 		}
 		
+        Map <String, String> additionalSwcCommandArguments = _componentFlex.getAdditionalSwccCommandArguments();
+        if(additionalSwcCommandArguments != null){
+            for(String currKey : additionalSwcCommandArguments.keySet()){
+                arg = _swcTask.createArg();
+                arg.setLine(currKey + additionalSwcCommandArguments.get(currKey));
+            }
+        }
+        
 		_swcTask.maybeConfigure();
 		
 	}

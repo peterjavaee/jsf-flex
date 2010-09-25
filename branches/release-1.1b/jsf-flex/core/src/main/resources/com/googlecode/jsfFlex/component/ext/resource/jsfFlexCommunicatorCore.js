@@ -55,7 +55,7 @@ com.googlecode.jsfFlex.communication.core = {
 							flashAppsKeyAppId			: {}
 						},
 	addFlashApp		: 	function(flashApp){
-							var data = com.googlecode.jsfFlex.communication.core.data;
+							var data = this.data;
 							var flashAppsKeyNamingContainer = data.flashAppsKeyNamingContainer;
 							var namingContainerPrefixList = flashAppsKeyNamingContainer[flashApp.namingContainerPrefix];
 							if(namingContainerPrefixList == null){
@@ -150,7 +150,7 @@ com.googlecode.jsfFlex.communication.core.domHelpers = {
 									}
 								}
 								
-								com.googlecode.jsfFlex.communication.core.domHelpers.data.eventListenerToRelease.push({element: element, eventName: eventName, releaseFunction: functionRef, capturing: capturing});
+								this.eventListenerToRelease.push({element: element, eventName: eventName, releaseFunction: functionRef, capturing: capturing});
 							},
 	removeEventListener :	function(element, eventName, functionRef, capturing){
 								element = element == null ? window : element;

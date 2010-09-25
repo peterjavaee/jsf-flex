@@ -19,6 +19,7 @@
 package com.googlecode.jsfFlex.shared.tasks.jython;
 
 import java.io.File;
+import java.util.Map;
 import java.util.Vector;
 
 import org.python.core.PyList;
@@ -26,6 +27,7 @@ import org.python.core.PyObject;
 import org.python.core.PyString;
 import org.python.util.PythonInterpreter;
 
+import com.googlecode.jsfFlex.shared.adapter.IFlexApplicationContract;
 import com.googlecode.jsfFlex.shared.util.FlexConstants;
 
 /**
@@ -55,17 +57,19 @@ public final class SWCTask extends AbstractJythonBaseTask {
 	private String _outPut;
 	private String _loadConfig;
 	private String _flexSDKRootPath;
+    private IFlexApplicationContract _componentFlex;
 	
 	public SWCTask(){
 		super();
 	}
 	
-	public SWCTask(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath){
+	public SWCTask(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath, IFlexApplicationContract componentFlex){
 		super();
 		_sourcePath = sourcePath;
 		_outPut = outPut;
 		_loadConfig = loadConfigFilePath;
 		_flexSDKRootPath = flexSDKRootPath;
+        _componentFlex = componentFlex;
 	}
 	
 	void build() {
@@ -89,6 +93,13 @@ public final class SWCTask extends AbstractJythonBaseTask {
 		if(_loadConfig != null){
 			commandArguments.add(LOAD_CONFIG_ARG_SYNTAX + FlexConstants.STRING_QUOTE + _loadConfig + FlexConstants.STRING_QUOTE);
 		}
+        
+        Map <String, String> additionalSwcCommandArguments = _componentFlex.getAdditionalSwccCommandArguments();
+        if(additionalSwcCommandArguments != null){
+            for(String currKey : additionalSwcCommandArguments.keySet()){
+                commandArguments.add(currKey + additionalSwcCommandArguments.get(currKey));
+            }
+        }
 		
 		return commandArguments;
 	}

@@ -180,8 +180,8 @@ final class AntFlexTaskRunnerImpl extends TaskRunnerImpl implements IFlexTaskRun
 		}
 	}
 	
-	public void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath, String queueTaskId) {
-		SWCTask swcCreate = new SWCTask(sourcePath, outPut, flexSDKRootPath, loadConfigFilePath);
+	public void createSystemSWCFile(String sourcePath, String outPut, String flexSDKRootPath, String loadConfigFilePath, IFlexApplicationContract componentFlex, String queueTaskId) {
+		SWCTask swcCreate = new SWCTask(sourcePath, outPut, flexSDKRootPath, loadConfigFilePath, componentFlex);
 		if(queueTaskId != null){
             queueFutureTask(queueTaskId, swcCreate);
         }else{

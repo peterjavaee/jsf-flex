@@ -32,6 +32,8 @@ public interface IFlexApplicationContract extends IFlexContract {
     
     Map<String, String> getAdditionalMxmlcCommandArguments();
     
+    Map<String, String> getAdditionalSwccCommandArguments();
+    
     Collection<String> getExternalLibraryPath();
 	
     void addExternalLibraryPath(String externalLibraryPath);
