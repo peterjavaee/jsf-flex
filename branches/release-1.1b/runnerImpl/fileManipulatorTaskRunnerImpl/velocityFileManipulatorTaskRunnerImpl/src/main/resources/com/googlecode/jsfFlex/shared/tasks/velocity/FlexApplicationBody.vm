@@ -48,7 +48,7 @@
 			
 		#foreach( $dataGridScriptContent in ${additionalApplicationScriptContent.getDataGridScriptContent()} )
 			#set( $dataGridVarRef = "${dataGridScriptContent.getDataGridId()}DataGridVarRef" )
-			${dataGridVarRef} = new DataGridServiceRequest("${dataGridScriptContent.getDataGridId()}", ${dataGridScriptContent.getBatchColumnDataRetrievalSize()}, ${dataGridScriptContent.getMaxDataPartitionIndex()}, "${dataGridScriptContent.getFilterComponentId()}", "${dataGridScriptContent.getFilterEventListener()}");
+			${dataGridVarRef} = new DataGridServiceRequest("${dataGridScriptContent.getDataGridId()}", ${dataGridScriptContent.getBatchColumnDataRetrievalSize()}, ${dataGridScriptContent.getMaxDataPartitionIndex()}, "${dataGridScriptContent.getFilterComponentId()}", "${dataGridScriptContent.getFilterColumnComponentId()}", "${dataGridScriptContent.getFilterEventListener()}");
 			
 			#foreach( $dataGridColumn in ${dataGridScriptContent.getDataGridColumns()} )
 				${dataGridVarRef}.addDataGridColumServiceRequest("${dataGridColumn.getDataGridColumnId()}", "${dataGridColumn.getDataField()}", ${dataGridColumn.getColumnEditable()});

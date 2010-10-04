@@ -111,6 +111,7 @@ package com.googlecode.jsfFlex.communication.component
 		private var _dataGridDataProvider:ListCollectionView;
 		
 		private var _filterComponent:UIComponent;
+		private var _filterColumnComponent:UIComponent;
 		private var _filterEventListener:String;
 		
 		/*
@@ -125,7 +126,7 @@ package com.googlecode.jsfFlex.communication.component
 		
 		public function DataGridServiceRequest(dataGridId:String, batchColumnDataRetrievalSize:uint, 
 												maxDataPartitionIndex:uint, filterComponentId:String, 
-												filterEventListener:String) {
+												filterColumnComponentId:String, filterEventListener:String) {
 			super();
 			var app:UIComponent = JsfFlexUtils.getCurrentApplication();
 			_dataGridComp = app[dataGridId];
@@ -137,7 +138,11 @@ package com.googlecode.jsfFlex.communication.component
 			if(filterComponentId.length > 0){
 				_filterComponent = app[filterComponentId];
 				_filterEventListener = filterEventListener;
+				if(filterColumnComponentId.length > 0){
+					_filterColumnComponent = app[filterColumnComponentId];
+				}
 			}
+			
 			/*
 			 * Internal setting of the fields for possible dataPartitioning 
 			 */
@@ -236,9 +241,14 @@ package com.googlecode.jsfFlex.communication.component
 			}
 			
 			var filterValue:String = "";
+			var filterColumnValue:String = "";
 			if(_filterComponent != null){
 				var compValMapper:ComponentValueMapper = ComponentValueMapper.getInstance(JsfFlexUtils.getCurrentApplication());
 				filterValue = compValMapper.getCompValue(_filterComponent.id)[0].value;
+				
+				if(_filterColumnComponent != null){
+					filterColumnValue = compValMapper.getCompValue(_filterColumnComponent.id)[0].value;
+				}
 			}
 			
 			var dataRequestParameters:Object = {};
@@ -247,6 +257,7 @@ package com.googlecode.jsfFlex.communication.component
 			dataRequestParameters.DATA_START_INDEX = dataStartIndex;
 			dataRequestParameters.DATA_END_INDEX = dataEndIndex;
 			dataRequestParameters.FILTER_VALUE = filterValue;
+			dataRequestParameters.FILTER_COLUMN_VALUE = filterColumnValue;
 			
 			_log.debug("GriData for " + _dataGridComp.id + " with dataStartIndex : " + dataStartIndex + 
 						", with dataEndIndex : " + dataEndIndex + ", filterValue " + filterValue + ", and with populateCacheStartIndex " + populateCacheStartIndex);
@@ -572,25 +583,14 @@ package com.googlecode.jsfFlex.communication.component
 			jsfFlexHttpServiceRequest.sendHttpRequest(UPDATE_ROW_SELECTION_SERVICE_REQUEST_URL, this,
 															function (lastResult:Object, event:ResultEvent):void {
 																
-																_log.info("Returned from : " + UPDATE_ROW_SELECTION_ENTRY + 
-																			" of " + _dataGridComp.id + " with : " + lastResult);
 																var resultCode:String = lastResult[WebConstants.RESULT_CODE];
-																
-																if(resultCode){
-																	_log.info("Non Root");
-																	_log.info("Result code is : " + resultCode);
-																	_dataGridComp.selectedIndices = lastResult.RETURNED_SELECT_ENTRIES.VALUE;
-																}else if(lastResult.root){
-																	_log.info("Root");
-																	_log.info("Result code is : " + lastResult.root[WebConstants.RESULT_CODE]);
-																	_dataGridComp.selectedIndices = lastResult.root.returnedSeledEntries.VALUE;
-																}else{
-																	_log.info("Something else");
-																}
+																_log.info("Returned from : " + UPDATE_ROW_SELECTION_ENTRY + 
+																			" of " + _dataGridComp.id + " with : " + resultCode);
 																
 																/*
 																 * Now need to select the rows that are kept in the server side
 																 */
+																_dataGridComp.selectedIndices = lastResult.RETURNED_SELECT_ENTRIES.VALUE;
 																
 															}, updateRowSelectionParameters, JsfFlexHttpService.GET_METHOD, JsfFlexHttpService.OBJECT_RESULT_FORMAT, null);
 			

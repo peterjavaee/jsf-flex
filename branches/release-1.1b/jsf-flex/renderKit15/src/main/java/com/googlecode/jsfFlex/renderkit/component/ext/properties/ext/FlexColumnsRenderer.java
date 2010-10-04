@@ -85,7 +85,7 @@ public final class FlexColumnsRenderer extends AbstractFlexComponentBaseRenderer
             AdditionalApplicationScriptContent additionalAppScriptContent = mxmlContext.getAdditionalAppScriptContent();
             additionalAppScriptContent.addDataGridScriptContent(dataGridComponentId, dataGrid.computeBatchColumnDataRetrievalSize(), 
                                                                     dataGrid.computeMaxDataPartitionIndex(), dataGrid.getFilterComponentId(),
-                                                                    dataGrid.getFilterEventListener());
+                                                                    dataGrid.getFilterColumnComponentId(), dataGrid.getFilterEventListener());
             additionalAppScriptContent.addActionScriptImport(ACTION_SCRIPT_IMPORT.DATA_GRID_SERVICE_REQUEST_AS);
             
             for(UIComponent currChild : childrenList){

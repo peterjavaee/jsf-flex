@@ -150,7 +150,7 @@ com.googlecode.jsfFlex.communication.core.domHelpers = {
 									}
 								}
 								
-								this.eventListenerToRelease.push({element: element, eventName: eventName, releaseFunction: functionRef, capturing: capturing});
+								this.data.eventListenerToRelease.push({element: element, eventName: eventName, releaseFunction: functionRef, capturing: capturing});
 							},
 	removeEventListener :	function(element, eventName, functionRef, capturing){
 								element = element == null ? window : element;
