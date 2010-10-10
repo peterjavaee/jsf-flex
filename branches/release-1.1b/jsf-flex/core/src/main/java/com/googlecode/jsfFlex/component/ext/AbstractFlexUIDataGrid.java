@@ -21,7 +21,6 @@ package com.googlecode.jsfFlex.component.ext;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.BitSet;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -95,6 +94,7 @@ public abstract class AbstractFlexUIDataGrid
     private static final String DELTA_DESELECTED_ENTRIES_KEY = "DELTA_DESELECTED_ENTRIES";
     private static final String DELTA_SELECTED_ENTRIES_KEY = "DELTA_SELECTED_ENTRIES";
     private static final String FETCH_SELECTION_ITEM_PARTITION_INDEX_KEY = "FETCH_SELECTION_ITEM_PARTITION_INDEX";
+    private static final String REQUEST_KEYS_KEY = "REQUEST_KEYS";
     private static final String UPDATE_ITEM_PARTITION_INDEX_KEY = "UPDATE_ITEM_PARTITION_INDEX";
     private static final String SELECT_ALL_KEY = "SELECT_ALL";
     private static final String DESELECT_ALL_KEY = "DESELECT_ALL";
@@ -113,49 +113,59 @@ public abstract class AbstractFlexUIDataGrid
     }
     
     private Map<String, AbstractFlexUIDataGridColumn> _dataGridColumnComponentMapping;
-    private BitSet _selectedRows;
     private String _filterColumn;
     private String _filterValue;
-    private List<? super Object> _filteredList;
-    private Map<Integer, Integer> _filteredDataIndexMap;
+    
+    private List<WrappedBeanEntry> _filteredList;
+    private List<WrappedBeanEntry> _wrappedList;
     
     {
         _dataGridColumnComponentMapping = new HashMap<String, AbstractFlexUIDataGridColumn>();
-    }
-    
-    private int getMappedRowIndex(int rowIndex) {
-        if(isFiltered()){
-            rowIndex = _filteredDataIndexMap.get(rowIndex);
-        }
-        return rowIndex;
+        
+        _filteredList = new ArrayList<WrappedBeanEntry>();
+        _wrappedList = new ArrayList<WrappedBeanEntry>();
     }
     
     public boolean isRowSelected(int rowIndex) {
-        return _selectedRows.get(getMappedRowIndex(rowIndex));
+        return getCurrentList().get(rowIndex).isSelected();
     }
     
     public void selectRow(int rowIndex) {
-        _selectedRows.set(getMappedRowIndex(rowIndex));
+        getCurrentList().get(rowIndex).setSelected(true);
     }
     
     public void deselectRow(int rowIndex) {
-        _selectedRows.clear(getMappedRowIndex(rowIndex));
+        getCurrentList().get(rowIndex).setSelected(false);
     }
     
     public void selectRows(int beginRowIndex, int endRowIndex) {
-        _selectedRows.set(getMappedRowIndex(beginRowIndex), getMappedRowIndex(endRowIndex));
+        List<WrappedBeanEntry> currentList = getCurrentList();
+        
+        for(; beginRowIndex < endRowIndex; beginRowIndex++) {
+            currentList.get(beginRowIndex).setSelected(true);
+        }
     }
     
     public void deselectRows(int beginRowIndex, int endRowIndex) {
-        _selectedRows.clear(getMappedRowIndex(beginRowIndex), getMappedRowIndex(endRowIndex));
+        List<WrappedBeanEntry> currentList = getCurrentList();
+        
+        for(; beginRowIndex < endRowIndex; beginRowIndex++) {
+            currentList.get(beginRowIndex).setSelected(false);
+        }
     }
     
     public void deselectAll() {
-        _selectedRows.clear();
+        
+        for(WrappedBeanEntry currEntry : _wrappedList) {
+            currEntry.setSelected(false);
+        }
     }
     
     public void selectAll() {
-        _selectedRows.set(0, _selectedRows.size());
+        
+        for(WrappedBeanEntry currEntry : _wrappedList) {
+            currEntry.setSelected(true);
+        }
     }
     
     public JSONObject updateRowSelectionEntry() throws JSONException {
@@ -212,7 +222,7 @@ public abstract class AbstractFlexUIDataGrid
         if(success){
             int fetchSelectionItemPartitionIndex = Integer.valueOf(requestMap.get(FETCH_SELECTION_ITEM_PARTITION_INDEX_KEY));
             int startIndex = fetchSelectionItemPartitionIndex * batchColumnDataRetrievalSize;
-            int endIndex = Math.min((fetchSelectionItemPartitionIndex + 1) * batchColumnDataRetrievalSize, getBindingBeanList().size());
+            int endIndex = Math.min((fetchSelectionItemPartitionIndex + 1) * batchColumnDataRetrievalSize, getCurrentList().size());
             
              _log.info("updateRowSelectionEntry: fetchSelectionItemPartitionIndex is " + fetchSelectionItemPartitionIndex + ", startIndex is " + startIndex
                                     + ", endIndex is " + endIndex);
@@ -260,6 +270,94 @@ public abstract class AbstractFlexUIDataGrid
         return toFilter;
     }
     
+    public JSONObject filterList(int parsedStartIndex, int parsedEndIndex) throws JSONException {
+        _log.info("Filtering the list " + parsedStartIndex + ", " + parsedEndIndex);
+        
+        AbstractFlexUIDataGridColumn filterColumnComponent = _dataGridColumnComponentMapping.get(_filterColumn);
+        Map<String, AbstractFlexUIDataGridColumn> traverseDataGridColumnMap = new HashMap<String, AbstractFlexUIDataGridColumn>(_dataGridColumnComponentMapping); 
+        traverseDataGridColumnMap.remove(_filterColumn);
+        
+        JSONObject formatedColumnData = new JSONObject();
+        JSONArray filterColumnContent = new JSONArray();
+        /*
+         * First add the filterColumn, then add the remaining column values
+         */
+        
+        formatedColumnData.put(_filterColumn, filterColumnContent);
+        for(String currKey : traverseDataGridColumnMap.keySet()) {
+            formatedColumnData.put(currKey, new JSONArray());
+        }
+        
+        int dataSize = _wrappedList.size();
+        parsedEndIndex = parsedEndIndex < dataSize ? parsedEndIndex : dataSize;
+        _log.info("Parsed start + end index are [ " + parsedStartIndex + ", " + parsedEndIndex + " ] with dataSize : " + dataSize + " for component : " + getId());
+        
+        synchronized(_wrappedList){
+            
+            /*
+             * It is assumed that parsedStartIndex is starting from 0
+             */
+            for(; parsedStartIndex < parsedEndIndex; parsedStartIndex++) {
+                WrappedBeanEntry currEntry = _wrappedList.get(parsedStartIndex);
+                Object currValue = currEntry.getBeanEntry();
+                String filterCheckValue = filterColumnComponent.getFormatedColumnData(currValue);
+                
+                Boolean filterCurrentRow = false;
+                
+                if(getFilterComponentId() != null){
+                    filterCurrentRow = invokeFilterMethod(filterCheckValue, _filterValue);
+                }
+                
+                if(filterCurrentRow){
+                    _log.info("Row containing value of " + filterCheckValue + " was filtered");
+                    continue;
+                }else{
+                    /*
+                     * Since this row does not need to be filtered, add first the filter column value and add the reamining entries into 
+                     * the JSONObject
+                     */
+                    filterColumnContent.put(filterCheckValue);
+                    
+                    for(String currKey : traverseDataGridColumnMap.keySet()) {
+                        AbstractFlexUIDataGridColumn currDataGridColumn = traverseDataGridColumnMap.get(currKey);
+                        JSONArray currEntryList = JSONArray.class.cast( formatedColumnData.get(currKey) );
+                        String currColumnValue = currDataGridColumn.getFormatedColumnData(currValue);
+                        currEntryList.put(currColumnValue);
+                        
+                    }
+                    _filteredList.add(currEntry);
+                }
+                
+            }
+            
+            /*
+             * Now filter through the remaining list
+             */
+            
+            for(; parsedEndIndex < dataSize; parsedEndIndex++){
+                
+                WrappedBeanEntry currEntry = _wrappedList.get(parsedEndIndex);
+                Object currValue = currEntry.getBeanEntry();
+                String filterCheckValue = filterColumnComponent.getFormatedColumnData(currValue);
+                
+                Boolean filterCurrentRow = false;
+                if(getFilterComponentId() != null){
+                    filterCurrentRow = invokeFilterMethod(filterCheckValue, _filterValue);
+                    
+                    if(filterCurrentRow){
+                        _log.info("Row containing value of " + filterCheckValue + " was filtered");
+                        continue;
+                    }else{
+                        _filteredList.add(currEntry);
+                    }
+                }
+            }
+            
+        }
+        
+        return formatedColumnData;
+    }
+    
     public JSONObject getGridData() throws JSONException {
         
         FacesContext context = FacesContext.getCurrentInstance();
@@ -284,59 +382,39 @@ public abstract class AbstractFlexUIDataGrid
             return ERROR_JSON_OBJECT;
         }
         
-        if(filterColumnValue.length() > 0 && !filterColumnValue.equals(_filterColumn)){
-            //means that filtering is active and a new value has been requested
-            resetFilterList(filterColumnValue, filterValue);
+        synchronized(this){
+            if((filterColumnValue.length() > 0 && !filterColumnValue.equals(_filterColumn)) ||
+                    (filterValue.length() > 0 && filterValue.equals(_filterValue))){
+                /*
+                 * means that filtering is active and a new value has been requested
+                 * Perform filter and return a list of values requested. Return the result.
+                 */
+                resetFilterList(filterColumnValue, filterValue);
+                return filterList(parsedStartIndex, parsedEndIndex);
+            }
         }
         
-        int dataSize = getBindingBeanList().size();
-        parsedEndIndex = parsedEndIndex < dataSize ? parsedEndIndex : dataSize;
-        
-        _log.info("Parsed start + end index are [ " + parsedStartIndex + ", " + parsedEndIndex + " ] with dataSize : " + dataSize + " for component : " + getId());
-        
-        AbstractFlexUIDataGridColumn filterColumnComponent = _dataGridColumnComponentMapping.get(_filterColumn);
-        Map<String, AbstractFlexUIDataGridColumn> traverseDataGridColumnMap = new HashMap<String, AbstractFlexUIDataGridColumn>(_dataGridColumnComponentMapping); 
-        traverseDataGridColumnMap.remove(_filterColumn);
-        
         JSONObject formatedColumnData = new JSONObject();
-        JSONArray filterColumnContent = new JSONArray();
-        /*
-         * First add the filterColumn, then add the remaining column values
-         */
-        
-        formatedColumnData.put(_filterColumn, filterColumnContent);
-        for(String currKey : traverseDataGridColumnMap.keySet()) {
+        for(String currKey : _dataGridColumnComponentMapping.keySet()) {
             formatedColumnData.put(currKey, new JSONArray());
         }
         
-        synchronized(getBindingBeanList()){
+        List<WrappedBeanEntry> currentList = getCurrentList();
+        int dataSize = currentList.size();
+        parsedEndIndex = parsedEndIndex < dataSize ? parsedEndIndex : dataSize;
+        _log.info("Parsed start + end index are [ " + parsedStartIndex + ", " + parsedEndIndex + " ] with dataSize : " + dataSize + " for component : " + getId());
+        
+        synchronized(currentList){
             for(; parsedStartIndex < parsedEndIndex; parsedStartIndex++) {
-                Object currValue = getBindingBeanList().get(parsedStartIndex);
-                String filterCheckValue = filterColumnComponent.getFormatedColumnData(currValue);
+                WrappedBeanEntry currEntry = currentList.get(parsedStartIndex);
+                Object currValue = currEntry.getBeanEntry();
                 
-                Boolean filterCurrentRow = false;
-                if(getFilterComponentId() != null){
-                    filterCurrentRow = invokeFilterMethod(filterCheckValue, filterValue);
-                    if(filterCurrentRow){
-                        _log.info("Row containing value of " + filterCheckValue + " was filtered");
-                        continue;
-                    }
-                }
-                
-                /*
-                 * Since this row does not need to be filtered, add first the filter column value and add the reamining entries into 
-                 * the JSONObject
-                 */
-                filterColumnContent.put(filterCheckValue);
-                
-                for(String currKey : traverseDataGridColumnMap.keySet()) {
-                    AbstractFlexUIDataGridColumn currDataGridColumn = traverseDataGridColumnMap.get(currKey);
+                for(String currKey : _dataGridColumnComponentMapping.keySet()) {
+                    AbstractFlexUIDataGridColumn currDataGridColumn = _dataGridColumnComponentMapping.get(currKey);
                     JSONArray currEntryList = JSONArray.class.cast( formatedColumnData.get(currKey) );
                     String currColumnValue = currDataGridColumn.getFormatedColumnData(currValue);
                     currEntryList.put(currColumnValue);
-                    
                 }
-                
             }
         }
         
@@ -353,12 +431,42 @@ public abstract class AbstractFlexUIDataGrid
         
         _log.info("Update requested for dataField : " + columnDataField + " for component : " + getId());
         
-        Map<String, ? super Object> updateResult;
+        Map<String, ? super Object> updateResult = new HashMap<String, Object>();
+        boolean success = true;
         
-        synchronized(getBindingBeanList()){
-            updateResult = dataGridColumnComponent.updateModifiedDataField(context, requestMap, getBindingBeanList());
+        String requestKey = requestMap.get(REQUEST_KEYS_KEY);
+        List<String> requestKeyList = Arrays.asList(requestKey.split(","));
+        
+        List<WrappedBeanEntry> currentList = getCurrentList();
+        _log.info("Requested update of data with requestKey : " + requestKey + " for dataField : " + dataGridColumnComponent.getDataField());
+        
+        for(String currKey : requestKeyList){
+            
+            Object currValue = requestMap.get(currKey);
+            int rowIndex;
+            
+            try{
+                rowIndex = Integer.parseInt(currKey);
+            }catch(NumberFormatException parsingException){
+                _log.error("Error parsing of " + currKey + " to an int", parsingException);
+                success = false;
+                break;
+            }
+            
+            synchronized(currentList){
+                WrappedBeanEntry currEntry = currentList.get(rowIndex);
+                Object currDataEntry = currEntry.getBeanEntry();
+                success = dataGridColumnComponent.setDataField(context, currDataEntry, currValue);
+                
+                _log.debug("Success result code of : " + success + " when setting value of : " + currValue + " to an instance of : " + currDataEntry.getClass().getName());
+                
+                if(!success){
+                    break;
+                }                
+            }
         }
         
+        updateResult.put(AbstractEvent.ASYNCHRONOUS_VARIABLES.RESULT_CODE.toString(), Boolean.valueOf(success));
         return updateResult;
     }
     
@@ -390,7 +498,6 @@ public abstract class AbstractFlexUIDataGrid
         
         _log.info("Parsed add entry start + end index are [ " + parsedAddEntryStartIndex + ", " + parsedAddEntryEndIndex + " ] for component : " + getId());
         int loopLength = parsedAddEntryEndIndex - parsedAddEntryStartIndex;
-        
         try{
             Class beanEntryClass = Class.forName(BEAN_ENTRY_CLASS_NAME);
             Comparable<? super Object> beanEntryInstance;
@@ -407,13 +514,36 @@ public abstract class AbstractFlexUIDataGrid
                                     " for class : " + beanEntryInstance.getClass().getName() + " for component : " + getId());
                     AbstractFlexUIDataGridColumn currDataGridColumnComponent = _dataGridColumnComponentMapping.get(currDataGridColumnDataField);
                     currDataGridColumnComponent.setDataField(context, beanEntryInstance, currDataFieldValue);
-                    
                 }
                 
-                synchronized(getBindingBeanList()){
+                WrappedBeanEntry currEntry = new WrappedBeanEntry(beanEntryInstance);
+                if(isFiltered()){
+                    
+                    AbstractFlexUIDataGridColumn filterColumnComponent = _dataGridColumnComponentMapping.get(_filterColumn);
+                    String filterCheckValue = filterColumnComponent.getFormatedColumnData(beanEntryInstance);
+                    
+                    Boolean filterCurrentRow = false;
+                    if(getFilterComponentId() != null){
+                        filterCurrentRow = invokeFilterMethod(filterCheckValue, _filterValue);
+                        
+                        if(filterCurrentRow){
+                            _log.info("Row containing value of " + filterCheckValue + " was filtered");
+                        }else{
+                            _filteredList.add(currEntry);
+                            
+                        }
+                    }
+                    
                     getBindingBeanList().add(parsedAddEntryStartIndex, beanEntryInstance);
                 }
                 
+                synchronized(_wrappedList) {
+                    _wrappedList.add(parsedAddEntryStartIndex, currEntry);
+                }
+                
+                synchronized(getBindingBeanList()) {
+                    getBindingBeanList().add(parsedAddEntryStartIndex, beanEntryInstance);
+                }
             }
             
         }catch(ClassNotFoundException classNotFoundException){
@@ -436,11 +566,7 @@ public abstract class AbstractFlexUIDataGrid
         _log.info("Returning reset values of batchColumnDataRetrievalSize + maxDataPartitionIndex are [ " + 
                         batchColumnDataRetrievalSize + ", " + maxDataPartitionIndex + "] for component : " + getId());
         
-        /*
-         * Now reset the BitSet with the new size and the selected entries will be starting from parsedAddEntryEndIndex 
-         * for loopLength elements 
-         */
-        _selectedRows = new BitSet(getBindingBeanList().size());
+        deselectAll();
         selectRows(parsedAddEntryEndIndex, parsedAddEntryEndIndex + loopLength);
         
         addDataResult.put(BATCH_COLUMN_DATA_RETRIEVAL_SIZE_KEY, batchColumnDataRetrievalSize);
@@ -458,7 +584,6 @@ public abstract class AbstractFlexUIDataGrid
                 Integer secondCompare = Integer.valueOf(secondInstance);
                 return firstCompare.compareTo(secondCompare);
             }
-            
         };
         
         Map<String, ? super Object> removeDataResult = new HashMap<String, Object>();
@@ -472,10 +597,10 @@ public abstract class AbstractFlexUIDataGrid
         Collections.reverse(deleteIndicesList);
         _log.info("Requested deleteIndices are : " + deleteIndices + " for component : " + getId());
         
-        synchronized(getBindingBeanList()){
+        
+        synchronized(this){
             
             for(String currDeleteIndex : deleteIndicesList){
-                
                 int parsedDeleteIndex = -1;
                 
                 try{
@@ -486,8 +611,24 @@ public abstract class AbstractFlexUIDataGrid
                     break;
                 }
                 
-                getBindingBeanList().remove(parsedDeleteIndex);
+                Object removeEntry = null;
+                if(isFiltered()){
+                    /*
+                     * Need to remove from _filteredList, _wrappedList, and getBindingBeanList()
+                     */
+                    WrappedBeanEntry filterEntry = _filteredList.remove(parsedDeleteIndex);
+                    
+                    /*
+                     * Below two are costly operations, try to improve
+                     */
+                    _wrappedList.remove(filterEntry);
+                    removeEntry = filterEntry.getBeanEntry();
+                }else{
+                    
+                    removeEntry = _wrappedList.remove(parsedDeleteIndex).getBeanEntry();
+                }
                 
+                getBindingBeanList().remove(removeEntry);
                 _log.debug("Have removed element at : " + currDeleteIndex + " for component : " + getId());
             }
             
@@ -499,10 +640,7 @@ public abstract class AbstractFlexUIDataGrid
         _log.info("Returning reset values of batchColumnDataRetrievalSize + maxDataPartitionIndex are [ " + 
                         batchColumnDataRetrievalSize + ", " + maxDataPartitionIndex + "] for component : " + getId());
         
-        /*
-         * Now reset the BitSet with the new size and the number of selected entries will be zero
-         */
-        _selectedRows = new BitSet(getBindingBeanList().size());
+        deselectAll();
         
         removeDataResult.put(BATCH_COLUMN_DATA_RETRIEVAL_SIZE_KEY, batchColumnDataRetrievalSize);
         removeDataResult.put(MAX_DATA_PARTITION_INDEX_KEY, maxDataPartitionIndex);
@@ -520,17 +658,17 @@ public abstract class AbstractFlexUIDataGrid
         
         String columnDataFieldToSortBy = requestMap.get(COLUMN_DATA_FIELD_TO_SORT_BY_KEY);
         boolean sortAscending = Boolean.valueOf(requestMap.get(SORT_ASCENDING_KEY)).booleanValue();
-        resetFilterList(columnDataFieldToSortBy, null);
         _log.info("Requested sort of data entries with columnDataFieldToSortBy : " + columnDataFieldToSortBy + " sortAscending : " + sortAscending + " for component : " + getId());
         
         AbstractFlexUIDataGridColumn dataGridColumnComponent = _dataGridColumnComponentMapping.get(columnDataFieldToSortBy);
-        Comparator<Object> dataFieldComparator = sortAscending ? dataGridColumnComponent.getAscendingComparator() : 
-                                                                            dataGridColumnComponent.getDescendingComparator();
         
-        synchronized(getBindingBeanList()){
-            Collections.sort(getBindingBeanList(), dataFieldComparator);
+        Comparator<WrappedBeanEntry> dataFieldComparator = sortAscending ? dataGridColumnComponent.getWrappedEntryAscendingComparator() :
+                                                                        dataGridColumnComponent.getWrappedEntryDescendingComparator();
+        
+        List<WrappedBeanEntry> currentList = getCurrentList();
+        synchronized(currentList){
+            Collections.sort(currentList, dataFieldComparator);
         }
-        
         _log.info("Success result code for sorting is : " + success + " for component : " + getId());
         
         sortResult.put(AbstractEvent.ASYNCHRONOUS_VARIABLES.RESULT_CODE.toString(), Boolean.valueOf(success));
@@ -541,11 +679,19 @@ public abstract class AbstractFlexUIDataGrid
     public void encodeEnd(FacesContext context) throws IOException {
         super.encodeEnd(context);
         
-        _selectedRows = new BitSet(getBindingBeanList().size());
-        _filteredList = new ArrayList<Object>();
+        syncWrapListToActual();
+    }
+    
+    public void syncWrapListToActual() {
         
-        //TODO: implement the below logic better
-        _filteredDataIndexMap = new HashMap<Integer, Integer>();
+        List<Comparable<? super Object>> bindingBeanList = getBindingBeanList();
+        
+        _wrappedList = new ArrayList<WrappedBeanEntry>();
+        for(Object currentEntry : bindingBeanList) {
+            _wrappedList.add(new WrappedBeanEntry(currentEntry));
+        }
+        
+        _log.info("WrappedList size is " + _wrappedList.size());
     }
     
     public Integer computeBatchColumnDataRetrievalSize(){
@@ -560,7 +706,7 @@ public abstract class AbstractFlexUIDataGrid
             }
         }
         
-        int dataEntrySize = getBindingBeanList().size();
+        int dataEntrySize = isFiltered() ? _filteredList.size() : getBindingBeanList().size();
         if(dataEntrySize < batchColumnDataRetrievalSize.intValue()){
             batchColumnDataRetrievalSize = Integer.valueOf(dataEntrySize);
         }
@@ -571,7 +717,7 @@ public abstract class AbstractFlexUIDataGrid
     
     public Integer computeMaxDataPartitionIndex(){
         
-        double dataEntrySize = getBindingBeanList().size();
+        double dataEntrySize = isFiltered() ? _filteredList.size() : getBindingBeanList().size();
         Integer batchColumnDataRetrievalSize = computeBatchColumnDataRetrievalSize();
         Integer maxDataPartitionIndex = null;
         
@@ -594,12 +740,8 @@ public abstract class AbstractFlexUIDataGrid
         _filterColumn = filterColumn;
     }
     
-    private List<? extends Object> getCurrentList() {
-        return isFiltered() ? getFilteredList() : getBindingBeanList();
-    }
-    
-    private List<? extends Object> getFilteredList() {
-        return _filteredList;
+    private List<WrappedBeanEntry> getCurrentList() {
+        return isFiltered() ? _filteredList : _wrappedList;
     }
     
     private boolean isFiltered() {
@@ -607,18 +749,62 @@ public abstract class AbstractFlexUIDataGrid
     }
     
     private void resetFilterList(String filterColumnId, String filterValue) {
-        _filteredList = new ArrayList<Object>();
-        /*
-         * Below is okay due to the fact that the selection of entries
-         * is kept as the complete list
-         */
-        _filteredDataIndexMap = new HashMap<Integer, Integer>();
+        _filteredList = new ArrayList<WrappedBeanEntry>();
+        
         _filterColumn = filterColumnId;
         _filterValue = filterValue;
     }
     
     public Map<String, AbstractFlexUIDataGridColumn> getDataGridColumnComponentMapping(){
         return _dataGridColumnComponentMapping;
+    }
+    
+    static class WrappedBeanEntry {
+        
+        private Object _beanEntry;
+        private boolean _selected;
+        
+        private WrappedBeanEntry(Object beanEntry) {
+            super();
+            
+            _beanEntry = beanEntry;
+        }
+        
+        private WrappedBeanEntry(Object beanEntry, boolean selected) {
+            this(beanEntry);
+            
+            _selected = selected;
+        }
+        
+        Object getBeanEntry() {
+            return _beanEntry;
+        }
+        void setBeanEntry(Object beanEntry) {
+            _beanEntry = beanEntry;
+        }
+        
+        boolean isSelected() {
+            return _selected;
+        }
+        void setSelected(boolean selected) {
+            _selected = selected;
+        }
+        
+        @Override
+        public int hashCode() {
+            return _beanEntry.hashCode();
+        }
+        
+        @Override
+        public boolean equals(Object instance) {
+            if(!(instance instanceof WrappedBeanEntry)) {
+                return false;
+            }
+            
+            WrappedBeanEntry currEntry = WrappedBeanEntry.class.cast( instance );
+            return currEntry._beanEntry.equals(_beanEntry);
+        }
+        
     }
     
 }

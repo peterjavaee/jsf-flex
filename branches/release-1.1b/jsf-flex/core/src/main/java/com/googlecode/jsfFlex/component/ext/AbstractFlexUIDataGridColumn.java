@@ -18,11 +18,7 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
-import java.util.Arrays;
 import java.util.Comparator;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 
 import javax.faces.context.FacesContext;
 
@@ -35,7 +31,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 import com.googlecode.jsfFlex.attributes.IFlexUIDataFieldAttribute;
 import com.googlecode.jsfFlex.attributes.IFlexUIEditableAttribute;
 import com.googlecode.jsfFlex.component.AbstractFlexUIInputBase;
-import com.googlecode.jsfFlex.shared.model.event.AbstractEvent;
+import com.googlecode.jsfFlex.component.ext.AbstractFlexUIDataGrid.WrappedBeanEntry;
 import com.googlecode.jsfFlex.shared.util.ReflectionHelperUtil;
 
 /**
@@ -55,10 +51,8 @@ public abstract class AbstractFlexUIDataGridColumn
     
     private final static Log _log = LogFactory.getLog(AbstractFlexUIDataGridColumn.class);
     
-    private static final String REQUEST_KEYS_KEY = "REQUEST_KEYS";
-    
-    private Comparator<Object> ascendingComparator;
-    private Comparator<Object> descendingComparator;
+    private Comparator<WrappedBeanEntry> wrappedEntryAscendingComparator;
+    private Comparator<WrappedBeanEntry> wrappedEntryDescendingComparator;
     
     @Override
     public JSONObject getComponentInitValues(){
@@ -91,46 +85,6 @@ public abstract class AbstractFlexUIDataGridColumn
         }
         
         return formatedColumnData.toString();
-    }
-    
-    public Map<String, ? super Object> updateModifiedDataField(FacesContext context, Map<String, String> requestMap, List<? extends Object> dataGridEntries) {
-        
-        Map<String, ? super Object> updateResult = new LinkedHashMap<String, Object>();
-        boolean success = true;
-        
-        String requestKey = requestMap.get(REQUEST_KEYS_KEY);
-        List<String> requestKeyList = Arrays.asList(requestKey.split(","));
-        
-        _log.info("Requested update of data with requestKey : " + requestKey + " for dataField : " + getDataField());
-        
-        for(String currKey : requestKeyList){
-            Object currValue = requestMap.get(currKey);
-            
-            int rowIndex;
-            
-            try{
-                rowIndex = Integer.parseInt(currKey);
-            }catch(NumberFormatException parsingException){
-                _log.error("Error parsing of " + currKey + " to an int", parsingException);
-                success = false;
-                break;
-            }
-            
-            Object currDataEntry = dataGridEntries.get(rowIndex);
-            success = setDataField(context, currDataEntry, currValue);
-            
-            _log.debug("Success result code of : " + success + " when setting value of : " + currValue + " to an instance of : " + currDataEntry.getClass().getName());
-            
-            if(!success){
-                break;
-            }
-            
-        }
-        
-        _log.info("Returning success code of : " + success + " during updateModifiedDataField of : " + getDataField());
-        
-        updateResult.put(AbstractEvent.ASYNCHRONOUS_VARIABLES.RESULT_CODE.toString(), Boolean.valueOf(success));
-        return updateResult;
     }
     
     public boolean setDataField(FacesContext context, Object currDataEntry, Object currValue){
@@ -167,11 +121,14 @@ public abstract class AbstractFlexUIDataGridColumn
         return GET_DATA_FIELD_METHOD_NAME;
     }
     
-    public synchronized Comparator<Object> getAscendingComparator() {
-        if(ascendingComparator == null){
-            ascendingComparator = new Comparator<Object>(){
+    public synchronized Comparator<WrappedBeanEntry> getWrappedEntryAscendingComparator() {
+        if(wrappedEntryAscendingComparator == null) {
+            wrappedEntryAscendingComparator = new Comparator<WrappedBeanEntry>() {
                 
-                public int compare(Object obj1, Object obj2) {
+                public int compare(WrappedBeanEntry entry1, WrappedBeanEntry entry2) {
+                    
+                    Object obj1 = entry1.getBeanEntry();
+                    Object obj2 = entry2.getBeanEntry();
                     
                     try{
                         Comparable<? super Object> act1 = (Comparable<? super Object>) ReflectionHelperUtil.getValue(obj1, getDataFieldMethodName());
@@ -189,20 +146,23 @@ public abstract class AbstractFlexUIDataGridColumn
                         errorMessage.append(getDataFieldMethodName());
                         throw new RuntimeException(errorMessage.toString(), additionalAccessException);
                     }
-                    
                 }
                 
             };
+            
         }
         
-        return ascendingComparator;
+        return wrappedEntryAscendingComparator;
     }
     
-    public synchronized Comparator<Object> getDescendingComparator() {
-        if(descendingComparator == null){
-            descendingComparator = new Comparator<Object>(){
+    public synchronized Comparator<WrappedBeanEntry> getWrappedEntryDescendingComparator() {
+        if(wrappedEntryDescendingComparator == null) {
+            wrappedEntryDescendingComparator = new Comparator<WrappedBeanEntry>() {
                 
-                public int compare(Object obj1, Object obj2) {
+                public int compare(WrappedBeanEntry entry1, WrappedBeanEntry entry2) {
+                    
+                    Object obj1 = entry1.getBeanEntry();
+                    Object obj2 = entry2.getBeanEntry();
                     
                     try{
                         Comparable<? super Object> act1 = (Comparable<? super Object>) ReflectionHelperUtil.getValue(obj1, getDataFieldMethodName());
@@ -224,9 +184,10 @@ public abstract class AbstractFlexUIDataGridColumn
                 }
                 
             };
+            
         }
         
-        return descendingComparator;
+        return wrappedEntryDescendingComparator;
     }
     
 }

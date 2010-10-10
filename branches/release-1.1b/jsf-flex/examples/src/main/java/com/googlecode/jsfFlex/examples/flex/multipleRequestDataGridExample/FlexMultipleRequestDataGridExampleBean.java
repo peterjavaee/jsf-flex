@@ -61,7 +61,7 @@ public final class FlexMultipleRequestDataGridExampleBean implements Serializabl
 		_largeSecondDataEntries = largeSecondDataEntries;
 	}
 	
-	public final static class LargeDataEntry implements Serializable {
+	public final static class LargeDataEntry implements Serializable, Comparable {
 		
 		private static final long serialVersionUID = 8426305474249836025L;
 		
@@ -114,6 +114,17 @@ public final class FlexMultipleRequestDataGridExampleBean implements Serializabl
 			hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _secondColumnEntry.hashCode();
 			return hashCodeVal;
 		}
+        
+        public int compareTo(Object instance) {
+            LargeDataEntry currInstance = LargeDataEntry.class.cast( instance );
+            
+            int firstColumnCompare = _firstColumnEntry.compareTo(currInstance._firstColumnEntry);
+            if(firstColumnCompare != 0){
+                return firstColumnCompare;
+            }
+            
+            return _secondColumnEntry.compareTo(currInstance._secondColumnEntry);
+        }
 		
 	}
 	
