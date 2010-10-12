@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.renderkit.component.ext;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -288,45 +289,154 @@ public final class FlexApplicationRenderer extends AbstractFlexComponentBaseRend
 			
 			return swfFile;
 		}
+        
+        private JSONObject buildJSONObjectSwfHTMLWrapperContent(com.googlecode.jsfFlex.component.ext.FlexUIApplication appComponent, String swfFile) throws JSONException {
+            
+            JSONObject swfHTMLWrapperContent = appComponent.getSwfHTMLWrapperContent();
+            if(swfHTMLWrapperContent == null) {
+                swfHTMLWrapperContent = new JSONObject();
+            }
+            
+            JSONObject objectElement = null;
+            
+            try{
+                objectElement = swfHTMLWrapperContent.getJSONObject("object");
+            }catch(JSONException jsonException) {
+                objectElement = new JSONObject();
+                swfHTMLWrapperContent.put("object", objectElement);
+            }
+            
+            objectElement.put(FlexAttributeConstants.ID_ATTR, appComponent.getMxmlPackageName());
+            
+            Object heightO = appComponent.getAttributes().get(FlexAttributeConstants.HEIGHT_ATTR);
+            Object widthO = appComponent.getAttributes().get(FlexAttributeConstants.WIDTH_ATTR);
+            
+            String height = (heightO == null) ? "100%" : String.class.cast( heightO );
+            String width = (widthO == null) ? "100%" : String.class.cast( widthO );
+            
+            objectElement.put(FlexAttributeConstants.HEIGHT_ATTR, height);
+            objectElement.put(FlexAttributeConstants.WIDTH_ATTR, width);
+            
+            /*
+             * For below check if the property exists and if not, provide the system default value
+             */
+            try{
+                objectElement.getString("classid");
+            }catch(JSONException jsonException) {
+                objectElement.put("classid", FlexConstants.CLASS_ID);
+            }
+            
+            try{
+                objectElement.getString("codebase");
+            }catch(JSONException jsonException) {
+                objectElement.put("codebase", FlexConstants.CODE_BASE);
+            }
+            
+            JSONObject objectEmbed = null;
+            try{
+                objectEmbed = objectElement.getJSONObject("embed");
+            }catch(JSONException jsonException) {
+                objectEmbed = new JSONObject();
+                objectElement.put("embed", objectEmbed);
+            }
+            
+            objectEmbed.put(FlexAttributeConstants.NAME_ATTR, appComponent.getMxmlPackageName());
+            objectEmbed.put(FlexAttributeConstants.SRC_ATTR, swfFile);
+            objectEmbed.put(FlexAttributeConstants.HEIGHT_ATTR, height);
+            objectEmbed.put(FlexAttributeConstants.WIDTH_ATTR, width);
+            
+            try{
+                objectEmbed.getString("allowScriptAccess");
+            }catch(JSONException jsonException) {
+                objectEmbed.put("allowScriptAccess", "sameDomain");
+            }
+            
+            try{
+                objectEmbed.getString("pluginspage");
+            }catch(JSONException jsonException) {
+                objectEmbed.put("pluginspage", FlexConstants.PLUGINS_PAGE);
+            }
+            
+            JSONArray paramList = null;
+            try{
+                paramList = objectElement.getJSONArray("param");
+            }catch(JSONException jsonException) {
+                paramList = new JSONArray();
+                /*
+                 * If one provides param, one should provide the value of allowScriptAccess
+                 */
+                
+                JSONObject paramAllowScriptAccess = new JSONObject();
+                paramAllowScriptAccess.put(FlexAttributeConstants.NAME_ATTR, "allowScriptAccess");
+                paramAllowScriptAccess.put(FlexAttributeConstants.VALUE_ATTR, "sameDomain");
+                paramList.put(paramAllowScriptAccess);
+                
+                objectElement.put("param", paramList);
+            }
+            
+            JSONObject paramSrc = new JSONObject();
+            paramSrc.put(FlexAttributeConstants.NAME_ATTR, "src");
+            paramSrc.put(FlexAttributeConstants.VALUE_ATTR, swfFile);
+            paramList.put(paramSrc);
+            
+            return swfHTMLWrapperContent;
+        }
+        
+        private void parseJSONObjectPrintHTMLSWF(ResponseWriter writer, com.googlecode.jsfFlex.component.ext.FlexUIApplication appComponent, 
+                                                    JSONObject object) throws JSONException, IOException {
+            
+            Map<String, JSONArray> jsonArrays = new HashMap<String, JSONArray>();
+            Map<String, JSONObject> jsonObjects = new HashMap<String, JSONObject>();
+            for(Iterator keysIterate = object.keys(); keysIterate.hasNext();) {
+                String key = keysIterate.next().toString();
+                Object value = object.get(key);
+
+                if(value instanceof JSONObject) {
+                    JSONObject objectEntry = JSONObject.class.cast( value );
+                    jsonObjects.put(key, objectEntry);
+                }else if(value instanceof JSONArray) {
+                    JSONArray array = JSONArray.class.cast( value );
+                    jsonArrays.put(key, array);
+                }else {
+                    writer.writeAttribute(key, value.toString(), null);
+                }
+            }
+            
+            /*
+             * Since one has to set all the attributes of an element prior to starting 
+             * a new element, below data structure are used. Personally would have liked it 
+             * if JSF kept track of which element was still open, but whatever
+             */
+            for(String key : jsonArrays.keySet()) {
+                JSONArray array = jsonArrays.get(key);
+                for(int i=0; i < array.length(); i++) {
+                    writer.startElement(key, appComponent);
+                    parseJSONObjectPrintHTMLSWF(writer, appComponent, array.getJSONObject(i));
+                    writer.endElement(key);
+                }
+            }
+            
+            for(String key : jsonObjects.keySet()) {
+                JSONObject objectEntry = jsonObjects.get(key);
+                writer.startElement(key, appComponent);
+                parseJSONObjectPrintHTMLSWF(writer, appComponent, objectEntry);
+                writer.endElement(key);
+            }
+            
+        }
 		
 		private void writeHTMLSWF(ResponseWriter writer, com.googlecode.jsfFlex.component.ext.FlexUIApplication appComponent, 
 									String swfFile) throws IOException{
 			
-			Object heightO = appComponent.getAttributes().get(FlexAttributeConstants.HEIGHT_ATTR);
-			Object widthO = appComponent.getAttributes().get(FlexAttributeConstants.WIDTH_ATTR);
-			
-			String height = (heightO == null) ? "100%" : String.class.cast( heightO );
-			String width = (widthO == null) ? "100%" : String.class.cast( widthO );
-			
-			writer.startElement("object", appComponent);
-			
-			writer.writeAttribute(FlexAttributeConstants.ID_ATTR, appComponent.getMxmlPackageName(), null);
-			writer.writeAttribute("classid", FlexConstants.CLASS_ID, null);
-			writer.writeAttribute("codebase", FlexConstants.CODE_BASE, null);
-			writer.writeAttribute(FlexAttributeConstants.HEIGHT_ATTR, height, null);
-			writer.writeAttribute(FlexAttributeConstants.WIDTH_ATTR, width, null);
-			
-			writer.startElement("param", appComponent);
-			writer.writeAttribute(FlexAttributeConstants.NAME_ATTR, "src", null);
-			writer.writeAttribute(FlexAttributeConstants.VALUE_ATTR, swfFile, null);
-			writer.endElement("param");
-			
-			writer.startElement("param", appComponent);
-			writer.writeAttribute(FlexAttributeConstants.NAME_ATTR, "allowScriptAccess", null);
-			writer.writeAttribute(FlexAttributeConstants.VALUE_ATTR, "sameDomain", null);
-			writer.endElement("param");
-			
-			writer.startElement("embed", appComponent);
-			writer.writeAttribute(FlexAttributeConstants.NAME_ATTR, appComponent.getMxmlPackageName(), null);
-			writer.writeAttribute("allowScriptAccess", "sameDomain", null);
-			writer.writeAttribute("pluginspage", FlexConstants.PLUGINS_PAGE, null);
-			writer.writeAttribute(FlexAttributeConstants.SRC_ATTR, swfFile, null);
-			writer.writeAttribute(FlexAttributeConstants.HEIGHT_ATTR, height, null);
-			writer.writeAttribute(FlexAttributeConstants.WIDTH_ATTR, width, null);
-			writer.endElement("embed");
-			
-			writer.endElement("object");
-			
+            JSONObject swfHTMLWrapperContent = new JSONObject();
+            
+            try{
+                swfHTMLWrapperContent = buildJSONObjectSwfHTMLWrapperContent(appComponent, swfFile);
+                parseJSONObjectPrintHTMLSWF(writer, appComponent, swfHTMLWrapperContent);
+            }catch(JSONException jsonException) {
+                throw new IOException(jsonException);
+            }
+            
 		}
 		
 		private String getComponentInitValues(FacesContext context, UIComponent component) {

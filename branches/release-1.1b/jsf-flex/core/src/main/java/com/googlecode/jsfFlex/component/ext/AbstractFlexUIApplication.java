@@ -314,6 +314,14 @@ public abstract class AbstractFlexUIApplication
 	public abstract String getMxmlPackageName();
     
     /**
+     * Allows user to provide Swf HTML Wrapper content. First content should have a key as object and value as JSONObject for values such as classid, codebase, and etcetera.
+     * 
+     * @return
+     */
+    @JSFProperty(desc   =   "Allows user to provide Swf HTML Wrapper content. First content should have a key as object and value as JSONObject for values such as classid, codebase, and etcetera.")
+    public abstract JSONObject getSwfHTMLWrapperContent();
+    
+    /**
      * Additional xmlns in form of key/value where key is the prefix and the value being the url.
      */
     @JSFProperty(desc   =   "Additional xmlns in form of key/value where key is the prefix and the value being the url.")
