@@ -15,25 +15,6 @@
   </application>
   -->
   
-  <!-- managed bean for flex -->
-  <managed-bean>
-    <managed-bean-name>flexOverallBean</managed-bean-name>
-    <managed-bean-class>com.googlecode.jsfFlex.examples.flex.overallExample.FlexOverallExampleBean</managed-bean-class>
-    <managed-bean-scope>session</managed-bean-scope>
-  </managed-bean>
-  
-  <managed-bean>
-    <managed-bean-name>flexFaceletOverallBean</managed-bean-name>
-    <managed-bean-class>com.googlecode.jsfFlex.examples.flex.overallExample.FlexFaceletOverallExampleBean</managed-bean-class>
-    <managed-bean-scope>session</managed-bean-scope>
-  </managed-bean>
-  
-  <managed-bean>
-    <managed-bean-name>multipleRequestDataGridExample</managed-bean-name>
-    <managed-bean-class>com.googlecode.jsfFlex.examples.flex.multipleRequestDataGridExample.FlexMultipleRequestDataGridExampleBean</managed-bean-class>
-    <managed-bean-scope>session</managed-bean-scope>
-  </managed-bean>
-  
   <!-- navigational rules for Facelet flexSimple -->
   <navigation-rule>
     <from-view-id>/flexSimple/flexSimple.xhtml</from-view-id>
