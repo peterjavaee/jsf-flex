@@ -560,7 +560,7 @@ package com.googlecode.jsfFlex.communication.component
 		}
 		
 		private function updateRowSelection(updateItemPartitionIndex:uint, fetchSelectionItemPartitionIndex:uint, 
-												thisObject:Object, callBack:Function, argumentList:Array):void {
+												thisObject:Object=null, callBack:Function=null, argumentList:Array=null):void {
 			/*
 			 * TODO: Allow tying a callback, so that it will be invoked after the updateRowSelection server call has 
 			 * been completed [simple but for later]
@@ -596,9 +596,9 @@ package com.googlecode.jsfFlex.communication.component
 																 * Now need to select the rows that are kept in the server side
 																 */
 																_dataGridComp.selectedIndices = lastResult.RETURNED_SELECT_ENTRIES.VALUE;
-																
-																callBack.apply(thisObject, argumentList);
-																
+																if(callBack != null){
+																	callBack.apply(thisObject, argumentList);
+																}
 															}, updateRowSelectionParameters, JsfFlexHttpService.GET_METHOD, JsfFlexHttpService.OBJECT_RESULT_FORMAT, null);
 			
 		}

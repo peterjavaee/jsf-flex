@@ -84,6 +84,7 @@ public class FlexOverallBean implements Serializable {
         _radioButtonSecondSelected = Boolean.valueOf(false);
         _radioButtonSelectedValue = "";
         _numericStepperValue = "";
+        
         _colorPickerSelectedColor = "";
         _listSelectedIndex = Integer.valueOf(0);
         _treeSelectedIndex = Integer.valueOf(0);
@@ -252,7 +253,7 @@ public class FlexOverallBean implements Serializable {
         _wisePeopleEntries = wisePeopleEntries;
     }
     
-    public final static class WisePeopleEntry implements Serializable {
+    public final static class WisePeopleEntry implements Comparable<WisePeopleEntry>, Serializable {
         
         private static final long serialVersionUID = -4974974584395025727L;
         
@@ -304,6 +305,10 @@ public class FlexOverallBean implements Serializable {
             hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _quote.hashCode();
             hashCodeVal = FlexConstants.HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _email.hashCode();
             return hashCodeVal;
+        }
+        
+        public int compareTo(WisePeopleEntry currWiseMan) {
+            return _name.compareTo(currWiseMan._name);
         }
         
     }
