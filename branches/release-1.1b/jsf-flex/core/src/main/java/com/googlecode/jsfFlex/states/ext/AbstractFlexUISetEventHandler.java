@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.states.ext;
 
+import javax.faces.component.FacesComponent;
+
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
@@ -36,6 +38,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
         family              =   "javax.faces.FlexSimple",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexSetEventHandler"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUISetEventHandler")
 public abstract class AbstractFlexUISetEventHandler 
 						extends AbstractFlexUISimpleBase 
                         implements IFlexUIBaseAttributes, IFlexUINameAttribute {

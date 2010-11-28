@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext.data.ext.properties.ext;
 
+import javax.faces.component.FacesComponent;
+
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 /**
@@ -33,6 +35,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.data.ext.properties.ext.FlexUIObjectListEntriesTag",
         family              =   "javax.faces.FlexProperty"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIObjectListEntries")
 public abstract class AbstractFlexUIObjectListEntries 
 						extends com.googlecode.jsfFlex.component.ext.data.ext.properties.FlexUIDataListEntriesBase {
 	

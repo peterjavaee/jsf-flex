@@ -18,6 +18,7 @@
  */
 package com.googlecode.jsfFlex.component.ext.data.ext.properties;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.component.UIComponentBase;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
@@ -33,6 +34,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFPropert
         desc                =   "Base component for static FlexProperty component",
         template            =   true
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIStaticPropertyBase")
 public abstract class AbstractFlexUIStaticPropertyBase 
 						extends UIComponentBase {
 	

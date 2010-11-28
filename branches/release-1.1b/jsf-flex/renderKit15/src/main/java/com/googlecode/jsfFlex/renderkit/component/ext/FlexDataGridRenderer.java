@@ -22,6 +22,7 @@ import java.io.IOException;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.render.FacesRenderer;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
@@ -38,6 +39,11 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         renderKitId="FLEX_BASIC",
         family="javax.faces.FlexUIPreserveInServer",
         type="com.googlecode.jsfFlex.FlexDataGrid"
+)
+@FacesRenderer(
+        renderKitId="FLEX_BASIC",
+        componentFamily="javax.faces.FlexUIPreserveInServer",
+        rendererType="com.googlecode.jsfFlex.FlexDataGrid"
 )
 @IJsfFlexAttributeProperties(
         componentName="DataGrid",

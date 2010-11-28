@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.component.ext.data.ext.properties.ext;
 import java.io.IOException;
 import java.util.Map;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 
@@ -55,6 +56,7 @@ import com.googlecode.jsfFlex.shared.util.ReflectionHelperUtil;
         tagClass            =   "com.googlecode.jsfFlex.taglib.component.ext.data.ext.properties.ext.FlexUIXMLElementTag",
         family              =   "javax.faces.FlexProperty"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIXMLElement")
 public abstract class AbstractFlexUIXMLElement 
 						extends AbstractFlexUIXMLElementBase {
 	

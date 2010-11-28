@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.container.ext;
 
+import javax.faces.component.FacesComponent;
+
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
@@ -38,6 +40,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUIViewStackBase;
         defaultRendererType =   "com.googlecode.jsfFlex.FlexViewStack",
         tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIViewStack")
 public abstract class AbstractFlexUIViewStack 
 						extends AbstractFlexUIViewStackBase
 						implements IFlexUIBaseAttributes, IFlexUICreationPolicyAttribute {

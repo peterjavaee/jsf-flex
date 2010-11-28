@@ -29,6 +29,7 @@ import java.util.Set;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
+import javax.faces.render.FacesRenderer;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -67,9 +68,14 @@ import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
+        renderKitId="FLEX_BASIC",
+        family="javax.faces.FlexApplication",
+        type="com.googlecode.jsfFlex.FlexApplication"
+)
+@FacesRenderer(
 		renderKitId="FLEX_BASIC",
-		family="javax.faces.FlexApplication",
-		type="com.googlecode.jsfFlex.FlexApplication"
+		componentFamily="javax.faces.FlexApplication",
+		rendererType="com.googlecode.jsfFlex.FlexApplication"
 )
 @IJsfFlexAttributeProperties(
 		componentName="Application",

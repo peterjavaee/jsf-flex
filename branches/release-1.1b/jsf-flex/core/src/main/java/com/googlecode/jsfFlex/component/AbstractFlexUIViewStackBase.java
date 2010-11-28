@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.component;
 
 import java.io.IOException;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
@@ -37,6 +38,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
         family  =   "javax.faces.FlexUIViewStackBase",
         desc    =   "Base component for FlexInput components that contain selected attribute AND sets the creationPolicy to all [for setting the initial values]"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIViewStackBase")
 public abstract class AbstractFlexUIViewStackBase extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase {
 	
     @Override

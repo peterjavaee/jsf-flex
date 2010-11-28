@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.effects.ext;
 
+import javax.faces.component.FacesComponent;
+
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
@@ -35,6 +37,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
         family              =   "javax.faces.FlexSimple",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexRotate3D"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIRotate3D")
 public abstract class AbstractFlexUIRotate3D 
                                 extends AbstractFlexUISimpleBase 
                                 implements IFlexUIBaseAttributes {

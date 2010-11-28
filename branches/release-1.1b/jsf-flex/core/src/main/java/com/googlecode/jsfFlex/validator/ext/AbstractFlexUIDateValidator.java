@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.validator.ext;
 
+import javax.faces.component.FacesComponent;
+
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
@@ -38,6 +40,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
         family              =   "javax.faces.FlexSimple",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexDateValidator"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIDateValidator")
 public abstract class AbstractFlexUIDateValidator 
 						extends AbstractFlexUISimpleBase 
 						implements IFlexUIBaseAttributes {

@@ -23,6 +23,7 @@ import java.io.Writer;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.render.FacesRenderer;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
@@ -35,9 +36,14 @@ import com.googlecode.jsfFlex.renderkit.flex.AbstractFlexResponseWriter;
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
+        renderKitId="FLEX_BASIC",
+        family="javax.faces.FlexSimple",
+        type="com.googlecode.jsfFlex.FlexXML"
+)
+@FacesRenderer(
 		renderKitId="FLEX_BASIC",
-		family="javax.faces.FlexSimple",
-		type="com.googlecode.jsfFlex.FlexXML"
+		componentFamily="javax.faces.FlexSimple",
+		rendererType="com.googlecode.jsfFlex.FlexXML"
 )
 @IJsfFlexAttributeProperties(
 		componentName="XML",

@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.component;
 
 import java.util.Map;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 
 import org.apache.commons.logging.Log;
@@ -40,6 +41,7 @@ import org.json.JSONObject;
         family  =   "javax.faces.FlexUIValueBase",
         desc    =   "Base component for FlexInput components that contain value attribute"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIValueBase")
 public abstract class AbstractFlexUIValueBase extends AbstractFlexUIInputBase {
 	
 	private final static Log _log = LogFactory.getLog(AbstractFlexUIValueBase.class);

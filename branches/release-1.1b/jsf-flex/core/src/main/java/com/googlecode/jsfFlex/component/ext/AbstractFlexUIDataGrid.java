@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.el.MethodExpression;
+import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 
 import org.apache.commons.logging.Log;
@@ -63,6 +64,7 @@ import com.googlecode.jsfFlex.shared.model.event.AsynchronousFilterEvent;
         family              =   "javax.faces.FlexUIPreserveInServer",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexDataGrid"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIDataGrid")
 public abstract class AbstractFlexUIDataGrid 
                         extends AbstractFlexUIPreserveInServer
                         implements IFlexUIBaseAttributes, IFlexUIBindingBeanListAttribute, IFlexUIBindingBeanClassNameAttribute,

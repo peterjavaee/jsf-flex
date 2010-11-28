@@ -18,6 +18,7 @@
  */
 package com.googlecode.jsfFlex.attributes;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.component.UIComponentBase;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
@@ -41,6 +42,7 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexAttributeNode;
         family      =   "javax.faces.FlexUIAttributeNode",
         desc        =   "Attribute Node component"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexAttributeNode")
 public abstract class AbstractFlexUIAttributeNode 
                         extends UIComponentBase 
                         implements IFlexAttributeNode {

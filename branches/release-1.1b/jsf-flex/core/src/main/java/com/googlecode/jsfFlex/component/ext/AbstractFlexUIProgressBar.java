@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import javax.faces.component.FacesComponent;
+
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
@@ -38,6 +40,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUIValueBase;
         defaultRendererType =   "com.googlecode.jsfFlex.FlexProgressBar",
         tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIProgressBar")
 public abstract class AbstractFlexUIProgressBar 
 						extends AbstractFlexUIValueBase 
 						implements IFlexUIBaseAttributes {

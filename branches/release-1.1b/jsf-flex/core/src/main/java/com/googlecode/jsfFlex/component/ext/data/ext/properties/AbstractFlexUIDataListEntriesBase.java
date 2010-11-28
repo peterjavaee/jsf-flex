@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.component.ext.data.ext.properties;
 
 import java.io.IOException;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 
@@ -37,6 +38,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUIBindingBeanListAttribute;
         desc                =   "Base component for DataList Entries FlexProperty component",
         template            =   true
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIDataListEntriesBase")
 public abstract class AbstractFlexUIDataListEntriesBase 
 						extends UIComponentBase 
 						implements IFlexUIBindingBeanListAttribute {

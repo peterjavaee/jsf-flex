@@ -23,6 +23,7 @@ import java.util.Collection;
 import java.util.Map;
 
 import javax.el.ValueExpression;
+import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.model.SelectItem;
 
@@ -58,6 +59,7 @@ import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
         defaultRendererType =   "com.googlecode.jsfFlex.FlexComboBox",
         tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIComboBox")
 public abstract class AbstractFlexUIComboBox 
 						extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase
 						implements IFlexUIBaseAttributes, IFlexUIDataProviderCollectionAttribute, IFlexUITextAttribute {

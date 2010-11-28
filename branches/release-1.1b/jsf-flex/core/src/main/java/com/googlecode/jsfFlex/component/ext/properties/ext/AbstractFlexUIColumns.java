@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 
@@ -42,6 +43,7 @@ import com.googlecode.jsfFlex.component.ext.AbstractFlexUIDataGridColumn;
         family              =   "javax.faces.FlexSimple",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexColumns"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIColumns")
 public abstract class AbstractFlexUIColumns 
                         extends AbstractFlexUISimpleBase {
     

@@ -22,6 +22,7 @@ import java.io.IOException;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.render.FacesRenderer;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
@@ -34,9 +35,14 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
+        renderKitId="FLEX_BASIC",
+        family="javax.faces.FlexSimple",
+        type="com.googlecode.jsfFlex.FlexPhoneFormatter"
+)
+@FacesRenderer(
 		renderKitId="FLEX_BASIC",
-		family="javax.faces.FlexSimple",
-		type="com.googlecode.jsfFlex.FlexPhoneFormatter"
+		componentFamily="javax.faces.FlexSimple",
+		rendererType="com.googlecode.jsfFlex.FlexPhoneFormatter"
 )
 @IJsfFlexAttributeProperties(componentName="PhoneFormatter")
 public final class FlexPhoneFormatterRenderer extends AbstractFlexComponentBaseRenderer {

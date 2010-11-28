@@ -23,6 +23,7 @@ import java.util.List;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.render.FacesRenderer;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
@@ -44,6 +45,11 @@ import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
         renderKitId="FLEX_BASIC",
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexColumns"
+)
+@FacesRenderer(
+        renderKitId="FLEX_BASIC",
+        componentFamily="javax.faces.FlexSimple",
+        rendererType="com.googlecode.jsfFlex.FlexColumns"
 )
 @IJsfFlexAttributeProperties(componentName="columns")
 public final class FlexColumnsRenderer extends AbstractFlexComponentBaseRenderer {

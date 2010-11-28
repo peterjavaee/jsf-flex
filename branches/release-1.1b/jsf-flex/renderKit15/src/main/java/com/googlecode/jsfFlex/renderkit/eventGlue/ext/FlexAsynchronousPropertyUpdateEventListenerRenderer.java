@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.renderkit.eventGlue.ext;
 
+import javax.faces.render.FacesRenderer;
+
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
 import com.googlecode.jsfFlex.renderkit.eventGlue.AbstractFlexAsynchronousEventGlueTemplateRenderer;
@@ -29,6 +31,11 @@ import com.googlecode.jsfFlex.renderkit.eventGlue.AbstractFlexAsynchronousEventG
         renderKitId="FLEX_BASIC",
         family="javax.faces.FlexEventListener",
         type="com.googlecode.jsfFlex.FlexAsynchronousPropertyUpdateEventListener"
+)
+@FacesRenderer(
+        renderKitId="FLEX_BASIC",
+        componentFamily="javax.faces.FlexEventListener",
+        rendererType="com.googlecode.jsfFlex.FlexAsynchronousPropertyUpdateEventListener"
 )
 public final class FlexAsynchronousPropertyUpdateEventListenerRenderer extends
                                     AbstractFlexAsynchronousEventGlueTemplateRenderer {

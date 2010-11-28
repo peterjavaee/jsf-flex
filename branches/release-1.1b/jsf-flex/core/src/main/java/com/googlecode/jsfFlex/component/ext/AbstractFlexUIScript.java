@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import javax.faces.component.FacesComponent;
+
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
@@ -35,6 +37,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
         defaultRendererType =   "com.googlecode.jsfFlex.FlexScript",
         tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIComponentBodyTagBase"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIScript")
 public abstract class AbstractFlexUIScript 
 						extends AbstractFlexUISimpleBase 
 						implements IFlexUIBaseAttributes {

@@ -18,6 +18,7 @@
  */
 package com.googlecode.jsfFlex.component;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
@@ -39,6 +40,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUITextBindingAttribute;
         desc        =   "Base component for FlexInput components that contain htmlText attribute",
         template    =   true
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIHtmlTextInputBase")
 public abstract class AbstractFlexUIHtmlTextInputBase 
 							extends com.googlecode.jsfFlex.component.FlexUITextInputBase 
 							implements IFlexUIHtmlTextAttribute, IFlexUITextBindingAttribute {

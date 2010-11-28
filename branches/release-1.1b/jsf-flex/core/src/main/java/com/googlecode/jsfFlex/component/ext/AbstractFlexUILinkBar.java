@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import javax.faces.component.FacesComponent;
+
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
@@ -34,6 +36,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
         family              =   "javax.faces.FlexSimple",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexLinkBar"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUILinkBar")
 public abstract class AbstractFlexUILinkBar 
 						extends AbstractFlexUISimpleBase 
 						implements IFlexUIBaseAttributes {

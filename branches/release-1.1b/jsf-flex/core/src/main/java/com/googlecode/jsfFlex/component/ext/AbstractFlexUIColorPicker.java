@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.component.ext;
 import java.util.Map;
 
 import javax.el.ValueExpression;
+import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 
 import org.apache.commons.logging.Log;
@@ -45,6 +46,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUIInputBase;
         defaultRendererType =   "com.googlecode.jsfFlex.FlexColorPicker",
         tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIColorPicker")
 public abstract class AbstractFlexUIColorPicker 
 						extends AbstractFlexUIInputBase
                         implements IFlexUIBaseAttributes, IFlexUISelectedColorAttribute {

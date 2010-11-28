@@ -24,6 +24,7 @@ import java.util.Map;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.render.FacesRenderer;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -48,6 +49,11 @@ import com.googlecode.jsfFlex.shared.exception.ComponentBuildException;
         renderKitId="FLEX_BASIC",
         family="javax.faces.FlexSimple",
         type="com.googlecode.jsfFlex.FlexAdditionalComponent"
+)
+@FacesRenderer(
+        renderKitId="FLEX_BASIC",
+        componentFamily="javax.faces.FlexSimple",
+        rendererType="com.googlecode.jsfFlex.FlexAdditionalComponent"
 )
 public final class FlexAdditionalComponentRenderer extends AbstractFlexComponentBaseRenderer {
     

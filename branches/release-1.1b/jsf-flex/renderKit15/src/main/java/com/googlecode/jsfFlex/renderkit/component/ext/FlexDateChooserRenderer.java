@@ -22,6 +22,7 @@ import java.io.IOException;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.render.FacesRenderer;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
@@ -38,6 +39,11 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         renderKitId="FLEX_BASIC",
         family="javax.faces.FlexInput",
         type="com.googlecode.jsfFlex.FlexDateChooser"
+)
+@FacesRenderer(
+        renderKitId="FLEX_BASIC",
+        componentFamily="javax.faces.FlexInput",
+        rendererType="com.googlecode.jsfFlex.FlexDateChooser"
 )
 @IJsfFlexAttributeProperties(
         componentName="DateChooser",

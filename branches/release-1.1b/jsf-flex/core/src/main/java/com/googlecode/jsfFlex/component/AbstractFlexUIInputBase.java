@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.component;
 import java.io.IOException;
 import java.util.List;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.component.UIInput;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -52,6 +53,7 @@ import com.googlecode.jsfFlex.shared.util.FlexConstants;
         family  =   "javax.faces.FlexInputBase",
         desc    =   "Base component for FlexInput components"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIInputBase")
 public abstract class AbstractFlexUIInputBase extends UIInput implements IFlexContract {
 	
 	private final static Log _log = LogFactory.getLog(AbstractFlexUIInputBase.class);

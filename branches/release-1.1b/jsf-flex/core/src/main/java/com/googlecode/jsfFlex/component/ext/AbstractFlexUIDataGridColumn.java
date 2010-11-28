@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.component.ext;
 
 import java.util.Comparator;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 
 import org.apache.commons.logging.Log;
@@ -45,6 +46,7 @@ import com.googlecode.jsfFlex.shared.util.ReflectionHelperUtil;
         family              =   "javax.faces.FlexInput",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexDataGridColumn"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIDataGridColumn")
 public abstract class AbstractFlexUIDataGridColumn 
                         extends AbstractFlexUIInputBase 
                         implements IFlexUIBaseAttributes, IFlexUIDataFieldAttribute, IFlexUIEditableAttribute {

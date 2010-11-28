@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.component.UIComponentBase;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
@@ -57,6 +58,7 @@ import com.googlecode.jsfFlex.shared.util.FlexConstants;
         family              =   "javax.faces.FlexApplication",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexApplication"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIApplication")
 public abstract class AbstractFlexUIApplication 
 						extends UIComponentBase 
 						implements IFlexUIBaseAttributes, IFlexApplicationContract, IFlexUITitleAttribute {

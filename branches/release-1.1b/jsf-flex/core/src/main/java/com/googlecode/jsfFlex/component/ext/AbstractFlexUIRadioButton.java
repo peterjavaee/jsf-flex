@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.component.ext;
 import java.util.Map;
 
 import javax.el.ValueExpression;
+import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
@@ -42,6 +43,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUISelectedValueAttribute;
         defaultRendererType =   "com.googlecode.jsfFlex.FlexRadioButton",
         tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIRadioButton")
 public abstract class AbstractFlexUIRadioButton 
 						extends com.googlecode.jsfFlex.component.FlexUISelectedBase
 						implements IFlexUIBaseAttributes, IFlexUIGroupNameAttribute, IFlexUISelectedValueAttribute {

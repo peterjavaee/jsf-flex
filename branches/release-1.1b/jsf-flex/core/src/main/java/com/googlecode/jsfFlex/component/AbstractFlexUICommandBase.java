@@ -23,6 +23,7 @@ import java.util.EnumSet;
 import java.util.Map;
 
 import javax.el.MethodExpression;
+import javax.faces.component.FacesComponent;
 import javax.faces.component.UICommand;
 import javax.faces.context.FacesContext;
 import javax.faces.el.MethodBinding;
@@ -54,6 +55,7 @@ import com.googlecode.jsfFlex.shared.util.FlexJsfUtil;
         family  =   "javax.faces.FlexCommandBase",
         desc    =   "Base component for FlexCommand components"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUICommandBase")
 public abstract class AbstractFlexUICommandBase 
                             extends UICommand 
                             implements IFlexContract, IFlexEvent {

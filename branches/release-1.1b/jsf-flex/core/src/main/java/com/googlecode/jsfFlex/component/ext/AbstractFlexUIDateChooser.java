@@ -24,6 +24,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
@@ -44,6 +45,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUIInputBase;
         defaultRendererType =   "com.googlecode.jsfFlex.FlexDateChooser",
         tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIDateChooser")
 public abstract class AbstractFlexUIDateChooser 
                             extends AbstractFlexUIInputBase 
                             implements IFlexUIBaseAttributes, IFlexUISelectedDateAttribute {

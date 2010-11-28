@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.container.ext;
 
 import java.io.IOException;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
@@ -39,6 +40,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
         family              =   "javax.faces.FlexSimple",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexGridRow"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIGridRow")
 public abstract class AbstractFlexUIGridRow 
                         extends AbstractFlexUISimpleBase 
                         implements IFlexUIBaseAttributes, IFlexUIDirectionAttribute {

@@ -22,6 +22,7 @@ import java.io.IOException;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.render.FacesRenderer;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
@@ -37,6 +38,11 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
         renderKitId="FLEX_BASIC",
         family="javax.faces.FlexOutput",
         type="com.googlecode.jsfFlex.FlexRichText"
+)
+@FacesRenderer(
+        renderKitId="FLEX_BASIC",
+        componentFamily="javax.faces.FlexOutput",
+        rendererType="com.googlecode.jsfFlex.FlexRichText"
 )
 @IJsfFlexAttributeProperties(
         componentName="RichText",

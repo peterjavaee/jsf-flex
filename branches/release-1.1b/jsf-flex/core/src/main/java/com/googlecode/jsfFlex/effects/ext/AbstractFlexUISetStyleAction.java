@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.effects.ext;
 
+import javax.faces.component.FacesComponent;
+
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
@@ -37,6 +39,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
         family              =   "javax.faces.FlexSimple",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexSetStyleAction"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUISetStyleAction")
 public abstract class AbstractFlexUISetStyleAction 
                                 extends AbstractFlexUISimpleBase 
                                 implements IFlexUIBaseAttributes, IFlexUINameAttribute, IFlexUIValueAttribute {

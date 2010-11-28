@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext.data.ext;
 
+import javax.faces.component.FacesComponent;
+
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
@@ -43,6 +45,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
         family              =   "javax.faces.FlexSimple",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexArray"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIArray")
 public abstract class AbstractFlexUIArray 
 						extends AbstractFlexUIObject 
                         implements IFlexUIBaseAttributes {

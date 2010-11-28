@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.container.ext;
 
 import java.io.IOException;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
@@ -42,6 +43,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUICreationPolicyAttribute;
         defaultRendererType =   "com.googlecode.jsfFlex.FlexAccordion",
         tagSuperclass       =   "com.googlecode.jsfFlex.taglib.AbstractFlexUIInputTagBase"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIAccordion")
 public abstract class AbstractFlexUIAccordion 
 						extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase
 						implements IFlexUIBaseAttributes, IFlexUICreationPolicyAttribute {

@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.component.ext;
 
+import javax.faces.component.FacesComponent;
+
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
@@ -34,6 +36,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUIOutputBase;
         family              =   "javax.faces.FlexOutput",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexText"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIText")
 public abstract class AbstractFlexUIText 
 						extends AbstractFlexUIOutputBase
 						implements IFlexUIBaseAttributes {

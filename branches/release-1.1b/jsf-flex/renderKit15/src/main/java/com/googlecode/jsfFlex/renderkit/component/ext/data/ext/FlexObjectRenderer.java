@@ -26,6 +26,7 @@ import java.util.Set;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.render.FacesRenderer;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
@@ -41,9 +42,14 @@ import com.googlecode.jsfFlex.shared.beans.templates.TokenValue;
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
+        renderKitId="FLEX_BASIC",
+        family="javax.faces.FlexSimple",
+        type="com.googlecode.jsfFlex.FlexObject"
+)
+@FacesRenderer(
 		renderKitId="FLEX_BASIC",
-		family="javax.faces.FlexSimple",
-		type="com.googlecode.jsfFlex.FlexObject"
+		componentFamily="javax.faces.FlexSimple",
+		rendererType="com.googlecode.jsfFlex.FlexObject"
 )
 @IJsfFlexAttributeProperties(
 		componentName="Object",

@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.eventGlue;
 import java.io.IOException;
 import java.util.EnumSet;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
@@ -43,6 +44,7 @@ import com.googlecode.jsfFlex.shared.context.AbstractFlexContext;
         family  =   "javax.faces.FlexUIAsynchronousEventGlueBase",
         desc    =   "Base component for FlexAsynchronousEventGlue components."
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIAsynchronousEventGlueBase")
 public abstract class AbstractFlexUIAsynchronousEventGlueBase 
                             extends AbstractFlexUIPreserveInServer 
                             implements IFlexEvent, IFlexUIAsynchronousEventGlueHandlerAttribute, IFlexUIEventListenerAttribute {

@@ -18,6 +18,8 @@
  */
 package com.googlecode.jsfFlex.effects.ext;
 
+import javax.faces.component.FacesComponent;
+
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFProperty;
 
@@ -35,6 +37,7 @@ import com.googlecode.jsfFlex.component.AbstractFlexUISimpleBase;
         family              =   "javax.faces.FlexSimple",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexCrossFade"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUICrossFade")
 public abstract class AbstractFlexUICrossFade 
                                 extends AbstractFlexUISimpleBase 
                                 implements IFlexUIBaseAttributes {

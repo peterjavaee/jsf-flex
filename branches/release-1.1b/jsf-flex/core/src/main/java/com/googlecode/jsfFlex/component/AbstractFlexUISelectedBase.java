@@ -18,6 +18,7 @@
  */
 package com.googlecode.jsfFlex.component;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
@@ -37,6 +38,7 @@ import com.googlecode.jsfFlex.attributes.IFlexUISelectedAttribute;
         desc        =   "Base component for FlexInput components that contain selected attribute",
         template    =   true
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUISelectedBase")
 public abstract class AbstractFlexUISelectedBase 
 							extends AbstractFlexUIInputBase 
 							implements IFlexUISelectedAttribute {

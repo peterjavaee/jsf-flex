@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.component;
 import java.io.IOException;
 import java.util.Map;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
@@ -35,6 +36,7 @@ import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFCompone
         family  =   "javax.faces.FlexUIPreserveInServer",
         desc    =   "Base component for FlexPreserveInServer components"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIPreserveInServer")
 public abstract class AbstractFlexUIPreserveInServer extends AbstractFlexUISimpleBase {
     
     @Override

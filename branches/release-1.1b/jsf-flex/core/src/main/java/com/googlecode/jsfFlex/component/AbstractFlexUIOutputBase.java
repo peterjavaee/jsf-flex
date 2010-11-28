@@ -20,6 +20,7 @@ package com.googlecode.jsfFlex.component;
 
 import java.io.IOException;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.component.UIOutput;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -46,6 +47,7 @@ import com.googlecode.jsfFlex.shared.util.FlexConstants;
         family  =   "javax.faces.FlexOutputBase",
         desc    =   "Base component for FlexOutput components"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIOutputBase")
 public abstract class AbstractFlexUIOutputBase extends UIOutput implements IFlexContract {
 	
 	private AbstractAnnotationDocletParser _annotationDocletParserInstance;

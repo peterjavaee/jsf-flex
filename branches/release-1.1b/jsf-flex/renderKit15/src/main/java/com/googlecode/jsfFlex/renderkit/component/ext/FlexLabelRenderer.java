@@ -22,6 +22,7 @@ import java.io.IOException;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.render.FacesRenderer;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFRenderer;
 
@@ -34,9 +35,14 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
  * @author Ji Hoon Kim
  */
 @JSFRenderer(
+        renderKitId="FLEX_BASIC",
+        family="javax.faces.FlexOutput",
+        type="com.googlecode.jsfFlex.FlexLabel"
+)
+@FacesRenderer(
 		renderKitId="FLEX_BASIC",
-		family="javax.faces.FlexOutput",
-		type="com.googlecode.jsfFlex.FlexLabel"
+		componentFamily="javax.faces.FlexOutput",
+		rendererType="com.googlecode.jsfFlex.FlexLabel"
 )
 @IJsfFlexAttributeProperties(
 		componentName="Label",

@@ -21,6 +21,7 @@ package com.googlecode.jsfFlex.eventGlue.ext;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 
 import org.apache.commons.logging.Log;
@@ -53,6 +54,7 @@ import com.googlecode.jsfFlex.shared.model.event.AsynchronousPropertyUpdateEvent
         family              =   "javax.faces.FlexEventListener",
         defaultRendererType =   "com.googlecode.jsfFlex.FlexAsynchronousPropertyUpdateEventListener"
 )
+@FacesComponent("com.googlecode.jsfFlex.FlexUIAsynchronousPropertyUpdateEventListener")
 public abstract class AbstractFlexUIAsynchronousPropertyUpdateEventListener 
                                     extends AbstractFlexUIAsynchronousEventGlueBase
                                     implements IFlexUIAsynchronousEventGlueHandlerAttribute, IFlexUIEventListenerAttribute, IFlexUIEventHandlerSrcIdAttribute,  
