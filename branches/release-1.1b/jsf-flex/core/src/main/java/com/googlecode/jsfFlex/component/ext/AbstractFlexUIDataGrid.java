@@ -335,7 +335,6 @@ public abstract class AbstractFlexUIDataGrid
             /*
              * Now filter through the remaining list
              */
-            
             for(; parsedEndIndex < dataSize; parsedEndIndex++){
                 
                 WrappedBeanEntry currEntry = _wrappedList.get(parsedEndIndex);
@@ -386,7 +385,7 @@ public abstract class AbstractFlexUIDataGrid
         
         synchronized(this){
             if((filterColumnValue.length() > 0 && !filterColumnValue.equals(_filterColumn)) ||
-                    (filterValue.length() > 0 && filterValue.equals(_filterValue))){
+                    (filterValue.length() > 0 && !filterValue.equals(_filterValue))){
                 /*
                  * means that filtering is active and a new value has been requested
                  * Perform filter and return a list of values requested. Return the result.
@@ -598,7 +597,6 @@ public abstract class AbstractFlexUIDataGrid
         Collections.sort(deleteIndicesList, DELETE_INDICES_COMPARATOR);
         Collections.reverse(deleteIndicesList);
         _log.info("Requested deleteIndices are : " + deleteIndices + " for component : " + getId());
-        
         
         synchronized(this){
             

@@ -64,6 +64,10 @@ import com.googlecode.jsfFlex.shared.util.annotation.ISwcActionScriptFiles;
 )
 public final class FlexConstants {
 	
+	public static final String FLEX_JAVA_SDK_PATH = "com.googlecode.jsfFlex.FlexJavaPath";
+	public static final String FLEX_JVM_CONFIG_PATH = "bin/jvm.config";
+	public static final String FLEX_JVM_CONFIG_JAVA_HOME = "java.home=";
+	
 	public static final String LOCALE_WEB_CONTEXT_RELATIVE_PATH = "com.googlecode.jsfFlex.LocaleWebContextRelativePath";
 	public static final String DEFAULT_LOCALE = "com.googlecode.jsfFlex.DefaultLocale";
 	public static final String DEFAULT_LOCALE_SWF_PATH_KEY = "DefaultLocaleSwfPathKey";

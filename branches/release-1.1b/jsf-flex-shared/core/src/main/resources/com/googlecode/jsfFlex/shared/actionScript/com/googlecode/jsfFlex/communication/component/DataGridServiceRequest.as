@@ -255,6 +255,9 @@ package com.googlecode.jsfFlex.communication.component
 				
 				if(_filterColumnComponent != null){
 					filterColumnValue = compValMapper.getCompValue(_filterColumnComponent.id)[0].value;
+				}else{
+				    //assume it to be the current sorted column
+				    filterColumnValue = _currColumnSortedDataField;
 				}
 			}
 			

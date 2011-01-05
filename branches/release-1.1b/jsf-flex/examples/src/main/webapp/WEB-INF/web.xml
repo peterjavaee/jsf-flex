@@ -53,6 +53,18 @@
       <param-value>server</param-value>
     </context-param>
     
+    <!-- 
+    <context-param>
+      <description>
+        Java path for Flex SDK, in case user is using a Windows 64bit applications
+        [Flex requires a Java SDK of 32bit]. Note that MSVCR71.dll file [if missing]
+        must be downloaded and placed within C:\Windows\SysWOW64
+      </description>
+      <param-name>com.googlecode.jsfFlex.FlexJavaPath</param-name>
+      <param-value>C:\Program Files (x86)\Java\jdk1.6.0_23</param-value>
+    </context-param>
+     -->
+     
     <context-param>
       <description>
       	The relative web context path for the locale resources, if being used for 

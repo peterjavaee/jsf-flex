@@ -69,6 +69,7 @@ public class FlexContextImpl extends AbstractFlexContext {
 	private boolean _productionEnv;
 	
 	private String _flexSDKPath;
+	private String _flexJavaSDKPath;
 	private String _localeWebContextPath;
 	private String _mxmlPath;
 	private String _preMxmlPath;
@@ -143,6 +144,12 @@ public class FlexContextImpl extends AbstractFlexContext {
 	}
 	public void setFlexSDKPath(String flexSDKPath) {
 		_flexSDKPath = flexSDKPath;
+	}
+	public String getFlexJavaSDKPath() {
+		return _flexJavaSDKPath;
+	}
+	public void setFlexJavaSDKPath(String flexJavaSDKPath) {
+		_flexJavaSDKPath = flexJavaSDKPath;
 	}
 	public String getLocaleWebContextPath() {
 		return _localeWebContextPath;

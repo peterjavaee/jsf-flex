@@ -27,6 +27,7 @@ import java.util.Map;
 
 import javax.faces.component.FacesComponent;
 import javax.faces.component.UIComponentBase;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.servlet.ServletContext;
 
@@ -106,8 +107,10 @@ public abstract class AbstractFlexUIApplication
     
     @Override
 	public void encodeBegin(FacesContext context) throws IOException {
-		
-		ServletContext servContext = ServletContext.class.cast( context.getExternalContext().getContext() );
+    	
+    	ExternalContext extContext = context.getExternalContext();
+    	
+		ServletContext servContext = ServletContext.class.cast( extContext.getContext() );
 		setApplicationPath( servContext.getRealPath("") );
 		
         Map<String, String> xmlnsMap = getXmlnsMap();
@@ -124,24 +127,29 @@ public abstract class AbstractFlexUIApplication
             }
         }
         
-		String mode = context.getExternalContext().getInitParameter(FlexConstants.CONFIG_MODE_NAME);
+        String mode = extContext.getInitParameter(FlexConstants.CONFIG_MODE_NAME);
 		AbstractFlexContext flexContext = new FlexContextImpl(getMxmlPackageName(), mode, this);
         
-		String webContextPath = context.getExternalContext().getRequestContextPath();
+		String webContextPath = extContext.getRequestContextPath();
         String swfWebPath = webContextPath + "/" + FlexConstants.SWF_DIRECTORY_NAME + "/";
 		String applicationSwfWebPath = swfWebPath + getMxmlPackageName() + "/";
         flexContext.setSwfWebPath(swfWebPath);
         flexContext.setApplicationSwfWebPath(applicationSwfWebPath);
         flexContext.setWebContextPath(webContextPath);
 		
-		//setting or appending scripts to execute upon application initialization
+        //setting or appending scripts to execute upon application initialization
 		String init = String.class.cast( getAttributes().get(INITIALIZE_ATTR) );
 		init = (init == null) ? INITIALIZE_CALL : init + " " + INITIALIZE_CALL;
 		getAttributes().put(INITIALIZE_ATTR, init);
 		
-		String localeWebContextRelativePath = context.getExternalContext().getInitParameter(FlexConstants.LOCALE_WEB_CONTEXT_RELATIVE_PATH);
+		String localeWebContextRelativePath = extContext.getInitParameter(FlexConstants.LOCALE_WEB_CONTEXT_RELATIVE_PATH);
 		if(localeWebContextRelativePath != null){
             flexContext.setLocaleWebContextPath(_applicationPath + File.separatorChar + localeWebContextRelativePath + File.separatorChar);
+		}
+		
+		String flexJavaSDKPath = extContext.getInitParameter(FlexConstants.FLEX_JAVA_SDK_PATH);
+		if(flexJavaSDKPath != null){
+			flexContext.setFlexJavaSDKPath(flexJavaSDKPath);
 		}
 		
 		//to reflect the correct state when debugging
@@ -160,7 +168,7 @@ public abstract class AbstractFlexUIApplication
 			 * 	by the system's ActionScripts.
 			 */
 			String flexSDKPath = _applicationPath + File.separatorChar + FlexConstants.FLEX_SDK_DIRECTORY_NAME + File.separatorChar;
-			String webXmlFlexSDKPath = context.getExternalContext().getInitParameter(FlexConstants.PROVIDED_FLEX_SDK_PATH);
+			String webXmlFlexSDKPath = extContext.getInitParameter(FlexConstants.PROVIDED_FLEX_SDK_PATH);
             String swcPath = _applicationPath + File.separatorChar + FlexConstants.SWC_DIRECTORY_NAME + File.separatorChar;
 			String jsfFlexSwcPath = swcPath + FlexConstants.JSF_FLEX_MAIN_SWC_DIRECTORY_NAME + File.separatorChar;
 			
@@ -187,10 +195,10 @@ public abstract class AbstractFlexUIApplication
 			
 			//set the attributes for jsfFlexFlashApplicationConfiguration
 			JsfFlexFlashApplicationConfiguration jsfFlexFlashApplicationConfiguration = flexContext.getJsfFlexFlashApplicationConfiguration();
-			String flashToJavaScriptLogLevel = context.getExternalContext().getInitParameter(FlexConstants.FLASH_TO_JAVASCRIPT_LOG_LEVEL_NAME);
+			String flashToJavaScriptLogLevel = extContext.getInitParameter(FlexConstants.FLASH_TO_JAVASCRIPT_LOG_LEVEL_NAME);
 			if(flashToJavaScriptLogLevel == null){
 				
-				flashToJavaScriptLogLevel = context.getExternalContext().getInitParameter(FlexConstants.CONFIG_MODE_NAME);
+				flashToJavaScriptLogLevel = extContext.getInitParameter(FlexConstants.CONFIG_MODE_NAME);
 				if(flashToJavaScriptLogLevel.equals(FlexConstants.PRODUCTION_MODE)){
 					flashToJavaScriptLogLevel = FlexConstants.FLASH_TO_JAVASCRIPT_LOG_WARN_LEVEL;
 				}else{

@@ -57,7 +57,7 @@ public final class UnzipTask extends AbstractTask {
 	
 	protected void performTask() {
 		
-		BufferedOutputStream bufferOutputStream;
+		BufferedOutputStream bufferOutputStream = null;
 		ZipInputStream zipInputStream = new ZipInputStream(new BufferedInputStream(_file));
 		ZipEntry entry;
 		
@@ -77,13 +77,22 @@ public final class UnzipTask extends AbstractTask {
 				bufferOutputStream.flush();
 				bufferOutputStream.close();
 			}
-			zipInputStream.close();
+			
 			_log.debug("UnzipTask performTask has been completed with " + toString());
 		}catch(IOException ioExcept){
 			StringBuilder errorMessage = new StringBuilder();
 			errorMessage.append("Error in Unzip's performTask with following fields \n");
 			errorMessage.append(toString());
 			throw new ComponentBuildException(errorMessage.toString(), ioExcept);
+		}finally{
+			try{
+				zipInputStream.close();
+				if(bufferOutputStream != null){
+					bufferOutputStream.close();
+				}
+			}catch(IOException innerIOExcept){
+				_log.info("Error while closing the streams within UnzipTask's finally block");
+			}
 		}
 		
 	}

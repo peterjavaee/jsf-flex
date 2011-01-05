@@ -212,6 +212,24 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriterWrapper {
     }
     
     /**
+     * Will modify java.home's jvm.config parameter with the Java SDK path specified by the user 
+     * Used if the user is using a Windows 64 bit applications
+     * 
+     * @param flexContext
+     */
+    public final void checkFlexJavaSDKPath(AbstractFlexContext flexContext) {
+    	
+        if(flexContext.getFlexJavaSDKPath() != null){
+        	/*
+        	 * The path must be of '/' and not '\'
+        	 */
+        	String actualPath = flexContext.getFlexJavaSDKPath().replaceAll("\\\\", "/");
+        	replaceTokenWithValue(flexContext.getFlexSDKPath() + FlexConstants.FLEX_JVM_CONFIG_PATH,
+        			FlexConstants.FLEX_JVM_CONFIG_JAVA_HOME + actualPath, FlexConstants.FLEX_JVM_CONFIG_JAVA_HOME);
+        }
+    }
+    
+    /**
      * One can consider this method to be somewhat of a facade in creating application SWF file.<br>
      * 
      * @param flexFile
@@ -233,7 +251,9 @@ public abstract class AbstractFlexResponseWriter extends ResponseWriterWrapper {
         
         synchronized(LOCK){
             
-            if(!new File(flexContext.getJsfFlexSwcPath()).exists()){
+        	if(!new File(flexContext.getJsfFlexSwcPath()).exists()){
+        		checkFlexJavaSDKPath(flexContext);
+        		
                 //copy the necessary ActionScript files over for SWF generation 
                 createSwcSourceFiles(flexContext.getJsfFlexSwcPath(), FlexConstants.getSwcSourceFiles(), 
                                             FlexConstants.JSF_FLEX_MAIN_SWC_CONFIG_FILE, flexContext.getWebContextPath());

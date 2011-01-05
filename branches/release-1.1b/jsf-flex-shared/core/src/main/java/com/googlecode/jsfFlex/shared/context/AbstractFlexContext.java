@@ -76,6 +76,10 @@ public abstract class AbstractFlexContext {
 	
 	public abstract void setFlexSDKPath(String flexSDKPath);
 	
+	public abstract String getFlexJavaSDKPath();
+	
+	public abstract void setFlexJavaSDKPath(String flexJavaSDKPath);
+	
 	public abstract String getLocaleWebContextPath();
 	
 	public abstract void setLocaleWebContextPath(String localeWebContextPath);
