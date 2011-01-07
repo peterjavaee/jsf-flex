@@ -296,10 +296,12 @@ public abstract class AbstractFlexUIDataGrid
         
         synchronized(_wrappedList){
             
+        	int dataRequestSize = parsedEndIndex - parsedStartIndex;
+        	int dataAdded = 0;
             /*
              * It is assumed that parsedStartIndex is starting from 0
              */
-            for(; parsedStartIndex < parsedEndIndex; parsedStartIndex++) {
+            for(;(parsedStartIndex < dataSize) && (dataAdded < dataRequestSize); parsedStartIndex++) {
                 WrappedBeanEntry currEntry = _wrappedList.get(parsedStartIndex);
                 Object currValue = currEntry.getBeanEntry();
                 String filterCheckValue = filterColumnComponent.getFormatedColumnData(currValue);
@@ -325,8 +327,9 @@ public abstract class AbstractFlexUIDataGrid
                         JSONArray currEntryList = JSONArray.class.cast( formatedColumnData.get(currKey) );
                         String currColumnValue = currDataGridColumn.getFormatedColumnData(currValue);
                         currEntryList.put(currColumnValue);
-                        
                     }
+                    
+                    dataAdded++;
                     _filteredList.add(currEntry);
                 }
                 
@@ -335,9 +338,9 @@ public abstract class AbstractFlexUIDataGrid
             /*
              * Now filter through the remaining list
              */
-            for(; parsedEndIndex < dataSize; parsedEndIndex++){
+            for(; parsedStartIndex < dataSize; parsedStartIndex++){
                 
-                WrappedBeanEntry currEntry = _wrappedList.get(parsedEndIndex);
+                WrappedBeanEntry currEntry = _wrappedList.get(parsedStartIndex);
                 Object currValue = currEntry.getBeanEntry();
                 String filterCheckValue = filterColumnComponent.getFormatedColumnData(currValue);
                 
@@ -346,7 +349,7 @@ public abstract class AbstractFlexUIDataGrid
                     filterCurrentRow = invokeFilterMethod(filterCheckValue, _filterValue);
                     
                     if(filterCurrentRow){
-                        _log.info("Row containing value of " + filterCheckValue + " was filtered");
+                        _log.info("Remaining - row containing value of " + filterCheckValue + " was filtered");
                         continue;
                     }else{
                         _filteredList.add(currEntry);
@@ -356,6 +359,7 @@ public abstract class AbstractFlexUIDataGrid
             
         }
         
+        _log.info("Size of filteredList is " + _filteredList.size() + ", " + filterColumnContent.length());
         return formatedColumnData;
     }
     

@@ -279,7 +279,14 @@ package com.googlecode.jsfFlex.communication.component
 																
 																for each(var dataGridColumnEntry:Object in _dataFieldToDataGridColumnEntriesDictionary){
 																	var gridColumnServiceRequest:Object = dataGridColumnEntry.dataGridColumnServiceRequest;
-																	var gridColumnContent:ListCollectionView = lastResult[gridColumnServiceRequest.dataField].VALUE;
+																	var gridColumnContent:ListCollectionView = null;
+																	
+																	if(lastResult[gridColumnServiceRequest.dataField].VALUE is ListCollectionView){
+																	   gridColumnContent = lastResult[gridColumnServiceRequest.dataField].VALUE;
+																	}else{
+																	   gridColumnContent = new ArrayCollection();
+																	   gridColumnContent.addItem(lastResult[gridColumnServiceRequest.dataField].VALUE);
+																	}
 																	
 																	gridColumnServiceRequest.updateColumnDisplayEntries(gridColumnContent, populateCacheStartIndex);
 																}
@@ -598,7 +605,11 @@ package com.googlecode.jsfFlex.communication.component
 																/*
 																 * Now need to select the rows that are kept in the server side
 																 */
-																_dataGridComp.selectedIndices = lastResult.RETURNED_SELECT_ENTRIES.VALUE;
+                                                                if(lastResult.RETURNED_SELECT_ENTRIES.VALUE is Array){
+                                                                    _dataGridComp.selectedIndices = lastResult.RETURNED_SELECT_ENTRIES.VALUE;
+                                                                }else{
+                                                                    _dataGridComp.selectedIndices = [lastResult.RETURNED_SELECT_ENTRIES.VALUE];
+                                                                }
 																if(callBack != null){
 																	callBack.apply(thisObject, argumentList);
 																}
