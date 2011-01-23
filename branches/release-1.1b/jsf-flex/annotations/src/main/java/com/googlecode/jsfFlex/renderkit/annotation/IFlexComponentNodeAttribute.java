@@ -43,6 +43,8 @@ public @interface IFlexComponentNodeAttribute {
 	boolean isValueNested();
 	
 	String[] valueNestedValues();
+    
+    boolean isValueRecurse() default false;
 	
 	String nameAttributeValue();
 	

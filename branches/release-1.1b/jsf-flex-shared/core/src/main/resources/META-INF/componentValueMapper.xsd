@@ -69,6 +69,7 @@
 								</xs:sequence>
 								<xs:attribute name="dynamic" type="cvm:booleanValue"></xs:attribute>
 								<xs:attribute name="nested" type="cvm:booleanValue"></xs:attribute>
+								<xs:attribute name="recurse" type="cvm:booleanValue"></xs:attribute>
 								<xs:attribute name="append" type="xs:string"></xs:attribute>
 								
 							</xs:complexType>

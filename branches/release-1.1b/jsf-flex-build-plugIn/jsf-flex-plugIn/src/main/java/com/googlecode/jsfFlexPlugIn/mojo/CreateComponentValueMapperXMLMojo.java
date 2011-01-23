@@ -66,6 +66,7 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 	private static final String VALUE_ATTRIBUTE_VALUE_KEY = "valueAttributeValue";
 	private static final String VALUE_DYNAMIC_KEY = "valueDynamic";
 	private static final String VALUE_NESTED_KEY = "valueNested";
+    private static final String VALUE_RECURSE_KEY = "recurse";
 	private static final String VALUE_NESTED_VALUES_KEY = "valueNestedValues";
 	
 	private static final String NAME_ATTRIBUTE_VALUE_KEY = "nameAttributeValue";
@@ -124,6 +125,7 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
             
             private static final String IS_VALUE_DYNAMIC_ATTRIBUTE_KEY = "isValueDynamic";
             private static final String IS_VALUE_NESTED_ATTRIBUTE_KEY = "isValueNested";
+            private static final String IS_VALUE_RECURSE_ATTRIBUTE_KEY = "isValueRecurse";
             private static final String IS_NAME_DYNAMIC_ATTRIBUTE_KEY = "isNameDynamic";
             
 			public void inspectFiles(){
@@ -193,6 +195,13 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
                                 
                                 componentNodeAttributeMap.put(VALUE_DYNAMIC_KEY, removeQuotes( currFlexComponentNodeAttribute.getProperty(IS_VALUE_DYNAMIC_ATTRIBUTE_KEY).getParameterValue().toString() ));
                                 componentNodeAttributeMap.put(VALUE_NESTED_KEY, removeQuotes( currFlexComponentNodeAttribute.getProperty(IS_VALUE_NESTED_ATTRIBUTE_KEY).getParameterValue().toString() ));
+                                
+                                AnnotationValue isRecurse = currFlexComponentNodeAttribute.getProperty(IS_VALUE_RECURSE_ATTRIBUTE_KEY);
+                                String recurseValue = "false";
+                                if(isRecurse != null){
+                                    recurseValue = removeQuotes( isRecurse.getParameterValue().toString() );
+                                }
+                                componentNodeAttributeMap.put(VALUE_RECURSE_KEY, recurseValue);
                                 
                                 String builtString;
                                 boolean isValueNested = Boolean.valueOf(removeQuotes( currFlexComponentNodeAttribute.getProperty(IS_VALUE_NESTED_ATTRIBUTE_KEY).getParameterValue().toString() ));
@@ -268,6 +277,7 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 				Object valueAttributeValue = inspected.get(VALUE_ATTRIBUTE_VALUE_KEY);
 				Boolean isValueDynamic = inspected.get(VALUE_DYNAMIC_KEY) != null && inspected.get(VALUE_DYNAMIC_KEY).equals("true");
 				Boolean isValueNested = inspected.get(VALUE_NESTED_KEY) != null && inspected.get(VALUE_NESTED_KEY).equals("true");
+                Boolean isValueRecurse = inspected.get(VALUE_RECURSE_KEY) != null && inspected.get(VALUE_RECURSE_KEY).equals("true");
 				Object valueNestedValues = inspected.get(VALUE_NESTED_VALUES_KEY);
 				List<String> valueNestedList;
 				if(valueNestedValues != null){
@@ -281,7 +291,7 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
 				Object nameAppend = inspected.get(NAME_APPEND_KEY);
 				
 				currClassInfo.addNodeInfo(new NodeInfo(returnEmptyStringForNull(htmlType), returnEmptyStringForNull(typeAttributeValue), isValueNested, 
-															isValueDynamic, returnEmptyStringForNull(valueAttributeValue), valueNestedList, isNameDynamic, 
+															isValueDynamic, isValueRecurse, returnEmptyStringForNull(valueAttributeValue), valueNestedList, isNameDynamic, 
 															returnEmptyStringForNull(nameAppend), returnEmptyStringForNull(nameAttributeValue)));
 				
 			}
@@ -377,6 +387,7 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
         
         private final Boolean _valueNested;
         private final Boolean _valueDynamic;
+        private final Boolean _valueRecurse;
         private final String _valueAttributeValue;
         private final List<String> _nestedList;
         
@@ -393,6 +404,7 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
             
             _valueNested = Boolean.FALSE;
             _valueDynamic = Boolean.FALSE;
+            _valueRecurse = Boolean.FALSE;
             _valueAttributeValue = null;
             _nestedList = null;
             
@@ -404,7 +416,7 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
         }
         
         private NodeInfo(String htmlType, String typeAttributeValue, Boolean valueNested, Boolean valueDynamic,
-                            String valueAttributeValue, List<String> nestedList, Boolean nameDynamic, 
+                            Boolean valueRecurse, String valueAttributeValue, List<String> nestedList, Boolean nameDynamic, 
                             String nameAppend, String nameAttributeValue) {
             super();
             _htmlType = htmlType;
@@ -412,6 +424,7 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
             
             _valueNested = valueNested;
             _valueDynamic = valueDynamic;
+            _valueRecurse = valueRecurse;
             _valueAttributeValue = valueAttributeValue;
             _nestedList = nestedList;
             
@@ -424,6 +437,7 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
             hashCodeVal = HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _typeAttributeValue.hashCode();
             hashCodeVal = HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _valueNested.hashCode();
             hashCodeVal = HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _valueDynamic.hashCode();
+            hashCodeVal = HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _valueRecurse.hashCode();
             hashCodeVal = HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _valueAttributeValue.hashCode();
             hashCodeVal = HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _nestedList.hashCode();
             hashCodeVal = HASH_CODE_MULTIPLY_VALUE * hashCodeVal + _nameDynamic.hashCode();
@@ -463,6 +477,9 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
         public Boolean isValueNested() {
             return _valueNested;
         }
+        public Boolean isValueRecurse() {
+            return _valueRecurse;
+        }
         
         @Override
         public boolean equals(Object instance) {
@@ -472,10 +489,10 @@ public final class CreateComponentValueMapperXMLMojo extends AbstractMojo
             
             NodeInfo nodeInfoInstance = NodeInfo.class.cast( instance );
             return _htmlType.equals(nodeInfoInstance._htmlType) && _typeAttributeValue.equals(nodeInfoInstance._typeAttributeValue) &&
-                    _valueNested.equals(nodeInfoInstance._valueNested) && _valueDynamic.equals(nodeInfoInstance._valueDynamic) &&
-                    _valueAttributeValue.equals(nodeInfoInstance._valueAttributeValue) && _nestedList.equals(nodeInfoInstance._nestedList) &&
-                    _nameDynamic.equals(nodeInfoInstance._nameDynamic) && _nameAppend.equals(nodeInfoInstance._nameAppend) &&
-                    _nameAttributeValue.equals(nodeInfoInstance._nameAttributeValue);
+                    _valueNested.equals(nodeInfoInstance._valueNested) && _valueDynamic.equals(nodeInfoInstance._valueDynamic) && 
+                    _valueRecurse.equals(nodeInfoInstance._valueRecurse) && _valueAttributeValue.equals(nodeInfoInstance._valueAttributeValue) && 
+                    _nestedList.equals(nodeInfoInstance._nestedList) && _nameDynamic.equals(nodeInfoInstance._nameDynamic) && 
+                    _nameAppend.equals(nodeInfoInstance._nameAppend) && _nameAttributeValue.equals(nodeInfoInstance._nameAttributeValue);
         }
         
         @Override

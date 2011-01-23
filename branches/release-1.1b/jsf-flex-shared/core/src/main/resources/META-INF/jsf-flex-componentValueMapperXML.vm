@@ -21,13 +21,13 @@
                   <attribute>
                       <name>value</name>
                       #if ( ${nodeInfo.isValueNested()} )
-                          <value dynamic="${nodeInfo.isValueDynamic()}" nested="true">
+                          <value dynamic="${nodeInfo.isValueDynamic()}" nested="true" recurse="${nodeInfo.isValueRecurse()}">
                           #foreach( $nestedValue in ${nodeInfo.getNestedList()} )
                               <nested>${nestedValue}</nested>
                           #end
                           </value>
                       #else
-                          <value dynamic="${nodeInfo.isValueDynamic()}">${nodeInfo.getValueAttributeValue()}</value>
+                          <value dynamic="${nodeInfo.isValueDynamic()}" recurse="${nodeInfo.isValueRecurse()}">${nodeInfo.getValueAttributeValue()}</value>
                       #end
                   </attribute>
                   <attribute>
