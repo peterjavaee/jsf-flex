@@ -32,7 +32,7 @@ public interface IFlexUIAsynchronousEventGlueHandlerAttribute {
     @JSFProperty(
             stateHolder     =   true,
             jspName         =   "asynchronousEventGlueHandler",
-            methodSignature =   "java.lang.String,java.lang.String,java.lang.String",
+            methodSignature =   "com.googlecode.jsfFlex.shared.model.event.AbstractEvent",
             returnSignature =   "java.lang.Object",
             desc            =   "Method to be invoked during the asynchronous event."
     )

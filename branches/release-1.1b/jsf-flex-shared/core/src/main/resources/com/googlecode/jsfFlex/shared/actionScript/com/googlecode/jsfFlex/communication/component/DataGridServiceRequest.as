@@ -744,6 +744,11 @@ package com.googlecode.jsfFlex.communication.component
 		private function filterChangedListener(event:Event):void {
 			_log.debug("Within filterChangedListener");
 			
+			var compValMapper:ComponentValueMapper = ComponentValueMapper.getInstance(JsfFlexUtils.getCurrentApplication());
+            var filterValue:String = compValMapper.getCompValue(_filterComponent.id)[0].value;
+			//if filterValue did not change skip the request
+			
+			
 			getFullGridData();
 		}
 		

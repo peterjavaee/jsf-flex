@@ -19,10 +19,12 @@
 package com.googlecode.jsfFlex.component.ext;
 
 import javax.faces.component.FacesComponent;
+import javax.faces.context.FacesContext;
 
 import org.apache.myfaces.buildtools.maven2.plugin.builder.annotation.JSFComponent;
 
 import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
+import com.googlecode.jsfFlex.attributes.IFlexUISelectedLabelAttribute;
 
 /**
  * @author Ji Hoon Kim
@@ -39,6 +41,40 @@ import com.googlecode.jsfFlex.attributes.IFlexUIBaseAttributes;
 @FacesComponent("com.googlecode.jsfFlex.FlexUITree")
 public abstract class AbstractFlexUITree 
 						extends com.googlecode.jsfFlex.component.FlexUISelectedIndexBase
-						implements IFlexUIBaseAttributes {
+						implements IFlexUISelectedLabelAttribute, IFlexUIBaseAttributes {
 	
+	private static final String SELECTED_LABEL_ID_APPENDED = "_selectedLabel";
+	private static final String SELECTED_LABEL_ATTR = "selectedLabel";
+	
+	@Override
+	public void decode(FacesContext context) {
+    	super.decode(context);
+    	
+    	java.util.Map<String, String> requestMap = context.getExternalContext().getRequestParameterMap();
+    	
+    	String selectedLabelId = getId() + SELECTED_LABEL_ID_APPENDED;
+    	String selectedLabelUpdateVal = requestMap.get(selectedLabelId);
+    	
+    	if(selectedLabelUpdateVal != null){
+    		setSelectedLabel(selectedLabelUpdateVal);
+    	}
+
+    }
+	
+    @Override
+	public void processUpdates(FacesContext context) {
+    	super.processUpdates(context);
+    	
+    	if (!isRendered() || !isValid()){
+    		return;
+    	}
+    	
+    	javax.el.ValueExpression ve = getValueExpression(SELECTED_LABEL_ATTR);
+    	
+    	if(ve != null && !ve.isReadOnly(context.getELContext())){
+    		ve.setValue(context.getELContext(), getSelectedIndex());
+    		setSelectedIndex(null);
+    	}
+    	
+    }
 }

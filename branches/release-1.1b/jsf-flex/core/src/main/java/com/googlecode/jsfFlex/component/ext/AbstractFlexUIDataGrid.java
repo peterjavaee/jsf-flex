@@ -389,13 +389,15 @@ public abstract class AbstractFlexUIDataGrid
         
         synchronized(this){
             if((filterColumnValue.length() > 0 && !filterColumnValue.equals(_filterColumn)) ||
-                    (filterValue.length() > 0 && !filterValue.equals(_filterValue))){
+                    !filterValue.equals(_filterValue)){
                 /*
                  * means that filtering is active and a new value has been requested
                  * Perform filter and return a list of values requested. Return the result.
                  */
                 resetFilterList(filterColumnValue, filterValue);
-                return filterList(parsedStartIndex, parsedEndIndex);
+                if(filterValue.length() > 0){ 
+                	return filterList(parsedStartIndex, parsedEndIndex);
+                }
             }
         }
         

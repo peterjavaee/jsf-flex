@@ -58,7 +58,16 @@ import com.googlecode.jsfFlex.shared.adapter.IFlexContract;
 						valueNestedValues={},
 						nameAttributeValue="id",
 						isNameDynamic=true,
-						nameAppend="_selectedIndex")
+						nameAppend="_selectedIndex"),
+				@IFlexComponentNodeAttribute(
+						htmlType="input",
+						typeAttributeValue="hidden",
+						isValueDynamic=true,
+						isValueNested=true,
+						valueNestedValues={"selectedItem", "@label"},
+						nameAttributeValue="id",
+						isNameDynamic=true,
+						nameAppend="_selectedLabel")
 		}
 )
 public final class FlexTreeRenderer extends AbstractFlexComponentRenderer {
