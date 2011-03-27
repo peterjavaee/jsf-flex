@@ -1,13 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?><metadata>
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
   <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
   <artifactId>jsf-flex-build-plugIn-plugin</artifactId>
   <version>1.0b</version>
   <versioning>
-    <latest>1.0.1b</latest>
+    <latest>1.1alpha-SNAPSHOT</latest>
     <versions>
       <version>1.0b</version>
       <version>1.0.1b</version>
+      <version>1.1alpha-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20091212001325</lastUpdated>
+    <lastUpdated>20110327002341</lastUpdated>
   </versioning>
 </metadata>
