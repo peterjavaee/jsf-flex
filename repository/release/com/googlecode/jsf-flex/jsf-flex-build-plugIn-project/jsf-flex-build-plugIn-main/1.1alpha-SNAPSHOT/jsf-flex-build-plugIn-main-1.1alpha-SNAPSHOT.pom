@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <groupId>com.googlecode.jsf-flex</groupId>
+    <artifactId>jsf-flex-build-project</artifactId>
+    <version>${jsf.flex.version}</version>
+  </parent>
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.googlecode.jsf-flex.jsf-flex-build-plugIn-project</groupId>
+  <artifactId>jsf-flex-build-plugIn-main</artifactId>
+  <packaging>pom</packaging>
+  <name>JSF-Flex Builder Main Project</name>
+  <url>http://code.google.com/p/jsf-flex/</url>
+  <description>JSF Flex Builder Main Project that contains mojos to create XML for mapping Flex fields to JSF Java components for renderKit14 project and to create componentValueMapper.xml for ComponentValueMapper.as file</description>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  
+  <scm>
+    <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/jsf-flex-build-plugIn</connection>
+    <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/jsf-flex-build-plugIn</developerConnection>
+  </scm>
+
+  <build>
+    
+    <resources>
+      <resource>
+        <directory>${basedir}/src/main/resources</directory>
+      </resource>
+    </resources>
+    
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>2.2</version>
+          <configuration>
+            <archive>
+              <manifest>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  
+  </build>
+  
+  <modules>
+    <module>jsf-flex-plugIn</module>
+  </modules>
+  
+</project>
