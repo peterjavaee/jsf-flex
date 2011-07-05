@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.googlecode.jsf-flex</groupId>
+    <artifactId>jsf-flex-build-project</artifactId>
+    <version>1.0b</version>
+  </parent>
+  
+  <groupId>com.googlecode.jsf-flex</groupId>
+  <artifactId>jsf-flex-shared-project</artifactId>
+  <packaging>pom</packaging>
+  <name>JSF-FlexShared Project</name>
+  <url>http://code.google.com/p/jsf-flex/</url>
+  <version>1.0b</version>
+  <description>
+    JSF-FlexShared goal is to provide shared resource for jsf-flex subprojects. Also contains AbstractMXMLResponseStateManager.java, AbstractMXMLResponseWriter.java, and MXMLRendererBase.java due to difference in MyFaces + Mojarra JSF implementation.
+  </description>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:svn:http://jsf-flex.googlecode.com/svn/trunk/jsf-flex-shared</connection>
+    <developerConnection>scm:svn:https://jsf-flex.googlecode.com/svn/trunk/jsf-flex-shared</developerConnection>
+  </scm>
+
+  <modules>
+    <module>core</module>
+  </modules>
+
+  <build>
+    <plugins>	     
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-source</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>    
+    </plugins>
+  </build>
+  
+</project>

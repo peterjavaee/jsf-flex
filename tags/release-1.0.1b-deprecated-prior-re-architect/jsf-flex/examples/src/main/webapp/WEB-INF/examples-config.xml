@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE faces-config PUBLIC
+  "-//Sun Microsystems, Inc.//DTD JavaServer Faces Config 1.0//EN"
+  "http://java.sun.com/dtd/web-facesconfig_1_1.dtd">
+
+<!-- =========== FULL CONFIGURATION FILE ================================== -->
+<faces-config>
+  <!-- Below application config is for Facelet support -->
+  <application>
+    <locale-config>
+      <default-locale>en</default-locale>
+    </locale-config>
+	<view-handler>com.sun.facelets.FaceletViewHandler</view-handler>
+  </application>
+  
+  <!-- managed bean for mxml -->
+  <managed-bean>
+    <managed-bean-name>mxmlOverallBean</managed-bean-name>
+    <managed-bean-class>com.googlecode.jsfFlex.examples.mxml.overallExample.MXMLOverallExampleBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  
+  <managed-bean>
+    <managed-bean-name>mxmlFaceletOverallBean</managed-bean-name>
+    <managed-bean-class>com.googlecode.jsfFlex.examples.mxml.overallExample.MXMLFaceletOverallExampleBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  
+  <managed-bean>
+    <managed-bean-name>multipleRequestDataGridExample</managed-bean-name>
+    <managed-bean-class>com.googlecode.jsfFlex.examples.mxml.multipleRequestDataGridExample.MXMLMultipleRequestDataGridExampleBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  
+  <!-- navigational rules for Facelet mxmlSimple -->
+  <navigation-rule>
+    <from-view-id>/mxmlSimple/mxmlSimple.xhtml</from-view-id>
+    <navigation-case>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/mxmlSimple/mxmlSimple.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <!-- navigational rules for Facelet mxmlSimple end -->
+  
+  <!-- navigational rules for Facelet mxmlOverallExample -->
+  <navigation-rule>
+    <from-view-id>/overallExample/mxmlOverallExample.xhtml</from-view-id>
+    <navigation-case>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/overallExample/mxmlOverallExampleSuccess.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <!-- navigational rules for Facelet mxmlOverallExample end -->
+  
+  <!-- navigational rules for Facelet mxmlOverallExampleSuccess -->
+  <navigation-rule>
+    <from-view-id>/overallExample/mxmlOverallExampleSuccess.xhtml</from-view-id>
+    <navigation-case>
+      <from-outcome>back</from-outcome>
+      <to-view-id>/overallExample/mxmlOverallExample.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <!-- navigational rules for Facelet mxmlOverallExampleSuccess end -->
+  
+  <!-- navigational rules for Facelet mxmlMultipleRequestDataGridExample -->
+  <navigation-rule>
+    <from-view-id>/multipleRequestDataGridExample/mxmlMultipleRequestDataGridExample.xhtml</from-view-id>
+    <navigation-case>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/multipleRequestDataGridExample/mxmlMultipleRequestDataGridExample.xhtml</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <!-- navigational rules for Facelet mxmlMultipleRequestDataGridExample end -->
+  
+  
+  
+  
+  
+  <!-- navigational rules for mxmlSimple -->
+  <navigation-rule>
+    <from-view-id>/mxmlSimple/mxmlSimple.jsp</from-view-id>
+    <navigation-case>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/mxmlSimple/mxmlSimple.jsp</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <!-- navigational rules for mxmlSimple end -->
+  
+  <!-- navigational rules for mxmlOverallExample -->
+  <navigation-rule>
+    <from-view-id>/overallExample/mxmlOverallExample.jsp</from-view-id>
+    <navigation-case>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/overallExample/mxmlOverallExampleSuccess.jsp</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <!-- navigational rules for mxmlOverallExample end -->
+  
+  <!-- navigational rules for mxmlOverallExampleSuccess -->
+  <navigation-rule>
+    <from-view-id>/overallExample/mxmlOverallExampleSuccess.jsp</from-view-id>
+    <navigation-case>
+      <from-outcome>back</from-outcome>
+      <to-view-id>/overallExample/mxmlOverallExample.jsp</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <!-- navigational rules for mxmlOverallExampleSuccess end -->
+  
+  <!-- navigational rules for mxmlMultipleRequestDataGridExample -->
+  <navigation-rule>
+    <from-view-id>/multipleRequestDataGridExample/mxmlMultipleRequestDataGridExample.jsp</from-view-id>
+    <navigation-case>
+      <from-outcome>success</from-outcome>
+      <to-view-id>/multipleRequestDataGridExample/mxmlMultipleRequestDataGridExample.jsp</to-view-id>
+    </navigation-case>
+  </navigation-rule>
+  <!-- navigational rules for mxmlMultipleRequestDataGridExample end -->
+    
+</faces-config>
