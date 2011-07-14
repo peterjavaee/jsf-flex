@@ -17,7 +17,7 @@ JSF Flex goal is to provide users capability in creating standard Flex component
 
 ==Milestones==
 ------
-===Release 1.1 BETA===
+===Release 0.5 ALPHA===
 
 ====Release Date====
 TBD
@@ -31,6 +31,7 @@ TBD
  * Additional functionality such as the current DataGrid component where there will be further interweaving of JSF/Java + ActionScript content.
  * Removal of unnecessary core-mojarra-impl + core-myFaces-impl Jar files
  * Attributes for JSP + XHTML will need to be provided as sub-tag of the tag. Meaning other than fields which are project specific or data bound to the component, attributes should be provided as a sub-tag of the component {Can consider it to be attribute node of the node element}
+ * Possibly Eclipse plugin for attributes lookup
 
 ===Release 1.0.1 BETA===
 
