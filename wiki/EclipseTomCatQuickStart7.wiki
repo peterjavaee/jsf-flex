@@ -18,7 +18,7 @@ http://jsf-flex.googlecode.com/svn/wiki/importWarEclipseTomCat70.jpg
   * Select the Properties option.
   * Select Project Facets and click on `JavaServer Faces` with version 2.0.
   * Click on Further configuration required.
-  * Select the JSF Libraries `[can choose the Mojarra 2.0 or MyFaces 2.0 impl]`, for the example chose the MyFaces 2.0 impl. For simplicity, took the artifacts from the WAR download.
+  * Select the JSF Libraries `[can choose the Mojarra 2.0 or MyFaces 2.0 impl]`, for the example chose the `MyFaces` 2.0 impl. For simplicity, took the artifacts from the WAR download.
   * Add additional URL Mapping Patterns for `FacesServlet with /jsfFlexHttpServiceRequestListener/* and *.jsf`.
     http://jsf-flex.googlecode.com/svn/wiki/projectFacetsEclipseTomCat70.jpg
     http://jsf-flex.googlecode.com/svn/wiki/settingJsf12BasePropertiesEclipseTomCat70.jpg
