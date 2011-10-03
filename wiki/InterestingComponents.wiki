@@ -1,0 +1,11 @@
+#Main page of interesting components of the project.
+
+= Introduction =
+
+This page provides couple of interesting components for the project.
+
+
+= Details =
+
+  * [RemoteDataGrid DataGrid with server side augmented features]
+  * [AsyncPropDataUpdateListener Server side listener to components' property and data updates]
