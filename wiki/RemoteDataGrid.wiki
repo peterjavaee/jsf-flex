@@ -1,0 +1,37 @@
+= Introduction =
+
+This page provides a quick overview of the Flex's `DataGrid` component which has been augmented to support server side binding for large data size.
+
+= Details =
+
+==Remote Grid Filtering==
+  * Initial view of the Remote `DataGrid` with the usage of `TextInput` component for the filtering.
+    http://jsf-flex.googlecode.com/svn/wiki/initialRemoteGridFilterView.jpg
+  * Filtering of the `DataGrid` with the value of 1 `[filtering currently is done by usage of listener, but in a similar manner to updates, request for filtering will be done by setInterval for better performance]`.
+    http://jsf-flex.googlecode.com/svn/wiki/firstRemoteGridFilterView.jpg
+  * After several number of filtering for the `DataGrid`.
+    http://jsf-flex.googlecode.com/svn/wiki/severalRemoteGridFilterView.jpg
+  * Update to a row within the `DataGrid` to show synchronization on the server side.
+    http://jsf-flex.googlecode.com/svn/wiki/fieldUpdateToRemoteGridFilterView.jpg
+  * Clearing of the filtering to its original state, so to move the cache out and to get the new data from the server side.
+    http://jsf-flex.googlecode.com/svn/wiki/clearingOfRemoteGridFilterView.jpg
+  * Check to see that the update has been requested to the server side prior to clearing of the cache `[update requests will be made as batch at a time interval with a check or if a trigger for data or other action is requested prior to the interval check, the action will wait until the update transaction has been completed]`.
+    http://jsf-flex.googlecode.com/svn/wiki/checkToSeeModificationPreservedOfRemoteGridView.jpg
+  * XHTML content for the filtering Remote Grid code. Note that `TextInput` component is not the only component that the `DataGrid` can be filtered by, technically any component which can have the values bound to the server side component should be able to be used.
+    http://jsf-flex.googlecode.com/svn/wiki/xhtmlContentForFilteringRemoteGrid.jpg
+
+
+==Remote Grid Drag Drop==
+  * Initial view of the two Remote `DataGrid` components.
+    http://jsf-flex.googlecode.com/svn/wiki/initialRemoteGridDragDropView.jpg
+  * Initiation of the drag + drop of rows from one Remote `DataGrid` component to an another Remote `DataGrid` component.
+    http://jsf-flex.googlecode.com/svn/wiki/dragDropInitRemoteGridDragDropView.jpg
+  * After the drag + drop of rows has been completed from one Remote `DataGrid` component to an another Remote `DataGrid` component `[note that the rows were removed from the source component due to dragMoveEnabled attribute being set to true]`.
+    http://jsf-flex.googlecode.com/svn/wiki/dragDropEndRemoteGridDragDropView.jpg
+  * Reverse sorting the `DataGrid` component to clear the cache. 
+    http://jsf-flex.googlecode.com/svn/wiki/reverseSortRemoteGridDragDropView.jpg
+  * Original sorting to show the synchronization with the server side.
+    http://jsf-flex.googlecode.com/svn/wiki/originalSortRemoteGridDragDropView.jpg
+  * XHTML content for the drag drop Remote Grid code. One interesting attribute `[others are mostly standard Flex attributes]` is `bindingBeanClassName` which must be defined if the target `DataGrid` Remote component can start with empty content for the component will utilize the first entry within `bindingBeanList` if it is not empty or use the `bindingBeanClassName` attribute if it is empty to instantiate the class.
+    http://jsf-flex.googlecode.com/svn/wiki/xhtmlContentForDragDropRemoteGrid.jpg
+
