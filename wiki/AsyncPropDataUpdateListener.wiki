@@ -1,0 +1,11 @@
+= Introduction =
+
+This page provides a quick overview of the projects's `jf:flexAsynchronousPropertyUpdateEventListener`, note that `jf:flexAsynchronousDataUpdateEventListener` component is very similar so it will not be described within a Wiki page, component which allows listening to an event for a Flex component and retrieving the value for the component and returning data which will be set for the Flex component.
+
+= Details =
+  * Initial view of the `jf:flexNumericStepper` component which will be listened to and `jf:flexTextArea` component which will be used to set the value returned from the server side.
+    http://jsf-flex.googlecode.com/svn/wiki/initialAsynchronousPropertyUpdateView.jpg
+  * After -
+    # a change has been made to the `jf:flexNumericStepper` component which triggered an asynchronous call to be made to the server side.
+    # A value is returned from the server side with the sent data and `jf:flexTextArea` component is updated with the value.
+    http://jsf-flex.googlecode.com/svn/wiki/afterAsynchronousPropertyUpdateView.jpg
