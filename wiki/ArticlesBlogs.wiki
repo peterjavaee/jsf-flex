@@ -1,8 +1,0 @@
-= Introduction =
-
-This page will contain links to articles and blogs regarding JSF Flex project.
-
-== Articles ==
- * [http://www.theserverside.com/tt/articles/article.tss?l=JSFFlex TheServerSide.COM]
-
-== Blogs ==
