@@ -1,0 +1,14 @@
+= Introduction =
+
+This page provides a quick overview of the `jf:flexAdditionalComponent` tag which should be used to create Flex components which might be missing within the Jsf Flex project. In the future, if the missing components allow input preservation, the project hopes to allow data binding to the managed beans.
+
+= Details =
+  * Below is the usage of the tag:
+{{{
+<jf:flexAdditionalComponent componentName="Label" componentNameSpace="s" componentAttributesJSONFormat="{text: 'I am a label.', width: '90%'}" >
+    <jf:flexAttributeNode name="text" value="I am a changed label"/>
+    <jf:flexAttributeNode name="width" value="90%"/>
+</jf:flexAdditionalComponent>
+}}}
+  * Below is the snapshot of the result:
+    http://jsf-flex.googlecode.com/svn/wiki/additionalComponentSample.jpg
